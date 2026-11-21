@@ -262,15 +262,36 @@ static int read_asupio64(mb_phys_reader *r, uint64_t pa, void *buf, uint32_t siz
     DWORD ret = 0;
     if (!asupio64_build_map_request(pa, size, in)) return 0;
     memset(out, 0, sizeof(out));
-    if (!DeviceIoControl(r->dev, 0xA040A480u, in, sizeof(in), out, sizeof(out), &ret, NULL))
-        return 0;
-    uint64_t uva = *(uint64_t *)out;
-    if (uva < 0x10000) {
-        uint32_t uva32 = *(uint32_t *)out;
-        if (uva32 < 0x10000) return 0;
-        uva = uva32;
+    if (DeviceIoControl(r->dev, 0xA040A480u, in, sizeof(in), out, sizeof(out), &ret, NULL)) {
+        uint64_t uva = *(uint64_t *)out;
+        if (uva < 0x10000) {
+            uint32_t uva32 = *(uint32_t *)out;
+            if (uva32 < 0x10000) return 0;
+            uva = uva32;
+        }
+        memcpy(buf, (void *)(uintptr_t)(uva + (pa & 0xFFF)), size);
+        return 1;
     }
+    // Legacy AsUpIO (older driver) uses the same device/IOCTL but a 0x18-byte
+    // map request {u32 interfaceType; u32 busNumber; u64 phys; u32 addrSpace; u32 length}
+    // and returns an 8-byte user VA.
+    uint8_t legacy[0x18];
+    uint64_t page = pa & ~0xFFFull;
+    uint64_t page_end = (pa + size + 0xFFF) & ~0xFFFull;
+    uint64_t map_size = page_end - page;
+    memset(legacy, 0, sizeof(legacy));
+    *(uint32_t *)(legacy + 0x00) = 1;  // InterfaceType = Internal
+    *(uint32_t *)(legacy + 0x04) = 0;  // BusNumber
+    *(uint64_t *)(legacy + 0x08) = page;
+    *(uint32_t *)(legacy + 0x10) = 0;  // addressSpace = memory
+    *(uint32_t *)(legacy + 0x14) = (uint32_t)map_size;
+    uint64_t uva = 0;
+    DWORD ret2 = 0;
+    if (!DeviceIoControl(r->dev, 0xA040A480u, legacy, sizeof(legacy), &uva, sizeof(uva), &ret2, NULL))
+        return 0;
+    if (uva < 0x10000) return 0;
     memcpy(buf, (void *)(uintptr_t)(uva + (pa & 0xFFF)), size);
+    DeviceIoControl(r->dev, 0xA0402450u, &uva, sizeof(uva), NULL, 0, &ret2, NULL);
     return 1;
 }
 
