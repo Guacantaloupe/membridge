@@ -2,7 +2,7 @@
   "component": "membridge.bin.layers.exe",
   "architecture": "independent three-layer virtual memory access",
   "layers": {
-    "定位层_locator": "target PID/name -> CR3: (1) explicit CR3, (2) physical EPROCESS scan with manual/registry ranges, (3) kernel-VA reader + ActiveProcessLinks walk (KKYUM), (4) KPRL l1malwarebits CR3-by-PID IOCTL 0x239584",
+    "定位层_locator": "target PID/name -> CR3: (1) explicit CR3, (2) physical EPROCESS scan with manual/registry ranges, (3) kernel-VA reader + ActiveProcessLinks walk (KKYUM), (4) KPRL l1malwarebits CR3-by-PID IOCTL 0x239584, (5) Invary Sensor kernel-VA read IOCTL 0x9C402408 + ActiveProcessLinks",
     "翻译层_translator": "CR3 + VA -> PA via x64 4-level page tables (4KB/2MB/1GB pages)",
     "取数层_fetcher": "PA + size -> bytes via pluggable mb_phys_reader providers"
   },
@@ -12,6 +12,7 @@
     "mb_layer_locate_cr3_scan": "reader + physical range + pid/name -> cr3",
     "mb_layer_locate_cr3_kernel": "kernel VA reader + system EPROCESS + list walk -> cr3 (no physical reader)",
     "kprl_locate_cr3": "KPRL l1malwarebits IOCTL 0x239584 -> CR3 by PID (no physical reader)",
+    "invary_locate_cr3": "Invary Sensor IOCTL 0x9C402408 kernel-VA read + process list walk -> CR3 (no physical reader)",
     "mb_phys_ranges_from_registry": "HARDWARE\\RESOURCEMAP physical memory ranges -> locator scan ranges",
     "mb_layer_read_va": "composition of translate + fetch (cr3 provided by caller)"
   },
@@ -60,12 +61,13 @@
       "[PASS] 定位层(locator): fake EPROCESS PA=0x8000",
       "[PASS] 定位层(locator): kernel-reader list walk -> CR3=0x3000 (no physical reader)",
       "[PASS] 定位层(locator): kprl CR3 query request layout (pid at offset 0)",
-      "[PASS] 定位层(locator): registry range parser (Memory/MemoryLarge)",
+      "[PASS] 取数层(fetcher): invarysensor kernel-VA read request layout",
       "[PASS] 三层组合(pipeline): locate -> translate -> fetch returns mock data",
       "[PASS] 独立性(independence): 取数层 usable without locator/translator",
-      "[PASS] 独立性(independence): 翻译层 usable without locator"
+      "[PASS] 独立性(independence): 翻译层 usable without locator",
+      "[PASS] 定位层(locator): registry range parser (Memory/MemoryLarge)"
     ],
-    "passed": 23,
+    "passed": 24,
     "failed": 0,
     "offline_no_admin_no_driver": true
   },
@@ -78,9 +80,9 @@
   "build": {
     "command": "build.ps1",
     "artifacts": ["bin/membridge.exe", "bin/cr3read.exe", "bin/layers.exe"],
-    "layers_exe_size": 91364,
-    "layers_asio2_exe_size": 91382,
-    "peupdater_exe_size": 91382,
+    "layers_exe_size": 93090,
+    "layers_asio2_exe_size": 93108,
+    "peupdater_exe_size": 93108,
     "dual_gate_binary": "bin/PEUPDATER.EXE satisfies AsUpIO64 filename gate and AsIO2 ASUSCERT gate",
     "asio2_gate_bypass": {
       "resource": "ASUSCERT/ASUSCERT (16 bytes)",
