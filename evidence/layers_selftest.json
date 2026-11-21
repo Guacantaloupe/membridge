@@ -18,7 +18,8 @@
     "rtkio (0x80002000)",
     "eneio64 (0x80102040)",
     "asrdrv (CVE-2020-15368 family; AES IOCTL 0x22EC00 + physical read opcode 0x22E808; integrated Round 30, dynamic pending)",
-    "mrt (FireEye/fekern MRT_IOCTL_READ_PHYSICALMEMORY 0x70F8800C; SYSTEM-only ACL; integrated Round 31, dynamic pending)"
+    "mrt (FireEye/fekern MRT_IOCTL_READ_PHYSICALMEMORY 0x70F8800C; SYSTEM-only ACL; integrated Round 31, dynamic pending)",
+    "cpuz (CPU-Z 1.52 physical dword read 0x9C402708 with page-first-dword guard; integrated Round 32, dynamic pending)"
   ],
   "locator_registry_ranges": {
     "command": "bin/layers.exe --ranges",
@@ -58,7 +59,7 @@
   "build": {
     "command": "build.ps1",
     "artifacts": ["bin/membridge.exe", "bin/cr3read.exe", "bin/layers.exe"],
-    "layers_exe_size": 80861
+    "layers_exe_size": 81419
   },
   "mapping_to_nday_candidates": {
     "取数层_fetcher": "membridge 22 backends; AsrDrv(2) arbitrary physical R/W (provider integrated), AsUpIO64 physical map/MSR, CPU-Z physical dword R/W, FireEye MRT physical read",

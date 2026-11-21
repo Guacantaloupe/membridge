@@ -46,6 +46,7 @@ typedef struct mb_phys_reader {
 | `eneio64` | `\\.\GLCKIo`，IOCTL `0x80102040`（WinIO 物理映射） |
 | `asrdrv` | `\\.\AsrDrv109`，CVE-2020-15368 家族 AES 加密外层 IOCTL `0x22EC00` + 物理读 opcode `0x22E808`（Round 27 已静态确认的 AsrDrv(2).sys；动态验证待提权） |
 | `mrt` | `\\.\fekern_00`，FireEye/fekern MRT `MRT_IOCTL_READ_PHYSICALMEMORY 0x70F8800C`（`MmCopyMemory` 物理读；设备 ACL SYSTEM-only；动态验证待 SYSTEM） |
+| `cpuz` | `\\.\Global\CPUZ152`（fallback `\\.\CPUZ152`），CPU-Z 1.52 物理 dword 读 `0x9C402708`；需 `--expect-first <dword>` 提供目标页首 dword 通过驱动校验；动态验证待提权 |
 | `mock` | 离线自测用合成物理内存 |
 
 `membridge.exe` 已集成 22 个全 64 位物理读 backend（cchwapi/rtkio/eneio64/hp/gibepext/fastdump/directio/tdeio/icachex/mrt 等）；每个 backend 都只是取数层的一个实现，新增 backend 不影响定位层和翻译层。
@@ -111,6 +112,9 @@ VERDICT=PASS
 
 # 取数层：物理读
 .\bin\layers.exe --reader rtkio --read-phys --pa 0x10000000 --size 0x40
+
+# 取数层：CPU-Z 1.52 物理 dword 读（需提供目标页首 dword）
+.\bin\layers.exe --reader cpuz --expect-first 0x42594F56 --read-phys --pa 0x10000000 --size 0x40
 
 # 取数层：Round 27 的 AsrDrv(2) N-day provider（需先有管理员加载驱动）
 .\bin\layers.exe --reader asrdrv --read-phys --pa 0x10000000 --size 0x40
