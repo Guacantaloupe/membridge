@@ -396,6 +396,21 @@ static int read_winio64(mb_phys_reader *r, uint64_t pa, void *buf, uint32_t size
     return 1;
 }
 
+static int winio64_write(mb_phys_reader *r, uint64_t pa, const void *buf, uint32_t size) {
+    if (r->dev == INVALID_HANDLE_VALUE || !buf || !size) return 0;
+    uint8_t req[0x28];
+    DWORD ret = 0;
+    if (!winio64_build_map_request(pa, size, req)) return 0;
+    if (!DeviceIoControl(r->dev, 0x80102040u, req, sizeof(req), req, sizeof(req), &ret, NULL))
+        return 0;
+    uint64_t uva = *(uint64_t *)(req + 0x18);
+    if (uva < 0x10000) return 0;
+    memcpy((void *)(uintptr_t)(uva + (pa & 0xFFF)), buf, size);
+    req[0x00] = 0;
+    DeviceIoControl(r->dev, 0x80102044u, req, sizeof(req), req, sizeof(req), &ret, NULL);
+    return 1;
+}
+
 // ---- 取数层 provider: DumpIt forensic driver (physical read case) ----
 // IOCTL 0x22C01E: input {u64 phys_addr} (InputBufferLength > 7);
 // OutputBufferLength bytes are read from physical memory (driver maps pages
@@ -510,6 +525,7 @@ static int reader_open(mb_phys_reader *r, const char *kind, const char *device) 
         r->name = "winio64";
         r->mode = 10;
         r->read = read_winio64;
+        r->write = winio64_write;
         r->dev = CreateFileA(device ? device : "\\\\.\\WinIo",
                              GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE,
                              NULL, OPEN_EXISTING, 0, NULL);
@@ -1533,13 +1549,13 @@ int main(int argc, char **argv) {
         }
         free(b);
     } else if (do_write_phys) {
-        uint8_t wd[8];
+        uint8_t wd[64];
         int wl = hex_decode(data_hex, wd, (int)sizeof(wd));
         if (!r.write) {
             printf("[ERR] provider '%s' has no physical write support\n", r.name ? r.name : "?");
             rc = 6;
-        } else if (wl < 1 || wl > 4) {
-            printf("[ERR] --write-phys needs --data with 1-4 bytes (got %d)\n", wl);
+        } else if (wl < 1) {
+            printf("[ERR] --write-phys needs --data with at least 1 byte (got %d)\n", wl);
             rc = 6;
         } else if (!r.write(&r, pa, wd, (uint32_t)wl)) {
             printf("[ERR] write %d bytes at PA=0x%llX failed\n", wl, (unsigned long long)pa);

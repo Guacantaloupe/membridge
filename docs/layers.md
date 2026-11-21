@@ -57,7 +57,7 @@ typedef struct mb_phys_reader {
 | `asupio64` | `\\.\AsUpdateio`（ASUS EZ Update 3.00.03），物理映射 IOCTL `0xA040A480`（静态推导 24B 请求 `{interfaceType,busNumber,phys_start,addressSpace,size}` → 返回 user VA）；门控要求当前进程名含 `PEUPDATER.EXE`，需把 layers.exe 复制/改名为 `PEUPDATER.EXE`；动态验证待提权 |
 | `asio2` | `\\.\Asusgio2`（ASUS AsIO2），物理映射 IOCTL `0xA040A480`（64-bit 0x28 请求 `{u64 size; u64 phys_start; section_handle_out; user_va_out}`）；驱动门控读取当前进程 PE 的 **ASUSCERT 资源**（AES+PE 时间戳校验）——已构造 `bin\layers_asio2.exe`（ASUSCERT=AES_dec(0)，TimeDateStamp=0）离线通过门控；动态验证待提权 |
 | `aswarpot` | Avast anti-rootkit（`aswArPot.sys` 多版本），设备 `\\.\aswSP_ArPot2`（候选 `avastSP_ArPot2`）；任意物理读 IOCTL **`0x9988C408`**（input 12B `{u32 pa; u32 rsvd; u32 size}`，output=size bytes，32-bit PA，MmMapIoSpace）；另有任意物理写 IOCTL `0x9988C40C`（PA+≤4 字节）；静态逆向确认，动态验证待提权 |
-| `winio64` | WinIo64（经典物理内存映射驱动，`\\.\WinIo`）；IOCTL **`0x80102040`** MAPPHYSTOLIN（0x28 请求 `{u64 size; u64 phys_start; section_handle; user_va; object}`，映射 `\Device\PhysicalMemory`），`0x80102044` UNMAP；任意物理映射读；静态逆向确认，动态验证待提权 |
+| `winio64` | WinIo64（经典物理内存映射驱动，`\\.\WinIo`）；IOCTL **`0x80102040`** MAPPHYSTOLIN（0x28 请求 `{u64 size; u64 phys_start; section_handle; user_va; object}`，映射 `\Device\PhysicalMemory`），`0x80102044` UNMAP；任意物理映射**读/写**（映射为可写 Section）；静态逆向确认，动态验证待提权 |
 | `dumpit` | DumpIt 取证驱动（卷过滤器，设备名动态 GUID；`--device \\.\C:` 指定卷）；IOCTL **`0x22C01E`** 物理读：input `{u64 phys_addr}`（长度 >7），输出缓冲区长度即读取字节数；静态逆向确认，动态验证待提权 |
 | `mock` | 离线自测用合成物理内存 |
 
@@ -153,8 +153,9 @@ VERDICT=PASS
 # 定位层辅助：读取物理内存范围（无需驱动）
 .\bin\layers.exe --ranges
 
-# 取数层：物理写（aswArPot，1-4 字节）
+# 取数层：物理写（aswArPot 1-4 字节；WinIo64 任意长度映射写）
 .\bin\layers.exe --reader aswarpot --write-phys --pa 0x10000000 --data DEADBEEF
+.\bin\layers.exe --reader winio64 --write-phys --pa 0x10000000 --data 0011223344556677
 
 # 取数层：物理读
 .\bin\layers.exe --reader rtkio --read-phys --pa 0x10000000 --size 0x40
