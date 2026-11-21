@@ -2,7 +2,7 @@
   "component": "membridge.bin.layers.exe",
   "architecture": "independent three-layer virtual memory access",
   "layers": {
-    "定位层_locator": "target PID/name -> CR3: (1) explicit CR3, (2) physical EPROCESS scan with manual/registry ranges, (3) kernel-VA reader + ActiveProcessLinks walk (KKYUM), (4) KPRL l1malwarebits CR3-by-PID IOCTL 0x239584, (5) Invary Sensor kernel-VA read IOCTL 0x9C402408 + ActiveProcessLinks",
+    "定位层_locator": "target PID/name -> CR3: (1) explicit CR3, (2) physical EPROCESS scan with manual/registry ranges, (3) kernel-VA reader + ActiveProcessLinks walk (KKYUM), (4) KPRL l1malwarebits CR3-by-PID IOCTL 0x239584, (5) Invary Sensor kernel-VA read IOCTL 0x9C402408 + ActiveProcessLinks, (6) --locate --auto tries KPRL -> Invary -> KKYUM -> physical scan",
     "翻译层_translator": "CR3 + VA -> PA via x64 4-level page tables (4KB/2MB/1GB pages)",
     "取数层_fetcher": "PA + size -> bytes via pluggable mb_phys_reader providers"
   },
@@ -92,9 +92,9 @@
   "build": {
     "command": "build.ps1",
     "artifacts": ["bin/membridge.exe", "bin/cr3read.exe", "bin/layers.exe"],
-    "layers_exe_size": 98460,
-    "layers_asio2_exe_size": 98478,
-    "peupdater_exe_size": 98478,
+    "layers_exe_size": 99143,
+    "layers_asio2_exe_size": 99161,
+    "peupdater_exe_size": 99161,
     "dual_gate_binary": "bin/PEUPDATER.EXE satisfies AsUpIO64 filename gate and AsIO2 ASUSCERT gate",
     "build_self_verify": "scripts/build_asio2_layers.ps1 runs verify_asio2_gate.py for layers_asio2.exe and PEUPDATER.EXE; fails build on gate failure",
     "asio2_gate_bypass": {

@@ -1307,6 +1307,7 @@ static void usage(void) {
     printf("  layers --locate --kkyum --pid <pid> [--kkyum-device <path>]   (kernel-VA locator; no physical reader needed)\n");
     printf("  layers --locate --kprl --pid <pid> [--kprl-device <path>]     (KPRL CR3-by-PID; no physical reader needed)\n");
     printf("  layers --locate --invary --pid <pid> [--invary-device <path>] (Invary Sensor kernel-VA locator)\n");
+    printf("  layers --locate --auto --pid <pid> [--scan-start/--scan-size | --auto-ranges]  (try all locators)\n");
     printf("  layers --invary-read --va <hex> --size <n> [--invary-device <path>] (kernel-VA bytes via Invary)\n");
     printf("  note: --reader cpuz requires --expect-first <dword> (target page first dword, guard bypass)\n");
     printf("  note: --reader asupio64 requires layers.exe to be named PEUPDATER.EXE (AsUpIO64 gate)\n");
@@ -1318,7 +1319,7 @@ int main(int argc, char **argv) {
     uint64_t pa = 0, cr3 = 0, va = 0, scan_start = 0, scan_size = 0;
     uint32_t size = 0x40, pid = 0, expect_first = 0;
     int do_selftest = 0, do_read_phys = 0, do_explicit = 0, do_locate = 0, have_cr3 = 0, have_va = 0;
-    int do_ranges = 0, auto_ranges = 0, use_kkyum = 0, use_kprl = 0, use_invary = 0, do_invary_read = 0, do_probe = 0, do_probe_loc = 0;
+    int do_ranges = 0, auto_ranges = 0, use_kkyum = 0, use_kprl = 0, use_invary = 0, use_auto = 0, do_invary_read = 0, do_probe = 0, do_probe_loc = 0;
     for (int i = 1; i < argc; i++) {
         if (strcmp(argv[i], "--selftest-mock") == 0) do_selftest = 1;
         else if (strcmp(argv[i], "--probe-readers") == 0) do_probe = 1;
@@ -1342,6 +1343,7 @@ int main(int argc, char **argv) {
         else if (strcmp(argv[i], "--kkyum") == 0) use_kkyum = 1;
         else if (strcmp(argv[i], "--kprl") == 0) use_kprl = 1;
         else if (strcmp(argv[i], "--invary") == 0) use_invary = 1;
+        else if (strcmp(argv[i], "--auto") == 0) use_auto = 1;
         else if (strcmp(argv[i], "--invary-read") == 0) do_invary_read = 1;
         else if (strcmp(argv[i], "--ranges") == 0) do_ranges = 1;
         else if (strcmp(argv[i], "--auto-ranges") == 0) auto_ranges = 1;
@@ -1384,7 +1386,7 @@ int main(int argc, char **argv) {
         printf("VERDICT=PASS\n");
         return 0;
     }
-    if (!kind && !((use_kkyum || use_kprl || use_invary) && do_locate && !have_va)) { usage(); return 6; }
+    if (!kind && !((use_kkyum || use_kprl || use_invary || use_auto) && do_locate && !have_va)) { usage(); return 6; }
 
     mb_phys_reader r;
     int have_reader = 0;
@@ -1410,7 +1412,36 @@ int main(int argc, char **argv) {
         free(b);
     } else if (do_locate) {
         uint64_t got_cr3 = 0, eproc = 0;
-        if (use_invary && pid) {
+        if (use_auto && pid) {
+            const char *strat = NULL;
+            if (kprl_locate_cr3(pid, kprl_device, &got_cr3)) strat = "kprl";
+            else if (invary_locate_cr3(pid, invary_device, &got_cr3, &eproc)) strat = "invary";
+            else if (kkyum_locate_cr3(pid, kkyum_device, &got_cr3, &eproc)) strat = "kkyum";
+            else if (have_reader && (scan_size || auto_ranges)) {
+                if (!name) name = "";
+                int ok = 0;
+                if (auto_ranges) {
+                    mb_range rs[256];
+                    int n = mb_phys_ranges_from_registry(rs, 256);
+                    for (int i = 0; i < n && !ok; i++) {
+                        if (rs[i].length < 0x1000) continue;
+                        ok = mb_layer_locate_cr3_scan(&r, rs[i].start, rs[i].length, pid, name,
+                                                      &got_cr3, &eproc);
+                    }
+                } else {
+                    ok = mb_layer_locate_cr3_scan(&r, scan_start, scan_size, pid, name,
+                                                  &got_cr3, &eproc);
+                }
+                if (ok) strat = "physical-scan";
+            }
+            if (!strat) {
+                printf("[ERR] 定位层 auto failed (pid=%u): no locator/device/scan succeeded\n", pid);
+                rc = 5;
+            } else {
+                printf("[OK] 定位层 auto(%s): PID=%u EPROCESS=0x%llX CR3=0x%llX\n", strat, pid,
+                       (unsigned long long)eproc, (unsigned long long)got_cr3);
+            }
+        } else if (use_invary && pid) {
             if (!invary_locate_cr3(pid, invary_device, &got_cr3, &eproc)) {
                 printf("[ERR] 定位层 invary failed (pid=%u): device/ntoskrnl/EPROCESS walk error\n", pid);
                 rc = 5;
