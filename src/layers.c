@@ -764,8 +764,10 @@ static int selftest_mock(void) {
     memset(mem + 0x6000, 0x22, 0x10);
 
     // large-page entries: PD[1] = 2MB page PA 0x200000; PDPT[1] = 1GB page PA 0x40000000
+    // PDPT[2] = 1GB page PA 0x0 (used to verify large-page fetch composition)
     *(uint64_t *)(mem + 0x3000 + 1 * 8) = 0x200083;        // 2MB page (PS)
     *(uint64_t *)(mem + 0x2000 + 1 * 8) = 0x40000083ull;   // 1GB page (PS)
+    *(uint64_t *)(mem + 0x2000 + 2 * 8) = 0x83ull;         // 1GB page PA 0
     const char *large_data = "LARGE_PAGE_2MB_DATA_0123456789";
     memcpy(mem + 0x200010, large_data, strlen(large_data));
 
@@ -809,6 +811,12 @@ static int selftest_mock(void) {
     int ok_1g = mb_layer_translate(&r, cr3, 0x40000000, &pa1g, &page1g) &&
                 pa1g == 0x40000000 && page1g == 0x40000000;
     check("翻译层(translator)", "VA=0x40000000 -> PA=0x40000000 (1GB page)", ok_1g);
+    // 1GB page with base PA 0: VA 0x80001000 -> PA 0x1000 (PML4[0] = 0x2003)
+    uint64_t pa1g2 = 0, page1g2 = 0, gotq = 0;
+    int ok_1g_read = mb_layer_translate(&r, cr3, 0x80001000, &pa1g2, &page1g2) &&
+                     pa1g2 == 0x1000 && page1g2 == 0x40000000 &&
+                     r.read(&r, pa1g2, &gotq, 8) && gotq == 0x2003;
+    check("三层组合(pipeline)", "read VA 0x80001000 through 1GB page", ok_1g_read);
 
     // cross-page composition: VA 0x400FF0 (PA 0x5FF0) -> 0x401000 (PA 0x6000)
     uint8_t cross[0x20];

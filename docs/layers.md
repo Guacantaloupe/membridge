@@ -70,7 +70,7 @@ typedef struct mb_phys_reader {
 - 伪造 `_EPROCESS`（PID 4242 / MOCK.exe / DTB 0x1000）；
 - 分别验证：取数层、翻译层、定位层、三层组合、独立性。
 
-结果（18/18 PASS）：
+结果（19/19 PASS）：
 ```
 [PASS] 取数层(fetcher): PA=0x5000 bytes match mock data
 [PASS] 翻译层(translator): VA=0x400000 -> PA=0x5000 (4KB page)
@@ -78,6 +78,7 @@ typedef struct mb_phys_reader {
 [PASS] 翻译层(translator): VA=0x200000 -> PA=0x200000 (2MB page)
 [PASS] 三层组合(pipeline): read VA 0x200010 through 2MB page
 [PASS] 翻译层(translator): VA=0x40000000 -> PA=0x40000000 (1GB page)
+[PASS] 三层组合(pipeline): read VA 0x80001000 through 1GB page
 [PASS] 三层组合(pipeline): cross-page read VA 0x400FF0 (two 4KB pages)
 [PASS] 翻译层(translator): unmapped VA=0x800000 rejected
 [PASS] 取数层(fetcher): asupio64 map request layout (page-aligned)

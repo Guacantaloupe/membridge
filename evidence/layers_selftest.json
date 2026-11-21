@@ -46,6 +46,7 @@
       "[PASS] 翻译层(translator): VA=0x200000 -> PA=0x200000 (2MB page)",
       "[PASS] 三层组合(pipeline): read VA 0x200010 through 2MB page",
       "[PASS] 翻译层(translator): VA=0x40000000 -> PA=0x40000000 (1GB page)",
+      "[PASS] 三层组合(pipeline): read VA 0x80001000 through 1GB page",
       "[PASS] 三层组合(pipeline): cross-page read VA 0x400FF0 (two 4KB pages)",
       "[PASS] 翻译层(translator): unmapped VA=0x800000 rejected",
       "[PASS] 取数层(fetcher): asupio64 map request layout (page-aligned)",
@@ -59,7 +60,7 @@
       "[PASS] 独立性(independence): 取数层 usable without locator/translator",
       "[PASS] 独立性(independence): 翻译层 usable without locator"
     ],
-    "passed": 18,
+    "passed": 19,
     "failed": 0,
     "offline_no_admin_no_driver": true
   },
@@ -72,7 +73,7 @@
   "build": {
     "command": "build.ps1",
     "artifacts": ["bin/membridge.exe", "bin/cr3read.exe", "bin/layers.exe"],
-    "layers_exe_size": 89781
+    "layers_exe_size": 90805
   },
   "mapping_to_nday_candidates": {
     "取数层_fetcher": "membridge 22 backends; AsrDrv(2) arbitrary physical R/W (provider integrated), AsUpIO64 physical map/MSR, CPU-Z physical dword R/W, FireEye MRT physical read",
