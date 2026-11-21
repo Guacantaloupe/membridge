@@ -215,4 +215,8 @@ VERDICT=PASS
 # 显式 CR3：翻译层 + 取数层（默认 4-level；--la57 使用 5-level/LA57 页表）
 .\bin\layers.exe --reader cchwapi --cr3 0x1A0000 --va 0x7FF600000000 --size 0x40
 .\bin\layers.exe --reader mock --cr3 0x300000 --va 0x1010 --size 4 --la57
+
+# 离线翻译层only（mock 页表，不需要驱动）
+.\bin\layers.exe --reader mock --cr3 0x1000 --va 0x400000 --translate-only
+.\bin\layers.exe --reader mock --cr3 0x300000 --va 0x1010 --translate-only --la57
 ```

@@ -17,6 +17,8 @@
     "probe_readers": "layers.exe --probe-readers opens every real fetch provider device and reports presence",
     "probe_locators": "layers.exe --probe-locators opens KKYUM / Invary / KPRL devices and reports presence",
     "dynamic_verify": "scripts/dynamic_verify.ps1: optional admin service create/start + --probe-readers + --read-phys + --locate --auto, with before/after minidump BSOD guard; -DryRun safe",
+    "mock_cli": "layers --reader mock: built-in 4-level and 5-level page tables + data, usable by --translate-only / --read-va without any driver",
+    "translate_only": "layers --reader mock --cr3 ... --va ... --translate-only [--la57] prints PA/page without fetch",
     "mb_phys_ranges_from_registry": "HARDWARE\\RESOURCEMAP physical memory ranges -> locator scan ranges",
     "mb_layer_read_va": "composition of translate + fetch (cr3 provided by caller)"
   },
@@ -114,9 +116,9 @@
   "build": {
     "command": "build.ps1",
     "artifacts": ["bin/membridge.exe", "bin/cr3read.exe", "bin/layers.exe"],
-    "layers_exe_size": 111888,
-    "layers_asio2_exe_size": 111906,
-    "peupdater_exe_size": 111906,
+    "layers_exe_size": 112393,
+    "layers_asio2_exe_size": 112411,
+    "peupdater_exe_size": 112411,
     "dual_gate_binary": "bin/PEUPDATER.EXE satisfies AsUpIO64 filename gate and AsIO2 ASUSCERT gate",
     "build_self_verify": "scripts/build_asio2_layers.ps1 runs verify_asio2_gate.py for layers_asio2.exe and PEUPDATER.EXE; fails build on gate failure",
     "asio2_gate_bypass": {

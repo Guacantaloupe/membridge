@@ -776,6 +776,25 @@ static int reader_open(mb_phys_reader *r, const char *kind, const char *device) 
         r->name = "mock";
         r->mode = 3;
         r->read = read_mock;
+        const uint64_t mock_size = 0x400000;
+        uint8_t *mem = (uint8_t *)calloc(1, mock_size);
+        if (!mem) return 0;
+        // Minimal 4-level page tables: VA 0x400000 -> PA 0x5000.
+        *(uint64_t *)(mem + 0x1000) = 0x2003;          // PML4[0] -> PDPT
+        *(uint64_t *)(mem + 0x2000) = 0x3003;          // PDPT[0] -> PD
+        *(uint64_t *)(mem + 0x3000 + 0 * 8) = 0x4003;  // PD[0]   -> PT
+        *(uint64_t *)(mem + 0x3000 + 2 * 8) = 0x4003;  // PD[2]   -> PT (VA 0x400000)
+        *(uint64_t *)(mem + 0x4000) = 0x5003;          // PT[0]   -> data
+        memcpy(mem + 0x5000, "MOCKCLI-DATA-0123456789", 23);
+        // 5-level tables: VA 0x1010 -> PA 0x305010 -> "LA57".
+        *(uint64_t *)(mem + 0x300000) = 0x301003;      // PML5[0] -> PML4
+        *(uint64_t *)(mem + 0x301000) = 0x302003;      // PML4[0] -> PDPT
+        *(uint64_t *)(mem + 0x302000) = 0x303003;      // PDPT[0] -> PD
+        *(uint64_t *)(mem + 0x303000) = 0x304003;      // PD[0]   -> PT
+        *(uint64_t *)(mem + 0x304008) = 0x305003;      // PT[1]   -> PA 0x305000
+        memcpy(mem + 0x305010, "LA57", 4);
+        r->mock_mem = mem;
+        r->mock_size = mock_size;
         return 1;
     }
     if (_stricmp(kind, "cchwapi") == 0) {
@@ -1936,6 +1955,7 @@ static void usage(void) {
     printf("  layers --reader ... --write-phys --pa <hex> --data <hex bytes>  (providers with write)\n");
     printf("  layers --reader <mock> --cr3 <hex> --va <hex> --size <n>\n");
     printf("  layers --reader ... --cr3 <hex> --va <hex> --size <n> [--la57]  (translate/read, 4-level or 5-level)\n");
+    printf("  layers --reader mock --cr3 <hex> --va <hex> --translate-only [--la57] (translation layer only, offline)\n");
     printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64|dumpit|asmmap|atillk64|asio64|adv64drv|ntiolib|winring0|amifldrv|citmdrv> [--device <path>] --locate --pid <pid> --scan-start <hex> --scan-size <hex> [--name <exe>]\n");
     printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64|dumpit|asmmap|atillk64|asio64|adv64drv|ntiolib|winring0|amifldrv|citmdrv> [--device <path>] --locate --pid <pid> --auto-ranges [--name <exe>]\n");
     printf("  layers --reader ... --locate --pid <pid> (--scan-start/--scan-size | --auto-ranges) --va <hex> --size <n>\n");
@@ -1954,7 +1974,7 @@ int main(int argc, char **argv) {
     uint64_t pa = 0, cr3 = 0, va = 0, scan_start = 0, scan_size = 0;
     uint32_t size = 0x40, pid = 0, expect_first = 0;
     int do_selftest = 0, do_read_phys = 0, do_write_phys = 0, do_explicit = 0, do_locate = 0, have_cr3 = 0, have_va = 0;
-    int use_la57 = 0;
+    int use_la57 = 0, do_translate_only = 0;
     const char *data_hex = NULL;
     int do_ranges = 0, auto_ranges = 0, use_kkyum = 0, use_kprl = 0, use_invary = 0, use_auto = 0, do_invary_read = 0, do_probe = 0, do_probe_loc = 0;
     for (int i = 1; i < argc; i++) {
@@ -1978,6 +1998,7 @@ int main(int argc, char **argv) {
         else if (strcmp(argv[i], "--read-phys") == 0) do_read_phys = 1;
         else if (strcmp(argv[i], "--write-phys") == 0) do_write_phys = 1;
         else if (strcmp(argv[i], "--la57") == 0) use_la57 = 1;
+        else if (strcmp(argv[i], "--translate-only") == 0) do_translate_only = 1;
         else if (strcmp(argv[i], "--data") == 0 && i + 1 < argc) data_hex = argv[++i];
         else if (strcmp(argv[i], "--locate") == 0) do_locate = 1;
         else if (strcmp(argv[i], "--kkyum") == 0) use_kkyum = 1;
@@ -2040,6 +2061,27 @@ int main(int argc, char **argv) {
     }
 
     int rc = 0;
+    if (do_translate_only) {
+        if (!have_cr3 || !have_va) {
+            printf("[ERR] --translate-only needs --cr3 and --va\n");
+            rc = 6;
+        } else {
+            uint64_t pa = 0, page = 0;
+            int ok = use_la57 ? mb_layer_translate5(&r, cr3, va, &pa, &page)
+                              : mb_layer_translate(&r, cr3, va, &pa, &page);
+            if (!ok) {
+                printf("[ERR] translate failed CR3=0x%llX VA=0x%llX\n",
+                       (unsigned long long)cr3, (unsigned long long)va);
+                rc = 5;
+            } else {
+                printf("[OK] translate CR3=0x%llX VA=0x%llX -> PA=0x%llX page=0x%llX\n",
+                       (unsigned long long)cr3, (unsigned long long)va,
+                       (unsigned long long)pa, (unsigned long long)page);
+                printf("VERDICT=PASS\n");
+            }
+        }
+        goto done;
+    }
     if (do_read_phys) {
         uint8_t *b = (uint8_t *)calloc(1, size);
         if (!b) { rc = 6; goto done; }
