@@ -660,10 +660,17 @@ static int selftest_mock(void) {
     const uint64_t cr3 = 0x1000;
     *(uint64_t *)(mem + 0x1000 + 0 * 8) = 0x2003;          // PML4[0]
     *(uint64_t *)(mem + 0x2000 + 0 * 8) = 0x3003;          // PDPT[0]
-    *(uint64_t *)(mem + 0x3000 + 2 * 8) = 0x4003;          // PD[2]
-    *(uint64_t *)(mem + 0x4000 + 0 * 8) = 0x5003;          // PT[0]
+    *(uint64_t *)(mem + 0x3000 + 2 * 8) = 0x4003;          // PD[2] -> PT
+    *(uint64_t *)(mem + 0x4000 + 0 * 8) = 0x5003;          // PT[0] -> 4KB page
+    *(uint64_t *)(mem + 0x4000 + 1 * 8) = 0x6003;          // PT[1] -> 4KB page (cross-page)
     const char *data = "MEMBRIDGE_LAYERS_MOCK_DATA_0123456789";
     memcpy(mem + 0x5000, data, strlen(data));
+    memset(mem + 0x5FF0, 0x11, 0x10);
+    memset(mem + 0x6000, 0x22, 0x10);
+
+    // large-page entries: PD[1] = 2MB page PA 0x200000; PDPT[1] = 1GB page PA 0x40000000
+    *(uint64_t *)(mem + 0x3000 + 1 * 8) = 0x200083;        // 2MB page (PS)
+    *(uint64_t *)(mem + 0x2000 + 1 * 8) = 0x40000083ull;   // 1GB page (PS)
 
     // fake EPROCESS at PA 0x8000: name @+0x338, PID @+0x1D0, DTB @+0x28
     memcpy(mem + 0x8000 + EP_NAME, "MOCK.exe", 9);
@@ -691,6 +698,22 @@ static int selftest_mock(void) {
     uint64_t pa2 = 0, page2 = 0;
     int ok_tr2 = mb_layer_translate(&r, cr3, 0x400010, &pa2, &page2) && pa2 == 0x5010;
     check("翻译层(translator)", "VA=0x400010 -> PA=0x5010 (offset preserved)", ok_tr2);
+
+    uint64_t pa2m = 0, page2m = 0;
+    int ok_2m = mb_layer_translate(&r, cr3, 0x200000, &pa2m, &page2m) &&
+                pa2m == 0x200000 && page2m == 0x200000;
+    check("翻译层(translator)", "VA=0x200000 -> PA=0x200000 (2MB page)", ok_2m);
+    uint64_t pa1g = 0, page1g = 0;
+    int ok_1g = mb_layer_translate(&r, cr3, 0x40000000, &pa1g, &page1g) &&
+                pa1g == 0x40000000 && page1g == 0x40000000;
+    check("翻译层(translator)", "VA=0x40000000 -> PA=0x40000000 (1GB page)", ok_1g);
+
+    // cross-page composition: VA 0x400FF0 (PA 0x5FF0) -> 0x401000 (PA 0x6000)
+    uint8_t cross[0x20];
+    memset(cross, 0, sizeof(cross));
+    int ok_cross = mb_layer_read_va(&r, cr3, 0x400FF0, cross, sizeof(cross)) &&
+                   cross[0] == 0x11 && cross[0x0F] == 0x11 && cross[0x10] == 0x22;
+    check("三层组合(pipeline)", "cross-page read VA 0x400FF0 (two 4KB pages)", ok_cross);
 
     // 定位层 alone (physical EPROCESS scan, no kernel reader)
     uint64_t located_cr3 = 0, eproc = 0;

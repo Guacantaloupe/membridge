@@ -27,6 +27,10 @@
 - 4 级页表遍历：PML4 → PDPT → PD → PT；
 - 支持 1GB（PDPT.PS）、2MB（PD.PS）、4KB 页；
 - 只依赖**取数层**的 `read(pa)`，不依赖定位层；
+- 输入显式 CR3 即可独立工作；
+- 离线自测已覆盖：4KB 映射、2MB 大页、1GB 大页、跨页组合读。
+
+- 只依赖**取数层**的 `read(pa)`，不依赖定位层；
 - 输入显式 CR3 即可独立工作。
 
 ## 3. 取数层（获取字节）
@@ -64,11 +68,14 @@ typedef struct mb_phys_reader {
 - 伪造 `_EPROCESS`（PID 4242 / MOCK.exe / DTB 0x1000）；
 - 分别验证：取数层、翻译层、定位层、三层组合、独立性。
 
-结果（9/9 PASS）：
+结果（12/12 PASS）：
 ```
 [PASS] 取数层(fetcher): PA=0x5000 bytes match mock data
 [PASS] 翻译层(translator): VA=0x400000 -> PA=0x5000 (4KB page)
 [PASS] 翻译层(translator): VA=0x400010 -> PA=0x5010 (offset preserved)
+[PASS] 翻译层(translator): VA=0x200000 -> PA=0x200000 (2MB page)
+[PASS] 翻译层(translator): VA=0x40000000 -> PA=0x40000000 (1GB page)
+[PASS] 三层组合(pipeline): cross-page read VA 0x400FF0 (two 4KB pages)
 [PASS] 定位层(locator): PID 4242 / MOCK.exe -> CR3=0x1000 (physical scan)
 [PASS] 定位层(locator): fake EPROCESS PA=0x8000
 [PASS] 定位层(locator): kernel-reader list walk -> CR3=0x3000 (no physical reader)
