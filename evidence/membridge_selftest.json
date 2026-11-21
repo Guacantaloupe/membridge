@@ -1,6 +1,6 @@
 ﻿{
-    "date":  "2026-11-22T03:44:53",
-    "page_pa":  "0x14BFF000",
+    "date":  "2026-11-22T04:20:43",
+    "page_pa":  "0x2FB36000",
     "results":  [
                     {
                         "backend":  "cchwapi_2_9",
@@ -67,6 +67,12 @@
                         "exit":  0,
                         "verdict":  "PASS",
                         "evidence":  "evidence/selftest_glckio2.log"
+                    },
+                    {
+                        "backend":  "hp_swtools_v1",
+                        "exit":  0,
+                        "verdict":  "PASS",
+                        "evidence":  "evidence/selftest_hp_swtools_v1.log"
                     }
                 ],
     "new_dumps":  ""

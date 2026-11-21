@@ -134,6 +134,16 @@
    "full64": true,
    "description": "glckio2.sys (ASUS GLCKIO2; PID whitelist bypass via AES registration + IOCTL_WINIO_MAPPHYSTOLIN 0x80102040, arbitrary 64-bit PA)",
    "sha256": "e5b0772be02e2bc807804874cf669e97aa36f5aff1f12fa0a631a3c7b4dd0dc8"
+  },
+  {
+   "id": "hp_swtools_v1",
+   "file": "drivers\\hp_swtools_v1\\HP_SWTOOLS_DRIVER_V1.sys",
+   "kind": "control",
+   "device": "\\\\.\\HP_SWTOOLS_DRIVER_V1",
+   "layout": "hp_swtools",
+   "full64": true,
+   "description": "HP SW TOOLS DRIVER V1 variant (SHA256 23C18666..., not in LOLDrivers; MapPhysicalMemory 0x9C406104, arbitrary 64-bit PA)",
+   "sha256": "23c18666e94b2aa4e20ee5b5cd3a45ebd1d4612fa17f244ca5258b7ea87a1d49"
   }
  ]
 }
