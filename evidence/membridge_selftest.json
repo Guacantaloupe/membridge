@@ -1,6 +1,6 @@
 ﻿{
-    "date":  "2026-11-22T02:41:11",
-    "page_pa":  "0x1F6C8F000",
+    "date":  "2026-11-22T02:49:15",
+    "page_pa":  "0x52412000",
     "results":  [
                     {
                         "backend":  "cchwapi_2_9",
@@ -43,6 +43,12 @@
                         "exit":  0,
                         "verdict":  "PASS",
                         "evidence":  "evidence/selftest_isharepp.log"
+                    },
+                    {
+                        "backend":  "rtkio",
+                        "exit":  0,
+                        "verdict":  "PASS",
+                        "evidence":  "evidence/selftest_rtkio.log"
                     }
                 ],
     "new_dumps":  ""

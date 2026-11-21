@@ -94,6 +94,16 @@
    "full64": true,
    "description": "iSharePp.sys (Pnp Driver for iSCSIDisk; OlsApi READ_MEMORY 0x9C406104, arbitrary 64-bit PA)",
    "sha256": "c87fbf4f33ddaad4a9b6c5939a410fbf2431f8f35c00a10eb8651da4bc2bc173"
+  },
+  {
+   "id": "rtkio",
+   "file": "drivers\\rtkio\\rtkio.sys",
+   "kind": "control",
+   "device": "\\\\.\\rtkio",
+   "layout": "rtkio",
+   "full64": true,
+   "description": "rtkio.sys (Realtek; IOCTL_PHYMEM_MAP 0x80002000: u64 PA + size -> user VA, arbitrary 64-bit PA)",
+   "sha256": "074ae477c8c7ae76c6f2b0bf77ac17935a8e8ee51b52155d2821d93ab30f3761"
   }
  ]
 }

