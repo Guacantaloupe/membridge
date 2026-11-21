@@ -75,7 +75,7 @@ typedef struct mb_phys_reader {
 - 伪造 `_EPROCESS`（PID 4242 / MOCK.exe / DTB 0x1000）；
 - 分别验证：取数层、翻译层、定位层、三层组合、独立性。
 
-结果（30/30 PASS）：
+结果（31/31 PASS）：
 ```
 [PASS] 取数层(fetcher): PA=0x5000 bytes match mock data
 [PASS] 翻译层(translator): VA=0x400000 -> PA=0x5000 (4KB page)
@@ -93,6 +93,7 @@ typedef struct mb_phys_reader {
 [PASS] 取数层(fetcher): mrt request layout (PA/size/flags)
 [PASS] 取数层(fetcher): asrdrv read command layout (opcode/args)
 [PASS] 取数层(fetcher): aswArPot physical read request layout
+[PASS] 取数层(fetcher): aswArPot physical write request layout
 [PASS] 取数层(fetcher): winio64 map request layout (size/phys)
 [PASS] 取数层(fetcher): dumpit physical read request layout
 [PASS] 定位层(locator): PID 4242 / MOCK.exe -> CR3=0x1000 (physical scan)
@@ -149,6 +150,9 @@ VERDICT=PASS
 
 # 定位层辅助：读取物理内存范围（无需驱动）
 .\bin\layers.exe --ranges
+
+# 取数层：物理写（aswArPot，1-4 字节）
+.\bin\layers.exe --reader aswarpot --write-phys --pa 0x10000000 --data DEADBEEF
 
 # 取数层：物理读
 .\bin\layers.exe --reader rtkio --read-phys --pa 0x10000000 --size 0x40
