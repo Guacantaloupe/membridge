@@ -19,5 +19,16 @@ if ($LASTEXITCODE -ne 0) { throw "timestamp patch failed: $LASTEXITCODE" }
 # A single PEUPDATER.EXE name + ASUSCERT resource satisfies both AsUpIO64
 # (process name contains PEUPDATER.EXE) and AsIO2 (ASUSCERT resource) gates.
 Copy-Item (Join-Path $base 'bin\layers_asio2.exe') (Join-Path $base 'bin\PEUPDATER.EXE') -Force
+
+# Self-verify both gates after build (fail the build if they do not pass).
+$py = (Get-Command python -ErrorAction Stop).Source
+& $py (Join-Path $base 'scripts\verify_asio2_gate.py') (Join-Path $base 'bin\layers_asio2.exe')
+if ($LASTEXITCODE -ne 0) { throw "layers_asio2.exe AsIO2 gate verify failed: $LASTEXITCODE" }
+& $py (Join-Path $base 'scripts\verify_asio2_gate.py') (Join-Path $base 'bin\PEUPDATER.EXE')
+if ($LASTEXITCODE -ne 0) { throw "PEUPDATER.EXE AsIO2 gate verify failed: $LASTEXITCODE" }
+if ((Split-Path (Join-Path $base 'bin\PEUPDATER.EXE') -Leaf) -ne 'PEUPDATER.EXE') {
+    throw "AsUpIO64 gate filename check failed"
+}
+Write-Host "gate self-verify: AsIO2 ASUSCERT PASS; AsUpIO64 PEUPDATER.EXE filename PASS"
 Write-Host "built: $base\bin\layers_asio2.exe (ASUSCERT resource, TimeDateStamp=0)"
 Write-Host "built: $base\bin\PEUPDATER.EXE (same gate-bypass binary; AsUpIO64 + AsIO2 gates)"
