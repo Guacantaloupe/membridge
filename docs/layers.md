@@ -163,6 +163,10 @@ VERDICT=PASS
 # 取数层设备存在性探测（无需驱动即可运行）
 .\bin\layers.exe --probe-readers
 
+# 动态验证 harness（管理员 + 已签名驱动时；DryRun 安全预演）
+.\scripts\dynamic_verify.ps1 -DryRun -Reader winio64 -DevicePath '\\.\WinIo' -Locate
+.\scripts\dynamic_verify.ps1 -Reader winio64 -DevicePath '\\.\WinIo' -DriverPath C:\path\WinIo64.sys -ServiceName WinIo64
+
 # 定位层设备存在性探测（KKYUM / Invary / KPRL）
 .\bin\layers.exe --probe-locators
 

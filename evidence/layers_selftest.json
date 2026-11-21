@@ -16,6 +16,7 @@
     "invary_kread": "Invary Sensor kernel-VA byte read (--invary-read diagnostic mode)",
     "probe_readers": "layers.exe --probe-readers opens every real fetch provider device and reports presence",
     "probe_locators": "layers.exe --probe-locators opens KKYUM / Invary / KPRL devices and reports presence",
+    "dynamic_verify": "scripts/dynamic_verify.ps1: optional admin service create/start + --probe-readers + --read-phys + --locate --auto, with before/after minidump BSOD guard; -DryRun safe",
     "mb_phys_ranges_from_registry": "HARDWARE\\RESOURCEMAP physical memory ranges -> locator scan ranges",
     "mb_layer_read_va": "composition of translate + fetch (cr3 provided by caller)"
   },
