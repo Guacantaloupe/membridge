@@ -154,6 +154,16 @@
    "full64": true,
    "description": "ELAN WinIo64 unlisted variant (SHA256 535CB6A6..., not in LOLDrivers; WinIO v3.0 IOCTL_WINIO_MAPPHYSTOLIN 0x80102040, arbitrary 64-bit PA)",
    "sha256": "535cb6a635675a11c7c731dc25ff5ee92c55b77f4c25a6cbbeaa59a0f82f2de7"
+  },
+  {
+   "id": "winio64_1",
+   "file": "drivers\\winio64_1\\WinIo64_1.sys",
+   "kind": "control",
+   "device": "\\\\.\\WinIo",
+   "layout": "eneio64",
+   "full64": true,
+   "description": "WinIo64(1).sys unlisted variant (SHA256 37BD7F1C..., not in LOLDrivers; WinIO v3.0 IOCTL_WINIO_MAPPHYSTOLIN 0x80102040, arbitrary 64-bit PA)",
+   "sha256": "37bd7f1cf692d1cc01faceaea942ec755871b3ec3c96620073434cf6977adf19"
   }
  ]
 }

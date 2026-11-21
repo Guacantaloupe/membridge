@@ -1,6 +1,6 @@
 ﻿{
-    "date":  "2026-11-22T04:24:03",
-    "page_pa":  "0x272270000",
+    "date":  "2026-11-22T04:25:49",
+    "page_pa":  "0x1D5C24000",
     "results":  [
                     {
                         "backend":  "cchwapi_2_9",
@@ -79,6 +79,12 @@
                         "exit":  0,
                         "verdict":  "PASS",
                         "evidence":  "evidence/selftest_winio64_elan.log"
+                    },
+                    {
+                        "backend":  "winio64_1",
+                        "exit":  0,
+                        "verdict":  "PASS",
+                        "evidence":  "evidence/selftest_winio64_1.log"
                     }
                 ],
     "new_dumps":  ""
