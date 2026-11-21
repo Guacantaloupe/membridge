@@ -45,6 +45,7 @@ typedef struct mb_phys_reader {
 | `rtkio` | `\\.\rtkio`，IOCTL `0x80002000`（PA 映射到用户 VA） |
 | `eneio64` | `\\.\GLCKIo`，IOCTL `0x80102040`（WinIO 物理映射） |
 | `asrdrv` | `\\.\AsrDrv109`，CVE-2020-15368 家族 AES 加密外层 IOCTL `0x22EC00` + 物理读 opcode `0x22E808`（Round 27 已静态确认的 AsrDrv(2).sys；动态验证待提权） |
+| `mrt` | `\\.\fekern_00`，FireEye/fekern MRT `MRT_IOCTL_READ_PHYSICALMEMORY 0x70F8800C`（`MmCopyMemory` 物理读；设备 ACL SYSTEM-only；动态验证待 SYSTEM） |
 | `mock` | 离线自测用合成物理内存 |
 
 `membridge.exe` 已集成 22 个全 64 位物理读 backend（cchwapi/rtkio/eneio64/hp/gibepext/fastdump/directio/tdeio/icachex/mrt 等）；每个 backend 都只是取数层的一个实现，新增 backend 不影响定位层和翻译层。
