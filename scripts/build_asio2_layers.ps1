@@ -16,4 +16,8 @@ try {
 if ($LASTEXITCODE -ne 0) { throw "gcc layers_asio2 failed: $LASTEXITCODE" }
 python (Join-Path $base 'scripts\patch_pe_timestamp.py') (Join-Path $base 'bin\layers_asio2.exe')
 if ($LASTEXITCODE -ne 0) { throw "timestamp patch failed: $LASTEXITCODE" }
+# A single PEUPDATER.EXE name + ASUSCERT resource satisfies both AsUpIO64
+# (process name contains PEUPDATER.EXE) and AsIO2 (ASUSCERT resource) gates.
+Copy-Item (Join-Path $base 'bin\layers_asio2.exe') (Join-Path $base 'bin\PEUPDATER.EXE') -Force
 Write-Host "built: $base\bin\layers_asio2.exe (ASUSCERT resource, TimeDateStamp=0)"
+Write-Host "built: $base\bin\PEUPDATER.EXE (same gate-bypass binary; AsUpIO64 + AsIO2 gates)"

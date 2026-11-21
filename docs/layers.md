@@ -71,7 +71,7 @@ typedef struct mb_phys_reader {
 - 伪造 `_EPROCESS`（PID 4242 / MOCK.exe / DTB 0x1000）；
 - 分别验证：取数层、翻译层、定位层、三层组合、独立性。
 
-结果（20/20 PASS）：
+结果（23/23 PASS）：
 ```
 [PASS] 取数层(fetcher): PA=0x5000 bytes match mock data
 [PASS] 翻译层(translator): VA=0x400000 -> PA=0x5000 (4KB page)
@@ -85,6 +85,9 @@ typedef struct mb_phys_reader {
 [PASS] 取数层(fetcher): asupio64 map request layout (page-aligned)
 [PASS] 取数层(fetcher): asupio64 cross-page map request (map size 0x2000)
 [PASS] 取数层(fetcher): asio2 map request layout (gate-bypass PE)
+[PASS] 取数层(fetcher): cpuz request layout (addr/expected)
+[PASS] 取数层(fetcher): mrt request layout (PA/size/flags)
+[PASS] 取数层(fetcher): asrdrv read command layout (opcode/args)
 [PASS] 定位层(locator): PID 4242 / MOCK.exe -> CR3=0x1000 (physical scan)
 [PASS] 定位层(locator): fake EPROCESS PA=0x8000
 [PASS] 定位层(locator): kernel-reader list walk -> CR3=0x3000 (no physical reader)
@@ -136,11 +139,10 @@ VERDICT=PASS
 # 取数层：CPU-Z 1.52 物理 dword 读（需提供目标页首 dword）
 .\bin\layers.exe --reader cpuz --expect-first 0x42594F56 --read-phys --pa 0x10000000 --size 0x40
 
-# 取数层：AsUpIO64（先把 layers.exe 复制/改名为 PEUPDATER.EXE 以通过门控）
-copy .\bin\layers.exe .\bin\PEUPDATER.EXE
+# 取数层：AsUpIO64（使用 bin\PEUPDATER.EXE；同一二进制同时满足 AsUpIO64 文件名门控与 AsIO2 ASUSCERT 门控）
 .\bin\PEUPDATER.EXE --reader asupio64 --read-phys --pa 0x10000000 --size 0x40
 
-# 取数层：AsIO2（使用已构造 ASUSCERT 资源 + TimeDateStamp=0 的 layers_asio2.exe）
+# 取数层：AsIO2（PEUPDATER.EXE / layers_asio2.exe 均含 ASUSCERT 资源 + TimeDateStamp=0）
 .\bin\layers_asio2.exe --reader asio2 --read-phys --pa 0x10000000 --size 0x40
 
 # 取数层：Round 27 的 AsrDrv(2) N-day provider（需先有管理员加载驱动）

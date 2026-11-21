@@ -53,6 +53,9 @@
       "[PASS] 取数层(fetcher): asupio64 map request layout (page-aligned)",
       "[PASS] 取数层(fetcher): asupio64 cross-page map request (map size 0x2000)",
       "[PASS] 取数层(fetcher): asio2 map request layout (gate-bypass PE)",
+      "[PASS] 取数层(fetcher): cpuz request layout (addr/expected)",
+      "[PASS] 取数层(fetcher): mrt request layout (PA/size/flags)",
+      "[PASS] 取数层(fetcher): asrdrv read command layout (opcode/args)",
       "[PASS] 定位层(locator): PID 4242 / MOCK.exe -> CR3=0x1000 (physical scan)",
       "[PASS] 定位层(locator): fake EPROCESS PA=0x8000",
       "[PASS] 定位层(locator): kernel-reader list walk -> CR3=0x3000 (no physical reader)",
@@ -62,7 +65,7 @@
       "[PASS] 独立性(independence): 取数层 usable without locator/translator",
       "[PASS] 独立性(independence): 翻译层 usable without locator"
     ],
-    "passed": 20,
+    "passed": 23,
     "failed": 0,
     "offline_no_admin_no_driver": true
   },
@@ -77,6 +80,8 @@
     "artifacts": ["bin/membridge.exe", "bin/cr3read.exe", "bin/layers.exe"],
     "layers_exe_size": 91364,
     "layers_asio2_exe_size": 91382,
+    "peupdater_exe_size": 91382,
+    "dual_gate_binary": "bin/PEUPDATER.EXE satisfies AsUpIO64 filename gate and AsIO2 ASUSCERT gate",
     "asio2_gate_bypass": {
       "resource": "ASUSCERT/ASUSCERT (16 bytes)",
       "resource_data": "AES-128-ECB_decrypt(0) with key aa7e151628aed2a6abf7158809cf4f3c",

