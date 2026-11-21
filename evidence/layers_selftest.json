@@ -33,7 +33,8 @@
     "dumpit (DumpIt forensic volume-filter physical read IOCTL 0x22C01E; input u64 PA, output length bytes; integrated Round 55, dynamic pending)",
     "asmmap (ASUS ASMMAP64 MAPMEM 0x9C402580/UNMAP 0x9C402584 arbitrary physical map read/write; integrated Round 60, dynamic pending)",
     "atillk64 (ATI atillk64 physical read IOCTL 0x9C402544 / write 0x9C402548; integrated Round 61, dynamic pending)",
-    "asio64 (ASUS Asusgio map IOCTL 0xA040244C / unmap 0xA0402450 arbitrary physical map read/write; integrated Round 62, dynamic pending)"
+    "asio64 (ASUS Asusgio map IOCTL 0xA040244C / unmap 0xA0402450 arbitrary physical map read/write; integrated Round 62, dynamic pending)",
+    "adv64drv (ADV64DRV physical read IOCTL 0x224004; integrated Round 63, dynamic pending)"
   ],
   "locator_registry_ranges": {
     "command": "bin/layers.exe --ranges",
@@ -74,6 +75,7 @@
       "[PASS] 取数层(fetcher): atillk64 read request layout (PA/size)",
       "[PASS] 取数层(fetcher): atillk64 write request layout (PA/size/src)",
       "[PASS] 取数层(fetcher): asio64 map request layout (phys/len)",
+      "[PASS] 取数层(fetcher): adv64drv physical read request layout",
       "[PASS] 定位层(locator): PID 4242 / MOCK.exe -> CR3=0x1000 (physical scan)",
       "[PASS] 定位层(locator): fake EPROCESS PA=0x8000",
       "[PASS] 定位层(locator): kernel-reader list walk -> CR3=0x3000 (no physical reader)",
@@ -89,7 +91,7 @@
       "[PASS] 翻译层(translator): VA=0x1010 -> PA=0x305010 (5-level/LA57)",
       "[PASS] 三层组合(pipeline): read VA through 5-level page tables"
     ],
-    "passed": 37,
+    "passed": 38,
     "failed": 0,
     "offline_no_admin_no_driver": true
   },
@@ -102,9 +104,9 @@
   "build": {
     "command": "build.ps1",
     "artifacts": ["bin/membridge.exe", "bin/cr3read.exe", "bin/layers.exe"],
-    "layers_exe_size": 106883,
-    "layers_asio2_exe_size": 106901,
-    "peupdater_exe_size": 106901,
+    "layers_exe_size": 107442,
+    "layers_asio2_exe_size": 107460,
+    "peupdater_exe_size": 107460,
     "dual_gate_binary": "bin/PEUPDATER.EXE satisfies AsUpIO64 filename gate and AsIO2 ASUSCERT gate",
     "build_self_verify": "scripts/build_asio2_layers.ps1 runs verify_asio2_gate.py for layers_asio2.exe and PEUPDATER.EXE; fails build on gate failure",
     "asio2_gate_bypass": {
