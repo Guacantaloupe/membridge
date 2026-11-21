@@ -70,7 +70,7 @@ typedef struct mb_phys_reader {
 - 伪造 `_EPROCESS`（PID 4242 / MOCK.exe / DTB 0x1000）；
 - 分别验证：取数层、翻译层、定位层、三层组合、独立性。
 
-结果（17/17 PASS）：
+结果（18/18 PASS）：
 ```
 [PASS] 取数层(fetcher): PA=0x5000 bytes match mock data
 [PASS] 翻译层(translator): VA=0x400000 -> PA=0x5000 (4KB page)
@@ -89,6 +89,7 @@ typedef struct mb_phys_reader {
 [PASS] 三层组合(pipeline): locate -> translate -> fetch returns mock data
 [PASS] 独立性(independence): 取数层 usable without locator/translator
 [PASS] 独立性(independence): 翻译层 usable without locator
+[PASS] 定位层(locator): registry range parser (Memory/MemoryLarge)
 VERDICT=PASS
 ```
 

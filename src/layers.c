@@ -640,6 +640,36 @@ static int kprl_locate_cr3(uint32_t pid, const char *device, uint64_t *out_cr3) 
 // ---------------------------------------------------------------------------
 typedef struct { uint64_t start; uint64_t length; } mb_range;
 
+// Parse a CM_RESOURCE_LIST blob (.Translated REG_RESOURCE_LIST). Kept separate so
+// the locator range parser can be tested offline with a synthetic blob.
+static int mb_parse_phys_ranges(const uint8_t *data, uint32_t size, mb_range *out, int max) {
+    if (!data || size < 20 || !out || max <= 0) return 0;
+    uint32_t count = *(uint32_t *)(data + 0);
+    uint32_t off = 8;                 // Count + 4-byte alignment padding
+    int n = 0;
+    for (uint32_t i = 0; i < count && off + 12 <= size && n < max; i++) {
+        off += 8;                     // InterfaceType + BusNumber
+        uint32_t parts = *(uint32_t *)(data + off);
+        off += 4;
+        for (uint32_t j = 0; j < parts && off + 20 <= size && n < max; j++) {
+            uint8_t dtype = data[off];
+            uint16_t flags = *(uint16_t *)(data + off + 2);
+            uint64_t start = *(uint64_t *)(data + off + 4);
+            uint32_t len = *(uint32_t *)(data + off + 12);
+            off += 20;
+            if ((dtype != 3 && dtype != 7) || !len) continue;  // Memory / MemoryLarge
+            uint64_t L = len;
+            if (flags & 0x200) L <<= 8;
+            else if (flags & 0x400) L <<= 16;
+            else if (flags & 0x800) L <<= 32;
+            out[n].start = start;
+            out[n].length = L;
+            n++;
+        }
+    }
+    return n;
+}
+
 static int mb_phys_ranges_from_registry(mb_range *out, int max) {
     HKEY key;
     LONG e = RegOpenKeyExW(HKEY_LOCAL_MACHINE,
@@ -676,29 +706,7 @@ static int mb_phys_ranges_from_registry(mb_range *out, int max) {
     RegCloseKey(key);
     if (got < 16) { fprintf(stderr, "[DBG] data too small got=%lu\n", (unsigned long)got); free(data); return 0; }
 
-    uint32_t count = *(uint32_t *)(data + 0);
-    uint32_t off = 8;                 // Count + 4-byte alignment padding
-    int n = 0;
-    for (uint32_t i = 0; i < count && off + 12 <= got && n < max; i++) {
-        off += 8;                     // InterfaceType + BusNumber
-        uint32_t parts = *(uint32_t *)(data + off);
-        off += 4;
-        for (uint32_t j = 0; j < parts && off + 20 <= got && n < max; j++) {
-            uint8_t dtype = data[off];
-            uint16_t flags = *(uint16_t *)(data + off + 2);
-            uint64_t start = *(uint64_t *)(data + off + 4);
-            uint32_t len = *(uint32_t *)(data + off + 12);
-            off += 20;
-            if ((dtype != 3 && dtype != 7) || !len) continue;  // 3 = Memory, 7 = MemoryLarge
-            uint64_t L = len;
-            if (flags & 0x200) L <<= 8;
-            else if (flags & 0x400) L <<= 16;
-            else if (flags & 0x800) L <<= 32;
-            out[n].start = start;
-            out[n].length = L;
-            n++;
-        }
-    }
+    int n = mb_parse_phys_ranges(data, got, out, max);
     free(data);
     return n;
 }
@@ -888,6 +896,26 @@ static int selftest_mock(void) {
     int ok_indep2 = mb_layer_translate(&r, 0x1000, 0x400000, &pa3, &page3);
     check("独立性(independence)", "取数层 usable without locator/translator", ok_indep1);
     check("独立性(independence)", "翻译层 usable without locator", ok_indep2);
+
+    // locator helper: synthetic CM_RESOURCE_LIST parsing (Memory + MemoryLarge)
+    uint8_t blob[60];
+    memset(blob, 0, sizeof(blob));
+    *(uint32_t *)(blob + 0) = 1;          // Count
+    *(uint32_t *)(blob + 8) = 0;          // InterfaceType
+    *(uint32_t *)(blob + 12) = 0;         // BusNumber
+    *(uint32_t *)(blob + 16) = 2;         // PartialResourceList.Count
+    *(uint8_t *)(blob + 20) = 3;          // CmResourceTypeMemory
+    *(uint64_t *)(blob + 24) = 0x100000;  // start
+    *(uint32_t *)(blob + 32) = 0x1000;    // length
+    *(uint8_t *)(blob + 40) = 7;          // CmResourceTypeMemoryLarge
+    *(uint16_t *)(blob + 42) = 0x200;     // flags: large 40-bit
+    *(uint64_t *)(blob + 44) = 0x100000000ull;
+    *(uint32_t *)(blob + 52) = 0x100;     // length << 8
+    mb_range pr[4];
+    int npr = mb_parse_phys_ranges(blob, sizeof(blob), pr, 4);
+    int ok_parse = npr == 2 && pr[0].start == 0x100000 && pr[0].length == 0x1000 &&
+                   pr[1].start == 0x100000000ull && pr[1].length == 0x10000;
+    check("定位层(locator)", "registry range parser (Memory/MemoryLarge)", ok_parse);
 
     free(mem);
     printf("VERDICT=%s\n", g_fail ? "FAIL" : "PASS");

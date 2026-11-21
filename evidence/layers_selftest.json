@@ -54,11 +54,12 @@
       "[PASS] 定位层(locator): fake EPROCESS PA=0x8000",
       "[PASS] 定位层(locator): kernel-reader list walk -> CR3=0x3000 (no physical reader)",
       "[PASS] 定位层(locator): kprl CR3 query request layout (pid at offset 0)",
+      "[PASS] 定位层(locator): registry range parser (Memory/MemoryLarge)",
       "[PASS] 三层组合(pipeline): locate -> translate -> fetch returns mock data",
       "[PASS] 独立性(independence): 取数层 usable without locator/translator",
       "[PASS] 独立性(independence): 翻译层 usable without locator"
     ],
-    "passed": 17,
+    "passed": 18,
     "failed": 0,
     "offline_no_admin_no_driver": true
   },
@@ -71,7 +72,7 @@
   "build": {
     "command": "build.ps1",
     "artifacts": ["bin/membridge.exe", "bin/cr3read.exe", "bin/layers.exe"],
-    "layers_exe_size": 89717
+    "layers_exe_size": 89781
   },
   "mapping_to_nday_candidates": {
     "取数层_fetcher": "membridge 22 backends; AsrDrv(2) arbitrary physical R/W (provider integrated), AsUpIO64 physical map/MSR, CPU-Z physical dword R/W, FireEye MRT physical read",
