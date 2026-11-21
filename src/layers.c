@@ -1082,6 +1082,20 @@ static int selftest_mock(void) {
                    pr[1].start == 0x100000000ull && pr[1].length == 0x10000;
     check("定位层(locator)", "registry range parser (Memory/MemoryLarge)", ok_parse);
 
+    // robustness: malformed locator/translator inputs must be rejected
+    uint8_t tiny[10];
+    memset(tiny, 0, sizeof(tiny));
+    int ok_tiny = mb_parse_phys_ranges(tiny, sizeof(tiny), pr, 4) == 0;
+    check("定位层(locator)", "truncated CM_RESOURCE_LIST rejected", ok_tiny);
+    uint8_t malformed[20];
+    memset(malformed, 0, sizeof(malformed));
+    *(uint32_t *)(malformed + 0) = 0xFFFF;  // absurd Count
+    int ok_mal = mb_parse_phys_ranges(malformed, sizeof(malformed), pr, 4) == 0;
+    check("定位层(locator)", "oversized resource Count rejected", ok_mal);
+    uint64_t pa_bad = 0, page_bad = 0;
+    int ok_badcr3 = !mb_layer_translate(&r, 0, 0x400000, &pa_bad, &page_bad);
+    check("翻译层(translator)", "CR3=0 rejected", ok_badcr3);
+
     free(mem);
     printf("VERDICT=%s\n", g_fail ? "FAIL" : "PASS");
     return g_fail ? 1 : 0;

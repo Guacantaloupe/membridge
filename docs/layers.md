@@ -98,6 +98,9 @@ typedef struct mb_phys_reader {
 [PASS] 独立性(independence): 取数层 usable without locator/translator
 [PASS] 独立性(independence): 翻译层 usable without locator
 [PASS] 定位层(locator): registry range parser (Memory/MemoryLarge)
+[PASS] 定位层(locator): truncated CM_RESOURCE_LIST rejected
+[PASS] 定位层(locator): oversized resource Count rejected
+[PASS] 翻译层(translator): CR3=0 rejected
 VERDICT=PASS
 ```
 
