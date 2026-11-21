@@ -139,6 +139,9 @@ VERDICT=PASS
 # 离线三层验证
 .\bin\layers.exe --selftest-mock
 
+# 取数层设备存在性探测（无需驱动即可运行）
+.\bin\layers.exe --probe-readers
+
 # 定位层辅助：读取物理内存范围（无需驱动）
 .\bin\layers.exe --ranges
 

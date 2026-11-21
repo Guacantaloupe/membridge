@@ -14,6 +14,7 @@
     "kprl_locate_cr3": "KPRL l1malwarebits IOCTL 0x239584 -> CR3 by PID (no physical reader)",
     "invary_locate_cr3": "Invary Sensor IOCTL 0x9C402408 kernel-VA read + process list walk -> CR3 (no physical reader)",
     "invary_kread": "Invary Sensor kernel-VA byte read (--invary-read diagnostic mode)",
+    "probe_readers": "layers.exe --probe-readers opens every real fetch provider device and reports presence",
     "mb_phys_ranges_from_registry": "HARDWARE\\RESOURCEMAP physical memory ranges -> locator scan ranges",
     "mb_layer_read_va": "composition of translate + fetch (cr3 provided by caller)"
   },
@@ -88,9 +89,9 @@
   "build": {
     "command": "build.ps1",
     "artifacts": ["bin/membridge.exe", "bin/cr3read.exe", "bin/layers.exe"],
-    "layers_exe_size": 96309,
-    "layers_asio2_exe_size": 96327,
-    "peupdater_exe_size": 96327,
+    "layers_exe_size": 96876,
+    "layers_asio2_exe_size": 96894,
+    "peupdater_exe_size": 96894,
     "dual_gate_binary": "bin/PEUPDATER.EXE satisfies AsUpIO64 filename gate and AsIO2 ASUSCERT gate",
     "build_self_verify": "scripts/build_asio2_layers.ps1 runs verify_asio2_gate.py for layers_asio2.exe and PEUPDATER.EXE; fails build on gate failure",
     "asio2_gate_bypass": {

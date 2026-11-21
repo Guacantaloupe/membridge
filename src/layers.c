@@ -947,6 +947,27 @@ static int mb_layer_read_va(mb_phys_reader *r, uint64_t cr3, uint64_t va,
     return 1;
 }
 
+// Diagnostic: probe which real provider devices are currently present.
+static int probe_readers(void) {
+    const char *kinds[] = { "cchwapi", "rtkio", "eneio64", "asrdrv", "mrt", "cpuz",
+                            "asupio64", "asio2", "aswarpot", "winio64" };
+    int present = 0;
+    for (size_t i = 0; i < sizeof(kinds) / sizeof(kinds[0]); i++) {
+        mb_phys_reader r;
+        memset(&r, 0, sizeof(r));
+        r.dev = INVALID_HANDLE_VALUE;
+        if (reader_open(&r, kinds[i], NULL)) {
+            printf("[OPEN] %s\n", kinds[i]);
+            present++;
+            if (r.dev && r.dev != INVALID_HANDLE_VALUE) CloseHandle(r.dev);
+        } else {
+            printf("[----] %s unavailable\n", kinds[i]);
+        }
+    }
+    printf("providers_present=%d/%zu\n", present, sizeof(kinds) / sizeof(kinds[0]));
+    return 0;
+}
+
 // ---------------------------------------------------------------------------
 // Offline self-test: synthetic physical memory + page tables + fake EPROCESS
 // ---------------------------------------------------------------------------
@@ -1212,6 +1233,7 @@ static int selftest_mock(void) {
 static void usage(void) {
     printf("layers - independent 定位层 / 翻译层 / 取数层 architecture\n");
     printf("Usage:\n");
+    printf("  layers --probe-readers  (try opening every real fetch-layer provider device)\n");
     printf("  layers --selftest-mock\n");
     printf("  layers --ranges                       (read physical RAM ranges from registry)\n");
     printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64> [--device <path>] --read-phys --pa <hex> --size <n>\n");
@@ -1233,9 +1255,10 @@ int main(int argc, char **argv) {
     uint64_t pa = 0, cr3 = 0, va = 0, scan_start = 0, scan_size = 0;
     uint32_t size = 0x40, pid = 0, expect_first = 0;
     int do_selftest = 0, do_read_phys = 0, do_explicit = 0, do_locate = 0, have_cr3 = 0, have_va = 0;
-    int do_ranges = 0, auto_ranges = 0, use_kkyum = 0, use_kprl = 0, use_invary = 0, do_invary_read = 0;
+    int do_ranges = 0, auto_ranges = 0, use_kkyum = 0, use_kprl = 0, use_invary = 0, do_invary_read = 0, do_probe = 0;
     for (int i = 1; i < argc; i++) {
         if (strcmp(argv[i], "--selftest-mock") == 0) do_selftest = 1;
+        else if (strcmp(argv[i], "--probe-readers") == 0) do_probe = 1;
         else if (strcmp(argv[i], "--reader") == 0 && i + 1 < argc) kind = argv[++i];
         else if (strcmp(argv[i], "--device") == 0 && i + 1 < argc) device = argv[++i];
         else if (strcmp(argv[i], "--kkyum-device") == 0 && i + 1 < argc) kkyum_device = argv[++i];
@@ -1262,6 +1285,7 @@ int main(int argc, char **argv) {
         else if (strcmp(argv[i], "--help") == 0 || strcmp(argv[i], "-h") == 0) { usage(); return 0; }
     }
     if (do_selftest) return selftest_mock();
+    if (do_probe) return probe_readers();
     if (do_invary_read) {
         if (!invary_open(invary_device)) {
             printf("[ERR] Invary device open failed (need invarysensor.sys loaded)\n");
