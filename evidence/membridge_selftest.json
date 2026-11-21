@@ -1,6 +1,6 @@
 ﻿{
-    "date":  "2026-11-22T04:33:02",
-    "page_pa":  "0xAC8C000",
+    "date":  "2026-11-22T04:36:25",
+    "page_pa":  "0x2025E7000",
     "results":  [
                     {
                         "backend":  "cchwapi_2_9",
@@ -97,6 +97,12 @@
                         "exit":  0,
                         "verdict":  "PASS",
                         "evidence":  "evidence/selftest_fastdumpx64.log"
+                    },
+                    {
+                        "backend":  "directio",
+                        "exit":  0,
+                        "verdict":  "PASS",
+                        "evidence":  "evidence/selftest_directio.log"
                     }
                 ],
     "new_dumps":  ""

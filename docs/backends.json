@@ -184,6 +184,16 @@
    "full64": true,
    "description": "fastdumpx64.sys 2.3.0.92 (LOLDrivers unlisted; IOCTL 0x9C400014: u64 PA + u32 size, data at output+0x34, arbitrary 64-bit PA read)",
    "sha256": "910350a2532ba50abb699e14e906964fd155fe25dd9603878a7529c612e4ecd0"
+  },
+  {
+   "id": "directio",
+   "file": "drivers\\directio\\DirectIo.sys",
+   "kind": "control",
+   "device": "\\\\.\\MembridgeDirectIo_<pid>",
+   "layout": "directio",
+   "full64": true,
+   "description": "DirectIo.sys (LOLDrivers unlisted PassMark DirectIO; IOCTL 0x8011607C returns \\Device\\PhysicalMemory section handle, NtMapViewOfSection arbitrary physical read; device name = service name)",
+   "sha256": "a32b2488746ab5eccc73d51a72e6ec555b83d09435f5d2f9ef15c87626027e8c"
   }
  ]
 }

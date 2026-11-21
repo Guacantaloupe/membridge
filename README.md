@@ -28,6 +28,7 @@
 | `winio64_1` | WinIo64_1.sys（WinIO64 另一变体，SHA256 `37BD7F1C…`，LOLDrivers 未收录） | IOCTL_WINIO_MAPPHYSTOLIN `0x80102040` | 64-bit | ✅ PASS |
 | `gibepext` | gibepext.sys（GIGABYTE EP 固件/取证驱动，SHA256 `5EACC166…`，LOLDrivers 未收录） | CRC32 门禁 IOCTL_READ_PHYSMEM `0x22E00C` | 64-bit | ✅ PASS |
 | `fastdumpx64` | fastdumpx64.sys 2.3.0.92（FastDump，LOLDrivers 未收录） | IOCTL `0x9C400014`（u64 PA + size → 数据在输出 +0x34） | 64-bit（只读） | ✅ PASS |
+| `directio` | DirectIo.sys（PassMark DirectIO，LOLDrivers 未收录） | IOCTL `0x8011607C` 返回 `\Device\PhysicalMemory` section handle → NtMapViewOfSection | 64-bit（只读） | ✅ PASS |
 | `isharepp` | iSharePp.sys（iSCSIDisk PnP 驱动） | OlsApi READ_MEMORY `0x9C406104` | 64-bit（只读已验证） | ✅ PASS |
 | `rtkio` | rtkio.sys（Realtek） | IOCTL_PHYMEM_MAP `0x80002000`（u64 PA + size → 用户态 VA） | 64-bit | ✅ PASS |
 | `rtkiow8x64` | rtkiow8x64.sys（Realtek W8 变体） | IOCTL_PHYMEM_MAP `0x80002000` | 64-bit | ✅ PASS |
@@ -36,8 +37,8 @@
 | `ufu_win10` | win10_ufudev64.sys | ReadMemory `0x8010206E` | 32-bit（受限） | 可加载 |
 | `winring0x64` | WinRing0x64.sys | READ_MEMORY `0x9C406104` | 低 1MiB（受限） | 可加载 |
 
-**16 个 64-bit 后端均通过 AWE 端到端自测**：框架启动 test.exe（AWE 目标），逐后端读取其物理页并校验页内标记
-（结果：16/16 PASS，见 `evidence/membridge_selftest.json`）。
+**17 个 64-bit 后端均通过 AWE 端到端自测**：框架启动 test.exe（AWE 目标），逐后端读取其物理页并校验页内标记
+（结果：17/17 PASS，见 `evidence/membridge_selftest.json`）。
 
 ## 2. 快速开始
 
@@ -50,7 +51,7 @@
 # 用指定后端读取物理内存（PA 为十六进制）
 .\scripts\membridge.ps1 -Action read -Backend cchwapi_2_12 -Pa 0x100000 -Size 0x100 -Dump
 
-# 端到端自测：启动 AWE 目标 → 逐后端读取 → 校验标记（默认 16 个 64-bit 后端）
+# 端到端自测：启动 AWE 目标 → 逐后端读取 → 校验标记（默认 17 个 64-bit 后端）
 .\scripts\membridge.ps1 -Action selftest
 
 # 只测部分后端
@@ -103,7 +104,7 @@
 
 | 类型 | 后端 | 安装方式 |
 |---|---|---|
-| 控制类驱动 | cchwapi_2_9 / cchwapi_2_12 / cchwapi_ext_4_5 / hp_swtools / swtoolsdriver / hp_swtools_v1 / isharepp / rtkio / rtkiow8x64 / eneio64 / winio64_elan / winio64_1 / glckio2 / gibepext / fastdumpx64 / ufu_win10 / winring0x64 | 框架自动执行 `sc create <服务名> binPath=<驱动路径> type=kernel` + `sc start`；读取后自动 `stop/delete`，与手工 `sc.exe` 安装内核驱动完全相同 |
+| 控制类驱动 | cchwapi_2_9 / cchwapi_2_12 / cchwapi_ext_4_5 / hp_swtools / swtoolsdriver / hp_swtools_v1 / isharepp / rtkio / rtkiow8x64 / eneio64 / winio64_elan / winio64_1 / glckio2 / gibepext / fastdumpx64 / directio / ufu_win10 / winring0x64 | 框架自动执行 `sc create <服务名> binPath=<驱动路径> type=kernel` + `sc start`；读取后自动 `stop/delete`，与手工 `sc.exe` 安装内核驱动完全相同 |
 | filter 类驱动 | sjtwinio | 框架自动：`sc create`（不启动）→ 通过 SetupAPI 创建标准 ROOT 枚举 PnP 设备 → 在设备实例键写入 `Service` → disable/enable 设备 → PnP 以函数驱动方式加载 → 出现 `\\.\SJTWINIO0200`；读取后移除 root 设备并 stop/delete 服务 |
 | CR3 辅助驱动 | KKYUM.sys（内核结构读）、eneio64.sys（页表物理读） | `cr3read.exe` 自动 `sc create/start`；结束后尝试 stop/delete（KKYUM 可能驻留到重启） |
 
@@ -141,6 +142,7 @@ membridge/
 │   ├── glckio2/glckio2.sys
 │   ├── gibepext/gibepext.sys
 │   ├── fastdumpx64/fastdumpx64.sys
+│   ├── directio/DirectIo.sys
 │   ├── winio64_elan/WinIo64_ELAN.sys
 │   ├── winio64_1/WinIo64_1.sys
 │   ├── KKYUM/KKYUM.sys
