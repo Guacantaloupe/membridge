@@ -2,7 +2,7 @@
   "component": "membridge.bin.layers.exe",
   "architecture": "independent three-layer virtual memory access",
   "layers": {
-    "定位层_locator": "target PID/name -> CR3 (explicit CR3 or physical EPROCESS scan; kernel-reader strategy reserved)",
+    "定位层_locator": "target PID/name -> CR3 (explicit CR3 or physical EPROCESS scan; registry physical ranges support --auto-ranges; kernel-reader strategy reserved)",
     "翻译层_translator": "CR3 + VA -> PA via x64 4-level page tables (4KB/2MB/1GB pages)",
     "取数层_fetcher": "PA + size -> bytes via pluggable mb_phys_reader providers"
   },
@@ -10,9 +10,27 @@
     "mb_phys_reader": "read(pa, buf, size) pluggable physical reader",
     "mb_layer_translate": "reader + cr3 + va -> pa/page_size",
     "mb_layer_locate_cr3_scan": "reader + physical range + pid/name -> cr3",
+    "mb_phys_ranges_from_registry": "HARDWARE\\RESOURCEMAP physical memory ranges -> locator scan ranges",
     "mb_layer_read_va": "composition of translate + fetch (cr3 provided by caller)"
   },
-  "real_fetch_providers": ["cchwapi (0x8024003C)", "rtkio (0x80002000)", "eneio64 (0x80102040)"],
+  "real_fetch_providers": [
+    "cchwapi (0x8024003C)",
+    "rtkio (0x80002000)",
+    "eneio64 (0x80102040)",
+    "asrdrv (CVE-2020-15368 family; AES IOCTL 0x22EC00 + physical read opcode 0x22E808; integrated Round 30, dynamic pending)"
+  ],
+  "locator_registry_ranges": {
+    "command": "bin/layers.exe --ranges",
+    "result": "PASS",
+    "ranges": [
+      "0x1000-0x9F000 len=0x9E000",
+      "0x100000-0xA00000 len=0x900000",
+      "0xA73000-0x6D6EB000 len=0x6CC78000",
+      "0x727FF000-0x72800000 len=0x1000",
+      "0x100000000-0x27F800000 len=0x17F800000"
+    ],
+    "no_admin_no_driver": true
+  },
   "mock_selftest": {
     "command": "bin/layers.exe --selftest-mock",
     "result": "PASS",
@@ -30,18 +48,20 @@
     "failed": 0,
     "offline_no_admin_no_driver": true
   },
+  "asrdrv_provider": {
+    "reader": "asrdrv",
+    "device": "\\\\.\\AsrDrv109",
+    "protocol": "AES-256-CBC outer IOCTL 0x22EC00; plaintext driver_cmd opcode 0x22E808 (physical read)",
+    "status": "code integrated in layers.exe; driver loading unavailable in current medium-integrity session (CreateFile err=2)"
+  },
   "build": {
     "command": "build.ps1",
-    "artifacts": [
-      "bin/membridge.exe",
-      "bin/cr3read.exe",
-      "bin/layers.exe"
-    ],
-    "layers_exe_size": 73772
+    "artifacts": ["bin/membridge.exe", "bin/cr3read.exe", "bin/layers.exe"],
+    "layers_exe_size": 79801
   },
   "mapping_to_nday_candidates": {
-    "取数层_fetcher": "membridge 22 backends; new candidates AsrDrv(2) arbitrary physical R/W, AsUpIO64 physical map/MSR, CPU-Z physical dword R/W, FireEye MRT physical read",
-    "定位层_locator": "physical EPROCESS scan only needs 取数层; kernel-reader strategy uses KKYUM as in cr3read.exe",
+    "取数层_fetcher": "membridge 22 backends; AsrDrv(2) arbitrary physical R/W (provider integrated), AsUpIO64 physical map/MSR, CPU-Z physical dword R/W, FireEye MRT physical read",
+    "定位层_locator": "physical EPROCESS scan needs only 取数层 + registry ranges; kernel-reader strategy uses KKYUM as in cr3read.exe",
     "翻译层_translator": "pure algorithm, works with any 取数层 provider"
   }
 }

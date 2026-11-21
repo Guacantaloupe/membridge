@@ -44,6 +44,7 @@ typedef struct mb_phys_reader {
 | `cchwapi` | `\\.\CCHWAPI`，IOCTL `0x8024003C`（u64 PA） |
 | `rtkio` | `\\.\rtkio`，IOCTL `0x80002000`（PA 映射到用户 VA） |
 | `eneio64` | `\\.\GLCKIo`，IOCTL `0x80102040`（WinIO 物理映射） |
+| `asrdrv` | `\\.\AsrDrv109`，CVE-2020-15368 家族 AES 加密外层 IOCTL `0x22EC00` + 物理读 opcode `0x22E808`（Round 27 已静态确认的 AsrDrv(2).sys；动态验证待提权） |
 | `mock` | 离线自测用合成物理内存 |
 
 `membridge.exe` 已集成 22 个全 64 位物理读 backend（cchwapi/rtkio/eneio64/hp/gibepext/fastdump/directio/tdeio/icachex/mrt 等）；每个 backend 都只是取数层的一个实现，新增 backend 不影响定位层和翻译层。
@@ -80,16 +81,41 @@ VERDICT=PASS
 | 定位层 | 物理扫描策略使用取数层即可（无需内核读驱动）；内核读策略需 KKYUM 等 |
 | 翻译层 | 纯算法，任何取数层 provider 都可用 |
 
-## 7. 用法
+## 7. 定位层辅助：自动物理内存范围（无需管理员/驱动）
+物理扫描 locator 需要知道物理内存范围。`layers.exe --ranges` 直接读取注册表
+`HKEY_LOCAL_MACHINE\HARDWARE\RESOURCEMAP\System Resources\Physical Memory`
+的 `.Translated`（REG_RESOURCE_LIST），解析 `CM_PARTIAL_RESOURCE_DESCRIPTOR`
+（Memory=3 / MemoryLarge=7，支持 0x200/0x400/0x800 大页长度编码）：
+
+本机实测（Medium 用户，无需管理员/驱动）：
+```
+[OK] 5 physical memory ranges (registry HARDWARE\RESOURCEMAP):
+  [ 0] 0x1000 - 0x9F000  len=0x9E000
+  [ 1] 0x100000 - 0xA00000  len=0x900000
+  [ 2] 0xA73000 - 0x6D6EB000  len=0x6CC78000
+  [ 3] 0x727FF000 - 0x72800000  len=0x1000
+  [ 4] 0x100000000 - 0x27F800000  len=0x17F800000
+VERDICT=PASS
+```
+`--locate --pid <pid> --auto-ranges` 会遍历这些范围找 `_EPROCESS`，无需手工给
+`--scan-start/--scan-size`（仍需取数层 driver 提供物理读）。
+
+## 8. 用法
 ```powershell
 # 离线三层验证
 .\bin\layers.exe --selftest-mock
 
+# 定位层辅助：读取物理内存范围（无需驱动）
+.\bin\layers.exe --ranges
+
 # 取数层：物理读
 .\bin\layers.exe --reader rtkio --read-phys --pa 0x10000000 --size 0x40
 
-# 定位层（物理扫描 CR3）+ 翻译层 + 取数层
-.\bin\layers.exe --reader rtkio --locate --pid 1234 --scan-start 0 --scan-size 0x40000000 --va 0x7FF600000000 --size 0x40
+# 取数层：Round 27 的 AsrDrv(2) N-day provider（需先有管理员加载驱动）
+.\bin\layers.exe --reader asrdrv --read-phys --pa 0x10000000 --size 0x40
+
+# 定位层（注册表自动范围物理扫描 CR3）+ 翻译层 + 取数层
+.\bin\layers.exe --reader rtkio --locate --pid 1234 --auto-ranges --va 0x7FF600000000 --size 0x40
 
 # 显式 CR3：翻译层 + 取数层
 .\bin\layers.exe --reader cchwapi --cr3 0x1A0000 --va 0x7FF600000000 --size 0x40
