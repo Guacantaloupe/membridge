@@ -57,6 +57,7 @@ typedef struct mb_phys_reader {
 | `asupio64` | `\\.\AsUpdateio`（ASUS EZ Update 3.00.03），物理映射 IOCTL `0xA040A480`（静态推导 24B 请求 `{interfaceType,busNumber,phys_start,addressSpace,size}` → 返回 user VA）；门控要求当前进程名含 `PEUPDATER.EXE`，需把 layers.exe 复制/改名为 `PEUPDATER.EXE`；动态验证待提权 |
 | `asio2` | `\\.\Asusgio2`（ASUS AsIO2），物理映射 IOCTL `0xA040A480`（64-bit 0x28 请求 `{u64 size; u64 phys_start; section_handle_out; user_va_out}`）；驱动门控读取当前进程 PE 的 **ASUSCERT 资源**（AES+PE 时间戳校验）——已构造 `bin\layers_asio2.exe`（ASUSCERT=AES_dec(0)，TimeDateStamp=0）离线通过门控；动态验证待提权 |
 | `aswarpot` | Avast anti-rootkit（`aswArPot.sys` 多版本），设备 `\\.\aswSP_ArPot2`（候选 `avastSP_ArPot2`）；任意物理读 IOCTL **`0x9988C408`**（input 12B `{u32 pa; u32 rsvd; u32 size}`，output=size bytes，32-bit PA，MmMapIoSpace）；另有任意物理写 IOCTL `0x9988C40C`（PA+≤4 字节）；静态逆向确认，动态验证待提权 |
+| `winio64` | WinIo64（经典物理内存映射驱动，`\\.\WinIo`）；IOCTL **`0x80102040`** MAPPHYSTOLIN（0x28 请求 `{u64 size; u64 phys_start; section_handle; user_va; object}`，映射 `\Device\PhysicalMemory`），`0x80102044` UNMAP；任意物理映射读；静态逆向确认，动态验证待提权 |
 | `mock` | 离线自测用合成物理内存 |
 
 `membridge.exe` 已集成 22 个全 64 位物理读 backend（cchwapi/rtkio/eneio64/hp/gibepext/fastdump/directio/tdeio/icachex/mrt 等）；每个 backend 都只是取数层的一个实现，新增 backend 不影响定位层和翻译层。
@@ -73,7 +74,7 @@ typedef struct mb_phys_reader {
 - 伪造 `_EPROCESS`（PID 4242 / MOCK.exe / DTB 0x1000）；
 - 分别验证：取数层、翻译层、定位层、三层组合、独立性。
 
-结果（28/28 PASS）：
+结果（29/29 PASS）：
 ```
 [PASS] 取数层(fetcher): PA=0x5000 bytes match mock data
 [PASS] 翻译层(translator): VA=0x400000 -> PA=0x5000 (4KB page)
@@ -91,6 +92,7 @@ typedef struct mb_phys_reader {
 [PASS] 取数层(fetcher): mrt request layout (PA/size/flags)
 [PASS] 取数层(fetcher): asrdrv read command layout (opcode/args)
 [PASS] 取数层(fetcher): aswArPot physical read request layout
+[PASS] 取数层(fetcher): winio64 map request layout (size/phys)
 [PASS] 定位层(locator): PID 4242 / MOCK.exe -> CR3=0x1000 (physical scan)
 [PASS] 定位层(locator): fake EPROCESS PA=0x8000
 [PASS] 定位层(locator): kernel-reader list walk -> CR3=0x3000 (no physical reader)

