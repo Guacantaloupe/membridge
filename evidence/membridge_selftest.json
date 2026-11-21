@@ -1,6 +1,6 @@
 ﻿{
-    "date":  "2026-11-22T02:55:24",
-    "page_pa":  "0x1D259D000",
+    "date":  "2026-11-22T03:44:53",
+    "page_pa":  "0x14BFF000",
     "results":  [
                     {
                         "backend":  "cchwapi_2_9",
@@ -61,6 +61,12 @@
                         "exit":  0,
                         "verdict":  "PASS",
                         "evidence":  "evidence/selftest_eneio64.log"
+                    },
+                    {
+                        "backend":  "glckio2",
+                        "exit":  0,
+                        "verdict":  "PASS",
+                        "evidence":  "evidence/selftest_glckio2.log"
                     }
                 ],
     "new_dumps":  ""

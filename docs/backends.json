@@ -124,6 +124,16 @@
    "full64": true,
    "description": "eneio64.sys (ASUS/GIGABYTE ENE WinIO; IOCTL_WINIO_MAPPHYSTOLIN 0x80102040, arbitrary 64-bit PA)",
    "sha256": "38c18db050b0b2b07f657c03db1c9595febae0319c746c3eede677e21cd238b0"
+  },
+  {
+   "id": "glckio2",
+   "file": "drivers\\glckio2\\glckio2.sys",
+   "kind": "control",
+   "device": "\\\\.\\GLCKIo2",
+   "layout": "glckio2",
+   "full64": true,
+   "description": "glckio2.sys (ASUS GLCKIO2; PID whitelist bypass via AES registration + IOCTL_WINIO_MAPPHYSTOLIN 0x80102040, arbitrary 64-bit PA)",
+   "sha256": "e5b0772be02e2bc807804874cf669e97aa36f5aff1f12fa0a631a3c7b4dd0dc8"
   }
  ]
 }

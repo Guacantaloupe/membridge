@@ -27,11 +27,12 @@
 | `rtkio` | rtkio.sys（Realtek） | IOCTL_PHYMEM_MAP `0x80002000`（u64 PA + size → 用户态 VA） | 64-bit | ✅ PASS |
 | `rtkiow8x64` | rtkiow8x64.sys（Realtek W8 变体） | IOCTL_PHYMEM_MAP `0x80002000` | 64-bit | ✅ PASS |
 | `eneio64` | eneio64.sys（ASUS/GIGABYTE ENE WinIO） | IOCTL_WINIO_MAPPHYSTOLIN `0x80102040` | 64-bit | ✅ PASS |
+| `glckio2` | glckio2.sys（ASUS GLCKIO2，未命中官方 blocklist） | 白名单自注册（AES 加密 PID）+ IOCTL_WINIO_MAPPHYSTOLIN `0x80102040` | 64-bit | ✅ PASS |
 | `ufu_win10` | win10_ufudev64.sys | ReadMemory `0x8010206E` | 32-bit（受限） | 可加载 |
 | `winring0x64` | WinRing0x64.sys | READ_MEMORY `0x9C406104` | 低 1MiB（受限） | 可加载 |
 
-**10 个 64-bit 后端均通过 AWE 端到端自测**：框架启动 test.exe（AWE 目标），逐后端读取其物理页并校验页内标记
-（结果：10/10 PASS，见 `evidence/membridge_selftest.json`）。
+**11 个 64-bit 后端均通过 AWE 端到端自测**：框架启动 test.exe（AWE 目标），逐后端读取其物理页并校验页内标记
+（结果：11/11 PASS，见 `evidence/membridge_selftest.json`）。
 
 ## 2. 快速开始
 
@@ -44,7 +45,7 @@
 # 用指定后端读取物理内存（PA 为十六进制）
 .\scripts\membridge.ps1 -Action read -Backend cchwapi_2_12 -Pa 0x100000 -Size 0x100 -Dump
 
-# 端到端自测：启动 AWE 目标 → 逐后端读取 → 校验标记（默认 10 个 64-bit 后端）
+# 端到端自测：启动 AWE 目标 → 逐后端读取 → 校验标记（默认 11 个 64-bit 后端）
 .\scripts\membridge.ps1 -Action selftest
 
 # 只测部分后端
@@ -97,7 +98,7 @@
 
 | 类型 | 后端 | 安装方式 |
 |---|---|---|
-| 控制类驱动 | cchwapi_2_9 / cchwapi_2_12 / cchwapi_ext_4_5 / hp_swtools / swtoolsdriver / isharepp / rtkio / rtkiow8x64 / eneio64 / ufu_win10 / winring0x64 | 框架自动执行 `sc create <服务名> binPath=<驱动路径> type=kernel` + `sc start`；读取后自动 `stop/delete`，与手工 `sc.exe` 安装内核驱动完全相同 |
+| 控制类驱动 | cchwapi_2_9 / cchwapi_2_12 / cchwapi_ext_4_5 / hp_swtools / swtoolsdriver / isharepp / rtkio / rtkiow8x64 / eneio64 / glckio2 / ufu_win10 / winring0x64 | 框架自动执行 `sc create <服务名> binPath=<驱动路径> type=kernel` + `sc start`；读取后自动 `stop/delete`，与手工 `sc.exe` 安装内核驱动完全相同 |
 | filter 类驱动 | sjtwinio | 框架自动：`sc create`（不启动）→ 通过 SetupAPI 创建标准 ROOT 枚举 PnP 设备 → 在设备实例键写入 `Service` → disable/enable 设备 → PnP 以函数驱动方式加载 → 出现 `\\.\SJTWINIO0200`；读取后移除 root 设备并 stop/delete 服务 |
 | CR3 辅助驱动 | KKYUM.sys（内核结构读）、eneio64.sys（页表物理读） | `cr3read.exe` 自动 `sc create/start`；结束后尝试 stop/delete（KKYUM 可能驻留到重启） |
 
@@ -131,6 +132,7 @@ membridge/
 │   ├── rtkio/rtkio.sys
 │   ├── rtkiow8x64/rtkiow8x64.sys
 │   ├── eneio64/eneio64.sys
+│   ├── glckio2/glckio2.sys
 │   ├── KKYUM/KKYUM.sys
 │   ├── ufu/win10_ufudev64.sys
 │   └── winring0/WinRing0x64.sys

