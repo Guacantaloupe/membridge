@@ -64,6 +64,7 @@ typedef struct mb_phys_reader {
 | `asio64` | ASUS Asusgio（`\\.\Asusgio`）；物理映射 IOCTL **`0xA040244C`**（input 0x18 `{u32 interfaceType; u32 busNumber; u64 phys; u32 addressSpace; u32 length}`，映射 `\Device\PhysicalMemory`，输出 8 字节 VA），`0xA0402450` UNMAP；映射可写，支持读/写；静态逆向确认，动态验证待提权 |
 | `adv64drv` | ADV64DRV（`\\.\ADV64DRV`）；物理读 IOCTL **`0x224004`**（input 0x10 `{u64 phys; u32 size; u32 reserved}`，`HalTranslateBusAddress` + `MmMapIoSpace` 拷贝 size 字节）；静态逆向确认，动态验证待提权 |
 | `ntiolib` | NTIOLib（`\\.\NTIOLib_1_0_C`）；物理读 IOCTL **`0xC3506104`**（input 0x10 `{u64 phys; u32 width; u32 count}`，输出长度 ≥ width*count，`MmMapIoSpace` 拷贝）；物理写 IOCTL **`0xC3506108`**（0x10 头 + 数据）；另有 MSR/端口/PCI 访问；静态逆向确认，动态验证待提权 |
+| `winring0` | WinRing0（`\\.\WinRing0_1_0_1`，候选 `WinRing0_1_2_0`）；物理读 IOCTL **`0x9C406104`**（input 0x10 `{u64 phys; u32 width; u32 count}`）；物理写 IOCTL **`0x9C406108`**；另有 MSR/端口/PCI 访问；静态逆向确认，动态验证待提权 |
 | `mock` | 离线自测用合成物理内存 |
 
 `membridge.exe` 已集成 22 个全 64 位物理读 backend（cchwapi/rtkio/eneio64/hp/gibepext/fastdump/directio/tdeio/icachex/mrt 等）；每个 backend 都只是取数层的一个实现，新增 backend 不影响定位层和翻译层。
@@ -80,7 +81,7 @@ typedef struct mb_phys_reader {
 - 伪造 `_EPROCESS`（PID 4242 / MOCK.exe / DTB 0x1000）；
 - 分别验证：取数层、翻译层、定位层、三层组合、独立性。
 
-结果（39/39 PASS）：
+结果（40/40 PASS）：
 ```
 [PASS] 取数层(fetcher): PA=0x5000 bytes match mock data
 [PASS] 翻译层(translator): VA=0x400000 -> PA=0x5000 (4KB page)
@@ -107,6 +108,7 @@ typedef struct mb_phys_reader {
 [PASS] 取数层(fetcher): asio64 map request layout (phys/len)
 [PASS] 取数层(fetcher): adv64drv physical read request layout
 [PASS] 取数层(fetcher): ntiolib read request layout (PA/width/count)
+[PASS] 取数层(fetcher): winring0 read request layout (PA/width/count)
 [PASS] 定位层(locator): PID 4242 / MOCK.exe -> CR3=0x1000 (physical scan)
 [PASS] 定位层(locator): fake EPROCESS PA=0x8000
 [PASS] 定位层(locator): kernel-reader list walk -> CR3=0x3000 (no physical reader)
