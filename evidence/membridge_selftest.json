@@ -1,0 +1,43 @@
+﻿{
+    "date":  "2026-11-22T02:38:18",
+    "page_pa":  "0x24BF08000",
+    "results":  [
+                    {
+                        "backend":  "cchwapi_2_9",
+                        "exit":  0,
+                        "verdict":  "PASS",
+                        "evidence":  "evidence/selftest_cchwapi_2_9.log"
+                    },
+                    {
+                        "backend":  "cchwapi_2_12",
+                        "exit":  0,
+                        "verdict":  "PASS",
+                        "evidence":  "evidence/selftest_cchwapi_2_12.log"
+                    },
+                    {
+                        "backend":  "cchwapi_ext_4_5",
+                        "exit":  0,
+                        "verdict":  "PASS",
+                        "evidence":  "evidence/selftest_cchwapi_ext_4_5.log"
+                    },
+                    {
+                        "backend":  "sjtwinio",
+                        "exit":  0,
+                        "verdict":  "PASS",
+                        "evidence":  "evidence/selftest_sjtwinio.log"
+                    },
+                    {
+                        "backend":  "hp_swtools",
+                        "exit":  0,
+                        "verdict":  "PASS",
+                        "evidence":  "evidence/selftest_hp_swtools.log"
+                    },
+                    {
+                        "backend":  "swtoolsdriver",
+                        "exit":  0,
+                        "verdict":  "PASS",
+                        "evidence":  "evidence/selftest_swtoolsdriver.log"
+                    }
+                ],
+    "new_dumps":  ""
+}
