@@ -1,6 +1,6 @@
 ﻿{
-    "date":  "2026-11-22T04:29:43",
-    "page_pa":  "0x18C506000",
+    "date":  "2026-11-22T04:33:02",
+    "page_pa":  "0xAC8C000",
     "results":  [
                     {
                         "backend":  "cchwapi_2_9",
@@ -91,6 +91,12 @@
                         "exit":  0,
                         "verdict":  "PASS",
                         "evidence":  "evidence/selftest_gibepext.log"
+                    },
+                    {
+                        "backend":  "fastdumpx64",
+                        "exit":  0,
+                        "verdict":  "PASS",
+                        "evidence":  "evidence/selftest_fastdumpx64.log"
                     }
                 ],
     "new_dumps":  ""

