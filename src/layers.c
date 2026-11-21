@@ -739,7 +739,7 @@ static void check(const char *layer, const char *what, int ok) {
 
 static int selftest_mock(void) {
     printf("== membridge layers offline self-test (mock physical memory) ==\n");
-    const uint64_t mem_size = 0x200000;
+    const uint64_t mem_size = 0x400000;
     uint8_t *mem = (uint8_t *)calloc(1, mem_size);
     if (!mem) return 2;
 
@@ -758,6 +758,8 @@ static int selftest_mock(void) {
     // large-page entries: PD[1] = 2MB page PA 0x200000; PDPT[1] = 1GB page PA 0x40000000
     *(uint64_t *)(mem + 0x3000 + 1 * 8) = 0x200083;        // 2MB page (PS)
     *(uint64_t *)(mem + 0x2000 + 1 * 8) = 0x40000083ull;   // 1GB page (PS)
+    const char *large_data = "LARGE_PAGE_2MB_DATA_0123456789";
+    memcpy(mem + 0x200010, large_data, strlen(large_data));
 
     // fake EPROCESS at PA 0x8000: name @+0x338, PID @+0x1D0, DTB @+0x28
     memcpy(mem + 0x8000 + EP_NAME, "MOCK.exe", 9);
@@ -790,6 +792,11 @@ static int selftest_mock(void) {
     int ok_2m = mb_layer_translate(&r, cr3, 0x200000, &pa2m, &page2m) &&
                 pa2m == 0x200000 && page2m == 0x200000;
     check("翻译层(translator)", "VA=0x200000 -> PA=0x200000 (2MB page)", ok_2m);
+    uint8_t lpage[64];
+    memset(lpage, 0, sizeof(lpage));
+    int ok_2m_read = mb_layer_read_va(&r, cr3, 0x200010, lpage, (uint32_t)strlen(large_data)) &&
+                     memcmp(lpage, large_data, strlen(large_data)) == 0;
+    check("三层组合(pipeline)", "read VA 0x200010 through 2MB page", ok_2m_read);
     uint64_t pa1g = 0, page1g = 0;
     int ok_1g = mb_layer_translate(&r, cr3, 0x40000000, &pa1g, &page1g) &&
                 pa1g == 0x40000000 && page1g == 0x40000000;
