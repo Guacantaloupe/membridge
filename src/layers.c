@@ -781,6 +781,13 @@ static int selftest_mock(void) {
                   *(uint32_t *)(map_req + 20) == 0x1000;
     check("取数层(fetcher)", "asupio64 map request layout (page-aligned)", ok_asup);
 
+    // AsUpIO64 cross-page map request: PA 0x12345FFF + 0x10 must map two pages
+    uint8_t map_req2[24];
+    int ok_asup2 = asupio64_build_map_request(0x12345FFF, 0x10, map_req2) &&
+                   *(uint64_t *)(map_req2 + 8) == 0x12345000ull &&
+                   *(uint32_t *)(map_req2 + 20) == 0x2000;
+    check("取数层(fetcher)", "asupio64 cross-page map request (map size 0x2000)", ok_asup2);
+
     // 定位层 alone (physical EPROCESS scan, no kernel reader)
     uint64_t located_cr3 = 0, eproc = 0;
     int ok_loc = mb_layer_locate_cr3_scan(&r, 0x8000, 0x1000, 4242, "MOCK.exe",

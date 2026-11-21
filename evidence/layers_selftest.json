@@ -47,6 +47,7 @@
       "[PASS] 三层组合(pipeline): cross-page read VA 0x400FF0 (two 4KB pages)",
       "[PASS] 翻译层(translator): unmapped VA=0x800000 rejected",
       "[PASS] 取数层(fetcher): asupio64 map request layout (page-aligned)",
+      "[PASS] 取数层(fetcher): asupio64 cross-page map request (map size 0x2000)",
       "[PASS] 定位层(locator): PID 4242 / MOCK.exe -> CR3=0x1000 (physical scan)",
       "[PASS] 定位层(locator): fake EPROCESS PA=0x8000",
       "[PASS] 定位层(locator): kernel-reader list walk -> CR3=0x3000 (no physical reader)",
@@ -54,7 +55,7 @@
       "[PASS] 独立性(independence): 取数层 usable without locator/translator",
       "[PASS] 独立性(independence): 翻译层 usable without locator"
     ],
-    "passed": 14,
+    "passed": 15,
     "failed": 0,
     "offline_no_admin_no_driver": true
   },
