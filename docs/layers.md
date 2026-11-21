@@ -75,7 +75,7 @@ typedef struct mb_phys_reader {
 - 伪造 `_EPROCESS`（PID 4242 / MOCK.exe / DTB 0x1000）；
 - 分别验证：取数层、翻译层、定位层、三层组合、独立性。
 
-结果（31/31 PASS）：
+结果（33/33 PASS）：
 ```
 [PASS] 取数层(fetcher): PA=0x5000 bytes match mock data
 [PASS] 翻译层(translator): VA=0x400000 -> PA=0x5000 (4KB page)
@@ -108,6 +108,8 @@ typedef struct mb_phys_reader {
 [PASS] 定位层(locator): truncated CM_RESOURCE_LIST rejected
 [PASS] 定位层(locator): oversized resource Count rejected
 [PASS] 翻译层(translator): CR3=0 rejected
+[PASS] 翻译层(translator): VA=0x1010 -> PA=0x305010 (5-level/LA57)
+[PASS] 三层组合(pipeline): read VA through 5-level page tables
 VERDICT=PASS
 ```
 
@@ -187,6 +189,7 @@ VERDICT=PASS
 # Invary 内核 VA 读诊断（需要 invarysensor.sys 驱动）
 .\bin\layers.exe --invary-read --va 0xFFFF800000000000 --size 16
 
-# 显式 CR3：翻译层 + 取数层
+# 显式 CR3：翻译层 + 取数层（默认 4-level；--la57 使用 5-level/LA57 页表）
 .\bin\layers.exe --reader cchwapi --cr3 0x1A0000 --va 0x7FF600000000 --size 0x40
+.\bin\layers.exe --reader mock --cr3 0x300000 --va 0x1010 --size 4 --la57
 ```

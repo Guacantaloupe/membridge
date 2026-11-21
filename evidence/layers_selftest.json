@@ -78,9 +78,11 @@
       "[PASS] 定位层(locator): registry range parser (Memory/MemoryLarge)",
       "[PASS] 定位层(locator): truncated CM_RESOURCE_LIST rejected",
       "[PASS] 定位层(locator): oversized resource Count rejected",
-      "[PASS] 翻译层(translator): CR3=0 rejected"
+      "[PASS] 翻译层(translator): CR3=0 rejected",
+      "[PASS] 翻译层(translator): VA=0x1010 -> PA=0x305010 (5-level/LA57)",
+      "[PASS] 三层组合(pipeline): read VA through 5-level page tables"
     ],
-    "passed": 31,
+    "passed": 33,
     "failed": 0,
     "offline_no_admin_no_driver": true
   },
@@ -93,9 +95,9 @@
   "build": {
     "command": "build.ps1",
     "artifacts": ["bin/membridge.exe", "bin/cr3read.exe", "bin/layers.exe"],
-    "layers_exe_size": 100730,
-    "layers_asio2_exe_size": 100748,
-    "peupdater_exe_size": 100748,
+    "layers_exe_size": 102900,
+    "layers_asio2_exe_size": 102918,
+    "peupdater_exe_size": 102918,
     "dual_gate_binary": "bin/PEUPDATER.EXE satisfies AsUpIO64 filename gate and AsIO2 ASUSCERT gate",
     "build_self_verify": "scripts/build_asio2_layers.ps1 runs verify_asio2_gate.py for layers_asio2.exe and PEUPDATER.EXE; fails build on gate failure",
     "asio2_gate_bypass": {

@@ -585,6 +585,37 @@ static int mb_layer_translate(mb_phys_reader *r, uint64_t cr3, uint64_t va,
     return (*out_pa < MB_MAX_PHYS);
 }
 
+// 5-level paging (LA57): PML5 -> PML4 -> PDPT -> PD -> PT.
+// Supports 4KB/2MB/1GB pages; 512GB PML4 huge pages are rejected.
+static int mb_layer_translate5(mb_phys_reader *r, uint64_t cr3, uint64_t va,
+                               uint64_t *out_pa, uint64_t *out_page_size) {
+    uint64_t e = 0;
+    uint64_t table = cr3 & 0x000FFFFFFFFFF000ull;
+    if (!phys_read_u64(r, table + (((va >> 48) & 0x1FF) * 8), &e) || !(e & 1)) return 0;
+    table = e & 0x000FFFFFFFFFF000ull;
+    if (!phys_read_u64(r, table + (((va >> 39) & 0x1FF) * 8), &e) || !(e & 1)) return 0;
+    if (e & 0x80) return 0;  // 512GB pages not supported
+    table = e & 0x000FFFFFFFFFF000ull;
+    if (!phys_read_u64(r, table + (((va >> 30) & 0x1FF) * 8), &e) || !(e & 1)) return 0;
+    if (e & 0x80) {
+        *out_pa = (e & 0x000FFFFFC0000000ull) + (va & 0x3FFFFFFFull);
+        *out_page_size = 0x40000000ull;
+        return (*out_pa < MB_MAX_PHYS);
+    }
+    table = e & 0x000FFFFFFFFFF000ull;
+    if (!phys_read_u64(r, table + (((va >> 21) & 0x1FF) * 8), &e) || !(e & 1)) return 0;
+    if (e & 0x80) {
+        *out_pa = (e & 0x000FFFFFFFE00000ull) + (va & 0x1FFFFFull);
+        *out_page_size = 0x200000ull;
+        return (*out_pa < MB_MAX_PHYS);
+    }
+    table = e & 0x000FFFFFFFFFF000ull;
+    if (!phys_read_u64(r, table + (((va >> 12) & 0x1FF) * 8), &e) || !(e & 1)) return 0;
+    *out_pa = (e & 0x000FFFFFFFFFF000ull) + (va & 0xFFFull);
+    *out_page_size = 0x1000;
+    return (*out_pa < MB_MAX_PHYS);
+}
+
 // ---------------------------------------------------------------------------
 // 定位层 (locator): target process -> CR3
 // ---------------------------------------------------------------------------
@@ -1004,6 +1035,28 @@ static int mb_layer_read_va(mb_phys_reader *r, uint64_t cr3, uint64_t va,
     return 1;
 }
 
+static int mb_layer_read_va5(mb_phys_reader *r, uint64_t cr3, uint64_t va,
+                             void *out, uint32_t size) {
+    uint32_t done = 0;
+    while (done < size) {
+        uint64_t cur = va + done;
+        uint64_t pa = 0, page = 0;
+        if (!mb_layer_translate5(r, cr3, cur, &pa, &page)) {
+            fprintf(stderr, "[ERR] translate5 failed VA=0x%llX\n", (unsigned long long)cur);
+            return 0;
+        }
+        uint32_t page_off = (uint32_t)(cur & 0xFFF);
+        uint32_t chunk = size - done;
+        if (chunk > 0x1000 - page_off) chunk = 0x1000 - page_off;
+        if (!r->read(r, pa, (uint8_t *)out + done, chunk)) {
+            fprintf(stderr, "[ERR] fetch failed PA=0x%llX\n", (unsigned long long)pa);
+            return 0;
+        }
+        done += chunk;
+    }
+    return 1;
+}
+
 static int hex_decode(const char *s, uint8_t *out, int max) {
     int n = 0;
     while (s && *s && n < max) {
@@ -1330,6 +1383,22 @@ static int selftest_mock(void) {
     int ok_badcr3 = !mb_layer_translate(&r, 0, 0x400000, &pa_bad, &page_bad);
     check("翻译层(translator)", "CR3=0 rejected", ok_badcr3);
 
+    // 5-level paging (LA57) mock tables: VA 0x1010 -> PA 0x305010
+    *(uint64_t *)(mem + 0x300000 + 0x000) = 0x301003ull;  // PML5[0] -> PML4
+    *(uint64_t *)(mem + 0x301000 + 0x000) = 0x302003ull;  // PML4[0] -> PDPT
+    *(uint64_t *)(mem + 0x302000 + 0x000) = 0x303003ull;  // PDPT[0] -> PD
+    *(uint64_t *)(mem + 0x303000 + 0x000) = 0x304003ull;  // PD[0] -> PT
+    *(uint64_t *)(mem + 0x304000 + 0x008) = 0x305003ull;  // PT[1] -> PA 0x305000
+    memcpy(mem + 0x305010, "LA57", 4);
+    uint64_t pa5 = 0, page5 = 0;
+    int ok_la57 = mb_layer_translate5(&r, 0x300000, 0x1010, &pa5, &page5) &&
+                  pa5 == 0x305010 && page5 == 0x1000;
+    check("翻译层(translator)", "VA=0x1010 -> PA=0x305010 (5-level/LA57)", ok_la57);
+    char la57buf[4] = { 0 };
+    int ok_la57_read = mb_layer_read_va5(&r, 0x300000, 0x1010, la57buf, 4) &&
+                       memcmp(la57buf, "LA57", 4) == 0;
+    check("三层组合(pipeline)", "read VA through 5-level page tables", ok_la57_read);
+
     free(mem);
     printf("VERDICT=%s\n", g_fail ? "FAIL" : "PASS");
     return g_fail ? 1 : 0;
@@ -1348,7 +1417,7 @@ static void usage(void) {
     printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64|dumpit> [--device <path>] --read-phys --pa <hex> --size <n>\n");
     printf("  layers --reader ... --write-phys --pa <hex> --data <hex bytes>  (providers with write)\n");
     printf("  layers --reader <mock> --cr3 <hex> --va <hex> --size <n>\n");
-    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64|dumpit> [--device <path>] --cr3 <hex> --va <hex> --size <n>\n");
+    printf("  layers --reader ... --cr3 <hex> --va <hex> --size <n> [--la57]  (translate/read, 4-level or 5-level)\n");
     printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64|dumpit> [--device <path>] --locate --pid <pid> --scan-start <hex> --scan-size <hex> [--name <exe>]\n");
     printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64|dumpit> [--device <path>] --locate --pid <pid> --auto-ranges [--name <exe>]\n");
     printf("  layers --reader ... --locate --pid <pid> (--scan-start/--scan-size | --auto-ranges) --va <hex> --size <n>\n");
@@ -1367,6 +1436,7 @@ int main(int argc, char **argv) {
     uint64_t pa = 0, cr3 = 0, va = 0, scan_start = 0, scan_size = 0;
     uint32_t size = 0x40, pid = 0, expect_first = 0;
     int do_selftest = 0, do_read_phys = 0, do_write_phys = 0, do_explicit = 0, do_locate = 0, have_cr3 = 0, have_va = 0;
+    int use_la57 = 0;
     const char *data_hex = NULL;
     int do_ranges = 0, auto_ranges = 0, use_kkyum = 0, use_kprl = 0, use_invary = 0, use_auto = 0, do_invary_read = 0, do_probe = 0, do_probe_loc = 0;
     for (int i = 1; i < argc; i++) {
@@ -1389,6 +1459,7 @@ int main(int argc, char **argv) {
         else if (strcmp(argv[i], "--scan-size") == 0 && i + 1 < argc) scan_size = _strtoui64(argv[++i], NULL, 0);
         else if (strcmp(argv[i], "--read-phys") == 0) do_read_phys = 1;
         else if (strcmp(argv[i], "--write-phys") == 0) do_write_phys = 1;
+        else if (strcmp(argv[i], "--la57") == 0) use_la57 = 1;
         else if (strcmp(argv[i], "--data") == 0 && i + 1 < argc) data_hex = argv[++i];
         else if (strcmp(argv[i], "--locate") == 0) do_locate = 1;
         else if (strcmp(argv[i], "--kkyum") == 0) use_kkyum = 1;
@@ -1568,7 +1639,9 @@ int main(int argc, char **argv) {
                 rc = 6;
             } else {
                 uint8_t *b = (uint8_t *)calloc(1, size);
-                if (b && mb_layer_read_va(&r, got_cr3, va, b, size)) {
+                int rok = b && (use_la57 ? mb_layer_read_va5(&r, got_cr3, va, b, size)
+                                         : mb_layer_read_va(&r, got_cr3, va, b, size));
+                if (rok) {
                     printf("[OK] 翻译+取数 VA=0x%llX -> %u bytes\n", (unsigned long long)va, size);
                     for (uint32_t i = 0; i < size; i++) printf("%02X%s", b[i], ((i + 1) % 16 == 0) ? "\n" : " ");
                     printf("\nVERDICT=PASS\n");
@@ -1580,12 +1653,15 @@ int main(int argc, char **argv) {
         uint8_t *b = (uint8_t *)calloc(1, size);
         uint64_t pa_out = 0, page = 0;
         if (!b) { rc = 6; goto done; }
-        if (!mb_layer_translate(&r, cr3, va, &pa_out, &page)) {
+        if (use_la57 ? !mb_layer_translate5(&r, cr3, va, &pa_out, &page)
+                     : !mb_layer_translate(&r, cr3, va, &pa_out, &page)) {
             printf("[ERR] 翻译层 VA=0x%llX -> PA failed\n", (unsigned long long)va); rc = 5;
         } else {
             printf("[OK] 翻译层 VA=0x%llX -> PA=0x%llX page=0x%llX\n", (unsigned long long)va,
                    (unsigned long long)pa_out, (unsigned long long)page);
-            if (!mb_layer_read_va(&r, cr3, va, b, size)) { printf("[ERR] 取数层 failed\n"); rc = 5; }
+            int rok = use_la57 ? mb_layer_read_va5(&r, cr3, va, b, size)
+                               : mb_layer_read_va(&r, cr3, va, b, size);
+            if (!rok) { printf("[ERR] 取数层 failed\n"); rc = 5; }
             else {
                 printf("[OK] bytes:\n");
                 for (uint32_t i = 0; i < size; i++) printf("%02X%s", b[i], ((i + 1) % 16 == 0) ? "\n" : " ");
