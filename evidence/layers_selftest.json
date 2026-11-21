@@ -20,7 +20,8 @@
     "eneio64 (0x80102040)",
     "asrdrv (CVE-2020-15368 family; AES IOCTL 0x22EC00 + physical read opcode 0x22E808; integrated Round 30, dynamic pending)",
     "mrt (FireEye/fekern MRT_IOCTL_READ_PHYSICALMEMORY 0x70F8800C; SYSTEM-only ACL; integrated Round 31, dynamic pending)",
-    "cpuz (CPU-Z 1.52 physical dword read 0x9C402708 with page-first-dword guard; integrated Round 32, dynamic pending)"
+    "cpuz (CPU-Z 1.52 physical dword read 0x9C402708 with page-first-dword guard; integrated Round 32, dynamic pending)",
+    "asupio64 (ASUS EZ Update AsUpIO64 physical map 0xA040A480; PEUPDATER.EXE gate; static-derived request layout, integrated Round 38, dynamic pending)"
   ],
   "locator_registry_ranges": {
     "command": "bin/layers.exe --ranges",
@@ -45,6 +46,7 @@
       "[PASS] 翻译层(translator): VA=0x40000000 -> PA=0x40000000 (1GB page)",
       "[PASS] 三层组合(pipeline): cross-page read VA 0x400FF0 (two 4KB pages)",
       "[PASS] 翻译层(translator): unmapped VA=0x800000 rejected",
+      "[PASS] 取数层(fetcher): asupio64 map request layout (page-aligned)",
       "[PASS] 定位层(locator): PID 4242 / MOCK.exe -> CR3=0x1000 (physical scan)",
       "[PASS] 定位层(locator): fake EPROCESS PA=0x8000",
       "[PASS] 定位层(locator): kernel-reader list walk -> CR3=0x3000 (no physical reader)",
@@ -52,7 +54,7 @@
       "[PASS] 独立性(independence): 取数层 usable without locator/translator",
       "[PASS] 独立性(independence): 翻译层 usable without locator"
     ],
-    "passed": 13,
+    "passed": 14,
     "failed": 0,
     "offline_no_admin_no_driver": true
   },
@@ -65,7 +67,7 @@
   "build": {
     "command": "build.ps1",
     "artifacts": ["bin/membridge.exe", "bin/cr3read.exe", "bin/layers.exe"],
-    "layers_exe_size": 87444
+    "layers_exe_size": 88181
   },
   "mapping_to_nday_candidates": {
     "取数层_fetcher": "membridge 22 backends; AsrDrv(2) arbitrary physical R/W (provider integrated), AsUpIO64 physical map/MSR, CPU-Z physical dword R/W, FireEye MRT physical read",
