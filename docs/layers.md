@@ -17,7 +17,8 @@
 |---|---|---|
 | `--cr3 <hex>` | 直接提供 CR3（测试/已知值） | 无 |
 | `--locate --pid <pid> --scan-start/--scan-size` | **物理内存扫描**：在物理范围中按 `_EPROCESS` 布局（PID `+0x1D0`、ImageFileName `+0x338`、DirectoryTableBase `+0x28`）定位目标进程并取 CR3 | 仅取数层 |
-| （后续）kernel-reader 策略 | 用 KKYUM 等内核读原语读 `PsInitialSystemProcess` 走进程链表（`cr3read.exe` 已有） | 内核读 provider |
+| `--locate --pid <pid> --auto-ranges` | 同上，范围自动从注册表 `HARDWARE\RESOURCEMAP` 获取 | 仅取数层 |
+| `--locate --kkyum --pid <pid>` | **内核 VA 读 + 进程链表遍历**：KKYUM 读 `PsInitialSystemProcess` → `ActiveProcessLinks` → 目标 EPROCESS → CR3（`--kkyum-device` 可指定设备） | 仅内核读 provider（不需要取数层） |
 
 定位层**不需要**翻译层，也不需要页表；扫描策略只需要取数层。
 
@@ -63,13 +64,14 @@ typedef struct mb_phys_reader {
 - 伪造 `_EPROCESS`（PID 4242 / MOCK.exe / DTB 0x1000）；
 - 分别验证：取数层、翻译层、定位层、三层组合、独立性。
 
-结果（8/8 PASS）：
+结果（9/9 PASS）：
 ```
 [PASS] 取数层(fetcher): PA=0x5000 bytes match mock data
 [PASS] 翻译层(translator): VA=0x400000 -> PA=0x5000 (4KB page)
 [PASS] 翻译层(translator): VA=0x400010 -> PA=0x5010 (offset preserved)
 [PASS] 定位层(locator): PID 4242 / MOCK.exe -> CR3=0x1000 (physical scan)
 [PASS] 定位层(locator): fake EPROCESS PA=0x8000
+[PASS] 定位层(locator): kernel-reader list walk -> CR3=0x3000 (no physical reader)
 [PASS] 三层组合(pipeline): locate -> translate -> fetch returns mock data
 [PASS] 独立性(independence): 取数层 usable without locator/translator
 [PASS] 独立性(independence): 翻译层 usable without locator
@@ -121,6 +123,9 @@ VERDICT=PASS
 
 # 定位层（注册表自动范围物理扫描 CR3）+ 翻译层 + 取数层
 .\bin\layers.exe --reader rtkio --locate --pid 1234 --auto-ranges --va 0x7FF600000000 --size 0x40
+
+# 定位层（内核 VA 读 + 进程链表，KKYUM；不需要取数层）
+.\bin\layers.exe --locate --kkyum --pid 1234
 
 # 显式 CR3：翻译层 + 取数层
 .\bin\layers.exe --reader cchwapi --cr3 0x1A0000 --va 0x7FF600000000 --size 0x40

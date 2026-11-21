@@ -2,7 +2,7 @@
   "component": "membridge.bin.layers.exe",
   "architecture": "independent three-layer virtual memory access",
   "layers": {
-    "定位层_locator": "target PID/name -> CR3 (explicit CR3 or physical EPROCESS scan; registry physical ranges support --auto-ranges; kernel-reader strategy reserved)",
+    "定位层_locator": "target PID/name -> CR3: (1) explicit CR3, (2) physical EPROCESS scan with manual/registry ranges, (3) kernel-VA reader + ActiveProcessLinks walk (KKYUM)",
     "翻译层_translator": "CR3 + VA -> PA via x64 4-level page tables (4KB/2MB/1GB pages)",
     "取数层_fetcher": "PA + size -> bytes via pluggable mb_phys_reader providers"
   },
@@ -10,6 +10,7 @@
     "mb_phys_reader": "read(pa, buf, size) pluggable physical reader",
     "mb_layer_translate": "reader + cr3 + va -> pa/page_size",
     "mb_layer_locate_cr3_scan": "reader + physical range + pid/name -> cr3",
+    "mb_layer_locate_cr3_kernel": "kernel VA reader + system EPROCESS + list walk -> cr3 (no physical reader)",
     "mb_phys_ranges_from_registry": "HARDWARE\\RESOURCEMAP physical memory ranges -> locator scan ranges",
     "mb_layer_read_va": "composition of translate + fetch (cr3 provided by caller)"
   },
@@ -42,11 +43,12 @@
       "[PASS] 翻译层(translator): VA=0x400010 -> PA=0x5010 (offset preserved)",
       "[PASS] 定位层(locator): PID 4242 / MOCK.exe -> CR3=0x1000 (physical scan)",
       "[PASS] 定位层(locator): fake EPROCESS PA=0x8000",
+      "[PASS] 定位层(locator): kernel-reader list walk -> CR3=0x3000 (no physical reader)",
       "[PASS] 三层组合(pipeline): locate -> translate -> fetch returns mock data",
       "[PASS] 独立性(independence): 取数层 usable without locator/translator",
       "[PASS] 独立性(independence): 翻译层 usable without locator"
     ],
-    "passed": 8,
+    "passed": 9,
     "failed": 0,
     "offline_no_admin_no_driver": true
   },
@@ -59,7 +61,7 @@
   "build": {
     "command": "build.ps1",
     "artifacts": ["bin/membridge.exe", "bin/cr3read.exe", "bin/layers.exe"],
-    "layers_exe_size": 81419
+    "layers_exe_size": 86420
   },
   "mapping_to_nday_candidates": {
     "取数层_fetcher": "membridge 22 backends; AsrDrv(2) arbitrary physical R/W (provider integrated), AsUpIO64 physical map/MSR, CPU-Z physical dword R/W, FireEye MRT physical read",

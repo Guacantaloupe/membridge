@@ -7,7 +7,7 @@ if (-not $gcc) { throw 'gcc not found (install MSYS2/MinGW-w64)' }
 if ($LASTEXITCODE -ne 0) { throw "membridge build failed: $LASTEXITCODE" }
 & $gcc.Source -O2 -o (Join-Path $base 'bin\cr3read.exe') (Join-Path $base 'src\cr3read.c') -lpsapi -ladvapi32
 if ($LASTEXITCODE -ne 0) { throw "cr3read build failed: $LASTEXITCODE" }
-& $gcc.Source -O2 -o (Join-Path $base 'bin\layers.exe') (Join-Path $base 'src\layers.c') -ladvapi32 -lbcrypt
+& $gcc.Source -O2 -o (Join-Path $base 'bin\layers.exe') (Join-Path $base 'src\layers.c') -ladvapi32 -lbcrypt -lpsapi
 if ($LASTEXITCODE -ne 0) { throw "layers build failed: $LASTEXITCODE" }
 Write-Host "built: $base\bin\membridge.exe"
 Write-Host "built: $base\bin\cr3read.exe"
