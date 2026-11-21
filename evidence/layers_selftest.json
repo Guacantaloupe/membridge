@@ -36,7 +36,8 @@
     "asio64 (ASUS Asusgio map IOCTL 0xA040244C / unmap 0xA0402450 arbitrary physical map read/write; integrated Round 62, dynamic pending)",
     "adv64drv (ADV64DRV physical read IOCTL 0x224004; integrated Round 63, dynamic pending)",
     "ntiolib (NTIOLib physical read 0xC3506104 / write 0xC3506108; integrated Round 64, dynamic pending)",
-    "winring0 (WinRing0 physical read 0x9C406104 / write 0x9C406108; integrated Round 65, dynamic pending)"
+    "winring0 (WinRing0 physical read 0x9C406104 / write 0x9C406108; integrated Round 65, dynamic pending)",
+    "amifldrv (AMI flash genericdrv physical read 0xFA002EEC; integrated Round 66, dynamic pending)"
   ],
   "locator_registry_ranges": {
     "command": "bin/layers.exe --ranges",
@@ -80,6 +81,7 @@
       "[PASS] 取数层(fetcher): adv64drv physical read request layout",
       "[PASS] 取数层(fetcher): ntiolib read request layout (PA/width/count)",
       "[PASS] 取数层(fetcher): winring0 read request layout (PA/width/count)",
+      "[PASS] 取数层(fetcher): amifldrv read request layout (PA/width)",
       "[PASS] 定位层(locator): PID 4242 / MOCK.exe -> CR3=0x1000 (physical scan)",
       "[PASS] 定位层(locator): fake EPROCESS PA=0x8000",
       "[PASS] 定位层(locator): kernel-reader list walk -> CR3=0x3000 (no physical reader)",
@@ -95,7 +97,7 @@
       "[PASS] 翻译层(translator): VA=0x1010 -> PA=0x305010 (5-level/LA57)",
       "[PASS] 三层组合(pipeline): read VA through 5-level page tables"
     ],
-    "passed": 40,
+    "passed": 41,
     "failed": 0,
     "offline_no_admin_no_driver": true
   },
@@ -108,9 +110,9 @@
   "build": {
     "command": "build.ps1",
     "artifacts": ["bin/membridge.exe", "bin/cr3read.exe", "bin/layers.exe"],
-    "layers_exe_size": 109178,
-    "layers_asio2_exe_size": 109196,
-    "peupdater_exe_size": 109196,
+    "layers_exe_size": 109740,
+    "layers_asio2_exe_size": 109758,
+    "peupdater_exe_size": 109758,
     "dual_gate_binary": "bin/PEUPDATER.EXE satisfies AsUpIO64 filename gate and AsIO2 ASUSCERT gate",
     "build_self_verify": "scripts/build_asio2_layers.ps1 runs verify_asio2_gate.py for layers_asio2.exe and PEUPDATER.EXE; fails build on gate failure",
     "asio2_gate_bypass": {
