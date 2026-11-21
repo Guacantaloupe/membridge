@@ -1,6 +1,6 @@
 ﻿{
-    "date":  "2026-11-22T04:48:24",
-    "page_pa":  "0x1EFD75000",
+    "date":  "2026-11-22T04:52:37",
+    "page_pa":  "0x16DF0F000",
     "results":  [
                     {
                         "backend":  "cchwapi_2_9",
@@ -121,6 +121,12 @@
                         "exit":  0,
                         "verdict":  "PASS",
                         "evidence":  "evidence/selftest_tdeio.log"
+                    },
+                    {
+                        "backend":  "icachex",
+                        "exit":  0,
+                        "verdict":  "PASS",
+                        "evidence":  "evidence/selftest_icachex.log"
                     }
                 ],
     "new_dumps":  ""

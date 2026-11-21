@@ -224,6 +224,16 @@
    "full64": true,
    "description": "TdeIo64.sys (LOLDrivers unlisted TDE I/O driver; IOCTL 0x91102440 maps arbitrary 64-bit physical range to user VA; read/write capable)",
    "sha256": "688bea7d69dc419668cef149b9ca85abed6745018b70db9a1407afae50abc23f"
+  },
+  {
+   "id": "icachex",
+   "file": "drivers\\icachex\\iCacheX.sys",
+   "kind": "control",
+   "device": "\\\\.\\iCacheX",
+   "layout": "icachex",
+   "full64": true,
+   "description": "iCacheX(1).sys (LOLDrivers unlisted; embeds OlsApi: OlsApiReadMemory 0x9C406104 + OlsApiWriteMemory 0x9C40A108, arbitrary 64-bit physical read/write)",
+   "sha256": "c21bc3831df4c81fe0e97cef9a0bd1da2fda400a62d917a8ff988b54aefc362b"
   }
  ]
 }

