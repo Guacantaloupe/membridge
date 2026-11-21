@@ -1,0 +1,12 @@
+{
+  "backend": "mrt",
+  "driver": "drivers\\mrt\\fekern_mrt.sys",
+  "driver_sha256": "0228f6a97ae659ff9b74f5e478bcd1ab9708892f1482d6bc7abb77bd757c0697",
+  "device": "\\\\.\\fekern_00",
+  "ioctl": "MRT_IOCTL_READ_PHYSICALMEMORY 0x70F8800C",
+  "primitive": "input {u64 PA; u32 size; u32 flags}; output = size bytes; driver uses MmCopyMemory(..., MM_COPY_MEMORY_PHYSICAL) -> arbitrary 64-bit physical read",
+  "caller": "NT AUTHORITY\\SYSTEM",
+  "note": "device ACL is SYSTEM-only: elevated Administrator CreateFile returned err=5 (ACCESS_DENIED); SYSTEM scheduled-task caller opened the device and read the AWE test page successfully",
+  "selftest": "PASS (SYSTEM scheduled task, AWE PAGE[00] marker verified)",
+  "evidence": "../msdriver-0day/evidence/_mrt_test3.log"
+}

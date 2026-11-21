@@ -33,6 +33,7 @@
 | `directio` | DirectIo.sys（PassMark DirectIO，LOLDrivers 未收录） | IOCTL `0x8011607C` 返回 `\Device\PhysicalMemory` section handle → NtMapViewOfSection | 64-bit（只读） | ✅ PASS |
 | `tdeio` | TdeIo64.sys（TDE I/O，LOLDrivers 未收录） | IOCTL `0x91102440` 将任意物理范围映射到用户态（读写） | 64-bit | ✅ PASS |
 | `icachex` | iCacheX(1).sys（LOLDrivers 未收录，内嵌 OlsApi） | OlsApiReadMemory `0x9C406104` / OlsApiWriteMemory `0x9C40A108`（任意物理读写） | 64-bit | ✅ PASS |
+| `mrt` | fekern MRT（WHQL Publisher.sys，LOLDrivers 未收录，FireEye fekern） | MRT_IOCTL_READ_PHYSICALMEMORY `0x70F8800C`（MmCopyMemory 任意物理读；设备 ACL **仅 SYSTEM**） | 64-bit（只读） | ✅ PASS（SYSTEM） |
 | `isharepp` | iSharePp.sys（iSCSIDisk PnP 驱动） | OlsApi READ_MEMORY `0x9C406104` | 64-bit（只读已验证） | ✅ PASS |
 | `rtkio` | rtkio.sys（Realtek） | IOCTL_PHYMEM_MAP `0x80002000`（u64 PA + size → 用户态 VA） | 64-bit | ✅ PASS |
 | `rtkiow8x64` | rtkiow8x64.sys（Realtek W8 变体） | IOCTL_PHYMEM_MAP `0x80002000` | 64-bit | ✅ PASS |
@@ -41,8 +42,9 @@
 | `ufu_win10` | win10_ufudev64.sys | ReadMemory `0x8010206E` | 32-bit（受限） | 可加载 |
 | `winring0x64` | WinRing0x64.sys | READ_MEMORY `0x9C406104` | 低 1MiB（受限） | 可加载 |
 
-**21 个 64-bit 后端均通过 AWE 端到端自测**：框架启动 test.exe（AWE 目标），逐后端读取其物理页并校验页内标记
-（结果：21/21 PASS，见 `evidence/membridge_selftest.json`）。
+**22 个 64-bit 后端**：默认 **21 个**通过 AWE 端到端自测；`mrt`（FireEye fekern MRT）
+因设备 ACL **仅 SYSTEM**，需以 SYSTEM 身份单独验证（`mrt_read` 已 PASS）。
+（默认自测结果：21/21 PASS；mrt SYSTEM 单独验证 PASS，见 `evidence/membridge_selftest.json` 与 `evidence/mrt_selftest.json`）。
 
 ## 2. 快速开始
 
@@ -55,7 +57,7 @@
 # 用指定后端读取物理内存（PA 为十六进制）
 .\scripts\membridge.ps1 -Action read -Backend cchwapi_2_12 -Pa 0x100000 -Size 0x100 -Dump
 
-# 端到端自测：启动 AWE 目标 → 逐后端读取 → 校验标记（默认 21 个 64-bit 后端）
+# 端到端自测：启动 AWE 目标 → 逐后端读取 → 校验标记（默认 21 个 64-bit 后端；mrt 需 SYSTEM 身份单独验证）
 .\scripts\membridge.ps1 -Action selftest
 
 # 只测部分后端
@@ -151,6 +153,7 @@ membridge/
 │   ├── directio/DirectIo.sys
 │   ├── tdeio/TdeIo64.sys
 │   ├── icachex/iCacheX.sys
+│   ├── mrt/fekern_mrt.sys
 │   ├── winio64_elan/WinIo64_ELAN.sys
 │   ├── winio64_1/WinIo64_1.sys
 │   ├── KKYUM/KKYUM.sys

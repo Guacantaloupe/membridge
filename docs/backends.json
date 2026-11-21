@@ -234,6 +234,16 @@
    "full64": true,
    "description": "iCacheX(1).sys (LOLDrivers unlisted; embeds OlsApi: OlsApiReadMemory 0x9C406104 + OlsApiWriteMemory 0x9C40A108, arbitrary 64-bit physical read/write)",
    "sha256": "c21bc3831df4c81fe0e97cef9a0bd1da2fda400a62d917a8ff988b54aefc362b"
+  },
+  {
+   "id": "mrt",
+   "file": "drivers\\mrt\\fekern_mrt.sys",
+   "kind": "control",
+   "device": "\\\\.\\fekern_00",
+   "layout": "mrt",
+   "full64": true,
+   "description": "FireEye fekern MRT driver (LOLDrivers unlisted WHQL Publisher.sys; MRT_IOCTL_READ_PHYSICALMEMORY 0x70F8800C via MmCopyMemory, arbitrary 64-bit physical read; device ACL SYSTEM-only)",
+   "sha256": "0228f6a97ae659ff9b74f5e478bcd1ab9708892f1482d6bc7abb77bd757c0697"
   }
  ]
 }
