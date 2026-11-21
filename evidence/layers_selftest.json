@@ -1,0 +1,47 @@
+{
+  "component": "membridge.bin.layers.exe",
+  "architecture": "independent three-layer virtual memory access",
+  "layers": {
+    "定位层_locator": "target PID/name -> CR3 (explicit CR3 or physical EPROCESS scan; kernel-reader strategy reserved)",
+    "翻译层_translator": "CR3 + VA -> PA via x64 4-level page tables (4KB/2MB/1GB pages)",
+    "取数层_fetcher": "PA + size -> bytes via pluggable mb_phys_reader providers"
+  },
+  "interfaces": {
+    "mb_phys_reader": "read(pa, buf, size) pluggable physical reader",
+    "mb_layer_translate": "reader + cr3 + va -> pa/page_size",
+    "mb_layer_locate_cr3_scan": "reader + physical range + pid/name -> cr3",
+    "mb_layer_read_va": "composition of translate + fetch (cr3 provided by caller)"
+  },
+  "real_fetch_providers": ["cchwapi (0x8024003C)", "rtkio (0x80002000)", "eneio64 (0x80102040)"],
+  "mock_selftest": {
+    "command": "bin/layers.exe --selftest-mock",
+    "result": "PASS",
+    "checks": [
+      "[PASS] 取数层(fetcher): PA=0x5000 bytes match mock data",
+      "[PASS] 翻译层(translator): VA=0x400000 -> PA=0x5000 (4KB page)",
+      "[PASS] 翻译层(translator): VA=0x400010 -> PA=0x5010 (offset preserved)",
+      "[PASS] 定位层(locator): PID 4242 / MOCK.exe -> CR3=0x1000 (physical scan)",
+      "[PASS] 定位层(locator): fake EPROCESS PA=0x8000",
+      "[PASS] 三层组合(pipeline): locate -> translate -> fetch returns mock data",
+      "[PASS] 独立性(independence): 取数层 usable without locator/translator",
+      "[PASS] 独立性(independence): 翻译层 usable without locator"
+    ],
+    "passed": 8,
+    "failed": 0,
+    "offline_no_admin_no_driver": true
+  },
+  "build": {
+    "command": "build.ps1",
+    "artifacts": [
+      "bin/membridge.exe",
+      "bin/cr3read.exe",
+      "bin/layers.exe"
+    ],
+    "layers_exe_size": 73772
+  },
+  "mapping_to_nday_candidates": {
+    "取数层_fetcher": "membridge 22 backends; new candidates AsrDrv(2) arbitrary physical R/W, AsUpIO64 physical map/MSR, CPU-Z physical dword R/W, FireEye MRT physical read",
+    "定位层_locator": "physical EPROCESS scan only needs 取数层; kernel-reader strategy uses KKYUM as in cr3read.exe",
+    "翻译层_translator": "pure algorithm, works with any 取数层 provider"
+  }
+}
