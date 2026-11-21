@@ -376,6 +376,27 @@ static int read_winio64(mb_phys_reader *r, uint64_t pa, void *buf, uint32_t size
     return 1;
 }
 
+// ---- 取数层 provider: DumpIt forensic driver (physical read case) ----
+// IOCTL 0x22C01E: input {u64 phys_addr} (InputBufferLength > 7);
+// OutputBufferLength bytes are read from physical memory (driver maps pages
+// and copies into the output buffer). The device is a volume filter driver
+// with a dynamic GUID name; --device selects the target (e.g. \\.\C:).
+static int dumpit_build_read_request(uint64_t pa, uint8_t out[8]) {
+    if (!out) return 0;
+    *(uint64_t *)out = pa;
+    return 1;
+}
+
+static int read_dumpit(mb_phys_reader *r, uint64_t pa, void *buf, uint32_t size) {
+    if (r->dev == INVALID_HANDLE_VALUE || !buf || !size) return 0;
+    uint8_t in[8];
+    DWORD ret = 0;
+    if (!dumpit_build_read_request(pa, in)) return 0;
+    if (!DeviceIoControl(r->dev, 0x22C01Eu, in, sizeof(in), buf, size, &ret, NULL))
+        return 0;
+    return 1;
+}
+
 static int reader_open(mb_phys_reader *r, const char *kind, const char *device) {
     memset(r, 0, sizeof(*r));
     r->dev = INVALID_HANDLE_VALUE;
@@ -473,8 +494,23 @@ static int reader_open(mb_phys_reader *r, const char *kind, const char *device) 
                              NULL, OPEN_EXISTING, 0, NULL);
         if (r->dev == INVALID_HANDLE_VALUE)
             fprintf(stderr, "[HINT] WinIo64 device not found (need WinIo64.sys loaded)\n");
+    } else if (_stricmp(kind, "dumpit") == 0) {
+        r->name = "dumpit";
+        r->mode = 11;
+        r->read = read_dumpit;
+        const char *candidates[] = { "\\\\.\\DumpIt", "\\\\.\\dumpit", "\\\\.\\C:" };
+        if (device) {
+            r->dev = CreateFileA(device, GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE,
+                                 NULL, OPEN_EXISTING, 0, NULL);
+        } else {
+            for (int ci = 0; ci < 3 && r->dev == INVALID_HANDLE_VALUE; ci++)
+                r->dev = CreateFileA(candidates[ci], GENERIC_READ | GENERIC_WRITE,
+                                     FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_EXISTING, 0, NULL);
+        }
+        if (r->dev == INVALID_HANDLE_VALUE)
+            fprintf(stderr, "[HINT] DumpIt device not found (volume filter; try --device \\\\.\\C:)\n");
     } else {
-        fprintf(stderr, "[ERR] unknown reader '%s' (mock|cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64)\n", kind ? kind : "");
+        fprintf(stderr, "[ERR] unknown reader '%s' (mock|cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64|dumpit)\n", kind ? kind : "");
         return 0;
     }
     if (r->dev == INVALID_HANDLE_VALUE) {
@@ -950,7 +986,7 @@ static int mb_layer_read_va(mb_phys_reader *r, uint64_t cr3, uint64_t va,
 // Diagnostic: probe which real provider devices are currently present.
 static int probe_readers(void) {
     const char *kinds[] = { "cchwapi", "rtkio", "eneio64", "asrdrv", "mrt", "cpuz",
-                            "asupio64", "asio2", "aswarpot", "winio64" };
+                            "asupio64", "asio2", "aswarpot", "winio64", "dumpit" };
     int present = 0;
     for (size_t i = 0; i < sizeof(kinds) / sizeof(kinds[0]); i++) {
         mb_phys_reader r;
@@ -1142,6 +1178,12 @@ static int selftest_mock(void) {
                  *(uint64_t *)(wioreq + 0x08) == 0x12345000ull;
     check("取数层(fetcher)", "winio64 map request layout (size/phys)", ok_wio);
 
+    // DumpIt physical read request layout (offline, no driver)
+    uint8_t dmpit[8];
+    int ok_dmp = dumpit_build_read_request(0x12345678ULL, dmpit) &&
+                 *(uint64_t *)dmpit == 0x12345678ULL;
+    check("取数层(fetcher)", "dumpit physical read request layout", ok_dmp);
+
     // 定位层 alone (physical EPROCESS scan, no kernel reader)
     uint64_t located_cr3 = 0, eproc = 0;
     int ok_loc = mb_layer_locate_cr3_scan(&r, 0x8000, 0x1000, 4242, "MOCK.exe",
@@ -1257,10 +1299,10 @@ static void usage(void) {
     printf("  layers --probe-locators (try opening KKYUM / Invary / KPRL locator devices)\n");
     printf("  layers --selftest-mock\n");
     printf("  layers --ranges                       (read physical RAM ranges from registry)\n");
-    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64> [--device <path>] --read-phys --pa <hex> --size <n>\n");
-    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64> [--device <path>] --cr3 <hex> --va <hex> --size <n>\n");
-    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64> [--device <path>] --locate --pid <pid> --scan-start <hex> --scan-size <hex> [--name <exe>]\n");
-    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64> [--device <path>] --locate --pid <pid> --auto-ranges [--name <exe>]\n");
+    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64|dumpit> [--device <path>] --read-phys --pa <hex> --size <n>\n");
+    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64|dumpit> [--device <path>] --cr3 <hex> --va <hex> --size <n>\n");
+    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64|dumpit> [--device <path>] --locate --pid <pid> --scan-start <hex> --scan-size <hex> [--name <exe>]\n");
+    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64|dumpit> [--device <path>] --locate --pid <pid> --auto-ranges [--name <exe>]\n");
     printf("  layers --reader ... --locate --pid <pid> (--scan-start/--scan-size | --auto-ranges) --va <hex> --size <n>\n");
     printf("  layers --locate --kkyum --pid <pid> [--kkyum-device <path>]   (kernel-VA locator; no physical reader needed)\n");
     printf("  layers --locate --kprl --pid <pid> [--kprl-device <path>]     (KPRL CR3-by-PID; no physical reader needed)\n");
