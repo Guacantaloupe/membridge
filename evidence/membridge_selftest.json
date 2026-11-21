@@ -1,6 +1,6 @@
 ﻿{
-    "date":  "2026-11-22T04:36:25",
-    "page_pa":  "0x2025E7000",
+    "date":  "2026-11-22T04:40:06",
+    "page_pa":  "0x54630000",
     "results":  [
                     {
                         "backend":  "cchwapi_2_9",
@@ -103,6 +103,18 @@
                         "exit":  0,
                         "verdict":  "PASS",
                         "evidence":  "evidence/selftest_directio.log"
+                    },
+                    {
+                        "backend":  "gibepext2",
+                        "exit":  0,
+                        "verdict":  "PASS",
+                        "evidence":  "evidence/selftest_gibepext2.log"
+                    },
+                    {
+                        "backend":  "fastdumpx64_v2",
+                        "exit":  0,
+                        "verdict":  "PASS",
+                        "evidence":  "evidence/selftest_fastdumpx64_v2.log"
                     }
                 ],
     "new_dumps":  ""

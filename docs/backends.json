@@ -194,6 +194,26 @@
    "full64": true,
    "description": "DirectIo.sys (LOLDrivers unlisted PassMark DirectIO; IOCTL 0x8011607C returns \\Device\\PhysicalMemory section handle, NtMapViewOfSection arbitrary physical read; device name = service name)",
    "sha256": "a32b2488746ab5eccc73d51a72e6ec555b83d09435f5d2f9ef15c87626027e8c"
+  },
+  {
+   "id": "gibepext2",
+   "file": "drivers\\gibepext2\\gibepext2.sys",
+   "kind": "control",
+   "device": "\\\\.\\GibEpExt",
+   "layout": "gibepext",
+   "full64": true,
+   "description": "gibepext(2).sys unlisted variant (SHA256 202F6B04..., same CRC32-gated READ/WRITE_PHYSMEM, arbitrary 64-bit PA)",
+   "sha256": "202f6b04ff5e2bc0d61c8701dfeba62f1bf7a49cd586ff002827bf7a50dac0e6"
+  },
+  {
+   "id": "fastdumpx64_v2",
+   "file": "drivers\\fastdumpx64_v2\\fastdumpx64_v2.sys",
+   "kind": "control",
+   "device": "\\\\.\\FastDump",
+   "layout": "fastdump",
+   "full64": true,
+   "description": "fastdumpx64 unlisted variant (SHA256 99B11371..., same IOCTL 0x9C400014 arbitrary 64-bit PA read)",
+   "sha256": "99b11371e081ad03ae58735c0d72dc9d429c4305a7a68f6b7012ce49dfeb0617"
   }
  ]
 }

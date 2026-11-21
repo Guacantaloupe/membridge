@@ -11,7 +11,7 @@ New-Item -ItemType Directory -Force -Path $aweDir -ErrorAction SilentlyContinue 
 $aweLog = Join-Path $aweDir 'framework_awe_stdout.log'
 $dumpDir = 'C:\Windows\Minidump'
 $dumpsBefore = @(Get-ChildItem $dumpDir -File -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Name)
-$backendIds = @('cchwapi_2_9','cchwapi_2_12','cchwapi_ext_4_5','sjtwinio','hp_swtools','swtoolsdriver','isharepp','rtkio','rtkiow8x64','eneio64','glckio2','hp_swtools_v1','winio64_elan','winio64_1','gibepext','fastdumpx64','directio')
+$backendIds = @('cchwapi_2_9','cchwapi_2_12','cchwapi_ext_4_5','sjtwinio','hp_swtools','swtoolsdriver','isharepp','rtkio','rtkiow8x64','eneio64','glckio2','hp_swtools_v1','winio64_elan','winio64_1','gibepext','fastdumpx64','directio','gibepext2','fastdumpx64_v2')
 if ($Backends) { $backendIds = $Backends -split ',' }
 
 # ---- start AWE target as SYSTEM ----
