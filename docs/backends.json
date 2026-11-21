@@ -214,6 +214,16 @@
    "full64": true,
    "description": "fastdumpx64 unlisted variant (SHA256 99B11371..., same IOCTL 0x9C400014 arbitrary 64-bit PA read)",
    "sha256": "99b11371e081ad03ae58735c0d72dc9d429c4305a7a68f6b7012ce49dfeb0617"
+  },
+  {
+   "id": "tdeio",
+   "file": "drivers\\tdeio\\TdeIo64.sys",
+   "kind": "control",
+   "device": "\\\\.\\TdeIo",
+   "layout": "tdeio",
+   "full64": true,
+   "description": "TdeIo64.sys (LOLDrivers unlisted TDE I/O driver; IOCTL 0x91102440 maps arbitrary 64-bit physical range to user VA; read/write capable)",
+   "sha256": "688bea7d69dc419668cef149b9ca85abed6745018b70db9a1407afae50abc23f"
   }
  ]
 }

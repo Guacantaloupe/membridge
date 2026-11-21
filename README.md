@@ -31,6 +31,7 @@
 | `fastdumpx64` | fastdumpx64.sys 2.3.0.92（FastDump，LOLDrivers 未收录） | IOCTL `0x9C400014`（u64 PA + size → 数据在输出 +0x34） | 64-bit（只读） | ✅ PASS |
 | `fastdumpx64_v2` | fastdumpx64 变体（SHA256 `99B11371…`，LOLDrivers 未收录） | IOCTL `0x9C400014` | 64-bit（只读） | ✅ PASS |
 | `directio` | DirectIo.sys（PassMark DirectIO，LOLDrivers 未收录） | IOCTL `0x8011607C` 返回 `\Device\PhysicalMemory` section handle → NtMapViewOfSection | 64-bit（只读） | ✅ PASS |
+| `tdeio` | TdeIo64.sys（TDE I/O，LOLDrivers 未收录） | IOCTL `0x91102440` 将任意物理范围映射到用户态（读写） | 64-bit | ✅ PASS |
 | `isharepp` | iSharePp.sys（iSCSIDisk PnP 驱动） | OlsApi READ_MEMORY `0x9C406104` | 64-bit（只读已验证） | ✅ PASS |
 | `rtkio` | rtkio.sys（Realtek） | IOCTL_PHYMEM_MAP `0x80002000`（u64 PA + size → 用户态 VA） | 64-bit | ✅ PASS |
 | `rtkiow8x64` | rtkiow8x64.sys（Realtek W8 变体） | IOCTL_PHYMEM_MAP `0x80002000` | 64-bit | ✅ PASS |
@@ -39,8 +40,8 @@
 | `ufu_win10` | win10_ufudev64.sys | ReadMemory `0x8010206E` | 32-bit（受限） | 可加载 |
 | `winring0x64` | WinRing0x64.sys | READ_MEMORY `0x9C406104` | 低 1MiB（受限） | 可加载 |
 
-**19 个 64-bit 后端均通过 AWE 端到端自测**：框架启动 test.exe（AWE 目标），逐后端读取其物理页并校验页内标记
-（结果：19/19 PASS，见 `evidence/membridge_selftest.json`）。
+**20 个 64-bit 后端均通过 AWE 端到端自测**：框架启动 test.exe（AWE 目标），逐后端读取其物理页并校验页内标记
+（结果：20/20 PASS，见 `evidence/membridge_selftest.json`）。
 
 ## 2. 快速开始
 
@@ -53,7 +54,7 @@
 # 用指定后端读取物理内存（PA 为十六进制）
 .\scripts\membridge.ps1 -Action read -Backend cchwapi_2_12 -Pa 0x100000 -Size 0x100 -Dump
 
-# 端到端自测：启动 AWE 目标 → 逐后端读取 → 校验标记（默认 19 个 64-bit 后端）
+# 端到端自测：启动 AWE 目标 → 逐后端读取 → 校验标记（默认 20 个 64-bit 后端）
 .\scripts\membridge.ps1 -Action selftest
 
 # 只测部分后端
@@ -147,6 +148,7 @@ membridge/
 │   ├── fastdumpx64/fastdumpx64.sys
 │   ├── fastdumpx64_v2/fastdumpx64_v2.sys
 │   ├── directio/DirectIo.sys
+│   ├── tdeio/TdeIo64.sys
 │   ├── winio64_elan/WinIo64_ELAN.sys
 │   ├── winio64_1/WinIo64_1.sys
 │   ├── KKYUM/KKYUM.sys
