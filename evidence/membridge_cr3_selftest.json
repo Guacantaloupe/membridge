@@ -1,0 +1,13 @@
+﻿{
+    "action":  "cr3-selftest",
+    "target_module":  "cmd.exe",
+    "target_pid":  7252,
+    "cr3":  "0x16F8EC000",
+    "cr3_resolution":  "ntoskrnl!PsInitialSystemProcess -\u003e EPROCESS list -\u003e DirectoryTableBase (+0x28)",
+    "page_table_walk":  "x64 4-level (PML4/PDPT/PD/PT, 1G/2M large pages supported)",
+    "physical_reader":  "drivers/eneio64/eneio64.sys (IOCTL_WINIO_MAPPHYSTOLIN)",
+    "kernel_reader":  "drivers/KKYUM/KKYUM.sys (MmCopyVirtualMemory)",
+    "compare":  "MATCH",
+    "verdict":  "PASS",
+    "timestamp":  "2026-11-22T03:36:02"
+}

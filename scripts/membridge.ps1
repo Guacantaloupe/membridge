@@ -3,19 +3,27 @@
 #   list                               show available driver backends
 #   read   -Backend <id> -Pa <hex> ... read physical memory through selected driver
 #   selftest [-Backends id,id,...]     AWE-based end-to-end self-test of backends
+#   cr3    -ProcessId <pid> [-Module <name>] [-Va <hex>] [-Size <n>] [-Dump] [-Compare]
+#                                      CR3 page-table walk: read arbitrary process/exe VA
+#   cr3selftest                        end-to-end CR3 test against a cmd.exe target
 #
 # Example:
 #   .\scripts\membridge.ps1 -Action read -Backend sjtwinio -Pa 0x1E01C6000 -Size 0x100 -Dump
 #   .\scripts\membridge.ps1 -Action selftest
+#   .\scripts\membridge.ps1 -Action cr3 -ProcessId 1234 -Module cmd.exe -Size 0x100 -Dump -Compare
 param(
-    [ValidateSet('list', 'read', 'selftest')][string]$Action = 'list',
+    [ValidateSet('list', 'read', 'selftest', 'cr3', 'cr3selftest')][string]$Action = 'list',
     [string]$Backend = 'cchwapi_2_12',
     [string]$Pa = '0x100000',
     [int]$Size = 256,
     [string]$Expect = '',
     [switch]$Dump,
     [string]$Backends = '',
-    [string]$DriverPath = ''
+    [string]$DriverPath = '',
+    [int]$ProcessId = 0,
+    [string]$Module = '',
+    [string]$Va = '',
+    [switch]$Compare
 )
 $ErrorActionPreference = 'Continue'
 $base = Split-Path -Parent $PSScriptRoot   # ...\msdriver-0day
@@ -61,7 +69,6 @@ switch ($Action) {
     'selftest' {
         $log = Join-Path $base 'evidence\_elev_membridge_selftest.log'
         if (Test-Path $log) { Remove-Item $log -Force }
-        if ($Backends) { $argList += @('-Backends', "`"$Backends`"") }
         $argList = @('-NoProfile', '-ExecutionPolicy', 'Bypass', '-File',
             "`"$children\_elev_membridge_selftest.ps1`"")
         if (-not (Test-Admin)) {
@@ -73,5 +80,34 @@ switch ($Action) {
         if (Test-Path $log) { Get-Content $log -Encoding UTF8 }
         $res = Join-Path $base 'evidence\membridge_selftest.json'
         if (Test-Path $res) { "`n=== selftest json ==="; Get-Content $res -Raw -Encoding UTF8 }
+    }
+    'cr3' {
+        if ($ProcessId -le 0) { Write-Error '-ProcessId is required for -Action cr3'; exit 1 }
+        $logPath = Join-Path $base 'evidence\cr3_last.log'
+        if (Test-Path $logPath) { Remove-Item $logPath -Force }
+        $argList = @('-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', "`"$children\_elev_membridge_cr3.ps1`"",
+            '-ProcessId', "$ProcessId", '-Size', "$Size", '-LogPath', "`"$logPath`"")
+        if ($Module) { $argList += @('-Module', "`"$Module`"") }
+        if ($Va) { $argList += @('-Va', "`"$Va`"") }
+        if ($Dump) { $argList += '-Dump' }
+        if ($Compare) { $argList += '-Compare' }
+        Start-Process -FilePath 'powershell.exe' -Verb RunAs -ArgumentList $argList -Wait -WindowStyle Hidden
+        Start-Sleep -Milliseconds 300
+        if (Test-Path $logPath) {
+            Get-Content $logPath -Encoding UTF8
+            $code = (Get-Content $logPath -Encoding UTF8 | Select-String 'EXITCODE=(\d+)').Matches.Groups[1].Value
+            if ($code) { exit ([int]$code) }
+        } else { Write-Error 'no CR3 output'; exit 7 }
+    }
+    'cr3selftest' {
+        $log = Join-Path $base 'evidence\_elev_membridge_cr3_selftest.log'
+        $json = Join-Path $base 'evidence\membridge_cr3_selftest.json'
+        if (Test-Path $log) { Remove-Item $log -Force }
+        $argList = @('-NoProfile', '-ExecutionPolicy', 'Bypass', '-File',
+            "`"$children\_elev_membridge_cr3_selftest.ps1`"")
+        Start-Process -FilePath 'powershell.exe' -Verb RunAs -ArgumentList $argList -Wait -WindowStyle Hidden
+        Start-Sleep -Milliseconds 500
+        if (Test-Path $log) { Get-Content $log -Encoding UTF8 }
+        if (Test-Path $json) { "`n=== cr3 selftest json ==="; Get-Content $json -Raw -Encoding UTF8 }
     }
 }
