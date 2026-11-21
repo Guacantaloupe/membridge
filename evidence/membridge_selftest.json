@@ -1,6 +1,6 @@
 ﻿{
-    "date":  "2026-11-22T04:20:43",
-    "page_pa":  "0x2FB36000",
+    "date":  "2026-11-22T04:24:03",
+    "page_pa":  "0x272270000",
     "results":  [
                     {
                         "backend":  "cchwapi_2_9",
@@ -73,6 +73,12 @@
                         "exit":  0,
                         "verdict":  "PASS",
                         "evidence":  "evidence/selftest_hp_swtools_v1.log"
+                    },
+                    {
+                        "backend":  "winio64_elan",
+                        "exit":  0,
+                        "verdict":  "PASS",
+                        "evidence":  "evidence/selftest_winio64_elan.log"
                     }
                 ],
     "new_dumps":  ""

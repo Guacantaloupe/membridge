@@ -144,6 +144,16 @@
    "full64": true,
    "description": "HP SW TOOLS DRIVER V1 variant (SHA256 23C18666..., not in LOLDrivers; MapPhysicalMemory 0x9C406104, arbitrary 64-bit PA)",
    "sha256": "23c18666e94b2aa4e20ee5b5cd3a45ebd1d4612fa17f244ca5258b7ea87a1d49"
+  },
+  {
+   "id": "winio64_elan",
+   "file": "drivers\\winio64_elan\\WinIo64_ELAN.sys",
+   "kind": "control",
+   "device": "\\\\.\\WinIo",
+   "layout": "eneio64",
+   "full64": true,
+   "description": "ELAN WinIo64 unlisted variant (SHA256 535CB6A6..., not in LOLDrivers; WinIO v3.0 IOCTL_WINIO_MAPPHYSTOLIN 0x80102040, arbitrary 64-bit PA)",
+   "sha256": "535cb6a635675a11c7c731dc25ff5ee92c55b77f4c25a6cbbeaa59a0f82f2de7"
   }
  ]
 }
