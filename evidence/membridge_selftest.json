@@ -1,6 +1,6 @@
 ﻿{
-    "date":  "2026-11-22T02:49:15",
-    "page_pa":  "0x52412000",
+    "date":  "2026-11-22T02:51:31",
+    "page_pa":  "0x60CE6000",
     "results":  [
                     {
                         "backend":  "cchwapi_2_9",
@@ -49,6 +49,12 @@
                         "exit":  0,
                         "verdict":  "PASS",
                         "evidence":  "evidence/selftest_rtkio.log"
+                    },
+                    {
+                        "backend":  "rtkiow8x64",
+                        "exit":  0,
+                        "verdict":  "PASS",
+                        "evidence":  "evidence/selftest_rtkiow8x64.log"
                     }
                 ],
     "new_dumps":  ""
