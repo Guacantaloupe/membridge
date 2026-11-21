@@ -164,6 +164,11 @@ VERDICT=PASS
 
 # 取数层设备存在性探测（无需驱动即可运行）
 .\bin\layers.exe --probe-readers
+.\bin\layers.exe --probe-all          # readers + locators 一次探测
+.\bin\layers.exe --list-providers     # provider/device/capability 表
+
+# 离线 mock：翻译 + 取数（内建数据 "MOCKCLI-DATA-..."）
+.\bin\layers.exe --reader mock --cr3 0x1000 --va 0x400000 --size 8
 
 # 动态验证 harness（管理员 + 已签名驱动时；DryRun 安全预演）
 .\scripts\dynamic_verify.ps1 -DryRun -Reader winio64 -DevicePath '\\.\WinIo' -Locate

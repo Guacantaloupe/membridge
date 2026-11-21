@@ -1535,6 +1535,47 @@ static int hex_decode(const char *s, uint8_t *out, int max) {
     return n;
 }
 
+static int probe_readers(void);
+static int probe_locators(void);
+
+// Diagnostic: list known fetch-layer providers and their device/capability.
+static int list_providers(void) {
+    static const struct { const char *name, *device, *cap; } p[] = {
+        { "cchwapi",  "\\\\.\\CCHWAPI",              "read" },
+        { "rtkio",    "\\\\.\\rtkio",                "read" },
+        { "eneio64",  "\\\\.\\GLCKIo",               "read" },
+        { "asrdrv",   "\\\\.\\AsrDrv109",            "read (AES cmd)" },
+        { "mrt",      "\\\\.\\fekern_00",            "read (SYSTEM)" },
+        { "cpuz",     "\\\\.\\Global\\CPUZ152",      "read (dword, page guard)" },
+        { "asupio64", "\\\\.\\AsUpdateio",           "read (PEUPDATER.EXE gate)" },
+        { "asio2",    "\\\\.\\Asusgio2",             "read (ASUSCERT gate PE)" },
+        { "aswarpot", "\\\\.\\aswSP_ArPot2",         "read/write (<=4B write)" },
+        { "winio64",  "\\\\.\\WinIo",                "read/write (map)" },
+        { "dumpit",   "\\\\.\\C: (volume filter)",   "read (dynamic device)" },
+        { "asmmap",   "\\\\.\\ASMMAP64",             "read/write (map)" },
+        { "atillk64", "\\\\.\\atillk64",             "read/write" },
+        { "asio64",   "\\\\.\\Asusgio",              "read/write (map)" },
+        { "adv64drv", "\\\\.\\ADV64DRV",             "read" },
+        { "ntiolib",  "\\\\.\\NTIOLib_1_0_C",        "read/write" },
+        { "winring0", "\\\\.\\WinRing0_1_0_1",       "read/write" },
+        { "amifldrv", "\\\\.\\genericdrv",           "read/write (byte)" },
+        { "citmdrv",  "\\\\.\\CITMDRV",              "read (map to caller VA)" },
+        { "mock",     "(built-in)",                  "read/write (offline)" },
+    };
+    printf("%-10s %-32s %s\n", "provider", "device", "capability");
+    for (size_t i = 0; i < sizeof(p) / sizeof(p[0]); i++)
+        printf("%-10s %-32s %s\n", p[i].name, p[i].device, p[i].cap);
+    printf("providers=%zu\n", sizeof(p) / sizeof(p[0]));
+    return 0;
+}
+
+// Diagnostic: probe reader + locator devices in one pass.
+static int probe_all(void) {
+    probe_readers();
+    probe_locators();
+    return 0;
+}
+
 // Diagnostic: probe which real provider devices are currently present.
 static int probe_readers(void) {
     const char *kinds[] = { "cchwapi", "rtkio", "eneio64", "asrdrv", "mrt", "cpuz",
@@ -1948,6 +1989,8 @@ static void usage(void) {
     printf("layers - independent 定位层 / 翻译层 / 取数层 architecture\n");
     printf("Usage:\n");
     printf("  layers --probe-readers  (try opening every real fetch-layer provider device)\n");
+    printf("  layers --probe-all      (probe readers + locators in one pass)\n");
+    printf("  layers --list-providers (print known provider/device/capability table)\n");
     printf("  layers --probe-locators (try opening KKYUM / Invary / KPRL locator devices)\n");
     printf("  layers --selftest-mock\n");
     printf("  layers --ranges                       (read physical RAM ranges from registry)\n");
@@ -1976,10 +2019,12 @@ int main(int argc, char **argv) {
     int do_selftest = 0, do_read_phys = 0, do_write_phys = 0, do_explicit = 0, do_locate = 0, have_cr3 = 0, have_va = 0;
     int use_la57 = 0, do_translate_only = 0;
     const char *data_hex = NULL;
-    int do_ranges = 0, auto_ranges = 0, use_kkyum = 0, use_kprl = 0, use_invary = 0, use_auto = 0, do_invary_read = 0, do_probe = 0, do_probe_loc = 0;
+    int do_ranges = 0, auto_ranges = 0, use_kkyum = 0, use_kprl = 0, use_invary = 0, use_auto = 0, do_invary_read = 0, do_probe = 0, do_probe_loc = 0, do_probe_all = 0, do_list = 0;
     for (int i = 1; i < argc; i++) {
         if (strcmp(argv[i], "--selftest-mock") == 0) do_selftest = 1;
         else if (strcmp(argv[i], "--probe-readers") == 0) do_probe = 1;
+        else if (strcmp(argv[i], "--probe-all") == 0) do_probe_all = 1;
+        else if (strcmp(argv[i], "--list-providers") == 0) do_list = 1;
         else if (strcmp(argv[i], "--probe-locators") == 0) do_probe_loc = 1;
         else if (strcmp(argv[i], "--reader") == 0 && i + 1 < argc) kind = argv[++i];
         else if (strcmp(argv[i], "--device") == 0 && i + 1 < argc) device = argv[++i];
@@ -2013,6 +2058,8 @@ int main(int argc, char **argv) {
     }
     if (do_selftest) return selftest_mock();
     if (do_probe) return probe_readers();
+    if (do_probe_all) return probe_all();
+    if (do_list) return list_providers();
     if (do_probe_loc) return probe_locators();
     if (do_invary_read) {
         if (!invary_open(invary_device)) {
