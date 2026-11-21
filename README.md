@@ -20,11 +20,12 @@
 | `sjtwinio` | SjtWinIo.sys（filter 驱动） | MapPhys `0x9C40A4C0` + ReadMapped `0x9C4064D0` | 64-bit | ✅ PASS |
 | `hp_swtools` | HP SW TOOLS DRIVER.sys | MapPhysicalMemory `0x9C406104`（u64 PA + size → 用户态 VA） | 64-bit | ✅ PASS |
 | `swtoolsdriver` | swtoolsdriver.sys（HP 同族） | MapPhysicalMemory `0x9C406104` | 64-bit | ✅ PASS |
+| `isharepp` | iSharePp.sys（iSCSIDisk PnP 驱动） | OlsApi READ_MEMORY `0x9C406104` | 64-bit（只读已验证） | ✅ PASS |
 | `ufu_win10` | win10_ufudev64.sys | ReadMemory `0x8010206E` | 32-bit（受限） | 可加载 |
 | `winring0x64` | WinRing0x64.sys | READ_MEMORY `0x9C406104` | 低 1MiB（受限） | 可加载 |
 
-**6 个 64-bit 后端均通过 AWE 端到端自测**：框架启动 test.exe（AWE 目标），逐后端读取其物理页并校验页内标记
-（结果：6/6 PASS，见 `evidence/membridge_selftest.json`）。
+**7 个 64-bit 后端均通过 AWE 端到端自测**：框架启动 test.exe（AWE 目标），逐后端读取其物理页并校验页内标记
+（结果：7/7 PASS，见 `evidence/membridge_selftest.json`）。
 
 ## 2. 快速开始
 
@@ -37,7 +38,7 @@
 # 用指定后端读取物理内存（PA 为十六进制）
 .\scripts\membridge.ps1 -Action read -Backend cchwapi_2_12 -Pa 0x100000 -Size 0x100 -Dump
 
-# 端到端自测：启动 AWE 目标 → 逐后端读取 → 校验标记（默认 6 个 64-bit 后端）
+# 端到端自测：启动 AWE 目标 → 逐后端读取 → 校验标记（默认 7 个 64-bit 后端）
 .\scripts\membridge.ps1 -Action selftest
 
 # 只测部分后端
@@ -59,7 +60,7 @@
 
 | 类型 | 后端 | 安装方式 |
 |---|---|---|
-| 控制类驱动 | cchwapi_2_9 / cchwapi_2_12 / cchwapi_ext_4_5 / hp_swtools / swtoolsdriver / ufu_win10 / winring0x64 | 框架自动执行 `sc create <服务名> binPath=<驱动路径> type=kernel` + `sc start`；读取后自动 `stop/delete`，与手工 `sc.exe` 安装内核驱动完全相同 |
+| 控制类驱动 | cchwapi_2_9 / cchwapi_2_12 / cchwapi_ext_4_5 / hp_swtools / swtoolsdriver / isharepp / ufu_win10 / winring0x64 | 框架自动执行 `sc create <服务名> binPath=<驱动路径> type=kernel` + `sc start`；读取后自动 `stop/delete`，与手工 `sc.exe` 安装内核驱动完全相同 |
 | filter 类驱动 | sjtwinio | 框架自动：`sc create`（不启动）→ 通过 SetupAPI 创建标准 ROOT 枚举 PnP 设备 → 在设备实例键写入 `Service` → disable/enable 设备 → PnP 以函数驱动方式加载 → 出现 `\\.\SJTWINIO0200`；读取后移除 root 设备并 stop/delete 服务 |
 
 所有驱动均为已签名内核驱动，Windows 会按正常驱动加载流程校验签名/加载策略。
@@ -84,6 +85,7 @@ membridge/
 │   ├── SjtWinIo_sys/SjtWinIo.sys (+ SjtWinIo_copy.sys 字节一致副本)
 │   ├── HP SW TOOLS DRIVER_sys/HP SW TOOLS DRIVER.sys
 │   ├── swtoolsdriver/swtoolsdriver.sys
+│   ├── isharepp/iSharePp.sys
 │   ├── ufu/win10_ufudev64.sys
 │   └── winring0/WinRing0x64.sys
 ├── test/test.exe                  # AWE 自测目标（SYSTEM 运行，打印物理页地址与标记）
@@ -104,7 +106,7 @@ membridge/
 ## 6. 已验证环境与结果
 
 - 测试主机：Windows 11 x64，**HVCI 开启**；
-- `evidence/membridge_selftest.json`：6 个 64-bit 后端全部 `PASS`（AWE 目标物理页标记校验通过）；
+- `evidence/membridge_selftest.json`：7 个 64-bit 后端全部 `PASS`（AWE 目标物理页标记校验通过）；
 - 自测日志：`evidence/selftest_<backend>.log`；
 - 自测过程中会在临时目录/项目中写日志，并在结束后自动停止/删除自己创建的驱动服务。
 
@@ -113,6 +115,7 @@ membridge/
 - 需要管理员权限；驱动加载受目标系统 HVCI/签名策略/驱动 blocklist 影响（不同 Windows 版本策略版本不同）；
 - `cchwapi_ext_4_5` 驱动无卸载例程：首次加载后可能驻留到重启（框架会尝试 stop/delete；失败时需重启清理）；
 - `sjtwinio` 是 filter 驱动：若同一镜像已被遗留实例加载，可使用字节一致的 `SjtWinIo_copy.sys`（自测已自动使用）或重启后再用原路径；
+- `isharepp` **只集成了只读路径**（OlsApi READ_MEMORY `0x9C406104`）；该驱动还存在物理写 / MSR / PCI 等 IOCTL（如 `0x9C40A108`），框架不会调用；写路径在测试中曾出现 0x50/挂起，未验证，请勿在框架外随意调用；
 - `ufu_win10` 仅支持 32 位物理地址；`winring0x64` 仅低 1MiB 物理内存——它们不适合"全部内存"场景；
 - 框架未实现：PID→CR3、页表遍历、虚拟地址翻译；如需读取进程全部虚拟内存需自行扩展。
 

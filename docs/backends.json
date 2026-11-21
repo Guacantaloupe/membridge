@@ -1,89 +1,99 @@
-﻿{
-    "project":  "membridge",
-    "created":  "2026-11-22",
-    "exe":  "bin/membridge.exe",
-    "awe_target":  "test/test.exe",
-    "awe_expect":  "BYOV_TESTEXE_AWE_PAGE_00",
-    "backends":  [
-                     {
-                         "id":  "cchwapi_2_9",
-                         "file":  "drivers\\CCHWApi_sys\\CCHWApi.sys",
-                         "kind":  "control",
-                         "device":  "\\\\.\\CCHWAPI",
-                         "layout":  "cchwapi",
-                         "full64":  true,
-                         "description":  "CCHWApi.sys 2.9.0.0 (kHWAPIReadMemory 0x8024003C, 64-bit PA)",
-                         "sha256":  "026774628433f51dfe20cd7962a1e2c30a25c9a35f59cf40744a4e6445fbf8db"
-                     },
-                     {
-                         "id":  "cchwapi_2_12",
-                         "file":  "drivers\\CCHWApi(1)_sys\\CCHWApi(1).sys",
-                         "kind":  "control",
-                         "device":  "\\\\.\\CCHWAPI",
-                         "layout":  "cchwapi",
-                         "full64":  true,
-                         "description":  "CCHWApi(1).sys 2.12.0.0 (kHWAPIReadMemory 0x8024003C, 64-bit PA)",
-                         "sha256":  "a8976231269c9a8b8d5c40c6619df228e42d0b863bce55cf36c74210ad8ae34b"
-                     },
-                     {
-                         "id":  "cchwapi_ext_4_5",
-                         "file":  "drivers\\CCHWApiExt(1)_sys\\CCHWApiExt(1).sys",
-                         "kind":  "control",
-                         "device":  "\\\\.\\CCHWAPIExt",
-                         "layout":  "cchwapi_ext",
-                         "full64":  true,
-                         "description":  "CCHWApiExt(1).sys 4.5.0.0 (ReadWriteMemStruct 0x802400FC, 64-bit PA)",
-                         "sha256":  "ff7b53d67c517b460270498ba6d8e4acee3a96519e8424729b83d0ed70575b2a"
-                     },
-                     {
-                         "id":  "sjtwinio",
-                         "file":  "drivers\\SjtWinIo_sys\\SjtWinIo.sys",
-                         "kind":  "filter",
-                         "device":  "\\\\.\\SJTWINIO0200",
-                         "layout":  "sjtwinio",
-                         "full64":  true,
-                         "description":  "SjtWinIo.sys filter driver (MapPhys 0x9C40A4C0 + ReadMapped 0x9C4064D0, 64-bit PA)",
-                         "sha256":  "964da085139df538a3e216a54a6c0ea292a9c31852fb40c53fcc6714c6891563"
-                     },
-                     {
-                         "id":  "hp_swtools",
-                         "file":  "drivers\\HP SW TOOLS DRIVER_sys\\HP SW TOOLS DRIVER.sys",
-                         "kind":  "control",
-                         "device":  "\\\\.\\HP_WKS_SWTOOLS_DRIVER",
-                         "layout":  "hp_swtools",
-                         "full64":  true,
-                         "description":  "HP SW TOOLS DRIVER.sys (MapPhysicalMemory 0x9C406104, u64 PA + size -\u003e user VA, 64-bit PA)",
-                         "sha256":  "bf07c46effde8b6b0fd3c9586a5a9636800fb37418c1e8e606c67cb613cbf832"
-                     },
-                     {
-                         "id":  "swtoolsdriver",
-                         "file":  "drivers\\swtoolsdriver\\swtoolsdriver.sys",
-                         "kind":  "control",
-                         "device":  "\\\\.\\HP_WKS_SWTOOLS_DRIVER",
-                         "layout":  "hp_swtools",
-                         "full64":  true,
-                         "description":  "swtoolsdriver.sys HP-family MapPhysicalMemory 0x9C406104 (64-bit PA)",
-                         "sha256":  "2fe63074541be0b5a49377ae49d8e0f284e632853b7ccba2cec7e97cea28c41d"
-                     },
-                     {
-                         "id":  "ufu_win10",
-                         "file":  "drivers\\ufu\\win10_ufudev64.sys",
-                         "kind":  "control",
-                         "device":  "\\\\.\\UFU",
-                         "layout":  "ufu",
-                         "full64":  false,
-                         "description":  "win10_ufudev64.sys (IOCTL 0x8010206E, 32-bit PA only, 0x1024 bytes)",
-                         "sha256":  "dc2f58dcd3e11f5c6a60f29cbd91610e6bf6cecc6c50d0f46bc9d587ad878b4c"
-                     },
-                     {
-                         "id":  "winring0x64",
-                         "file":  "drivers\\winring0\\WinRing0x64.sys",
-                         "kind":  "control",
-                         "device":  "\\\\.\\WinRing0_1_2_0",
-                         "layout":  "winring0",
-                         "full64":  false,
-                         "description":  "WinRing0x64.sys (READ_MEMORY 0x9C406104, low 1 MiB only)",
-                         "sha256":  "c30ebd80d2a1c5c15f0b706ed01c354730a9e2264b739d0d2d66ccb262c95f80"
-                     }
-                 ]
+{
+ "project": "membridge",
+ "created": "2026-11-22",
+ "exe": "bin/membridge.exe",
+ "awe_target": "test/test.exe",
+ "awe_expect": "BYOV_TESTEXE_AWE_PAGE_00",
+ "backends": [
+  {
+   "id": "cchwapi_2_9",
+   "file": "drivers\\CCHWApi_sys\\CCHWApi.sys",
+   "kind": "control",
+   "device": "\\\\.\\CCHWAPI",
+   "layout": "cchwapi",
+   "full64": true,
+   "description": "CCHWApi.sys 2.9.0.0 (kHWAPIReadMemory 0x8024003C, 64-bit PA)",
+   "sha256": "026774628433f51dfe20cd7962a1e2c30a25c9a35f59cf40744a4e6445fbf8db"
+  },
+  {
+   "id": "cchwapi_2_12",
+   "file": "drivers\\CCHWApi(1)_sys\\CCHWApi(1).sys",
+   "kind": "control",
+   "device": "\\\\.\\CCHWAPI",
+   "layout": "cchwapi",
+   "full64": true,
+   "description": "CCHWApi(1).sys 2.12.0.0 (kHWAPIReadMemory 0x8024003C, 64-bit PA)",
+   "sha256": "a8976231269c9a8b8d5c40c6619df228e42d0b863bce55cf36c74210ad8ae34b"
+  },
+  {
+   "id": "cchwapi_ext_4_5",
+   "file": "drivers\\CCHWApiExt(1)_sys\\CCHWApiExt(1).sys",
+   "kind": "control",
+   "device": "\\\\.\\CCHWAPIExt",
+   "layout": "cchwapi_ext",
+   "full64": true,
+   "description": "CCHWApiExt(1).sys 4.5.0.0 (ReadWriteMemStruct 0x802400FC, 64-bit PA)",
+   "sha256": "ff7b53d67c517b460270498ba6d8e4acee3a96519e8424729b83d0ed70575b2a"
+  },
+  {
+   "id": "sjtwinio",
+   "file": "drivers\\SjtWinIo_sys\\SjtWinIo.sys",
+   "kind": "filter",
+   "device": "\\\\.\\SJTWINIO0200",
+   "layout": "sjtwinio",
+   "full64": true,
+   "description": "SjtWinIo.sys filter driver (MapPhys 0x9C40A4C0 + ReadMapped 0x9C4064D0, 64-bit PA)",
+   "sha256": "964da085139df538a3e216a54a6c0ea292a9c31852fb40c53fcc6714c6891563"
+  },
+  {
+   "id": "hp_swtools",
+   "file": "drivers\\HP SW TOOLS DRIVER_sys\\HP SW TOOLS DRIVER.sys",
+   "kind": "control",
+   "device": "\\\\.\\HP_WKS_SWTOOLS_DRIVER",
+   "layout": "hp_swtools",
+   "full64": true,
+   "description": "HP SW TOOLS DRIVER.sys (MapPhysicalMemory 0x9C406104, u64 PA + size -> user VA, 64-bit PA)",
+   "sha256": "bf07c46effde8b6b0fd3c9586a5a9636800fb37418c1e8e606c67cb613cbf832"
+  },
+  {
+   "id": "swtoolsdriver",
+   "file": "drivers\\swtoolsdriver\\swtoolsdriver.sys",
+   "kind": "control",
+   "device": "\\\\.\\HP_WKS_SWTOOLS_DRIVER",
+   "layout": "hp_swtools",
+   "full64": true,
+   "description": "swtoolsdriver.sys HP-family MapPhysicalMemory 0x9C406104 (64-bit PA)",
+   "sha256": "2fe63074541be0b5a49377ae49d8e0f284e632853b7ccba2cec7e97cea28c41d"
+  },
+  {
+   "id": "ufu_win10",
+   "file": "drivers\\ufu\\win10_ufudev64.sys",
+   "kind": "control",
+   "device": "\\\\.\\UFU",
+   "layout": "ufu",
+   "full64": false,
+   "description": "win10_ufudev64.sys (IOCTL 0x8010206E, 32-bit PA only, 0x1024 bytes)",
+   "sha256": "dc2f58dcd3e11f5c6a60f29cbd91610e6bf6cecc6c50d0f46bc9d587ad878b4c"
+  },
+  {
+   "id": "winring0x64",
+   "file": "drivers\\winring0\\WinRing0x64.sys",
+   "kind": "control",
+   "device": "\\\\.\\WinRing0_1_2_0",
+   "layout": "winring0",
+   "full64": false,
+   "description": "WinRing0x64.sys (READ_MEMORY 0x9C406104, low 1 MiB only)",
+   "sha256": "c30ebd80d2a1c5c15f0b706ed01c354730a9e2264b739d0d2d66ccb262c95f80"
+  },
+  {
+   "id": "isharepp",
+   "file": "drivers\\isharepp\\iSharePp.sys",
+   "kind": "control",
+   "device": "\\\\.\\iSCSIBoot",
+   "layout": "winring0",
+   "full64": true,
+   "description": "iSharePp.sys (Pnp Driver for iSCSIDisk; OlsApi READ_MEMORY 0x9C406104, arbitrary 64-bit PA)",
+   "sha256": "c87fbf4f33ddaad4a9b6c5939a410fbf2431f8f35c00a10eb8651da4bc2bc173"
+  }
+ ]
 }

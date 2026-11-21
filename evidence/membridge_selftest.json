@@ -1,6 +1,6 @@
 ﻿{
-    "date":  "2026-11-22T02:38:18",
-    "page_pa":  "0x24BF08000",
+    "date":  "2026-11-22T02:41:11",
+    "page_pa":  "0x1F6C8F000",
     "results":  [
                     {
                         "backend":  "cchwapi_2_9",
@@ -37,6 +37,12 @@
                         "exit":  0,
                         "verdict":  "PASS",
                         "evidence":  "evidence/selftest_swtoolsdriver.log"
+                    },
+                    {
+                        "backend":  "isharepp",
+                        "exit":  0,
+                        "verdict":  "PASS",
+                        "evidence":  "evidence/selftest_isharepp.log"
                     }
                 ],
     "new_dumps":  ""

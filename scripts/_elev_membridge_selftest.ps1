@@ -1,4 +1,4 @@
-param([string]$Backends = '')
+﻿param([string]$Backends = '')
 $ErrorActionPreference = 'Continue'
 $base = Split-Path -Parent $PSScriptRoot   # ...\msdriver-0day
 $env:MEMBRIDGE_BASE = $base
@@ -11,7 +11,7 @@ New-Item -ItemType Directory -Force -Path $aweDir -ErrorAction SilentlyContinue 
 $aweLog = Join-Path $aweDir 'framework_awe_stdout.log'
 $dumpDir = 'C:\Windows\Minidump'
 $dumpsBefore = @(Get-ChildItem $dumpDir -File -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Name)
-$backendIds = @('cchwapi_2_9','cchwapi_2_12','cchwapi_ext_4_5','sjtwinio','hp_swtools','swtoolsdriver')
+$backendIds = @('cchwapi_2_9','cchwapi_2_12','cchwapi_ext_4_5','sjtwinio','hp_swtools','swtoolsdriver','isharepp')
 if ($Backends) { $backendIds = $Backends -split ',' }
 
 # ---- start AWE target as SYSTEM ----
@@ -71,3 +71,4 @@ $summary | ConvertTo-Json -Depth 5 | Set-Content (Join-Path $base 'evidence\memb
 $results | ForEach-Object { "$($_.backend) => $($_.verdict)" } | Out-File $log -Append -Encoding UTF8
 "new dumps: $($newDumps -join ',')" | Out-File $log -Append -Encoding UTF8
 '=== done ===' | Out-File $log -Append -Encoding UTF8
+
