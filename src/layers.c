@@ -715,6 +715,11 @@ static int selftest_mock(void) {
                    cross[0] == 0x11 && cross[0x0F] == 0x11 && cross[0x10] == 0x22;
     check("三层组合(pipeline)", "cross-page read VA 0x400FF0 (two 4KB pages)", ok_cross);
 
+    // negative: unmapped VA must be rejected by the translator
+    uint64_t bad_pa = 0, bad_ps = 0;
+    int ok_unmapped = !mb_layer_translate(&r, cr3, 0x800000, &bad_pa, &bad_ps);
+    check("翻译层(translator)", "unmapped VA=0x800000 rejected", ok_unmapped);
+
     // 定位层 alone (physical EPROCESS scan, no kernel reader)
     uint64_t located_cr3 = 0, eproc = 0;
     int ok_loc = mb_layer_locate_cr3_scan(&r, 0x8000, 0x1000, 4242, "MOCK.exe",

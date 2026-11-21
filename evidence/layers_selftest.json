@@ -44,6 +44,7 @@
       "[PASS] 翻译层(translator): VA=0x200000 -> PA=0x200000 (2MB page)",
       "[PASS] 翻译层(translator): VA=0x40000000 -> PA=0x40000000 (1GB page)",
       "[PASS] 三层组合(pipeline): cross-page read VA 0x400FF0 (two 4KB pages)",
+      "[PASS] 翻译层(translator): unmapped VA=0x800000 rejected",
       "[PASS] 定位层(locator): PID 4242 / MOCK.exe -> CR3=0x1000 (physical scan)",
       "[PASS] 定位层(locator): fake EPROCESS PA=0x8000",
       "[PASS] 定位层(locator): kernel-reader list walk -> CR3=0x3000 (no physical reader)",
@@ -51,7 +52,7 @@
       "[PASS] 独立性(independence): 取数层 usable without locator/translator",
       "[PASS] 独立性(independence): 翻译层 usable without locator"
     ],
-    "passed": 12,
+    "passed": 13,
     "failed": 0,
     "offline_no_admin_no_driver": true
   },
