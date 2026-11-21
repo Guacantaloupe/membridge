@@ -60,6 +60,7 @@ typedef struct mb_phys_reader {
 | `winio64` | WinIo64（经典物理内存映射驱动，`\\.\WinIo`）；IOCTL **`0x80102040`** MAPPHYSTOLIN（0x28 请求 `{u64 size; u64 phys_start; section_handle; user_va; object}`，映射 `\Device\PhysicalMemory`），`0x80102044` UNMAP；任意物理映射**读/写**（映射为可写 Section）；静态逆向确认，动态验证待提权 |
 | `dumpit` | DumpIt 取证驱动（卷过滤器，设备名动态 GUID；`--device \\.\C:` 指定卷）；IOCTL **`0x22C01E`** 物理读：input `{u64 phys_addr}`（长度 >7），输出缓冲区长度即读取字节数；静态逆向确认，动态验证待提权 |
 | `asmmap` | ASUS ASMMAP64（`\\.\ASMMAP64`）；IOCTL **`0x9C402580`** MAPMEM（0x18 请求 `{u64 phys_start; u64 user_va_out; u64 length}`，映射 `\Device\PhysicalMemory`），`0x9C402584` UNMAP；**任意物理映射读/写**；另有 0x9C402588/58C 连续物理分配/释放、0x9C402590 端口 I/O；静态逆向确认，动态验证待提权 |
+| `atillk64` | ATI/AMD atillk64（`\\.\atillk64`）；物理读 IOCTL **`0x9C402544`**（input 0x10 `{u64 phys; u64 size}`，`MmMapIoSpace` 拷贝 size 字节）；物理写 IOCTL **`0x9C402548`**（input 0x18 `{u64 phys; u64 size; u64 src}`）；另有 MSR/端口/PCI 访问；静态逆向确认，动态验证待提权 |
 | `mock` | 离线自测用合成物理内存 |
 
 `membridge.exe` 已集成 22 个全 64 位物理读 backend（cchwapi/rtkio/eneio64/hp/gibepext/fastdump/directio/tdeio/icachex/mrt 等）；每个 backend 都只是取数层的一个实现，新增 backend 不影响定位层和翻译层。
@@ -76,7 +77,7 @@ typedef struct mb_phys_reader {
 - 伪造 `_EPROCESS`（PID 4242 / MOCK.exe / DTB 0x1000）；
 - 分别验证：取数层、翻译层、定位层、三层组合、独立性。
 
-结果（34/34 PASS）：
+结果（36/36 PASS）：
 ```
 [PASS] 取数层(fetcher): PA=0x5000 bytes match mock data
 [PASS] 翻译层(translator): VA=0x400000 -> PA=0x5000 (4KB page)
@@ -98,6 +99,8 @@ typedef struct mb_phys_reader {
 [PASS] 取数层(fetcher): winio64 map request layout (size/phys)
 [PASS] 取数层(fetcher): dumpit physical read request layout
 [PASS] 取数层(fetcher): asmmap64 map request layout (phys/len)
+[PASS] 取数层(fetcher): atillk64 read request layout (PA/size)
+[PASS] 取数层(fetcher): atillk64 write request layout (PA/size/src)
 [PASS] 定位层(locator): PID 4242 / MOCK.exe -> CR3=0x1000 (physical scan)
 [PASS] 定位层(locator): fake EPROCESS PA=0x8000
 [PASS] 定位层(locator): kernel-reader list walk -> CR3=0x3000 (no physical reader)

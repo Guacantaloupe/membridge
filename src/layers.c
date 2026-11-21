@@ -434,6 +434,43 @@ static int asmmap_write(mb_phys_reader *r, uint64_t pa, const void *buf, uint32_
     return 1;
 }
 
+// ---- 取数层 provider: ATI/AMD atillk64 (physical memory access) ----
+// Device \\.\atillk64. READ IOCTL 0x9C402544: input 0x10 {u64 phys; u64 size};
+// output buffer size == size; driver MmMapIoSpace's phys and copies size bytes.
+// WRITE IOCTL 0x9C402548: input 0x18 {u64 phys; u64 size; u64 user_src}.
+static int atillk64_build_read_request(uint64_t pa, uint32_t size, uint8_t out[0x10]) {
+    if (!out || !size) return 0;
+    memset(out, 0, 0x10);
+    *(uint64_t *)(out + 0x00) = pa;
+    *(uint64_t *)(out + 0x08) = size;
+    return 1;
+}
+
+static int atillk64_build_write_request(uint64_t pa, uint32_t size, const void *src, uint8_t out[0x18]) {
+    if (!out || !src || !size) return 0;
+    memset(out, 0, 0x18);
+    *(uint64_t *)(out + 0x00) = pa;
+    *(uint64_t *)(out + 0x08) = size;
+    *(uint64_t *)(out + 0x10) = (uint64_t)(uintptr_t)src;
+    return 1;
+}
+
+static int read_atillk64(mb_phys_reader *r, uint64_t pa, void *buf, uint32_t size) {
+    if (r->dev == INVALID_HANDLE_VALUE || !buf || !size) return 0;
+    uint8_t in[0x10];
+    DWORD ret = 0;
+    if (!atillk64_build_read_request(pa, size, in)) return 0;
+    return DeviceIoControl(r->dev, 0x9C402544u, in, sizeof(in), buf, size, &ret, NULL) ? 1 : 0;
+}
+
+static int atillk64_write(mb_phys_reader *r, uint64_t pa, const void *buf, uint32_t size) {
+    if (r->dev == INVALID_HANDLE_VALUE || !buf || !size) return 0;
+    uint8_t in[0x18];
+    DWORD ret = 0;
+    if (!atillk64_build_write_request(pa, size, buf, in)) return 0;
+    return DeviceIoControl(r->dev, 0x9C402548u, in, sizeof(in), NULL, 0, &ret, NULL) ? 1 : 0;
+}
+
 static int read_winio64(mb_phys_reader *r, uint64_t pa, void *buf, uint32_t size) {    if (r->dev == INVALID_HANDLE_VALUE || !buf || !size) return 0;
     uint8_t req[0x28];
     DWORD ret = 0;
@@ -608,8 +645,18 @@ static int reader_open(mb_phys_reader *r, const char *kind, const char *device) 
                              NULL, OPEN_EXISTING, 0, NULL);
         if (r->dev == INVALID_HANDLE_VALUE)
             fprintf(stderr, "[HINT] ASMMAP64 device not found (need asmmap64.sys loaded)\n");
+    } else if (_stricmp(kind, "atillk64") == 0) {
+        r->name = "atillk64";
+        r->mode = 13;
+        r->read = read_atillk64;
+        r->write = atillk64_write;
+        r->dev = CreateFileA(device ? device : "\\\\.\\atillk64",
+                             GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE,
+                             NULL, OPEN_EXISTING, 0, NULL);
+        if (r->dev == INVALID_HANDLE_VALUE)
+            fprintf(stderr, "[HINT] atillk64 device not found (need atillk64.sys loaded)\n");
     } else {
-        fprintf(stderr, "[ERR] unknown reader '%s' (mock|cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64|dumpit|asmmap)\n", kind ? kind : "");
+        fprintf(stderr, "[ERR] unknown reader '%s' (mock|cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64|dumpit|asmmap|atillk64)\n", kind ? kind : "");
         return 0;
     }
     if (r->dev == INVALID_HANDLE_VALUE) {
@@ -1154,7 +1201,7 @@ static int hex_decode(const char *s, uint8_t *out, int max) {
 // Diagnostic: probe which real provider devices are currently present.
 static int probe_readers(void) {
     const char *kinds[] = { "cchwapi", "rtkio", "eneio64", "asrdrv", "mrt", "cpuz",
-                            "asupio64", "asio2", "aswarpot", "winio64", "dumpit", "asmmap" };
+                            "asupio64", "asio2", "aswarpot", "winio64", "dumpit", "asmmap", "atillk64" };
     int present = 0;
     for (size_t i = 0; i < sizeof(kinds) / sizeof(kinds[0]); i++) {
         mb_phys_reader r;
@@ -1368,6 +1415,19 @@ static int selftest_mock(void) {
                  *(uint64_t *)(asmreq + 0x10) == 0x1000;
     check("取数层(fetcher)", "asmmap64 map request layout (phys/len)", ok_asm);
 
+    // atillk64 read/write request layouts (offline, no driver)
+    uint8_t atireq[0x10];
+    int ok_ati = atillk64_build_read_request(0x12345678, 0x100, atireq) &&
+                 *(uint64_t *)(atireq + 0x00) == 0x12345678ull &&
+                 *(uint64_t *)(atireq + 0x08) == 0x100;
+    check("取数层(fetcher)", "atillk64 read request layout (PA/size)", ok_ati);
+    uint8_t atiw[0x18], ati_data[4] = { 1, 2, 3, 4 };
+    int ok_atiw = atillk64_build_write_request(0x12345678, 4, ati_data, atiw) &&
+                  *(uint64_t *)(atiw + 0x00) == 0x12345678ull &&
+                  *(uint64_t *)(atiw + 0x08) == 4 &&
+                  *(uint64_t *)(atiw + 0x10) == (uint64_t)(uintptr_t)ati_data;
+    check("取数层(fetcher)", "atillk64 write request layout (PA/size/src)", ok_atiw);
+
     // 定位层 alone (physical EPROCESS scan, no kernel reader)
     uint64_t located_cr3 = 0, eproc = 0;
     int ok_loc = mb_layer_locate_cr3_scan(&r, 0x8000, 0x1000, 4242, "MOCK.exe",
@@ -1499,12 +1559,12 @@ static void usage(void) {
     printf("  layers --probe-locators (try opening KKYUM / Invary / KPRL locator devices)\n");
     printf("  layers --selftest-mock\n");
     printf("  layers --ranges                       (read physical RAM ranges from registry)\n");
-    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64|dumpit|asmmap> [--device <path>] --read-phys --pa <hex> --size <n>\n");
+    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64|dumpit|asmmap|atillk64> [--device <path>] --read-phys --pa <hex> --size <n>\n");
     printf("  layers --reader ... --write-phys --pa <hex> --data <hex bytes>  (providers with write)\n");
     printf("  layers --reader <mock> --cr3 <hex> --va <hex> --size <n>\n");
     printf("  layers --reader ... --cr3 <hex> --va <hex> --size <n> [--la57]  (translate/read, 4-level or 5-level)\n");
-    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64|dumpit|asmmap> [--device <path>] --locate --pid <pid> --scan-start <hex> --scan-size <hex> [--name <exe>]\n");
-    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64|dumpit|asmmap> [--device <path>] --locate --pid <pid> --auto-ranges [--name <exe>]\n");
+    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64|dumpit|asmmap|atillk64> [--device <path>] --locate --pid <pid> --scan-start <hex> --scan-size <hex> [--name <exe>]\n");
+    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64|dumpit|asmmap|atillk64> [--device <path>] --locate --pid <pid> --auto-ranges [--name <exe>]\n");
     printf("  layers --reader ... --locate --pid <pid> (--scan-start/--scan-size | --auto-ranges) --va <hex> --size <n>\n");
     printf("  layers --locate --kkyum --pid <pid> [--kkyum-device <path>]   (kernel-VA locator; no physical reader needed)\n");
     printf("  layers --locate --kprl --pid <pid> [--kprl-device <path>]     (KPRL CR3-by-PID; no physical reader needed)\n");
