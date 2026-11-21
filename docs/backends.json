@@ -114,6 +114,16 @@
    "full64": true,
    "description": "rtkiow8x64.sys (Realtek W8 variant; IOCTL_PHYMEM_MAP 0x80002000: u64 PA + size -> user VA, arbitrary 64-bit PA)",
    "sha256": "b205835b818d8a50903cf76936fcf8160060762725bd74a523320cfbd091c038"
+  },
+  {
+   "id": "eneio64",
+   "file": "drivers\\eneio64\\eneio64.sys",
+   "kind": "control",
+   "device": "\\\\.\\GLCKIo",
+   "layout": "eneio64",
+   "full64": true,
+   "description": "eneio64.sys (ASUS/GIGABYTE ENE WinIO; IOCTL_WINIO_MAPPHYSTOLIN 0x80102040, arbitrary 64-bit PA)",
+   "sha256": "38c18db050b0b2b07f657c03db1c9595febae0319c746c3eede677e21cd238b0"
   }
  ]
 }

