@@ -1,10 +1,10 @@
 ﻿{
-    "date":  "2026-11-22T12:29:53",
+    "date":  "2026-11-22T22:36:16",
     "driver":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\drivers\\CCHWApi_sys\\CCHWApi.sys",
-    "target_pid":  7124,
-    "cr3":  "",
+    "target_pid":  2736,
+    "cr3":  "CR3=0x1BD6B3000",
     "eprocess":  "",
     "verdict":  "FAIL",
     "layers_exit":  5,
-    "output":  "layers.exe : [ERR] translate failed VA=0xFFFFF80676BC7AB0\r\n所在位置 C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\scripts\\cchwapi_only_cr3.ps1:86 字符: 13\r\n+     $out = (\u0026 $layers --locate --cchwapi-only --pid $ProcessId 2\u003e\u00261 | ...\r\n+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n    + CategoryInfo          : NotSpecified: ([ERR] translate...FFFF80676BC7AB0:String) [], RemoteException\r\n    + FullyQualifiedErrorId : NativeCommandError\r\n \r\n[ERR] cchwapi-only: read PsInitialSystemProcess failed\r\n[ERR] CCHWApi-only locator failed (pid=7124): driver/control-reg/page-walk error"
+    "output":  "layers.exe : [DBG] cchwapi-only: CPU=0 CR3=0x1BD6B3000 LA57=0\r\n所在位置 C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\scripts\\cchwapi_only_cr3.ps1:86 字符: 13\r\n+     $out = (\u0026 $layers --locate --cchwapi-only --pid $ProcessId 2\u003e\u00261 | ...\r\n+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n    + CategoryInfo          : NotSpecified: ([DBG] cchwapi-o...BD6B3000 LA57=0:String) [], RemoteException\r\n    + FullyQualifiedErrorId : NativeCommandError\r\n \r\n[ERR] translate failed VA=0xFFFFF80676BC7AB0\r\n[DBG] cchwapi-only: CPU=1 CR3=0x1BD6B3000 LA57=0\r\n[ERR] translate failed VA=0xFFFFF80676BC7AB0\r\n[DBG] cchwapi-only: CPU=2 CR3=0x1BD6B3000 LA57=0\r\n[ERR] translate failed VA=0xFFFFF80676BC7AB0\r\n[DBG] cchwapi-only: CPU=3 CR3=0x1BD6B3000 LA57=0\r\n[ERR] translate failed VA=0xFFFFF80676BC7AB0\r\n[DBG] cchwapi-only: CPU=4 CR3=0x1BD6B3000 LA57=0\r\n[ERR] translate failed VA=0xFFFFF80676BC7AB0\r\n[DBG] cchwapi-only: CPU=5 CR3=0x1BD6B3000 LA57=0\r\n[ERR] translate failed VA=0xFFFFF80676BC7AB0\r\n[DBG] cchwapi-only: CPU=6 CR3=0x1BD6B3000 LA57=0\r\n[ERR] translate failed VA=0xFFFFF80676BC7AB0\r\n[DBG] cchwapi-only: CPU=7 CR3=0x1BD6B3000 LA57=0\r\n[ERR] translate failed VA=0xFFFFF80676BC7AB0\r\n[ERR] cchwapi-only: all CPU CR3 candidates failed page-walk/EPROCESS walk\r\n[ERR] CCHWApi-only locator failed (pid=2736): driver/control-reg/page-walk error"
 }

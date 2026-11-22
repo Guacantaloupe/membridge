@@ -1301,6 +1301,89 @@ static int mb_layer_translate5(mb_phys_reader *r, uint64_t cr3, uint64_t va,
     return (*out_pa < MB_MAX_PHYS);
 }
 
+// Diagnostic page walk: print every level so a failing physical read can be
+// distinguished from a not-present/misconfigured page-table entry.
+static int mb_layer_translate_debug(mb_phys_reader *r, uint64_t cr3, uint64_t va, int la57) {
+    uint64_t e = 0;
+    uint64_t table = cr3 & 0x000FFFFFFFFFF000ull;
+    fprintf(stderr, "[DBG] walk: CR3=0x%llX VA=0x%llX mode=%s\n",
+            (unsigned long long)cr3, (unsigned long long)va, la57 ? "5-level" : "4-level");
+
+    if (la57) {
+        uint64_t idx = (va >> 48) & 0x1FF;
+        if (!phys_read_u64(r, table + idx * 8, &e)) {
+            fprintf(stderr, "[DBG] L5 READ FAIL table=0x%llX idx=%llu\n",
+                    (unsigned long long)table, (unsigned long long)idx);
+            return 0;
+        }
+        fprintf(stderr, "[DBG] L5 table=0x%llX idx=%llu entry=0x%llX present=%d\n",
+                (unsigned long long)table, (unsigned long long)idx,
+                (unsigned long long)e, (int)(e & 1));
+        if (!(e & 1)) return 0;
+        table = e & 0x000FFFFFFFFFF000ull;
+    }
+
+    uint64_t idx = (va >> 39) & 0x1FF;
+    if (!phys_read_u64(r, table + idx * 8, &e)) {
+        fprintf(stderr, "[DBG] L4 READ FAIL table=0x%llX idx=%llu\n",
+                (unsigned long long)table, (unsigned long long)idx);
+        return 0;
+    }
+    fprintf(stderr, "[DBG] L4 table=0x%llX idx=%llu entry=0x%llX present=%d\n",
+            (unsigned long long)table, (unsigned long long)idx,
+            (unsigned long long)e, (int)(e & 1));
+    if (!(e & 1)) return 0;
+    table = e & 0x000FFFFFFFFFF000ull;
+
+    idx = (va >> 30) & 0x1FF;
+    if (!phys_read_u64(r, table + idx * 8, &e)) {
+        fprintf(stderr, "[DBG] L3 READ FAIL table=0x%llX idx=%llu\n",
+                (unsigned long long)table, (unsigned long long)idx);
+        return 0;
+    }
+    fprintf(stderr, "[DBG] L3 table=0x%llX idx=%llu entry=0x%llX present=%d huge=%d\n",
+            (unsigned long long)table, (unsigned long long)idx,
+            (unsigned long long)e, (int)(e & 1), (int)((e >> 7) & 1));
+    if (!(e & 1)) return 0;
+    if (e & 0x80) {
+        uint64_t pa = (e & 0x000FFFFFC0000000ull) + (va & 0x3FFFFFFFull);
+        fprintf(stderr, "[DBG] 1GB page -> PA=0x%llX\n", (unsigned long long)pa);
+        return 1;
+    }
+    table = e & 0x000FFFFFFFFFF000ull;
+
+    idx = (va >> 21) & 0x1FF;
+    if (!phys_read_u64(r, table + idx * 8, &e)) {
+        fprintf(stderr, "[DBG] L2 READ FAIL table=0x%llX idx=%llu\n",
+                (unsigned long long)table, (unsigned long long)idx);
+        return 0;
+    }
+    fprintf(stderr, "[DBG] L2 table=0x%llX idx=%llu entry=0x%llX present=%d huge=%d\n",
+            (unsigned long long)table, (unsigned long long)idx,
+            (unsigned long long)e, (int)(e & 1), (int)((e >> 7) & 1));
+    if (!(e & 1)) return 0;
+    if (e & 0x80) {
+        uint64_t pa = (e & 0x000FFFFFFFE00000ull) + (va & 0x1FFFFFull);
+        fprintf(stderr, "[DBG] 2MB page -> PA=0x%llX\n", (unsigned long long)pa);
+        return 1;
+    }
+    table = e & 0x000FFFFFFFFFF000ull;
+
+    idx = (va >> 12) & 0x1FF;
+    if (!phys_read_u64(r, table + idx * 8, &e)) {
+        fprintf(stderr, "[DBG] L1 READ FAIL table=0x%llX idx=%llu\n",
+                (unsigned long long)table, (unsigned long long)idx);
+        return 0;
+    }
+    fprintf(stderr, "[DBG] L1 table=0x%llX idx=%llu entry=0x%llX present=%d\n",
+            (unsigned long long)table, (unsigned long long)idx,
+            (unsigned long long)e, (int)(e & 1));
+    if (!(e & 1)) return 0;
+    uint64_t pa = (e & 0x000FFFFFFFFFF000ull) + (va & 0xFFFull);
+    fprintf(stderr, "[DBG] 4KB page -> PA=0x%llX\n", (unsigned long long)pa);
+    return 1;
+}
+
 // ---------------------------------------------------------------------------
 // 定位层 (locator): target process -> CR3
 // ---------------------------------------------------------------------------
@@ -2583,6 +2666,7 @@ static void usage(void) {
     printf("  layers --reader <mock> --cr3 <hex> --va <hex> --size <n>\n");
     printf("  layers --reader ... --cr3 <hex> --va <hex> --size <n> [--la57]  (translate/read, 4-level or 5-level)\n");
     printf("  layers --reader mock --cr3 <hex> --va <hex> --translate-only [--la57] (translation layer only, offline)\n");
+    printf("  layers --reader <name> --cr3 <hex> --va <hex> --translate-debug [--la57] (print every page-table level; diagnose read/present failures)\n");
     printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64|dumpit|asmmap|atillk64|asio64|adv64drv|ntiolib|winring0|amifldrv|citmdrv|membridgephys> [--device <path>] --locate --pid <pid> --scan-start <hex> --scan-size <hex> [--name <exe>]\n");
     printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64|dumpit|asmmap|atillk64|asio64|adv64drv|ntiolib|winring0|amifldrv|citmdrv|membridgephys> [--device <path>] --locate --pid <pid> --auto-ranges [--name <exe>]\n");
     printf("  layers --reader ... --locate --pid <pid> (--scan-start/--scan-size | --auto-ranges) --va <hex> --size <n>\n");
@@ -2609,7 +2693,7 @@ int main(int argc, char **argv) {
     int do_selftest = 0, do_read_phys = 0, do_write_phys = 0, do_explicit = 0, do_locate = 0, have_cr3 = 0, have_va = 0;
     int use_la57 = 0, do_translate_only = 0;
     const char *data_hex = NULL;
-    int do_ranges = 0, auto_ranges = 0, use_kkyum = 0, use_kprl = 0, use_invary = 0, use_auto = 0, use_scan_providers = 0, use_cchwapi_only = 0, do_cchwapi_current = 0, do_scan_bench = 0, do_invary_read = 0, do_read_process = 0, do_probe = 0, do_probe_loc = 0, do_probe_all = 0, do_list = 0, do_list_legacy = 0, do_hvci = 0;
+    int do_ranges = 0, auto_ranges = 0, use_kkyum = 0, use_kprl = 0, use_invary = 0, use_auto = 0, use_scan_providers = 0, use_cchwapi_only = 0, do_cchwapi_current = 0, do_translate_debug = 0, do_scan_bench = 0, do_invary_read = 0, do_read_process = 0, do_probe = 0, do_probe_loc = 0, do_probe_all = 0, do_list = 0, do_list_legacy = 0, do_hvci = 0;
     for (int i = 1; i < argc; i++) {
         if (strcmp(argv[i], "--selftest-mock") == 0) do_selftest = 1;
         else if (strcmp(argv[i], "--probe-readers") == 0) do_probe = 1;
@@ -2648,6 +2732,7 @@ int main(int argc, char **argv) {
         else if (strcmp(argv[i], "--scan-providers") == 0) use_scan_providers = 1;
         else if (strcmp(argv[i], "--cchwapi-only") == 0) use_cchwapi_only = 1;
         else if (strcmp(argv[i], "--cchwapi-cr3-current") == 0) do_cchwapi_current = 1;
+        else if (strcmp(argv[i], "--translate-debug") == 0) do_translate_debug = 1;
         else if (strcmp(argv[i], "--scan-bench") == 0) { use_scan_providers = 1; do_scan_bench = 1; }
         else if (strcmp(argv[i], "--scan-mock") == 0) { use_scan_providers = 1; g_scan_mock = 1; }
         else if (strcmp(argv[i], "--invary-read") == 0) do_invary_read = 1;
@@ -2749,6 +2834,17 @@ int main(int argc, char **argv) {
     }
 
     int rc = 0;
+    if (do_translate_debug) {
+        if (!have_cr3 || !have_va) {
+            printf("[ERR] --translate-debug needs --cr3 and --va\n");
+            rc = 6;
+        } else {
+            int ok = mb_layer_translate_debug(&r, cr3, va, use_la57);
+            printf("VERDICT=%s\n", ok ? "PASS" : "FAIL");
+            rc = ok ? 0 : 5;
+        }
+        goto done;
+    }
     if (do_translate_only) {
         if (!have_cr3 || !have_va) {
             printf("[ERR] --translate-only needs --cr3 and --va\n");

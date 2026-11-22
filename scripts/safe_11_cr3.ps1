@@ -156,20 +156,36 @@ try {
     Write-Host ">> translate EPROCESS VA -> PA (small page-table walk only)"
     $old = $ErrorActionPreference
     $ErrorActionPreference = 'Continue'
-    $t = (& $layers --translate-only --reader legacy --legacy-backend tdeio --cr3 $refCr3 --va $eprocVa 2>&1 | Out-String)
+    $translateReaders = @('tdeio','gibepext','gibepext2')
     $la57 = $false
-    if ($t -notmatch 'PA=') {
-        Write-Host ">> 4-level translation failed; retrying with --la57 (5-level paging)"
-        $t = (& $layers --translate-only --reader legacy --legacy-backend tdeio --cr3 $refCr3 --va $eprocVa --la57 2>&1 | Out-String)
-        $la57 = $true
+    $usedReader = ''
+    $t = ''
+    $mPa = $null
+    foreach ($rb in $translateReaders) {
+        foreach ($tryLa57 in @($false,$true)) {
+            $la57 = $tryLa57
+            $a = @('--translate-only','--reader','legacy','--legacy-backend',$rb,
+                   '--cr3',$refCr3,'--va',$eprocVa)
+            if ($la57) { $a += '--la57' }
+            $t = (& $layers @a 2>&1 | Out-String)
+            $mPa = [regex]::Match($t, 'PA=(0x[0-9A-Fa-f]+)')
+            if ($mPa.Success) { $usedReader = $rb; break }
+        }
+        if ($mPa.Success) { break }
+    }
+    if (-not $mPa.Success) {
+        $dbgArgs = @('--translate-debug','--reader','legacy','--legacy-backend','tdeio',
+                     '--cr3',$refCr3,'--va',$eprocVa)
+        $dbg = (& $layers @dbgArgs 2>&1 | Out-String)
+        $ErrorActionPreference = $old
+        Write-Host $dbg
+        throw "translate EPROCESS failed (4/5-level, readers: $($translateReaders -join ','))"
     }
     $ErrorActionPreference = $old
     Write-Host $t
-    $mPa = [regex]::Match($t, 'PA=(0x[0-9A-Fa-f]+)')
-    if (-not $mPa.Success) { throw "translate EPROCESS failed (4-level and 5-level)" }
     $eprocPa = [Convert]::ToUInt64($mPa.Groups[1].Value, 16)
     $cr3Pa = $eprocPa + 0x28
-    Write-Host ("EPROCESS_PA=0x{0:X} CR3_FIELD_PA=0x{1:X}" -f $eprocPa, $cr3Pa)
+    Write-Host ("translate reader={0} la57={1} EPROCESS_PA=0x{2:X} CR3_FIELD_PA=0x{3:X}" -f $usedReader,$la57,$eprocPa,$cr3Pa)
 
     $rows = @()
     foreach ($bid in $backends) {
@@ -198,6 +214,7 @@ try {
         reference_cr3=$refCr3
         eprocess_va=$eprocVa
         eprocess_pa=('0x{0:X}' -f $eprocPa)
+        translate_reader=$usedReader
         la57=$la57
         total=$rows.Count
         pass=$pass
