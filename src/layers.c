@@ -1709,14 +1709,30 @@ static int pfn_recover_cr3(uint64_t nt_base, uint64_t eproc, uint32_t max_pfn, u
 
     // nt!MmPfnDatabase RVA for this ntoskrnl build (from crash-dump PDB symbols).
     const uint64_t MMPFN_DATABASE_RVA = 0xFC7C38ull;
+    const uint64_t MMPTE_BASE_RVA = 0xFC64C8ull;
     uint64_t pfn_db = 0;
+    uint64_t mm_pte_base = 0;
     if (!kr.read(&kr, nt_base + MMPFN_DATABASE_RVA, &pfn_db, 8)) {
         fprintf(stderr, "[ERR] pfn: read MmPfnDatabase pointer failed\n");
         return 0;
     }
-    fprintf(stderr, "[DBG] pfn: nt=0x%llX db=0x%llX eproc=0x%llX max=0x%X\n",
+    if (!kr.read(&kr, nt_base + MMPTE_BASE_RVA, &mm_pte_base, 8)) {
+        fprintf(stderr, "[ERR] pfn: read MmPteBase pointer failed\n");
+        return 0;
+    }
+    fprintf(stderr, "[DBG] pfn: nt=0x%llX db=0x%llX ptebase=0x%llX eproc=0x%llX max=0x%X\n",
             (unsigned long long)nt_base, (unsigned long long)pfn_db,
+            (unsigned long long)mm_pte_base,
             (unsigned long long)eproc, max_pfn);
+    // Derive the self-map PTE base exactly as enum_real_dirbase does.
+    uint64_t self_idx = ((mm_pte_base >> 39) - 0x1FFFE00ull) & 0x1FFull;
+    uint64_t pte_base = (self_idx + 0x1FFFE00ull) << 39;
+    uint64_t pde_base = (self_idx << 30) + pte_base;
+    uint64_t ppe_base = (self_idx << 30) + pte_base + (self_idx << 21);
+    uint64_t pxe_base = (self_idx << 12) + ppe_base;
+    uint64_t cr3_ptebase = (self_idx * 8) + pxe_base;
+    fprintf(stderr, "[DBG] pfn: self_idx=0x%llX cr3_ptebase=0x%llX\n",
+            (unsigned long long)self_idx, (unsigned long long)cr3_ptebase);
     if (pfn_db < 0xFFFF800000000000ull) return 0;
 
     const uint32_t CHUNK_ENTRIES = 0x2000;  // 8192 * 0x30 = 0x18000 bytes
@@ -1750,8 +1766,15 @@ static int pfn_recover_cr3(uint64_t nt_base, uint64_t eproc, uint32_t max_pfn, u
                 printed++;
             }
             uint64_t cand[4] = { w0, w18, w20, w28 };
+            uint64_t pte = *(uint64_t *)(entry + 0x08);
             int match = 0;
-            for (int j = 0; j < 4; j++) {
+            if (pte == cr3_ptebase) {
+                uint64_t dec = ((w0 | 0xF000000000000000ull) >> 13) | 0xFFFF000000000000ull;
+                fprintf(stderr, "[DBG] pfn[0x%X] pte_address == cr3_ptebase; flags=0x%llX decoded=0x%llX\n",
+                        start + i, (unsigned long long)w0, (unsigned long long)dec);
+                match = 1;
+            }
+            for (int j = 0; j < 4 && !match; j++) {
                 if (cand[j] == enc_eproc || cand[j] == eproc) { match = 1; break; }
                 uint64_t dec = ((cand[j] | 0xF000000000000000ull) >> 13) | 0xFFFF000000000000ull;
                 if (dec == eproc) { match = 1; break; }
