@@ -97,7 +97,7 @@ typedef struct mb_phys_reader {
 - 伪造 `_EPROCESS`（PID 4242 / MOCK.exe / DTB 0x1000）；
 - 分别验证：取数层、翻译层、定位层、三层组合、独立性。
 
-结果（47/47 PASS）：
+结果（48/48 PASS）：
 ```
 [PASS] 取数层(fetcher): PA=0x5000 bytes match mock data
 [PASS] 翻译层(translator): VA=0x400000 -> PA=0x5000 (4KB page)
@@ -132,6 +132,7 @@ typedef struct mb_phys_reader {
 [PASS] 取数层(fetcher): kkyum direct process-read request layout (pid/src/dst/size)
 [PASS] 取数层(fetcher): legacy backend registry (24 ids, find cchwapi_2_12, reject bad id)
 [PASS] 定位层(locator): provider-scan registry has 20 physical providers
+[PASS] 定位层(locator): cchwapi control-register CR3 request layout (cpu0/reg3)
 [PASS] 定位层(locator): PID 4242 / MOCK.exe -> CR3=0x1000 (physical scan)
 [PASS] 定位层(locator): fake EPROCESS PA=0x8000
 [PASS] 定位层(locator): kernel-reader list walk -> CR3=0x3000 (no physical reader)

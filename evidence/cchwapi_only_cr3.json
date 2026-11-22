@@ -1,0 +1,6 @@
+﻿{
+    "mode":  "static",
+    "driver":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\drivers\\CCHWApi_sys\\CCHWApi.sys",
+    "signature":  "Valid",
+    "locate_selftest":  "PASS"
+}

