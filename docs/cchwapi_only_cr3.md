@@ -32,6 +32,12 @@ CCHWApi 2.9 除物理读外，还暴露控制寄存器读接口：
 
 **不做全物理内存扫描**，因此不会触发 CCHWApi 在大块 `rep movs` 中的崩溃路径。
 
+## 两步执行
+1. **低风险冒烟测试**：layers --cchwapi-cr3-current
+   - 只做 ReadControlReg(CR3)，不做页表/EPROCESS 遍历；
+2. 冒烟 PASS 后再执行完整 locator。
+脚本会自动先做第 1 步，失败则直接中止，避免继续扩大风险。
+
 ## 实现
 - `layers.exe --locate --cchwapi-only --pid <pid>`
   - 控制寄存器请求：`cchwapi_control_request(CPU, REG)`
