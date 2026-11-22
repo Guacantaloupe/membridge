@@ -1,0 +1,62 @@
+﻿{
+    "mode":  "static",
+    "kkyum":  "Valid",
+    "locate_selftest":  "PASS",
+    "backends":  [
+                     {
+                         "backend":  "cchwapi_2_9",
+                         "exists":  true,
+                         "signature":  "Valid"
+                     },
+                     {
+                         "backend":  "cchwapi_2_12",
+                         "exists":  true,
+                         "signature":  "Valid"
+                     },
+                     {
+                         "backend":  "cchwapi_ext_4_5",
+                         "exists":  true,
+                         "signature":  "Valid"
+                     },
+                     {
+                         "backend":  "hp_swtools",
+                         "exists":  true,
+                         "signature":  "Valid"
+                     },
+                     {
+                         "backend":  "swtoolsdriver",
+                         "exists":  true,
+                         "signature":  "Valid"
+                     },
+                     {
+                         "backend":  "hp_swtools_v1",
+                         "exists":  true,
+                         "signature":  "Valid"
+                     },
+                     {
+                         "backend":  "isharepp",
+                         "exists":  true,
+                         "signature":  "Valid"
+                     },
+                     {
+                         "backend":  "gibepext",
+                         "exists":  true,
+                         "signature":  "Valid"
+                     },
+                     {
+                         "backend":  "gibepext2",
+                         "exists":  true,
+                         "signature":  "Valid"
+                     },
+                     {
+                         "backend":  "tdeio",
+                         "exists":  true,
+                         "signature":  "Valid"
+                     },
+                     {
+                         "backend":  "ufu_win10",
+                         "exists":  true,
+                         "signature":  "Valid"
+                     }
+                 ]
+}
