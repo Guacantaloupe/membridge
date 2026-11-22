@@ -62,4 +62,10 @@ Run-Test 'provider-scan (20 providers + legacy fallback)' @(
     '--va','0x400000','--size','8','--dump'
 ) @('provider=legacy:cchwapi_2_12', 'CR3=0x200000', '4C 45 47 41', 'VERDICT=PASS')
 
+Run-Test 'provider-scan via in-process mock' @(
+    '--locate','--scan-providers','--scan-mock','--scan-bench','--pid','4242','--name','MOCK.exe',
+    '--scan-start','0x8000','--scan-size','0x1000',
+    '--va','0x400000','--size','8','--dump'
+) @('provider=mock', 'CR3=0x1000', '4D 4F 43 4B', 'VERDICT=PASS')
+
 Write-Host "LEGACY_PIPELINE_TEST=PASS"

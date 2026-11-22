@@ -933,6 +933,7 @@ static int legacy_count(void) { return (int)(sizeof(g_legacy_backends) / sizeof(
 static const char *g_legacy_backend = NULL;
 static const char *g_legacy_bin = NULL;
 static int g_legacy_no_load = 0;
+static int g_scan_mock = 0;   // test-only: run provider-scan against built-in mock
 
 static const legacy_backend_t *legacy_find(const char *id) {
     if (!id) return NULL;
@@ -994,6 +995,10 @@ static int reader_open(mb_phys_reader *r, const char *kind, const char *device) 
         *(uint64_t *)(mem + 0x3000 + 2 * 8) = 0x4003;  // PD[2]   -> PT (VA 0x400000)
         *(uint64_t *)(mem + 0x4000) = 0x5003;          // PT[0]   -> data
         memcpy(mem + 0x5000, "MOCKCLI-DATA-0123456789", 23);
+        // Synthetic EPROCESS at PA 0x8000 for --locate --scan-providers --scan-mock.
+        *(uint64_t *)(mem + 0x8000 + 0x28) = 0x1000;          // DirectoryTableBase
+        *(uint32_t *)(mem + 0x8000 + 0x1D0) = 4242;           // UniqueProcessId
+        memcpy(mem + 0x8000 + 0x338, "MOCK.exe", 8);          // ImageFileName
         // 5-level tables: VA 0x1010 -> PA 0x305010 -> "LA57".
         *(uint64_t *)(mem + 0x300000) = 0x301003;      // PML5[0] -> PML4
         *(uint64_t *)(mem + 0x301000) = 0x302003;      // PML4[0] -> PDPT
@@ -1776,7 +1781,32 @@ static int locate_scan_all_providers(uint32_t pid, const char *image_name,
         return 0;
     }
 
+    if (g_scan_mock) {
+        mb_phys_reader mr;
+        if (reader_open(&mr, "mock", NULL)) {
+            double t = now_ms();
+            uint64_t cr3 = 0, eproc = 0;
+            int found = mb_layer_locate_cr3_scan(&mr, scan_start, scan_size, pid, image_name,
+                                                 &cr3, &eproc);
+            if (bench) {
+                printf("[bench] provider=%-12s open=%7.1f ms scan=%9.1f ms result=%s\n",
+                       "mock", 0.0, now_ms() - t, found ? "CR3" : "no-cr3");
+            }
+            if (found) {
+                printf("[OK] provider-scan: provider=mock PID=%u EPROCESS_PA=0x%llX CR3=0x%llX\n",
+                       pid, (unsigned long long)eproc, (unsigned long long)cr3);
+                *out_reader = mr;
+                *out_cr3 = cr3;
+                if (out_eproc) *out_eproc = eproc;
+                return 1;
+            }
+            reader_close(&mr);
+        }
+        return 0;
+    }
+
     for (int i = 0; i < provider_scan_count(); i++) {
+        if (g_scan_mock) break; // handled before the real provider loop
         const char *id = g_provider_scan_order[i];
         mb_phys_reader r;
         double t_open0 = now_ms();
@@ -2467,6 +2497,7 @@ static void usage(void) {
     printf("  layers --locate --invary --pid <pid> [--invary-device <path>] (Invary Sensor kernel-VA locator)\n");
     printf("  layers --locate --scan-providers --pid <pid> [--auto-ranges | --scan-start <hex> --scan-size <hex>] [--va <hex> --size <n>]  (try 20 physical providers)\n");
     printf("  layers --locate --scan-bench --pid <pid> ...  (same, print per-provider open/scan timing)\n");
+    printf("  layers --locate --scan-providers --scan-mock --pid 4242 --name MOCK.exe --scan-start 0x8000 --scan-size 0x1000 (offline provider-scan self-test)\n");
     printf("  layers --locate --auto --pid <pid> [--scan-start/--scan-size | --auto-ranges]  (try all locators)\n");
     printf("  layers --read-process --pid <pid> --va <hex> --size <n> [--kkyum-device <path>]  (KKYUM direct process VA read; HVCI-PASS driver)\n");
     printf("  layers --invary-read --va <hex> --size <n> [--invary-device <path>] (kernel-VA bytes via Invary)\n");
@@ -2520,6 +2551,7 @@ int main(int argc, char **argv) {
         else if (strcmp(argv[i], "--auto") == 0) use_auto = 1;
         else if (strcmp(argv[i], "--scan-providers") == 0) use_scan_providers = 1;
         else if (strcmp(argv[i], "--scan-bench") == 0) { use_scan_providers = 1; do_scan_bench = 1; }
+        else if (strcmp(argv[i], "--scan-mock") == 0) { use_scan_providers = 1; g_scan_mock = 1; }
         else if (strcmp(argv[i], "--invary-read") == 0) do_invary_read = 1;
         else if (strcmp(argv[i], "--read-process") == 0) do_read_process = 1;
         else if (strcmp(argv[i], "--ranges") == 0) do_ranges = 1;
