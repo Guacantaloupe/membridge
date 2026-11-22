@@ -215,7 +215,8 @@ try {
     Write-Host ">> translate target USER VA with target CR3 (no kernel-VA translation)"
     $old = $ErrorActionPreference
     $ErrorActionPreference = 'Continue'
-    $translateReaders = @('gibepext','tdeio','gibepext2')
+    $translateReaders = @('gibepext')
+    Write-Host "translate readers: $($translateReaders -join ',')"
     $cr3Candidates = @($targetCr3)
     if ($userCr3 -and $userCr3 -ne $targetCr3) { $cr3Candidates += $userCr3 }
     $usedReader = ''
@@ -244,7 +245,7 @@ try {
         $ErrorActionPreference = 'Continue'
         $dbgCr3 = if ($userCr3 -and $userCr3 -ne '0x0') { $userCr3 } else { $targetCr3 }
         foreach ($dbgLa57 in @($false,$true)) {
-            $dba = @('--translate-debug','--reader','legacy','--legacy-backend','tdeio',
+            $dba = @('--translate-debug','--reader','legacy','--legacy-backend','gibepext',
                      '--cr3',$dbgCr3,'--va',('0x{0:X}' -f $targetVa))
             if ($dbgLa57) { $dba += '--la57' }
             $dbg = (& $layers @dba 2>&1 | Out-String)
