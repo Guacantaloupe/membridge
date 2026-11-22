@@ -1,0 +1,9 @@
+﻿{
+    "date":  "2026-11-23T03:34:18",
+    "method":  "KPRL l1malwarebits IOCTL 0x234408 -\u003e MmCopyVirtualMemory",
+    "kkyum_used":  false,
+    "target_pid":  11392,
+    "target_va":  "0x7FF7746F0000",
+    "bytes":  "4D5A90000300000004000000FFFF0000B800000000000000400000000000000000000000000000000000000000000000000000000000000000000000F8000000",
+    "verdict":  "PASS"
+}
