@@ -1,0 +1,7 @@
+﻿{
+    "date":  "2026-11-23T03:38:42",
+    "method":  "user-mode ReadProcessMemory + PEB query (no KPRL, no KKYUM, no kernel driver)",
+    "target_pid":  11392,
+    "output":  "PID=11392 PEB=0x1154C0000\r\nVA=0x7FF7746F0000 bytes=64\r\nHEX=4D 5A 90 00 03 00 00 00 04 00 00 00 FF FF 00 00 B8 00 00 00 00 00 00 00 40 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 F8 00 00 00\r\nMZ_HEADER=PASS",
+    "verdict":  "PASS"
+}
