@@ -124,8 +124,8 @@ public static class MbUserRead {
 }
 '@
 
-function Get-UserTargetInfo([int]$pid) {
-    $h = [MbUserRead]::OpenProcess(0x0410, $false, $pid)  # QUERY_INFORMATION | VM_READ
+function Get-UserTargetInfo([int]$TargetPid) {
+    $h = [MbUserRead]::OpenProcess(0x0410, $false, $TargetPid)  # QUERY_INFORMATION | VM_READ
     if ($h -eq [IntPtr]::Zero) { throw "OpenProcess failed (cross-user/protected target); pass -Va explicitly" }
     try {
         $pbi = New-Object MbUserRead+PROCESS_BASIC_INFORMATION
@@ -178,12 +178,12 @@ try {
     Write-Host "target PID=$ProcessId"
 
     if (-not $Va) {
-        $targetInfo = Get-UserTargetInfo $ProcessId
+        $targetInfo = Get-UserTargetInfo -TargetPid $ProcessId
         $targetVa = [uint64]$targetInfo.image_base
         Write-Host ("PEB=0x{0:X} ImageBase=0x{1:X}" -f $targetInfo.peb, $targetVa)
     } else {
         $targetVa = [Convert]::ToUInt64($Va, 16)
-        try { $targetInfo = Get-UserTargetInfo $ProcessId } catch { Write-Host "[WARN] no user-mode read access; use -SkipCompare" }
+        try { $targetInfo = Get-UserTargetInfo -TargetPid $ProcessId } catch { Write-Host "[WARN] no user-mode read access; use -SkipCompare" }
     }
 
     $pageRemain = 0x1000 - ($targetVa -band 0xFFF)
