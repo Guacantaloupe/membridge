@@ -1,0 +1,92 @@
+﻿{
+    "date":  "2026-11-22T09:28:47",
+    "is_admin":  false,
+    "hvci_enabled":  1,
+    "vulnerable_driver_blocklist":  "absent",
+    "target_exe":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\test\\test.exe",
+    "target_exists":  true,
+    "total":  13,
+    "drivers_present":  true,
+    "drivers_signed":  true,
+    "drivers":  [
+                    {
+                        "backend":  "cchwapi_2_9",
+                        "driver":  "drivers\\CCHWApi_sys\\CCHWApi.sys",
+                        "exists":  true,
+                        "signature":  "Valid"
+                    },
+                    {
+                        "backend":  "cchwapi_2_12",
+                        "driver":  "drivers\\CCHWApi(1)_sys\\CCHWApi(1).sys",
+                        "exists":  true,
+                        "signature":  "Valid"
+                    },
+                    {
+                        "backend":  "cchwapi_ext_4_5",
+                        "driver":  "drivers\\CCHWApiExt(1)_sys\\CCHWApiExt(1).sys",
+                        "exists":  true,
+                        "signature":  "Valid"
+                    },
+                    {
+                        "backend":  "hp_swtools",
+                        "driver":  "drivers\\HP SW TOOLS DRIVER_sys\\HP SW TOOLS DRIVER.sys",
+                        "exists":  true,
+                        "signature":  "Valid"
+                    },
+                    {
+                        "backend":  "swtoolsdriver",
+                        "driver":  "drivers\\swtoolsdriver\\swtoolsdriver.sys",
+                        "exists":  true,
+                        "signature":  "Valid"
+                    },
+                    {
+                        "backend":  "hp_swtools_v1",
+                        "driver":  "drivers\\hp_swtools_v1\\HP_SWTOOLS_DRIVER_V1.sys",
+                        "exists":  true,
+                        "signature":  "Valid"
+                    },
+                    {
+                        "backend":  "isharepp",
+                        "driver":  "drivers\\isharepp\\iSharePp.sys",
+                        "exists":  true,
+                        "signature":  "Valid"
+                    },
+                    {
+                        "backend":  "gibepext",
+                        "driver":  "drivers\\gibepext\\gibepext.sys",
+                        "exists":  true,
+                        "signature":  "Valid"
+                    },
+                    {
+                        "backend":  "gibepext2",
+                        "driver":  "drivers\\gibepext2\\gibepext2.sys",
+                        "exists":  true,
+                        "signature":  "Valid"
+                    },
+                    {
+                        "backend":  "tdeio",
+                        "driver":  "drivers\\tdeio\\TdeIo64.sys",
+                        "exists":  true,
+                        "signature":  "Valid"
+                    },
+                    {
+                        "backend":  "mrt",
+                        "driver":  "drivers\\mrt\\fekern_mrt.sys",
+                        "exists":  true,
+                        "signature":  "Valid"
+                    },
+                    {
+                        "backend":  "ufu_win10",
+                        "driver":  "drivers\\ufu\\win10_ufudev64.sys",
+                        "exists":  true,
+                        "signature":  "Valid"
+                    },
+                    {
+                        "backend":  "winring0x64",
+                        "driver":  "drivers\\winring0\\WinRing0x64.sys",
+                        "exists":  true,
+                        "signature":  "Valid"
+                    }
+                ],
+    "dynamic_blocker":  "Administrator required to load kernel drivers and start SYSTEM AWE target"
+}

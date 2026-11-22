@@ -41,8 +41,15 @@ pwsh -File scripts\test_13_pass_exe_read.ps1 -StaticOnly
 # 2) DryRun：打印管理员测试计划（不需要管理员）
 pwsh -File scripts\test_13_pass_exe_read.ps1 -DryRun
 
-# 3) 真实测试：需要管理员（启动 SYSTEM AWE 目标 + 加载 13 个驱动）
+# 3) 前置条件审计：13 个驱动文件存在/签名、HVCI、目标 EXE、是否管理员
+pwsh -File scripts\test_13_pass_exe_read.ps1 -CheckPrereqs
+
+# 4) 真实测试：需要管理员（启动 SYSTEM AWE 目标 + 加载 13 个驱动）
 pwsh -File scripts\test_13_pass_exe_read.ps1
+```
+前置审计结果写入：
+```
+evidence\test_13_pass_prereqs.json
 ```
 真实测试调用现有 `scripts/_elev_membridge_selftest.ps1 -Backends <13 ids>`，结果写入：
 ```
@@ -52,5 +59,11 @@ evidence\test_13_pass_exe_read.json
 
 ## 当前状态
 - 静态检查：**13/13 PRESENT, STATIC_ONLY=PASS**；
+- 前置条件审计（`-CheckPrereqs`）：
+  - 13 个驱动文件**全部存在**；
+  - 13 个签名**全部 Valid**；
+  - `test\test.exe` 存在；
+  - HVCI=1；blocklist 策略值 absent；
+  - `is_admin=False` → **动态测试仍被阻塞**；
 - 动态真实测试：**未执行**，当前会话是 Medium 非管理员，无法启动 SYSTEM AWE 任务/加载内核驱动；
-- 在管理员环境运行第 3 条命令即可得到真实 13 个 backend 的 PASS/FAIL 与驱动加载错误。
+- 在管理员环境运行第 4 条命令即可得到真实 13 个 backend 的 PASS/FAIL 与驱动加载错误。

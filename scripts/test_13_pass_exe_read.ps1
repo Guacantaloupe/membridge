@@ -24,7 +24,8 @@
 [CmdletBinding()]
 param(
     [switch]$StaticOnly,
-    [switch]$DryRun
+    [switch]$DryRun,
+    [switch]$CheckPrereqs
 )
 
 $ErrorActionPreference = 'Stop'
@@ -40,6 +41,22 @@ $passBackends = @(
     'ufu_win10', 'winring0x64'
 )
 
+$driverPaths = @{
+    'cchwapi_2_9'     = 'drivers\CCHWApi_sys\CCHWApi.sys'
+    'cchwapi_2_12'    = 'drivers\CCHWApi(1)_sys\CCHWApi(1).sys'
+    'cchwapi_ext_4_5' = 'drivers\CCHWApiExt(1)_sys\CCHWApiExt(1).sys'
+    'hp_swtools'      = 'drivers\HP SW TOOLS DRIVER_sys\HP SW TOOLS DRIVER.sys'
+    'swtoolsdriver'   = 'drivers\swtoolsdriver\swtoolsdriver.sys'
+    'hp_swtools_v1'   = 'drivers\hp_swtools_v1\HP_SWTOOLS_DRIVER_V1.sys'
+    'isharepp'        = 'drivers\isharepp\iSharePp.sys'
+    'gibepext'        = 'drivers\gibepext\gibepext.sys'
+    'gibepext2'       = 'drivers\gibepext2\gibepext2.sys'
+    'tdeio'           = 'drivers\tdeio\TdeIo64.sys'
+    'mrt'             = 'drivers\mrt\fekern_mrt.sys'
+    'ufu_win10'       = 'drivers\ufu\win10_ufudev64.sys'
+    'winring0x64'     = 'drivers\winring0\WinRing0x64.sys'
+}
+
 if (-not (Test-Path $membridge)) { throw "membridge.exe not found: $membridge" }
 
 Write-Host "== 13 PASS exe-memory read test =="
@@ -50,6 +67,50 @@ if ($missing.Count -gt 0) {
     throw "missing backend IDs in membridge --list: $($missing -join ',')"
 }
 Write-Host "static registry check: 13/13 present"
+
+if ($CheckPrereqs) {
+    $id = [Security.Principal.WindowsIdentity]::GetCurrent()
+    $principal = New-Object Security.Principal.WindowsPrincipal($id)
+    $isAdmin = $principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+    $hvci = (Get-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity' -ErrorAction SilentlyContinue).Enabled
+    $blocklist = (Get-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\CI\Policy' -ErrorAction SilentlyContinue).VulnerableDriverBlocklistEnable
+    if ($null -eq $blocklist) { $blocklist = 'absent' }
+    $target = Join-Path $base 'test\test.exe'
+    $rows = @()
+    foreach ($bid in $passBackends) {
+        $rel = $driverPaths[$bid]
+        $path = Join-Path $base $rel
+        $exists = Test-Path -LiteralPath $path
+        $sig = if ($exists) { (Get-AuthenticodeSignature -LiteralPath $path).Status.ToString() } else { 'MISSING' }
+        $rows += [pscustomobject]@{
+            backend = $bid
+            driver = $rel
+            exists = $exists
+            signature = $sig
+        }
+    }
+    $allPresent = @($rows | Where-Object { -not $_.exists }).Count -eq 0
+    $allValid = @($rows | Where-Object { $_.signature -ne 'Valid' }).Count -eq 0
+    $report = [pscustomobject]@{
+        date = (Get-Date).ToString('s')
+        is_admin = $isAdmin
+        hvci_enabled = $hvci
+        vulnerable_driver_blocklist = $blocklist
+        target_exe = $target
+        target_exists = (Test-Path -LiteralPath $target)
+        total = $rows.Count
+        drivers_present = $allPresent
+        drivers_signed = $allValid
+        drivers = $rows
+        dynamic_blocker = if ($isAdmin) { '' } else { 'Administrator required to load kernel drivers and start SYSTEM AWE target' }
+    }
+    $report | ConvertTo-Json -Depth 4 | Set-Content -LiteralPath (Join-Path $base 'evidence\test_13_pass_prereqs.json') -Encoding UTF8
+    $rows | Format-Table -AutoSize
+    Write-Host ("PREREQ: is_admin={0} hvci={1} blocklist={2} target={3}" -f $isAdmin, $hvci, $blocklist, $report.target_exists)
+    Write-Host ("DRIVERS: present={0} signed={1}" -f $allPresent, $allValid)
+    if ($allPresent -and $allValid) { Write-Host "CHECK_PREREQS=PASS (dynamic test still requires Administrator)"; exit 0 }
+    exit 2
+}
 
 if ($StaticOnly) {
     [pscustomobject]@{
