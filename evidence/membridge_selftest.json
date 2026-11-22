@@ -1,132 +1,84 @@
 ﻿{
-    "date":  "2026-11-22T04:52:37",
-    "page_pa":  "0x16DF0F000",
+    "date":  "2026-11-22T10:01:32",
+    "page_pa":  "0x2B8D5000",
     "results":  [
                     {
                         "backend":  "cchwapi_2_9",
                         "exit":  0,
                         "verdict":  "PASS",
-                        "evidence":  "evidence/selftest_cchwapi_2_9.log"
+                        "evidence":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\evidence\\selftest_cchwapi_2_9.log"
                     },
                     {
                         "backend":  "cchwapi_2_12",
                         "exit":  0,
                         "verdict":  "PASS",
-                        "evidence":  "evidence/selftest_cchwapi_2_12.log"
+                        "evidence":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\evidence\\selftest_cchwapi_2_12.log"
                     },
                     {
                         "backend":  "cchwapi_ext_4_5",
                         "exit":  0,
                         "verdict":  "PASS",
-                        "evidence":  "evidence/selftest_cchwapi_ext_4_5.log"
-                    },
-                    {
-                        "backend":  "sjtwinio",
-                        "exit":  0,
-                        "verdict":  "PASS",
-                        "evidence":  "evidence/selftest_sjtwinio.log"
+                        "evidence":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\evidence\\selftest_cchwapi_ext_4_5.log"
                     },
                     {
                         "backend":  "hp_swtools",
                         "exit":  0,
                         "verdict":  "PASS",
-                        "evidence":  "evidence/selftest_hp_swtools.log"
+                        "evidence":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\evidence\\selftest_hp_swtools.log"
                     },
                     {
                         "backend":  "swtoolsdriver",
                         "exit":  0,
                         "verdict":  "PASS",
-                        "evidence":  "evidence/selftest_swtoolsdriver.log"
-                    },
-                    {
-                        "backend":  "isharepp",
-                        "exit":  0,
-                        "verdict":  "PASS",
-                        "evidence":  "evidence/selftest_isharepp.log"
-                    },
-                    {
-                        "backend":  "rtkio",
-                        "exit":  0,
-                        "verdict":  "PASS",
-                        "evidence":  "evidence/selftest_rtkio.log"
-                    },
-                    {
-                        "backend":  "rtkiow8x64",
-                        "exit":  0,
-                        "verdict":  "PASS",
-                        "evidence":  "evidence/selftest_rtkiow8x64.log"
-                    },
-                    {
-                        "backend":  "eneio64",
-                        "exit":  0,
-                        "verdict":  "PASS",
-                        "evidence":  "evidence/selftest_eneio64.log"
-                    },
-                    {
-                        "backend":  "glckio2",
-                        "exit":  0,
-                        "verdict":  "PASS",
-                        "evidence":  "evidence/selftest_glckio2.log"
+                        "evidence":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\evidence\\selftest_swtoolsdriver.log"
                     },
                     {
                         "backend":  "hp_swtools_v1",
                         "exit":  0,
                         "verdict":  "PASS",
-                        "evidence":  "evidence/selftest_hp_swtools_v1.log"
+                        "evidence":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\evidence\\selftest_hp_swtools_v1.log"
                     },
                     {
-                        "backend":  "winio64_elan",
+                        "backend":  "isharepp",
                         "exit":  0,
                         "verdict":  "PASS",
-                        "evidence":  "evidence/selftest_winio64_elan.log"
-                    },
-                    {
-                        "backend":  "winio64_1",
-                        "exit":  0,
-                        "verdict":  "PASS",
-                        "evidence":  "evidence/selftest_winio64_1.log"
+                        "evidence":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\evidence\\selftest_isharepp.log"
                     },
                     {
                         "backend":  "gibepext",
                         "exit":  0,
                         "verdict":  "PASS",
-                        "evidence":  "evidence/selftest_gibepext.log"
-                    },
-                    {
-                        "backend":  "fastdumpx64",
-                        "exit":  0,
-                        "verdict":  "PASS",
-                        "evidence":  "evidence/selftest_fastdumpx64.log"
-                    },
-                    {
-                        "backend":  "directio",
-                        "exit":  0,
-                        "verdict":  "PASS",
-                        "evidence":  "evidence/selftest_directio.log"
+                        "evidence":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\evidence\\selftest_gibepext.log"
                     },
                     {
                         "backend":  "gibepext2",
                         "exit":  0,
                         "verdict":  "PASS",
-                        "evidence":  "evidence/selftest_gibepext2.log"
-                    },
-                    {
-                        "backend":  "fastdumpx64_v2",
-                        "exit":  0,
-                        "verdict":  "PASS",
-                        "evidence":  "evidence/selftest_fastdumpx64_v2.log"
+                        "evidence":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\evidence\\selftest_gibepext2.log"
                     },
                     {
                         "backend":  "tdeio",
                         "exit":  0,
                         "verdict":  "PASS",
-                        "evidence":  "evidence/selftest_tdeio.log"
+                        "evidence":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\evidence\\selftest_tdeio.log"
                     },
                     {
-                        "backend":  "icachex",
+                        "backend":  "mrt",
+                        "exit":  3,
+                        "verdict":  "DEVICE_OPEN_FAILED",
+                        "evidence":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\evidence\\selftest_mrt.log"
+                    },
+                    {
+                        "backend":  "ufu_win10",
                         "exit":  0,
                         "verdict":  "PASS",
-                        "evidence":  "evidence/selftest_icachex.log"
+                        "evidence":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\evidence\\selftest_ufu_win10.log"
+                    },
+                    {
+                        "backend":  "winring0x64",
+                        "exit":  5,
+                        "verdict":  "READ_FAILED",
+                        "evidence":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\evidence\\selftest_winring0x64.log"
                     }
                 ],
     "new_dumps":  ""

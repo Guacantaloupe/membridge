@@ -137,7 +137,7 @@
     "layers_exe_size": 133184,
     "layers_asio2_exe_size": 133202,
     "peupdater_exe_size": 133202,
-    "membridge_exe_size": 108348,
+    "membridge_exe_size": 110862,
     "dual_gate_binary": "bin/PEUPDATER.EXE satisfies AsUpIO64 filename gate and AsIO2 ASUSCERT gate",
     "build_self_verify": "scripts/build_asio2_layers.ps1 runs verify_asio2_gate.py for layers_asio2.exe and PEUPDATER.EXE; fails build on gate failure",
     "asio2_gate_bypass": {

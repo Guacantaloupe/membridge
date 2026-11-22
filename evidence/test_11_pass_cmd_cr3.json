@@ -1,0 +1,39 @@
+﻿{
+    "mode":  "static",
+    "backends":  [
+                     "cchwapi_2_9",
+                     "cchwapi_2_12",
+                     "cchwapi_ext_4_5",
+                     "hp_swtools",
+                     "swtoolsdriver",
+                     "hp_swtools_v1",
+                     "isharepp",
+                     "gibepext",
+                     "gibepext2",
+                     "tdeio",
+                     "ufu_win10"
+                 ],
+    "ranges":  [
+                   {
+                       "start":  "0x1000",
+                       "size":  "0x9E000"
+                   },
+                   {
+                       "start":  "0x100000",
+                       "size":  "0x900000"
+                   },
+                   {
+                       "start":  "0xA73000",
+                       "size":  "0x6CC78000"
+                   },
+                   {
+                       "start":  "0x727FF000",
+                       "size":  "0x1000"
+                   },
+                   {
+                       "start":  "0x100000000",
+                       "size":  "0x17F800000"
+                   }
+               ],
+    "note":  "dynamic CR3 test requires Administrator and a running cmd.exe"
+}
