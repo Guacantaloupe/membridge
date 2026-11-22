@@ -43,6 +43,9 @@ GitHub repository, together with the HVCI audit script and report. The custom
 `membridgephys` driver source/INF/build script is included for signing and
 future HVCI-enabled use.
 
+Legacy `membridge.exe` has **24 backends** (`membridge --list`); the full
+backend/HVCI mapping is in [docs/drivers_inventory.md](../docs/drivers_inventory.md).
+
 Admin install helper (HVCI-aware error hints):
 
 ```
