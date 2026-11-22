@@ -1744,6 +1744,7 @@ static int pfn_recover_cr3(uint64_t nt_base, uint64_t eproc, uint32_t max_pfn, u
     uint8_t *buf = (uint8_t *)malloc(CHUNK_ENTRIES * PFN_SIZE);
     if (!buf) return 0;
     int found = 0;
+    int matches = 0;
     uint32_t printed = 0;
     for (uint32_t start = 0; start < max_pfn && !found; start += CHUNK_ENTRIES) {
         uint32_t n = max_pfn - start;
@@ -1781,11 +1782,13 @@ static int pfn_recover_cr3(uint64_t nt_base, uint64_t eproc, uint32_t max_pfn, u
             }
             if (match) {
                 uint64_t cr3 = ((uint64_t)(start + i)) << 12;
-                fprintf(stderr, "[OK] pfn: match PFN=0x%X CR3=0x%llX\n",
-                        start + i, (unsigned long long)cr3);
-                if (out_cr3) *out_cr3 = cr3;
-                found = 1;
-                break;
+                fprintf(stderr, "[CANDIDATE] PFN=0x%X CR3=0x%llX flags=0x%llX decoded=0x%llX\n",
+                        start + i, (unsigned long long)cr3,
+                        (unsigned long long)w0,
+                        (unsigned long long)(((w0 | 0xF000000000000000ull) >> 13) | 0xFFFF000000000000ull));
+                if (matches == 0 && out_cr3) *out_cr3 = cr3;
+                matches++;
+                if (matches >= 32) { found = 1; break; }
             }
         }
     }
