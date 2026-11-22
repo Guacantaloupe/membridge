@@ -141,9 +141,9 @@
       "bin/cr3read.exe",
       "bin/layers.exe"
     ],
-    "layers_exe_size": 139238,
-    "layers_asio2_exe_size": 139256,
-    "peupdater_exe_size": 139256,
+    "layers_exe_size": 139750,
+    "layers_asio2_exe_size": 139768,
+    "peupdater_exe_size": 139768,
     "membridge_exe_size": 112595,
     "dual_gate_binary": "bin/PEUPDATER.EXE satisfies AsUpIO64 filename gate and AsIO2 ASUSCERT gate",
     "build_self_verify": "scripts/build_asio2_layers.ps1 runs verify_asio2_gate.py for layers_asio2.exe and PEUPDATER.EXE; fails build on gate failure",
