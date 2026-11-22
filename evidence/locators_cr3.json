@@ -1,17 +1,35 @@
 ﻿{
-    "date":  "2026-11-22T22:29:00",
-    "target_pid":  7456,
-    "total":  1,
-    "pass":  1,
+    "date":  "2026-11-23T00:19:31",
+    "target_pid":  14764,
+    "total":  3,
+    "pass":  2,
     "results":  [
                     {
                         "locator":  "kkyum",
                         "driver":  "drivers\\KKYUM\\KKYUM.sys",
                         "load_status":  "STARTED",
-                        "load_error":  "[SC] CreateService 成功\r\n \r\nSERVICE_NAME: MembridgeLoc_kkyum \r\n        TYPE               : 1  KERNEL_DRIVER  \r\n        STATE              : 4  RUNNING \r\n                                (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)\r\n        WIN32_EXIT_CODE    : 0  (0x0)\r\n        SERVICE_EXIT_CODE  : 0  (0x0)\r\n        CHECKPOINT         : 0x0\r\n        WAIT_HINT          : 0x0\r\n        PID                : 0\r\n        FLAGS              :",
-                        "cr3":  "0x185BBD000",
+                        "load_error":  "[SC] CreateService SUCCESS\r\n \r\nSERVICE_NAME: MembridgeLoc_kkyum \r\n        TYPE               : 1  KERNEL_DRIVER  \r\n        STATE              : 4  RUNNING \r\n                                (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)\r\n        WIN32_EXIT_CODE    : 0  (0x0)\r\n        SERVICE_EXIT_CODE  : 0  (0x0)\r\n        CHECKPOINT         : 0x0\r\n        WAIT_HINT          : 0x0\r\n        PID                : 0\r\n        FLAGS              :",
+                        "cr3":  "0x3207C000",
                         "verdict":  "PASS",
-                        "output":  "[OK] 瀹氫綅灞?kkyum: PID=7456 EPROCESS=0xFFFF880F27578080 CR3=0x185BBD000 (kernel-VA walk)"
+                        "output":  "[OK] 定位层 kkyum: PID=14764 EPROCESS=0xFFFFE703B36410C0 CR3=0x3207C000 USER_CR3=0x0 (kernel-VA walk)"
+                    },
+                    {
+                        "locator":  "invary",
+                        "driver":  "drivers\\invarysensor\\invarysensor.sys",
+                        "load_status":  "STARTED",
+                        "load_error":  "[SC] CreateService SUCCESS\r\n \r\nSERVICE_NAME: MembridgeLoc_invary \r\n        TYPE               : 1  KERNEL_DRIVER  \r\n        STATE              : 4  RUNNING \r\n                                (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)\r\n        WIN32_EXIT_CODE    : 0  (0x0)\r\n        SERVICE_EXIT_CODE  : 0  (0x0)\r\n        CHECKPOINT         : 0x0\r\n        WAIT_HINT          : 0x0\r\n        PID                : 0\r\n        FLAGS              :",
+                        "cr3":  "",
+                        "verdict":  "FAIL",
+                        "output":  ""
+                    },
+                    {
+                        "locator":  "kprl",
+                        "driver":  "drivers\\kprl\\l1malwarebits.sys",
+                        "load_status":  "STARTED",
+                        "load_error":  "[SC] CreateService SUCCESS\r\n \r\nSERVICE_NAME: MembridgeLoc_kprl \r\n        TYPE               : 1  KERNEL_DRIVER  \r\n        STATE              : 4  RUNNING \r\n                                (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)\r\n        WIN32_EXIT_CODE    : 0  (0x0)\r\n        SERVICE_EXIT_CODE  : 0  (0x0)\r\n        CHECKPOINT         : 0x0\r\n        WAIT_HINT          : 0x0\r\n        PID                : 0\r\n        FLAGS              :",
+                        "cr3":  "0x3207C000",
+                        "verdict":  "PASS",
+                        "output":  "[OK] 定位层 kprl: PID=14764 CR3=0x3207C000 (KPRL l1malwarebits CR3-by-PID)"
                     }
                 ],
     "new_dumps":  ""
