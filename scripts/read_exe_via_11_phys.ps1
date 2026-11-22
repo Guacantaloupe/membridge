@@ -147,7 +147,8 @@ function Get-UserTargetInfo([int]$TargetPid) {
 function Read-UserBytes([IntPtr]$h, [uint64]$addr, [int]$size) {
     $buf = New-Object byte[] $size
     $got = [IntPtr]::Zero
-    if (-not [MbUserRead]::ReadProcessMemory($h, [IntPtr]$addr, $buf, [IntPtr]$size, [ref]$got)) { return $null }
+    $addrPtr = [IntPtr]([long]$addr)
+    if (-not [MbUserRead]::ReadProcessMemory($h, $addrPtr, $buf, [IntPtr]$size, [ref]$got)) { return $null }
     return $buf
 }
 
