@@ -21,6 +21,7 @@ param(
     [switch]$DryRun,
     [int]$ProcessId = 0,
     [string]$TargetName = 'cmd.exe',
+    [string]$OnlyBackend = '',
     [switch]$KeepTarget,
     [switch]$KeepDriver
 )
@@ -53,6 +54,10 @@ $driverPaths = @{
 
 foreach ($p in @($membridge,$layers,$kkyum)) {
     if (-not (Test-Path -LiteralPath $p)) { throw "missing: $p" }
+}
+if ($OnlyBackend) {
+    if ($backends -notcontains $OnlyBackend) { throw "unknown -OnlyBackend; use: $($backends -join ',')" }
+    $backends = @($OnlyBackend)
 }
 $list = (& $membridge --list 2>&1 | Out-String)
 $missing = @($backends | Where-Object { $list -notmatch [regex]::Escape($_) })
@@ -124,6 +129,7 @@ try {
         $ProcessId = $proc.Id
     }
     Write-Host "target PID=$ProcessId"
+    $dumpsBefore = @(Get-ChildItem 'C:\Windows\Minidump' -File -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Name)
 
     Write-Host ">> loading KKYUM..."
     & sc.exe create $service binPath= $kkyum type= kernel start= demand *> $null
@@ -174,6 +180,8 @@ try {
     }
 
     $pass = @($rows | Where-Object {$_.verdict -eq 'PASS'}).Count
+    $dumpsAfter = @(Get-ChildItem 'C:\Windows\Minidump' -File -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Name)
+    $newDumps = @(Compare-Object $dumpsBefore $dumpsAfter | Where-Object { $_.SideIndicator -eq '=>' } | ForEach-Object { $_.InputObject })
     $report = [pscustomobject]@{
         date=(Get-Date).ToString('s')
         target_pid=$ProcessId
@@ -182,6 +190,8 @@ try {
         eprocess_pa=('0x{0:X}' -f $eprocPa)
         total=$rows.Count
         pass=$pass
+        only_backend=$OnlyBackend
+        new_dumps=($newDumps -join ',')
         results=$rows
     }
     $report | ConvertTo-Json -Depth 6 | Set-Content -LiteralPath $outJson -Encoding UTF8
