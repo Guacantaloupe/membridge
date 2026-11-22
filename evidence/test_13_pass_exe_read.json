@@ -1,0 +1,21 @@
+﻿{
+    "mode":  "static",
+    "backends":  [
+                     "cchwapi_2_9",
+                     "cchwapi_2_12",
+                     "cchwapi_ext_4_5",
+                     "hp_swtools",
+                     "swtoolsdriver",
+                     "hp_swtools_v1",
+                     "isharepp",
+                     "gibepext",
+                     "gibepext2",
+                     "tdeio",
+                     "mrt",
+                     "ufu_win10",
+                     "winring0x64"
+                 ],
+    "present":  13,
+    "target":  "test\\test.exe (AWE marker BYOV_TESTEXE_AWE_PAGE_00)",
+    "note":  "dynamic test requires Administrator"
+}
