@@ -1,24 +1,18 @@
 ﻿{
-    "mode":  "static",
-    "layers_selftest":  "PASS",
-    "locators":  [
-                     {
-                         "locator":  "kkyum",
-                         "driver":  "drivers\\KKYUM\\KKYUM.sys",
-                         "exists":  true,
-                         "signature":  "Valid"
-                     },
-                     {
-                         "locator":  "invary",
-                         "driver":  "drivers\\invarysensor\\invarysensor.sys",
-                         "exists":  true,
-                         "signature":  "Valid"
-                     },
-                     {
-                         "locator":  "kprl",
-                         "driver":  "drivers\\kprl\\l1malwarebits.sys",
-                         "exists":  true,
-                         "signature":  "Valid"
-                     }
-                 ]
+    "date":  "2026-11-22T22:29:00",
+    "target_pid":  7456,
+    "total":  1,
+    "pass":  1,
+    "results":  [
+                    {
+                        "locator":  "kkyum",
+                        "driver":  "drivers\\KKYUM\\KKYUM.sys",
+                        "load_status":  "STARTED",
+                        "load_error":  "[SC] CreateService 成功\r\n \r\nSERVICE_NAME: MembridgeLoc_kkyum \r\n        TYPE               : 1  KERNEL_DRIVER  \r\n        STATE              : 4  RUNNING \r\n                                (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)\r\n        WIN32_EXIT_CODE    : 0  (0x0)\r\n        SERVICE_EXIT_CODE  : 0  (0x0)\r\n        CHECKPOINT         : 0x0\r\n        WAIT_HINT          : 0x0\r\n        PID                : 0\r\n        FLAGS              :",
+                        "cr3":  "0x185BBD000",
+                        "verdict":  "PASS",
+                        "output":  "[OK] 瀹氫綅灞?kkyum: PID=7456 EPROCESS=0xFFFF880F27578080 CR3=0x185BBD000 (kernel-VA walk)"
+                    }
+                ],
+    "new_dumps":  ""
 }

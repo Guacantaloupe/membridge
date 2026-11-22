@@ -50,6 +50,25 @@ pwsh -File scripts\test_locators_cr3.ps1 -Locator kkyum
    evidence\locators_cr3.json
    ```
 
+## 实机结果（2026-11-22 22:29）
+KKYUM 先测通过：
+```
+target PID=7456
+load_status=STARTED (KERNEL_DRIVER RUNNING)
+KR3=0x185BBD000
+EPROCESS=0xFFFF880F27578080
+verdict=PASS
+new_dumps=""
+```
+- KKYUM 内核 VA + EPROCESS 链表路径成功拿到 cmd.exe CR3；
+- 没有物理扫描、没有新 BSOD；
+- 结果：`evidence\locators_cr3.json`。
+
+Invary / KPRL 还未实跑；运行全部 locator：
+```powershell
+pwsh -File scripts\test_locators_cr3.ps1
+```
+
 ## 安全说明
 - 这三个 locator **都不扫描物理 RAM**；
 - 每次只测试一个驱动，失败即记录；
