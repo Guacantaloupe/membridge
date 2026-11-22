@@ -46,18 +46,24 @@ started cmd target
 autostart end
 ```
 
-## 一驱动一次启动尝试（boot runner）
-另外安装了任务 **`DSH_Cr3_BootRunner`**：
-- 登录后 30 秒触发，RunLevel Highest；
-- 读取 `evidence\boot_cr3_progress.json`；
-- 每次只对下一个未测试的物理读驱动执行：
+## 一驱动一次启动尝试（boot runner）— 已禁用
+任务 **`DSH_Cr3_BootRunner`** 已安装但当前 **Disabled**：
+- 在真机上多次扫描导致 0x3B/0x4E/0x4A BSOD；
+- 为避免自动崩溃循环，已执行：
+  ```powershell
+  Disable-ScheduledTask -TaskName DSH_Cr3_BootRunner
   ```
-  membridge --backend <id> --locate --pid <cmd> --name cmd.exe \
-    --scan-start 0xA73000 --scan-size 0x6CC78000
+- 保留任务定义，需要时手动启用：
+  ```powershell
+  Enable-ScheduledTask -TaskName DSH_Cr3_BootRunner
   ```
-- 成功/失败写入进度；
-- 若扫描导致 BSOD，下次启动把该 backend 标记为 `CRASHED` 并继续下一个；
-- 连续 3 次崩溃后自动停止，避免无限崩溃循环。
+- 只有 `DSH_Harness_Autostart` 仍保持 Ready（只启动 Harness + cmd 目标，不跑驱动扫描）。
+
+### 物理驱动扫描安全策略
+- **不再在真机自动运行任何物理驱动扫描；**
+- 11 驱动测试只在一次性 VM/快照中进行；
+- 真机只保留 Harness 自启动、目标进程、手动、单驱动、单次测试；
+- 任何会自动加载多个物理驱动的脚本都必须先确认运行环境是 VM。
 
 状态文件：
 ```

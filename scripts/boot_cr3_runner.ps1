@@ -1,4 +1,4 @@
-# Crash-aware one-driver-per-boot CR3 acquisition runner.
+﻿# Crash-aware one-driver-per-boot CR3 acquisition runner.
 #
 # At each logon, this attempts the next physical driver that has not completed:
 #   membridge --backend <id> --locate --pid <cmd> --name cmd.exe --scan-start ... --scan-size ...
@@ -21,6 +21,12 @@ New-Item -ItemType Directory -Force -Path $outDir | Out-Null
 
 function Write-RunLog([string]$msg) {
     Add-Content -LiteralPath $logFile -Value ("[{0}] {1}" -f (Get-Date).ToString('s'), $msg) -Encoding UTF8
+}
+
+function Save-Progress {
+    $tmp = "$progressFile.tmp"
+    $progress | ConvertTo-Json -Depth 6 | Set-Content -LiteralPath $tmp -Encoding UTF8
+    Move-Item -LiteralPath $tmp -Destination $progressFile -Force
 }
 
 $isAdmin = (New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
@@ -79,7 +85,7 @@ if ($progress.running) {
 }
 if ([int]$progress.consecutive_crashes -ge $MaxConsecutiveCrashes) {
     $progress.blocked = $true
-    $progress | ConvertTo-Json -Depth 6 | Set-Content -LiteralPath $progressFile -Encoding UTF8
+    Save-Progress
     Write-RunLog "blocked after $MaxConsecutiveCrashes consecutive crashes"
     exit 2
 }
@@ -89,7 +95,7 @@ $done = @($progress.results | ForEach-Object { $_.backend })
 $next = $backends | Where-Object { $done -notcontains $_ } | Select-Object -First 1
 if (-not $next) {
     Write-RunLog 'all backends attempted'
-    $progress | ConvertTo-Json -Depth 6 | Set-Content -LiteralPath $progressFile -Encoding UTF8
+    Save-Progress
     exit 0
 }
 
@@ -109,7 +115,7 @@ $progress.running = [pscustomobject]@{
     started=(Get-Date).ToString('s')
     boot="$boot"
 }
-$progress | ConvertTo-Json -Depth 6 | Set-Content -LiteralPath $progressFile -Encoding UTF8
+Save-Progress
 
 $mbArgs = @('--backend',$next,'--no-load','--locate','--pid',"$($target.Id)",'--name','cmd.exe',
             '--scan-start',$ScanStart,'--scan-size',$ScanSize)
@@ -147,7 +153,9 @@ $results += [pscustomobject]@{
 }
 $progress.results = $results
 $progress.running = $null
-if ($status -like 'FAILED*') { $progress.consecutive_crashes = [int]$progress.consecutive_crashes + 1 }
-else { $progress.consecutive_crashes = 0 }
-$progress | ConvertTo-Json -Depth 6 | Set-Content -LiteralPath $progressFile -Encoding UTF8
+# A completed FAILED scan is not a crash; only an unfinished attempt detected
+# after a reboot increments consecutive_crashes.
+$progress.consecutive_crashes = 0
+Save-Progress
 Write-RunLog ("finished backend={0} status={1}" -f $next,$status)
+
