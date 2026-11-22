@@ -209,7 +209,7 @@ try {
     $mUserCr3 = [regex]::Match($loc, 'USER_CR3=(0x[0-9A-Fa-f]+)')
     if (-not $mCr3.Success) { throw "KKYUM locate failed" }
     $targetCr3 = $mCr3.Groups[1].Value
-    $userCr3 = if ($mUserCr3.Success) { $mUserCr3.Groups[1].Value } else { '' }
+    $userCr3 = if ($mUserCr3.Success -and $mUserCr3.Groups[1].Value -ne '0x0') { $mUserCr3.Groups[1].Value } else { '' }
     Write-Host "target CR3=$targetCr3 USER_CR3=$userCr3"
 
     Write-Host ">> translate target USER VA with target CR3 (no kernel-VA translation)"
@@ -242,7 +242,7 @@ try {
     if (-not $mPa.Success) {
         $old = $ErrorActionPreference
         $ErrorActionPreference = 'Continue'
-        $dbgCr3 = if ($userCr3) { $userCr3 } else { $targetCr3 }
+        $dbgCr3 = if ($userCr3 -and $userCr3 -ne '0x0') { $userCr3 } else { $targetCr3 }
         foreach ($dbgLa57 in @($false,$true)) {
             $dba = @('--translate-debug','--reader','legacy','--legacy-backend','tdeio',
                      '--cr3',$dbgCr3,'--va',('0x{0:X}' -f $targetVa))
