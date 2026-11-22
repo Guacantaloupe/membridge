@@ -1,0 +1,68 @@
+﻿{
+    "date":  "2026-11-23T04:33:06",
+    "hvci_enabled":  true,
+    "current_cr3":  "0x53E23000",
+    "conclusion":  "no physical driver reliably reads the actual CR3 page under HVCI/VBS",
+    "crashes":  [
+                    "112326-43265-01.dmp (0x3B iSharePp)",
+                    "112326-43468-01.dmp (0x4E HP swtools)",
+                    "112326-43656-01.dmp (0x4E tdeio)"
+                ],
+    "results":  [
+                    {
+                        "current":  "FAIL err=8",
+                        "backend":  "cchwapi_2_9",
+                        "note":  "old page PASS; current CR3 page fail"
+                    },
+                    {
+                        "current":  "PASS(old page)",
+                        "backend":  "cchwapi_2_12",
+                        "note":  "not retested on current CR3"
+                    },
+                    {
+                        "current":  "PASS(old page)",
+                        "backend":  "cchwapi_ext_4_5",
+                        "note":  "not retested on current CR3"
+                    },
+                    {
+                        "current":  "BSOD 0x4E",
+                        "backend":  "hp_swtools",
+                        "note":  "PFN_LIST_CORRUPT subtype 7"
+                    },
+                    {
+                        "current":  "NOT TESTED",
+                        "backend":  "swtoolsdriver",
+                        "note":  "HP family risk"
+                    },
+                    {
+                        "current":  "NOT TESTED",
+                        "backend":  "hp_swtools_v1",
+                        "note":  "HP family risk"
+                    },
+                    {
+                        "current":  "BSOD 0x3B",
+                        "backend":  "isharepp",
+                        "note":  "iSharePp+0x80DD"
+                    },
+                    {
+                        "current":  "FAIL err=31",
+                        "backend":  "gibepext",
+                        "note":  "current CR3 page unreadable"
+                    },
+                    {
+                        "current":  "NOT TESTED",
+                        "backend":  "gibepext2",
+                        "note":  "same family as gibepext"
+                    },
+                    {
+                        "current":  "BSOD 0x4E",
+                        "backend":  "tdeio",
+                        "note":  "PFN_LIST_CORRUPT subtype 7"
+                    },
+                    {
+                        "current":  "PASS but not PML4E",
+                        "backend":  "ufu_win10",
+                        "note":  "32-bit PA; data looks like user VA"
+                    }
+                ]
+}

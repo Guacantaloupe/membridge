@@ -1,0 +1,11 @@
+﻿{
+    "date":  "2026-11-23T04:21:56",
+    "backend":  "gibepext",
+    "cr3_page":  "0x237EBC000",
+    "size":  "0x30",
+    "verdict":  "FAIL",
+    "hex":  "",
+    "error":  "[ERR] gibepext IOCTL_READ_PHYSMEM err=31",
+    "tail":  "LOAD=no_load | DEVICE=\\\\.\\GibEpExt | PA=0x237EBC000 | SIZE=0x30 | [ERR] gibepext IOCTL_READ_PHYSMEM err=31 | VERDICT=READ_FAILED",
+    "dump":  "112326-43468-01.dmp"
+}

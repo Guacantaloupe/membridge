@@ -1,0 +1,11 @@
+﻿{
+    "date":  "2026-11-23T04:32:56",
+    "backend":  "cchwapi_2_9",
+    "cr3_page":  "0x53E23000",
+    "size":  "0x30",
+    "verdict":  "FAIL",
+    "hex":  "",
+    "error":  "[ERR] cchwapi ReadMemory err=8",
+    "tail":  "LOAD=no_load | DEVICE=\\\\.\\CCHWAPI | PA=0x53E23000 | SIZE=0x30 | [ERR] cchwapi ReadMemory err=8 | VERDICT=READ_FAILED",
+    "dump":  "112326-43656-01.dmp"
+}

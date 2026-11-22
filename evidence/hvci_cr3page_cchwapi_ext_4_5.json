@@ -1,0 +1,11 @@
+﻿{
+    "date":  "2026-11-23T04:13:46",
+    "backend":  "cchwapi_ext_4_5",
+    "cr3_page":  "0x17B222000",
+    "size":  "0x30",
+    "verdict":  "PASS",
+    "hex":  "00 00 0F 85 14 02 00 00 E9 9B 16 00 00 45 31 E4",
+    "error":  "",
+    "tail":  "[OK] cchwapi_ext ioctl=0x802400FC | READ_OK bytes=0x30 |   0000: 00 00 0F 85 14 02 00 00 E9 9B 16 00 00 45 31 E4  |.............E1.| |   0010: E9 F7 00 00 00 4E 8D 04 C1 4D 8B 00 45 31 C9 EB  |.....N...M..E1..| |   0020: 3A 41 8B 46 30 B9 00 02 00 00 21 C8 89 C1 C1 E9  |:A.F0.....!.....| | VERDICT=PASS",
+    "dump":  "112326-43265-01.dmp"
+}
