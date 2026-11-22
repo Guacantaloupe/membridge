@@ -1,0 +1,9 @@
+﻿{
+    "date":  "2026-11-23T03:32:27",
+    "method":  "KKYUM direct process read (kernel VA, no CR3 translation)",
+    "target_pid":  11392,
+    "target_va":  "0x7FF7746F0000",
+    "bytes":  "4D5A90000300000004000000FFFF0000",
+    "verdict":  "PASS",
+    "note":  "bypasses protected CR3 page; returns cmd.exe MZ header"
+}
