@@ -107,6 +107,7 @@
       "[PASS] 取数层(fetcher): kkyum direct process-read request layout (pid/src/dst/size)",
       "[PASS] 取数层(fetcher): legacy backend registry (24 ids, find cchwapi_2_12, reject bad id)",
       "[PASS] 定位层(locator): provider-scan registry has 20 physical providers",
+      "[PASS] 定位层(locator): cchwapi control-register CR3 request layout (cpu0/reg3)",
       "[PASS] 定位层(locator): PID 4242 / MOCK.exe -> CR3=0x1000 (physical scan)",
       "[PASS] 定位层(locator): fake EPROCESS PA=0x8000",
       "[PASS] 定位层(locator): kernel-reader list walk -> CR3=0x3000 (no physical reader)",
@@ -122,9 +123,10 @@
       "[PASS] 翻译层(translator): VA=0x1010 -> PA=0x305010 (5-level/LA57)",
       "[PASS] 三层组合(pipeline): read VA through 5-level page tables"
     ],
-    "passed": 47,
+    "passed": 48,
     "failed": 0,
-    "offline_no_admin_no_driver": true
+    "offline_no_admin_no_driver": true,
+    "total": 48
   },
   "asrdrv_provider": {
     "reader": "asrdrv",
@@ -139,9 +141,9 @@
       "bin/cr3read.exe",
       "bin/layers.exe"
     ],
-    "layers_exe_size": 133184,
-    "layers_asio2_exe_size": 133202,
-    "peupdater_exe_size": 133202,
+    "layers_exe_size": 136405,
+    "layers_asio2_exe_size": 136423,
+    "peupdater_exe_size": 136423,
     "membridge_exe_size": 112595,
     "dual_gate_binary": "bin/PEUPDATER.EXE satisfies AsUpIO64 filename gate and AsIO2 ASUSCERT gate",
     "build_self_verify": "scripts/build_asio2_layers.ps1 runs verify_asio2_gate.py for layers_asio2.exe and PEUPDATER.EXE; fails build on gate failure",
@@ -157,10 +159,5 @@
     "取数层_fetcher": "membridge 22 backends; AsrDrv(2) arbitrary physical R/W (provider integrated), AsUpIO64 physical map/MSR, CPU-Z physical dword R/W, FireEye MRT physical read",
     "定位层_locator": "physical EPROCESS scan needs only 取数层 + registry ranges; kernel-reader strategy uses KKYUM as in cr3read.exe",
     "翻译层_translator": "pure algorithm, works with any 取数层 provider"
-  },
-  "passed": 48,
-  "failed": 0,
-  "layers_exe_size": 136405,
-  "layers_asio2_exe_size": 136423,
-  "peupdater_exe_size": 136423
+  }
 }
