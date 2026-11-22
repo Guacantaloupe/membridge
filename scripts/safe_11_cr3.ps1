@@ -32,6 +32,7 @@ $membridge = Join-Path $base 'bin\membridge.exe'
 $layers = Join-Path $base 'bin\layers.exe'
 $kkyum = Join-Path $base 'drivers\KKYUM\KKYUM.sys'
 $outJson = Join-Path $base 'evidence\safe_11_cr3.json'
+if ($OnlyBackend) { $outJson = Join-Path $base ("evidence\safe_11_cr3_{0}.json" -f $OnlyBackend) }
 
 $backends = @(
     'cchwapi_2_9', 'cchwapi_2_12', 'cchwapi_ext_4_5',
