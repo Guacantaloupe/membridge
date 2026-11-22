@@ -848,43 +848,54 @@ static int read_legacy(mb_phys_reader *r, uint64_t pa, void *buf, uint32_t size)
         snprintf(bin, sizeof(bin), "%s\\membridge.exe", exe);
     }
 
-    char cmd[4096];
-    snprintf(cmd, sizeof(cmd),
-             "\"%s\" --backend %s --pa 0x%llX --size %u --out-file \"%s\"%s",
-             bin, r->legacy_backend, (unsigned long long)pa, size, tmpfile,
-             r->legacy_no_load ? " --no-load" : "");
-    if (dbg) fprintf(stderr, "[legacy] cmd: %s\n", cmd);
+    uint32_t done = 0;
+    while (done < size) {
+        uint32_t chunk = size - done;
+        if (chunk > 0x10000) chunk = 0x10000;   // membridge --size limit
 
-    STARTUPINFOA si;
-    PROCESS_INFORMATION pi;
-    memset(&si, 0, sizeof(si));
-    memset(&pi, 0, sizeof(pi));
-    si.cb = sizeof(si);
-    int ok = 0;
-    if (CreateProcessA(NULL, cmd, NULL, NULL, FALSE, CREATE_NO_WINDOW, NULL, NULL, &si, &pi)) {
-        WaitForSingleObject(pi.hProcess, 30000);
-        DWORD ec = 0xFFFFFFFF;
-        GetExitCodeProcess(pi.hProcess, &ec);
-        if (dbg) fprintf(stderr, "[legacy] child exit=%lu\n", (unsigned long)ec);
-        CloseHandle(pi.hThread);
-        CloseHandle(pi.hProcess);
-        if (ec == 0) {
-            HANDLE hf = CreateFileA(tmpfile, GENERIC_READ, FILE_SHARE_READ, NULL,
-                                    OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
-            if (hf != INVALID_HANDLE_VALUE) {
-                DWORD got = 0;
-                if (ReadFile(hf, buf, size, &got, NULL) && got == size) ok = 1;
-                if (dbg) fprintf(stderr, "[legacy] read got=%lu want=%u\n", (unsigned long)got, size);
-                CloseHandle(hf);
-            } else if (dbg) {
-                fprintf(stderr, "[legacy] open out-file failed err=%lu\n", GetLastError());
+        char cmd[4096];
+        snprintf(cmd, sizeof(cmd),
+                 "\"%s\" --backend %s --pa 0x%llX --size %u --out-file \"%s\"%s",
+                 bin, r->legacy_backend, (unsigned long long)(pa + done), chunk, tmpfile,
+                 r->legacy_no_load ? " --no-load" : "");
+        if (dbg) fprintf(stderr, "[legacy] cmd: %s\n", cmd);
+
+        STARTUPINFOA si;
+        PROCESS_INFORMATION pi;
+        memset(&si, 0, sizeof(si));
+        memset(&pi, 0, sizeof(pi));
+        si.cb = sizeof(si);
+        int ok = 0;
+        if (CreateProcessA(NULL, cmd, NULL, NULL, FALSE, CREATE_NO_WINDOW, NULL, NULL, &si, &pi)) {
+            WaitForSingleObject(pi.hProcess, 30000);
+            DWORD ec = 0xFFFFFFFF;
+            GetExitCodeProcess(pi.hProcess, &ec);
+            if (dbg) fprintf(stderr, "[legacy] child exit=%lu chunk=%u\n", (unsigned long)ec, chunk);
+            CloseHandle(pi.hThread);
+            CloseHandle(pi.hProcess);
+            if (ec == 0) {
+                HANDLE hf = CreateFileA(tmpfile, GENERIC_READ, FILE_SHARE_READ, NULL,
+                                        OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+                if (hf != INVALID_HANDLE_VALUE) {
+                    DWORD got = 0;
+                    if (ReadFile(hf, (uint8_t *)buf + done, chunk, &got, NULL) && got == chunk) ok = 1;
+                    if (dbg) fprintf(stderr, "[legacy] read got=%lu want=%u\n", (unsigned long)got, chunk);
+                    CloseHandle(hf);
+                } else if (dbg) {
+                    fprintf(stderr, "[legacy] open out-file failed err=%lu\n", GetLastError());
+                }
             }
+        } else if (dbg) {
+            fprintf(stderr, "[legacy] CreateProcess failed err=%lu\n", GetLastError());
         }
-    } else if (dbg) {
-        fprintf(stderr, "[legacy] CreateProcess failed err=%lu\n", GetLastError());
+        if (!ok) {
+            DeleteFileA(tmpfile);
+            return 0;
+        }
+        done += chunk;
     }
     DeleteFileA(tmpfile);
-    return ok;
+    return 1;
 }
 
 // 24 legacy membridge backends, exposed as one fetch provider:

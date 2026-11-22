@@ -28,6 +28,8 @@ cmd.exe VA ──────►│ 翻译层: 4-level / 5-level page walk      
 
 `layers.exe --reader legacy` 是一个**元 provider**：它本身不打开设备，而是把每次物理读转发给 `membridge.exe --backend <id>`。因此 24 个 legacy backend 立刻具备三层能力，无需把 24 套协议移植到 `layers.c`。
 
+**读取分块**：`membridge.exe --size` 上限是 `0x10000`，而物理扫描 locator 每次读 1MB；bridge 自动把大读拆成 64KB 块，保证定位层的 1MB 扫描也能走 legacy backend。
+
 ## 2. 24 个 backend
 
 `layers.exe --list-legacy` 打印全部 24 个 backend、驱动路径和 HVCI 审计：
@@ -66,18 +68,26 @@ cmd.exe VA ──────►│ 翻译层: 4-level / 5-level page walk      
 - `MB_LEGACY_DEBUG=1`：输出子进程命令/退出码，便于调试。
 
 ## 4. 验证（离线，不需要真实驱动）
-用 fake `membridge.exe` 模拟页表：
+
+仓库自带可复现测试：
+```powershell
+pwsh -File scripts\test_legacy_pipeline.ps1
 ```
---reader legacy --legacy-backend cchwapi_2_12 --legacy-bin fake_legacy_tables.exe
---cr3 0x1000 --va 0x400000 --size 8
-```
+`test/fake_legacy_mem.c` 构造一个合成物理内存（EPROCESS + 4 级页表 + 数据），测试：
+
+1. `--reader legacy --cr3 0x200000 --va 0x400000 --size 8` → `PA=0x300000`、`4C 45 47 41...`、PASS；
+2. `--reader legacy --locate --pid 4242 --name cmd.exe --scan-start 0x100000 --scan-size 0x100000 --va 0x400000 --size 8` → **定位层扫描到 EPROCESS_PA=0x100000、CR3=0x200000**，翻译+取数 PASS；
+3. 1MB 扫描分块测试（bridge 把 1MB 拆成 64KB 块），PASS。
+
 实测输出：
 ```
-[OK] 翻译层 VA=0x400000 -> PA=0x5000 page=0x1000
-[OK] bytes: 4C 45 47 41 43 59 2D 44
+[OK] 定位层 scan: PID=4242 EPROCESS_PA=0x100000 CR3=0x200000
+[OK] 翻译+取数 VA=0x400000 -> 8 bytes
+4C 45 47 41 43 59 2D 43
 VERDICT=PASS
+LEGACY_PIPELINE_TEST=PASS
 ```
-证明 **24 legacy backend → 取数层 → 翻译层 → CR3 定位** 的接口链路已打通；真实驱动加载/读取仍需管理员环境。
+证明 **24 legacy backend → 定位层（物理扫描）→ 翻译层 → 取数层** 的完整链路已打通；真实驱动加载/读取仍需管理员环境。
 
 `layers.exe --selftest-mock`：**46/46 PASS**（新增 legacy registry 检查）。
 
@@ -85,4 +95,4 @@ VERDICT=PASS
 - **性能**：当前是每个物理读一次子进程，读 4KB 页约需一次进程启动；适合验证，不适合大批量扫描。下一步可以在 `membridge.exe` 增加长连接/批量输出，或把 24 套协议移植为 in-process provider。
 - **管理员**：真实读取仍需要管理员加载驱动；HVCI 下仅 PASS backend 可加载。
 - **blocklist**：HVCI 机器的 blocklist 默认策略可能拦截已知 BYOD hash，需按 `--list-legacy` 的 PASS/实际加载结果选择。
-- **下一步**：为 `membridge.exe` 增加 `--out-file`（本轮已完成）和批量模式；再实现 `legacy` provider 的持久连接以减少进程启动开销。
+- **下一步**：为 `membridge.exe` 增加持久 server 模式（一次打开设备、多次读）以减少进程启动开销；再实现 `legacy` provider 的持久连接。

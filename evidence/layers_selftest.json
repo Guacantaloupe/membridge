@@ -23,6 +23,7 @@
     "hvci_auto": "layers.exe --reader hvci auto-selects aswarpot -> mrt -> cchwapi (HVCI-PASS providers)",
     "kkyum_read_process": "layers.exe --read-process --pid --va --size: KKYUM IOCTL 0x22265C direct process VA read (HVCI-PASS driver)",
     "legacy_bridge": "layers.exe --reader legacy --legacy-backend <id>: 24 legacy membridge backends forwarded as fetch provider (membridge --out-file temp), supports CR3+translation+PA read",
+    "legacy_pipeline_test": "scripts/test_legacy_pipeline.ps1 + test/fake_legacy_mem.c: offline synthetic EPROCESS/page tables, verifies physical-scan locator + translation + legacy fetch, including 1MB chunking",
     "install_driver": "scripts/install_driver.ps1: admin sc create/start for a provider driver with HVCI 577/1275 error hints; -DryRun safe",
     "hvci_driver_report": "scripts/hvci_check.py audits drivers/ for signature, W^X sections, known-BYOVD hints; writes evidence/hvci_driver_report.json",
     "driver_submission": "drivers/ contains provider samples + drivers/membridgephys HVCI-compatible source; committed to GitHub",
