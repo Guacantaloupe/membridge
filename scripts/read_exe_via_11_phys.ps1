@@ -231,7 +231,19 @@ try {
     }
     $ErrorActionPreference = $old
     Write-Host $t
-    if (-not $mPa.Success) { throw "translate target USER VA failed" }
+    if (-not $mPa.Success) {
+        $old = $ErrorActionPreference
+        $ErrorActionPreference = 'Continue'
+        foreach ($dbgLa57 in @($false,$true)) {
+            $dba = @('--translate-debug','--reader','legacy','--legacy-backend','tdeio',
+                     '--cr3',$targetCr3,'--va',('0x{0:X}' -f $targetVa))
+            if ($dbgLa57) { $dba += '--la57' }
+            $dbg = (& $layers @dba 2>&1 | Out-String)
+            Write-Host $dbg
+        }
+        $ErrorActionPreference = $old
+        throw "translate target USER VA failed"
+    }
     $targetPa = [Convert]::ToUInt64($mPa.Groups[1].Value, 16)
     Write-Host ("target PA=0x{0:X} reader={1} la57={2}" -f $targetPa, $usedReader, $la57)
 
