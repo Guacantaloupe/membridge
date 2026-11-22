@@ -21,6 +21,7 @@
     "dynamic_verify": "scripts/dynamic_verify.ps1: optional admin service create/start + --probe-readers + --read-phys + --locate --auto, with before/after minidump BSOD guard; -DryRun safe",
     "hvci_status": "layers.exe --hvci reports HVCI Enabled / VulnerableDriverBlocklistEnable and HVCI-compatible provider guidance",
     "hvci_auto": "layers.exe --reader hvci auto-selects aswarpot -> mrt -> cchwapi (HVCI-PASS providers)",
+    "kkyum_read_process": "layers.exe --read-process --pid --va --size: KKYUM IOCTL 0x22265C direct process VA read (HVCI-PASS driver)",
     "install_driver": "scripts/install_driver.ps1: admin sc create/start for a provider driver with HVCI 577/1275 error hints; -DryRun safe",
     "hvci_driver_report": "scripts/hvci_check.py audits drivers/ for signature, W^X sections, known-BYOVD hints; writes evidence/hvci_driver_report.json",
     "driver_submission": "drivers/ contains provider samples + drivers/membridgephys HVCI-compatible source; committed to GitHub",
@@ -97,6 +98,7 @@
       "[PASS] 取数层(fetcher): amifldrv write request layout (PA/value)",
       "[PASS] 取数层(fetcher): citmdrv map request layout (PA/dst/size)",
       "[PASS] 取数层(fetcher): membridgephys read request layout (PA/size)",
+      "[PASS] 取数层(fetcher): kkyum direct process-read request layout (pid/src/dst/size)",
       "[PASS] 定位层(locator): PID 4242 / MOCK.exe -> CR3=0x1000 (physical scan)",
       "[PASS] 定位层(locator): fake EPROCESS PA=0x8000",
       "[PASS] 定位层(locator): kernel-reader list walk -> CR3=0x3000 (no physical reader)",
@@ -112,7 +114,7 @@
       "[PASS] 翻译层(translator): VA=0x1010 -> PA=0x305010 (5-level/LA57)",
       "[PASS] 三层组合(pipeline): read VA through 5-level page tables"
     ],
-    "passed": 44,
+    "passed": 45,
     "failed": 0,
     "offline_no_admin_no_driver": true
   },
@@ -125,9 +127,9 @@
   "build": {
     "command": "build.ps1",
     "artifacts": ["bin/membridge.exe", "bin/cr3read.exe", "bin/layers.exe"],
-    "layers_exe_size": 117757,
-    "layers_asio2_exe_size": 117775,
-    "peupdater_exe_size": 117775,
+    "layers_exe_size": 118781,
+    "layers_asio2_exe_size": 118799,
+    "peupdater_exe_size": 118799,
     "dual_gate_binary": "bin/PEUPDATER.EXE satisfies AsUpIO64 filename gate and AsIO2 ASUSCERT gate",
     "build_self_verify": "scripts/build_asio2_layers.ps1 runs verify_asio2_gate.py for layers_asio2.exe and PEUPDATER.EXE; fails build on gate failure",
     "asio2_gate_bypass": {

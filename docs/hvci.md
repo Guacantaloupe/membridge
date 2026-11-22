@@ -44,6 +44,14 @@ HVCI 开启时，内核驱动必须同时满足：
 这些驱动**在 HVCI 开启时不能依赖**，即使它们在其他机器上可用。
 
 ## 3. 让 provider 在 HVCI 下正常使用的操作路径
+### 3.0 直接读任意进程内存（cmd.exe）的驱动
+- **`KKYUM.sys`**：WHQL（Microsoft Hardware Compatibility Publisher）签名，静态审计 HVCI PASS；IOCTL **`0x22265C`** 读 / **`0x222658`** 写，输入 `{u32 pid; u32 count; {u64 src_va; u64 dst_va; u64 size}}`；此前已在 HVCI 开启状态动态加载并读取 AWE 目标进程内存 **PASS**。命令：
+  ```
+  .\bin\layers.exe --read-process --pid <cmd_pid> --va <cmd_va> --size 0x40
+  ```
+- **`l1malwarebits.sys`（KPRL）**：也具备直接 VM 读/写（`0x234404/0x234408`），但签名是 **KPRL Tecnologia LTDA**，非 Microsoft-rooted/WHQL；在 HVCI 下会被拒绝加载，只能用于 HVCI 关闭环境。
+- 其余 24 个 legacy backend 都是**物理内存**读驱动；要读 cmd.exe 的用户 VA，仍需定位层（CR3）+ 翻译层（PA）+ 取数层 pipeline。
+
 ### 3.1 使用已签名的 HVCI 兼容驱动（推荐）
 1. 选择 PASS 列表里的驱动（`aswarpot` / `mrt` / `cchwapi` 等）；
 2. **自动选择**：`layers.exe --reader hvci` 会按 `aswarpot -> mrt -> cchwapi` 顺序探测并使用第一个可打开的 HVCI-PASS provider；
