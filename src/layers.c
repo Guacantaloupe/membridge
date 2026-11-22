@@ -1314,6 +1314,26 @@ static int mb_layer_locate_cr3_explicit(uint64_t cr3, uint64_t *out_cr3) {
 // range for an EPROCESS whose PID and ImageFileName match, then reads
 // DirectoryTableBase (+0x28). This is the locator strategy that only needs the
 // 取数层 reader.
+static int phys_read_big(mb_phys_reader *r, uint64_t pa, void *buf, uint32_t size) {
+    uint8_t *p = (uint8_t *)buf;
+    uint32_t done = 0;
+    while (done < size) {
+        uint32_t chunk = size - done;
+        if (chunk > 0x10000) chunk = 0x10000;
+        if (r->read(r, pa + done, p + done, chunk)) {
+            done += chunk;
+            continue;
+        }
+        // Some providers cap per-IOCTL size / page guard; retry in 4KB pages.
+        if (chunk > 0x1000 && r->read(r, pa + done, p + done, 0x1000)) {
+            done += 0x1000;
+            continue;
+        }
+        return 0;
+    }
+    return 1;
+}
+
 static int mb_layer_locate_cr3_scan(mb_phys_reader *r, uint64_t range_start, uint64_t range_size,
                                     uint32_t pid, const char *image_name,
                                     uint64_t *out_cr3, uint64_t *out_eproc_pa) {
@@ -1332,7 +1352,7 @@ static int mb_layer_locate_cr3_scan(mb_phys_reader *r, uint64_t range_start, uin
     for (uint64_t pa = range_start; pa < end && !found; pa += chunk) {
         uint32_t want = (uint32_t)((end - pa) < chunk ? (end - pa) : chunk);
         if (want < 0x1000) break;
-        if (!r->read(r, pa, buf, want)) continue;
+        if (!phys_read_big(r, pa, buf, want)) continue;
         for (uint32_t off = 0; off + EP_NAME + 2 <= want; off++) {
             if (memcmp(buf + off, name, nlen) != 0) continue;
             if (off < EP_NAME) continue;
@@ -1717,6 +1737,94 @@ static int mb_phys_ranges_from_registry(mb_range *out, int max) {
     int n = mb_parse_phys_ranges(data, got, out, max);
     free(data);
     return n;
+}
+
+// ---------------------------------------------------------------------------
+// 多 provider 物理扫描定位：依次尝试 20 个取数 provider 做 EPROCESS 扫描
+// ---------------------------------------------------------------------------
+static const char *g_provider_scan_order[] = {
+    "aswarpot", "mrt", "cchwapi", "asrdrv", "asupio64", "asio2",
+    "winio64", "asmmap", "atillk64", "asio64", "adv64drv", "ntiolib",
+    "amifldrv", "citmdrv", "rtkio", "eneio64", "dumpit", "cpuz",
+    "winring0", "membridgephys"
+};
+static int provider_scan_count(void) {
+    return (int)(sizeof(g_provider_scan_order) / sizeof(g_provider_scan_order[0]));
+}
+
+static int locate_scan_all_providers(uint32_t pid, const char *image_name,
+                                      uint64_t scan_start, uint64_t scan_size, int auto_ranges,
+                                      const char *device, mb_phys_reader *out_reader,
+                                      uint64_t *out_cr3, uint64_t *out_eproc) {
+    mb_range ranges[256];
+    int nr = 0;
+    if (auto_ranges) {
+        nr = mb_phys_ranges_from_registry(ranges, 256);
+        if (nr <= 0) {
+            fprintf(stderr, "[ERR] provider-scan: cannot read physical ranges from registry\n");
+            return 0;
+        }
+    } else if (scan_size < 0x1000) {
+        fprintf(stderr, "[ERR] provider-scan: need --scan-start/--scan-size or --auto-ranges\n");
+        return 0;
+    }
+
+    for (int i = 0; i < provider_scan_count(); i++) {
+        const char *id = g_provider_scan_order[i];
+        mb_phys_reader r;
+        if (!reader_open(&r, id, device)) continue;
+
+        int found = 0;
+        uint64_t cr3 = 0, eproc = 0;
+        if (auto_ranges) {
+            for (int j = 0; j < nr && !found; j++) {
+                found = mb_layer_locate_cr3_scan(&r, ranges[j].start, ranges[j].length,
+                                                 pid, image_name, &cr3, &eproc);
+            }
+        } else {
+            found = mb_layer_locate_cr3_scan(&r, scan_start, scan_size, pid, image_name,
+                                             &cr3, &eproc);
+        }
+        if (found) {
+            printf("[OK] provider-scan: provider=%s PID=%u EPROCESS_PA=0x%llX CR3=0x%llX\n",
+                   id, pid, (unsigned long long)eproc, (unsigned long long)cr3);
+            *out_reader = r;
+            *out_cr3 = cr3;
+            if (out_eproc) *out_eproc = eproc;
+            return 1;
+        }
+        fprintf(stderr, "[--] provider-scan: %s found no CR3, trying next\n", id);
+        reader_close(&r);
+    }
+
+    // Optional final fallback: a legacy membridge backend, if the caller
+    // supplied --legacy-backend (useful for offline/synthetic verification and
+    // for the 24 legacy backends).
+    if (g_legacy_backend && legacy_find(g_legacy_backend)) {
+        mb_phys_reader r;
+        if (reader_open(&r, "legacy", device)) {
+            int found = 0;
+            uint64_t cr3 = 0, eproc = 0;
+            if (auto_ranges) {
+                for (int j = 0; j < nr && !found; j++)
+                    found = mb_layer_locate_cr3_scan(&r, ranges[j].start, ranges[j].length,
+                                                     pid, image_name, &cr3, &eproc);
+            } else {
+                found = mb_layer_locate_cr3_scan(&r, scan_start, scan_size, pid, image_name,
+                                                 &cr3, &eproc);
+            }
+            if (found) {
+                printf("[OK] provider-scan: provider=legacy:%s PID=%u EPROCESS_PA=0x%llX CR3=0x%llX\n",
+                       g_legacy_backend, pid, (unsigned long long)eproc, (unsigned long long)cr3);
+                *out_reader = r;
+                *out_cr3 = cr3;
+                if (out_eproc) *out_eproc = eproc;
+                return 1;
+            }
+            reader_close(&r);
+        }
+    }
+    return 0;
 }
 
 // ---------------------------------------------------------------------------
@@ -2179,6 +2287,8 @@ static int selftest_mock(void) {
     check("取数层(fetcher)", "kkyum direct process-read request layout (pid/src/dst/size)", ok_kkproc);
     check("取数层(fetcher)", "legacy backend registry (24 ids, find cchwapi_2_12, reject bad id)",
           legacy_count() == 24 && legacy_find("cchwapi_2_12") != NULL && legacy_find("bad;id") == NULL);
+    check("定位层(locator)", "provider-scan registry has 20 physical providers",
+          provider_scan_count() == 20);
     check("定位层(locator)", "PID 4242 / MOCK.exe -> CR3=0x1000 (physical scan)", ok_loc);
     check("定位层(locator)", "fake EPROCESS PA=0x8000", ok_loc && eproc == 0x8000);
 
@@ -2323,6 +2433,7 @@ static void usage(void) {
     printf("  layers --locate --kkyum --pid <pid> [--kkyum-device <path>]   (kernel-VA locator; no physical reader needed)\n");
     printf("  layers --locate --kprl --pid <pid> [--kprl-device <path>]     (KPRL CR3-by-PID; no physical reader needed)\n");
     printf("  layers --locate --invary --pid <pid> [--invary-device <path>] (Invary Sensor kernel-VA locator)\n");
+    printf("  layers --locate --scan-providers --pid <pid> [--auto-ranges | --scan-start <hex> --scan-size <hex>] [--va <hex> --size <n>]  (try 20 physical providers)\n");
     printf("  layers --locate --auto --pid <pid> [--scan-start/--scan-size | --auto-ranges]  (try all locators)\n");
     printf("  layers --read-process --pid <pid> --va <hex> --size <n> [--kkyum-device <path>]  (KKYUM direct process VA read; HVCI-PASS driver)\n");
     printf("  layers --invary-read --va <hex> --size <n> [--invary-device <path>] (kernel-VA bytes via Invary)\n");
@@ -2338,7 +2449,7 @@ int main(int argc, char **argv) {
     int do_selftest = 0, do_read_phys = 0, do_write_phys = 0, do_explicit = 0, do_locate = 0, have_cr3 = 0, have_va = 0;
     int use_la57 = 0, do_translate_only = 0;
     const char *data_hex = NULL;
-    int do_ranges = 0, auto_ranges = 0, use_kkyum = 0, use_kprl = 0, use_invary = 0, use_auto = 0, do_invary_read = 0, do_read_process = 0, do_probe = 0, do_probe_loc = 0, do_probe_all = 0, do_list = 0, do_list_legacy = 0, do_hvci = 0;
+    int do_ranges = 0, auto_ranges = 0, use_kkyum = 0, use_kprl = 0, use_invary = 0, use_auto = 0, use_scan_providers = 0, do_invary_read = 0, do_read_process = 0, do_probe = 0, do_probe_loc = 0, do_probe_all = 0, do_list = 0, do_list_legacy = 0, do_hvci = 0;
     for (int i = 1; i < argc; i++) {
         if (strcmp(argv[i], "--selftest-mock") == 0) do_selftest = 1;
         else if (strcmp(argv[i], "--probe-readers") == 0) do_probe = 1;
@@ -2374,6 +2485,7 @@ int main(int argc, char **argv) {
         else if (strcmp(argv[i], "--kprl") == 0) use_kprl = 1;
         else if (strcmp(argv[i], "--invary") == 0) use_invary = 1;
         else if (strcmp(argv[i], "--auto") == 0) use_auto = 1;
+        else if (strcmp(argv[i], "--scan-providers") == 0) use_scan_providers = 1;
         else if (strcmp(argv[i], "--invary-read") == 0) do_invary_read = 1;
         else if (strcmp(argv[i], "--read-process") == 0) do_read_process = 1;
         else if (strcmp(argv[i], "--ranges") == 0) do_ranges = 1;
@@ -2442,7 +2554,10 @@ int main(int argc, char **argv) {
         printf("VERDICT=PASS\n");
         return 0;
     }
-    if (!kind && !((use_kkyum || use_kprl || use_invary || use_auto) && do_locate && !have_va)) { usage(); return 6; }
+    if (!kind && !(do_locate && (use_kkyum || use_kprl || use_invary || use_auto || use_scan_providers))) {
+        usage();
+        return 6;
+    }
 
     mb_phys_reader r;
     int have_reader = 0;
@@ -2505,7 +2620,23 @@ int main(int argc, char **argv) {
         }
     } else if (do_locate) {
         uint64_t got_cr3 = 0, eproc = 0;
-        if (use_auto && pid) {
+        if (use_scan_providers && pid) {
+            if (!name) name = "";
+            mb_phys_reader sr;
+            uint64_t sc = 0, se = 0;
+            int use_ranges = auto_ranges || (scan_size == 0);
+            if (!locate_scan_all_providers(pid, name, scan_start, scan_size, use_ranges,
+                                           device, &sr, &sc, &se)) {
+                printf("[ERR] provider scan failed (pid=%u name='%s'): no provider could read/scanned\n",
+                       pid, name);
+                rc = 5;
+            } else {
+                r = sr;
+                have_reader = 1;
+                got_cr3 = sc;
+                eproc = se;
+            }
+        } else if (use_auto && pid) {
             const char *strat = NULL;
             if (kprl_locate_cr3(pid, kprl_device, &got_cr3)) strat = "kprl";
             else if (invary_locate_cr3(pid, invary_device, &got_cr3, &eproc)) strat = "invary";

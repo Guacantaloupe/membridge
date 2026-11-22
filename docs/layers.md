@@ -84,7 +84,7 @@ typedef struct mb_phys_reader {
 - 伪造 `_EPROCESS`（PID 4242 / MOCK.exe / DTB 0x1000）；
 - 分别验证：取数层、翻译层、定位层、三层组合、独立性。
 
-结果（46/46 PASS）：
+结果（47/47 PASS）：
 ```
 [PASS] 取数层(fetcher): PA=0x5000 bytes match mock data
 [PASS] 翻译层(translator): VA=0x400000 -> PA=0x5000 (4KB page)
@@ -118,6 +118,7 @@ typedef struct mb_phys_reader {
 [PASS] 取数层(fetcher): membridgephys read request layout (PA/size)
 [PASS] 取数层(fetcher): kkyum direct process-read request layout (pid/src/dst/size)
 [PASS] 取数层(fetcher): legacy backend registry (24 ids, find cchwapi_2_12, reject bad id)
+[PASS] 定位层(locator): provider-scan registry has 20 physical providers
 [PASS] 定位层(locator): PID 4242 / MOCK.exe -> CR3=0x1000 (physical scan)
 [PASS] 定位层(locator): fake EPROCESS PA=0x8000
 [PASS] 定位层(locator): kernel-reader list walk -> CR3=0x3000 (no physical reader)
@@ -165,6 +166,9 @@ VERDICT=PASS
 ```powershell
 # 离线三层验证
 .\bin\layers.exe --selftest-mock
+
+# 20 个 provider 自动物理扫描找 CR3（含 legacy fallback）
+.\bin\layers.exe --locate --scan-providers --pid <pid> --name cmd.exe --auto-ranges --va <va> --size 0x40
 
 # 24 legacy backend 接入取数层（CR3+翻译+物理读）
 .\bin\layers.exe --list-legacy

@@ -40,6 +40,15 @@ cmd.exe VA ──────►│ 翻译层: 4-level / 5-level page walk      
 
 ## 3. 用法
 
+### 3.0 20 个 provider 自动扫描找 CR3
+新增 `--locate --scan-providers`：
+```powershell
+.\bin\layers.exe --locate --scan-providers --pid <cmd_pid> --name cmd.exe --auto-ranges
+# 找到 CR3 后可直接继续读 VA：
+.\bin\layers.exe --locate --scan-providers --pid <cmd_pid> --name cmd.exe --auto-ranges --va <va> --size 0x40
+```
+依次尝试 20 个取数 provider；每个 provider 的物理读会按 64KB/4KB 自动降级，最后可用 `--legacy-backend` 指定的 legacy backend 作为 fallback。
+
 ### 3.1 物理读（取数层单独验证）
 ```powershell
 .\bin\layers.exe --reader legacy --legacy-backend cchwapi_2_12 `
@@ -77,7 +86,8 @@ pwsh -File scripts\test_legacy_pipeline.ps1
 
 1. `--reader legacy --cr3 0x200000 --va 0x400000 --size 8` → `PA=0x300000`、`4C 45 47 41...`、PASS；
 2. `--reader legacy --locate --pid 4242 --name cmd.exe --scan-start 0x100000 --scan-size 0x100000 --va 0x400000 --size 8` → **定位层扫描到 EPROCESS_PA=0x100000、CR3=0x200000**，翻译+取数 PASS；
-3. 1MB 扫描分块测试（bridge 把 1MB 拆成 64KB 块），PASS。
+3. 1MB 扫描分块测试（bridge 把 1MB 拆成 64KB 块），PASS；
+4. `--locate --scan-providers` + legacy fallback：尝试 20 个 provider 后由 `legacy:cchwapi_2_12` 定位到 CR3 并读 VA，PASS。
 
 实测输出：
 ```
