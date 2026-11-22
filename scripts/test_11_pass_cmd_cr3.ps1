@@ -28,7 +28,9 @@ param(
     [string]$ScanStart = '',
     [string]$ScanSize = '',
     [int]$MaxRanges = 0,
-    [int]$MaxBackends = 0
+    [int]$MaxBackends = 0,
+    [switch]$NoAutoStart,
+    [switch]$KeepTarget
 )
 
 $ErrorActionPreference = 'Stop'
@@ -112,7 +114,18 @@ if (-not $principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administra
 
 $procName = $TargetName -replace '\.exe$', ''
 $target = Get-Process -Name $procName -ErrorAction SilentlyContinue | Select-Object -First 1
-if (-not $target) { throw "target process not running: $TargetName (start cmd.exe first)" }
+$startedTarget = $false
+if (-not $target) {
+    if ($NoAutoStart) {
+        throw "target process not running: $TargetName (start cmd.exe first, or omit -NoAutoStart)"
+    }
+    Write-Host "no $TargetName running; starting one..."
+    $cmdExe = Join-Path $env:SystemRoot 'System32\cmd.exe'
+    $target = Start-Process -FilePath $cmdExe -ArgumentList '/k', 'title MembridgeCmdTarget' -PassThru
+    Start-Sleep -Milliseconds 600
+    $startedTarget = $true
+}
+if (-not $target) { throw "failed to start target: $TargetName" }
 
 $dumpsBefore = @(Get-ChildItem 'C:\Windows\Minidump' -File -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Name)
 $results = @()
@@ -155,4 +168,8 @@ $report = [pscustomobject]@{
 $report | ConvertTo-Json -Depth 6 | Set-Content -LiteralPath $outJson -Encoding UTF8
 $results | Select-Object backend, verdict, cr3 | Format-Table -AutoSize
 Write-Host ("RESULT: {0}/{1} CR3 PASS -> {2}" -f $pass, $results.Count, $outJson)
+if ($startedTarget -and -not $KeepTarget) {
+    Stop-Process -Id $target.Id -Force -ErrorAction SilentlyContinue
+    Write-Host "stopped auto-started $TargetName (PID=$($target.Id))"
+}
 if ($pass -eq $results.Count) { exit 0 } else { exit 2 }
