@@ -39,6 +39,9 @@ struct mb_phys_reader {
     uint32_t aux;             // provider-specific: e.g. CPU-Z expected page-first dword
     int (*read)(mb_phys_reader *r, uint64_t pa, void *buf, uint32_t size);
     int (*write)(mb_phys_reader *r, uint64_t pa, const void *buf, uint32_t size);
+    const char *legacy_backend;
+    const char *legacy_bin;
+    int legacy_no_load;
 };
 
 static int read_cchwapi(mb_phys_reader *r, uint64_t pa, void *buf, uint32_t size) {
@@ -808,9 +811,149 @@ static int read_dumpit(mb_phys_reader *r, uint64_t pa, void *buf, uint32_t size)
     return 1;
 }
 
+static int read_legacy(mb_phys_reader *r, uint64_t pa, void *buf, uint32_t size) {
+    if (!r || !r->legacy_backend || !buf || !size) return 0;
+    int dbg = getenv("MB_LEGACY_DEBUG") != NULL;
+    if (dbg) fprintf(stderr, "[legacy] enter backend=%s size=%u\n", r->legacy_backend, size);
+
+    char tmpdir[MAX_PATH];
+    char tmpfile[MAX_PATH];
+    tmpdir[0] = 0;
+    tmpfile[0] = 0;
+    // Prefer a workspace-local temp dir (default %TEMP% can be restricted
+    // by endpoint/sandbox policy); fall back to GetTempPath.
+    char cwd[MAX_PATH];
+    if (GetCurrentDirectoryA(MAX_PATH, cwd)) {
+        snprintf(tmpdir, sizeof(tmpdir), "%s\\_tmp", cwd);
+        CreateDirectoryA(tmpdir, NULL);
+    }
+    if (!tmpdir[0] || !GetTempFileNameA(tmpdir, "mbg", 0, tmpfile)) {
+        if (!GetTempPathA(MAX_PATH, tmpdir) ||
+            !GetTempFileNameA(tmpdir, "mbg", 0, tmpfile)) {
+            if (dbg) fprintf(stderr, "[legacy] GetTempFileName failed err=%lu\n", GetLastError());
+            return 0;
+        }
+    }
+    if (dbg) fprintf(stderr, "[legacy] tmp=%s\n", tmpfile);
+
+    char bin[MAX_PATH];
+    if (r->legacy_bin && r->legacy_bin[0]) {
+        snprintf(bin, sizeof(bin), "%s", r->legacy_bin);
+    } else {
+        char exe[MAX_PATH];
+        DWORD n = GetModuleFileNameA(NULL, exe, MAX_PATH);
+        char *slash = n ? strrchr(exe, '\\') : NULL;
+        if (!slash) { DeleteFileA(tmpfile); return 0; }
+        *slash = 0;
+        snprintf(bin, sizeof(bin), "%s\\membridge.exe", exe);
+    }
+
+    char cmd[4096];
+    snprintf(cmd, sizeof(cmd),
+             "\"%s\" --backend %s --pa 0x%llX --size %u --out-file \"%s\"%s",
+             bin, r->legacy_backend, (unsigned long long)pa, size, tmpfile,
+             r->legacy_no_load ? " --no-load" : "");
+    if (dbg) fprintf(stderr, "[legacy] cmd: %s\n", cmd);
+
+    STARTUPINFOA si;
+    PROCESS_INFORMATION pi;
+    memset(&si, 0, sizeof(si));
+    memset(&pi, 0, sizeof(pi));
+    si.cb = sizeof(si);
+    int ok = 0;
+    if (CreateProcessA(NULL, cmd, NULL, NULL, FALSE, CREATE_NO_WINDOW, NULL, NULL, &si, &pi)) {
+        WaitForSingleObject(pi.hProcess, 30000);
+        DWORD ec = 0xFFFFFFFF;
+        GetExitCodeProcess(pi.hProcess, &ec);
+        if (dbg) fprintf(stderr, "[legacy] child exit=%lu\n", (unsigned long)ec);
+        CloseHandle(pi.hThread);
+        CloseHandle(pi.hProcess);
+        if (ec == 0) {
+            HANDLE hf = CreateFileA(tmpfile, GENERIC_READ, FILE_SHARE_READ, NULL,
+                                    OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+            if (hf != INVALID_HANDLE_VALUE) {
+                DWORD got = 0;
+                if (ReadFile(hf, buf, size, &got, NULL) && got == size) ok = 1;
+                if (dbg) fprintf(stderr, "[legacy] read got=%lu want=%u\n", (unsigned long)got, size);
+                CloseHandle(hf);
+            } else if (dbg) {
+                fprintf(stderr, "[legacy] open out-file failed err=%lu\n", GetLastError());
+            }
+        }
+    } else if (dbg) {
+        fprintf(stderr, "[legacy] CreateProcess failed err=%lu\n", GetLastError());
+    }
+    DeleteFileA(tmpfile);
+    return ok;
+}
+
+// 24 legacy membridge backends, exposed as one fetch provider:
+//   layers --reader legacy --legacy-backend <id> ...
+typedef struct { const char *id; const char *path; const char *hvci; } legacy_backend_t;
+static const legacy_backend_t g_legacy_backends[] = {
+    { "cchwapi_2_9",     "drivers\\CCHWApi_sys\\CCHWApi.sys",             "PASS" },
+    { "cchwapi_2_12",    "drivers\\CCHWApi(1)_sys\\CCHWApi(1).sys",       "PASS" },
+    { "cchwapi_ext_4_5", "drivers\\CCHWApiExt(1)_sys\\CCHWApiExt(1).sys", "PASS" },
+    { "sjtwinio",        "drivers\\SjtWinIo_sys\\SjtWinIo.sys",            "FAIL(W^X)" },
+    { "hp_swtools",      "drivers\\HP SW TOOLS DRIVER_sys\\HP SW TOOLS DRIVER.sys", "PASS" },
+    { "swtoolsdriver",   "drivers\\swtoolsdriver\\swtoolsdriver.sys",     "PASS" },
+    { "hp_swtools_v1",   "drivers\\hp_swtools_v1\\HP_SWTOOLS_DRIVER_V1.sys", "PASS" },
+    { "isharepp",        "drivers\\isharepp\\iSharePp.sys",               "PASS" },
+    { "rtkio",           "drivers\\rtkio\\rtkio.sys",                     "FAIL(W^X)" },
+    { "rtkiow8x64",      "drivers\\rtkiow8x64\\rtkiow8x64.sys",           "WARN(vendor)" },
+    { "eneio64",         "drivers\\eneio64\\eneio64.sys",                 "FAIL(W^X)" },
+    { "winio64_elan",    "drivers\\winio64_elan\\WinIo64_ELAN.sys",       "FAIL(W^X)" },
+    { "winio64_1",       "drivers\\winio64_1\\WinIo64_1.sys",             "FAIL(W^X)" },
+    { "glckio2",         "drivers\\glckio2\\glckio2.sys",                 "WARN(vendor)" },
+    { "gibepext",        "drivers\\gibepext\\gibepext.sys",               "PASS" },
+    { "gibepext2",       "drivers\\gibepext2\\gibepext2.sys",             "PASS" },
+    { "fastdumpx64",     "drivers\\fastdumpx64\\fastdumpx64.sys",         "FAIL(W^X)" },
+    { "fastdumpx64_v2",  "drivers\\fastdumpx64_v2\\fastdumpx64_v2.sys",   "FAIL(W^X)" },
+    { "directio",        "drivers\\directio\\DirectIo.sys",               "WARN(vendor)" },
+    { "tdeio",           "drivers\\tdeio\\TdeIo64.sys",                   "PASS" },
+    { "icachex",         "drivers\\icachex\\iCacheX.sys",                 "WARN(vendor)" },
+    { "mrt",             "drivers\\mrt\\fekern_mrt.sys",                  "PASS" },
+    { "ufu_win10",       "drivers\\ufu\\win10_ufudev64.sys",              "PASS(32-bit PA)" },
+    { "winring0x64",     "drivers\\winring0\\WinRing0x64.sys",            "PASS(low-mem only)" },
+};
+
+static int legacy_count(void) { return (int)(sizeof(g_legacy_backends) / sizeof(g_legacy_backends[0])); }
+
+static const char *g_legacy_backend = NULL;
+static const char *g_legacy_bin = NULL;
+static int g_legacy_no_load = 0;
+
+static const legacy_backend_t *legacy_find(const char *id) {
+    if (!id) return NULL;
+    for (int i = 0; i < legacy_count(); i++)
+        if (_stricmp(id, g_legacy_backends[i].id) == 0) return &g_legacy_backends[i];
+    return NULL;
+}
+
+static int list_legacy(void) {
+    printf("%-18s %-52s %s\n", "legacy backend", "driver", "HVCI");
+    for (int i = 0; i < legacy_count(); i++)
+        printf("%-18s %-52s %s\n", g_legacy_backends[i].id, g_legacy_backends[i].path, g_legacy_backends[i].hvci);
+    printf("legacy_backends=%d (fetch via: --reader legacy --legacy-backend <id>)\n", legacy_count());
+    return 0;
+}
+
 static int reader_open(mb_phys_reader *r, const char *kind, const char *device) {
     memset(r, 0, sizeof(*r));
     r->dev = INVALID_HANDLE_VALUE;
+    if (_stricmp(kind, "legacy") == 0) {
+        if (!g_legacy_backend || !legacy_find(g_legacy_backend)) {
+            fprintf(stderr, "[ERR] --reader legacy requires --legacy-backend <id> (see --list-legacy)\n");
+            return 0;
+        }
+        r->name = "legacy";
+        r->mode = 30;
+        r->read = read_legacy;
+        r->legacy_backend = g_legacy_backend;
+        r->legacy_bin = g_legacy_bin;
+        r->legacy_no_load = g_legacy_no_load;
+        return 1;
+    }
     // HVCI-aware automatic selection: only providers whose drivers are
     // MS/WHQL-signed and free of W^X sections (see --list-providers).
     if (_stricmp(kind, "hvci") == 0 || _stricmp(kind, "hvci-auto") == 0) {
@@ -1057,7 +1200,7 @@ static int reader_open(mb_phys_reader *r, const char *kind, const char *device) 
         if (r->dev == INVALID_HANDLE_VALUE)
             fprintf(stderr, "[HINT] MembridgePhys not loaded (sign + install drivers/membridgephys first)\n");
     } else {
-        fprintf(stderr, "[ERR] unknown reader '%s' (mock|cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64|dumpit|asmmap|atillk64|asio64|adv64drv|ntiolib|winring0|amifldrv|citmdrv|membridgephys|hvci)\n", kind ? kind : "");
+        fprintf(stderr, "[ERR] unknown reader '%s' (mock|cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64|dumpit|asmmap|atillk64|asio64|adv64drv|ntiolib|winring0|amifldrv|citmdrv|membridgephys|legacy|hvci)\n", kind ? kind : "");
         return 0;
     }
     if (r->dev == INVALID_HANDLE_VALUE) {
@@ -2023,6 +2166,8 @@ static int selftest_mock(void) {
                     *(uint64_t *)(kkproc + 16) == 0x12340000ull &&
                     *(uint64_t *)(kkproc + 24) == 0x40;
     check("取数层(fetcher)", "kkyum direct process-read request layout (pid/src/dst/size)", ok_kkproc);
+    check("取数层(fetcher)", "legacy backend registry (24 ids, find cchwapi_2_12, reject bad id)",
+          legacy_count() == 24 && legacy_find("cchwapi_2_12") != NULL && legacy_find("bad;id") == NULL);
     check("定位层(locator)", "PID 4242 / MOCK.exe -> CR3=0x1000 (physical scan)", ok_loc);
     check("定位层(locator)", "fake EPROCESS PA=0x8000", ok_loc && eproc == 0x8000);
 
@@ -2153,6 +2298,8 @@ static void usage(void) {
     printf("  layers --probe-locators (try opening KKYUM / Invary / KPRL locator devices)\n");
     printf("  layers --selftest-mock\n");
     printf("  layers --ranges                       (read physical RAM ranges from registry)\n");
+    printf("  layers --list-legacy   (24 legacy membridge backends + HVCI audit)\n");
+    printf("  layers --reader legacy --legacy-backend <id> [--legacy-bin <membridge.exe>] [--legacy-no-load] ...\n");
     printf("  layers --reader hvci [--device <path>] ...  (HVCI-aware auto: aswarpot -> mrt -> cchwapi)\n");
     printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64|dumpit|asmmap|atillk64|asio64|adv64drv|ntiolib|winring0|amifldrv|citmdrv|membridgephys> [--device <path>] --read-phys --pa <hex> --size <n>\n");
     printf("  layers --reader ... --write-phys --pa <hex> --data <hex bytes>  (providers with write)\n");
@@ -2180,12 +2327,16 @@ int main(int argc, char **argv) {
     int do_selftest = 0, do_read_phys = 0, do_write_phys = 0, do_explicit = 0, do_locate = 0, have_cr3 = 0, have_va = 0;
     int use_la57 = 0, do_translate_only = 0;
     const char *data_hex = NULL;
-    int do_ranges = 0, auto_ranges = 0, use_kkyum = 0, use_kprl = 0, use_invary = 0, use_auto = 0, do_invary_read = 0, do_read_process = 0, do_probe = 0, do_probe_loc = 0, do_probe_all = 0, do_list = 0, do_hvci = 0;
+    int do_ranges = 0, auto_ranges = 0, use_kkyum = 0, use_kprl = 0, use_invary = 0, use_auto = 0, do_invary_read = 0, do_read_process = 0, do_probe = 0, do_probe_loc = 0, do_probe_all = 0, do_list = 0, do_list_legacy = 0, do_hvci = 0;
     for (int i = 1; i < argc; i++) {
         if (strcmp(argv[i], "--selftest-mock") == 0) do_selftest = 1;
         else if (strcmp(argv[i], "--probe-readers") == 0) do_probe = 1;
         else if (strcmp(argv[i], "--probe-all") == 0) do_probe_all = 1;
         else if (strcmp(argv[i], "--list-providers") == 0) do_list = 1;
+        else if (strcmp(argv[i], "--list-legacy") == 0) do_list_legacy = 1;
+        else if (strcmp(argv[i], "--legacy-backend") == 0 && i + 1 < argc) g_legacy_backend = argv[++i];
+        else if (strcmp(argv[i], "--legacy-bin") == 0 && i + 1 < argc) g_legacy_bin = argv[++i];
+        else if (strcmp(argv[i], "--legacy-no-load") == 0) g_legacy_no_load = 1;
         else if (strcmp(argv[i], "--hvci") == 0) do_hvci = 1;
         else if (strcmp(argv[i], "--probe-locators") == 0) do_probe_loc = 1;
         else if (strcmp(argv[i], "--reader") == 0 && i + 1 < argc) kind = argv[++i];
@@ -2223,6 +2374,7 @@ int main(int argc, char **argv) {
     if (do_probe) return probe_readers();
     if (do_probe_all) return probe_all();
     if (do_list) return list_providers();
+    if (do_list_legacy) return list_legacy();
     if (do_hvci) return hvci_status();
     if (do_probe_loc) return probe_locators();
     if (do_read_process) {

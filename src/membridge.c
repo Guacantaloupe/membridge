@@ -839,7 +839,7 @@ static void usage(void) {
     wprintf(L"Usage:\n");
     wprintf(L"  membridge --list\n");
     wprintf(L"  membridge --backend <id> --pa <hex> --size <n> [--expect <ascii>] [--dump] [--keep]\n");
-    wprintf(L"               [--driver-path <path>] [--no-load]\n");
+    wprintf(L"               [--driver-path <path>] [--no-load] [--out-file <path>]\n");
     wprintf(L"  membridge --device <\\\\.\\NAME> --layout <cchwapi|cchwapi_ext|sjtwinio|ufu|winring0|hp_swtools|rtkio|eneio64|glckio2|gibepext|fastdump|directio|tdeio|icachex|mrt>\n");
     wprintf(L"               --pa <hex> --size <n> [--expect <ascii>] [--dump]\n\n");
     wprintf(L"Backends (64-bit PA capable: *):\n");
@@ -849,7 +849,7 @@ static void usage(void) {
 }
 
 int wmain(int argc, wchar_t **argv) {
-    const wchar_t *backend = NULL, *driver_override = NULL, *device = NULL, *layout = NULL;
+    const wchar_t *backend = NULL, *driver_override = NULL, *device = NULL, *layout = NULL, *out_file = NULL;
     const char *expect = NULL;
     uint64_t pa = 0;
     uint32_t size = 0x100;
@@ -873,6 +873,7 @@ int wmain(int argc, wchar_t **argv) {
         else if (_wcsicmp(argv[i], L"--dump") == 0) dump = 1;
         else if (_wcsicmp(argv[i], L"--keep") == 0) keep = 1;
         else if (_wcsicmp(argv[i], L"--no-load") == 0) no_load = 1;
+        else if (_wcsicmp(argv[i], L"--out-file") == 0 && i + 1 < argc) out_file = argv[++i];
         else { wprintf(L"[ERR] unknown arg: %ls\n", argv[i]); usage(); return 6; }
     }
     if (argc <= 1) { usage(); return 6; }
@@ -964,8 +965,28 @@ int wmain(int argc, wchar_t **argv) {
     if (!ok) { wprintf(L"VERDICT=READ_FAILED\n"); rc = 5; }
     else {
         wprintf(L"READ_OK bytes=0x%X\n", size);
+        if (out_file) {
+            HANDLE hf = CreateFileW(out_file, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS,
+                                    FILE_ATTRIBUTE_NORMAL, NULL);
+            if (hf == INVALID_HANDLE_VALUE) {
+                wprintf(L"[ERR] cannot create out-file (err=%lu)\n", GetLastError());
+                rc = 5;
+            } else {
+                DWORD written = 0;
+                if (!WriteFile(hf, out, size, &written, NULL) || written != size) {
+                    wprintf(L"[ERR] out-file write failed (err=%lu written=%lu)\n",
+                            GetLastError(), (unsigned long)written);
+                    rc = 5;
+                } else {
+                    wprintf(L"OUT_FILE=%ls\n", out_file);
+                    rc = 0;
+                }
+                CloseHandle(hf);
+            }
+        }
         if (dump) hexdump(out, (int)size);
-        if (expect) {
+        if (rc == 5) { /* out-file failure */ }
+        else if (expect) {
             if (contains_bytes(out, (int)size, expect)) { wprintf(L"VERDICT=PASS marker=%hs\n", expect); rc = 0; }
             else { wprintf(L"VERDICT=MARKER_MISMATCH marker=%hs\n", expect); rc = 2; }
         } else { wprintf(L"VERDICT=PASS\n"); rc = 0; }

@@ -84,7 +84,7 @@ typedef struct mb_phys_reader {
 - 伪造 `_EPROCESS`（PID 4242 / MOCK.exe / DTB 0x1000）；
 - 分别验证：取数层、翻译层、定位层、三层组合、独立性。
 
-结果（45/45 PASS）：
+结果（46/46 PASS）：
 ```
 [PASS] 取数层(fetcher): PA=0x5000 bytes match mock data
 [PASS] 翻译层(translator): VA=0x400000 -> PA=0x5000 (4KB page)
@@ -117,6 +117,7 @@ typedef struct mb_phys_reader {
 [PASS] 取数层(fetcher): citmdrv map request layout (PA/dst/size)
 [PASS] 取数层(fetcher): membridgephys read request layout (PA/size)
 [PASS] 取数层(fetcher): kkyum direct process-read request layout (pid/src/dst/size)
+[PASS] 取数层(fetcher): legacy backend registry (24 ids, find cchwapi_2_12, reject bad id)
 [PASS] 定位层(locator): PID 4242 / MOCK.exe -> CR3=0x1000 (physical scan)
 [PASS] 定位层(locator): fake EPROCESS PA=0x8000
 [PASS] 定位层(locator): kernel-reader list walk -> CR3=0x3000 (no physical reader)
@@ -164,6 +165,12 @@ VERDICT=PASS
 ```powershell
 # 离线三层验证
 .\bin\layers.exe --selftest-mock
+
+# 24 legacy backend 接入取数层（CR3+翻译+物理读）
+.\bin\layers.exe --list-legacy
+.\bin\layers.exe --reader legacy --legacy-backend cchwapi_2_12 --read-phys --pa 0x10000000 --size 0x40 --dump
+.\bin\layers.exe --reader legacy --legacy-backend cchwapi_2_12 --cr3 <CR3> --va <VA> --size 0x40 --dump
+.\bin\layers.exe --reader legacy --legacy-backend cchwapi_2_12 --locate --pid <pid> --auto-ranges
 
 # 独立进程内存读取（KKYUM 直接 PID+VA，HVCI 兼容驱动）
 .\bin\layers.exe --read-process --pid <cmd_pid> --va 0x7FF600000000 --size 0x40
