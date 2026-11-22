@@ -106,9 +106,16 @@ foreach ($l in $locators) {
     $created = $false
     try {
         Write-Host ">> $($l.name): loading $($l.driver)"
-        & sc.exe create $svc binPath= (Join-Path $base $l.driver) type= kernel start= demand *> $null
-        if ($LASTEXITCODE -eq 0) { $created = $true }
-        & sc.exe start $svc *> $null
+        $old = $ErrorActionPreference
+        $ErrorActionPreference = 'Continue'
+        $createOut = (& sc.exe create $svc binPath= (Join-Path $base $l.driver) type= kernel start= demand 2>&1 | Out-String)
+        $createRc = $LASTEXITCODE
+        if ($createRc -eq 0) { $created = $true }
+        $startOut = (& sc.exe start $svc 2>&1 | Out-String)
+        $startRc = $LASTEXITCODE
+        $ErrorActionPreference = $old
+        if ($createRc -ne 0) { Write-Host "[create rc=$createRc] $($createOut.Trim())" }
+        if ($startRc -ne 0) { Write-Host "[start rc=$startRc] $($startOut.Trim())" }
         Start-Sleep -Milliseconds 500
         $locArgs = @($l.arg.Split(' ')) + @('--pid', $ProcessId)
         $out = (& $layers @locArgs 2>&1 | Out-String)
@@ -117,6 +124,8 @@ foreach ($l in $locators) {
         $rows += [pscustomobject]@{
             locator = $l.name
             driver = $l.driver
+            load_status = if ($createRc -eq 0 -and $startRc -eq 0) { 'STARTED' } elseif ($startRc -eq 0) { 'STARTED' } else { "CREATE=$createRc START=$startRc" }
+            load_error = (($createOut + ' ' + $startOut).Trim())
             cr3 = if ($m.Success) { $m.Groups[1].Value } else { '' }
             verdict = if ($m.Success) { 'PASS' } else { 'FAIL' }
             output = $out.Trim()
