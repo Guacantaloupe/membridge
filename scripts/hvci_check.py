@@ -101,7 +101,7 @@ def main():
         "hvci_registry_enabled": _reg_dword(
             r"HKLM:\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity", "Enabled"),
         "vulnerable_driver_blocklist_enable": _reg_dword(
-            r"HKLM:\SYSTEM\CurrentControlSet\Control\CI\Policy", "VulnerableDriverBlocklistEnable"),
+            r"HKLM:\SYSTEM\CurrentControlSet\Control\CI\Policy", "VulnerableDriverBlocklistEnable") or "absent",
         "drivers": rows,
     }
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
@@ -118,14 +118,14 @@ def main():
 
 def _reg_dword(key, name):
     cmd = (f"$v=(Get-ItemProperty '{key}' -ErrorAction SilentlyContinue).{name}; "
-           f"if ($null -eq $v) {{ '0' }} else {{ $v }}")
+           f"if ($null -eq $v) {{ '' }} else {{ $v }}")
     try:
         p = subprocess.run(["powershell", "-NoProfile", "-Command", cmd],
                            capture_output=True, text=True, encoding="utf-8",
                            errors="replace", timeout=20)
-        return (p.stdout or "").strip() or "0"
+        return (p.stdout or "").strip()
     except Exception:
-        return "0"
+        return ""
 
 
 if __name__ == "__main__":

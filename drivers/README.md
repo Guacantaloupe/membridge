@@ -42,3 +42,9 @@ All provider drivers listed above are committed under `drivers/` in this
 GitHub repository, together with the HVCI audit script and report. The custom
 `membridgephys` driver source/INF/build script is included for signing and
 future HVCI-enabled use.
+
+Admin install helper (HVCI-aware error hints):
+
+```
+pwsh -File scripts\install_driver.ps1 -DriverPath .\drivers\aswarpot\aswArPot.sys -ServiceName aswArPot -DevicePath "\\.\aswSP_ArPot2" -DryRun
+```

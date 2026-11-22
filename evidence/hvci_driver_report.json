@@ -1,7 +1,7 @@
 {
-  "generated": "2026-11-22T08:23:26",
+  "generated": "2026-11-22T08:25:52",
   "hvci_registry_enabled": "1",
-  "vulnerable_driver_blocklist_enable": "0",
+  "vulnerable_driver_blocklist_enable": "absent",
   "drivers": [
     {
       "file": "CCHWApi(1)_sys\\CCHWApi(1).sys",

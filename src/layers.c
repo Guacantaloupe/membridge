@@ -1638,6 +1638,7 @@ static int list_providers(void) {
 static int hvci_status(void) {
     HKEY h = NULL;
     DWORD enabled = 0, blocklist = 0, sz = sizeof(DWORD), type = 0;
+    DWORD blocklistFound = 0;
     LONG r = RegOpenKeyExW(HKEY_LOCAL_MACHINE,
         L"SYSTEM\\CurrentControlSet\\Control\\DeviceGuard\\Scenarios\\HypervisorEnforcedCodeIntegrity",
         0, KEY_READ, &h);
@@ -1650,20 +1651,28 @@ static int hvci_status(void) {
     r = RegOpenKeyExW(HKEY_LOCAL_MACHINE,
         L"SYSTEM\\CurrentControlSet\\Control\\CI\\Policy", 0, KEY_READ, &h);
     if (r == ERROR_SUCCESS) {
-        RegQueryValueExW(h, L"VulnerableDriverBlocklistEnable", NULL, &type,
-                         (LPBYTE)&blocklist, &sz);
+        if (RegQueryValueExW(h, L"VulnerableDriverBlocklistEnable", NULL, &type,
+                             (LPBYTE)&blocklist, &sz) == ERROR_SUCCESS) {
+            blocklistFound = 1;
+        }
         RegCloseKey(h);
     }
     printf("HVCI(memory integrity) enabled=%lu\n", (unsigned long)enabled);
-    printf("VulnerableDriverBlocklistEnable=%lu\n", (unsigned long)blocklist);
+    if (blocklistFound) {
+        printf("VulnerableDriverBlocklistEnable=%lu\n", (unsigned long)blocklist);
+    } else {
+        printf("VulnerableDriverBlocklistEnable=absent (Windows default policy may enforce it)\n");
+    }
     if (enabled) {
         printf("[INFO] HVCI is ON: drivers must be Microsoft-signed (WHQL/attestation), HVCI-compatible (no W^X/dynamic code), and not blocked.\n");
         printf("[INFO] Recommended for HVCI on this build: --reader aswarpot (MS/WHQL-signed, arbitrary physical R/W), --reader mrt (MS/WHQL-signed read), --reader cchwapi.\n");
         printf("[INFO] Or use --reader hvci (auto-selects aswarpot -> mrt -> cchwapi, the HVCI-PASS providers).\n");
         printf("[INFO] Many third-party samples FAIL HVCI W^X checks (asmmap/atillk64/asio64/ntiolib/cpuz/winio64/...); see --list-providers.\n");
         printf("[INFO] Unsigned/test-signed drivers will NOT load. Custom drivers/membridgephys must be Microsoft-signed first.\n");
-        if (blocklist == 0) {
-            printf("[INFO] VulnerableDriverBlocklistEnable=0 on this host (blocklist not enforced by that policy value).\n");
+        if (!blocklistFound) {
+            printf("[WARN] Blocklist policy value is absent; Windows may enforce the vulnerable-driver blocklist by default on HVCI machines. Known BYOVD hashes can still be blocked.\n");
+        } else if (blocklist == 0) {
+            printf("[INFO] VulnerableDriverBlocklistEnable=0 (explicitly disabled by policy).\n");
         } else {
             printf("[WARN] Vulnerable driver blocklist appears enabled; known BYOVD hashes may be blocked even if HVCI-compatible.\n");
         }

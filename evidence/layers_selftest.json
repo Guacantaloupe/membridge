@@ -21,6 +21,7 @@
     "dynamic_verify": "scripts/dynamic_verify.ps1: optional admin service create/start + --probe-readers + --read-phys + --locate --auto, with before/after minidump BSOD guard; -DryRun safe",
     "hvci_status": "layers.exe --hvci reports HVCI Enabled / VulnerableDriverBlocklistEnable and HVCI-compatible provider guidance",
     "hvci_auto": "layers.exe --reader hvci auto-selects aswarpot -> mrt -> cchwapi (HVCI-PASS providers)",
+    "install_driver": "scripts/install_driver.ps1: admin sc create/start for a provider driver with HVCI 577/1275 error hints; -DryRun safe",
     "hvci_driver_report": "scripts/hvci_check.py audits drivers/ for signature, W^X sections, known-BYOVD hints; writes evidence/hvci_driver_report.json",
     "driver_submission": "drivers/ contains provider samples + drivers/membridgephys HVCI-compatible source; committed to GitHub",
     "mock_cli": "layers --reader mock: built-in 4-level and 5-level page tables + data, usable by --translate-only / --read-va without any driver",

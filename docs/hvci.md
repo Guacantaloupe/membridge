@@ -4,7 +4,7 @@
 
 ```
 HVCI(memory integrity) enabled=1
-VulnerableDriverBlocklistEnable=0
+VulnerableDriverBlocklistEnable=absent (policy value not set; Windows default may enforce it)
 VBS SecurityServicesRunning={2} (HVCI)
 ```
 
@@ -13,7 +13,7 @@ HVCI 开启时，内核驱动必须同时满足：
 
 1. **Microsoft 签名**：WHQL 或 attestation 签名；**test signing / 未签名驱动不会加载**；
 2. **HVCI 兼容**：PE 不得有可写+可执行（W^X）节，不得动态生成/修改代码，不得把可执行页映射为可写；
-3. **不在 Microsoft vulnerable driver blocklist 中**（该策略在本机为 0/未启用；其他机器可能启用，已知 BYOVD hash 仍可能被拦）。
+3. **不在 Microsoft vulnerable driver blocklist 中**（本机 `VulnerableDriverBlocklistEnable` 策略值缺失；Windows 在 HVCI/内存完整性场景下可能按默认策略启用 blocklist，已知 BYOVD hash 仍会被拦；不要假设“blocklist 已关闭”）。
 
 > HVCI 本身不是可以“绕过”的东西：它由 Hyper-V 在 VTL1 执行代码完整性检查。可行路径是**选用已签名且 HVCI 兼容的驱动**，或让自研驱动取得 Microsoft 签名。
 
@@ -56,9 +56,11 @@ HVCI 开启时，内核驱动必须同时满足：
    ```
    layers.exe --reader aswarpot --read-phys --pa <pa> --size 16
    ```
-4. 或直接用动态验证 harness：
+4. 或直接用动态验证 harness / 安装脚本：
    ```
-   pwsh -File scripts\dynamic_verify.ps1 -Reader aswarpot -DevicePath "\\.\aswSP_ArPot2" -DriverPath C:\path\aswArPot.sys -ServiceName aswArPot -Locate
+   pwsh -File scripts\install_driver.ps1 -DriverPath .\drivers\aswarpot\aswArPot.sys -ServiceName aswArPot -DevicePath "\\.\aswSP_ArPot2" -DryRun
+   # 管理员环境去掉 -DryRun 即安装/启动；失败会打印 577/1275 等错误码提示
+   pwsh -File scripts\dynamic_verify.ps1 -Reader aswarpot -DevicePath "\\.\aswSP_ArPot2" -DriverPath .\drivers\aswarpot\aswArPot.sys -ServiceName aswArPot -Locate
    ```
 
 **驱动加载失败时的错误判断：**

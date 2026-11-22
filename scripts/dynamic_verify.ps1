@@ -57,6 +57,7 @@ function Invoke-Layers {
 $before = Get-MinidumpState
 $hvci = (Get-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity' -ErrorAction SilentlyContinue).Enabled
 $blocklist = (Get-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\CI\Policy' -ErrorAction SilentlyContinue).VulnerableDriverBlocklistEnable
+if ($null -eq $blocklist) { $blocklist = 'absent(default-may-enforce)' }
 Write-Host "== membridge dynamic verify =="
 Write-Host ("reader={0} device={1} driver={2} service={3} dryRun={4}" -f `
     $Reader, $DevicePath, $DriverPath, $ServiceName, $DryRun)
