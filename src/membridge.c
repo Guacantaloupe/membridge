@@ -192,16 +192,23 @@ static HANDLE try_open_device(const wchar_t *path, int attempts, int delay_ms) {
 }
 
 // ---------------- service helpers ----------------
+// Use minimal SCM/service rights: SC_MANAGER_ALL_ACCESS/SERVICE_ALL_ACCESS can
+// fail with ERROR_ACCESS_DENIED under hardened/restricted tokens even when
+// CreateService is allowed.
+#define MB_SCM_CREATE_ACCESS (SC_MANAGER_CONNECT | SC_MANAGER_CREATE_SERVICE)
+#define MB_SVC_ACCESS (SERVICE_START | SERVICE_STOP | SERVICE_QUERY_STATUS | \
+                       SERVICE_INTERROGATE | SERVICE_CHANGE_CONFIG | DELETE)
+
 static int svc_create_and_start(const wchar_t *name, const wchar_t *path, int do_start) {
-    SC_HANDLE scm = OpenSCManagerW(NULL, NULL, SC_MANAGER_ALL_ACCESS);
+    SC_HANDLE scm = OpenSCManagerW(NULL, NULL, MB_SCM_CREATE_ACCESS);
     if (!scm) { wprintf(L"[ERR] OpenSCManager failed: %lu\n", GetLastError()); return 0; }
-    SC_HANDLE svc = CreateServiceW(scm, name, name, SERVICE_ALL_ACCESS, SERVICE_KERNEL_DRIVER,
+    SC_HANDLE svc = CreateServiceW(scm, name, name, MB_SVC_ACCESS, SERVICE_KERNEL_DRIVER,
                                    SERVICE_DEMAND_START, SERVICE_ERROR_IGNORE, path, NULL, NULL, NULL, NULL, NULL);
     int ok = 0;
     if (!svc) {
         DWORD err = GetLastError();
         if (err == ERROR_SERVICE_EXISTS || err == ERROR_SERVICE_MARKED_FOR_DELETE) {
-            svc = OpenServiceW(scm, name, SERVICE_ALL_ACCESS);
+            svc = OpenServiceW(scm, name, MB_SVC_ACCESS);
         }
         if (!svc) { wprintf(L"[WARN] CreateService(%ls) failed: %lu\n", name, err); }
     } else {
@@ -221,9 +228,9 @@ static int svc_create_and_start(const wchar_t *name, const wchar_t *path, int do
 }
 
 static void svc_stop_and_delete(const wchar_t *name) {
-    SC_HANDLE scm = OpenSCManagerW(NULL, NULL, SC_MANAGER_ALL_ACCESS);
+    SC_HANDLE scm = OpenSCManagerW(NULL, NULL, MB_SCM_CREATE_ACCESS);
     if (!scm) return;
-    SC_HANDLE svc = OpenServiceW(scm, name, SERVICE_ALL_ACCESS);
+    SC_HANDLE svc = OpenServiceW(scm, name, MB_SVC_ACCESS);
     if (svc) {
         SERVICE_STATUS st;
         ControlService(svc, SERVICE_CONTROL_STOP, &st);
@@ -249,7 +256,7 @@ static void svc_cleanup_prefix(const wchar_t *prefix) {
                 ENUM_SERVICE_STATUS_PROCESSW *arr = (ENUM_SERVICE_STATUS_PROCESSW *)buf;
                 for (DWORD i = 0; i < count; i++) {
                     if (wcsncmp(arr[i].lpServiceName, prefix, wcslen(prefix)) == 0) {
-                        SC_HANDLE svc = OpenServiceW(scm, arr[i].lpServiceName, SERVICE_ALL_ACCESS);
+                        SC_HANDLE svc = OpenServiceW(scm, arr[i].lpServiceName, MB_SVC_ACCESS);
                         if (svc) {
                             SERVICE_STATUS st;
                             ControlService(svc, SERVICE_CONTROL_STOP, &st);

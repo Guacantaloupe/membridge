@@ -25,11 +25,11 @@ $user = "$env:USERDOMAIN\$env:USERNAME"
 $action = New-ScheduledTaskAction -Execute "$env:SystemRoot\System32\WindowsPowerShell\v1.0\powershell.exe" `
     -Argument "-NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File `"$runner`"" `
     -WorkingDirectory $base
-$trigger = New-ScheduledTaskTrigger -AtLogOn -User $user
-$trigger.Delay = 'PT30S'
+$trigger = New-ScheduledTaskTrigger -AtStartup
 $settings = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries `
     -ExecutionTimeLimit ([TimeSpan]::FromMinutes(45)) -MultipleInstances IgnoreNew
 Register-ScheduledTask -TaskName $TaskName -Action $action -Trigger $trigger -Settings $settings `
-    -User $user -RunLevel Highest -Description 'One physical driver per boot; crash-aware CR3 acquisition.' -Force | Out-Null
+    -User 'NT AUTHORITY\SYSTEM' -RunLevel Highest `
+    -Description 'One physical driver per boot; crash-aware CR3 acquisition (SYSTEM).' -Force | Out-Null
 Write-Host "installed task: $TaskName"
 Get-ScheduledTask -TaskName $TaskName | Select-Object TaskName,State

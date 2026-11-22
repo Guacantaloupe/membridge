@@ -23,6 +23,9 @@ function Write-RunLog([string]$msg) {
     Add-Content -LiteralPath $logFile -Value ("[{0}] {1}" -f (Get-Date).ToString('s'), $msg) -Encoding UTF8
 }
 
+$isAdmin = (New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+Write-RunLog ("runner start user={0} admin={1}" -f $env:USERNAME, $isAdmin)
+
 $backends = @(
     'gibepext','gibepext2','tdeio','ufu_win10','isharepp',
     'swtoolsdriver','hp_swtools','hp_swtools_v1',
@@ -95,10 +98,13 @@ $progress.running = [pscustomobject]@{
 }
 $progress | ConvertTo-Json -Depth 6 | Set-Content -LiteralPath $progressFile -Encoding UTF8
 
-$args = @('--backend',$next,'--locate','--pid',"$($target.Id)",'--name','cmd.exe',
-          '--scan-start',$ScanStart,'--scan-size',$ScanSize)
-$child = Start-Process -FilePath $membridge -ArgumentList $args -Wait -PassThru -WindowStyle Hidden
-$status = if ($child.ExitCode -eq 0) { 'COMPLETED' } else { "FAILED($($child.ExitCode))" }
+$mbArgs = @('--backend',$next,'--locate','--pid',"$($target.Id)",'--name','cmd.exe',
+            '--scan-start',$ScanStart,'--scan-size',$ScanSize)
+$ErrorActionPreference = 'Continue'
+$output = (& $membridge @mbArgs 2>&1 | Out-String)
+$code = $LASTEXITCODE
+if ($output) { Write-RunLog ("output backend={0}: {1}" -f $next, (($output -split "`r?`n" | Select-Object -Last 8) -join ' | ')) }
+$status = if ($code -eq 0) { 'COMPLETED' } else { "FAILED($code)" }
 
 $results = @($progress.results)
 $results += [pscustomobject]@{
