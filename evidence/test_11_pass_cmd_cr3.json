@@ -1,9 +1,6 @@
 ﻿{
     "mode":  "static",
     "backends":  [
-                     "cchwapi_2_9",
-                     "cchwapi_2_12",
-                     "cchwapi_ext_4_5",
                      "hp_swtools",
                      "swtoolsdriver",
                      "hp_swtools_v1",

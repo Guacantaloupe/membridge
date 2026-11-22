@@ -31,7 +31,8 @@ param(
     [int]$MaxBackends = 0,
     [switch]$NoAutoStart,
     [switch]$KeepTarget,
-    [switch]$CheckPrereqs
+    [switch]$CheckPrereqs,
+    [switch]$AllowUnsafeCchwapi
 )
 
 $ErrorActionPreference = 'Stop'
@@ -45,6 +46,11 @@ $backends = @(
     'hp_swtools', 'swtoolsdriver', 'hp_swtools_v1', 'isharepp',
     'gibepext', 'gibepext2', 'tdeio', 'ufu_win10'
 )
+$unsafeCchwapi = @('cchwapi_2_9', 'cchwapi_2_12', 'cchwapi_ext_4_5')
+if (-not $AllowUnsafeCchwapi) {
+    $backends = @($backends | Where-Object { $unsafeCchwapi -notcontains $_ })
+    Write-Warning "CCHWApi family excluded by default (CCHWApi.sys 2.9 caused BSOD 0x3B/AV_CCHWApi during physical scan). Use -AllowUnsafeCchwapi only on a disposable test VM."
+}
 $driverPaths = @{
     'cchwapi_2_9'     = 'drivers\CCHWApi_sys\CCHWApi.sys'
     'cchwapi_2_12'    = 'drivers\CCHWApi(1)_sys\CCHWApi(1).sys'

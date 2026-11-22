@@ -1,6 +1,8 @@
-﻿# local runtime logs / evidence artifacts
+# local runtime logs / evidence artifacts
 evidence/*.log
 evidence/*.err
+evidence/*.dmp
+*.dmp
 *.log
 *.err
 # local temp
