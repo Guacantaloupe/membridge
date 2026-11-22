@@ -1,0 +1,21 @@
+﻿{
+    "date":  "2026-11-23T04:13:26",
+    "hvci":  true,
+    "current_cr3":  "0x17B222000",
+    "current_cr3_source":  "CCHWApi 2.9 control register",
+    "cr3_page_read":  {
+                          "backend":  "cchwapi_2_9",
+                          "pa":  "0x17B222000",
+                          "verdict":  "PASS",
+                          "note":  "READ_OK bytes=0x30; first bytes not valid PML4E (00 00 0F 85...)"
+                      },
+    "crash":  {
+                  "backend":  "isharepp",
+                  "bugcheck":  "0x3B (0xC0000005)",
+                  "fault":  "iSharePp+0x80DD",
+                  "process":  "membridge.exe",
+                  "dump":  "112326-43265-01.dmp",
+                  "time":  "2026-11-23 04:00:02"
+              },
+    "note":  "11-driver batch aborted by iSharePp crash; evidence JSON corrupted to zeros by crash; CCHWApi single CR3-page read passed."
+}
