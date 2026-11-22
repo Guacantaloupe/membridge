@@ -1752,9 +1752,16 @@ static int provider_scan_count(void) {
     return (int)(sizeof(g_provider_scan_order) / sizeof(g_provider_scan_order[0]));
 }
 
+static double now_ms(void) {
+    LARGE_INTEGER f, t;
+    QueryPerformanceFrequency(&f);
+    QueryPerformanceCounter(&t);
+    return (double)t.QuadPart * 1000.0 / (double)f.QuadPart;
+}
+
 static int locate_scan_all_providers(uint32_t pid, const char *image_name,
                                       uint64_t scan_start, uint64_t scan_size, int auto_ranges,
-                                      const char *device, mb_phys_reader *out_reader,
+                                      const char *device, int bench, mb_phys_reader *out_reader,
                                       uint64_t *out_cr3, uint64_t *out_eproc) {
     mb_range ranges[256];
     int nr = 0;
@@ -1772,8 +1779,15 @@ static int locate_scan_all_providers(uint32_t pid, const char *image_name,
     for (int i = 0; i < provider_scan_count(); i++) {
         const char *id = g_provider_scan_order[i];
         mb_phys_reader r;
-        if (!reader_open(&r, id, device)) continue;
-
+        double t_open0 = now_ms();
+        if (!reader_open(&r, id, device)) {
+            if (bench) {
+                printf("[bench] provider=%-12s open=%7.1f ms result=unavailable\n",
+                       id, now_ms() - t_open0);
+            }
+            continue;
+        }
+        double t_open1 = now_ms();
         int found = 0;
         uint64_t cr3 = 0, eproc = 0;
         if (auto_ranges) {
@@ -1785,15 +1799,24 @@ static int locate_scan_all_providers(uint32_t pid, const char *image_name,
             found = mb_layer_locate_cr3_scan(&r, scan_start, scan_size, pid, image_name,
                                              &cr3, &eproc);
         }
+        double t_scan = now_ms() - t_open1;
         if (found) {
             printf("[OK] provider-scan: provider=%s PID=%u EPROCESS_PA=0x%llX CR3=0x%llX\n",
                    id, pid, (unsigned long long)eproc, (unsigned long long)cr3);
+            if (bench) {
+                printf("[bench] provider=%-12s open=%7.1f ms scan=%9.1f ms result=CR3\n",
+                       id, t_open1 - t_open0, t_scan);
+            }
             *out_reader = r;
             *out_cr3 = cr3;
             if (out_eproc) *out_eproc = eproc;
             return 1;
         }
         fprintf(stderr, "[--] provider-scan: %s found no CR3, trying next\n", id);
+        if (bench) {
+            printf("[bench] provider=%-12s open=%7.1f ms scan=%9.1f ms result=no-cr3\n",
+                   id, t_open1 - t_open0, t_scan);
+        }
         reader_close(&r);
     }
 
@@ -1802,7 +1825,9 @@ static int locate_scan_all_providers(uint32_t pid, const char *image_name,
     // for the 24 legacy backends).
     if (g_legacy_backend && legacy_find(g_legacy_backend)) {
         mb_phys_reader r;
+        double t0 = now_ms();
         if (reader_open(&r, "legacy", device)) {
+            double t1 = now_ms();
             int found = 0;
             uint64_t cr3 = 0, eproc = 0;
             if (auto_ranges) {
@@ -1813,6 +1838,10 @@ static int locate_scan_all_providers(uint32_t pid, const char *image_name,
                 found = mb_layer_locate_cr3_scan(&r, scan_start, scan_size, pid, image_name,
                                                  &cr3, &eproc);
             }
+            if (bench) {
+                printf("[bench] provider=legacy:%-12s open=%7.1f ms scan=%9.1f ms result=%s\n",
+                       g_legacy_backend, t1 - t0, now_ms() - t1, found ? "CR3" : "no-cr3");
+            }
             if (found) {
                 printf("[OK] provider-scan: provider=legacy:%s PID=%u EPROCESS_PA=0x%llX CR3=0x%llX\n",
                        g_legacy_backend, pid, (unsigned long long)eproc, (unsigned long long)cr3);
@@ -1822,6 +1851,9 @@ static int locate_scan_all_providers(uint32_t pid, const char *image_name,
                 return 1;
             }
             reader_close(&r);
+        } else if (bench) {
+            printf("[bench] provider=legacy:%-12s open=%7.1f ms result=unavailable\n",
+                   g_legacy_backend, now_ms() - t0);
         }
     }
     return 0;
@@ -2434,6 +2466,7 @@ static void usage(void) {
     printf("  layers --locate --kprl --pid <pid> [--kprl-device <path>]     (KPRL CR3-by-PID; no physical reader needed)\n");
     printf("  layers --locate --invary --pid <pid> [--invary-device <path>] (Invary Sensor kernel-VA locator)\n");
     printf("  layers --locate --scan-providers --pid <pid> [--auto-ranges | --scan-start <hex> --scan-size <hex>] [--va <hex> --size <n>]  (try 20 physical providers)\n");
+    printf("  layers --locate --scan-bench --pid <pid> ...  (same, print per-provider open/scan timing)\n");
     printf("  layers --locate --auto --pid <pid> [--scan-start/--scan-size | --auto-ranges]  (try all locators)\n");
     printf("  layers --read-process --pid <pid> --va <hex> --size <n> [--kkyum-device <path>]  (KKYUM direct process VA read; HVCI-PASS driver)\n");
     printf("  layers --invary-read --va <hex> --size <n> [--invary-device <path>] (kernel-VA bytes via Invary)\n");
@@ -2449,7 +2482,7 @@ int main(int argc, char **argv) {
     int do_selftest = 0, do_read_phys = 0, do_write_phys = 0, do_explicit = 0, do_locate = 0, have_cr3 = 0, have_va = 0;
     int use_la57 = 0, do_translate_only = 0;
     const char *data_hex = NULL;
-    int do_ranges = 0, auto_ranges = 0, use_kkyum = 0, use_kprl = 0, use_invary = 0, use_auto = 0, use_scan_providers = 0, do_invary_read = 0, do_read_process = 0, do_probe = 0, do_probe_loc = 0, do_probe_all = 0, do_list = 0, do_list_legacy = 0, do_hvci = 0;
+    int do_ranges = 0, auto_ranges = 0, use_kkyum = 0, use_kprl = 0, use_invary = 0, use_auto = 0, use_scan_providers = 0, do_scan_bench = 0, do_invary_read = 0, do_read_process = 0, do_probe = 0, do_probe_loc = 0, do_probe_all = 0, do_list = 0, do_list_legacy = 0, do_hvci = 0;
     for (int i = 1; i < argc; i++) {
         if (strcmp(argv[i], "--selftest-mock") == 0) do_selftest = 1;
         else if (strcmp(argv[i], "--probe-readers") == 0) do_probe = 1;
@@ -2486,6 +2519,7 @@ int main(int argc, char **argv) {
         else if (strcmp(argv[i], "--invary") == 0) use_invary = 1;
         else if (strcmp(argv[i], "--auto") == 0) use_auto = 1;
         else if (strcmp(argv[i], "--scan-providers") == 0) use_scan_providers = 1;
+        else if (strcmp(argv[i], "--scan-bench") == 0) { use_scan_providers = 1; do_scan_bench = 1; }
         else if (strcmp(argv[i], "--invary-read") == 0) do_invary_read = 1;
         else if (strcmp(argv[i], "--read-process") == 0) do_read_process = 1;
         else if (strcmp(argv[i], "--ranges") == 0) do_ranges = 1;
@@ -2626,7 +2660,7 @@ int main(int argc, char **argv) {
             uint64_t sc = 0, se = 0;
             int use_ranges = auto_ranges || (scan_size == 0);
             if (!locate_scan_all_providers(pid, name, scan_start, scan_size, use_ranges,
-                                           device, &sr, &sc, &se)) {
+                                           device, do_scan_bench, &sr, &sc, &se)) {
                 printf("[ERR] provider scan failed (pid=%u name='%s'): no provider could read/scanned\n",
                        pid, name);
                 rc = 5;
