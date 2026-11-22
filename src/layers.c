@@ -854,9 +854,17 @@ static int read_legacy(mb_phys_reader *r, uint64_t pa, void *buf, uint32_t size)
         if (chunk > 0x10000) chunk = 0x10000;   // membridge --size limit
 
         char cmd[4096];
+        // membridge --out-file works reliably with a path relative to the
+        // child's inherited cwd; pass temp path relative when possible.
+        char outarg[MAX_PATH];
+        snprintf(outarg, sizeof(outarg), "%s", tmpfile);
+        size_t cwdlen = strlen(cwd);
+        if (cwdlen && _strnicmp(tmpfile, cwd, cwdlen) == 0 && tmpfile[cwdlen] == '\\') {
+            snprintf(outarg, sizeof(outarg), "%s", tmpfile + cwdlen + 1);
+        }
         snprintf(cmd, sizeof(cmd),
                  "\"%s\" --backend %s --pa 0x%llX --size %u --out-file \"%s\"%s",
-                 bin, r->legacy_backend, (unsigned long long)(pa + done), chunk, tmpfile,
+                 bin, r->legacy_backend, (unsigned long long)(pa + done), chunk, outarg,
                  r->legacy_no_load ? " --no-load" : "");
         if (dbg) fprintf(stderr, "[legacy] cmd: %s\n", cmd);
 
