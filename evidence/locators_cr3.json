@@ -1,0 +1,24 @@
+﻿{
+    "mode":  "static",
+    "layers_selftest":  "PASS",
+    "locators":  [
+                     {
+                         "locator":  "kkyum",
+                         "driver":  "drivers\\KKYUM\\KKYUM.sys",
+                         "exists":  true,
+                         "signature":  "Valid"
+                     },
+                     {
+                         "locator":  "invary",
+                         "driver":  "drivers\\invarysensor\\invarysensor.sys",
+                         "exists":  true,
+                         "signature":  "Valid"
+                     },
+                     {
+                         "locator":  "kprl",
+                         "driver":  "drivers\\kprl\\l1malwarebits.sys",
+                         "exists":  true,
+                         "signature":  "Valid"
+                     }
+                 ]
+}
