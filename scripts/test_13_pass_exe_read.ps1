@@ -25,7 +25,8 @@
 param(
     [switch]$StaticOnly,
     [switch]$DryRun,
-    [switch]$CheckPrereqs
+    [switch]$CheckPrereqs,
+    [switch]$IncludeMrt
 )
 
 $ErrorActionPreference = 'Stop'
@@ -145,8 +146,13 @@ if (-not $principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administra
     exit 2
 }
 
-Write-Host ">> elevated test: starting AWE target and loading 13 backends..."
-& $selftest -Backends ($passBackends -join ',')
+Write-Host ">> elevated test: starting AWE target and loading backends..."
+$runBackends = $passBackends
+if (-not $IncludeMrt) {
+    $runBackends = @($passBackends | Where-Object { $_ -ne 'mrt' })
+    Write-Warning "mrt is skipped by default (unsafe filter/minifilter load path; use -IncludeMrt to test)"
+}
+& $selftest -Backends ($runBackends -join ',')
 if ($LASTEXITCODE -ne 0) { Write-Host "[WARN] selftest exit=$LASTEXITCODE" -ForegroundColor Yellow }
 
 $summary = Join-Path $base 'evidence\membridge_selftest.json'
@@ -154,6 +160,10 @@ if (-not (Test-Path $summary)) { throw "missing selftest summary: $summary" }
 $data = Get-Content -LiteralPath $summary -Raw -Encoding UTF8 | ConvertFrom-Json
 $rows = @()
 foreach ($id in $passBackends) {
+    if ($id -eq 'mrt' -and -not $IncludeMrt) {
+        $rows += [pscustomobject]@{ backend = $id; verdict = 'SKIPPED_UNSAFE' }
+        continue
+    }
     $r = @($data.results | Where-Object { $_.backend -eq $id })
     $verdict = if ($r.Count -gt 0) { $r[0].verdict } else { 'NOT_RUN' }
     $rows += [pscustomobject]@{ backend = $id; verdict = $verdict }

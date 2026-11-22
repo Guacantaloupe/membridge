@@ -30,7 +30,8 @@ param(
     [int]$MaxRanges = 0,
     [int]$MaxBackends = 0,
     [switch]$NoAutoStart,
-    [switch]$KeepTarget
+    [switch]$KeepTarget,
+    [switch]$CheckPrereqs
 )
 
 $ErrorActionPreference = 'Stop'
@@ -44,6 +45,19 @@ $backends = @(
     'hp_swtools', 'swtoolsdriver', 'hp_swtools_v1', 'isharepp',
     'gibepext', 'gibepext2', 'tdeio', 'ufu_win10'
 )
+$driverPaths = @{
+    'cchwapi_2_9'     = 'drivers\CCHWApi_sys\CCHWApi.sys'
+    'cchwapi_2_12'    = 'drivers\CCHWApi(1)_sys\CCHWApi(1).sys'
+    'cchwapi_ext_4_5' = 'drivers\CCHWApiExt(1)_sys\CCHWApiExt(1).sys'
+    'hp_swtools'      = 'drivers\HP SW TOOLS DRIVER_sys\HP SW TOOLS DRIVER.sys'
+    'swtoolsdriver'   = 'drivers\swtoolsdriver\swtoolsdriver.sys'
+    'hp_swtools_v1'   = 'drivers\hp_swtools_v1\HP_SWTOOLS_DRIVER_V1.sys'
+    'isharepp'        = 'drivers\isharepp\iSharePp.sys'
+    'gibepext'        = 'drivers\gibepext\gibepext.sys'
+    'gibepext2'       = 'drivers\gibepext2\gibepext2.sys'
+    'tdeio'           = 'drivers\tdeio\TdeIo64.sys'
+    'ufu_win10'       = 'drivers\ufu\win10_ufudev64.sys'
+}
 
 foreach ($p in @($membridge, $layers)) {
     if (-not (Test-Path -LiteralPath $p)) { throw "missing: $p" }
@@ -72,6 +86,50 @@ function Get-Ranges {
 
 $ranges = @(Get-Ranges)
 if ($MaxBackends -gt 0) { $backends = @($backends | Select-Object -First $MaxBackends) }
+
+if ($CheckPrereqs) {
+    $id = [Security.Principal.WindowsIdentity]::GetCurrent()
+    $principal = New-Object Security.Principal.WindowsPrincipal($id)
+    $isAdmin = $principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+    $cc = Get-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\CrashControl' -ErrorAction SilentlyContinue
+    $disk = Get-PSDrive C
+    $targetProcess = Get-Process -Name ($TargetName -replace '\.exe$', '') -ErrorAction SilentlyContinue | Select-Object -First 1
+    $ls = (& $membridge --locate-selftest 2>&1 | Out-String)
+    $rows = @()
+    foreach ($bid in $backends) {
+        $path = Join-Path $base $driverPaths[$bid]
+        $exists = Test-Path -LiteralPath $path
+        $sig = if ($exists) { (Get-AuthenticodeSignature -LiteralPath $path).Status.ToString() } else { 'MISSING' }
+        $rows += [pscustomobject]@{ backend = $bid; driver = $driverPaths[$bid]; exists = $exists; signature = $sig }
+    }
+    $allPresent = @($rows | Where-Object { -not $_.exists }).Count -eq 0
+    $allValid = @($rows | Where-Object { $_.signature -ne 'Valid' }).Count -eq 0
+    $selftestOk = $ls -match 'VERDICT=PASS'
+    $report = [pscustomobject]@{
+        date = (Get-Date).ToString('s')
+        is_admin = $isAdmin
+        crash_dump_enabled = $cc.CrashDumpEnabled
+        auto_reboot = $cc.AutoReboot
+        minidump_dir = $cc.MinidumpDir
+        disk_free_gb = [math]::Round($disk.Free / 1GB, 2)
+        target_running = [bool]$targetProcess
+        locate_selftest = if ($selftestOk) { 'PASS' } else { 'FAIL' }
+        drivers_present = $allPresent
+        drivers_signed = $allValid
+        drivers = $rows
+        dynamic_blocker = if ($isAdmin) { '' } else { 'Administrator required to load kernel drivers' }
+    }
+    $report | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath (Join-Path $base 'evidence\test_11_pass_cmd_cr3_prereqs.json') -Encoding UTF8
+    $rows | Format-Table -AutoSize
+    Write-Host ("PREREQ: admin={0} dump={1} autoreboot={2} freeGB={3} target={4} locate_selftest={5}" -f `
+        $isAdmin, $cc.CrashDumpEnabled, $cc.AutoReboot, $report.disk_free_gb, $report.target_running, $report.locate_selftest)
+    Write-Host ("DRIVERS: present={0} signed={1}" -f $allPresent, $allValid)
+    if ($allPresent -and $allValid -and $selftestOk) {
+        Write-Host "CHECK_PREREQS=PASS"
+        exit 0
+    }
+    exit 2
+}
 
 if ($StaticOnly) {
     $ls = (& $membridge --locate-selftest 2>&1 | Out-String)

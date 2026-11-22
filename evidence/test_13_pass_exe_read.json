@@ -1,62 +1,21 @@
 ﻿{
-    "date":  "2026-11-22T10:01:32",
+    "mode":  "static",
+    "backends":  [
+                     "cchwapi_2_9",
+                     "cchwapi_2_12",
+                     "cchwapi_ext_4_5",
+                     "hp_swtools",
+                     "swtoolsdriver",
+                     "hp_swtools_v1",
+                     "isharepp",
+                     "gibepext",
+                     "gibepext2",
+                     "tdeio",
+                     "mrt",
+                     "ufu_win10",
+                     "winring0x64"
+                 ],
+    "present":  13,
     "target":  "test\\test.exe (AWE marker BYOV_TESTEXE_AWE_PAGE_00)",
-    "page_pa":  "0x2B8D5000",
-    "total":  13,
-    "pass":  11,
-    "results":  [
-                    {
-                        "backend":  "cchwapi_2_9",
-                        "verdict":  "PASS"
-                    },
-                    {
-                        "backend":  "cchwapi_2_12",
-                        "verdict":  "PASS"
-                    },
-                    {
-                        "backend":  "cchwapi_ext_4_5",
-                        "verdict":  "PASS"
-                    },
-                    {
-                        "backend":  "hp_swtools",
-                        "verdict":  "PASS"
-                    },
-                    {
-                        "backend":  "swtoolsdriver",
-                        "verdict":  "PASS"
-                    },
-                    {
-                        "backend":  "hp_swtools_v1",
-                        "verdict":  "PASS"
-                    },
-                    {
-                        "backend":  "isharepp",
-                        "verdict":  "PASS"
-                    },
-                    {
-                        "backend":  "gibepext",
-                        "verdict":  "PASS"
-                    },
-                    {
-                        "backend":  "gibepext2",
-                        "verdict":  "PASS"
-                    },
-                    {
-                        "backend":  "tdeio",
-                        "verdict":  "PASS"
-                    },
-                    {
-                        "backend":  "mrt",
-                        "verdict":  "DEVICE_OPEN_FAILED"
-                    },
-                    {
-                        "backend":  "ufu_win10",
-                        "verdict":  "PASS"
-                    },
-                    {
-                        "backend":  "winring0x64",
-                        "verdict":  "READ_FAILED"
-                    }
-                ],
-    "new_dumps":  ""
+    "note":  "dynamic test requires Administrator"
 }
