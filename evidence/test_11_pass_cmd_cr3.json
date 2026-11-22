@@ -1,37 +1,16 @@
 ﻿{
-    "mode":  "static",
-    "backends":  [
-                     "hp_swtools",
-                     "swtoolsdriver",
-                     "hp_swtools_v1",
-                     "isharepp",
-                     "gibepext",
-                     "gibepext2",
-                     "tdeio",
-                     "ufu_win10"
-                 ],
-    "ranges":  [
-                   {
-                       "start":  "0x1000",
-                       "size":  "0x9E000"
-                   },
-                   {
-                       "start":  "0x100000",
-                       "size":  "0x900000"
-                   },
-                   {
-                       "start":  "0xA73000",
-                       "size":  "0x6CC78000"
-                   },
-                   {
-                       "start":  "0x727FF000",
-                       "size":  "0x1000"
-                   },
-                   {
-                       "start":  "0x100000000",
-                       "size":  "0x17F800000"
-                   }
-               ],
-    "locate_selftest":  "PASS",
-    "note":  "dynamic CR3 test requires Administrator and a running cmd.exe"
+    "date":  "2026-11-22T11:07:11",
+    "target_pid":  4680,
+    "target":  "cmd.exe",
+    "total":  1,
+    "pass":  0,
+    "results":  [
+                    {
+                        "backend":  "hp_swtools",
+                        "cr3":  "",
+                        "verdict":  "LOCATE_FAILED",
+                        "last_output":  "BACKEND=hp_swtools\r\nDRIVER=C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\drivers\\HP SW TOOLS DRIVER_sys\\HP SW TOOLS DRIVER.sys\r\nLOAD=loading\r\nDEVICE=\\\\.\\HP_WKS_SWTOOLS_DRIVER\r\nVERDICT=LOCATE_FAILED"
+                    }
+                ],
+    "new_dumps":  ""
 }
