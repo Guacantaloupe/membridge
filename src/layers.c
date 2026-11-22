@@ -1642,7 +1642,8 @@ static uint64_t find_ntoskrnl_base(void) {
 
 // Full kkyum locator: open device, find ntoskrnl, read PsInitialSystemProcess,
 // walk process list, return target CR3. No physical reader is used.
-static int kkyum_locate_cr3(uint32_t pid, const char *device, uint64_t *out_cr3, uint64_t *out_eproc) {
+static int kkyum_locate_cr3(uint32_t pid, const char *device, uint64_t *out_cr3, uint64_t *out_eproc,
+                            uint64_t *out_user_cr3) {
     if (!kkyum_open(device)) return 0;
     uint64_t nt_base = find_ntoskrnl_base();
     if (!nt_base) return 0;
@@ -1654,7 +1655,12 @@ static int kkyum_locate_cr3(uint32_t pid, const char *device, uint64_t *out_cr3,
     uint64_t sys_eproc = 0;
     if (!kr.read(&kr, nt_base + rva, &sys_eproc, 8)) return 0;
     if (sys_eproc < 0xFFFF800000000000ull) return 0;
-    return mb_layer_locate_cr3_kernel(&kr, sys_eproc, pid, 0x1D8, 0x1D0, 0x28, out_cr3, out_eproc);
+    if (!mb_layer_locate_cr3_kernel(&kr, sys_eproc, pid, 0x1D8, 0x1D0, 0x28, out_cr3, out_eproc)) return 0;
+    if (out_user_cr3 && out_eproc && *out_eproc) {
+        uint64_t user_cr3 = 0;
+        if (kr.read(&kr, *out_eproc + 0x158, &user_cr3, 8)) *out_user_cr3 = user_cr3;
+    }
+    return 1;
 }
 
 // ---------------------------------------------------------------------------
@@ -2893,7 +2899,7 @@ int main(int argc, char **argv) {
             printf("VERDICT=PASS\n");
         }
     } else if (do_locate) {
-        uint64_t got_cr3 = 0, eproc = 0;
+        uint64_t got_cr3 = 0, eproc = 0, user_cr3 = 0;
         if (use_cchwapi_only && pid) {
             uint64_t c = 0, e = 0;
             if (!cchwapi_locate_cr3(pid, device, &c, &e)) {
@@ -2925,7 +2931,7 @@ int main(int argc, char **argv) {
             const char *strat = NULL;
             if (kprl_locate_cr3(pid, kprl_device, &got_cr3)) strat = "kprl";
             else if (invary_locate_cr3(pid, invary_device, &got_cr3, &eproc)) strat = "invary";
-            else if (kkyum_locate_cr3(pid, kkyum_device, &got_cr3, &eproc)) strat = "kkyum";
+            else if (kkyum_locate_cr3(pid, kkyum_device, &got_cr3, &eproc, NULL)) strat = "kkyum";
             else if (have_reader && (scan_size || auto_ranges)) {
                 if (!name) name = "";
                 int ok = 0;
@@ -2967,12 +2973,13 @@ int main(int argc, char **argv) {
                        pid, (unsigned long long)got_cr3);
             }
         } else if (use_kkyum && pid) {
-            if (!kkyum_locate_cr3(pid, kkyum_device, &got_cr3, &eproc)) {
+            if (!kkyum_locate_cr3(pid, kkyum_device, &got_cr3, &eproc, &user_cr3)) {
                 printf("[ERR] 定位层 kkyum failed (pid=%u): device/ntoskrnl/EPROCESS walk error\n", pid);
                 rc = 5;
             } else {
-                printf("[OK] 定位层 kkyum: PID=%u EPROCESS=0x%llX CR3=0x%llX (kernel-VA walk)\n", pid,
-                       (unsigned long long)eproc, (unsigned long long)got_cr3);
+                printf("[OK] 定位层 kkyum: PID=%u EPROCESS=0x%llX CR3=0x%llX USER_CR3=0x%llX (kernel-VA walk)\n", pid,
+                       (unsigned long long)eproc, (unsigned long long)got_cr3,
+                       (unsigned long long)user_cr3);
             }
         } else if (have_cr3) {
             if (!mb_layer_locate_cr3_explicit(cr3, &got_cr3)) { printf("[ERR] bad explicit CR3\n"); rc = 5; }

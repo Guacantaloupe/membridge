@@ -206,26 +206,34 @@ try {
     $loc = (& $layers --locate --kkyum --pid $ProcessId 2>&1 | Out-String)
     Write-Host $loc
     $mCr3 = [regex]::Match($loc, 'CR3=(0x[0-9A-Fa-f]+)')
+    $mUserCr3 = [regex]::Match($loc, 'USER_CR3=(0x[0-9A-Fa-f]+)')
     if (-not $mCr3.Success) { throw "KKYUM locate failed" }
     $targetCr3 = $mCr3.Groups[1].Value
-    Write-Host "target CR3=$targetCr3"
+    $userCr3 = if ($mUserCr3.Success) { $mUserCr3.Groups[1].Value } else { '' }
+    Write-Host "target CR3=$targetCr3 USER_CR3=$userCr3"
 
     Write-Host ">> translate target USER VA with target CR3 (no kernel-VA translation)"
     $old = $ErrorActionPreference
     $ErrorActionPreference = 'Continue'
     $translateReaders = @('tdeio','gibepext','gibepext2')
+    $cr3Candidates = @($targetCr3)
+    if ($userCr3 -and $userCr3 -ne $targetCr3) { $cr3Candidates += $userCr3 }
     $usedReader = ''
+    $translateCr3 = ''
     $mPa = $null
     $t = ''
-    foreach ($rb in $translateReaders) {
-        foreach ($tryLa57 in @($false,$true)) {
-            $la57 = $tryLa57
-            $a = @('--translate-only','--reader','legacy','--legacy-backend',$rb,
-                   '--cr3',$targetCr3,'--va',('0x{0:X}' -f $targetVa))
-            if ($la57) { $a += '--la57' }
-            $t = (& $layers @a 2>&1 | Out-String)
-            $mPa = [regex]::Match($t, 'PA=(0x[0-9A-Fa-f]+)')
-            if ($mPa.Success) { $usedReader = $rb; break }
+    foreach ($candCr3 in $cr3Candidates) {
+        foreach ($rb in $translateReaders) {
+            foreach ($tryLa57 in @($false,$true)) {
+                $la57 = $tryLa57
+                $a = @('--translate-only','--reader','legacy','--legacy-backend',$rb,
+                       '--cr3',$candCr3,'--va',('0x{0:X}' -f $targetVa))
+                if ($la57) { $a += '--la57' }
+                $t = (& $layers @a 2>&1 | Out-String)
+                $mPa = [regex]::Match($t, 'PA=(0x[0-9A-Fa-f]+)')
+                if ($mPa.Success) { $usedReader = $rb; $translateCr3 = $candCr3; break }
+            }
+            if ($mPa.Success) { break }
         }
         if ($mPa.Success) { break }
     }
@@ -234,9 +242,10 @@ try {
     if (-not $mPa.Success) {
         $old = $ErrorActionPreference
         $ErrorActionPreference = 'Continue'
+        $dbgCr3 = if ($userCr3) { $userCr3 } else { $targetCr3 }
         foreach ($dbgLa57 in @($false,$true)) {
             $dba = @('--translate-debug','--reader','legacy','--legacy-backend','tdeio',
-                     '--cr3',$targetCr3,'--va',('0x{0:X}' -f $targetVa))
+                     '--cr3',$dbgCr3,'--va',('0x{0:X}' -f $targetVa))
             if ($dbgLa57) { $dba += '--la57' }
             $dbg = (& $layers @dba 2>&1 | Out-String)
             Write-Host $dbg
@@ -282,6 +291,8 @@ try {
         target_pid=$ProcessId
         target_va=('0x{0:X}' -f $targetVa)
         target_cr3=$targetCr3
+        user_cr3=$userCr3
+        translate_cr3=$translateCr3
         target_pa=('0x{0:X}' -f $targetPa)
         translate_reader=$usedReader
         size=$Size
