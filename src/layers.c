@@ -1974,54 +1974,54 @@ static int cchwapi_read_current_cr3(HANDLE dev, uint64_t *out) {
     return 0;
 }
 
-typedef struct { mb_phys_reader *pr; uint64_t cr3; } cchwapi_kr_ctx;
+typedef struct { mb_phys_reader *pr; uint64_t cr3; int la57; } cchwapi_kr_ctx;
 
 static int cchwapi_kread(mb_kernel_reader *kr, uint64_t va, void *buf, uint32_t size) {
     cchwapi_kr_ctx *ctx = (cchwapi_kr_ctx *)kr->ctx;
     if (!ctx || !ctx->pr) return 0;
-    return mb_layer_read_va(ctx->pr, ctx->cr3, va, buf, size);
+    return ctx->la57 ? mb_layer_read_va5(ctx->pr, ctx->cr3, va, buf, size)
+                     : mb_layer_read_va(ctx->pr, ctx->cr3, va, buf, size);
 }
 
 static int cchwapi_locate_cr3(uint32_t pid, const char *device, uint64_t *out_cr3, uint64_t *out_eproc) {
     mb_phys_reader pr;
     if (!reader_open(&pr, "cchwapi", device)) return 0;
 
-    uint64_t current_cr3 = 0;
-    if (!cchwapi_read_current_cr3(pr.dev, &current_cr3)) {
-        fprintf(stderr, "[ERR] cchwapi-only: ReadControlReg(CR3) failed on all CPUs\n");
-        reader_close(&pr);
-        return 0;
-    }
-
     uint64_t nt_base = find_ntoskrnl_base();
     if (!nt_base) { fprintf(stderr, "[ERR] cchwapi-only: ntoskrnl base not found\n"); reader_close(&pr); return 0; }
     uint32_t rva = parse_nt_export_rva("PsInitialSystemProcess");
     if (!rva) { fprintf(stderr, "[ERR] cchwapi-only: PsInitialSystemProcess RVA not found\n"); reader_close(&pr); return 0; }
 
-    cchwapi_kr_ctx ctx;
-    ctx.pr = &pr;
-    ctx.cr3 = current_cr3;
-    mb_kernel_reader kr;
-    kr.ctx = &ctx;
-    kr.read = cchwapi_kread;
+    DWORD cpus = GetActiveProcessorCount(ALL_PROCESSOR_GROUPS);
+    if (cpus == 0 || cpus > 64) cpus = 8;
+    for (DWORD cpu = 0; cpu < cpus; cpu++) {
+        uint64_t cr3 = 0, cr4 = 0;
+        if (!cchwapi_read_control(pr.dev, cpu, 3, &cr3) || !cr3) continue;
+        cchwapi_read_control(pr.dev, cpu, 4, &cr4);
+        int la57 = (cr4 & (1ull << 12)) ? 1 : 0;
+        fprintf(stderr, "[DBG] cchwapi-only: CPU=%lu CR3=0x%llX LA57=%d\n",
+                (unsigned long)cpu, (unsigned long long)cr3, la57);
 
-    uint64_t sys_eproc = 0;
-    if (!kr.read(&kr, nt_base + rva, &sys_eproc, 8)) {
-        fprintf(stderr, "[ERR] cchwapi-only: read PsInitialSystemProcess failed\n");
-        reader_close(&pr);
-        return 0;
-    }
-    if (sys_eproc < 0xFFFF800000000000ull) {
-        fprintf(stderr, "[ERR] cchwapi-only: bogus PsInitialSystemProcess=0x%llX\n",
-                (unsigned long long)sys_eproc);
-        reader_close(&pr);
-        return 0;
-    }
+        cchwapi_kr_ctx ctx;
+        ctx.pr = &pr;
+        ctx.cr3 = cr3;
+        ctx.la57 = la57;
+        mb_kernel_reader kr;
+        kr.ctx = &ctx;
+        kr.read = cchwapi_kread;
 
-    int ok = mb_layer_locate_cr3_kernel(&kr, sys_eproc, pid, 0x1D8, 0x1D0, 0x28,
-                                        out_cr3, out_eproc);
+        uint64_t sys_eproc = 0;
+        if (!kr.read(&kr, nt_base + rva, &sys_eproc, 8)) continue;
+        if (sys_eproc < 0xFFFF800000000000ull) continue;
+        if (mb_layer_locate_cr3_kernel(&kr, sys_eproc, pid, 0x1D8, 0x1D0, 0x28,
+                                       out_cr3, out_eproc)) {
+            reader_close(&pr);
+            return 1;
+        }
+    }
+    fprintf(stderr, "[ERR] cchwapi-only: all CPU CR3 candidates failed page-walk/EPROCESS walk\n");
     reader_close(&pr);
-    return ok;
+    return 0;
 }
 
 static int hex_decode(const char *s, uint8_t *out, int max) {

@@ -1,6 +1,10 @@
 ﻿{
-    "mode":  "static",
+    "date":  "2026-11-22T12:29:53",
     "driver":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\drivers\\CCHWApi_sys\\CCHWApi.sys",
-    "signature":  "Valid",
-    "locate_selftest":  "PASS"
+    "target_pid":  7124,
+    "cr3":  "",
+    "eprocess":  "",
+    "verdict":  "FAIL",
+    "layers_exit":  5,
+    "output":  "layers.exe : [ERR] translate failed VA=0xFFFFF80676BC7AB0\r\n所在位置 C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\scripts\\cchwapi_only_cr3.ps1:86 字符: 13\r\n+     $out = (\u0026 $layers --locate --cchwapi-only --pid $ProcessId 2\u003e\u00261 | ...\r\n+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n    + CategoryInfo          : NotSpecified: ([ERR] translate...FFFF80676BC7AB0:String) [], RemoteException\r\n    + FullyQualifiedErrorId : NativeCommandError\r\n \r\n[ERR] cchwapi-only: read PsInitialSystemProcess failed\r\n[ERR] CCHWApi-only locator failed (pid=7124): driver/control-reg/page-walk error"
 }
