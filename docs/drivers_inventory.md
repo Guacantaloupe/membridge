@@ -1,6 +1,6 @@
 # 24 个 legacy 内存读取驱动（membridge backends）与 HVCI 状态
 
-in\membridge.exe --list 实测列出 **24 个 backend**；下表由 src/membridge.c 的 g_backends[] 与 evidence/hvci_driver_report.json 自动生成（静态审计）。
+`bin\membridge.exe --list` 实测列出 **24 个 backend**；下表由 `src/membridge.c` 的 `g_backends[]` 与 `evidence/hvci_driver_report.json` 自动生成（静态审计）。
 
 | # | backend id | driver | HVCI 审计 | 签名 |
 |---|---|---|---|---|
@@ -39,4 +39,5 @@
 - HVCI 下优先使用 PASS 子集；membridge.exe --backend <id> 会按 backend 自动加载驱动（需管理员）。
 - ufu_win10 仅 32-bit PA/0x1024 字节；winring0x64 仅低内存 0xC0000-0xFFFFF，非任意 64-bit PA。
 - 其余 WARN/FAIL 在 HVCI 下可能被签名/ W^X 拒绝；详见 docs/hvci.md。
-- 另：layers.exe 当前有 **20 个真实 provider + mock**；repo drivers/ 共 **47 个 .sys**（含 variants 与新 provider 驱动）。
+- 另：`layers.exe` 当前有 **20 个真实 provider + mock**；repo `drivers/` 共 **47 个 .sys**（含 variants 与新 provider 驱动）。
+- 静态审计环境：HVCI=1，`VulnerableDriverBlocklistEnable` 策略值缺失（Windows 默认可能仍启用 blocklist）。
