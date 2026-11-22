@@ -33,7 +33,8 @@
     "mock_cli": "layers --reader mock: built-in 4-level and 5-level page tables + data, usable by --translate-only / --read-va without any driver",
     "translate_only": "layers --reader mock --cr3 ... --va ... --translate-only [--la57] prints PA/page without fetch",
     "mb_phys_ranges_from_registry": "HARDWARE\\RESOURCEMAP physical memory ranges -> locator scan ranges",
-    "mb_layer_read_va": "composition of translate + fetch (cr3 provided by caller)"
+    "mb_layer_read_va": "composition of translate + fetch (cr3 provided by caller)",
+    "cchwapi_only": "layers.exe --locate --cchwapi-only: CCHWApi 2.9 only; ReadControlReg(CR3) + CCHWApi physical page-table walk + EPROCESS walk, no scan"
   },
   "real_fetch_providers": [
     "cchwapi (0x8024003C)",
@@ -133,7 +134,11 @@
   },
   "build": {
     "command": "build.ps1",
-    "artifacts": ["bin/membridge.exe", "bin/cr3read.exe", "bin/layers.exe"],
+    "artifacts": [
+      "bin/membridge.exe",
+      "bin/cr3read.exe",
+      "bin/layers.exe"
+    ],
     "layers_exe_size": 133184,
     "layers_asio2_exe_size": 133202,
     "peupdater_exe_size": 133202,
@@ -152,5 +157,10 @@
     "取数层_fetcher": "membridge 22 backends; AsrDrv(2) arbitrary physical R/W (provider integrated), AsUpIO64 physical map/MSR, CPU-Z physical dword R/W, FireEye MRT physical read",
     "定位层_locator": "physical EPROCESS scan needs only 取数层 + registry ranges; kernel-reader strategy uses KKYUM as in cr3read.exe",
     "翻译层_translator": "pure algorithm, works with any 取数层 provider"
-  }
+  },
+  "passed": 48,
+  "failed": 0,
+  "layers_exe_size": 136405,
+  "layers_asio2_exe_size": 136423,
+  "peupdater_exe_size": 136423
 }
