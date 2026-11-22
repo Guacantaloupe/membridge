@@ -154,10 +154,19 @@ try {
     Write-Host "reference CR3=$refCr3 EPROCESS_VA=$eprocVa"
 
     Write-Host ">> translate EPROCESS VA -> PA (small page-table walk only)"
+    $old = $ErrorActionPreference
+    $ErrorActionPreference = 'Continue'
     $t = (& $layers --translate-only --reader legacy --legacy-backend tdeio --cr3 $refCr3 --va $eprocVa 2>&1 | Out-String)
+    $la57 = $false
+    if ($t -notmatch 'PA=') {
+        Write-Host ">> 4-level translation failed; retrying with --la57 (5-level paging)"
+        $t = (& $layers --translate-only --reader legacy --legacy-backend tdeio --cr3 $refCr3 --va $eprocVa --la57 2>&1 | Out-String)
+        $la57 = $true
+    }
+    $ErrorActionPreference = $old
     Write-Host $t
     $mPa = [regex]::Match($t, 'PA=(0x[0-9A-Fa-f]+)')
-    if (-not $mPa.Success) { throw "translate EPROCESS failed" }
+    if (-not $mPa.Success) { throw "translate EPROCESS failed (4-level and 5-level)" }
     $eprocPa = [Convert]::ToUInt64($mPa.Groups[1].Value, 16)
     $cr3Pa = $eprocPa + 0x28
     Write-Host ("EPROCESS_PA=0x{0:X} CR3_FIELD_PA=0x{1:X}" -f $eprocPa, $cr3Pa)
@@ -189,6 +198,7 @@ try {
         reference_cr3=$refCr3
         eprocess_va=$eprocVa
         eprocess_pa=('0x{0:X}' -f $eprocPa)
+        la57=$la57
         total=$rows.Count
         pass=$pass
         only_backend=$OnlyBackend
