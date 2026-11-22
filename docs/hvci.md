@@ -46,7 +46,8 @@ HVCI 开启时，内核驱动必须同时满足：
 ## 3. 让 provider 在 HVCI 下正常使用的操作路径
 ### 3.1 使用已签名的 HVCI 兼容驱动（推荐）
 1. 选择 PASS 列表里的驱动（`aswarpot` / `mrt` / `cchwapi` 等）；
-2. 管理员安装/启动驱动：
+2. **自动选择**：`layers.exe --reader hvci` 会按 `aswarpot -> mrt -> cchwapi` 顺序探测并使用第一个可打开的 HVCI-PASS provider；
+3. 管理员安装/启动驱动：
    ```
    sc.exe create <Svc> type= kernel start= demand binPath= C:\path\driver.sys
    sc.exe start <Svc>

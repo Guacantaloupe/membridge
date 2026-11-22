@@ -811,6 +811,21 @@ static int read_dumpit(mb_phys_reader *r, uint64_t pa, void *buf, uint32_t size)
 static int reader_open(mb_phys_reader *r, const char *kind, const char *device) {
     memset(r, 0, sizeof(*r));
     r->dev = INVALID_HANDLE_VALUE;
+    // HVCI-aware automatic selection: only providers whose drivers are
+    // MS/WHQL-signed and free of W^X sections (see --list-providers).
+    if (_stricmp(kind, "hvci") == 0 || _stricmp(kind, "hvci-auto") == 0) {
+        const char *cands[] = { "aswarpot", "mrt", "cchwapi" };
+        for (size_t i = 0; i < sizeof(cands) / sizeof(cands[0]); i++) {
+            mb_phys_reader tmp;
+            if (reader_open(&tmp, cands[i], device)) {
+                *r = tmp;
+                fprintf(stderr, "[OK] hvci-auto selected provider '%s'\n", r->name ? r->name : cands[i]);
+                return 1;
+            }
+        }
+        fprintf(stderr, "[HINT] hvci-auto: no HVCI-compatible provider present (tried aswarpot, mrt, cchwapi)\n");
+        return 0;
+    }
     if (_stricmp(kind, "mock") == 0) {
         r->name = "mock";
         r->mode = 3;
@@ -1042,7 +1057,7 @@ static int reader_open(mb_phys_reader *r, const char *kind, const char *device) 
         if (r->dev == INVALID_HANDLE_VALUE)
             fprintf(stderr, "[HINT] MembridgePhys not loaded (sign + install drivers/membridgephys first)\n");
     } else {
-        fprintf(stderr, "[ERR] unknown reader '%s' (mock|cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64|dumpit|asmmap|atillk64|asio64|adv64drv|ntiolib|winring0|amifldrv|citmdrv|membridgephys)\n", kind ? kind : "");
+        fprintf(stderr, "[ERR] unknown reader '%s' (mock|cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64|dumpit|asmmap|atillk64|asio64|adv64drv|ntiolib|winring0|amifldrv|citmdrv|membridgephys|hvci)\n", kind ? kind : "");
         return 0;
     }
     if (r->dev == INVALID_HANDLE_VALUE) {
@@ -1644,6 +1659,7 @@ static int hvci_status(void) {
     if (enabled) {
         printf("[INFO] HVCI is ON: drivers must be Microsoft-signed (WHQL/attestation), HVCI-compatible (no W^X/dynamic code), and not blocked.\n");
         printf("[INFO] Recommended for HVCI on this build: --reader aswarpot (MS/WHQL-signed, arbitrary physical R/W), --reader mrt (MS/WHQL-signed read), --reader cchwapi.\n");
+        printf("[INFO] Or use --reader hvci (auto-selects aswarpot -> mrt -> cchwapi, the HVCI-PASS providers).\n");
         printf("[INFO] Many third-party samples FAIL HVCI W^X checks (asmmap/atillk64/asio64/ntiolib/cpuz/winio64/...); see --list-providers.\n");
         printf("[INFO] Unsigned/test-signed drivers will NOT load. Custom drivers/membridgephys must be Microsoft-signed first.\n");
         if (blocklist == 0) {
@@ -2090,6 +2106,7 @@ static void usage(void) {
     printf("  layers --probe-locators (try opening KKYUM / Invary / KPRL locator devices)\n");
     printf("  layers --selftest-mock\n");
     printf("  layers --ranges                       (read physical RAM ranges from registry)\n");
+    printf("  layers --reader hvci [--device <path>] ...  (HVCI-aware auto: aswarpot -> mrt -> cchwapi)\n");
     printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64|dumpit|asmmap|atillk64|asio64|adv64drv|ntiolib|winring0|amifldrv|citmdrv|membridgephys> [--device <path>] --read-phys --pa <hex> --size <n>\n");
     printf("  layers --reader ... --write-phys --pa <hex> --data <hex bytes>  (providers with write)\n");
     printf("  layers --reader <mock> --cr3 <hex> --va <hex> --size <n>\n");

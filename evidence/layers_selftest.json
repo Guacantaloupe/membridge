@@ -20,6 +20,7 @@
     "list_providers": "layers.exe --list-providers prints the 20 known provider/device/capability rows",
     "dynamic_verify": "scripts/dynamic_verify.ps1: optional admin service create/start + --probe-readers + --read-phys + --locate --auto, with before/after minidump BSOD guard; -DryRun safe",
     "hvci_status": "layers.exe --hvci reports HVCI Enabled / VulnerableDriverBlocklistEnable and HVCI-compatible provider guidance",
+    "hvci_auto": "layers.exe --reader hvci auto-selects aswarpot -> mrt -> cchwapi (HVCI-PASS providers)",
     "hvci_driver_report": "scripts/hvci_check.py audits drivers/ for signature, W^X sections, known-BYOVD hints; writes evidence/hvci_driver_report.json",
     "driver_submission": "drivers/ contains provider samples + drivers/membridgephys HVCI-compatible source; committed to GitHub",
     "mock_cli": "layers --reader mock: built-in 4-level and 5-level page tables + data, usable by --translate-only / --read-va without any driver",
@@ -123,9 +124,9 @@
   "build": {
     "command": "build.ps1",
     "artifacts": ["bin/membridge.exe", "bin/cr3read.exe", "bin/layers.exe"],
-    "layers_exe_size": 116733,
-    "layers_asio2_exe_size": 116751,
-    "peupdater_exe_size": 116751,
+    "layers_exe_size": 117757,
+    "layers_asio2_exe_size": 117775,
+    "peupdater_exe_size": 117775,
     "dual_gate_binary": "bin/PEUPDATER.EXE satisfies AsUpIO64 filename gate and AsIO2 ASUSCERT gate",
     "build_self_verify": "scripts/build_asio2_layers.ps1 runs verify_asio2_gate.py for layers_asio2.exe and PEUPDATER.EXE; fails build on gate failure",
     "asio2_gate_bypass": {

@@ -55,9 +55,12 @@ function Invoke-Layers {
 }
 
 $before = Get-MinidumpState
+$hvci = (Get-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity' -ErrorAction SilentlyContinue).Enabled
+$blocklist = (Get-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\CI\Policy' -ErrorAction SilentlyContinue).VulnerableDriverBlocklistEnable
 Write-Host "== membridge dynamic verify =="
 Write-Host ("reader={0} device={1} driver={2} service={3} dryRun={4}" -f `
     $Reader, $DevicePath, $DriverPath, $ServiceName, $DryRun)
+Write-Host ("HVCI={0} vulnerable-driver-blocklist={1}" -f $hvci, $blocklist)
 Write-Host ("minidumps before: count={0} latest={1}" -f $before.count, $before.latest)
 
 $serviceCreated = $false
@@ -72,6 +75,14 @@ try {
         $serviceCreated = $true
         Write-Host ">> sc start $ServiceName"
         & sc.exe start $ServiceName | Out-Host
+        $scRc = $LASTEXITCODE
+        if ($scRc -ne 0) {
+            Write-Host "[WARN] service start failed (sc rc=$scRc). Common HVCI/code-integrity causes:" -ForegroundColor Yellow
+            Write-Host "  577 / 0xC0000365 : driver signature / code-integrity / HVCI-incompatible (W^X, unsigned, revoked)" -ForegroundColor Yellow
+            Write-Host "  1275 / 0xC0000428: blocked by policy / vulnerable-driver blocklist" -ForegroundColor Yellow
+            Write-Host "  2 / 3             : driver file/service configuration missing" -ForegroundColor Yellow
+            Write-Host "  See docs/hvci.md and run 'layers.exe --list-providers' for HVCI audit." -ForegroundColor Yellow
+        }
         Start-Sleep -Milliseconds 800
     }
 

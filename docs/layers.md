@@ -191,6 +191,9 @@ VERDICT=PASS
 .\bin\layers.exe --reader aswarpot --write-phys --pa 0x10000000 --data DEADBEEF
 .\bin\layers.exe --reader winio64 --write-phys --pa 0x10000000 --data 0011223344556677
 
+# 取数层：物理读（HVCI 感知自动选择：aswarpot -> mrt -> cchwapi）
+.\bin\layers.exe --reader hvci --read-phys --pa 0x10000000 --size 0x40
+
 # 取数层：物理读
 .\bin\layers.exe --reader rtkio --read-phys --pa 0x10000000 --size 0x40
 
