@@ -1992,7 +1992,6 @@ static int cchwapi_locate_cr3(uint32_t pid, const char *device, uint64_t *out_cr
         reader_close(&pr);
         return 0;
     }
-    fprintf(stderr, "[DBG] cchwapi-only: current CR3=0x%llX\n", (unsigned long long)current_cr3);
 
     uint64_t nt_base = find_ntoskrnl_base();
     if (!nt_base) { fprintf(stderr, "[ERR] cchwapi-only: ntoskrnl base not found\n"); reader_close(&pr); return 0; }

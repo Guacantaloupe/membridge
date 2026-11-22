@@ -79,23 +79,29 @@ try {
     Start-Sleep -Milliseconds 500
 
     Write-Host ">> low-risk smoke test: control-register CR3 only (no page walk)"
+    $old = $ErrorActionPreference
+    $ErrorActionPreference = 'Continue'
     $cur = (& $layers --cchwapi-cr3-current 2>&1 | Out-String)
+    $curRc = $LASTEXITCODE
+    $out = (& $layers --locate --cchwapi-only --pid $ProcessId 2>&1 | Out-String)
+    $locRc = $LASTEXITCODE
+    $ErrorActionPreference = $old
     Write-Host $cur
-    if ($cur -notmatch 'VERDICT=PASS') {
+    if ($cur -notmatch 'VERDICT=PASS' -or $curRc -ne 0) {
         throw "CCHWApi control-register CR3 read failed; aborting before page-table/EPROCESS walk"
     }
-
-    $out = (& $layers --locate --cchwapi-only --pid $ProcessId 2>&1 | Out-String)
     Write-Host $out
-    $mCr3 = [regex]::Match($out, 'CR3=(0x[0-9A-Fa-f]+)')
-    $mEproc = [regex]::Match($out, 'EPROCESS=(0x[0-9A-Fa-f]+)')
+    $mTarget = [regex]::Match($out, 'PID=\d+\s+EPROCESS=(0x[0-9A-Fa-f]+)\s+CR3=(0x[0-9A-Fa-f]+)')
+    $mCr3 = if ($mTarget.Success) { $mTarget.Groups[2] } else { [regex]::Match($out, 'CR3=(0x[0-9A-Fa-f]+)') }
+    $mEproc = if ($mTarget.Success) { $mTarget.Groups[1] } else { [regex]::Match($out, 'EPROCESS=(0x[0-9A-Fa-f]+)') }
     $report = [pscustomobject]@{
         date = (Get-Date).ToString('s')
         driver = $driver
         target_pid = $ProcessId
-        cr3 = if ($mCr3.Success) { $mCr3.Groups[1].Value } else { '' }
-        eprocess = if ($mEproc.Success) { $mEproc.Groups[1].Value } else { '' }
-        verdict = if ($mCr3.Success) { 'PASS' } else { 'FAIL' }
+        cr3 = if ($mCr3.Success) { $mCr3.Value } else { '' }
+        eprocess = if ($mEproc.Success) { $mEproc.Value } else { '' }
+        verdict = if ($locRc -eq 0 -and $mTarget.Success) { 'PASS' } else { 'FAIL' }
+        layers_exit = $locRc
         output = $out.Trim()
     }
     $report | ConvertTo-Json -Depth 4 | Set-Content -LiteralPath $outJson -Encoding UTF8
