@@ -1,0 +1,427 @@
+{
+  "generated": "2026-11-22T08:21:58",
+  "hvci_registry_enabled": "1",
+  "vulnerable_driver_blocklist_enable": "0",
+  "drivers": [
+    {
+      "file": "CCHWApi(1)_sys\\CCHWApi(1).sys",
+      "size": 92136,
+      "hash_sha256": "A8976231269C9A8B8D5C40C6619DF228E42D0B863BCE55CF36C74210AD8AE34B",
+      "signature": "Valid",
+      "signer": "CN=Microsoft Windows Hardware Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+      "wx_sections": "",
+      "known_byovd": "",
+      "hvci_verdict": "PASS:MS/WHQL-signed"
+    },
+    {
+      "file": "CCHWApiExt(1)_sys\\CCHWApiExt(1).sys",
+      "size": 85736,
+      "hash_sha256": "FF7B53D67C517B460270498BA6D8E4ACEE3A96519E8424729B83D0ED70575B2A",
+      "signature": "Valid",
+      "signer": "CN=Microsoft Windows Hardware Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+      "wx_sections": "",
+      "known_byovd": "",
+      "hvci_verdict": "PASS:MS/WHQL-signed"
+    },
+    {
+      "file": "CCHWApi_sys\\CCHWApi.sys",
+      "size": 84968,
+      "hash_sha256": "026774628433F51DFE20CD7962A1E2C30A25C9A35F59CF40744A4E6445FBF8DB",
+      "signature": "Valid",
+      "signer": "CN=Microsoft Windows Hardware Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+      "wx_sections": "",
+      "known_byovd": "",
+      "hvci_verdict": "PASS:MS/WHQL-signed"
+    },
+    {
+      "file": "HP SW TOOLS DRIVER_sys\\HP SW TOOLS DRIVER.sys",
+      "size": 19128,
+      "hash_sha256": "BF07C46EFFDE8B6B0FD3C9586A5A9636800FB37418C1E8E606C67CB613CBF832",
+      "signature": "Valid",
+      "signer": "CN=Microsoft Windows Hardware Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+      "wx_sections": "",
+      "known_byovd": "",
+      "hvci_verdict": "PASS:MS/WHQL-signed"
+    },
+    {
+      "file": "KKYUM\\KKYUM.sys",
+      "size": 26768,
+      "hash_sha256": "72BD55F4459C992B9CAA1A33CB6862F1F3085CA35839C58DEE8B75DB22CA605F",
+      "signature": "Valid",
+      "signer": "CN=Microsoft Windows Hardware Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+      "wx_sections": "",
+      "known_byovd": "likely-known-BYOVD",
+      "hvci_verdict": "PASS:MS/WHQL-signed"
+    },
+    {
+      "file": "SjtWinIo_sys\\SjtWinIo.sys",
+      "size": 25184,
+      "hash_sha256": "964DA085139DF538A3E216A54A6C0EA292A9C31852FB40C53FCC6714C6891563",
+      "signature": "Valid",
+      "signer": "CN=Microsoft Windows Hardware Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+      "wx_sections": "INIT",
+      "known_byovd": "likely-known-BYOVD",
+      "hvci_verdict": "FAIL:W^X-section"
+    },
+    {
+      "file": "SjtWinIo_sys\\SjtWinIo_copy.sys",
+      "size": 25184,
+      "hash_sha256": "964DA085139DF538A3E216A54A6C0EA292A9C31852FB40C53FCC6714C6891563",
+      "signature": "Valid",
+      "signer": "CN=Microsoft Windows Hardware Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+      "wx_sections": "INIT",
+      "known_byovd": "likely-known-BYOVD",
+      "hvci_verdict": "FAIL:W^X-section"
+    },
+    {
+      "file": "adv64drv\\ADV64DRV.sys",
+      "size": 14128,
+      "hash_sha256": "04A85E359525D662338CAE86C1E59B1D7AA9BD12B920E8067503723DC1E03162",
+      "signature": "Valid",
+      "signer": "CN=\"FUJITSU LIMITED \", OU=Personal Systems Business Unit, OU=Digital ID Class 3 - Microsoft Software Validation v2, O=\"FUJITSU LIMITED \", L=Kawasaki, S=Kanagawa, C=JP",
+      "wx_sections": "INIT",
+      "known_byovd": "",
+      "hvci_verdict": "FAIL:W^X-section"
+    },
+    {
+      "file": "amifldrv64\\amifldrv64.sys",
+      "size": 17616,
+      "hash_sha256": "42579A759F3F95F20A2C51D5AC2047A2662A2675B3FB9F46C1ED7F23393A0F00",
+      "signature": "Valid",
+      "signer": "CN=\"American Megatrends, Inc.\", OU=Headquarters, OU=Digital ID Class 3 - Microsoft Software Validation v2, O=\"American Megatrends, Inc.\", L=Norcross, S=Georgia, C=US",
+      "wx_sections": "INIT",
+      "known_byovd": "likely-known-BYOVD",
+      "hvci_verdict": "FAIL:W^X-section"
+    },
+    {
+      "file": "asio2\\AsIO2.sys",
+      "size": 34240,
+      "hash_sha256": "8EF9DEB867AC3B296936D751784A3DA3A26B06DEC0AC3D19F732D7C498EB2ECA",
+      "signature": "Valid",
+      "signer": "CN=ASUSTeK Computer Inc., O=ASUSTeK Computer Inc., L=Taipei City, S=Taipei, C=TW",
+      "wx_sections": "",
+      "known_byovd": "likely-known-BYOVD",
+      "hvci_verdict": "WARN:vendor-signed(HVCI-may-require-MS)"
+    },
+    {
+      "file": "asio64\\AsIO64.sys",
+      "size": 14392,
+      "hash_sha256": "B48A309EE0960DA3CAAAAF1E794E8C409993AEB3A2B64809F36B97AAC8A1E62A",
+      "signature": "Valid",
+      "signer": "CN=ASUSTeK Computer Inc., OU=Quality Testing Department, OU=Digital ID Class 3 - Microsoft Software Validation v2, O=ASUSTeK Computer Inc., L=Taipei / Peitou, S=Taiwan, C=TW",
+      "wx_sections": "INIT",
+      "known_byovd": "likely-known-BYOVD",
+      "hvci_verdict": "FAIL:W^X-section"
+    },
+    {
+      "file": "asmmap64\\asmmap64.sys",
+      "size": 15416,
+      "hash_sha256": "025E7BE9FCEFD6A83F4471BBA0C11F1C11BD5047047D26626DA24EE9A419CDC4",
+      "signature": "Valid",
+      "signer": "CN=ASUSTeK Computer Inc., OU=Quality Testing Department, OU=Digital ID Class 3 - Microsoft Software Validation v2, O=ASUSTeK Computer Inc., L=Taipei / Peitou, S=Taiwan, C=TW",
+      "wx_sections": "INIT",
+      "known_byovd": "likely-known-BYOVD",
+      "hvci_verdict": "FAIL:W^X-section"
+    },
+    {
+      "file": "asrdrv\\AsrDrv2.sys",
+      "size": 50408,
+      "hash_sha256": "5D1ADCE327A0AA7B918306471933BD8475447C9CF7F4B5A7BA3E3433E142FACE",
+      "signature": "Valid",
+      "signer": "CN=ASROCK INC., O=ASROCK INC., STREET=\"2 F., No. 37, Sec. 2, Zhongyang S. Rd., Beitou Dist.\", L=Taipei, S=Taipei, C=TW, OID.1.3.6.1.4.1.311.60.2.1.3=TW, SERIALNUMBER=80333613, OID.2.5.4.15=Private Organization",
+      "wx_sections": "INIT",
+      "known_byovd": "likely-known-BYOVD",
+      "hvci_verdict": "FAIL:W^X-section"
+    },
+    {
+      "file": "asupio64\\AsUpIO64.sys",
+      "size": 25944,
+      "hash_sha256": "1341214797A91119060F76C9DA12F1A4085280981FA7185A26D27EB48DAB8AD0",
+      "signature": "Valid",
+      "signer": "CN=ASUSTeK Computer Inc., O=ASUSTeK Computer Inc., L=Taipei City, S=Taipei, C=TW, PostalCode=11259, STREET=\"4F No. 150, Li-te Rd\", STREET=Pei Tou District, SERIALNUMBER=23638777, OID.1.3.6.1.4.1.311.60.2.1.3=TW, OID.2.5.4.15=Private Organization",
+      "wx_sections": "INIT",
+      "known_byovd": "likely-known-BYOVD",
+      "hvci_verdict": "FAIL:W^X-section"
+    },
+    {
+      "file": "aswarpot\\aswArPot.sys",
+      "size": 259168,
+      "hash_sha256": "A680E7097E1B5C70C18A48F3A47FC92753280BD895D367EFDF6925853853BCE9",
+      "signature": "Valid",
+      "signer": "CN=Microsoft Windows Hardware Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+      "wx_sections": "",
+      "known_byovd": "likely-known-BYOVD",
+      "hvci_verdict": "PASS:MS/WHQL-signed"
+    },
+    {
+      "file": "atillk64\\atillk64.sys",
+      "size": 13840,
+      "hash_sha256": "5C04C274A708C9A7D993E33BE3EA9E6119DC29527A767410DBAF93996F87369A",
+      "signature": "Valid",
+      "signer": "CN=\"ATI Technologies, Inc\", OU=Digital ID Class 3 - Microsoft Software Validation v2, O=\"ATI Technologies, Inc\", L=Thornhill, S=Ontario, C=CA",
+      "wx_sections": "INIT",
+      "known_byovd": "likely-known-BYOVD",
+      "hvci_verdict": "FAIL:W^X-section"
+    },
+    {
+      "file": "citmdrv\\CITMDRV.sys",
+      "size": 16240,
+      "hash_sha256": "29E0062A017A93B2F2F5207A608A96DF4D554C5DE976BD0276C2590A03BD3E94",
+      "signature": "Valid",
+      "signer": "CN=IBM Polska Sp. z o.o., OU=Digital ID Class 3 - Microsoft Software Validation v2, O=IBM Polska Sp. z o.o., L=Krakow, S=malopolska, C=PL",
+      "wx_sections": "INIT",
+      "known_byovd": "",
+      "hvci_verdict": "FAIL:W^X-section"
+    },
+    {
+      "file": "cpuz\\cpuz1.sys",
+      "size": 35840,
+      "hash_sha256": "89B9FB4248F67851BE100B77B141685ECB6A79452A468C4BE8E685A298FF1B9E",
+      "signature": "Valid",
+      "signer": "CN=Microsoft Windows Hardware Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+      "wx_sections": "INIT",
+      "known_byovd": "likely-known-BYOVD",
+      "hvci_verdict": "FAIL:W^X-section"
+    },
+    {
+      "file": "directio\\DirectIo.sys",
+      "size": 62968,
+      "hash_sha256": "A32B2488746AB5ECCC73D51A72E6EC555B83D09435F5D2F9EF15C87626027E8C",
+      "signature": "Valid",
+      "signer": "CN=PassMark Software Pty Ltd, O=PassMark Software Pty Ltd, S=New South Wales, C=AU, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.3=AU, SERIALNUMBER=49 099 321 392",
+      "wx_sections": "",
+      "known_byovd": "likely-known-BYOVD",
+      "hvci_verdict": "WARN:vendor-signed(HVCI-may-require-MS)"
+    },
+    {
+      "file": "dumpit\\DumpIt.sys",
+      "size": 87224,
+      "hash_sha256": "152BB601C87E3DA897219D6318B6C3FC807A0C11AEB64A71115C8CE669DBEE2E",
+      "signature": "Valid",
+      "signer": "E=support@comae.io, CN=Comae Technologies FZE, O=Comae Technologies FZE, L=Sharjah, S=Sharjah, C=AE",
+      "wx_sections": "",
+      "known_byovd": "likely-known-BYOVD",
+      "hvci_verdict": "WARN:vendor-signed(HVCI-may-require-MS)"
+    },
+    {
+      "file": "eneio64\\eneio64.sys",
+      "size": 18712,
+      "hash_sha256": "38C18DB050B0B2B07F657C03DB1C9595FEBAE0319C746C3EEDE677E21CD238B0",
+      "signature": "Valid",
+      "signer": "CN=ASUSTeK Computer Inc., OU=Quality Testing Department, OU=Digital ID Class 3 - Microsoft Software Validation v2, O=ASUSTeK Computer Inc., L=Taipei / Peitou, S=Taiwan, C=TW",
+      "wx_sections": "INIT",
+      "known_byovd": "",
+      "hvci_verdict": "FAIL:W^X-section"
+    },
+    {
+      "file": "fastdumpx64\\fastdumpx64.sys",
+      "size": 57472,
+      "hash_sha256": "910350A2532BA50ABB699E14E906964FD155FE25DD9603878A7529C612E4ECD0",
+      "signature": "Valid",
+      "signer": "CN=\"CounterTack, Inc.\", O=\"CounterTack, Inc.\", L=Waltham, S=Massachusetts, C=US",
+      "wx_sections": "INIT",
+      "known_byovd": "",
+      "hvci_verdict": "FAIL:W^X-section"
+    },
+    {
+      "file": "fastdumpx64_v2\\fastdumpx64_v2.sys",
+      "size": 57128,
+      "hash_sha256": "99B11371E081AD03AE58735C0D72DC9D429C4305A7A68F6B7012CE49DFEB0617",
+      "signature": "Valid",
+      "signer": "CN=\"CounterTack, Inc.\", O=\"CounterTack, Inc.\", L=Waltham, S=Massachusetts, C=US",
+      "wx_sections": "INIT",
+      "known_byovd": "",
+      "hvci_verdict": "FAIL:W^X-section"
+    },
+    {
+      "file": "gibepext2\\gibepext2.sys",
+      "size": 107480,
+      "hash_sha256": "202F6B04FF5E2BC0D61C8701DFEBA62F1BF7A49CD586FF002827BF7A50DAC0E6",
+      "signature": "Valid",
+      "signer": "CN=Microsoft Windows Hardware Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+      "wx_sections": "",
+      "known_byovd": "likely-known-BYOVD",
+      "hvci_verdict": "PASS:MS/WHQL-signed"
+    },
+    {
+      "file": "gibepext\\gibepext.sys",
+      "size": 108088,
+      "hash_sha256": "5EACC16668E42E2A1F60645EC591052AEEC455D26D5CD349C1C094DFA15BA8A2",
+      "signature": "Valid",
+      "signer": "CN=Microsoft Windows Hardware Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+      "wx_sections": "",
+      "known_byovd": "likely-known-BYOVD",
+      "hvci_verdict": "PASS:MS/WHQL-signed"
+    },
+    {
+      "file": "glckio2\\glckio2.sys",
+      "size": 29368,
+      "hash_sha256": "E5B0772BE02E2BC807804874CF669E97AA36F5AFF1F12FA0A631A3C7B4DD0DC8",
+      "signature": "Valid",
+      "signer": "CN=ASUSTeK Computer Inc., O=ASUSTeK Computer Inc., L=Taipei City, C=TW, SERIALNUMBER=23638777, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.3=TW",
+      "wx_sections": "",
+      "known_byovd": "",
+      "hvci_verdict": "WARN:vendor-signed(HVCI-may-require-MS)"
+    },
+    {
+      "file": "hp_swtools_v1\\HP_SWTOOLS_DRIVER_V1.sys",
+      "size": 19032,
+      "hash_sha256": "23C18666E94B2AA4E20EE5B5CD3A45EBD1D4612FA17F244CA5258B7EA87A1D49",
+      "signature": "Valid",
+      "signer": "CN=Microsoft Windows Hardware Compatibility Publisher, OU=AOC, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+      "wx_sections": "",
+      "known_byovd": "",
+      "hvci_verdict": "PASS:MS/WHQL-signed"
+    },
+    {
+      "file": "icachex\\iCacheX.sys",
+      "size": 118648,
+      "hash_sha256": "C21BC3831DF4C81FE0E97CEF9A0BD1DA2FDA400A62D917A8FF988B54AEFC362B",
+      "signature": "Valid",
+      "signer": "CN=武汉晶众科技有限公司, OU=商务部, O=武汉晶众科技有限公司, L=武汉市, S=湖北省, C=CN",
+      "wx_sections": "",
+      "known_byovd": "likely-known-BYOVD",
+      "hvci_verdict": "WARN:vendor-signed(HVCI-may-require-MS)"
+    },
+    {
+      "file": "invarysensor\\invarysensor.sys",
+      "size": 44848,
+      "hash_sha256": "A326975B0CA4685F82A06AE531DC9B45E5BF477F0BB9015FB0969ACFC03066C9",
+      "signature": "Valid",
+      "signer": "CN=AD ASTRA INTEGRITY MEASUREMENT SYSTEMS INC, OU=Ad Astra Integrity Measurement Systems, O=AD ASTRA INTEGRITY MEASUREMENT SYSTEMS INC, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.2=Kansas, OID.1.3.6.1.4.1.311.60.2.1.3=US, SERIALNUMBER=9545922, L=Lawrence, S=Kansas, C=US",
+      "wx_sections": "",
+      "known_byovd": "likely-known-BYOVD",
+      "hvci_verdict": "WARN:vendor-signed(HVCI-may-require-MS)"
+    },
+    {
+      "file": "isharepp\\iSharePp.sys",
+      "size": 148904,
+      "hash_sha256": "C87FBF4F33DDAAD4A9B6C5939A410FBF2431F8F35C00A10EB8651DA4BC2BC173",
+      "signature": "Valid",
+      "signer": "CN=Microsoft Windows Hardware Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+      "wx_sections": "",
+      "known_byovd": "",
+      "hvci_verdict": "PASS:MS/WHQL-signed"
+    },
+    {
+      "file": "kprl\\l1malwarebits.sys",
+      "size": 37160,
+      "hash_sha256": "E15BF768353C1F4CE182B4C8C211C712F6D310170166222BDE051DFADFC14AAD",
+      "signature": "Valid",
+      "signer": "CN=KPRL TECNOLOGIA LTDA, O=KPRL TECNOLOGIA LTDA, S=São Paulo, C=BR, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.3=BR, SERIALNUMBER=51.169.800/0001-71",
+      "wx_sections": "",
+      "known_byovd": "likely-known-BYOVD",
+      "hvci_verdict": "WARN:vendor-signed(HVCI-may-require-MS)"
+    },
+    {
+      "file": "mrt\\fekern_mrt.sys",
+      "size": 281680,
+      "hash_sha256": "0228F6A97AE659FF9B74F5E478BCD1AB9708892F1482D6BC7ABB77BD757C0697",
+      "signature": "Valid",
+      "signer": "CN=Microsoft Windows Hardware Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+      "wx_sections": "",
+      "known_byovd": "likely-known-BYOVD",
+      "hvci_verdict": "PASS:MS/WHQL-signed"
+    },
+    {
+      "file": "ntiolib\\NTIOLib.sys",
+      "size": 11888,
+      "hash_sha256": "79E2D37632C417138970B4FEBA91B7E10C2EA251C5EFE3D1FC6FA0190F176B57",
+      "signature": "UnknownError",
+      "signer": "CN=Micro-Star Int'l Co. Ltd., O=Micro-Star Int'l Co. Ltd., C=TW",
+      "wx_sections": "INIT",
+      "known_byovd": "likely-known-BYOVD",
+      "hvci_verdict": "FAIL:W^X-section"
+    },
+    {
+      "file": "rtkio\\rtkio.sys",
+      "size": 55048,
+      "hash_sha256": "074AE477C8C7AE76C6F2B0BF77AC17935A8E8EE51B52155D2821D93AB30F3761",
+      "signature": "Valid",
+      "signer": "CN=Realtek Semiconductor Corp., O=Realtek Semiconductor Corp., L=Hsinchu, S=Taiwan, C=TW, PostalCode=300, STREET=\"No. 2, Innovation Road II, Hsinchu Science Park\", SERIALNUMBER=22671299, OID.1.3.6.1.4.1.311.60.2.1.3=TW, OID.2.5.4.15=Private Organization",
+      "wx_sections": "INIT",
+      "known_byovd": "",
+      "hvci_verdict": "FAIL:W^X-section"
+    },
+    {
+      "file": "rtkiow8x64\\rtkiow8x64.sys",
+      "size": 55984,
+      "hash_sha256": "B205835B818D8A50903CF76936FCF8160060762725BD74A523320CFBD091C038",
+      "signature": "Valid",
+      "signer": "CN=Realtek Semiconductor Corp., O=Realtek Semiconductor Corp., L=HSINCHU, C=TW, SERIALNUMBER=22671299, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.3=TW",
+      "wx_sections": "",
+      "known_byovd": "",
+      "hvci_verdict": "WARN:vendor-signed(HVCI-may-require-MS)"
+    },
+    {
+      "file": "swtoolsdriver\\swtoolsdriver.sys",
+      "size": 17968,
+      "hash_sha256": "2FE63074541BE0B5A49377AE49D8E0F284E632853B7CCBA2CEC7E97CEA28C41D",
+      "signature": "Valid",
+      "signer": "CN=Microsoft Windows Hardware Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+      "wx_sections": "",
+      "known_byovd": "",
+      "hvci_verdict": "PASS:MS/WHQL-signed"
+    },
+    {
+      "file": "tdeio\\TdeIo64.sys",
+      "size": 33472,
+      "hash_sha256": "688BEA7D69DC419668CEF149B9CA85ABED6745018B70DB9A1407AFAE50ABC23F",
+      "signature": "Valid",
+      "signer": "CN=Microsoft Windows Hardware Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+      "wx_sections": "",
+      "known_byovd": "",
+      "hvci_verdict": "PASS:MS/WHQL-signed"
+    },
+    {
+      "file": "ufu\\win10_ufudev64.sys",
+      "size": 20632,
+      "hash_sha256": "DC2F58DCD3E11F5C6A60F29CBD91610E6BF6CECC6C50D0F46BC9D587AD878B4C",
+      "signature": "Valid",
+      "signer": "CN=Microsoft Windows Hardware Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+      "wx_sections": "",
+      "known_byovd": "",
+      "hvci_verdict": "PASS:MS/WHQL-signed"
+    },
+    {
+      "file": "winio64_1\\WinIo64_1.sys",
+      "size": 34024,
+      "hash_sha256": "37BD7F1CF692D1CC01FACEAEA942EC755871B3EC3C96620073434CF6977ADF19",
+      "signature": "Valid",
+      "signer": "CN=ELAN Microelectronics Corporation, O=ELAN Microelectronics Corporation, L=Taipei Hsien, S=Taiwan, C=TW",
+      "wx_sections": "INIT",
+      "known_byovd": "",
+      "hvci_verdict": "FAIL:W^X-section"
+    },
+    {
+      "file": "winio64_elan\\WinIo64_ELAN.sys",
+      "size": 34024,
+      "hash_sha256": "535CB6A635675A11C7C731DC25FF5EE92C55B77F4C25A6CBBEAA59A0F82F2DE7",
+      "signature": "Valid",
+      "signer": "CN=ELAN Microelectronics Corporation, O=ELAN Microelectronics Corporation, L=Taipei Hsien, S=Taiwan, C=TW",
+      "wx_sections": "INIT",
+      "known_byovd": "",
+      "hvci_verdict": "FAIL:W^X-section"
+    },
+    {
+      "file": "winring0\\WinRing0.sys",
+      "size": 12152,
+      "hash_sha256": "3EC5AD51E6879464DFBCCB9F4ED76C6325056A42548D5994BA869DA9C4C039A8",
+      "signature": "Valid",
+      "signer": "CN=\"TOSHIBA AMERICA INFORMATION SYSTEMS, INC.\", OU=Digital ID Class 3 - Microsoft Software Validation v2, O=\"TOSHIBA AMERICA INFORMATION SYSTEMS, INC.\", L=Irvine, S=California, C=US",
+      "wx_sections": "INIT",
+      "known_byovd": "likely-known-BYOVD",
+      "hvci_verdict": "FAIL:W^X-section"
+    },
+    {
+      "file": "winring0\\WinRing0x64.sys",
+      "size": 35968,
+      "hash_sha256": "C30EBD80D2A1C5C15F0B706ED01C354730A9E2264B739D0D2D66CCB262C95F80",
+      "signature": "Valid",
+      "signer": "CN=Microsoft Windows Hardware Compatibility Publisher, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+      "wx_sections": "",
+      "known_byovd": "likely-known-BYOVD",
+      "hvci_verdict": "PASS:MS/WHQL-signed"
+    }
+  ]
+}

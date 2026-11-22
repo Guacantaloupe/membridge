@@ -67,6 +67,7 @@ typedef struct mb_phys_reader {
 | `winring0` | WinRing0（`\\.\WinRing0_1_0_1`，候选 `WinRing0_1_2_0`）；物理读 IOCTL **`0x9C406104`**（input 0x10 `{u64 phys; u32 width; u32 count}`）；物理写 IOCTL **`0x9C406108`**；另有 MSR/端口/PCI 访问；静态逆向确认，动态验证待提权 |
 | `amifldrv` | AMI flash（`\\.\genericdrv`）；物理读 IOCTL **`0xFA002EEC`**（input 0x10 `{u64 phys; u32 addressSpace; u32 width}`，width 0/1/2 = 1/2/4 字节，结果在输出 +0x0c；provider 逐字节读）；物理写 IOCTL **`0xFA002EF0`**（同 0x10 结构，+0x0c 为写入值；逐字节写）；另有 0xFA002EE0/EE4/EE8/EF8 连续物理分配/映射；静态逆向确认，动态验证待提权 |
 | `citmdrv` | CITMDRV（`\\.\CITMDRV`）；IOCTL **`0x80002000`** MAP_MEM（input 0x18 `{u64 phys; u64 user_buffer_va; u32 size; u32 reserved}`，映射 `\Device\PhysicalMemory` 并把 size 字节拷贝到调用方 VA）；静态逆向确认，动态验证待提权 |
+| `membridgephys` | 项目自研 HVCI-compatible WDM 驱动源码（`drivers/membridgephys/`，`\\.\MembridgePhys`）；IOCTL **`0x80002000`** 读 / **`0x80002004`** 写（input 0x10 `{u64 phys; u32 size; u32 reserved}`）；**HVCI 下需 Microsoft 签名后才能加载** |
 | `mock` | 离线自测用合成物理内存 |
 
 `membridge.exe` 已集成 22 个全 64 位物理读 backend（cchwapi/rtkio/eneio64/hp/gibepext/fastdump/directio/tdeio/icachex/mrt 等）；每个 backend 都只是取数层的一个实现，新增 backend 不影响定位层和翻译层。
@@ -83,7 +84,7 @@ typedef struct mb_phys_reader {
 - 伪造 `_EPROCESS`（PID 4242 / MOCK.exe / DTB 0x1000）；
 - 分别验证：取数层、翻译层、定位层、三层组合、独立性。
 
-结果（43/43 PASS）：
+结果（44/44 PASS）：
 ```
 [PASS] 取数层(fetcher): PA=0x5000 bytes match mock data
 [PASS] 翻译层(translator): VA=0x400000 -> PA=0x5000 (4KB page)
@@ -114,6 +115,7 @@ typedef struct mb_phys_reader {
 [PASS] 取数层(fetcher): amifldrv read request layout (PA/width)
 [PASS] 取数层(fetcher): amifldrv write request layout (PA/value)
 [PASS] 取数层(fetcher): citmdrv map request layout (PA/dst/size)
+[PASS] 取数层(fetcher): membridgephys read request layout (PA/size)
 [PASS] 定位层(locator): PID 4242 / MOCK.exe -> CR3=0x1000 (physical scan)
 [PASS] 定位层(locator): fake EPROCESS PA=0x8000
 [PASS] 定位层(locator): kernel-reader list walk -> CR3=0x3000 (no physical reader)
@@ -165,7 +167,12 @@ VERDICT=PASS
 # 取数层设备存在性探测（无需驱动即可运行）
 .\bin\layers.exe --probe-readers
 .\bin\layers.exe --probe-all          # readers + locators 一次探测
-.\bin\layers.exe --list-providers     # provider/device/capability 表
+.\bin\layers.exe --list-providers     # provider/device/capability/HVCI 表
+.\bin\layers.exe --hvci               # HVCI 状态 + 推荐 provider + 错误码提示
+
+# 项目自研 HVCI-compatible 驱动（需 Microsoft 签名后加载）
+#   源码/INF: drivers/membridgephys/
+.\bin\layers.exe --reader membridgephys --read-phys --pa 0x10000000 --size 16
 
 # 离线 mock：翻译 + 取数（内建数据 "MOCKCLI-DATA-..."）
 .\bin\layers.exe --reader mock --cr3 0x1000 --va 0x400000 --size 8

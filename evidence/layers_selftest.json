@@ -19,6 +19,9 @@
     "probe_all": "layers.exe --probe-all probes readers + locators in one pass",
     "list_providers": "layers.exe --list-providers prints the 20 known provider/device/capability rows",
     "dynamic_verify": "scripts/dynamic_verify.ps1: optional admin service create/start + --probe-readers + --read-phys + --locate --auto, with before/after minidump BSOD guard; -DryRun safe",
+    "hvci_status": "layers.exe --hvci reports HVCI Enabled / VulnerableDriverBlocklistEnable and HVCI-compatible provider guidance",
+    "hvci_driver_report": "scripts/hvci_check.py audits drivers/ for signature, W^X sections, known-BYOVD hints; writes evidence/hvci_driver_report.json",
+    "driver_submission": "drivers/ contains provider samples + drivers/membridgephys HVCI-compatible source; committed to GitHub",
     "mock_cli": "layers --reader mock: built-in 4-level and 5-level page tables + data, usable by --translate-only / --read-va without any driver",
     "translate_only": "layers --reader mock --cr3 ... --va ... --translate-only [--la57] prints PA/page without fetch",
     "mb_phys_ranges_from_registry": "HARDWARE\\RESOURCEMAP physical memory ranges -> locator scan ranges",
@@ -43,7 +46,8 @@
     "ntiolib (NTIOLib physical read 0xC3506104 / write 0xC3506108; integrated Round 64, dynamic pending)",
     "winring0 (WinRing0 physical read 0x9C406104 / write 0x9C406108; integrated Round 65, dynamic pending)",
     "amifldrv (AMI flash genericdrv physical read 0xFA002EEC / write 0xFA002EF0; integrated Round 66, write Round 67, dynamic pending)",
-    "citmdrv (CITMDRV physical map 0x80002000 to caller VA; integrated Round 69, dynamic pending)"
+    "citmdrv (CITMDRV physical map 0x80002000 to caller VA; integrated Round 69, dynamic pending)",
+    "membridgephys (project HVCI-compatible WDM source drivers/membridgephys; read 0x80002000 / write 0x80002004; needs Microsoft signing under HVCI)"
   ],
   "locator_registry_ranges": {
     "command": "bin/layers.exe --ranges",
@@ -90,6 +94,7 @@
       "[PASS] 取数层(fetcher): amifldrv read request layout (PA/width)",
       "[PASS] 取数层(fetcher): amifldrv write request layout (PA/value)",
       "[PASS] 取数层(fetcher): citmdrv map request layout (PA/dst/size)",
+      "[PASS] 取数层(fetcher): membridgephys read request layout (PA/size)",
       "[PASS] 定位层(locator): PID 4242 / MOCK.exe -> CR3=0x1000 (physical scan)",
       "[PASS] 定位层(locator): fake EPROCESS PA=0x8000",
       "[PASS] 定位层(locator): kernel-reader list walk -> CR3=0x3000 (no physical reader)",
@@ -105,7 +110,7 @@
       "[PASS] 翻译层(translator): VA=0x1010 -> PA=0x305010 (5-level/LA57)",
       "[PASS] 三层组合(pipeline): read VA through 5-level page tables"
     ],
-    "passed": 43,
+    "passed": 44,
     "failed": 0,
     "offline_no_admin_no_driver": true
   },
@@ -118,9 +123,9 @@
   "build": {
     "command": "build.ps1",
     "artifacts": ["bin/membridge.exe", "bin/cr3read.exe", "bin/layers.exe"],
-    "layers_exe_size": 113550,
-    "layers_asio2_exe_size": 113568,
-    "peupdater_exe_size": 113568,
+    "layers_exe_size": 116733,
+    "layers_asio2_exe_size": 116751,
+    "peupdater_exe_size": 116751,
     "dual_gate_binary": "bin/PEUPDATER.EXE satisfies AsUpIO64 filename gate and AsIO2 ASUSCERT gate",
     "build_self_verify": "scripts/build_asio2_layers.ps1 runs verify_asio2_gate.py for layers_asio2.exe and PEUPDATER.EXE; fails build on gate failure",
     "asio2_gate_bypass": {

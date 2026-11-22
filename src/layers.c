@@ -719,6 +719,45 @@ static int read_citmdrv(mb_phys_reader *r, uint64_t pa, void *buf, uint32_t size
     return ok ? 1 : 0;
 }
 
+// ---- 取数层 provider: MembridgePhys (project-built HVCI-compatible driver) ----
+// Device \\.\MembridgePhys. IOCTL 0x80002000 READ: input 0x10
+//   {u64 phys; u32 size; u32 reserved}; output = size bytes.
+// IOCTL 0x80002004 WRITE: input 0x10 header + size bytes.
+// The driver source lives in drivers/membridgephys; it must be Microsoft-signed
+// (WHQL/attestation) to load while HVCI is enabled.
+static int membridgephys_build_request(uint64_t pa, uint32_t size, uint8_t out[0x10]) {
+    if (!out || !size) return 0;
+    memset(out, 0, 0x10);
+    *(uint64_t *)(out + 0x00) = pa;
+    *(uint32_t *)(out + 0x08) = size;
+    *(uint32_t *)(out + 0x0c) = 0;
+    return 1;
+}
+
+static int read_membridgephys(mb_phys_reader *r, uint64_t pa, void *buf, uint32_t size) {
+    if (r->dev == INVALID_HANDLE_VALUE || !buf || !size) return 0;
+    uint8_t in[0x10];
+    DWORD ret = 0;
+    if (!membridgephys_build_request(pa, size, in)) return 0;
+    return DeviceIoControl(r->dev, 0x80002000u, in, sizeof(in), buf, size, &ret, NULL) ? 1 : 0;
+}
+
+static int write_membridgephys(mb_phys_reader *r, uint64_t pa, const void *buf, uint32_t size) {
+    if (r->dev == INVALID_HANDLE_VALUE || !buf || !size) return 0;
+    uint32_t total = 0x10 + size;
+    uint8_t *in = (uint8_t *)malloc(total);
+    if (!in) return 0;
+    memset(in, 0, 0x10);
+    *(uint64_t *)(in + 0x00) = pa;
+    *(uint32_t *)(in + 0x08) = size;
+    *(uint32_t *)(in + 0x0c) = 0;
+    memcpy(in + 0x10, buf, size);
+    DWORD ret = 0;
+    BOOL ok = DeviceIoControl(r->dev, 0x80002004u, in, total, NULL, 0, &ret, NULL);
+    free(in);
+    return ok ? 1 : 0;
+}
+
 static int read_winio64(mb_phys_reader *r, uint64_t pa, void *buf, uint32_t size) {    if (r->dev == INVALID_HANDLE_VALUE || !buf || !size) return 0;
     uint8_t req[0x28];
     DWORD ret = 0;
@@ -992,8 +1031,18 @@ static int reader_open(mb_phys_reader *r, const char *kind, const char *device) 
                              NULL, OPEN_EXISTING, 0, NULL);
         if (r->dev == INVALID_HANDLE_VALUE)
             fprintf(stderr, "[HINT] CITMDRV device not found (need CITMDRV_AMD64.sys loaded)\n");
+    } else if (_stricmp(kind, "membridgephys") == 0) {
+        r->name = "membridgephys";
+        r->mode = 20;
+        r->read = read_membridgephys;
+        r->write = write_membridgephys;
+        r->dev = CreateFileA(device ? device : "\\\\.\\MembridgePhys",
+                             GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE,
+                             NULL, OPEN_EXISTING, 0, NULL);
+        if (r->dev == INVALID_HANDLE_VALUE)
+            fprintf(stderr, "[HINT] MembridgePhys not loaded (sign + install drivers/membridgephys first)\n");
     } else {
-        fprintf(stderr, "[ERR] unknown reader '%s' (mock|cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64|dumpit|asmmap|atillk64|asio64|adv64drv|ntiolib|winring0|amifldrv|citmdrv)\n", kind ? kind : "");
+        fprintf(stderr, "[ERR] unknown reader '%s' (mock|cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64|dumpit|asmmap|atillk64|asio64|adv64drv|ntiolib|winring0|amifldrv|citmdrv|membridgephys)\n", kind ? kind : "");
         return 0;
     }
     if (r->dev == INVALID_HANDLE_VALUE) {
@@ -1540,32 +1589,71 @@ static int probe_locators(void);
 
 // Diagnostic: list known fetch-layer providers and their device/capability.
 static int list_providers(void) {
-    static const struct { const char *name, *device, *cap; } p[] = {
-        { "cchwapi",  "\\\\.\\CCHWAPI",              "read" },
-        { "rtkio",    "\\\\.\\rtkio",                "read" },
-        { "eneio64",  "\\\\.\\GLCKIo",               "read" },
-        { "asrdrv",   "\\\\.\\AsrDrv109",            "read (AES cmd)" },
-        { "mrt",      "\\\\.\\fekern_00",            "read (SYSTEM)" },
-        { "cpuz",     "\\\\.\\Global\\CPUZ152",      "read (dword, page guard)" },
-        { "asupio64", "\\\\.\\AsUpdateio",           "read (PEUPDATER.EXE gate)" },
-        { "asio2",    "\\\\.\\Asusgio2",             "read (ASUSCERT gate PE)" },
-        { "aswarpot", "\\\\.\\aswSP_ArPot2",         "read/write (<=4B write)" },
-        { "winio64",  "\\\\.\\WinIo",                "read/write (map)" },
-        { "dumpit",   "\\\\.\\C: (volume filter)",   "read (dynamic device)" },
-        { "asmmap",   "\\\\.\\ASMMAP64",             "read/write (map)" },
-        { "atillk64", "\\\\.\\atillk64",             "read/write" },
-        { "asio64",   "\\\\.\\Asusgio",              "read/write (map)" },
-        { "adv64drv", "\\\\.\\ADV64DRV",             "read" },
-        { "ntiolib",  "\\\\.\\NTIOLib_1_0_C",        "read/write" },
-        { "winring0", "\\\\.\\WinRing0_1_0_1",       "read/write" },
-        { "amifldrv", "\\\\.\\genericdrv",           "read/write (byte)" },
-        { "citmdrv",  "\\\\.\\CITMDRV",              "read (map to caller VA)" },
-        { "mock",     "(built-in)",                  "read/write (offline)" },
+    static const struct { const char *name, *device, *cap, *hvci; } p[] = {
+        { "cchwapi",  "\\\\.\\CCHWAPI",              "read",                     "PASS(WHQL)" },
+        { "rtkio",    "\\\\.\\rtkio",                "read",                     "FAIL(W^X)" },
+        { "eneio64",  "\\\\.\\GLCKIo",               "read",                     "FAIL(W^X)" },
+        { "asrdrv",   "\\\\.\\AsrDrv109",            "read (AES cmd)",           "FAIL(W^X)" },
+        { "mrt",      "\\\\.\\fekern_00",            "read (SYSTEM)",            "PASS(WHQL)" },
+        { "cpuz",     "\\\\.\\Global\\CPUZ152",      "read (dword, page guard)", "FAIL(W^X)" },
+        { "asupio64", "\\\\.\\AsUpdateio",           "read (PEUPDATER.EXE gate)","FAIL(W^X)" },
+        { "asio2",    "\\\\.\\Asusgio2",             "read (ASUSCERT gate PE)",  "WARN(vendor)" },
+        { "aswarpot", "\\\\.\\aswSP_ArPot2",         "read/write (<=4B write)",  "PASS(WHQL) *" },
+        { "winio64",  "\\\\.\\WinIo",                "read/write (map)",         "FAIL(W^X)" },
+        { "dumpit",   "\\\\.\\C: (volume filter)",   "read (dynamic device)",    "WARN(vendor)" },
+        { "asmmap",   "\\\\.\\ASMMAP64",             "read/write (map)",         "FAIL(W^X)" },
+        { "atillk64", "\\\\.\\atillk64",             "read/write",               "FAIL(W^X)" },
+        { "asio64",   "\\\\.\\Asusgio",              "read/write (map)",         "FAIL(W^X)" },
+        { "adv64drv", "\\\\.\\ADV64DRV",             "read",                     "FAIL(W^X)" },
+        { "ntiolib",  "\\\\.\\NTIOLib_1_0_C",        "read/write",               "FAIL(W^X)" },
+        { "winring0", "\\\\.\\WinRing0_1_0_1",       "read/write",               "WARN(sample W^X; repo WinRing0x64 PASS)" },
+        { "amifldrv", "\\\\.\\genericdrv",           "read/write (byte)",        "FAIL(W^X)" },
+        { "citmdrv",  "\\\\.\\CITMDRV",              "read (map to caller VA)",  "FAIL(W^X)" },
+        { "membridgephys", "\\\\.\\MembridgePhys",   "read/write (source)",      "needs MS signature" },
+        { "mock",     "(built-in)",                  "read/write (offline)",     "N/A" },
     };
-    printf("%-10s %-32s %s\n", "provider", "device", "capability");
+    printf("%-14s %-30s %-27s %s\n", "provider", "device", "capability", "HVCI audit");
     for (size_t i = 0; i < sizeof(p) / sizeof(p[0]); i++)
-        printf("%-10s %-32s %s\n", p[i].name, p[i].device, p[i].cap);
-    printf("providers=%zu\n", sizeof(p) / sizeof(p[0]));
+        printf("%-14s %-30s %-27s %s\n", p[i].name, p[i].device, p[i].cap, p[i].hvci);
+    printf("providers=%zu  (* = recommended for HVCI: MS/WHQL-signed, no W^X)\n", sizeof(p) / sizeof(p[0]));
+    return 0;
+}
+
+// Diagnostic: report HVCI / vulnerable-driver-blocklist policy.
+static int hvci_status(void) {
+    HKEY h = NULL;
+    DWORD enabled = 0, blocklist = 0, sz = sizeof(DWORD), type = 0;
+    LONG r = RegOpenKeyExW(HKEY_LOCAL_MACHINE,
+        L"SYSTEM\\CurrentControlSet\\Control\\DeviceGuard\\Scenarios\\HypervisorEnforcedCodeIntegrity",
+        0, KEY_READ, &h);
+    if (r == ERROR_SUCCESS) {
+        RegQueryValueExW(h, L"Enabled", NULL, &type, (LPBYTE)&enabled, &sz);
+        RegCloseKey(h);
+    }
+    h = NULL;
+    sz = sizeof(DWORD);
+    r = RegOpenKeyExW(HKEY_LOCAL_MACHINE,
+        L"SYSTEM\\CurrentControlSet\\Control\\CI\\Policy", 0, KEY_READ, &h);
+    if (r == ERROR_SUCCESS) {
+        RegQueryValueExW(h, L"VulnerableDriverBlocklistEnable", NULL, &type,
+                         (LPBYTE)&blocklist, &sz);
+        RegCloseKey(h);
+    }
+    printf("HVCI(memory integrity) enabled=%lu\n", (unsigned long)enabled);
+    printf("VulnerableDriverBlocklistEnable=%lu\n", (unsigned long)blocklist);
+    if (enabled) {
+        printf("[INFO] HVCI is ON: drivers must be Microsoft-signed (WHQL/attestation), HVCI-compatible (no W^X/dynamic code), and not blocked.\n");
+        printf("[INFO] Recommended for HVCI on this build: --reader aswarpot (MS/WHQL-signed, arbitrary physical R/W), --reader mrt (MS/WHQL-signed read), --reader cchwapi.\n");
+        printf("[INFO] Many third-party samples FAIL HVCI W^X checks (asmmap/atillk64/asio64/ntiolib/cpuz/winio64/...); see --list-providers.\n");
+        printf("[INFO] Unsigned/test-signed drivers will NOT load. Custom drivers/membridgephys must be Microsoft-signed first.\n");
+        if (blocklist == 0) {
+            printf("[INFO] VulnerableDriverBlocklistEnable=0 on this host (blocklist not enforced by that policy value).\n");
+        } else {
+            printf("[WARN] Vulnerable driver blocklist appears enabled; known BYOVD hashes may be blocked even if HVCI-compatible.\n");
+        }
+    } else {
+        printf("[INFO] HVCI is OFF: signed/provider drivers can be loaded with admin rights (DSE policy still applies).\n");
+    }
     return 0;
 }
 
@@ -1579,7 +1667,7 @@ static int probe_all(void) {
 // Diagnostic: probe which real provider devices are currently present.
 static int probe_readers(void) {
     const char *kinds[] = { "cchwapi", "rtkio", "eneio64", "asrdrv", "mrt", "cpuz",
-                            "asupio64", "asio2", "aswarpot", "winio64", "dumpit", "asmmap", "atillk64", "asio64", "adv64drv", "ntiolib", "winring0", "amifldrv", "citmdrv" };
+                            "asupio64", "asio2", "aswarpot", "winio64", "dumpit", "asmmap", "atillk64", "asio64", "adv64drv", "ntiolib", "winring0", "amifldrv", "citmdrv", "membridgephys" };
     int present = 0;
     for (size_t i = 0; i < sizeof(kinds) / sizeof(kinds[0]); i++) {
         mb_phys_reader r;
@@ -1861,6 +1949,13 @@ static int selftest_mock(void) {
                  *(uint32_t *)(citreq + 0x10) == 4;
     check("取数层(fetcher)", "citmdrv map request layout (PA/dst/size)", ok_cit);
 
+    // MembridgePhys request layouts (offline, no driver)
+    uint8_t mbpreq[0x10];
+    int ok_mbp = membridgephys_build_request(0x12345678, 0x100, mbpreq) &&
+                 *(uint64_t *)(mbpreq + 0x00) == 0x12345678ull &&
+                 *(uint32_t *)(mbpreq + 0x08) == 0x100;
+    check("取数层(fetcher)", "membridgephys read request layout (PA/size)", ok_mbp);
+
     // 定位层 alone (physical EPROCESS scan, no kernel reader)
     uint64_t located_cr3 = 0, eproc = 0;
     int ok_loc = mb_layer_locate_cr3_scan(&r, 0x8000, 0x1000, 4242, "MOCK.exe",
@@ -1991,16 +2086,17 @@ static void usage(void) {
     printf("  layers --probe-readers  (try opening every real fetch-layer provider device)\n");
     printf("  layers --probe-all      (probe readers + locators in one pass)\n");
     printf("  layers --list-providers (print known provider/device/capability table)\n");
+    printf("  layers --hvci           (report HVCI / vulnerable-driver-blocklist status and guidance)\n");
     printf("  layers --probe-locators (try opening KKYUM / Invary / KPRL locator devices)\n");
     printf("  layers --selftest-mock\n");
     printf("  layers --ranges                       (read physical RAM ranges from registry)\n");
-    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64|dumpit|asmmap|atillk64|asio64|adv64drv|ntiolib|winring0|amifldrv|citmdrv> [--device <path>] --read-phys --pa <hex> --size <n>\n");
+    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64|dumpit|asmmap|atillk64|asio64|adv64drv|ntiolib|winring0|amifldrv|citmdrv|membridgephys> [--device <path>] --read-phys --pa <hex> --size <n>\n");
     printf("  layers --reader ... --write-phys --pa <hex> --data <hex bytes>  (providers with write)\n");
     printf("  layers --reader <mock> --cr3 <hex> --va <hex> --size <n>\n");
     printf("  layers --reader ... --cr3 <hex> --va <hex> --size <n> [--la57]  (translate/read, 4-level or 5-level)\n");
     printf("  layers --reader mock --cr3 <hex> --va <hex> --translate-only [--la57] (translation layer only, offline)\n");
-    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64|dumpit|asmmap|atillk64|asio64|adv64drv|ntiolib|winring0|amifldrv|citmdrv> [--device <path>] --locate --pid <pid> --scan-start <hex> --scan-size <hex> [--name <exe>]\n");
-    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64|dumpit|asmmap|atillk64|asio64|adv64drv|ntiolib|winring0|amifldrv|citmdrv> [--device <path>] --locate --pid <pid> --auto-ranges [--name <exe>]\n");
+    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64|dumpit|asmmap|atillk64|asio64|adv64drv|ntiolib|winring0|amifldrv|citmdrv|membridgephys> [--device <path>] --locate --pid <pid> --scan-start <hex> --scan-size <hex> [--name <exe>]\n");
+    printf("  layers --reader <cchwapi|rtkio|eneio64|asrdrv|mrt|cpuz|asupio64|asio2|aswarpot|winio64|dumpit|asmmap|atillk64|asio64|adv64drv|ntiolib|winring0|amifldrv|citmdrv|membridgephys> [--device <path>] --locate --pid <pid> --auto-ranges [--name <exe>]\n");
     printf("  layers --reader ... --locate --pid <pid> (--scan-start/--scan-size | --auto-ranges) --va <hex> --size <n>\n");
     printf("  layers --locate --kkyum --pid <pid> [--kkyum-device <path>]   (kernel-VA locator; no physical reader needed)\n");
     printf("  layers --locate --kprl --pid <pid> [--kprl-device <path>]     (KPRL CR3-by-PID; no physical reader needed)\n");
@@ -2019,12 +2115,13 @@ int main(int argc, char **argv) {
     int do_selftest = 0, do_read_phys = 0, do_write_phys = 0, do_explicit = 0, do_locate = 0, have_cr3 = 0, have_va = 0;
     int use_la57 = 0, do_translate_only = 0;
     const char *data_hex = NULL;
-    int do_ranges = 0, auto_ranges = 0, use_kkyum = 0, use_kprl = 0, use_invary = 0, use_auto = 0, do_invary_read = 0, do_probe = 0, do_probe_loc = 0, do_probe_all = 0, do_list = 0;
+    int do_ranges = 0, auto_ranges = 0, use_kkyum = 0, use_kprl = 0, use_invary = 0, use_auto = 0, do_invary_read = 0, do_probe = 0, do_probe_loc = 0, do_probe_all = 0, do_list = 0, do_hvci = 0;
     for (int i = 1; i < argc; i++) {
         if (strcmp(argv[i], "--selftest-mock") == 0) do_selftest = 1;
         else if (strcmp(argv[i], "--probe-readers") == 0) do_probe = 1;
         else if (strcmp(argv[i], "--probe-all") == 0) do_probe_all = 1;
         else if (strcmp(argv[i], "--list-providers") == 0) do_list = 1;
+        else if (strcmp(argv[i], "--hvci") == 0) do_hvci = 1;
         else if (strcmp(argv[i], "--probe-locators") == 0) do_probe_loc = 1;
         else if (strcmp(argv[i], "--reader") == 0 && i + 1 < argc) kind = argv[++i];
         else if (strcmp(argv[i], "--device") == 0 && i + 1 < argc) device = argv[++i];
@@ -2060,6 +2157,7 @@ int main(int argc, char **argv) {
     if (do_probe) return probe_readers();
     if (do_probe_all) return probe_all();
     if (do_list) return list_providers();
+    if (do_hvci) return hvci_status();
     if (do_probe_loc) return probe_locators();
     if (do_invary_read) {
         if (!invary_open(invary_device)) {
