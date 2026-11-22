@@ -78,6 +78,13 @@ try {
     & sc.exe start $service *> $null
     Start-Sleep -Milliseconds 500
 
+    Write-Host ">> low-risk smoke test: control-register CR3 only (no page walk)"
+    $cur = (& $layers --cchwapi-cr3-current 2>&1 | Out-String)
+    Write-Host $cur
+    if ($cur -notmatch 'VERDICT=PASS') {
+        throw "CCHWApi control-register CR3 read failed; aborting before page-table/EPROCESS walk"
+    }
+
     $out = (& $layers --locate --cchwapi-only --pid $ProcessId 2>&1 | Out-String)
     Write-Host $out
     $mCr3 = [regex]::Match($out, 'CR3=(0x[0-9A-Fa-f]+)')

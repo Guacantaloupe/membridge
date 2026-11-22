@@ -1961,6 +1961,19 @@ static int cchwapi_read_control(HANDLE dev, uint32_t cpu, uint32_t reg, uint64_t
     return 1;
 }
 
+static int cchwapi_read_current_cr3(HANDLE dev, uint64_t *out) {
+    DWORD cpus = GetActiveProcessorCount(ALL_PROCESSOR_GROUPS);
+    if (cpus == 0 || cpus > 64) cpus = 8;
+    for (DWORD cpu = 0; cpu < cpus; cpu++) {
+        uint64_t cr3 = 0;
+        if (cchwapi_read_control(dev, cpu, 3, &cr3) && cr3) {
+            if (out) *out = cr3;
+            return 1;
+        }
+    }
+    return 0;
+}
+
 typedef struct { mb_phys_reader *pr; uint64_t cr3; } cchwapi_kr_ctx;
 
 static int cchwapi_kread(mb_kernel_reader *kr, uint64_t va, void *buf, uint32_t size) {
@@ -1974,8 +1987,8 @@ static int cchwapi_locate_cr3(uint32_t pid, const char *device, uint64_t *out_cr
     if (!reader_open(&pr, "cchwapi", device)) return 0;
 
     uint64_t current_cr3 = 0;
-    if (!cchwapi_read_control(pr.dev, 0, 3, &current_cr3)) {
-        fprintf(stderr, "[ERR] cchwapi-only: ReadControlReg(CR3, cpu0) failed\n");
+    if (!cchwapi_read_current_cr3(pr.dev, &current_cr3)) {
+        fprintf(stderr, "[ERR] cchwapi-only: ReadControlReg(CR3) failed on all CPUs\n");
         reader_close(&pr);
         return 0;
     }
@@ -2577,6 +2590,7 @@ static void usage(void) {
     printf("  layers --locate --kkyum --pid <pid> [--kkyum-device <path>]   (kernel-VA locator; no physical reader needed)\n");
     printf("  layers --locate --kprl --pid <pid> [--kprl-device <path>]     (KPRL CR3-by-PID; no physical reader needed)\n");
     printf("  layers --locate --invary --pid <pid> [--invary-device <path>] (Invary Sensor kernel-VA locator)\n");
+    printf("  layers --cchwapi-cr3-current [--device \\\\.\\CCHWAPI]  (low-risk CCHWApi 2.9 control-register CR3 only)\n");
     printf("  layers --locate --cchwapi-only --pid <pid> [--device \\\\.\\CCHWAPI]  (CCHWApi 2.9 only: control-reg CR3 + page-table walk, no scan)\n");
     printf("  layers --locate --scan-providers --pid <pid> [--auto-ranges | --scan-start <hex> --scan-size <hex>] [--va <hex> --size <n>]  (try 20 physical providers)\n");
     printf("  layers --locate --scan-bench --pid <pid> ...  (same, print per-provider open/scan timing)\n");
@@ -2596,7 +2610,7 @@ int main(int argc, char **argv) {
     int do_selftest = 0, do_read_phys = 0, do_write_phys = 0, do_explicit = 0, do_locate = 0, have_cr3 = 0, have_va = 0;
     int use_la57 = 0, do_translate_only = 0;
     const char *data_hex = NULL;
-    int do_ranges = 0, auto_ranges = 0, use_kkyum = 0, use_kprl = 0, use_invary = 0, use_auto = 0, use_scan_providers = 0, use_cchwapi_only = 0, do_scan_bench = 0, do_invary_read = 0, do_read_process = 0, do_probe = 0, do_probe_loc = 0, do_probe_all = 0, do_list = 0, do_list_legacy = 0, do_hvci = 0;
+    int do_ranges = 0, auto_ranges = 0, use_kkyum = 0, use_kprl = 0, use_invary = 0, use_auto = 0, use_scan_providers = 0, use_cchwapi_only = 0, do_cchwapi_current = 0, do_scan_bench = 0, do_invary_read = 0, do_read_process = 0, do_probe = 0, do_probe_loc = 0, do_probe_all = 0, do_list = 0, do_list_legacy = 0, do_hvci = 0;
     for (int i = 1; i < argc; i++) {
         if (strcmp(argv[i], "--selftest-mock") == 0) do_selftest = 1;
         else if (strcmp(argv[i], "--probe-readers") == 0) do_probe = 1;
@@ -2634,6 +2648,7 @@ int main(int argc, char **argv) {
         else if (strcmp(argv[i], "--auto") == 0) use_auto = 1;
         else if (strcmp(argv[i], "--scan-providers") == 0) use_scan_providers = 1;
         else if (strcmp(argv[i], "--cchwapi-only") == 0) use_cchwapi_only = 1;
+        else if (strcmp(argv[i], "--cchwapi-cr3-current") == 0) do_cchwapi_current = 1;
         else if (strcmp(argv[i], "--scan-bench") == 0) { use_scan_providers = 1; do_scan_bench = 1; }
         else if (strcmp(argv[i], "--scan-mock") == 0) { use_scan_providers = 1; g_scan_mock = 1; }
         else if (strcmp(argv[i], "--invary-read") == 0) do_invary_read = 1;
@@ -2647,6 +2662,20 @@ int main(int argc, char **argv) {
     if (do_probe) return probe_readers();
     if (do_probe_all) return probe_all();
     if (do_list) return list_providers();
+    if (do_cchwapi_current) {
+        mb_phys_reader pr;
+        if (!reader_open(&pr, "cchwapi", device)) return 3;
+        uint64_t cur = 0;
+        int ok = cchwapi_read_current_cr3(pr.dev, &cur);
+        reader_close(&pr);
+        if (!ok) {
+            printf("[ERR] CCHWApi ReadControlReg(CR3) failed on all CPUs\n");
+            return 5;
+        }
+        printf("[OK] CCHWApi 2.9 current CR3=0x%llX (control register, no scan)\n", (unsigned long long)cur);
+        printf("VERDICT=PASS\n");
+        return 0;
+    }
     if (do_list_legacy) return list_legacy();
     if (do_hvci) return hvci_status();
     if (do_probe_loc) return probe_locators();
