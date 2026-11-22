@@ -35,5 +35,6 @@
                        "size":  "0x17F800000"
                    }
                ],
+    "locate_selftest":  "PASS",
     "note":  "dynamic CR3 test requires Administrator and a running cmd.exe"
 }

@@ -28,6 +28,8 @@ membridge.exe --backend <id> --locate --pid <cmd_pid> --name cmd.exe \
 ```powershell
 # 静态检查
 pwsh -File scripts\test_11_pass_cmd_cr3.ps1 -StaticOnly
+# 该模式同时运行 membridge --locate-selftest（合成 EPROCESS 扫描，验证扫描器）
+membridge.exe --locate-selftest
 
 # 查看物理范围和命令计划
 pwsh -File scripts\test_11_pass_cmd_cr3.ps1 -DryRun

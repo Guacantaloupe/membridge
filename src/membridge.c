@@ -803,20 +803,22 @@ static int backend_read(HANDLE dev, layout_t ly, uint64_t pa, uint32_t size, uin
     return 0;
 }
 
-static int backend_read_big(HANDLE dev, layout_t ly, uint64_t pa, uint32_t size, uint8_t *out) {
+typedef int (*mb_read_fn)(void *ctx, uint64_t pa, uint32_t size, uint8_t *out);
+
+static int read_big_fn(mb_read_fn fn, void *ctx, uint64_t pa, uint32_t size, uint8_t *out) {
     uint32_t done = 0;
     while (done < size) {
         uint32_t chunk = size - done;
         if (chunk > 0x100000) chunk = 0x100000;
-        if (backend_read(dev, ly, pa + done, chunk, out + done)) {
+        if (fn(ctx, pa + done, chunk, out + done)) {
             done += chunk;
             continue;
         }
-        if (chunk > 0x10000 && backend_read(dev, ly, pa + done, 0x10000, out + done)) {
+        if (chunk > 0x10000 && fn(ctx, pa + done, 0x10000, out + done)) {
             done += 0x10000;
             continue;
         }
-        if (chunk > 0x1000 && backend_read(dev, ly, pa + done, 0x1000, out + done)) {
+        if (chunk > 0x1000 && fn(ctx, pa + done, 0x1000, out + done)) {
             done += 0x1000;
             continue;
         }
@@ -825,13 +827,11 @@ static int backend_read_big(HANDLE dev, layout_t ly, uint64_t pa, uint32_t size,
     return 1;
 }
 
-// Physical EPROCESS scan: find PID + ImageFileName, read DirectoryTableBase.
-// Win11 26200 offsets: DTB +0x28, PID +0x1D0, ImageFileName +0x338.
-static int locate_scan_cr3(HANDLE dev, layout_t ly, uint32_t pid, const char *name,
-                           uint64_t scan_start, uint64_t scan_size,
-                           uint64_t *out_cr3, uint64_t *out_eproc) {
+static int locate_scan_with_reader(mb_read_fn fn, void *ctx, uint32_t pid, const char *name,
+                                   uint64_t scan_start, uint64_t scan_size,
+                                   uint64_t *out_cr3, uint64_t *out_eproc) {
     const uint32_t chunk = 0x100000;
-    if (!name || !name[0] || scan_size < 0x1000) return 0;
+    if (!fn || !name || !name[0] || scan_size < 0x1000) return 0;
     uint8_t *buf = (uint8_t *)malloc(chunk);
     if (!buf) return 0;
     size_t nlen = strlen(name);
@@ -841,7 +841,7 @@ static int locate_scan_cr3(HANDLE dev, layout_t ly, uint32_t pid, const char *na
     for (uint64_t pa = scan_start; pa < end && !found; pa += chunk) {
         uint32_t want = (uint32_t)((end - pa) < chunk ? (end - pa) : chunk);
         if (want < 0x1000) break;
-        if (!backend_read_big(dev, ly, pa, want, buf)) continue;
+        if (!read_big_fn(fn, ctx, pa, want, buf)) continue;
         for (uint32_t off = 0; off + 0x338 + nlen + 1 <= want; off++) {
             if (memcmp(buf + off + 0x338, name, nlen) != 0) continue;
             uint64_t dtb = 0;
@@ -858,6 +858,58 @@ static int locate_scan_cr3(HANDLE dev, layout_t ly, uint32_t pid, const char *na
     }
     free(buf);
     return found;
+}
+
+typedef struct { HANDLE dev; layout_t ly; } backend_read_ctx;
+
+static int backend_read_adapter(void *ctx, uint64_t pa, uint32_t size, uint8_t *out) {
+    backend_read_ctx *bc = (backend_read_ctx *)ctx;
+    return backend_read(bc->dev, bc->ly, pa, size, out);
+}
+
+// Physical EPROCESS scan: find PID + ImageFileName, read DirectoryTableBase.
+// Win11 26200 offsets: DTB +0x28, PID +0x1D0, ImageFileName +0x338.
+static int locate_scan_cr3(HANDLE dev, layout_t ly, uint32_t pid, const char *name,
+                           uint64_t scan_start, uint64_t scan_size,
+                           uint64_t *out_cr3, uint64_t *out_eproc) {
+    backend_read_ctx bc;
+    bc.dev = dev;
+    bc.ly = ly;
+    return locate_scan_with_reader(backend_read_adapter, &bc, pid, name,
+                                   scan_start, scan_size, out_cr3, out_eproc);
+}
+
+// Offline locate self-test: synthetic physical memory with one EPROCESS.
+static int locate_selftest_mem_read(void *ctx, uint64_t pa, uint32_t size, uint8_t *out) {
+    uint8_t *mem = (uint8_t *)ctx;
+    const uint64_t mem_size = 0x400000;
+    if (pa >= mem_size || size > mem_size - pa) return 0;
+    memcpy(out, mem + pa, size);
+    return 1;
+}
+
+static int locate_selftest(void) {
+    uint8_t *mem = (uint8_t *)calloc(1, 0x400000);
+    if (!mem) return 2;
+    const uint64_t eproc = 0x200000;
+    uint64_t dtb = 0x300000;
+    uint32_t pid = 4242;
+    memcpy(mem + eproc + 0x28, &dtb, 8);
+    memcpy(mem + eproc + 0x1D0, &pid, 4);
+    memcpy(mem + eproc + 0x338, "cmd.exe", 8);
+    uint64_t cr3 = 0, ep = 0;
+    int ok = locate_scan_with_reader(locate_selftest_mem_read, mem, 4242, "cmd.exe",
+                                     eproc, 0x1000, &cr3, &ep);
+    free(mem);
+    if (ok && cr3 == 0x300000 && ep == eproc) {
+        wprintf(L"[OK] locate selftest: EPROCESS_PA=0x%llX PID=4242 CR3=0x%llX\n",
+                (unsigned long long)ep, (unsigned long long)cr3);
+        wprintf(L"VERDICT=PASS\n");
+        return 0;
+    }
+    wprintf(L"[ERR] locate selftest failed ok=%d cr3=0x%llX ep=0x%llX\n", ok,
+            (unsigned long long)cr3, (unsigned long long)ep);
+    return 5;
 }
 
 static void hexdump(const uint8_t *p, int n) {
@@ -897,6 +949,7 @@ static void usage(void) {
     wprintf(L"  membridge --list\n");
     wprintf(L"  membridge --backend <id> --pa <hex> --size <n> [--expect <ascii>] [--dump] [--keep]\n");
     wprintf(L"               [--driver-path <path>] [--no-load] [--out-file <path>]\n");
+    wprintf(L"  membridge --locate-selftest  (offline synthetic EPROCESS scan test)\n");
     wprintf(L"  membridge --backend <id> --locate --pid <pid> --name <exe> --scan-start <hex> --scan-size <hex>\n");
     wprintf(L"               (physical scan for EPROCESS -> CR3; Win11 26200 offsets)\n");
     wprintf(L"  membridge --device <\\\\.\\NAME> --layout <cchwapi|cchwapi_ext|sjtwinio|ufu|winring0|hp_swtools|rtkio|eneio64|glckio2|gibepext|fastdump|directio|tdeio|icachex|mrt>\n");
@@ -942,6 +995,7 @@ int wmain(int argc, wchar_t **argv) {
         else if (_wcsicmp(argv[i], L"--name") == 0 && i + 1 < argc) locate_name = argv[++i];
         else if (_wcsicmp(argv[i], L"--scan-start") == 0 && i + 1 < argc) { scan_start = _wcstoui64(argv[++i], NULL, 0); have_scan = 1; }
         else if (_wcsicmp(argv[i], L"--scan-size") == 0 && i + 1 < argc) { scan_size = _wcstoui64(argv[++i], NULL, 0); have_scan = 1; }
+        else if (_wcsicmp(argv[i], L"--locate-selftest") == 0) { free((void*)expect); return locate_selftest(); }
         else { wprintf(L"[ERR] unknown arg: %ls\n", argv[i]); usage(); return 6; }
     }
     if (argc <= 1) { usage(); return 6; }

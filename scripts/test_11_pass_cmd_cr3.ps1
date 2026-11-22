@@ -72,10 +72,17 @@ $ranges = @(Get-Ranges)
 if ($MaxBackends -gt 0) { $backends = @($backends | Select-Object -First $MaxBackends) }
 
 if ($StaticOnly) {
+    $ls = (& $membridge --locate-selftest 2>&1 | Out-String)
+    if ($ls -notmatch 'VERDICT=PASS') {
+        Write-Host $ls
+        throw "membridge --locate-selftest failed"
+    }
+    Write-Host "locate selftest: PASS"
     $report = [pscustomobject]@{
         mode = 'static'
         backends = $backends
         ranges = $ranges
+        locate_selftest = 'PASS'
         note = 'dynamic CR3 test requires Administrator and a running cmd.exe'
     }
     $report | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath $outJson -Encoding UTF8
