@@ -215,7 +215,7 @@ try {
     Write-Host ">> translate target USER VA with target CR3 (no kernel-VA translation)"
     $old = $ErrorActionPreference
     $ErrorActionPreference = 'Continue'
-    $translateReaders = @('tdeio','gibepext','gibepext2')
+    $translateReaders = @('gibepext','tdeio','gibepext2')
     $cr3Candidates = @($targetCr3)
     if ($userCr3 -and $userCr3 -ne $targetCr3) { $cr3Candidates += $userCr3 }
     $usedReader = ''
