@@ -46,6 +46,25 @@ started cmd target
 autostart end
 ```
 
+## 一驱动一次启动尝试（boot runner）
+另外安装了任务 **`DSH_Cr3_BootRunner`**：
+- 登录后 30 秒触发，RunLevel Highest；
+- 读取 `evidence\boot_cr3_progress.json`；
+- 每次只对下一个未测试的物理读驱动执行：
+  ```
+  membridge --backend <id> --locate --pid <cmd> --name cmd.exe \
+    --scan-start 0xA73000 --scan-size 0x6CC78000
+  ```
+- 成功/失败写入进度；
+- 若扫描导致 BSOD，下次启动把该 backend 标记为 `CRASHED` 并继续下一个；
+- 连续 3 次崩溃后自动停止，避免无限崩溃循环。
+
+状态文件：
+```
+evidence\boot_cr3_progress.json
+evidence\boot_cr3_runner.log
+```
+
 ## UAC
 保持：
 ```
