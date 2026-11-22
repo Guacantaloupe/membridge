@@ -64,6 +64,10 @@ evidence\test_13_pass_exe_read.json
   - 13 个签名**全部 Valid**；
   - `test\test.exe` 存在；
   - HVCI=1；blocklist 策略值 absent；
-  - `is_admin=False` → **动态测试仍被阻塞**；
-- 动态真实测试：**未执行**，当前会话是 Medium 非管理员，无法启动 SYSTEM AWE 任务/加载内核驱动；
-- 在管理员环境运行第 4 条命令即可得到真实 13 个 backend 的 PASS/FAIL 与驱动加载错误。
+- 2026-11-22 实机结果：**11/13 PASS**
+  - `mrt`：DEVICE_OPEN_FAILED（设备 ACL SYSTEM-only）
+  - `winring0x64`：READ_FAILED（仅低内存）
+- **安全更新**：默认跳过 `mrt`（filter/minifilter 加载路径曾与系统崩溃时间点相关）；
+  仅在确认安全时用 `-IncludeMrt` 测试。
+- 崩溃后已启用小内存转储：`CrashDumpEnabled=3`、`AutoReboot=1`；
+  当前崩溃转储尚未产生新的 dump。

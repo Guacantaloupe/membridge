@@ -31,11 +31,14 @@ pwsh -File scripts\test_11_pass_cmd_cr3.ps1 -StaticOnly
 # 该模式同时运行 membridge --locate-selftest（合成 EPROCESS 扫描，验证扫描器）
 membridge.exe --locate-selftest
 
+# 前置条件审计（驱动文件/签名、崩溃转储设置、磁盘、管理员、目标）
+pwsh -File scripts\test_11_pass_cmd_cr3.ps1 -CheckPrereqs
+
 # 查看物理范围和命令计划
 pwsh -File scripts\test_11_pass_cmd_cr3.ps1 -DryRun
 
-# 真实测试（管理员；先打开一个 cmd.exe）
-pwsh -File scripts\test_11_pass_cmd_cr3.ps1
+# 真实测试（管理员；脚本可自动启动 cmd.exe 目标）
+pwsh -File scripts\test_11_pass_cmd_cr3.ps1 -MaxBackends 1 -MaxRanges 1
 ```
 
 ### 限制扫描范围（避免全 RAM 太慢）
