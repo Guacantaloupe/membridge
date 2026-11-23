@@ -47,5 +47,40 @@
         "size":  196768,
         "sha256":  "0349A8102150C8897F4BFD968870E1A991489C1402FBBC5F72F8E91851856834",
         "signature":  "Valid"
+    },
+    {
+        "name":  "Pce9814x64.sys",
+        "dest":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\drivers\\import_candidates\\Pce9814x64.sys",
+        "size":  73944,
+        "sha256":  "4260E96E6AA11DFA41F82B115E3FAB7B58985AE8D078EFE0B11B29AF794C92A2",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "windrvr1281.sys",
+        "dest":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\drivers\\import_candidates\\windrvr1281.sys",
+        "size":  283216,
+        "sha256":  "FB007D649728EACE633CE12EB4287CC3ECF47FBFE1F9A875A7E8E992FA36B972",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "windrvr1280.sys",
+        "dest":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\drivers\\import_candidates\\windrvr1280.sys",
+        "size":  288312,
+        "sha256":  "B8D8F642EF62D2781E2DC4D1F797C66599961B43E469D30B6CE1DCE718CC5808",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "EPIXXCW6(1).SYS",
+        "dest":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\drivers\\import_candidates\\EPIXXCW6_1_.SYS",
+        "size":  178960,
+        "sha256":  "0F0FF8FF2CCB7EDC36EFF5BDC8DE841E733C4D9D7F8A5EF78D9A6A3B402A3BDF",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Pce9852x64(1).sys",
+        "dest":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\drivers\\import_candidates\\Pce9852x64_1_.sys",
+        "size":  60504,
+        "sha256":  "5B23BF538714785ED0413BC45AD62B805F771CBBC033A1066C58C1625122148E",
+        "signature":  "Valid"
     }
 ]
