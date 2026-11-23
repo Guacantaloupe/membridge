@@ -1,0 +1,17 @@
+﻿{
+    "date":  "2026-11-23T11:23:01",
+    "running":  [
+                    "PSKD64",
+                    "RDWM1179",
+                    "RDWM1236",
+                    "IntcOED",
+                    "stwrt64"
+                ],
+    "stopped":  [
+                    "NxpCap64 exit=193"
+                ],
+    "devices":  [
+                    "\\\\.\\PSKD64"
+                ],
+    "note":  "5/6 RUNNING; no new arbitrary physical reader; no BSOD"
+}
