@@ -1,0 +1,8 @@
+﻿{
+    "date":  "2026-11-23T13:08:22",
+    "driver":  "ExpressNet.sys",
+    "state":  "RUNNING",
+    "device":  "\\\\.\\expressnet2274",
+    "read":  "mrt err=1",
+    "note":  "loads/opens; no physical read; no BSOD"
+}
