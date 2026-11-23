@@ -1,0 +1,152 @@
+﻿[
+    {
+        "name":  "$(LSTR_37)_heimdall.sra_10_0.sys",
+        "size":  699128,
+        "sha256":  "55FE2010ADFC2BEE273897BA14A95822768819C87A4E1D129BB49F22B4A77F24",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "$(LSTR_37)_nep.sra_10_0.sys",
+        "size":  174840,
+        "sha256":  "87E791E95D65F3F6F1F5FD1D62309030822DAC3C3D124DA820BC692566E84B48",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "$0_IntelFirmwareInterface_IntelFirmwareInterface.sys",
+        "size":  291568,
+        "sha256":  "FAD7AFA29A3CF29759D3601A84AE1B5B2BE546DBDB388E2ABC37C08AA10CE0F0",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "$SYSDIR_drivers_kboot64(1).sys",
+        "size":  191128,
+        "sha256":  "B1F9F7759DC39F443002C04CBA3E6296DC8EE5A9D4E0B8F684BEB776EE0A4A92",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "$SYSDIR_drivers_kboot64(2).sys",
+        "size":  189096,
+        "sha256":  "A01A01907A7990D3F48484C14F4C50D1CA7E6DBB1E7B9967343FB9DECE86BF87",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "$SYSDIR_drivers_kboot64.sys",
+        "size":  218776,
+        "sha256":  "AC33906AA5496B2FF142656C1F1D4180CC03D14B6F473043B483F92CDD728224",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "$SYSDIR_drivers_kscsidisk64.sys",
+        "size":  130088,
+        "sha256":  "D95552E07BB1DC9991616598A85D5C82CE5917B3D6D1C379F35F11D7655BF5EE",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "$WINDIR_system32_drivers_WfNicPnp64.sys",
+        "size":  55744,
+        "sha256":  "D1BCD9CD128D3481664AF69A2B09D729910663683AA1A8EE1FCD3B3A3989C77C",
+        "signature":  "Valid"
+    },
+    {
+        "name":  ".rsrc_1033_CORE_248(3).sys",
+        "size":  94936,
+        "sha256":  "20527185A415BA79F9EC2A1344EB6157444272F88EC27CF79F6A0F6EB03B15D9",
+        "signature":  "Valid"
+    },
+    {
+        "name":  ".rsrc_1033_RCDATA_10101.sys",
+        "size":  119048,
+        "sha256":  "48C18955D0BB46AAF2F95B31CD5F34478DB9E3A25B7600BC3F1DDC43241C0A5E",
+        "signature":  "Valid"
+    },
+    {
+        "name":  ".rsrc_RCDATA_141.sys",
+        "size":  52008,
+        "sha256":  "BEB24158F3C09443C70109380C4CFFEBFE446B9C462A0DE949DC6F93345B0F63",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "_8501E05BDFE247FD8BDE70051C0A14D9.sys",
+        "size":  213544,
+        "sha256":  "07E144248FEB646BBF1947ED4277097A332CA100490F6B09B352FE69F841E1EE",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "_driver_SYS64_ShdcPci.sys",
+        "size":  463264,
+        "sha256":  "C7972E0ADD6405BBCDC9D44661D15713F97D2516E74A0EDC9B8B41E0CAF69217",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "052e0dd77bc0c5f55a6bc028bc5b5e30_innodim64.sys",
+        "size":  454768,
+        "sha256":  "C436579EB4FE847E2EBEC898BC7D9A8361F97657E5F905852E356F945E9243DA",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "1.sys",
+        "size":  75976,
+        "sha256":  "25607D285A592B9990ED1528293FCED6FCCFF73C6B7EF6E921020546032A7627",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "2.0.0.620_bedrock64.sys",
+        "size":  545008,
+        "sha256":  "BA30CD757F0FCBA317A36D7D55B23C12CA3591A3B1F7959252AD8B033EC4A9B1",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "3933112b2.sys",
+        "size":  195160,
+        "sha256":  "C077C23AB4CC9D1D44F2D6643FBAC20065086204FA3A65B50DC66644519E080C",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "503111e.sys",
+        "size":  190616,
+        "sha256":  "6F6AD9F0C2C27A2DB5CA9D8BAC396954E153ABCC925700E337CC0F2E6CF9DC45",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AdaptiveTransport(1).sys",
+        "size":  176920,
+        "sha256":  "4E369E6D06969E4C0807D957DE8A02E5FF065D9195B35B59867E089D25B23DC2",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AdaptiveTransport(2).sys",
+        "size":  176808,
+        "sha256":  "EA9D686F66E57E03CE1FD1B8124CF358A2117674146749A5878A5F8C6768FC2B",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AdaptiveTransport(3).sys",
+        "size":  149504,
+        "sha256":  "4A91F3F27B9595F19C0B205199510F497122F5BD430D5F13B00EC6F9BC0FBA9A",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AdaptiveTransport(4).sys",
+        "size":  148792,
+        "sha256":  "AE0789D115D18A95F935E910BA15FA0CA371135CC06EF6AC8E61D727C06F9EC9",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AdaptiveTransport.sys",
+        "size":  176920,
+        "sha256":  "DCD9897C4AD5221530F9E1EEA9AE7FF79B15679BA860039FE33387667B69E63A",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "addrv2785x64(1).sys",
+        "size":  31960,
+        "sha256":  "A43665F4CC2791B3F257878BAD08A08DF2D7298E181D045F3E3212487BAB56AA",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "addrv2785x64(10).sys",
+        "size":  31912,
+        "sha256":  "5D78F8D946CB27A5AEA0E34E358DECDCA1734907BE12977E7EC45FCC4E113A99",
+        "signature":  "Valid"
+    }
+]
