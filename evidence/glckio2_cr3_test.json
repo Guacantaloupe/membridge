@@ -1,0 +1,11 @@
+﻿{
+    "date":  "2026-11-23T10:49:04",
+    "driver":  "GLCKIO2_3a5ec...sys",
+    "device":  "\\\\.\\GLCKIo2",
+    "cr3":  "0x20C952000",
+    "cr3_source":  "CCHWApi 2.9 control register",
+    "page_size":  "0x30",
+    "output":  "all zeros",
+    "verdict":  "PASS",
+    "note":  "read completed without BSOD; content not valid PML4E; possible CR3 obfuscation/zero mapping"
+}
