@@ -1,0 +1,13 @@
+﻿{
+    "date":  "2026-11-23T11:27:24",
+    "running":  [
+                    "windrvr1251",
+                    "EPIXXCW6(2)",
+                    "PSKMAD_64"
+                ],
+    "stopped":  [
+                    "Pce9852x64(3) exit=193",
+                    "TcRteFilter exit=31"
+                ],
+    "note":  "3/5 RUNNING; no new obvious DOS device; no new physical reader; no BSOD"
+}
