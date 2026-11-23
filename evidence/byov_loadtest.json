@@ -1,0 +1,44 @@
+﻿[
+    {
+        "name":  "asio3.sys",
+        "service":  "MbByov_1",
+        "state":  "RUNNING",
+        "win32_exit":  "0"
+    },
+    {
+        "name":  "AsIO3_1.sys",
+        "service":  "MbByov_2",
+        "state":  "STOPPED",
+        "win32_exit":  "183"
+    },
+    {
+        "name":  "AsrDrv1.sys",
+        "service":  "MbByov_3",
+        "state":  "RUNNING",
+        "win32_exit":  "0"
+    },
+    {
+        "name":  "astra64.sys",
+        "service":  "MbByov_4",
+        "state":  "RUNNING",
+        "win32_exit":  "0"
+    },
+    {
+        "name":  "atszio64.sys",
+        "service":  "MbByov_5",
+        "state":  "RUNNING",
+        "win32_exit":  "0"
+    },
+    {
+        "name":  "ctrl_asus.sys",
+        "service":  "MbByov_6",
+        "state":  "RUNNING",
+        "win32_exit":  "0"
+    },
+    {
+        "name":  "ctrl_asmio.sys",
+        "service":  "MbByov_7",
+        "state":  "RUNNING",
+        "win32_exit":  "0"
+    }
+]
