@@ -1,0 +1,176 @@
+﻿[
+    {
+        "name":  "Agent64_4045ae77859b1dbf13972451972eaaf6f3c97bea423e9e78f1c2f14330cd47ca.sys",
+        "size":  21712,
+        "sha256":  "4045AE77859B1DBF13972451972EAAF6F3C97BEA423E9E78F1C2F14330CD47CA",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Agent64_6948480954137987a0be626c24cf594390960242cd75f094cd6aaa5c2e7a54fa.sys",
+        "size":  21712,
+        "sha256":  "6948480954137987A0BE626C24CF594390960242CD75F094CD6AAA5C2E7A54FA",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Agent64_8cb62c5d41148de416014f80bd1fd033fd4d2bd504cb05b90eeb6992a382d58f.sys",
+        "size":  20872,
+        "sha256":  "8CB62C5D41148DE416014F80BD1FD033FD4D2BD504CB05B90EEB6992A382D58F",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Agent64_b1d96233235a62dbb21b8dbe2d1ae333199669f67664b107bff1ad49b41d9414.sys",
+        "size":  22816,
+        "sha256":  "B1D96233235A62DBB21B8DBE2D1AE333199669F67664B107BFF1AD49B41D9414",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "BS_Def64_3326E2D32BBABD69FEB6024809AFC56C7E39241EBE70A53728C77E80995422A5.sys",
+        "size":  20288,
+        "sha256":  "3326E2D32BBABD69FEB6024809AFC56C7E39241EBE70A53728C77E80995422A5",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "BS_Def64_36B9E31240AB0341873C7092B63E2E0F2CAB2962EBF9B25271C3A1216B7669EB.sys",
+        "size":  20288,
+        "sha256":  "36B9E31240AB0341873C7092B63E2E0F2CAB2962EBF9B25271C3A1216B7669EB",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AsrAutoChkUpdDrv.sys",
+        "size":  22280,
+        "sha256":  "2AA1B08F47FBB1E2BD2E4A492F5D616968E703E1359A921F62B38B8E4662F0C4",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AsrIbDrv.sys",
+        "size":  21288,
+        "sha256":  "2A652DE6B680D5AD92376AD323021850DAB2C653ABF06EDF26120F7714B8E08A",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AsrOmgDrv.sys",
+        "size":  21328,
+        "sha256":  "950A4C0C772021CEE26011A92194F0E58D61588F77F2873AA0599DFF52A160C9",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AsrRapidStartDrv.sys",
+        "size":  21288,
+        "sha256":  "0AAFA9F47ACF69D46C9542985994FF5321F00842A28DF2396D4A3076776A83CB",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AsrSmartConnectDrv.sys",
+        "size":  21288,
+        "sha256":  "47F08F7D30D824A8F4BB8A98916401A37C0FD8502DB308ABA91FE3112B892DCC",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "iomem64_DD4A1253D47DE14EF83F1BC8B40816A86CCF90D1E624C5ADF9203AE9D51D4097.sys",
+        "size":  17192,
+        "sha256":  "DD4A1253D47DE14EF83F1BC8B40816A86CCF90D1E624C5ADF9203AE9D51D4097",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "inpoutx64_f581decc2888ef27ee1ea85ea23bbb5fb2fe6a554266ff5a1476acd1d29d53af.sys",
+        "size":  16016,
+        "sha256":  "F581DECC2888EF27EE1EA85EA23BBB5FB2FE6A554266FF5A1476ACD1D29D53AF",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "inpoutx64_f8965fdce668692c3785afa3559159f9a18287bc0d53abb21902895a8ecf221b.sys",
+        "size":  15008,
+        "sha256":  "F8965FDCE668692C3785AFA3559159F9A18287BC0D53ABB21902895A8ECF221B",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "OpenLibSys_f0605dda1def240dc7e14efa73927d6c6d89988c01ea8647b671667b2b167008.sys",
+        "size":  14544,
+        "sha256":  "F0605DDA1DEF240DC7E14EFA73927D6C6D89988C01EA8647B671667B2B167008",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "WINIODrv_3243aab18e273a9b9c4280a57aecef278e10bfff19abb260d7a7820e41739099.sys",
+        "size":  15600,
+        "sha256":  "3243AAB18E273A9B9C4280A57AECEF278E10BFFF19ABB260D7A7820E41739099",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "WINIODrv_7cfa5e10dff8a99a5d544b011f676bc383991274c693e21e3af40cf6982adb8c.sys",
+        "size":  15600,
+        "sha256":  "7CFA5E10DFF8A99A5D544B011F676BC383991274C693E21E3AF40CF6982ADB8C",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "WINIODrv_c9b49b52b493b53cd49c12c3fa9553e57c5394555b64e32d1208f5b96a5b8c6e.sys",
+        "size":  15600,
+        "sha256":  "C9B49B52B493B53CD49C12C3FA9553E57C5394555B64E32D1208F5B96A5B8C6E",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "WinRing0_47eaebc920ccf99e09fc9924feb6b19b8a28589f52783327067c9b09754b5e84.sys",
+        "size":  14544,
+        "sha256":  "47EAEBC920CCF99E09FC9924FEB6B19B8A28589F52783327067C9B09754B5E84",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "WinRing0_a7b000abbcc344444a9b00cfade7aa22ab92ce0cadec196c30eb1851ae4fa062.sys",
+        "size":  14536,
+        "sha256":  "A7B000ABBCC344444A9B00CFADE7AA22AB92CE0CADEC196C30EB1851AE4FA062",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "cpuz141.sys",
+        "size":  46400,
+        "sha256":  "DED2927F9A4E64EEFD09D0CABA78E94F309E3A6292841AE81D5528CAB109F95D",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "cpuz_x64.sys",
+        "size":  16360,
+        "sha256":  "3871E16758A1778907667F78589359734F7F62F9DC953EC558946DCDBE6951E3",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "dbutil_2_3.sys",
+        "size":  14840,
+        "sha256":  "0296E2CE999E67C76352613A718E11516FE1B0EFC3FFDB8918FC999DD76A73A5",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "msrhook.sys",
+        "size":  23256,
+        "sha256":  "6DE84CAA2CA18673E01B91AF58220C60AECD5CCCF269725EC3C7F226B2167492",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "smep_capcom.sys",
+        "size":  10576,
+        "sha256":  "DB2A9247177E8CDD50FE9433D066B86FFD2A84301AA6B2EB60F361CFFF077004",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "smep_namco.sys",
+        "size":  10128,
+        "sha256":  "7EC93F34EB323823EB199FBF8D06219086D517D0E8F4B9E348D7AFD41EC9FD5D",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "VProEventMonitor.sys",
+        "size":  22104,
+        "sha256":  "7877C1B0E7429453B750218CA491C2825DAE684AD9616642EFF7B41715C70ACA",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Dh_Kernel.sys",
+        "size":  30544,
+        "sha256":  "BB50818A07B0EB1BD317467139B7EB4BAD6CD89053FECDABFEAE111689825955",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Dh_Kernel_10.sys",
+        "size":  30544,
+        "sha256":  "80CBBA9F404DF3E642F22C476664D63D7C229D45D34F5CD0E19C65EB41BECEC3",
+        "signature":  "Valid"
+    }
+]

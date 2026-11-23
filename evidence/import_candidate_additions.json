@@ -1,0 +1,51 @@
+﻿[
+    {
+        "name":  "windrvr1260.sys",
+        "dest":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\drivers\\import_candidates\\windrvr1260.sys",
+        "size":  280368,
+        "sha256":  "7203E3A3621F52785840E79DA262D03B2AD179A406F448AD83BBBBD32BA64DD0",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "windrvr1411(2).sys",
+        "dest":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\drivers\\import_candidates\\windrvr1411_2_.sys",
+        "size":  271184,
+        "sha256":  "DE8172A5989463DEE93862985DA6384B1E265C29FF5FF7B546F7CA38E0043377",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "EPIXXCW6.SYS",
+        "dest":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\drivers\\import_candidates\\EPIXXCW6.SYS",
+        "size":  168944,
+        "sha256":  "5FDC7FC6A29BF059A86A2C6FB9F7228646893168E07CD49C15753AB25AD3140F",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Pce9852x64.sys",
+        "dest":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\drivers\\import_candidates\\Pce9852x64.sys",
+        "size":  60496,
+        "sha256":  "99EE7B4B2F2E3DC1496E4617B5826959AEF67CA93D6DEF65A381DAF996BE7D2C",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "PSKMAD_64(1).sys",
+        "dest":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\drivers\\import_candidates\\PSKMAD_64_1_.sys",
+        "size":  63344,
+        "sha256":  "D1C11A952F91D309A4AF6EA0D68FE424AB4B058B41ADFC69A9CC7CA16DD3595A",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "seraphad8.sys",
+        "dest":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\drivers\\import_candidates\\seraphad8.sys",
+        "size":  215744,
+        "sha256":  "620F05ECF23B254E6B4B30F66C5BD60893B7B7BAD9D6AD7040192769EF224E2F",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Dalwdm(1).sys",
+        "dest":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\drivers\\import_candidates\\Dalwdm_1_.sys",
+        "size":  196768,
+        "sha256":  "0349A8102150C8897F4BFD968870E1A991489C1402FBBC5F72F8E91851856834",
+        "signature":  "Valid"
+    }
+]
