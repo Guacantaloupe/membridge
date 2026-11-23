@@ -1,0 +1,9 @@
+﻿{
+    "date":  "2026-11-23T12:48:10",
+    "driver":  "SMIBIOS64_W10.sys",
+    "device":  "\\\\.\\BIOS_SMI_DRIVER",
+    "state":  "RUNNING",
+    "read":  "MRT layout PA=0x1000 PASS",
+    "backend":  "smibios",
+    "note":  "5th new arbitrary physical reader; single-page only"
+}

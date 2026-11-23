@@ -1,0 +1,44 @@
+﻿[
+    {
+        "name":  "SMIBIOS64_W10.sys",
+        "size":  17504,
+        "devices":  "\\Device\\BIOS_SMI_DRIVER,\\DosDevices\\BIOS_SMI_DRIVER",
+        "sha256":  "b81890e840c2c72c45b9f958dc8d433dc60f7c112a4d655203e16bf00c8047d3",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "DMIKD64.SYS",
+        "size":  263888,
+        "devices":  "\\Device\\DMIKD64,\\DosDevices\\DMIKD64",
+        "sha256":  "e5b8653ec69c42923b0fff0201bd5aae0ceda10aeacf62616ec8da64217a2721",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "MALPCI32_64(1).sys",
+        "size":  38528,
+        "devices":  "\\Device\\MALPCIe,\\DosDevices\\MALPCIe",
+        "sha256":  "c89dc1d4b5cd6e5e8ad937da5fd72fe791691afa2b0b0795c79fb9331c1a0513",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "vcanacw.sys",
+        "size":  92568,
+        "devices":  "\\Device\\CANAC_0,\\DosDevices\\CANAC_0,\\DosDevices\\VCANACD",
+        "sha256":  "62f11120c7b1e82f39c3c4a6aeddf587fe968aec779b000ce22eb5c418363e4a",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ExpressNet.sys",
+        "size":  74008,
+        "devices":  "\\Device\\expressnet2274,\\DosDevices\\expressnet2274",
+        "sha256":  "0a8ee67b346bdba9d671e86eee5a06acf59b2b3b1214aaa41c9af3fd8f28dad7",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "vcanpciw.sys",
+        "size":  98328,
+        "devices":  "\\Device\\CANPCI0,\\DosDevices\\CANPCI0,\\DosDevices\\VCANPCID",
+        "sha256":  "8e7dabe50330d03677c106dce737cf220e5050de954df683338c07149b863e7b",
+        "signature":  "Valid"
+    }
+]
