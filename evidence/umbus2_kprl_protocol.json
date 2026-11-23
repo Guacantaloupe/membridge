@@ -1,0 +1,9 @@
+﻿{
+    "date":  "2026-11-24T06:47:53",
+    "driver":  "umbus2.sys",
+    "device":  "\\\\.\\KPRL",
+    "ioctl":  "0x239584 returns success but zero output",
+    "writefile":  "err=1",
+    "readfile":  "err=1",
+    "note":  "KPRL-like device but query protocol not compatible; no CR3 returned"
+}

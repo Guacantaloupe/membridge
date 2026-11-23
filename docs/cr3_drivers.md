@@ -198,3 +198,48 @@ CCHWApi ReadControlReg(CR3) failed on all CPUs
 | CCHWApiExt | — | ✅ | — |
 | KKYUM | ❌ locator失败 | — | ✅ |
 | Invary | ❌ | — | — |
+
+## umbus2 KPRL 变体协议测试
+设备：
+```
+\Device\KPRL
+\DosDevices\KPRL
+\\.\KPRL -> OPEN_OK
+```
+静态：
+```
+PsLookupProcessByProcessId
+MmCopyMemory
+PsGetProcessSectionBaseAddress
+ObReferenceObjectByName
+ZwQuerySystemInformation
+```
+说明具备进程/物理内存访问代码路径。
+
+### IOCTL 0x239584
+使用 KPRL 查询结构：
+```
+input  0x48 bytes，PID at offset 0
+output 0x48 bytes，expected CR3 at 0x38
+```
+实测：
+```
+DeviceIoControl -> True
+ret=0
+output 全零
+```
+尝试 PID offset 0/4/8/0x20/0x30：均返回成功但输出全零。
+
+### WriteFile / ReadFile
+```
+WriteFile(8字节 PID) -> False err=1
+ReadFile(16字节)       -> False err=1
+```
+设备不支持简单读写接口。
+
+## 结论
+- umbus2 确实创建 `\\.\KPRL`；
+- IOCTL 0x239584 能进入驱动，但不返回 CR3；
+- 它不是当前 KPRL 查询协议的兼容实现；
+- 仍需单独逆向其真正 IOCTL/请求格式；
+- 目标 PID CR3 仍只能由原版 KPRL 提供。
