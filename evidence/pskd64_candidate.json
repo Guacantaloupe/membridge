@@ -1,0 +1,10 @@
+﻿{
+    "date":  "2026-11-24T07:56:37",
+    "candidate":  "PSKD64.SYS",
+    "state":  "RUNNING",
+    "device":  "\\\\.\\PSKD64 OPEN_OK",
+    "role":  "PCIScope PCI config/enumeration",
+    "cr3_insn":  1,
+    "verdict":  "no CR3 query found; not a new path",
+    "note":  "no BSOD"
+}
