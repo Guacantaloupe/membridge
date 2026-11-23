@@ -1,0 +1,12 @@
+﻿{
+    "date":  "2026-11-24T06:50:17",
+    "driver":  "devhost.sys",
+    "sha256":  "ee8844ffd3879190fb389b0f613cb2dcdcd83375cf0a6994170a648c5ca8c479",
+    "capabilities":  [
+                         "system CR3 leak",
+                         "IOCTL 0x28E017 auth",
+                         "IOCTL 0x28E01B caller CR3+VA read"
+                     ],
+    "status":  "Defender blocked; sc start 225",
+    "note":  "CR3-capable candidate unavailable in current environment"
+}
