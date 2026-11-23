@@ -69,3 +69,18 @@ GLCKIO2/fekern -> 物理页/页表读
 2. 研究 umbus2 的 KPRL 查询协议；
 3. 继续逆向 FastDump `0x9C400018`，确认它是否能直接读内核 VA；
 4. 不测试 CR 寄存器读写。
+
+## CCHWApi LA57 复测
+当前 CPU 的 CCHWApi CR3：
+```
+CR3 = 0x270986000
+```
+用 glckio2 翻译 LSTAR：
+```
+--la57 未启用: VA -> PA failed
+--la57 启用:   VA -> PA failed
+```
+结论：
+- 不是 5-level paging 索引问题；
+- CCHWApi current CR3 仍不能作为页表基址；
+- 第二条路径继续排除。

@@ -1,0 +1,6 @@
+﻿{
+    "date":  "2026-11-24T07:17:41",
+    "cchw_cr3":  "0x270986000",
+    "la57":  "tested, translation still failed",
+    "note":  "CCHW current CR3 unusable even with LA57; no new safe path"
+}
