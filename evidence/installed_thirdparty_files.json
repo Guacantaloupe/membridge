@@ -1,0 +1,506 @@
+﻿[
+    {
+        "name":  "3ware.sys",
+        "size":  108464,
+        "company":  "LSI",
+        "version":  "5.01.00.051"
+    },
+    {
+        "name":  "adp80xx.sys",
+        "size":  1136544,
+        "company":  "PMC-Sierra",
+        "version":  "1.3.0.10769 (NT.150223-1854)"
+    },
+    {
+        "name":  "amdgpio2.sys",
+        "size":  18432,
+        "company":  "Advanced Micro Devices, Inc",
+        "version":  "2.2.0.71"
+    },
+    {
+        "name":  "amdi2c.sys",
+        "size":  45568,
+        "company":  "Advanced Micro Devices, Inc",
+        "version":  "1.2.0.99"
+    },
+    {
+        "name":  "amdsata.sys",
+        "size":  84400,
+        "company":  "Advanced Micro Devices",
+        "version":  "1.1.3.277 (NT.150223-1854)"
+    },
+    {
+        "name":  "amdsbs.sys",
+        "size":  260512,
+        "company":  "AMD Technologies Inc.",
+        "version":  "3.7.1540.43 (PART3.121207-1123)"
+    },
+    {
+        "name":  "amdxata.sys",
+        "size":  28064,
+        "company":  "Advanced Micro Devices",
+        "version":  "1.1.3.277 (NT.150223-1854)"
+    },
+    {
+        "name":  "AppleKmdfFilter.sys",
+        "size":  20032,
+        "company":  "Apple Inc.",
+        "version":  "486.0.0.0"
+    },
+    {
+        "name":  "AppleLowerFilter.sys",
+        "size":  35976,
+        "company":  "Apple Inc.",
+        "version":  "486.0.0.0"
+    },
+    {
+        "name":  "AppleSSD.sys",
+        "size":  113456,
+        "company":  "Apple Inc.",
+        "version":  "6.1.7800.1"
+    },
+    {
+        "name":  "arcsas.sys",
+        "size":  133024,
+        "company":  "PMC-Sierra, Inc.",
+        "version":  "7.5.0.32048 (NT.150223-1854)"
+    },
+    {
+        "name":  "AsusPTPFilter.sys",
+        "size":  115176,
+        "company":  "ASUSTek COMPUTER INC.",
+        "version":  "11.0.0.38"
+    },
+    {
+        "name":  "bcmfn2.sys",
+        "size":  9728,
+        "company":  "Windows (R) Win 7 DDK provider",
+        "version":  "6.3.9600.17336"
+    },
+    {
+        "name":  "bxvbda.sys",
+        "size":  534944,
+        "company":  "QLogic Corporation",
+        "version":  "7.12.31.105"
+    },
+    {
+        "name":  "CH341S64.SYS",
+        "size":  84864,
+        "company":  "wch.cn",
+        "version":  "3.90"
+    },
+    {
+        "name":  "CH343S64.SYS",
+        "size":  77824,
+        "company":  "WCH.CN",
+        "version":  "1.8"
+    },
+    {
+        "name":  "cht4dx64.sys",
+        "size":  145200,
+        "company":  "Chelsio Communications",
+        "version":  "6.11.4.100"
+    },
+    {
+        "name":  "cht4sx64.sys",
+        "size":  320944,
+        "company":  "Chelsio Communications",
+        "version":  "6.11.4.100"
+    },
+    {
+        "name":  "cht4vfx.sys",
+        "size":  28672,
+        "company":  "Chelsio Communications",
+        "version":  "6.11.4.100"
+    },
+    {
+        "name":  "cht4vx64.sys",
+        "size":  1854880,
+        "company":  "Chelsio Communications",
+        "version":  "6.11.4.100"
+    },
+    {
+        "name":  "evbd0a.sys",
+        "size":  3424160,
+        "company":  "QLogic Corporation",
+        "version":  "7.13.65.105"
+    },
+    {
+        "name":  "evbda.sys",
+        "size":  3441568,
+        "company":  "Marvell Semiconductor Inc.",
+        "version":  "7.13.171.102"
+    },
+    {
+        "name":  "ftser2k.sys",
+        "size":  89792,
+        "company":  "Future Technology Devices International Ltd.",
+        "version":  "2.12.28"
+    },
+    {
+        "name":  "HpSAMD.sys",
+        "size":  65440,
+        "company":  "Hewlett-Packard Company",
+        "version":  "8.0.4.0 Build 1 Media Driver (x86-64) (PART_L3.130128-0938)"
+    },
+    {
+        "name":  "iagpio.sys",
+        "size":  36352,
+        "company":  "Intel(R) Corporation",
+        "version":  "1.1.1.0"
+    },
+    {
+        "name":  "iai2c.sys",
+        "size":  91136,
+        "company":  "Intel(R) Corporation",
+        "version":  "1.1.1.0"
+    },
+    {
+        "name":  "iaLPSS2i_GPIO2.sys",
+        "size":  79360,
+        "company":  "Intel Corporation",
+        "version":  "30.100.1816.3"
+    },
+    {
+        "name":  "iaLPSS2i_GPIO2_BXT_P.sys",
+        "size":  93184,
+        "company":  "Intel Corporation",
+        "version":  "30.100.1816.1"
+    },
+    {
+        "name":  "iaLPSS2i_GPIO2_CNL.sys",
+        "size":  112128,
+        "company":  "Intel Corporation",
+        "version":  "30.100.1816.3"
+    },
+    {
+        "name":  "iaLPSS2i_GPIO2_GLK.sys",
+        "size":  96256,
+        "company":  "Intel Corporation",
+        "version":  "30.100.1820.1"
+    },
+    {
+        "name":  "iaLPSS2i_I2C.sys",
+        "size":  171520,
+        "company":  "Intel Corporation",
+        "version":  "30.100.1816.3"
+    },
+    {
+        "name":  "iaLPSS2i_I2C_BXT_P.sys",
+        "size":  175104,
+        "company":  "Intel Corporation",
+        "version":  "30.100.1816.1"
+    },
+    {
+        "name":  "iaLPSS2i_I2C_CNL.sys",
+        "size":  177152,
+        "company":  "Intel Corporation",
+        "version":  "30.100.1929.1"
+    },
+    {
+        "name":  "iaLPSS2i_I2C_GLK.sys",
+        "size":  177664,
+        "company":  "Intel Corporation",
+        "version":  "30.100.1820.1"
+    },
+    {
+        "name":  "iaLPSSi_GPIO.sys",
+        "size":  38128,
+        "company":  "Intel Corporation",
+        "version":  "1.1.250.0"
+    },
+    {
+        "name":  "iaLPSSi_I2C.sys",
+        "size":  113152,
+        "company":  "Intel Corporation",
+        "version":  "1.1.253.0"
+    },
+    {
+        "name":  "iaStorAfs.sys",
+        "size":  74448,
+        "company":  "Intel Corporation",
+        "version":  "18.6.1.1016"
+    },
+    {
+        "name":  "iaStorAVC.sys",
+        "size":  885568,
+        "company":  "Intel Corporation",
+        "version":  "15.44.0.1015"
+    },
+    {
+        "name":  "iaStorV.sys",
+        "size":  413088,
+        "company":  "Intel Corporation",
+        "version":  "8.6.2.1019"
+    },
+    {
+        "name":  "iaStorVD.sys",
+        "size":  1544912,
+        "company":  "Intel Corporation",
+        "version":  "18.6.1.1016"
+    },
+    {
+        "name":  "ibbus.sys",
+        "size":  559920,
+        "company":  "Mellanox",
+        "version":  "5.50.14695"
+    },
+    {
+        "name":  "ItSas35i.sys",
+        "size":  187200,
+        "company":  "Avago Technologies",
+        "version":  "2.61.29.80"
+    },
+    {
+        "name":  "lsi_sas.sys",
+        "size":  110000,
+        "company":  "LSI Corporation",
+        "version":  "1.34.03.83 (NT.150223-1854)"
+    },
+    {
+        "name":  "lsi_sas2i.sys",
+        "size":  125344,
+        "company":  "LSI Corporation",
+        "version":  "2.00.79.82"
+    },
+    {
+        "name":  "lsi_sas3i.sys",
+        "size":  138560,
+        "company":  "Avago Technologies",
+        "version":  "2.51.27.80"
+    },
+    {
+        "name":  "MegaSas2i.sys",
+        "size":  81840,
+        "company":  "Avago Technologies",
+        "version":  "6.714.22.00"
+    },
+    {
+        "name":  "megasas35i.sys",
+        "size":  101168,
+        "company":  "Broadcom Inc",
+        "version":  "7.717.02.00"
+    },
+    {
+        "name":  "megasr.sys",
+        "size":  576944,
+        "company":  "LSI Corporation, Inc.",
+        "version":  "15.02.2013.0129"
+    },
+    {
+        "name":  "mlx4_bus.sys",
+        "size":  1132336,
+        "company":  "Mellanox",
+        "version":  "5.50.14695"
+    },
+    {
+        "name":  "mpi3drvi.sys",
+        "size":  90544,
+        "company":  "Broadcom Limited",
+        "version":  "3.00.71.90"
+    },
+    {
+        "name":  "mvumis.sys",
+        "size":  64928,
+        "company":  "Marvell Semiconductor, Inc.",
+        "version":  " 1.0.5.1016  (PART_L3.131021-1012)"
+    },
+    {
+        "name":  "ndfltr.sys",
+        "size":  147248,
+        "company":  "Mellanox",
+        "version":  "5.50.14695"
+    },
+    {
+        "name":  "nvraid.sys",
+        "size":  151472,
+        "company":  "NVIDIA Corporation",
+        "version":  "10.6.0.23 (PART_L3.131021-1012)"
+    },
+    {
+        "name":  "nvstor.sys",
+        "size":  167344,
+        "company":  "NVIDIA Corporation",
+        "version":  "10.6.0.23 (PART_L3.131021-1012)"
+    },
+    {
+        "name":  "orayvhid.sys",
+        "size":  40136,
+        "company":  "Windows (R) Win 7 DDK provider",
+        "version":  "6.1.7600.16385 built by: WinDDK"
+    },
+    {
+        "name":  "orayvhidkmdf.sys",
+        "size":  37064,
+        "company":  "Windows (R) Win 7 DDK provider",
+        "version":  "6.1.7600.16385 built by: WinDDK"
+    },
+    {
+        "name":  "percsas2i.sys",
+        "size":  59824,
+        "company":  "Avago Technologies",
+        "version":  "6.805.03.00 (rs1_onecore_stacksp_sfs4(paudina).160302-1205)"
+    },
+    {
+        "name":  "percsas3i.sys",
+        "size":  69552,
+        "company":  "Avago Technologies",
+        "version":  "6.604.06.00"
+    },
+    {
+        "name":  "pvscsii.sys",
+        "size":  45488,
+        "company":  "VMware, Inc.",
+        "version":  "1.3.15.0"
+    },
+    {
+        "name":  "rteth.sys",
+        "size":  86016,
+        "company":  "Realtek",
+        "version":  "1.0 (WinBuild.160101.0800)"
+    },
+    {
+        "name":  "RtkBtfilter.sys",
+        "size":  825400,
+        "company":  "Realtek Semiconductor Corporation",
+        "version":  "1.10.1072.3"
+    },
+    {
+        "name":  "RTKVHD64.sys",
+        "size":  6333912,
+        "company":  "Realtek Semiconductor Corp.",
+        "version":  "6.0.9597.1"
+    },
+    {
+        "name":  "RtsUer.sys",
+        "size":  785984,
+        "company":  "Realsil Semiconductor Corporation",
+        "version":  "10.0.22000.31270"
+    },
+    {
+        "name":  "rtwlane.sys",
+        "size":  12230608,
+        "company":  "Realtek Semiconductor Corporation                           ",
+        "version":  "2024.10.143.0"
+    },
+    {
+        "name":  "RzCommon.sys",
+        "size":  64880,
+        "company":  "Razer Inc",
+        "version":  "1.0.0.76"
+    },
+    {
+        "name":  "RzDev_0099.sys",
+        "size":  64680,
+        "company":  "Razer Inc",
+        "version":  "1.0.0.73"
+    },
+    {
+        "name":  "silabser.sys",
+        "size":  153608,
+        "company":  "Silicon Laboratories Inc.",
+        "version":  "11.3.0.176"
+    },
+    {
+        "name":  "sisraid2.sys",
+        "size":  45984,
+        "company":  "Silicon Integrated Systems Corp.",
+        "version":  "2.60.01 (NT.070926-1510)"
+    },
+    {
+        "name":  "sisraid4.sys",
+        "size":  82848,
+        "company":  "Silicon Integrated Systems",
+        "version":  "3.60.03 (NT.070926-1510)"
+    },
+    {
+        "name":  "SmartSAMD.sys",
+        "size":  210848,
+        "company":  "Microsemi Corportation",
+        "version":  "1.50.1.0"
+    },
+    {
+        "name":  "stexstor.sys",
+        "size":  32176,
+        "company":  "Promise Technology, Inc.",
+        "version":  " 5.1.0000.10 (PART.121116-1330)"
+    },
+    {
+        "name":  "usbaapl64.sys",
+        "size":  54784,
+        "company":  "Apple, Inc.",
+        "version":  "1, 67, 0, 0"
+    },
+    {
+        "name":  "VBoxNetAdp6.sys",
+        "size":  242648,
+        "company":  "Oracle Corporation",
+        "version":  "6.1.50.161033"
+    },
+    {
+        "name":  "VBoxNetLwf.sys",
+        "size":  252672,
+        "company":  "Oracle Corporation",
+        "version":  "6.1.50.161033"
+    },
+    {
+        "name":  "VBoxSup.sys",
+        "size":  1083808,
+        "company":  "Oracle Corporation",
+        "version":  "6.1.50.161033"
+    },
+    {
+        "name":  "VBoxUSB.sys",
+        "size":  189304,
+        "company":  "Oracle and/or its affiliates",
+        "version":  "7.0.16.162802"
+    },
+    {
+        "name":  "VBoxUSBMon.sys",
+        "size":  191288,
+        "company":  "Oracle Corporation",
+        "version":  "6.1.50.161033"
+    },
+    {
+        "name":  "vmci.sys",
+        "size":  104888,
+        "company":  "VMware, Inc.",
+        "version":  "9.8.18.0"
+    },
+    {
+        "name":  "vmusb.sys",
+        "size":  70656,
+        "company":  "VMware, Inc.",
+        "version":  "4.3.1.4"
+    },
+    {
+        "name":  "vsmraid.sys",
+        "size":  167840,
+        "company":  "VIA Technologies Inc.,Ltd",
+        "version":  "7.0.9600,6352"
+    },
+    {
+        "name":  "VSTXRAID.SYS",
+        "size":  306608,
+        "company":  "VIA Corporation",
+        "version":  "8.0.9200.8110"
+    },
+    {
+        "name":  "winmad.sys",
+        "size":  37184,
+        "company":  "Mellanox",
+        "version":  "5.50.14695"
+    },
+    {
+        "name":  "wintun.sys",
+        "size":  29592,
+        "company":  "WireGuard LLC",
+        "version":  "0.14"
+    },
+    {
+        "name":  "winverbs.sys",
+        "size":  74032,
+        "company":  "Mellanox",
+        "version":  "5.50.14695"
+    }
+]

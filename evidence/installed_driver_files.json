@@ -1,0 +1,1850 @@
+﻿[
+    {
+        "Name":  "1394ohci.sys",
+        "Length":  294912
+    },
+    {
+        "Name":  "3ware.sys",
+        "Length":  108464
+    },
+    {
+        "Name":  "acpi.sys",
+        "Length":  884088
+    },
+    {
+        "Name":  "AcpiDev.sys",
+        "Length":  61440
+    },
+    {
+        "Name":  "acpiex.sys",
+        "Length":  191864
+    },
+    {
+        "Name":  "acpitime.sys",
+        "Length":  57344
+    },
+    {
+        "Name":  "Acx01000.sys",
+        "Length":  749568
+    },
+    {
+        "Name":  "adp80xx.sys",
+        "Length":  1136544
+    },
+    {
+        "Name":  "afd.sys",
+        "Length":  765304
+    },
+    {
+        "Name":  "afunix.sys",
+        "Length":  90112
+    },
+    {
+        "Name":  "agilevpn.sys",
+        "Length":  155648
+    },
+    {
+        "Name":  "ahcache.sys",
+        "Length":  380928
+    },
+    {
+        "Name":  "amdgpio2.sys",
+        "Length":  18432
+    },
+    {
+        "Name":  "amdi2c.sys",
+        "Length":  45568
+    },
+    {
+        "Name":  "amdk8.sys",
+        "Length":  273768
+    },
+    {
+        "Name":  "amdppm.sys",
+        "Length":  286080
+    },
+    {
+        "Name":  "amdsata.sys",
+        "Length":  84400
+    },
+    {
+        "Name":  "amdsbs.sys",
+        "Length":  260512
+    },
+    {
+        "Name":  "amdwps.sys",
+        "Length":  67144
+    },
+    {
+        "Name":  "amdxata.sys",
+        "Length":  28064
+    },
+    {
+        "Name":  "appid.sys",
+        "Length":  269664
+    },
+    {
+        "Name":  "AppleKmdfFilter.sys",
+        "Length":  20032
+    },
+    {
+        "Name":  "AppleLowerFilter.sys",
+        "Length":  35976
+    },
+    {
+        "Name":  "AppleSSD.sys",
+        "Length":  113456
+    },
+    {
+        "Name":  "applockerfltr.sys",
+        "Length":  61440
+    },
+    {
+        "Name":  "arcsas.sys",
+        "Length":  133024
+    },
+    {
+        "Name":  "AsusPTPFilter.sys",
+        "Length":  115176
+    },
+    {
+        "Name":  "asyncmac.sys",
+        "Length":  61440
+    },
+    {
+        "Name":  "atapi.sys",
+        "Length":  77144
+    },
+    {
+        "Name":  "ataport.sys",
+        "Length":  294240
+    },
+    {
+        "Name":  "bam.sys",
+        "Length":  134472
+    },
+    {
+        "Name":  "battc.sys",
+        "Length":  155008
+    },
+    {
+        "Name":  "bcmfn2.sys",
+        "Length":  9728
+    },
+    {
+        "Name":  "beep.sys",
+        "Length":  40960
+    },
+    {
+        "Name":  "bfs.sys",
+        "Length":  195936
+    },
+    {
+        "Name":  "bindflt.sys",
+        "Length":  208272
+    },
+    {
+        "Name":  "bowser.sys",
+        "Length":  172032
+    },
+    {
+        "Name":  "bridge.sys",
+        "Length":  163840
+    },
+    {
+        "Name":  "BtaMPM.sys",
+        "Length":  86016
+    },
+    {
+        "Name":  "BthA2dp.sys",
+        "Length":  663552
+    },
+    {
+        "Name":  "bthenum.sys",
+        "Length":  147456
+    },
+    {
+        "Name":  "BthHfEnum.sys",
+        "Length":  212992
+    },
+    {
+        "Name":  "BthMini.SYS",
+        "Length":  94208
+    },
+    {
+        "Name":  "bthmodem.sys",
+        "Length":  114688
+    },
+    {
+        "Name":  "bthpan.sys",
+        "Length":  163840
+    },
+    {
+        "Name":  "bthport.sys",
+        "Length":  2326528
+    },
+    {
+        "Name":  "BTHUSB.SYS",
+        "Length":  143360
+    },
+    {
+        "Name":  "bttflt.sys",
+        "Length":  79176
+    },
+    {
+        "Name":  "buttonconverter.sys",
+        "Length":  90112
+    },
+    {
+        "Name":  "bxvbda.sys",
+        "Length":  534944
+    },
+    {
+        "Name":  "CAD.sys",
+        "Length":  114016
+    },
+    {
+        "Name":  "cdfs.sys",
+        "Length":  139264
+    },
+    {
+        "Name":  "cdrom.sys",
+        "Length":  233472
+    },
+    {
+        "Name":  "CEA.sys",
+        "Length":  118120
+    },
+    {
+        "Name":  "CH341S64.SYS",
+        "Length":  84864
+    },
+    {
+        "Name":  "CH343S64.SYS",
+        "Length":  77824
+    },
+    {
+        "Name":  "cht4dx64.sys",
+        "Length":  145200
+    },
+    {
+        "Name":  "cht4sx64.sys",
+        "Length":  320944
+    },
+    {
+        "Name":  "cht4vfx.sys",
+        "Length":  28672
+    },
+    {
+        "Name":  "cht4vx64.sys",
+        "Length":  1854880
+    },
+    {
+        "Name":  "cimfs.sys",
+        "Length":  302456
+    },
+    {
+        "Name":  "circlass.sys",
+        "Length":  90112
+    },
+    {
+        "Name":  "Classpnp.sys",
+        "Length":  527712
+    },
+    {
+        "Name":  "cldflt.sys",
+        "Length":  606208
+    },
+    {
+        "Name":  "clfs.sys",
+        "Length":  585024
+    },
+    {
+        "Name":  "ClipSp.sys",
+        "Length":  1162616
+    },
+    {
+        "Name":  "CmBatt.sys",
+        "Length":  98304
+    },
+    {
+        "Name":  "cmimcext.sys",
+        "Length":  93536
+    },
+    {
+        "Name":  "cng.sys",
+        "Length":  982840
+    },
+    {
+        "Name":  "cnghwassist.sys",
+        "Length":  75056
+    },
+    {
+        "Name":  "condrv.sys",
+        "Length":  109920
+    },
+    {
+        "Name":  "crashdmp.sys",
+        "Length":  171360
+    },
+    {
+        "Name":  "dam.sys",
+        "Length":  146784
+    },
+    {
+        "Name":  "devauthe.sys",
+        "Length":  86016
+    },
+    {
+        "Name":  "dfsc.sys",
+        "Length":  220528
+    },
+    {
+        "Name":  "disk.sys",
+        "Length":  155000
+    },
+    {
+        "Name":  "Diskdump.sys",
+        "Length":  89464
+    },
+    {
+        "Name":  "Dmpusbstor.sys",
+        "Length":  61440
+    },
+    {
+        "Name":  "dmvsc.sys",
+        "Length":  99744
+    },
+    {
+        "Name":  "drmk.sys",
+        "Length":  131072
+    },
+    {
+        "Name":  "drmkaud.sys",
+        "Length":  61656
+    },
+    {
+        "Name":  "Dumpata.sys",
+        "Length":  89432
+    },
+    {
+        "Name":  "dumpfve.sys",
+        "Length":  170024
+    },
+    {
+        "Name":  "dumpsd.sys",
+        "Length":  245088
+    },
+    {
+        "Name":  "dumpsdport.sys",
+        "Length":  73728
+    },
+    {
+        "Name":  "Dumpstorport.sys",
+        "Length":  118088
+    },
+    {
+        "Name":  "dxgkrnl.sys",
+        "Length":  5320064
+    },
+    {
+        "Name":  "dxgmms1.sys",
+        "Length":  560504
+    },
+    {
+        "Name":  "dxgmms2.sys",
+        "Length":  1228120
+    },
+    {
+        "Name":  "EhStorClass.sys",
+        "Length":  179552
+    },
+    {
+        "Name":  "EhStorTcgDrv.sys",
+        "Length":  183648
+    },
+    {
+        "Name":  "errdev.sys",
+        "Length":  53248
+    },
+    {
+        "Name":  "evbd0a.sys",
+        "Length":  3424160
+    },
+    {
+        "Name":  "evbda.sys",
+        "Length":  3441568
+    },
+    {
+        "Name":  "ExecutionContext.sys",
+        "Length":  146760
+    },
+    {
+        "Name":  "exfat.sys",
+        "Length":  449880
+    },
+    {
+        "Name":  "fastfat.sys",
+        "Length":  458072
+    },
+    {
+        "Name":  "fdc.sys",
+        "Length":  69632
+    },
+    {
+        "Name":  "filecrypt.sys",
+        "Length":  98304
+    },
+    {
+        "Name":  "fileinfo.sys",
+        "Length":  128432
+    },
+    {
+        "Name":  "filetrace.sys",
+        "Length":  81920
+    },
+    {
+        "Name":  "flpydisk.sys",
+        "Length":  69632
+    },
+    {
+        "Name":  "fltMgr.sys",
+        "Length":  605536
+    },
+    {
+        "Name":  "fsdepends.sys",
+        "Length":  126312
+    },
+    {
+        "Name":  "fse.sys",
+        "Length":  245088
+    },
+    {
+        "Name":  "fs_rec.sys",
+        "Length":  71072
+    },
+    {
+        "Name":  "ftser2k.sys",
+        "Length":  89792
+    },
+    {
+        "Name":  "fvevol.sys",
+        "Length":  986480
+    },
+    {
+        "Name":  "FWPKCLNT.SYS",
+        "Length":  580928
+    },
+    {
+        "Name":  "globmerger.sys",
+        "Length":  150936
+    },
+    {
+        "Name":  "hdaudbus.sys",
+        "Length":  204800
+    },
+    {
+        "Name":  "HdAudio.sys",
+        "Length":  544768
+    },
+    {
+        "Name":  "hidbatt.sys",
+        "Length":  89416
+    },
+    {
+        "Name":  "hidbth.sys",
+        "Length":  155648
+    },
+    {
+        "Name":  "hidclass.sys",
+        "Length":  323584
+    },
+    {
+        "Name":  "hidi2c.sys",
+        "Length":  131072
+    },
+    {
+        "Name":  "hidinterrupt.sys",
+        "Length":  91456
+    },
+    {
+        "Name":  "hidir.sys",
+        "Length":  81920
+    },
+    {
+        "Name":  "hidparse.sys",
+        "Length":  106496
+    },
+    {
+        "Name":  "hidspi.sys",
+        "Length":  139264
+    },
+    {
+        "Name":  "HidSpiCx.sys",
+        "Length":  131072
+    },
+    {
+        "Name":  "hidusb.sys",
+        "Length":  81920
+    },
+    {
+        "Name":  "hnswfpdriver.sys",
+        "Length":  58824
+    },
+    {
+        "Name":  "HpSAMD.sys",
+        "Length":  65440
+    },
+    {
+        "Name":  "Hsp.sys",
+        "Length":  134488
+    },
+    {
+        "Name":  "http.sys",
+        "Length":  2194808
+    },
+    {
+        "Name":  "hvcrash.sys",
+        "Length":  75168
+    },
+    {
+        "Name":  "hvservice.sys",
+        "Length":  109944
+    },
+    {
+        "Name":  "hvsocket.sys",
+        "Length":  204120
+    },
+    {
+        "Name":  "hvsocketcontrol.sys",
+        "Length":  66992
+    },
+    {
+        "Name":  "hwpolicy.sys",
+        "Length":  79288
+    },
+    {
+        "Name":  "hyperkbd.sys",
+        "Length":  62784
+    },
+    {
+        "Name":  "HyperVideo.sys",
+        "Length":  79160
+    },
+    {
+        "Name":  "i8042prt.sys",
+        "Length":  155648
+    },
+    {
+        "Name":  "iagpio.sys",
+        "Length":  36352
+    },
+    {
+        "Name":  "iai2c.sys",
+        "Length":  91136
+    },
+    {
+        "Name":  "iaLPSS2i_GPIO2.sys",
+        "Length":  79360
+    },
+    {
+        "Name":  "iaLPSS2i_GPIO2_BXT_P.sys",
+        "Length":  93184
+    },
+    {
+        "Name":  "iaLPSS2i_GPIO2_CNL.sys",
+        "Length":  112128
+    },
+    {
+        "Name":  "iaLPSS2i_GPIO2_GLK.sys",
+        "Length":  96256
+    },
+    {
+        "Name":  "iaLPSS2i_I2C.sys",
+        "Length":  171520
+    },
+    {
+        "Name":  "iaLPSS2i_I2C_BXT_P.sys",
+        "Length":  175104
+    },
+    {
+        "Name":  "iaLPSS2i_I2C_CNL.sys",
+        "Length":  177152
+    },
+    {
+        "Name":  "iaLPSS2i_I2C_GLK.sys",
+        "Length":  177664
+    },
+    {
+        "Name":  "iaLPSSi_GPIO.sys",
+        "Length":  38128
+    },
+    {
+        "Name":  "iaLPSSi_I2C.sys",
+        "Length":  113152
+    },
+    {
+        "Name":  "iaStorAfs.sys",
+        "Length":  74448
+    },
+    {
+        "Name":  "iaStorAVC.sys",
+        "Length":  885568
+    },
+    {
+        "Name":  "iaStorV.sys",
+        "Length":  413088
+    },
+    {
+        "Name":  "iaStorVD.sys",
+        "Length":  1544912
+    },
+    {
+        "Name":  "ibbus.sys",
+        "Length":  559920
+    },
+    {
+        "Name":  "IndirectKmd.sys",
+        "Length":  94208
+    },
+    {
+        "Name":  "intelide.sys",
+        "Length":  68984
+    },
+    {
+        "Name":  "intelpep.sys",
+        "Length":  657888
+    },
+    {
+        "Name":  "intelpmax.sys",
+        "Length":  65536
+    },
+    {
+        "Name":  "IntelPMT.sys",
+        "Length":  88544
+    },
+    {
+        "Name":  "intelppm.sys",
+        "Length":  310624
+    },
+    {
+        "Name":  "iorate.sys",
+        "Length":  91624
+    },
+    {
+        "Name":  "ipfltdrv.sys",
+        "Length":  118784
+    },
+    {
+        "Name":  "IPMIDrv.sys",
+        "Length":  179568
+    },
+    {
+        "Name":  "ipnat.sys",
+        "Length":  262144
+    },
+    {
+        "Name":  "ipt.sys",
+        "Length":  114064
+    },
+    {
+        "Name":  "isapnp.sys",
+        "Length":  68984
+    },
+    {
+        "Name":  "ItSas35i.sys",
+        "Length":  187200
+    },
+    {
+        "Name":  "kbdclass.sys",
+        "Length":  105848
+    },
+    {
+        "Name":  "kbdhid.sys",
+        "Length":  81920
+    },
+    {
+        "Name":  "kdnic.sys",
+        "Length":  79336
+    },
+    {
+        "Name":  "kdnic_legacy.sys",
+        "Length":  70976
+    },
+    {
+        "Name":  "Kerb3961Kernel.sys",
+        "Length":  167288
+    },
+    {
+        "Name":  "kmpdc.sys",
+        "Length":  101728
+    },
+    {
+        "Name":  "KNetPwrDepBroker.sys",
+        "Length":  86016
+    },
+    {
+        "Name":  "ks.sys",
+        "Length":  552960
+    },
+    {
+        "Name":  "ksecdd.sys",
+        "Length":  240992
+    },
+    {
+        "Name":  "ksecpkg.sys",
+        "Length":  241016
+    },
+    {
+        "Name":  "KslD.sys",
+        "Length":  333216
+    },
+    {
+        "Name":  "ksthunk.sys",
+        "Length":  77824
+    },
+    {
+        "Name":  "l1vhlwf.sys",
+        "Length":  154976
+    },
+    {
+        "Name":  "l2bridge.sys",
+        "Length":  114040
+    },
+    {
+        "Name":  "lltdio.sys",
+        "Length":  106496
+    },
+    {
+        "Name":  "lsi_sas.sys",
+        "Length":  110000
+    },
+    {
+        "Name":  "lsi_sas2i.sys",
+        "Length":  125344
+    },
+    {
+        "Name":  "lsi_sas3i.sys",
+        "Length":  138560
+    },
+    {
+        "Name":  "luafv.sys",
+        "Length":  208896
+    },
+    {
+        "Name":  "mausbhost.sys",
+        "Length":  580936
+    },
+    {
+        "Name":  "mausbip.sys",
+        "Length":  109896
+    },
+    {
+        "Name":  "MbbCx.sys",
+        "Length":  491520
+    },
+    {
+        "Name":  "mcd.sys",
+        "Length":  61440
+    },
+    {
+        "Name":  "MegaSas2i.sys",
+        "Length":  81840
+    },
+    {
+        "Name":  "megasas35i.sys",
+        "Length":  101168
+    },
+    {
+        "Name":  "megasr.sys",
+        "Length":  576944
+    },
+    {
+        "Name":  "Microsoft.Bluetooth.AvrcpTransport.sys",
+        "Length":  126976
+    },
+    {
+        "Name":  "Microsoft.Bluetooth.Legacy.LEEnumerator.sys",
+        "Length":  159744
+    },
+    {
+        "Name":  "mlx4_bus.sys",
+        "Length":  1132336
+    },
+    {
+        "Name":  "mmcss.sys",
+        "Length":  90112
+    },
+    {
+        "Name":  "modem.sys",
+        "Length":  81920
+    },
+    {
+        "Name":  "monitor.sys",
+        "Length":  131072
+    },
+    {
+        "Name":  "mouclass.sys",
+        "Length":  105824
+    },
+    {
+        "Name":  "mouhid.sys",
+        "Length":  73728
+    },
+    {
+        "Name":  "mountmgr.sys",
+        "Length":  163136
+    },
+    {
+        "Name":  "mpi3drvi.sys",
+        "Length":  90544
+    },
+    {
+        "Name":  "mpsdrv.sys",
+        "Length":  118784
+    },
+    {
+        "Name":  "mrxdav.sys",
+        "Length":  196608
+    },
+    {
+        "Name":  "mrxsmb.sys",
+        "Length":  949624
+    },
+    {
+        "Name":  "mrxsmb20.sys",
+        "Length":  400776
+    },
+    {
+        "Name":  "msfs.sys",
+        "Length":  97600
+    },
+    {
+        "Name":  "msgpioclx.sys",
+        "Length":  236896
+    },
+    {
+        "Name":  "msgpiowin32.sys",
+        "Length":  95648
+    },
+    {
+        "Name":  "mshidkmdf.sys",
+        "Length":  49152
+    },
+    {
+        "Name":  "mshidumdf.sys",
+        "Length":  49152
+    },
+    {
+        "Name":  "mshwnclx.sys",
+        "Length":  61440
+    },
+    {
+        "Name":  "msisadrv.sys",
+        "Length":  73104
+    },
+    {
+        "Name":  "msiscsi.sys",
+        "Length":  355704
+    },
+    {
+        "Name":  "MsixPackagingToolMonitor.sys",
+        "Length":  65536
+    },
+    {
+        "Name":  "mskssrv.sys",
+        "Length":  81920
+    },
+    {
+        "Name":  "mslldp.sys",
+        "Length":  114688
+    },
+    {
+        "Name":  "mspclock.sys",
+        "Length":  53248
+    },
+    {
+        "Name":  "mspqm.sys",
+        "Length":  49152
+    },
+    {
+        "Name":  "msquic.sys",
+        "Length":  531784
+    },
+    {
+        "Name":  "msquicprev.sys",
+        "Length":  531776
+    },
+    {
+        "Name":  "msrpc.sys",
+        "Length":  433528
+    },
+    {
+        "Name":  "mssmbios.sys",
+        "Length":  79152
+    },
+    {
+        "Name":  "mstee.sys",
+        "Length":  57344
+    },
+    {
+        "Name":  "MTConfig.sys",
+        "Length":  53248
+    },
+    {
+        "Name":  "mup.sys",
+        "Length":  195960
+    },
+    {
+        "Name":  "mvumis.sys",
+        "Length":  64928
+    },
+    {
+        "Name":  "ndfltr.sys",
+        "Length":  147248
+    },
+    {
+        "Name":  "ndis.sys",
+        "Length":  1863040
+    },
+    {
+        "Name":  "ndiscap.sys",
+        "Length":  98304
+    },
+    {
+        "Name":  "NdisImPlatform.sys",
+        "Length":  167936
+    },
+    {
+        "Name":  "ndistapi.sys",
+        "Length":  65536
+    },
+    {
+        "Name":  "ndisuio.sys",
+        "Length":  102400
+    },
+    {
+        "Name":  "NdisVirtualBus.sys",
+        "Length":  57344
+    },
+    {
+        "Name":  "ndiswan.sys",
+        "Length":  262144
+    },
+    {
+        "Name":  "NDKPerf.sys",
+        "Length":  83448
+    },
+    {
+        "Name":  "NDKPing.sys",
+        "Length":  122176
+    },
+    {
+        "Name":  "ndproxy.sys",
+        "Length":  131072
+    },
+    {
+        "Name":  "Ndu.sys",
+        "Length":  192512
+    },
+    {
+        "Name":  "netadaptercx.sys",
+        "Length":  400736
+    },
+    {
+        "Name":  "netbios.sys",
+        "Length":  122232
+    },
+    {
+        "Name":  "netbt.sys",
+        "Length":  360448
+    },
+    {
+        "Name":  "netio.sys",
+        "Length":  753016
+    },
+    {
+        "Name":  "netvsc.sys",
+        "Length":  412992
+    },
+    {
+        "Name":  "npfs.sys",
+        "Length":  120264
+    },
+    {
+        "Name":  "npsvctrig.sys",
+        "Length":  65536
+    },
+    {
+        "Name":  "nsiproxy.sys",
+        "Length":  77824
+    },
+    {
+        "Name":  "ntfs.sys",
+        "Length":  3693920
+    },
+    {
+        "Name":  "ntosext.sys",
+        "Length":  62896
+    },
+    {
+        "Name":  "null.sys",
+        "Length":  53248
+    },
+    {
+        "Name":  "nvdimm.sys",
+        "Length":  210360
+    },
+    {
+        "Name":  "nvmedisk.sys",
+        "Length":  138568
+    },
+    {
+        "Name":  "nvraid.sys",
+        "Length":  151472
+    },
+    {
+        "Name":  "nvstor.sys",
+        "Length":  167344
+    },
+    {
+        "Name":  "nwifi.sys",
+        "Length":  999424
+    },
+    {
+        "Name":  "orayvhid.sys",
+        "Length":  40136
+    },
+    {
+        "Name":  "orayvhidkmdf.sys",
+        "Length":  37064
+    },
+    {
+        "Name":  "p9rdr.sys",
+        "Length":  163144
+    },
+    {
+        "Name":  "pacer.sys",
+        "Length":  224608
+    },
+    {
+        "Name":  "parport.sys",
+        "Length":  155648
+    },
+    {
+        "Name":  "partmgr.sys",
+        "Length":  241024
+    },
+    {
+        "Name":  "passthruparser.sys",
+        "Length":  71088
+    },
+    {
+        "Name":  "pci.sys",
+        "Length":  617848
+    },
+    {
+        "Name":  "pciide.sys",
+        "Length":  64840
+    },
+    {
+        "Name":  "pciidex.sys",
+        "Length":  109944
+    },
+    {
+        "Name":  "pcmcia.sys",
+        "Length":  179584
+    },
+    {
+        "Name":  "pcw.sys",
+        "Length":  113992
+    },
+    {
+        "Name":  "pdc.sys",
+        "Length":  224616
+    },
+    {
+        "Name":  "PEAuth.sys",
+        "Length":  872448
+    },
+    {
+        "Name":  "percsas2i.sys",
+        "Length":  59824
+    },
+    {
+        "Name":  "percsas3i.sys",
+        "Length":  69552
+    },
+    {
+        "Name":  "PktMon.sys",
+        "Length":  232792
+    },
+    {
+        "Name":  "PktMonApi.sys",
+        "Length":  61440
+    },
+    {
+        "Name":  "pmem.sys",
+        "Length":  200080
+    },
+    {
+        "Name":  "pnpmem.sys",
+        "Length":  53248
+    },
+    {
+        "Name":  "portcfg.sys",
+        "Length":  61440
+    },
+    {
+        "Name":  "portcls.sys",
+        "Length":  479232
+    },
+    {
+        "Name":  "processr.sys",
+        "Length":  281976
+    },
+    {
+        "Name":  "ProcLaunchMon.sys",
+        "Length":  79880
+    },
+    {
+        "Name":  "pvhdparser.sys",
+        "Length":  95664
+    },
+    {
+        "Name":  "pvscsii.sys",
+        "Length":  45488
+    },
+    {
+        "Name":  "qwavedrv.sys",
+        "Length":  90112
+    },
+    {
+        "Name":  "ramdisk.sys",
+        "Length":  75232
+    },
+    {
+        "Name":  "rasacd.sys",
+        "Length":  57344
+    },
+    {
+        "Name":  "rasl2tp.sys",
+        "Length":  147456
+    },
+    {
+        "Name":  "raspppoe.sys",
+        "Length":  126976
+    },
+    {
+        "Name":  "raspptp.sys",
+        "Length":  147456
+    },
+    {
+        "Name":  "rassstp.sys",
+        "Length":  131072
+    },
+    {
+        "Name":  "rdbss.sys",
+        "Length":  576864
+    },
+    {
+        "Name":  "rdpbus.sys",
+        "Length":  65536
+    },
+    {
+        "Name":  "rdpdr.sys",
+        "Length":  208896
+    },
+    {
+        "Name":  "rdyboost.sys",
+        "Length":  335176
+    },
+    {
+        "Name":  "refs.sys",
+        "Length":  3550584
+    },
+    {
+        "Name":  "refsv1.sys",
+        "Length":  1019256
+    },
+    {
+        "Name":  "rfcomm.sys",
+        "Length":  253952
+    },
+    {
+        "Name":  "rhproxy.sys",
+        "Length":  143360
+    },
+    {
+        "Name":  "rmcast.sys",
+        "Length":  212992
+    },
+    {
+        "Name":  "RNDISMP.sys",
+        "Length":  77824
+    },
+    {
+        "Name":  "rootmdm.sys",
+        "Length":  49152
+    },
+    {
+        "Name":  "RoutePolicy.sys",
+        "Length":  118784
+    },
+    {
+        "Name":  "rspndr.sys",
+        "Length":  122880
+    },
+    {
+        "Name":  "rteth.sys",
+        "Length":  86016
+    },
+    {
+        "Name":  "RtkBtfilter.sys",
+        "Length":  825400
+    },
+    {
+        "Name":  "RTKVHD64.sys",
+        "Length":  6333912
+    },
+    {
+        "Name":  "RtsUer.sys",
+        "Length":  785984
+    },
+    {
+        "Name":  "rtwlane.sys",
+        "Length":  12230608
+    },
+    {
+        "Name":  "RzCommon.sys",
+        "Length":  64880
+    },
+    {
+        "Name":  "RzDev_0099.sys",
+        "Length":  64680
+    },
+    {
+        "Name":  "sbp2port.sys",
+        "Length":  167240
+    },
+    {
+        "Name":  "scfilter.sys",
+        "Length":  77824
+    },
+    {
+        "Name":  "scmbus.sys",
+        "Length":  273736
+    },
+    {
+        "Name":  "scsiport.sys",
+        "Length":  245064
+    },
+    {
+        "Name":  "sdbus.sys",
+        "Length":  355696
+    },
+    {
+        "Name":  "sdport.sys",
+        "Length":  140600
+    },
+    {
+        "Name":  "sdstor.sys",
+        "Length":  150904
+    },
+    {
+        "Name":  "SerCx.sys",
+        "Length":  120128
+    },
+    {
+        "Name":  "SerCx2.sys",
+        "Length":  218544
+    },
+    {
+        "Name":  "serenum.sys",
+        "Length":  65536
+    },
+    {
+        "Name":  "serial.sys",
+        "Length":  122880
+    },
+    {
+        "Name":  "sermouse.sys",
+        "Length":  65536
+    },
+    {
+        "Name":  "sfloppy.sys",
+        "Length":  57344
+    },
+    {
+        "Name":  "silabser.sys",
+        "Length":  153608
+    },
+    {
+        "Name":  "sisraid2.sys",
+        "Length":  45984
+    },
+    {
+        "Name":  "sisraid4.sys",
+        "Length":  82848
+    },
+    {
+        "Name":  "SmartSAMD.sys",
+        "Length":  210848
+    },
+    {
+        "Name":  "smclib.sys",
+        "Length":  65536
+    },
+    {
+        "Name":  "spacedump.sys",
+        "Length":  318816
+    },
+    {
+        "Name":  "spaceparser.sys",
+        "Length":  86016
+    },
+    {
+        "Name":  "spaceport.sys",
+        "Length":  1035608
+    },
+    {
+        "Name":  "SpbCx.sys",
+        "Length":  134472
+    },
+    {
+        "Name":  "srv2.sys",
+        "Length":  1015808
+    },
+    {
+        "Name":  "srvnet.sys",
+        "Length":  405504
+    },
+    {
+        "Name":  "stexstor.sys",
+        "Length":  32176
+    },
+    {
+        "Name":  "storahci.sys",
+        "Length":  253304
+    },
+    {
+        "Name":  "stornvme.sys",
+        "Length":  347504
+    },
+    {
+        "Name":  "storport.sys",
+        "Length":  2620792
+    },
+    {
+        "Name":  "storqosflt.sys",
+        "Length":  134552
+    },
+    {
+        "Name":  "storufs.sys",
+        "Length":  167296
+    },
+    {
+        "Name":  "storvsc.sys",
+        "Length":  105880
+    },
+    {
+        "Name":  "storvsp.sys",
+        "Length":  322888
+    },
+    {
+        "Name":  "stream.sys",
+        "Length":  118784
+    },
+    {
+        "Name":  "tape.sys",
+        "Length":  69632
+    },
+    {
+        "Name":  "tbs.sys",
+        "Length":  85320
+    },
+    {
+        "Name":  "tcpip.sys",
+        "Length":  3493240
+    },
+    {
+        "Name":  "tcpipreg.sys",
+        "Length":  86016
+    },
+    {
+        "Name":  "tdi.sys",
+        "Length":  89464
+    },
+    {
+        "Name":  "tdx.sys",
+        "Length":  191840
+    },
+    {
+        "Name":  "terminpt.sys",
+        "Length":  75184
+    },
+    {
+        "Name":  "tm.sys",
+        "Length":  195912
+    },
+    {
+        "Name":  "tpm.sys",
+        "Length":  384376
+    },
+    {
+        "Name":  "TsUsbFlt.sys",
+        "Length":  98304
+    },
+    {
+        "Name":  "TsUsbGD.sys",
+        "Length":  77824
+    },
+    {
+        "Name":  "tunnel.sys",
+        "Length":  167936
+    },
+    {
+        "Name":  "uaspstor.sys",
+        "Length":  134520
+    },
+    {
+        "Name":  "UcmCx.sys",
+        "Length":  221184
+    },
+    {
+        "Name":  "UcmTcpciCx.sys",
+        "Length":  221184
+    },
+    {
+        "Name":  "UcmUcsiAcpiClient.sys",
+        "Length":  77824
+    },
+    {
+        "Name":  "UcmUcsiCx.sys",
+        "Length":  200704
+    },
+    {
+        "Name":  "UCPD.sys",
+        "Length":  236896
+    },
+    {
+        "Name":  "Ucx01000.sys",
+        "Length":  310648
+    },
+    {
+        "Name":  "Udecx.sys",
+        "Length":  90112
+    },
+    {
+        "Name":  "udfs.sys",
+        "Length":  409600
+    },
+    {
+        "Name":  "ufx01000.sys",
+        "Length":  361776
+    },
+    {
+        "Name":  "ufxsynopsys.sys",
+        "Length":  198064
+    },
+    {
+        "Name":  "UnionFS.sys",
+        "Length":  511320
+    },
+    {
+        "Name":  "urscx01000.sys",
+        "Length":  111936
+    },
+    {
+        "Name":  "usb8023.sys",
+        "Length":  69632
+    },
+    {
+        "Name":  "usbaapl64.sys",
+        "Length":  54784
+    },
+    {
+        "Name":  "USBAUDIO.sys",
+        "Length":  303104
+    },
+    {
+        "Name":  "usbaudio2.sys",
+        "Length":  409600
+    },
+    {
+        "Name":  "USBCAMD2.sys",
+        "Length":  81920
+    },
+    {
+        "Name":  "usbccgp.sys",
+        "Length":  232800
+    },
+    {
+        "Name":  "usbcir.sys",
+        "Length":  147456
+    },
+    {
+        "Name":  "usbd.sys",
+        "Length":  85344
+    },
+    {
+        "Name":  "usbehci.sys",
+        "Length":  142688
+    },
+    {
+        "Name":  "usbhub.sys",
+        "Length":  576832
+    },
+    {
+        "Name":  "USBHUB3.SYS",
+        "Length":  757056
+    },
+    {
+        "Name":  "usbohci.sys",
+        "Length":  69632
+    },
+    {
+        "Name":  "UsbPmApi.sys",
+        "Length":  98304
+    },
+    {
+        "Name":  "usbport.sys",
+        "Length":  519552
+    },
+    {
+        "Name":  "usbprint.sys",
+        "Length":  118784
+    },
+    {
+        "Name":  "usbser.sys",
+        "Length":  131072
+    },
+    {
+        "Name":  "USBSTOR.SYS",
+        "Length":  216392
+    },
+    {
+        "Name":  "usbuhci.sys",
+        "Length":  73728
+    },
+    {
+        "Name":  "usbvideo.sys",
+        "Length":  441672
+    },
+    {
+        "Name":  "USBXHCI.SYS",
+        "Length":  810336
+    },
+    {
+        "Name":  "VBoxNetAdp6.sys",
+        "Length":  242648
+    },
+    {
+        "Name":  "VBoxNetLwf.sys",
+        "Length":  252672
+    },
+    {
+        "Name":  "VBoxSup.sys",
+        "Length":  1083808
+    },
+    {
+        "Name":  "VBoxUSB.sys",
+        "Length":  189304
+    },
+    {
+        "Name":  "VBoxUSBMon.sys",
+        "Length":  191288
+    },
+    {
+        "Name":  "vdrvroot.sys",
+        "Length":  124216
+    },
+    {
+        "Name":  "VerifierExt.sys",
+        "Length":  281928
+    },
+    {
+        "Name":  "vfpext.sys",
+        "Length":  1675264
+    },
+    {
+        "Name":  "vhdmp.sys",
+        "Length":  1072456
+    },
+    {
+        "Name":  "vhdparser.sys",
+        "Length":  97656
+    },
+    {
+        "Name":  "vhf.sys",
+        "Length":  90112
+    },
+    {
+        "Name":  "Vid.sys",
+        "Length":  925024
+    },
+    {
+        "Name":  "videoprt.sys",
+        "Length":  90112
+    },
+    {
+        "Name":  "vmbkmcl.sys",
+        "Length":  179552
+    },
+    {
+        "Name":  "vmbkmclr.sys",
+        "Length":  232768
+    },
+    {
+        "Name":  "vmbus.sys",
+        "Length":  228712
+    },
+    {
+        "Name":  "VMBusHID.sys",
+        "Length":  71072
+    },
+    {
+        "Name":  "vmbusproxy.sys",
+        "Length":  98304
+    },
+    {
+        "Name":  "vmbusr.sys",
+        "Length":  331104
+    },
+    {
+        "Name":  "vmci.sys",
+        "Length":  104888
+    },
+    {
+        "Name":  "vmgencounter.sys",
+        "Length":  58672
+    },
+    {
+        "Name":  "vmgid.sys",
+        "Length":  58784
+    },
+    {
+        "Name":  "vms3cap.sys",
+        "Length":  58800
+    },
+    {
+        "Name":  "VmsProxy.sys",
+        "Length":  81216
+    },
+    {
+        "Name":  "VmsProxyHNic.sys",
+        "Length":  85344
+    },
+    {
+        "Name":  "vmstorfl.sys",
+        "Length":  87472
+    },
+    {
+        "Name":  "vmsvcext.sys",
+        "Length":  50592
+    },
+    {
+        "Name":  "vmswitch.sys",
+        "Length":  2583872
+    },
+    {
+        "Name":  "vmusb.sys",
+        "Length":  70656
+    },
+    {
+        "Name":  "volmgr.sys",
+        "Length":  142664
+    },
+    {
+        "Name":  "volmgrx.sys",
+        "Length":  441720
+    },
+    {
+        "Name":  "volsnap.sys",
+        "Length":  564576
+    },
+    {
+        "Name":  "volume.sys",
+        "Length":  54672
+    },
+    {
+        "Name":  "vpci.sys",
+        "Length":  179552
+    },
+    {
+        "Name":  "vpcivsp.sys",
+        "Length":  265560
+    },
+    {
+        "Name":  "vsmraid.sys",
+        "Length":  167840
+    },
+    {
+        "Name":  "VSTXRAID.SYS",
+        "Length":  306608
+    },
+    {
+        "Name":  "vwififlt.sys",
+        "Length":  122880
+    },
+    {
+        "Name":  "wacompen.sys",
+        "Length":  65536
+    },
+    {
+        "Name":  "wanarp.sys",
+        "Length":  131072
+    },
+    {
+        "Name":  "watchdog.sys",
+        "Length":  150880
+    },
+    {
+        "Name":  "wcifs.sys",
+        "Length":  269720
+    },
+    {
+        "Name":  "WdBoot.sys",
+        "Length":  20880
+    },
+    {
+        "Name":  "WdDevFlt.sys",
+        "Length":  283016
+    },
+    {
+        "Name":  "Wdf01000.sys",
+        "Length":  998776
+    },
+    {
+        "Name":  "WdFilter.sys",
+        "Length":  627104
+    },
+    {
+        "Name":  "WdfLdr.sys",
+        "Length":  114016
+    },
+    {
+        "Name":  "WdiWiFi.sys",
+        "Length":  1159168
+    },
+    {
+        "Name":  "WdmCompanionFilter.sys",
+        "Length":  62896
+    },
+    {
+        "Name":  "WdNisDrv.sys",
+        "Length":  102816
+    },
+    {
+        "Name":  "werkernel.sys",
+        "Length":  109920
+    },
+    {
+        "Name":  "wesp.sys",
+        "Length":  4355960
+    },
+    {
+        "Name":  "wesp_elam.sys",
+        "Length":  1519024
+    },
+    {
+        "Name":  "wfplwfs.sys",
+        "Length":  257376
+    },
+    {
+        "Name":  "WifiCx.sys",
+        "Length":  1232896
+    },
+    {
+        "Name":  "wimmount.sys",
+        "Length":  89488
+    },
+    {
+        "Name":  "WinAccel.sys",
+        "Length":  95536
+    },
+    {
+        "Name":  "WinAccelCx.sys",
+        "Length":  144704
+    },
+    {
+        "Name":  "WindowsTrustedRT.sys",
+        "Length":  109040
+    },
+    {
+        "Name":  "WindowsTrustedRTProxy.sys",
+        "Length":  59800
+    },
+    {
+        "Name":  "winhv.sys",
+        "Length":  85400
+    },
+    {
+        "Name":  "winhvr.sys",
+        "Length":  163168
+    },
+    {
+        "Name":  "winmad.sys",
+        "Length":  37184
+    },
+    {
+        "Name":  "winnat.sys",
+        "Length":  340936
+    },
+    {
+        "Name":  "wintun.sys",
+        "Length":  29592
+    },
+    {
+        "Name":  "winusb.sys",
+        "Length":  143360
+    },
+    {
+        "Name":  "winverbs.sys",
+        "Length":  74032
+    },
+    {
+        "Name":  "wmiacpi.sys",
+        "Length":  57344
+    },
+    {
+        "Name":  "wmilib.sys",
+        "Length":  62792
+    },
+    {
+        "Name":  "wof.sys",
+        "Length":  302448
+    },
+    {
+        "Name":  "WpdUpFltr.sys",
+        "Length":  71088
+    },
+    {
+        "Name":  "WppRecorder.sys",
+        "Length":  97632
+    },
+    {
+        "Name":  "ws2ifsl.sys",
+        "Length":  65536
+    },
+    {
+        "Name":  "wtd.sys",
+        "Length":  142712
+    },
+    {
+        "Name":  "WUDFPf.sys",
+        "Length":  183704
+    },
+    {
+        "Name":  "WUDFRd.sys",
+        "Length":  421240
+    },
+    {
+        "Name":  "xboxgip.sys",
+        "Length":  421888
+    },
+    {
+        "Name":  "xinputhid.sys",
+        "Length":  131072
+    }
+]

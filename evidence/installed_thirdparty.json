@@ -1,0 +1,18 @@
+﻿{
+    "date":  "2026-11-23T13:21:47",
+    "installed_thirdparty_total":  84,
+    "imported":  [
+                     "RzCommon",
+                     "RzDev_0099",
+                     "VBoxSup",
+                     "vmci",
+                     "vmusb",
+                     "pvscsii",
+                     "AsusPTPFilter",
+                     "RTKVHD64",
+                     "CH341S64",
+                     "rteth"
+                 ],
+    "total_new":  275,
+    "note":  "new source: installed third-party drivers; signatures Valid"
+}

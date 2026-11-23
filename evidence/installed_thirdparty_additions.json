@@ -1,0 +1,72 @@
+﻿[
+    {
+        "name":  "RzCommon.sys",
+        "size":  64880,
+        "signature":  "Valid",
+        "company":  "Razer Inc",
+        "version":  "1.0.0.76"
+    },
+    {
+        "name":  "RzDev_0099.sys",
+        "size":  64680,
+        "signature":  "Valid",
+        "company":  "Razer Inc",
+        "version":  "1.0.0.73"
+    },
+    {
+        "name":  "VBoxSup.sys",
+        "size":  1083808,
+        "signature":  "Valid",
+        "company":  "Oracle Corporation",
+        "version":  "6.1.50.161033"
+    },
+    {
+        "name":  "vmci.sys",
+        "size":  104888,
+        "signature":  "Valid",
+        "company":  "VMware, Inc.",
+        "version":  "9.8.18.0"
+    },
+    {
+        "name":  "vmusb.sys",
+        "size":  70656,
+        "signature":  "Valid",
+        "company":  "VMware, Inc.",
+        "version":  "4.3.1.4"
+    },
+    {
+        "name":  "pvscsii.sys",
+        "size":  45488,
+        "signature":  "Valid",
+        "company":  "VMware, Inc.",
+        "version":  "1.3.15.0"
+    },
+    {
+        "name":  "AsusPTPFilter.sys",
+        "size":  115176,
+        "signature":  "Valid",
+        "company":  "ASUSTek COMPUTER INC.",
+        "version":  "11.0.0.38"
+    },
+    {
+        "name":  "RTKVHD64.sys",
+        "size":  6333912,
+        "signature":  "Valid",
+        "company":  "Realtek Semiconductor Corp.",
+        "version":  "6.0.9597.1"
+    },
+    {
+        "name":  "CH341S64.SYS",
+        "size":  84864,
+        "signature":  "Valid",
+        "company":  "wch.cn",
+        "version":  "3.90"
+    },
+    {
+        "name":  "rteth.sys",
+        "size":  86016,
+        "signature":  "Valid",
+        "company":  "Realtek",
+        "version":  "1.0 (WinBuild.160101.0800)"
+    }
+]
