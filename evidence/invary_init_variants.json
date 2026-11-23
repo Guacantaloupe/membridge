@@ -1,0 +1,11 @@
+﻿{
+    "date":  "2026-11-24T07:24:09",
+    "init_variants":  [
+                          "1000/1000 count1",
+                          "100/100 count1",
+                          "20/100 count0"
+                      ],
+    "result":  "all err=0x450",
+    "verdict":  "init unavailable; stop testing",
+    "note":  "no BSOD"
+}
