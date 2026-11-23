@@ -61,3 +61,29 @@ outlen=0x1000 -> ok=False err=0x80090005 (NTE_BAD_DATA?)
 - 公开 CR3 驱动目录已覆盖；
 - 无新的安全目标 CR3 locator；
 - 后续仅做静态分析，不做内核 VA 读。
+
+## 0x9C402400 初始化尝试
+输入：
+```
+u64 count = 1
+u64 offset = 0xECF000  (LSTAR - ntbase)
+```
+调用：
+```
+DeviceIoControl 0x9C402400
+```
+结果：
+```
+err=0x450
+```
+随后读 LSTAR 仍失败：
+```
+0x9C402408 output 0x28 -> err=487
+0x9C402408 output 0x1000 -> err=0x80090005
+```
+没有 BSOD。
+
+结论：
+- 初始化输入结构仍不正确；
+- 无法确认 Invary 可直接做内核 VA 读；
+- 暂不继续该路径。

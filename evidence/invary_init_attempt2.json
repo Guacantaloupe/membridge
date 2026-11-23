@@ -1,0 +1,7 @@
+﻿{
+    "date":  "2026-11-24T07:23:43",
+    "init_input":  "count=1 offset=0xECF000",
+    "init":  "err=0x450",
+    "read":  "still fails",
+    "note":  "no BSOD; init protocol unknown"
+}
