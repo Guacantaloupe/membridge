@@ -1,0 +1,48 @@
+[
+  {
+    "id": "29d2c408-c1c6-451a-acf6-eddd59969183",
+    "name": "AppShopDrv103.sys",
+    "matched": [
+      "CR3",
+      "control register"
+    ],
+    "sha256": [
+      "cea231333781085538127bdcfbf49ef1d7500c057295fba061e962376e8219e6"
+    ],
+    "description": "AppShopDrv103.sys is a hardware utility driver from ASRock distributed with APP Shop and Auto Driver Installer. The driver exposes 30+ IOCTLs through a BCrypt AES-encrypted command wrapper (IOCTL 0x22EC00) with a hardcoded key, providing arbitrary physical memory read and write via MmMapIoSpace (IOC",
+    "tags": [
+      "appshopdrv103.sys"
+    ]
+  },
+  {
+    "id": "bd06e043-0f69-4212-be93-d069bf0de848",
+    "name": "AsrCDDrv.sys",
+    "matched": [
+      "CR3",
+      "control register"
+    ],
+    "sha256": [
+      "04cc7df4077e36199b04afa39204c8f568f7f66f045e73010fb9b7685324442f"
+    ],
+    "description": "AsrCDDrv.sys is a kernel driver from ASRock Incorporation that exposes control register read/write (cr0, cr2, cr3, cr4, cr8), arbitrary MSR read/write, arbitrary physical memory read/write via MmMapIoSpace, contiguous memory allocation/free via MmAllocateContiguousMemorySpecifyCache, and I/O port re",
+    "tags": [
+      "asrcddrv.sys"
+    ]
+  },
+  {
+    "id": "d0cc79b2-a789-4cf3-9a88-25bdabb79416",
+    "name": "devhost.sys",
+    "matched": [
+      "CR3",
+      "page-table walk",
+      "system CR3"
+    ],
+    "sha256": [
+      "ee8844ffd3879190fb389b0f613cb2dcdcd83375cf0a6994170a648c5ca8c479"
+    ],
+    "description": "devhost.sys is a WHQL attestation-signed kernel driver that exposes arbitrary memory read primitives to usermode. The device object at \\\\.\\devhost has no ACL beyond a device handle. At load, the driver reads IA32_LSTAR MSR to locate ntoskrnl base via backward MZ walk, then dynamically resolves APIs ",
+    "tags": [
+      "devhost.sys"
+    ]
+  }
+]

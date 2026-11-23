@@ -1,0 +1,13 @@
+﻿{
+    "date":  "2026-11-24T07:16:23",
+    "feed":  "loldrivers drivers.json",
+    "records":  713,
+    "cr3_hits":  3,
+    "drivers":  [
+                    "AppShopDrv103",
+                    "AsrCDDrv",
+                    "devhost"
+                ],
+    "conclusion":  "no other known safe CR3 drivers in LOLDrivers; target CR3 still KPRL",
+    "note":  "AppShop/AsrCD use CR registers; devhost blocked"
+}
