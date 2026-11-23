@@ -1,0 +1,152 @@
+﻿[
+    {
+        "name":  "AMDRyzenMasterDriver(8).sys",
+        "size":  96328,
+        "sha256":  "035F1607ED6F3EA9F05FC54A8F003D78A32B592EC414B08DDAFEE75DEDB18623",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AMDRyzenMasterDriver(9).sys",
+        "size":  70304,
+        "sha256":  "5C655642FD64E51581D2880CC1A517331B376463E3A85E21EC6E3ED147494A26",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AMDRyzenMasterDriver.sys",
+        "size":  60576,
+        "sha256":  "0FD8B87D79828282A2B24C0680ECF6717C3BC284582AF552ECEA8D2E79C91B4B",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AMDXHC(2).SYS",
+        "size":  237552,
+        "sha256":  "B115900D5C5FCCC8287CEDDBEBD6CF645B65EB5DEF01EE0D11B5C7C0D818B002",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AMDXHC.SYS",
+        "size":  237416,
+        "sha256":  "DC9FC44122DE0EAAA6003062B1FFB244D265DA3AC731F78B4D7F9AE4859A6C18",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "amdxhc31(2).sys",
+        "size":  460128,
+        "sha256":  "03D45713511D6A54F9FF8B29B1B53A9C0B77C23591C8F8A465D1D84AF5751F87",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "amdxhc31(5).sys",
+        "size":  455008,
+        "sha256":  "6D10D1EE3AB0647A350F68DDDB958F44E36138C66596D6928C0EEC38BB8D526D",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "amdxhc31.sys",
+        "size":  465248,
+        "sha256":  "CD4E891937F5D4386F11C91859503BD73DCCBE7472138741B7431B8C2612A16E",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "amdxhci(1).sys",
+        "size":  346952,
+        "sha256":  "5AA1E06E7BB51D19BCFE32E91804141347E13F16D181A9D78F08A9530F381713",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "amdxhci(2).sys",
+        "size":  346792,
+        "sha256":  "CFB3FE5323A03CF9A67DF8A313A3FDB572361F17C847918751851CF62E8D3D99",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "amdxhci(3).sys",
+        "size":  346792,
+        "sha256":  "8D1711B5D97670BAEC1D9647FE4FB33297318FEFF1963EFD2AF04CD8D61DD76F",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "amdxhci(4).sys",
+        "size":  346800,
+        "sha256":  "EE8188A14BEE75CD6AA4BF3DACE17AB47A1473961E5E4CE9EE7A6E1C0685AF7F",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "amdxhci.sys",
+        "size":  348936,
+        "sha256":  "AD0AEDA775C44F95B912549959F56D2667B4B0815A777841ABD60BAE9D236A39",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "amigendrv(1).sys",
+        "size":  37752,
+        "sha256":  "749CE31AF74D2FA40B7B3F1CE3D7F0FA63934E854BF5BD0F88FA6F79C3A2003F",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "amigendrv.sys",
+        "size":  37736,
+        "sha256":  "01EB0197C0DCE9873F3DC0A5C3E8444B741C7661A8833537D645BB1349B084A0",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "amigendrv64(1).sys",
+        "size":  37040,
+        "sha256":  "15B7C48AFCD8151E9810B045536C438341B921448F97859C3E49D919B8EE3009",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "amigendrv64(2).sys",
+        "size":  37040,
+        "sha256":  "D218DD9CD3DD657E683D31935D887D5CB38A3BA84E13BF626315A91C52CD7030",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "amigendrv64.sys",
+        "size":  27208,
+        "sha256":  "71114F4521FC92ABDFAC7D7192F3B7E29FC42E9EADC9320D5A58C9B4432BD9E7",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Antidetect.sys",
+        "size":  174280,
+        "sha256":  "C20635E2D406DA09C71373967965E9992FAC4430270849E9DE091F8633387836",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ApsX64(1).sys",
+        "size":  172744,
+        "sha256":  "2A7FCB44B6361BE0512ECB0735A79CAA5DFBAF264CEF8311F0EFA6CFE82BA0F1",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ApsX64(2).sys",
+        "size":  172776,
+        "sha256":  "0934C31E9123757E8B595554B54C77F9F65C72DD64FFB0933B9C8F00C2DD122E",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ApsX64(3).sys",
+        "size":  181392,
+        "sha256":  "52D3EA044B79C4D0A061BDD366C13B0FD7A32C18DA20F684C99C6BEF671CA140",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ApsX64(4).sys",
+        "size":  190208,
+        "sha256":  "4ECDEFF4EEBE02853919C38E2B1C3E83F1AE2DC27C6C7A4306A8850A1B7133F7",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ApsX64(5).sys",
+        "size":  172744,
+        "sha256":  "4604282A29E8380FF03408584CAB3B1AD061E02438B4F59F5DA9A15CB831111A",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ApsX64(6).sys",
+        "size":  173024,
+        "sha256":  "44CD9E52634C1ED464502DA98251CED0F977D0BE8660E3260565D72246243FDE",
+        "signature":  "Valid"
+    }
+]
