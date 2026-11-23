@@ -1,0 +1,14 @@
+﻿{
+    "date":  "2026-11-23T11:20:54",
+    "running":  [
+                    "out_mst",
+                    "out_mst10"
+                ],
+    "stopped":  [
+                    "out_asuss33",
+                    "out_itkvar",
+                    "out_nvflash1",
+                    "vmwprotect"
+                ],
+    "note":  "all 64 byov_input drivers now load-tested; 2/6 RUNNING in final batch; no BSOD"
+}
