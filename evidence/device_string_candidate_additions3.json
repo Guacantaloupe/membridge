@@ -1,0 +1,82 @@
+﻿[
+    {
+        "name":  "Daq2213(4).sys",
+        "size":  77648,
+        "score":  25,
+        "devices":  "\\Device\\DAQ2213",
+        "sha256":  "8a783407887d2a76e03a7cd44ed80776574584378247935c13c22f584e315e42",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Daq2213.sys",
+        "size":  77776,
+        "score":  25,
+        "devices":  "\\Device\\DAQ2213",
+        "sha256":  "fa410f7783158586ab85f61de04e6e1136347446663a6eb196104a31ab74f6e0",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Daq2204(4).sys",
+        "size":  81856,
+        "score":  25,
+        "devices":  "\\Device\\DAQ2204",
+        "sha256":  "e08729d5e3ff9adde5442976d142cff1e7af0fb69e20ebb4c8ce477dd9a23685",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Daq2204(5).sys",
+        "size":  81872,
+        "score":  25,
+        "devices":  "\\Device\\DAQ2204",
+        "sha256":  "70382b976ad81dda2636e2567403cc6a341f15289f2481bc79372bd2ac7ed6f1",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Daq2204(1).sys",
+        "size":  82000,
+        "score":  25,
+        "devices":  "\\Device\\DAQ2204",
+        "sha256":  "99f94810582ca2ead41f6f71d3d579d3ab87648c8f21d32ca39083d061a57d45",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Daq2010(4).sys",
+        "size":  83520,
+        "score":  25,
+        "devices":  "\\Device\\DAQ2010",
+        "sha256":  "c1e4150f397fc577b8608be999969044424d4c10c57e0e68aae1d4404a4c61ef",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Daq2010(6).sys",
+        "size":  83520,
+        "score":  25,
+        "devices":  "\\Device\\DAQ2010",
+        "sha256":  "1ed5d7a1681bc4c43a05b298cfecacf581902c36ecab1157cc200bdd05d90a4b",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Daq2010(5).sys",
+        "size":  83536,
+        "score":  25,
+        "devices":  "\\Device\\DAQ2010",
+        "sha256":  "1f04231c03db8e3cc2055072a47e43244d025863e731b479681ef031a201b1fd",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Daq2205(6).sys",
+        "size":  83648,
+        "score":  25,
+        "devices":  "\\Device\\DAQ2205",
+        "sha256":  "5f3b63c132e8a3d3f0f01a190e00e30d58d2ff8f0ffe559d63175d4e2567959e",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Daq2206(5).sys",
+        "size":  83648,
+        "score":  25,
+        "devices":  "\\Device\\DAQ2206",
+        "sha256":  "70aae3e2cff1b9f2c4017cfb6a43bd65d1171717c7fb52931862815cb6a7aea1",
+        "signature":  "Valid"
+    }
+]

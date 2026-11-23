@@ -1,0 +1,12 @@
+﻿{
+    "date":  "2026-11-23T12:41:27",
+    "added":  [
+                  "Daq2213",
+                  "Daq2213(4)",
+                  "Daq2204(1/4/5)",
+                  "Daq2010(4/5/6)",
+                  "Daq2205(6)",
+                  "Daq2206(5)"
+              ],
+    "note":  "10 DAQ variants added; device-string candidates now 30; total new 239"
+}

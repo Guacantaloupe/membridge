@@ -1,0 +1,35 @@
+{
+  "total": 2,
+  "top": [
+    {
+      "score": 15,
+      "phys": 10,
+      "devices": [
+        "\\Device\\OE_DEVICE"
+      ],
+      "name": "IntcOED.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\442b3d1c-c3e2-43a3-8162-b74801fddb5b\\extracted\\IntcOED.sys",
+      "size": 1595640,
+      "sha256": "c18016816764037bbcf4e00ca1b214f02c2ada6c2f380d3ae7be0b3234f3077d",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapLockedPagesSpecifyCache"
+      ]
+    },
+    {
+      "score": 14,
+      "phys": 9,
+      "devices": [
+        "\\Device\\Harddisk0"
+      ],
+      "name": "Viragt64-Killer__viragt64.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\byovd-internet\\samples\\blacksnufkin\\Viragt64-Killer__viragt64.sys",
+      "size": 82848,
+      "sha256": "58a74dceb2022cd8a358b92acd1b48a5e01c524c3b0195d7033e4bd55eff4495",
+      "hits": [
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ]
+    }
+  ]
+}
