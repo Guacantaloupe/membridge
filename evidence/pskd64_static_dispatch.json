@@ -1,0 +1,15 @@
+﻿{
+    "date":  "2026-11-24T07:59:18",
+    "ioctl":  "0x220044",
+    "subop_701f":  "0x228d4",
+    "subop_701e":  "0x2374c",
+    "fields":  [
+                   "+0x34 min len 0xC1",
+                   "+0xA4 address",
+                   "+0xAC size",
+                   "+0xB0 flag",
+                   "+0xC0 data"
+               ],
+    "verdict":  "protocol partially mapped; blind tests stopped",
+    "system":  "no new BSOD"
+}
