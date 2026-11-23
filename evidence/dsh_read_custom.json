@@ -1,0 +1,8 @@
+﻿{
+    "date":  "2026-11-23T21:29:12",
+    "driver":  "dsh_read_s3_cpp.sys",
+    "signer":  "CN=DSH Test Driver",
+    "start_exit":  577,
+    "state":  "STOPPED",
+    "note":  "test-signed DSH driver rejected by kernel signature policy"
+}
