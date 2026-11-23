@@ -45,3 +45,20 @@ system CR3
 ## 产物
 - `evidence/loldrivers_cr3_hits.json`
 - `scripts/search_loldrivers_cr3.py`
+
+## 补充目录检查
+### fluffycats `vulnerable-drivers-main` 快照
+- 仅含 readme/license/.gitattributes；
+- readme 中没有 CR3/control register/DirectoryTableBase 条目；
+- 无额外 CR3 驱动信息。
+
+### KDU `providers.md`
+- 未包含 CR3/control register 描述；
+- KDU 的 CR3 相关驱动仍只有已知的 ASRock 系列（AsrDrv/AppShopDrv）。
+
+## 结论（补全）
+- 目前公开已知 CR3 目录覆盖：
+  - LOLDrivers: 3 个；
+  - KDU: ASRock 系列；
+  - 本地语料: KPRL/KKYUM/CCHWApi。
+- 未发现新的安全目标 CR3 路径。

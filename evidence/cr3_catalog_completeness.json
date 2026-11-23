@@ -1,0 +1,9 @@
+﻿{
+    "date":  "2026-11-24T07:17:14",
+    "extra_sources":  [
+                          "fluffycats vulnerable-drivers-main",
+                          "KDU providers.md"
+                      ],
+    "new_cr3_drivers":  0,
+    "note":  "no additional CR3 drivers beyond LOLDrivers 3 and KDU ASRock; target CR3 remains KPRL"
+}
