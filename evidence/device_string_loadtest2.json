@@ -1,0 +1,7 @@
+﻿{
+    "date":  "2026-11-23T12:23:02",
+    "pci9524":  "RUNNING",
+    "sddik2k":  "HANG -\u003e system reboot (no dump)",
+    "flash":  "not tested",
+    "note":  "SDDisk2k excluded; Pci9524 loadable"
+}
