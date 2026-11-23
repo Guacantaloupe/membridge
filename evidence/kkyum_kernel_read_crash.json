@@ -1,0 +1,8 @@
+﻿{
+    "date":  "2026-11-24T07:22:09",
+    "dump":  "112426-42125-01.dmp",
+    "bugcheck":  "0x50",
+    "p1":  "0xfffff801dd2cf000",
+    "cause":  "KKYUM kread kernel VA",
+    "verdict":  "unsafe; no more kernel VA reads"
+}
