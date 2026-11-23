@@ -1,0 +1,230 @@
+﻿[
+    {
+        "dir":  "adv64drv",
+        "sys":  1
+    },
+    {
+        "dir":  "amifldrv64",
+        "sys":  1
+    },
+    {
+        "dir":  "asio2",
+        "sys":  1
+    },
+    {
+        "dir":  "asio64",
+        "sys":  1
+    },
+    {
+        "dir":  "asmmap64",
+        "sys":  1
+    },
+    {
+        "dir":  "asrdrv",
+        "sys":  1
+    },
+    {
+        "dir":  "asupio64",
+        "sys":  1
+    },
+    {
+        "dir":  "aswarpot",
+        "sys":  1
+    },
+    {
+        "dir":  "atillk64",
+        "sys":  1
+    },
+    {
+        "dir":  "byov_input",
+        "sys":  64
+    },
+    {
+        "dir":  "CCHWApi(1)_sys",
+        "sys":  1
+    },
+    {
+        "dir":  "CCHWApi_sys",
+        "sys":  1
+    },
+    {
+        "dir":  "CCHWApiExt(1)_sys",
+        "sys":  1
+    },
+    {
+        "dir":  "citmdrv",
+        "sys":  1
+    },
+    {
+        "dir":  "corpus_samples",
+        "sys":  13
+    },
+    {
+        "dir":  "cpuz",
+        "sys":  1
+    },
+    {
+        "dir":  "device_candidates",
+        "sys":  22
+    },
+    {
+        "dir":  "device_string_candidates",
+        "sys":  75
+    },
+    {
+        "dir":  "directio",
+        "sys":  1
+    },
+    {
+        "dir":  "driverstore_thirdparty",
+        "sys":  114
+    },
+    {
+        "dir":  "dumpit",
+        "sys":  1
+    },
+    {
+        "dir":  "eneio64",
+        "sys":  1
+    },
+    {
+        "dir":  "fastdumpx64",
+        "sys":  1
+    },
+    {
+        "dir":  "fastdumpx64_v2",
+        "sys":  1
+    },
+    {
+        "dir":  "fluffycats_extra",
+        "sys":  25
+    },
+    {
+        "dir":  "fluffycats_extra2",
+        "sys":  30
+    },
+    {
+        "dir":  "fluffycats_extra3",
+        "sys":  30
+    },
+    {
+        "dir":  "fluffycats_extra4",
+        "sys":  30
+    },
+    {
+        "dir":  "fluffycats_extra5",
+        "sys":  25
+    },
+    {
+        "dir":  "gibepext",
+        "sys":  1
+    },
+    {
+        "dir":  "gibepext2",
+        "sys":  1
+    },
+    {
+        "dir":  "glckio2",
+        "sys":  1
+    },
+    {
+        "dir":  "HP SW TOOLS DRIVER_sys",
+        "sys":  1
+    },
+    {
+        "dir":  "hp_swtools_v1",
+        "sys":  1
+    },
+    {
+        "dir":  "icachex",
+        "sys":  1
+    },
+    {
+        "dir":  "import_candidates",
+        "sys":  12
+    },
+    {
+        "dir":  "installed_thirdparty",
+        "sys":  84
+    },
+    {
+        "dir":  "invarysensor",
+        "sys":  1
+    },
+    {
+        "dir":  "isharepp",
+        "sys":  1
+    },
+    {
+        "dir":  "KKYUM",
+        "sys":  1
+    },
+    {
+        "dir":  "kprl",
+        "sys":  1
+    },
+    {
+        "dir":  "mrt",
+        "sys":  1
+    },
+    {
+        "dir":  "namazso_extra",
+        "sys":  2
+    },
+    {
+        "dir":  "namazso_rest",
+        "sys":  21
+    },
+    {
+        "dir":  "ntiolib",
+        "sys":  1
+    },
+    {
+        "dir":  "physmem_drivers",
+        "sys":  13
+    },
+    {
+        "dir":  "physmem_drivers_variants",
+        "sys":  29
+    },
+    {
+        "dir":  "rtkio",
+        "sys":  1
+    },
+    {
+        "dir":  "rtkiow8x64",
+        "sys":  1
+    },
+    {
+        "dir":  "security_candidates",
+        "sys":  8
+    },
+    {
+        "dir":  "SjtWinIo_sys",
+        "sys":  2
+    },
+    {
+        "dir":  "swtoolsdriver",
+        "sys":  1
+    },
+    {
+        "dir":  "tdeio",
+        "sys":  1
+    },
+    {
+        "dir":  "ufu",
+        "sys":  1
+    },
+    {
+        "dir":  "winio64_1",
+        "sys":  1
+    },
+    {
+        "dir":  "winio64_elan",
+        "sys":  1
+    },
+    {
+        "dir":  "winring0",
+        "sys":  2
+    }
+]

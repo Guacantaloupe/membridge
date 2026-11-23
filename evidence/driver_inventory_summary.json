@@ -1,0 +1,19 @@
+﻿{
+    "date":  "2026-11-23T21:26:31",
+    "total_sys":  639,
+    "dirs":  57,
+    "new_candidates":  600,
+    "verified":  [
+                     "GLCKIO2",
+                     "fekern",
+                     "JYWinRing0"
+                 ],
+    "false_positive":  [
+                           "SMIBIOS64",
+                           "biostool"
+                       ],
+    "dangerous":  [
+                      "Dcpp2k",
+                      "SDDisk2k"
+                  ]
+}
