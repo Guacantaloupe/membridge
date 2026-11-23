@@ -1,0 +1,152 @@
+﻿[
+    {
+        "name":  "aldwa.sys",
+        "size":  638120,
+        "sha256":  "3345230D536672C7BFEAEAF7F0EE36EC3E4E98F3E424FA4DF52D98726E2720ED",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "amdacpafd.sys",
+        "size":  398232,
+        "sha256":  "F424D28034B5D74122DAE46DCB3D60D5AA18242C04C12918493BCA8AD80BE99F",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "amdacpbus2.sys",
+        "size":  653208,
+        "sha256":  "3C01E13F9E28967D0E49DA4C71A88AA4784F6FF2CCC71F8893AC6EADF9BD324E",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "amdsdws.sys",
+        "size":  969112,
+        "sha256":  "9C7DE1BB11D807C865B6D22FFC5BAC5AB36D7E5C3E642242F0564A8AB4DD3D10",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "amdsfhkmdf.sys",
+        "size":  160144,
+        "sha256":  "02FB63B97CADE4A30FD6B0167256FAACD3595AE7A55827E18B560DFF28C35220",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "amdusbhubfilter.sys",
+        "size":  39048,
+        "sha256":  "76A4908FA2C6E76FB1AA415E6FA65EF7C72CB9FAFC4904F14EE3E1124792DE44",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AppRemover-Killer__ardrv.sys",
+        "size":  17744,
+        "sha256":  "07C5209BF83065FE760F4FEE4ED2308B0C523671F68CA73A3854C2C8C28C0541",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "aqnic650.sys",
+        "size":  266144,
+        "sha256":  "75B54238EF410E37EF6550C2B30A3A3C6A7B48154DB5745C5DB3A585FAF7E925",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AsrNfDrv000.sys",
+        "size":  73088,
+        "sha256":  "A7F562E025FFDF5A25ED26C54E2E70F370859129C3B41D54B9A8FD686E23ACC0",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AVerPola.sys",
+        "size":  871056,
+        "sha256":  "7DE58D86A5EBA2F884CBB65A5F036492562F63E0C0116B14D0876CD55B77D88B",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AVKsCIR.sys",
+        "size":  102424,
+        "sha256":  "140A75E3239C5EFA7DAD6FBFA0A60EDCAAD31A10EEA50A77E392A76C25980A4D",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AVPolCIR.sys",
+        "size":  71704,
+        "sha256":  "FB8E6FEB15644DEC3633F542F4389CE01C548ABDDDEAF8BA0ECF34BA52A153DA",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AVPolDIR.sys",
+        "size":  15896,
+        "sha256":  "ECBCDE6BA5B8B942E30FCF83434969058636DDC0EC956770405E2AC533179876",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "b57nd60a.sys",
+        "size":  1022896,
+        "sha256":  "7AFBB2CCC1F9A3587C1986ED02461412F2B9865C8D256ECAA40DCA9860D2B329",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "bcmnfcusb.sys",
+        "size":  65304,
+        "sha256":  "C58B5FE83726BA8165B48A5D477F2EC6F02F1FA4E5B3D8A2BC7248E72AFB504E",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "bthpan.sys",
+        "size":  163840,
+        "sha256":  "3BA4707E9BF0C2723CE54B5B89469D751FB070D7746DF5F7E9575BE07F488F32",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "CcProtect-Killer__CcProtect.sys",
+        "size":  493600,
+        "sha256":  "5F0CFE8357BB52B45068DDBAC053E32BC38E6CB5E086746F5402657B0A5CFB1C",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ch64usb.sys",
+        "size":  137400,
+        "sha256":  "124AE603381C0960B7CD5F97AD29499FCC8511CA8F006DD4958A89887FE0BCD4",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "cvusbdrv.sys",
+        "size":  91928,
+        "sha256":  "510FBED6D1EA42018B665934F0F2F1D26158485B0FED59CD21B638DE51F4D85B",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "DC624e.sys",
+        "size":  70264,
+        "sha256":  "4AFEF3F9967D8D2E6BA026E6557A2D438904744592B09E78D4F001483BC50833",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "devmap.sys",
+        "size":  53248,
+        "sha256":  "AD5878C97334E6B7E9A5C658FFA534471B4E011902AF8D793805C06432DB7D25",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "DisplayLinkUsbIo_x64.sys",
+        "size":  46312,
+        "sha256":  "F529255E92ACBBA3ABF575C9B122AC37FEAA6DEAA11A128DB3C464E402C493B5",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "dsh_map.sys",
+        "size":  11542,
+        "sha256":  "1996B816D8E5666455B4C62806D077A3D5F33B5690B7321D348F99D7652E864C",
+        "signature":  "NotSigned"
+    },
+    {
+        "name":  "dsh_ntbase_diag.sys",
+        "size":  8704,
+        "sha256":  "173AED52FD16BDF1523AA46B0609E1651A18F85BE7B3DAF4579FFBA9D38EF827",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "dsh_probe_s0.sys",
+        "size":  11288,
+        "sha256":  "6779A865B3AF71B4D8D0FDEA20A20D65DCA2496507D1DE8F883C22B48D399588",
+        "signature":  "Valid"
+    }
+]
