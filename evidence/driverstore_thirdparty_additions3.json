@@ -1,0 +1,182 @@
+﻿[
+    {
+        "name":  "GSCAuxDriverx64.sys",
+        "size":  79640,
+        "company":  "Intel Corporation",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "L1E62x64.sys",
+        "size":  59904,
+        "company":  "Atheros Communications, Inc.",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "l260x64.sys",
+        "size":  34304,
+        "company":  "Atheros Communications, Inc.",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "lan7400-x64-n650.sys",
+        "size":  234496,
+        "company":  "Microchip Technology Inc.",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "lan7500-x64-n650f.sys",
+        "size":  102912,
+        "company":  "Microchip Technology Inc.",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "lan7800-x64-n650f.sys",
+        "size":  130560,
+        "company":  "Microchip Technology Inc.",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "lan9500-x64-n650f.sys",
+        "size":  94208,
+        "company":  "Microchip Technology Inc.",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "libusb0.sys",
+        "size":  52832,
+        "company":  "http://libusb-win32.sourceforge.net",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "mlx4eth63.sys",
+        "size":  709952,
+        "company":  "Mellanox",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "mrvlpcie8897.sys",
+        "size":  1036288,
+        "company":  "Marvell Semiconductors Inc.",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "NETJME.sys",
+        "size":  137728,
+        "company":  "JMicron Technology Corp.",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "netr7364.sys",
+        "size":  721920,
+        "company":  "Ralink Technology, Corp.",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "npcap.sys",
+        "size":  69984,
+        "company":  "Insecure.Com LLC.",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "nvm60x64.sys",
+        "size":  735744,
+        "company":  "NVIDIA Corporation",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "nvm62x64.sys",
+        "size":  344192,
+        "company":  "NVIDIA Corporation",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ocnd65.sys",
+        "size":  531376,
+        "company":  "Emulex",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "rt640x64.sys",
+        "size":  729088,
+        "company":  "Realtek                                        ",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "rtcx21x64.sys",
+        "size":  539648,
+        "company":  "Realtek                                        ",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "RTL8187B.sys",
+        "size":  452096,
+        "company":  "Realtek Semiconductor Corporation                           ",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "RTL8187Se.sys",
+        "size":  443904,
+        "company":  "Realtek Semiconductor Corporation                           ",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "rtl8192se.sys",
+        "size":  1222656,
+        "company":  "Realtek Semiconductor Corporation                           ",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "rtl819xp.sys",
+        "size":  620032,
+        "company":  "Realtek Semiconductor Corporation                           ",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "RTL85n64.sys",
+        "size":  2055168,
+        "company":  "Realtek Semiconductor Corporation                           ",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Rtnic64.sys",
+        "size":  51712,
+        "company":  "Realtek Semiconductor Corporation                           ",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "rtu53cx21x64.sys",
+        "size":  850768,
+        "company":  "Realtek Corporation                                                                ",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "rtu53cx22x64.sys",
+        "size":  1024768,
+        "company":  "Realtek Corporation                                                                ",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "rtucx21x64.sys",
+        "size":  1359360,
+        "company":  "Realtek Corporation                                                                ",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "rtump64x64.sys",
+        "size":  937472,
+        "company":  "Realtek Corporation                                                                ",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "rtux64w10.sys",
+        "size":  683520,
+        "company":  "Realtek Corporation                                                                ",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "rtwlanu_81xx.sys",
+        "size":  1282360,
+        "company":  "Realtek Semiconductor Corporation                           ",
+        "signature":  "Valid"
+    }
+]

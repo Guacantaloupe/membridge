@@ -102,3 +102,32 @@ driverstore 第一批            30
 driverstore 第二批净值        29
 新增合计                  408
 ```
+## 第三批：30 个 ≤2MB DriverStore 驱动
+为避免仓库被几百 MB 网卡/显卡驱动撑大，本轮只导入 ≤2MB 的候选：
+```
+GSCAuxDriverx64.sys
+L1E62x64.sys / l260x64.sys
+lan7400/7500/7800/9500-x64-n650*.sys
+libusb0.sys
+mlx4eth63.sys
+mrvlpcie8897.sys
+NETJME.sys
+netr7364.sys
+npcap.sys
+nvm60x64.sys / nvm62x64.sys
+ocnd65.sys
+rt640x64.sys / rtcx21x64.sys
+RTL8187B / RTL8187Se / rtl8192se / rtl819xp / RTL85n64
+Rtnic64.sys
+rtu53cx21x64 / rtu53cx22x64 / rtucx21x64 / rtump64x64 / rtux64w10
+rtwlanu_81xx.sys
+```
+签名均 Valid。
+
+## 累计
+```
+原有新增                  408
+第三批 DriverStore            30
+新增合计                  438
+```
+剩余大量 >2MB 的网卡/显卡驱动未导入，避免仓库膨胀。
