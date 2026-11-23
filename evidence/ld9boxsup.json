@@ -1,0 +1,8 @@
+﻿{
+    "date":  "2026-11-23T21:29:51",
+    "driver":  "Ld9BoxSup.sys",
+    "signer":  "Microsoft Windows Hardware Compatibility Publisher",
+    "start_exit":  183,
+    "open":  "err=2 no symlink",
+    "note":  "WHQL signed with physical APIs but no user-mode symbolic link; not accessible"
+}
