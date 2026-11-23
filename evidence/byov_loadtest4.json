@@ -1,0 +1,27 @@
+﻿{
+    "date":  "2026-11-23T11:19:16",
+    "running":  [
+                    "360rescon",
+                    "CTFarmMonitor",
+                    "ctrl_isstrtc",
+                    "ctrl_jmkmd",
+                    "ctrl_mst",
+                    "ctrl_pawnio",
+                    "fekern"
+                ],
+    "stopped":  [
+                    "aac-driver",
+                    "asussaio",
+                    "FireEyeRealtime"
+                ],
+    "devices":  [
+                    "\\\\.\\PawnIO",
+                    "\\\\.\\CTFarmMonitor",
+                    "\\\\.\\mst64_4.35.0",
+                    "\\\\.\\360rescon"
+                ],
+    "read_pass":  [
+                      "fekern PA=0x1000 via mrt layout"
+                  ],
+    "note":  "7/10 RUNNING; fekern physical read PASS; no BSOD"
+}
