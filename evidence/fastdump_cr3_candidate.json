@@ -1,0 +1,8 @@
+﻿{
+    "date":  "2026-11-24T06:44:50",
+    "fastdump":  "RUNNING, device OPEN, IOCTL 0x9C400000 family, 2 CR3 reads",
+    "kkyum":  "process VA read MZ PASS",
+    "kprl":  "target CR3 PASS",
+    "cchwapi":  "current CR3 PASS",
+    "note":  "new CR3-capable candidate FastDump; no BSOD"
+}

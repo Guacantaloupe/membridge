@@ -111,3 +111,54 @@ sc start -> exit=2
 2. 修正 KKYUM/Invary 的 EPROCESS walk（offset/构建匹配）；
 3. 对 `l1malwarebits_big` 检查 DriverEntry 失败原因；
 4. 继续扫描 CR3 读写指令 + 设备创建组合。
+
+## FastDump x64 候选
+文件：
+```
+drivers/fastdumpx64/fastdumpx64.sys
+```
+加载：
+```
+STATE: RUNNING
+```
+设备：
+```
+\Device\FastDump
+\??\FastDump
+\\.\FastDump -> OPEN_OK
+```
+关键导入/字符串：
+```
+MmGetPhysicalAddress
+PsInitialSystemProcess
+\Device\PhysicalMemory
+IoCreateDeviceSecure
+IoValidateDeviceIoControlAccess
+```
+IOCTL 常量：
+```
+0x9C400000 0x9C400008 0x9C400010 0x9C400014
+0x9C400018 0x9C40001C 0x9C40002C 0x9C400030
+0x9C400034
+0x9C40000C 0x9C400020 0x9C400024 0x9C400028
+```
+静态 CR3 读指令：2 次。
+
+结论：
+- 设备可打开；
+- 具备物理内存/`PsInitialSystemProcess`/CR3 访问特征；
+- 但 IOCTL 协议未还原；
+- 暂未验证“用户态可获取目标 CR3”。
+
+## 本轮 CR3 结论更新
+### 可获取 CR3
+1. KPRL — 目标 PID 的 CR3；
+2. CCHWApi — 当前 CPU 的 CR3。
+
+### 新增可用
+- KKYUM — 直接读任意 EXE VA（MZ 验证 PASS）。
+
+### 候选
+- FastDump — 设备可开，有待逆向；
+- Invary — 设备可开，locator 失败；
+- l1malwarebits_big / Rtx_HalExt — start=2。
