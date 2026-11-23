@@ -1,0 +1,152 @@
+﻿[
+    {
+        "name":  "ApsX64.sys",
+        "size":  173024,
+        "sha256":  "FBB0E872FBF4EF179204787AC1C4D8008A407FD8E91B8CCA3FCDAC691D7593BC",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "apx3600.sys",
+        "size":  213544,
+        "sha256":  "6EF10FBA27B575ABE41713A7552658A642575221EA924F8A93B32EBB24CA4D89",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "aqnicnvm64(1).sys",
+        "size":  89784,
+        "sha256":  "83ED52E493CE4A983AAADBA6F7199115C705F73E6CA276000A5D44B487EC50AB",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "aqnicnvm64.sys",
+        "size":  90344,
+        "sha256":  "9265AA486451B068E27D1597816D263EDEDE9F75C4F56A32E36E3E424056C5A3",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ArcaSD.sys",
+        "size":  251552,
+        "sha256":  "5413EC01F16A95B523AA57F48366EC2116A60868D40E067595C704EE0BCCDA22",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ArgusMonitor(1).sys",
+        "size":  71320,
+        "sha256":  "7D6C24AB434551633C1179F96AD8F10AAE68BD06BFB1F6D59F6630831422C069",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ArgusMonitor(10).sys",
+        "size":  68640,
+        "sha256":  "4334F5CE55D50571164B5803CB2DC0AFF7A5C96ABBD7FBFB1BD6B2F74283325C",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ArgusMonitor(11).sys",
+        "size":  69688,
+        "sha256":  "7CEE945D071B61ED84CC7A9D6651E955B24698380E83C6447A222146382D0C4B",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ArgusMonitor(13).sys",
+        "size":  70176,
+        "sha256":  "D50C24BDB3EF731FAE37C2F70689CD748698A9136C47E3621A9E7154D1581AE9",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ArgusMonitor(2).sys",
+        "size":  68144,
+        "sha256":  "DAB31A75DE99EA3B0798498010FC49C66ABB6C199B2FE11FD491FAF44DEBEE04",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ArgusMonitor(3).sys",
+        "size":  70816,
+        "sha256":  "FC229836DC8AFFC9619206481A8D09A0AE1EBD78FAB5178DB54E6B8246A8525D",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ArgusMonitor(4).sys",
+        "size":  69168,
+        "sha256":  "2D0BC758D6E4008FA0AC4BFE4C26E367B255CB44605BBD10C006A016E5C066AA",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ArgusMonitor(5).sys",
+        "size":  70712,
+        "sha256":  "3BFA3DFF449C71538514654BD31FB69DC4F67264AC66775D7176BF3F7F084AAC",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ArgusMonitor(6).sys",
+        "size":  70704,
+        "sha256":  "9B270949CE13614DC75AEF01B4101790BCA8B1D2465E61B22B12E45CC3D4B784",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ArgusMonitor(9).sys",
+        "size":  68656,
+        "sha256":  "8476DE73DAA4ED43FA6CA38BC76E8DA8BD7DF7516FDC498566EC251E8AF5FE4F",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ArgusMonitor.sys",
+        "size":  70832,
+        "sha256":  "ABCA0E57121F681E3BC615FA1637AD016589F7F316879B327F50AD857881E541",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "arkmon(11).sys",
+        "size":  396032,
+        "sha256":  "40743B8719AF4A17CE3B08745288F3866824EB1FEDF70BA5E43ED624A52939FE",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "arkmon(12).sys",
+        "size":  397600,
+        "sha256":  "088AEEF770F9048AD5D25ACD23908079B4C1551399C25FA37883410A0000E8E9",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "arkmon(14).sys",
+        "size":  384656,
+        "sha256":  "69017A3AE7007EAE5E6E674E303BBF9F568DD9DAA12948B3B1B4DCC6CCE8856F",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "arkmon(17).sys",
+        "size":  385072,
+        "sha256":  "72BBE3B4E8C91A7ACFDC0A96CF08912B9A936D7D332005375DFF0AE31CBABF5B",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "arkmon(19).sys",
+        "size":  360384,
+        "sha256":  "D6B1961E3CD589107E64C7F69F65CCC8822B63BF1A0E3695BA8F6795D28A907C",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "arkmon(2).sys",
+        "size":  493272,
+        "sha256":  "F84B0AF70959602DE72D903A924B3498910D2B028BF866C28A82D383CF3D3288",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "arkmon(24).sys",
+        "size":  385808,
+        "sha256":  "ED178F5E3251109890FE7E511568330F8AA7D66FEB96BA50290F567CB7AD3C8A",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "arkmon(5).sys",
+        "size":  424600,
+        "sha256":  "44266E761FFFF2EE5FEE7BD61D1D92A42BDC701B2E85E76B3E3DE5758C05C711",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ArkVSSDisk.sys",
+        "size":  36896,
+        "sha256":  "6DDB22B6927A63EC0D4A3171A870CFDD9F025059A07C6739D2D370A4CD252D56",
+        "signature":  "Valid"
+    }
+]
