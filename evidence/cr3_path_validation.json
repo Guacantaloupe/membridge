@@ -1,0 +1,10 @@
+﻿{
+    "date":  "2026-11-24T07:03:31",
+    "lstar":  "0xFFFFF801DD2CF000",
+    "cchw_cr3":  "0x248E45000",
+    "cchw_translate":  "FAILED glckio2/mrt",
+    "kprl_cr3":  "0x1D9EE5000",
+    "kprl_translate":  "PASS PA=0x1184CF000",
+    "bytes":  "0F01F8 6548892425...",
+    "note":  "CCHW current CR3 unusable as page-table base; KPRL path remains valid"
+}
