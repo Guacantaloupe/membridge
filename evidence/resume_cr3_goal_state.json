@@ -1,0 +1,10 @@
+﻿{
+    "time":  "2026-11-24T07:53:08",
+    "user":  "ook",
+    "boot":  "11/24/2026 07:18:22",
+    "objective":  "Find more CR3-capable driver paths; do not stop",
+    "dsh_exe":  "C:\\Users\\m4a1_\\AppData\\Local\\Programs\\DeepSeek Harness\\DeepSeek Harness.exe",
+    "dsh_running":  true,
+    "cmd_running":  true,
+    "note":  "resume helper only; does not load drivers"
+}
