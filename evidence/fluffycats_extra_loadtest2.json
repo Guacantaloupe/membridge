@@ -1,0 +1,13 @@
+﻿{
+    "date":  "2026-11-23T11:25:14",
+    "running":  [
+                    "_8501E05B",
+                    "heimdall",
+                    "nep",
+                    "kscsidisk64"
+                ],
+    "stopped":  [
+                    "AdaptiveTransport exit=2"
+                ],
+    "note":  "4/5 RUNNING; no visible DOS device strings; no new physical reader; no BSOD"
+}
