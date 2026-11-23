@@ -1,0 +1,182 @@
+﻿[
+    {
+        "name":  "addrv2785x64(11).sys",
+        "size":  31912,
+        "sha256":  "4C71C06A2FC9CB54A7CD85640AA417240616FAEDD59637C266F4B33426F74FEF",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "addrv2785x64(12).sys",
+        "size":  31920,
+        "sha256":  "E9B02FF3DADFC328471C19B73F5F49C5DE68EFF762A1B6C7043853DF146A952E",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "addrv2785x64(13).sys",
+        "size":  31928,
+        "sha256":  "99C9712699A00EAF9225F5BF880CE505EDB9E9A04E9EB5291C404C8995D459BB",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "addrv2785x64(14).sys",
+        "size":  31920,
+        "sha256":  "5E90111D7CE0A3F3ED055265D5E40CB1EB50B43B289BF2CCFABE7F7023ABE6ED",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "addrv2785x64(15).sys",
+        "size":  31912,
+        "sha256":  "55970B6757EF859623D2AD015BD8841B119B00C9035BC8AF0633A2BDC00309BE",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "addrv2785x64(16).sys",
+        "size":  31808,
+        "sha256":  "88650870A7F0C8BA02211F9F620413FA55B39A2C9BF197728D9059DAC28BC7AD",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "addrv2785x64(17).sys",
+        "size":  31824,
+        "sha256":  "AE7B1A226EE6E5164264E8D273314F22719AB17307DEBF7678CBB54C6EE6B633",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "addrv2785x64(18).sys",
+        "size":  31808,
+        "sha256":  "5D406C1001A4630D67B879F94B864C3B43D5439020FB9D21821D213E2907440C",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "addrv2785x64(19).sys",
+        "size":  32912,
+        "sha256":  "A82EEAC510F563D890BBEBFDC8BBD1ACD0DFB59B2CF0F410BFBCA4609578BC15",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "addrv2785x64(2).sys",
+        "size":  31952,
+        "sha256":  "94A40C614F2CAD16BBBD5DE65DFCC8756C5087BCBA9A3AD56AE0866084D0A5A4",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "addrv2785x64(20).sys",
+        "size":  33688,
+        "sha256":  "11E24B597E5DAB74431E486625FA361F84DD583F07C5583AD8D6A5B010FA2EA2",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "addrv2785x64(3).sys",
+        "size":  27856,
+        "sha256":  "2D5E6A8AD6BCA30E726E2FC261605086383CA35A0798A6C77F15FB26D31F2FAA",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "addrv2785x64(4).sys",
+        "size":  31936,
+        "sha256":  "224DE9AC5708B9876A1C54682B0F9E7DC4C009DA949F1D3FBFD6B0030AA7C014",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "addrv2785x64(5).sys",
+        "size":  31912,
+        "sha256":  "F4D5737A4D7F5397FB1C168B766B3B73D12EF21699F188B19ED037D28247B66E",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "addrv2785x64(6).sys",
+        "size":  31960,
+        "sha256":  "C70CA12AA973561CB207C24E43D153AC48347544F1A62D1594F85059D1BE2913",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "addrv2785x64(7).sys",
+        "size":  31936,
+        "sha256":  "BE20C064EA55622802698EF12FABE7FE49C09D4498E371559174BF05C6A49B1F",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "addrv2785x64(9).sys",
+        "size":  31912,
+        "sha256":  "16E73D4D4FDD7B9A44F5219D6EC2F441F4E3847459FB809A5A256B4399F539D8",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "addrv2785x64.sys",
+        "size":  27856,
+        "sha256":  "D8626545296679644EE4A8E2D9B957FF4C589526F652C8493946CBFFD5F93FAC",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "adlgpib(1).sys",
+        "size":  72712,
+        "sha256":  "55BFF8B727FDBD428FF7DF29904C1D6B1AF77E14C5061E80AE0F9E30712E497B",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "adlgpib.sys",
+        "size":  67272,
+        "sha256":  "49832237ED5691F788986774F68532B6D5649D541FE4103390920C50A64B840B",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ADRMDRV_SYS(2).sys",
+        "size":  27648,
+        "sha256":  "F335B490258D7BA7ABDFA4A79338849BFEA1808570D2035B28E9298C355CE247",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ADRMDRV_SYS(3).sys",
+        "size":  27600,
+        "sha256":  "998D6C72E1FB776A263BBE06CED6CBD78DD1A4DFAB5E8462064696DC8FD8A5D7",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ADRMDRV_SYS.sys",
+        "size":  29120,
+        "sha256":  "0A5763455193230035262A397D08487880F48F264CEDDA9563D877645683D247",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ADRMDRVSYS(11).sys",
+        "size":  24608,
+        "sha256":  "17F51CAAC063CC0CD7605980249CC851D2AB6D2BBA603789D127CE2B50F42CE8",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ADRMDRVSYS(2).sys",
+        "size":  26824,
+        "sha256":  "57AFE716C49B1A141351B4C24F70D71A688C5AC6D95DA8FFF348D7F184851A4D",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ADRMDRVSYS(5).sys",
+        "size":  26192,
+        "sha256":  "9822ECD5B19022C6DB17A0C2BF4A26C00216B456A834371E11BA20323EFA7262",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ADRMDRVSYS(6).sys",
+        "size":  26176,
+        "sha256":  "806B9F9967E26BEE69843F71A7B76305386CEB231FD57549EABEB6B1652EE07E",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ADRMDRVSYS(8).sys",
+        "size":  26136,
+        "sha256":  "FA59C670B2282D870DD4C9920E56419DDFD8F5AB15B24E1B8708AA841439CC91",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ADRMDRVSYS(9).sys",
+        "size":  26152,
+        "sha256":  "EDAC730A75ED453BDCDFB7CA1DD19CF1E269E9CA59295EFB15CA0071C96ED2F5",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "advExarPort.sys",
+        "size":  86928,
+        "sha256":  "C5E02D5338B699D31FC6D4303FC75CDFD624963F7AA240E8B3A47F9EAD1CBE12",
+        "signature":  "Valid"
+    }
+]
