@@ -1,0 +1,86 @@
+[
+  {
+    "ioctl": "0x9c400000",
+    "handler": "0x134a8",
+    "in_len": null,
+    "out_len": null
+  },
+  {
+    "ioctl": "0x9c400008",
+    "handler": "0x1345e",
+    "in_len": null,
+    "out_len": null
+  },
+  {
+    "ioctl": "0x9c400010",
+    "handler": "0x13422",
+    "in_len": null,
+    "out_len": null
+  },
+  {
+    "ioctl": "0x9c400014",
+    "handler": "0x13284",
+    "in_len": null,
+    "out_len": null
+  },
+  {
+    "ioctl": "0x9c400018",
+    "handler": "0x1312a",
+    "in_len": null,
+    "out_len": null
+  },
+  {
+    "ioctl": "0x9c40001c",
+    "handler": "0x130e8",
+    "in_len": null,
+    "out_len": null
+  },
+  {
+    "ioctl": "0x9c40002c",
+    "handler": "0x12fd1",
+    "in_len": null,
+    "out_len": null
+  },
+  {
+    "ioctl": "0x9c400030",
+    "handler": "0x12f9c",
+    "in_len": null,
+    "out_len": null
+  },
+  {
+    "ioctl": "0x9c400034",
+    "handler": "0x12f6e",
+    "in_len": null,
+    "out_len": null
+  },
+  {
+    "ioctl": "0x9c40000c",
+    "handler": "0x13aac",
+    "in_len": null,
+    "out_len": null
+  },
+  {
+    "ioctl": "0x9c40001c",
+    "handler": "0x13a84",
+    "in_len": null,
+    "out_len": null
+  },
+  {
+    "ioctl": "0x9c400020",
+    "handler": "0x136db",
+    "in_len": null,
+    "out_len": null
+  },
+  {
+    "ioctl": "0x9c400024",
+    "handler": "0x135dc",
+    "in_len": null,
+    "out_len": null
+  },
+  {
+    "ioctl": "0x9c400028",
+    "handler": "0x135b0",
+    "in_len": null,
+    "out_len": null
+  }
+]

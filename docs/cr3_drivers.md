@@ -162,3 +162,39 @@ IOCTL 常量：
 - FastDump — 设备可开，有待逆向；
 - Invary — 设备可开，locator 失败；
 - l1malwarebits_big / Rtx_HalExt — start=2。
+
+## 追加验证：CCHWApiExt
+加载：
+```
+drivers/CCHWApiExt(1)_sys/CCHWApiExt(1).sys
+STATE: RUNNING
+```
+设备：
+```
+\Device\CCHWAPIExt
+\Device\CCHWAPI
+\\.\CCHWAPI -> OPEN_OK
+```
+当前 CPU CR3：
+```
+layers --cchwapi-cr3-current --device \\.\CCHWAPI
+=> CR3=0x1D746F000
+VERDICT=PASS
+```
+`\\.\CCHWAPIExt` 作为 CR3 设备失败：
+```
+CCHWApi ReadControlReg(CR3) failed on all CPUs
+```
+结论：
+- CCHWApiExt 是**新增的当前 CPU CR3 提供者**；
+- 仍然不能指定 PID；
+- 目标 PID CR3 目前只有 KPRL。
+
+## 目标 CR3 提供者汇总
+| 驱动 | 目标 PID CR3 | 当前 CPU CR3 | 进程 VA 直读 |
+|---|---|---|---|
+| KPRL | ✅ | — | — |
+| CCHWApi | — | ✅ | — |
+| CCHWApiExt | — | ✅ | — |
+| KKYUM | ❌ locator失败 | — | ✅ |
+| Invary | ❌ | — | — |

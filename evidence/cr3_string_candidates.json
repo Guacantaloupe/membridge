@@ -1,0 +1,106 @@
+﻿[
+    {
+        "file":  "byov_input\\cb_arkmon.sys",
+        "hits":  "CR3"
+    },
+    {
+        "file":  "byov_input\\cb_tdcore.sys",
+        "hits":  "CR3"
+    },
+    {
+        "file":  "byov_input\\ctrl_mst.sys",
+        "hits":  "CR3"
+    },
+    {
+        "file":  "byov_input\\umbus2.sys",
+        "hits":  "KPRL"
+    },
+    {
+        "file":  "CCHWApi(1)_sys\\CCHWApi(1).sys",
+        "hits":  "CCHWAPI"
+    },
+    {
+        "file":  "CCHWApiExt(1)_sys\\CCHWApiExt(1).sys",
+        "hits":  "CCHWAPI"
+    },
+    {
+        "file":  "CCHWApi_sys\\CCHWApi.sys",
+        "hits":  "CCHWAPI"
+    },
+    {
+        "file":  "device_string_candidates\\DMIKD64.SYS",
+        "hits":  "CR3"
+    },
+    {
+        "file":  "device_string_candidates\\TdkLib64.sys",
+        "hits":  "CR3"
+    },
+    {
+        "file":  "driverstore_thirdparty\\esif_lf.sys",
+        "hits":  "CR3"
+    },
+    {
+        "file":  "dumpit\\DumpIt.sys",
+        "hits":  "CR3"
+    },
+    {
+        "file":  "fluffycats_extra\\$(LSTR_37)_heimdall.sra_10_0.sys",
+        "hits":  "CR3"
+    },
+    {
+        "file":  "fluffycats_extra3\\aehd(1).sys",
+        "hits":  "CR3"
+    },
+    {
+        "file":  "fluffycats_extra3\\aehd.sys",
+        "hits":  "CR3"
+    },
+    {
+        "file":  "fluffycats_extra6\\arkmon(11).sys",
+        "hits":  "CR3"
+    },
+    {
+        "file":  "fluffycats_extra6\\arkmon(12).sys",
+        "hits":  "CR3"
+    },
+    {
+        "file":  "fluffycats_extra6\\arkmon(14).sys",
+        "hits":  "CR3"
+    },
+    {
+        "file":  "fluffycats_extra6\\arkmon(17).sys",
+        "hits":  "CR3"
+    },
+    {
+        "file":  "fluffycats_extra6\\arkmon(2).sys",
+        "hits":  "CR3"
+    },
+    {
+        "file":  "fluffycats_extra6\\arkmon(5).sys",
+        "hits":  "CR3"
+    },
+    {
+        "file":  "import_candidates\\seraphad8.sys",
+        "hits":  "CR3"
+    },
+    {
+        "file":  "installed_thirdparty\\sisraid4.sys",
+        "hits":  "CR3"
+    },
+    {
+        "file":  "KKYUM\\KKYUM.sys",
+        "hits":  "KKYUM"
+    },
+    {
+        "file":  "kprl\\l1malwarebits.sys",
+        "hits":  "CR3,KPRL"
+    },
+    {
+        "file":  "security_candidates\\NxpCap64.sys",
+        "hits":  "CR3"
+    },
+    {
+        "file":  "security_candidates\\PSKD64.SYS",
+        "hits":  "CR3"
+    }
+]

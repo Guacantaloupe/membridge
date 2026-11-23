@@ -1,0 +1,8 @@
+﻿{
+    "date":  "2026-11-24T06:47:03",
+    "cchwapi_ext":  "RUNNING, current CR3 0x1D746F000 PASS",
+    "kprl":  "target PID CR3 PASS",
+    "kkyum":  "process VA read PASS",
+    "target_cr3_only":  "KPRL",
+    "note":  "CCHWApiExt new current-CPU CR3 provider; no new target-PID CR3 driver"
+}
