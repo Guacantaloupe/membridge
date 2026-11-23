@@ -1,0 +1,82 @@
+﻿[
+    {
+        "name":  "Pci9524(11).sys",
+        "size":  110152,
+        "score":  26,
+        "devices":  "\\Device\\PCIe9524",
+        "sha256":  "10645ebd2342c85ca8edb84629ae35c2348a82b61aa9904c9de3b934a86e0004",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Pci9524(4).sys",
+        "size":  110168,
+        "score":  26,
+        "devices":  "\\Device\\PCIe9524",
+        "sha256":  "7b4af96875c83c44805f506ce69992fe64ebfdb70538b92ca89be0d8012cf7b9",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Pci9524(9).sys",
+        "size":  110168,
+        "score":  26,
+        "devices":  "\\Device\\PCIe9524",
+        "sha256":  "950f6cd5517e9f540bcf05402c20ae4541da6f03a86a73c082dc106b365ad2aa",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "prot_2k(1).sys",
+        "size":  298560,
+        "score":  26,
+        "devices":  "\\??\\Global",
+        "sha256":  "ca117e18b5c94ecb880ea98595709620c19af5243fc5b6ad584f291f8d7e8f96",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "prot_2k.sys",
+        "size":  299616,
+        "score":  26,
+        "devices":  "\\??\\Global",
+        "sha256":  "0a5b4e04bd7c591cc5844852e01e7d76a9f9c164658f7c6123815de5fe6d6617",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "prot_2k(3).sys",
+        "size":  538512,
+        "score":  26,
+        "devices":  "\\??\\Global",
+        "sha256":  "22d0a271d7167843c22436d20fe889585c4f02f5cb9a3c1a1b252a95ba543e11",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "prot_2k(5).sys",
+        "size":  602136,
+        "score":  26,
+        "devices":  "\\??\\Global",
+        "sha256":  "63809b8121a5838b98d80abbe6c28b7d4b594c90f99aaf38d6f1cfc8116e1741",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "TdkLib64.sys",
+        "size":  57016,
+        "score":  25,
+        "devices":  "\\Device\\TdkLib,\\DosDevices\\TdkLib",
+        "sha256":  "be466e353a91acc5ca34625bc89968c2c334f74e617220a2172d1e56a19a606c",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Daq2208(4).sys",
+        "size":  75968,
+        "score":  25,
+        "devices":  "\\Device\\DAQ2208",
+        "sha256":  "dcbfed09a467ec9eaa650c0699afa0e5b9d856d9b719d4eeb2ddcf6c85269250",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Daq2208(6).sys",
+        "size":  75968,
+        "score":  25,
+        "devices":  "\\Device\\DAQ2208",
+        "sha256":  "a5a209ef1ab39d11b478cf0c39cbe08c6f85f3265bce2dd025b2f602ed1c4d7e",
+        "signature":  "Valid"
+    }
+]

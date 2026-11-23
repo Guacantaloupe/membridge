@@ -1,0 +1,17 @@
+﻿{
+    "date":  "2026-11-23T12:30:24",
+    "pci9524":  "start=2 STOPPED after reboot",
+    "added":  [
+                  "Pci9524(11)",
+                  "Pci9524(4)",
+                  "Pci9524(9)",
+                  "prot_2k",
+                  "prot_2k(1)",
+                  "prot_2k(3)",
+                  "prot_2k(5)",
+                  "TdkLib64",
+                  "Daq2208(4)",
+                  "Daq2208(6)"
+              ],
+    "note":  "10 more device-string candidates; Pci9524 currently not startable; no BSOD"
+}
