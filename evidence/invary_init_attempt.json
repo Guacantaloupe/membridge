@@ -1,0 +1,8 @@
+﻿{
+    "date":  "2026-11-24T07:23:15",
+    "ioctl_2400":  "err=0x450",
+    "ioctl_2404":  "ok ret=0",
+    "read_2408":  "still fails 0x80090005",
+    "verdict":  "init protocol incomplete; no new path",
+    "note":  "no BSOD"
+}

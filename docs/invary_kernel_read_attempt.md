@@ -41,3 +41,23 @@ outlen=0x1000 -> ok=False err=0x80090005 (NTE_BAD_DATA?)
 - KKYUM 用户进程 VA 读：已验证；
 - CCHWApi current CR3：可读但不能用于页表；
 - FastDump CPUID/MSR：可用。
+
+## 初始化 IOCTL 复测
+尝试在读取前调用 Invary 其它 IOCTL：
+
+| IOCTL | 结果 |
+|---|---|
+| `0x9C402400` | `err=0x450`（参数/状态不匹配） |
+| `0x9C402404` | `ok=True err=0xCB ret=0` |
+| `0x9C402408` 读取 LSTAR | 仍失败 `0x80090005` |
+
+结论：
+- `0x9C402404` 可以成功调用；
+- 但初始化状态仍不足以允许内核 VA 读；
+- `0x9C402400` 需要特定输入结构；
+- 暂未找到正确初始化协议。
+
+## 当前覆盖结论
+- 公开 CR3 驱动目录已覆盖；
+- 无新的安全目标 CR3 locator；
+- 后续仅做静态分析，不做内核 VA 读。
