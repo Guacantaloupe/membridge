@@ -1,0 +1,364 @@
+{
+  "total": 31,
+  "known": 0,
+  "top": [
+    {
+      "score": 20,
+      "name": "VBoxSup.sys",
+      "path": "drivers\\installed_thirdparty\\VBoxSup.sys",
+      "size": 1083808,
+      "sha256": "c978fa07dfe82eabc525c9ddd28f952d56e6fb1f269b656c07ba904642b964a9",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 19,
+      "name": "iaStorV.sys",
+      "path": "drivers\\installed_thirdparty\\iaStorV.sys",
+      "size": 413088,
+      "sha256": "7e862c0367b382ade309dea6beb95fd2eed15cae8bdda37658d66484c00f88bb",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 16,
+      "name": "VBoxUSB.sys",
+      "path": "drivers\\installed_thirdparty\\VBoxUSB.sys",
+      "size": 189304,
+      "sha256": "52d3b5294c16a7bfbde38b0fed8335b4fb7cb7853fb59c2c8cee3efb5933c521",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 15,
+      "name": "iaLPSSi_I2C.sys",
+      "path": "drivers\\installed_thirdparty\\iaLPSSi_I2C.sys",
+      "size": 113152,
+      "sha256": "8445e41bab21964c7f014742795e462bddc6c37a261990b3d6bf4e637a719547",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 14,
+      "name": "nvraid.sys",
+      "path": "drivers\\installed_thirdparty\\nvraid.sys",
+      "size": 151472,
+      "sha256": "db769bf751d7b23ffce8cc1baabb335da5da15e06a845a049eb68c3791686fed",
+      "hits": [
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 14,
+      "name": "mlx4_bus.sys",
+      "path": "drivers\\installed_thirdparty\\mlx4_bus.sys",
+      "size": 1132336,
+      "sha256": "211bdc6bb0720ee7221d77f205bd828ab4172ac4f454877beaf5e3d74419442c",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 14,
+      "name": "RTKVHD64.sys",
+      "path": "drivers\\installed_thirdparty\\RTKVHD64.sys",
+      "size": 6333912,
+      "sha256": "1bb623c95c9f4fdc568d8746a61334cbe4976742f52a8a211293aade4cf34c31",
+      "hits": [
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 12,
+      "name": "VBoxNetAdp6.sys",
+      "path": "drivers\\installed_thirdparty\\VBoxNetAdp6.sys",
+      "size": 242648,
+      "sha256": "42dbd3dc215f20fe3b118fbb2cc507e0aa4c6cd33bfdb9241583181c9cc9bfd9",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 12,
+      "name": "VBoxNetLwf.sys",
+      "path": "drivers\\installed_thirdparty\\VBoxNetLwf.sys",
+      "size": 252672,
+      "sha256": "ecb97731813aaee1aa8fc0a85280a542250278d951e2c26199a0899aec0a4978",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 10,
+      "name": "iaStorAVC.sys",
+      "path": "drivers\\installed_thirdparty\\iaStorAVC.sys",
+      "size": 885568,
+      "sha256": "a46a34e6dc1573d29b87ad22b336c6a7358a657a416b1643c0d3dad671d81692",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 10,
+      "name": "iaStorVD.sys",
+      "path": "drivers\\installed_thirdparty\\iaStorVD.sys",
+      "size": 1544912,
+      "sha256": "b35596029cdaf27d16eb4220ced7e7d6ccf71b6f6ea951111bf887edaa301f2a",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 9,
+      "name": "wintun.sys",
+      "path": "drivers\\installed_thirdparty\\wintun.sys",
+      "size": 29592,
+      "sha256": "1a7bb3555c5419befb1a5f54267dcae9a7af16749ddf4eef9b431fcf0b863110",
+      "hits": [
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 9,
+      "name": "vmci.sys",
+      "path": "drivers\\installed_thirdparty\\vmci.sys",
+      "size": 104888,
+      "sha256": "91e68a9891339a8db757c9eceb65371db83822fa56305d61330e50194dc97131",
+      "hits": [
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 9,
+      "name": "RtsUer.sys",
+      "path": "drivers\\installed_thirdparty\\RtsUer.sys",
+      "size": 785984,
+      "sha256": "329d96b035b14663e31b92d25da40f82a7c739f48b8749b6d339d079d24743d8",
+      "hits": [
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 7,
+      "name": "VBoxUSBMon.sys",
+      "path": "drivers\\installed_thirdparty\\VBoxUSBMon.sys",
+      "size": 191288,
+      "sha256": "b3d24d7491d1af6bd1ca4bce84e52c324ff96b1232dcaac22b09d2ac4324a284",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 5,
+      "name": "amdgpio2.sys",
+      "path": "drivers\\installed_thirdparty\\amdgpio2.sys",
+      "size": 18432,
+      "sha256": "46a53925baa34fa9d87e7c3157504a4557d81cd8b8608e7ab6caf02f482f7792",
+      "hits": [
+        "MmMapIoSpace"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 5,
+      "name": "amdi2c.sys",
+      "path": "drivers\\installed_thirdparty\\amdi2c.sys",
+      "size": 45568,
+      "sha256": "387811d57def06c9736d9f0bab0dfb0f83dbab19e5489bf9a6dcdcbd682dd8fe",
+      "hits": [
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 5,
+      "name": "usbaapl64.sys",
+      "path": "drivers\\installed_thirdparty\\usbaapl64.sys",
+      "size": 54784,
+      "sha256": "4dec2fc20329f248135da24cb6694fd972dcce8b1bbea8d872fde41939e96aaf",
+      "hits": [
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 5,
+      "name": "vmusb.sys",
+      "path": "drivers\\installed_thirdparty\\vmusb.sys",
+      "size": 70656,
+      "sha256": "e793959c7bbeb12873253b46f432b9b078ec25174d3ad4140de6b08ba649627b",
+      "hits": [
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 5,
+      "name": "iai2c.sys",
+      "path": "drivers\\installed_thirdparty\\iai2c.sys",
+      "size": 91136,
+      "sha256": "9296a14590dfd94a3c728caf3ca91ba211f27974f9cff8417cddc00d1453315c",
+      "hits": [
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 5,
+      "name": "AsusPTPFilter.sys",
+      "path": "drivers\\installed_thirdparty\\AsusPTPFilter.sys",
+      "size": 115176,
+      "sha256": "f8ee73f8f2bb3967895ca9031e50a8872544c8c694ddd7061adb5e480e8668a9",
+      "hits": [
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 5,
+      "name": "ndfltr.sys",
+      "path": "drivers\\installed_thirdparty\\ndfltr.sys",
+      "size": 147248,
+      "sha256": "b712379ca3ece73efe1a9dd1bb94bc7ca0c4e3d68fcca9a99888f67e11af00e8",
+      "hits": [
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 5,
+      "name": "iaLPSS2i_I2C.sys",
+      "path": "drivers\\installed_thirdparty\\iaLPSS2i_I2C.sys",
+      "size": 171520,
+      "sha256": "3f1f9ec7571d0f82d3f5bba298965491260708f05ebaaa2cc23483521a5ff079",
+      "hits": [
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 5,
+      "name": "iaLPSS2i_I2C_BXT_P.sys",
+      "path": "drivers\\installed_thirdparty\\iaLPSS2i_I2C_BXT_P.sys",
+      "size": 175104,
+      "sha256": "bf354297a55713d9e2dd4044d42810c007733ee54d5a80d58b96dd279d92c716",
+      "hits": [
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 5,
+      "name": "iaLPSS2i_I2C_CNL.sys",
+      "path": "drivers\\installed_thirdparty\\iaLPSS2i_I2C_CNL.sys",
+      "size": 177152,
+      "sha256": "f105edd16e38f5c0044cc7139e4084a04b0ae3212171a1c7f6fe759f3f5f77fc",
+      "hits": [
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 5,
+      "name": "iaLPSS2i_I2C_GLK.sys",
+      "path": "drivers\\installed_thirdparty\\iaLPSS2i_I2C_GLK.sys",
+      "size": 177664,
+      "sha256": "a92487129b81376471c842b9932ff3a7b3abbbb89797978e3fdeaf71a6fd5e3f",
+      "hits": [
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 5,
+      "name": "amdsbs.sys",
+      "path": "drivers\\installed_thirdparty\\amdsbs.sys",
+      "size": 260512,
+      "sha256": "afa0a9eaccc36cfc88ac41dcd0149ac6f9763d12c898397e831d80f202ef4402",
+      "hits": [
+        "MmMapIoSpace"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 5,
+      "name": "cht4sx64.sys",
+      "path": "drivers\\installed_thirdparty\\cht4sx64.sys",
+      "size": 320944,
+      "sha256": "ffaa9abf91808e2569206a5a5d5d3542b02860965d8f1ea5790307648cd1e4d3",
+      "hits": [
+        "ZwOpenSection"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 5,
+      "name": "bxvbda.sys",
+      "path": "drivers\\installed_thirdparty\\bxvbda.sys",
+      "size": 534944,
+      "sha256": "8fca12e3aba77f5a64a54431969edc8b32e1a8f3f6fc06282120fe003b2be1b9",
+      "hits": [
+        "ZwOpenSection"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 5,
+      "name": "evbd0a.sys",
+      "path": "drivers\\installed_thirdparty\\evbd0a.sys",
+      "size": 3424160,
+      "sha256": "53af6cd54eae4d4952bc1fa57225a6a376d27e61e7eefd00acaf6c1d9346be0e",
+      "hits": [
+        "ZwOpenSection"
+      ],
+      "dlls": []
+    }
+  ]
+}
