@@ -1,0 +1,15 @@
+﻿{
+    "date":  "2026-11-24T06:58:26",
+    "objective":  "find more CR3-capable drivers",
+    "scanned_sys":  691,
+    "cr3_candidates":  89,
+    "target_cr3":  "KPRL 0x1CF6C8000",
+    "current_cr3":  [
+                        "CCHWApi 0x184472000",
+                        "CCHWApiExt 0x1D746F000"
+                    ],
+    "system_cr3_candidate":  "devhost (Defender blocked)",
+    "unsafe":  "AsrCDDrv 0x20001 HVCI crash",
+    "process_read":  "KKYUM MZ PASS",
+    "conclusion":  "no second safe target-PID CR3 provider; objective coverage complete"
+}

@@ -1,0 +1,497 @@
+﻿[
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\deliverables\\nv-issues-package\\02-样本驱动-Samples\\nvlddmkm.3f8d3349.sys",
+        "size":  102231272,
+        "hits":  "KPRL,CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\byovd_kkyum\\KKYUM.sys",
+        "size":  26768,
+        "hits":  "KKYUM"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\byovd_kkyum\\repo\\UsingBYOVD-master\\RawDriverFiles\\KKYUM.sys",
+        "size":  26768,
+        "hits":  "KKYUM"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\byovd_kkyum\\repo\\UsingBYOVD-master\\RawDriverFiles\\KSLD.sys",
+        "size":  82352,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\$(LSTR_37)_heimdall_sra_10_0_sys\\$(LSTR_37)_heimdall.sra_10_0.sys",
+        "size":  699128,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\aehd(1)_sys\\aehd(1).sys",
+        "size":  390168,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\aehd_sys\\aehd.sys",
+        "size":  403080,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\arkmon(1)_sys\\arkmon(1).sys",
+        "size":  399224,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\arkmon(11)_sys\\arkmon(11).sys",
+        "size":  396032,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\arkmon(12)_sys\\arkmon(12).sys",
+        "size":  397600,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\arkmon(14)_sys\\arkmon(14).sys",
+        "size":  384656,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\arkmon(17)_sys\\arkmon(17).sys",
+        "size":  385072,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\arkmon(2)_sys\\arkmon(2).sys",
+        "size":  493272,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\arkmon(5)_sys\\arkmon(5).sys",
+        "size":  424600,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\BAPIDRV64(1)_SYS\\BAPIDRV64(1).SYS",
+        "size":  234208,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\BAPIDRV64(10)_SYS\\BAPIDRV64(10).SYS",
+        "size":  226144,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\BAPIDRV64(11)_SYS\\BAPIDRV64(11).SYS",
+        "size":  226144,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\BAPIDRV64(12)_SYS\\BAPIDRV64(12).SYS",
+        "size":  224096,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\BAPIDRV64(13)_SYS\\BAPIDRV64(13).SYS",
+        "size":  222912,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\BAPIDRV64(14)_SYS\\BAPIDRV64(14).SYS",
+        "size":  215152,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\BAPIDRV64(2)_SYS\\BAPIDRV64(2).SYS",
+        "size":  229176,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\BAPIDRV64(3)_SYS\\BAPIDRV64(3).SYS",
+        "size":  227680,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\BAPIDRV64(4)_SYS\\BAPIDRV64(4).SYS",
+        "size":  228176,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\BAPIDRV64(5)_SYS\\BAPIDRV64(5).SYS",
+        "size":  238304,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\BAPIDRV64(6)_SYS\\BAPIDRV64(6).SYS",
+        "size":  227528,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\BAPIDRV64(7)_SYS\\BAPIDRV64(7).SYS",
+        "size":  218824,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\BAPIDRV64(9)_SYS\\BAPIDRV64(9).SYS",
+        "size":  227456,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\BAPIDRV64_SYS\\BAPIDRV64.SYS",
+        "size":  228976,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\CCHWApi(1)_sys\\CCHWApi(1).sys",
+        "size":  92136,
+        "hits":  "CCHWAPI"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\CCHWApiExt(1)_sys\\CCHWApiExt(1).sys",
+        "size":  85736,
+        "hits":  "CCHWAPI"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\CCHWApiExt_sys\\CCHWApiExt.sys",
+        "size":  92784,
+        "hits":  "CCHWAPI"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\CCHWApi_sys\\CCHWApi.sys",
+        "size":  84968,
+        "hits":  "CCHWAPI"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\CPTW_K64_SYS\\CPTW_K64.SYS",
+        "size":  187752,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\C__Windows_system32_Drivers_DumpIt(1)_sys\\C__Windows_system32_Drivers_DumpIt(1).sys",
+        "size":  87224,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\c__windows_system32_drivers_umbus2_sys\\c__windows_system32_drivers_umbus2.sys",
+        "size":  31008,
+        "hits":  "KPRL"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\DMIKD64_SYS\\DMIKD64.SYS",
+        "size":  263888,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\GoogleHaxm(1)_sys\\GoogleHaxm(1).sys",
+        "size":  246984,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\GoogleHaxm(2)_sys\\GoogleHaxm(2).sys",
+        "size":  250560,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\GoogleHaxm_sys\\GoogleHaxm.sys",
+        "size":  234688,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\gvm(1)_sys\\gvm(1).sys",
+        "size":  393712,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\gvm(2)_sys\\gvm(2).sys",
+        "size":  386040,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\gvm(3)_sys\\gvm(3).sys",
+        "size":  394408,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\gvm(4)_sys\\gvm(4).sys",
+        "size":  393192,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\gvm_sys\\gvm.sys",
+        "size":  390144,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\hax(1)_sys\\hax(1).sys",
+        "size":  194040,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\hax(10)_sys\\hax(10).sys",
+        "size":  185552,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\hax(13)_sys\\hax(13).sys",
+        "size":  183296,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\hax(16)_sys\\hax(16).sys",
+        "size":  96376,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\hax(2)_sys\\hax(2).sys",
+        "size":  187392,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\hax(3)_sys\\hax(3).sys",
+        "size":  180904,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\hax(4)_sys\\hax(4).sys",
+        "size":  189952,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\hax(6)_sys\\hax(6).sys",
+        "size":  200232,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\hax(7)_sys\\hax(7).sys",
+        "size":  185344,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\hax(8)_sys\\hax(8).sys",
+        "size":  193592,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\hax(9)_sys\\hax(9).sys",
+        "size":  195584,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\hax_sys\\hax.sys",
+        "size":  193600,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\HwEmuDrv(2)_sys\\HwEmuDrv(2).sys",
+        "size":  307824,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\HwEmuDrv(3)_sys\\HwEmuDrv(3).sys",
+        "size":  295648,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\HwEmuDrv(4)_sys\\HwEmuDrv(4).sys",
+        "size":  306824,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\HwEmuDrv(5)_sys\\HwEmuDrv(5).sys",
+        "size":  295648,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\HwEmuDrv(6)_sys\\HwEmuDrv(6).sys",
+        "size":  306808,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\HwEmuDrv(7)_sys\\HwEmuDrv(7).sys",
+        "size":  255440,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\HwEmuDrv(8)_sys\\HwEmuDrv(8).sys",
+        "size":  254368,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\HwEmuDrv(9)_sys\\HwEmuDrv(9).sys",
+        "size":  208304,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\l1malwarebits_sys\\l1malwarebits.sys",
+        "size":  37160,
+        "hits":  "KPRL,CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\mst(1)_sys\\mst(1).sys",
+        "size":  87456,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\QAXHVM(1)_sys\\QAXHVM(1).sys",
+        "size":  308112,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\QAXHVM_sys\\QAXHVM.sys",
+        "size":  238568,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\seraphad8_sys\\seraphad8.sys",
+        "size":  215744,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\TcRTime(14)_sys\\TcRTime(14).sys",
+        "size":  766648,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\TcRTime(15)_sys\\TcRTime(15).sys",
+        "size":  754616,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\TcRTime(16)_sys\\TcRTime(16).sys",
+        "size":  745912,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\TDCore(1)_sys\\TDCore(1).sys",
+        "size":  449928,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\TDCore_sys\\TDCore.sys",
+        "size":  472568,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\TdkLib64_sys\\TdkLib64.sys",
+        "size":  57016,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\080658f2-fb37-4ace-ba22-09fb678d3cf7\\extracted\\NETwaw18.sys",
+        "size":  6271064,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\080658f2-fb37-4ace-ba22-09fb678d3cf7\\extracted\\NETwtw18.sys",
+        "size":  6215248,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\26482682-5213-4bd9-ac9b-f533dbceae40\\extracted\\x64\\1MORE-SPEARHEAD.sys",
+        "size":  3793376,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\26482682-5213-4bd9-ac9b-f533dbceae40\\extracted\\x86\\1MORE-SPEARHEAD.sys",
+        "size":  3139552,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\360a71ae-3057-42fd-86ef-e4662aafae90\\extracted\\NETwaw18.sys",
+        "size":  6271056,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\360a71ae-3057-42fd-86ef-e4662aafae90\\extracted\\NETwtw18.sys",
+        "size":  6215248,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\390db77e-20ea-4f90-9a07-1c6004bb91c9\\extracted\\x64\\1MORE-SPEARHEAD.sys",
+        "size":  3793376,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\390db77e-20ea-4f90-9a07-1c6004bb91c9\\extracted\\x86\\1MORE-SPEARHEAD.sys",
+        "size":  3140064,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\3ae2bfd0-871c-433f-965c-9218e51fe709\\extracted\\nvhda32v.sys",
+        "size":  187848,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\3b301dca-8e64-4c67-a39c-b02219e89a5f\\extracted\\RTKVAC64.sys",
+        "size":  3479712,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\438b2ff8-082a-4d9d-b594-f857a8cee180\\extracted\\ipf_cpu.sys",
+        "size":  541568,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\4891475a-aea8-421d-8916-3ff746a7ed57\\extracted\\nvhda32v.sys",
+        "size":  213968,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\74171caf-4fa8-41c3-8ef5-c1371fefc28c\\extracted\\NxpCap.sys",
+        "size":  1422752,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\74171caf-4fa8-41c3-8ef5-c1371fefc28c\\extracted\\NxpCap64.sys",
+        "size":  1728672,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\7df2f5fe-c3b7-4c03-92f1-563ce27c134e\\extracted\\RTKVAC.sys",
+        "size":  3993248,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\a305bd3f-e374-465a-93dd-f88afb70019c\\extracted\\x64\\1MORE-SPEARHEAD.sys",
+        "size":  3793888,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\a305bd3f-e374-465a-93dd-f88afb70019c\\extracted\\x86\\1MORE-SPEARHEAD.sys",
+        "size":  3140064,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\a3bef39a-faec-4bb8-8d5d-8319aabb737b\\extracted\\rtwlanu6.sys",
+        "size":  16200976,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\aaef2680-4196-4bf4-a837-a8247215ed52\\extracted\\nvhda32v.sys",
+        "size":  196560,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\ec961cc5-3dae-41f5-8e6b-b7106494c134\\extracted\\x64\\1MORE-SPEARHEAD.sys",
+        "size":  3794400,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\ec961cc5-3dae-41f5-8e6b-b7106494c134\\extracted\\x86\\1MORE-SPEARHEAD.sys",
+        "size":  3141600,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\nday-downloads\\pciscope_extract\\app\\PSKD.SYS",
+        "size":  760024,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\nday-downloads\\pciscope_extract\\app\\PSKD64.SYS",
+        "size":  466344,
+        "hits":  "CR3"
+    },
+    {
+        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\rowhammer-probe\\kdtools\\sym\\win32kbase.sys\\80111D7E346000\\win32kbase.sys",
+        "size":  3420160,
+        "hits":  "CR3"
+    }
+]
