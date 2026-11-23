@@ -1,0 +1,12 @@
+﻿[
+    {
+        "name":  "bsitf_unlocked.sys",
+        "state":  "STOPPED",
+        "win32_exit":  "577"
+    },
+    {
+        "name":  "biostoolcommondriver.sys",
+        "state":  "RUNNING",
+        "win32_exit":  "0"
+    }
+]

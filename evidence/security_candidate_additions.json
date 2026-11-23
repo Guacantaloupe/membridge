@@ -1,0 +1,50 @@
+﻿[
+    {
+        "name":  "bsitf_unlocked.sys",
+        "size":  36728,
+        "sha256":  "9F4D32FF892D5191A4DCF7AD4804DD696FAE225F5805651AD05ACEE8CDB741A1",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "biostoolcommondriver.sys",
+        "size":  48352,
+        "sha256":  "177227F68CC28EE7726381B95F7D2215DA35BE3750157EBCB7E113201059026C",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "PSKD64.SYS",
+        "size":  466344,
+        "sha256":  "3FF88DE6146DE4A92728240692A4DFC43AF8816D34FCE69A5FAD7CF2B5EAA785",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "NxpCap64.sys",
+        "size":  1728672,
+        "sha256":  "D95F2F4466D2320ADC8C831432B0CF581EBD65B06B3ABC56761F8591AB0E6996",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "RDWM1179.SYS",
+        "size":  397336,
+        "sha256":  "E1BB957A5E2504EC16B05C9003BBF90DA0D4683E28C759B4833E9A4B33657B45",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "RDWM1236.SYS",
+        "size":  398896,
+        "sha256":  "9D7EF70C7C244F49CDE54C8538CE18F10E4BDC2F1FFBAE518118B06CF76B0432",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "IntcOED.sys",
+        "size":  1563888,
+        "sha256":  "D61BC31D8CBEC34D5CFCF27AC1EC190CA062B312AE8708C3A77FC44943981BE1",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "stwrt64.sys",
+        "size":  561680,
+        "sha256":  "C55F51139A60E8598C2CA3B03D508DE9235E1713195D46ACD12F7EE0A7F02C83",
+        "signature":  "Valid"
+    }
+]

@@ -1,0 +1,773 @@
+{
+  "total": 153,
+  "known": 172,
+  "top": [
+    {
+      "score": 20,
+      "name": "b57nd60a.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\1054b4ab-a5b0-40f3-b59e-adf3609aea49\\extracted\\b57nd60a.sys",
+      "size": 511408,
+      "sha256": "b50309d2607e175bfa2621923c45be9fa4f34b2cbdf52be7c4092e3de87df166",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "ZwOpenSection"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 20,
+      "name": "b57nd60a.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\1054b4ab-a5b0-40f3-b59e-adf3609aea49\\extracted\\Compaq\\b57nd60a.sys",
+      "size": 511408,
+      "sha256": "3b4658d4e484cc80e82dee0ec67a4f03d479d3de35cc8e48425ad9d66e7b7e08",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "ZwOpenSection"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 20,
+      "name": "b57nd60a.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\1054b4ab-a5b0-40f3-b59e-adf3609aea49\\extracted\\Compaq\\Free\\b57nd60a.sys",
+      "size": 511408,
+      "sha256": "b15fb0b9e593d6c6e4544e323b7ca54556300a10c9f124e20a35841bb0e2cf15",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "ZwOpenSection"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 20,
+      "name": "b57nd60a.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\21005281-198d-4ee1-9b0f-7c6d6a061b29\\extracted\\b57nd60a.sys",
+      "size": 511408,
+      "sha256": "17dd7dd55a0a387e0f31a7cf6f3af9dbffc2e59af067acaa66db25ab8bce7e6f",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "ZwOpenSection"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 20,
+      "name": "b57nd60a.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\21005281-198d-4ee1-9b0f-7c6d6a061b29\\extracted\\Compaq\\b57nd60a.sys",
+      "size": 511432,
+      "sha256": "e96cf1ef9bee371a0b6a15cd76b08eeae9c17c03ae1dfb1189f0731c0e76f5fa",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "ZwOpenSection"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 20,
+      "name": "b57nd60a.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\21005281-198d-4ee1-9b0f-7c6d6a061b29\\extracted\\Compaq\\Free\\b57nd60a.sys",
+      "size": 511432,
+      "sha256": "e5f55fd095cad1ecd8266e0c8f4de20e6b01074fb2bbb4c3282e1ad0ea31da76",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "ZwOpenSection"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 20,
+      "name": "b57nd60a.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\1054b4ab-a5b0-40f3-b59e-adf3609aea49\\extracted\\Checked\\b57nd60a.sys",
+      "size": 1022896,
+      "sha256": "7afbb2ccc1f9a3587c1986ed02461412f2b9865c8d256ecaa40dca9860d2b329",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "ZwOpenSection"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 20,
+      "name": "b57nd60a.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\21005281-198d-4ee1-9b0f-7c6d6a061b29\\extracted\\Checked\\b57nd60a.sys",
+      "size": 1022896,
+      "sha256": "433f3816a0a213c34d5bf80671aad6f330c5994bc256e495160490a0cb221c96",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "ZwOpenSection"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 20,
+      "name": "b57nd60a.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\1054b4ab-a5b0-40f3-b59e-adf3609aea49\\extracted\\Compaq\\Checked\\b57nd60a.sys",
+      "size": 1022920,
+      "sha256": "8d970e44a9cdf7a1ade6965f918d383bb0be3a0e0f5d607e6551c790872d8b14",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "ZwOpenSection"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 20,
+      "name": "b57nd60a.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\21005281-198d-4ee1-9b0f-7c6d6a061b29\\extracted\\Compaq\\Checked\\b57nd60a.sys",
+      "size": 1022920,
+      "sha256": "beb8e4ff95abfe6212db63c152ad84be5005c4f9907e9da7c84fc9b4d5400a5b",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "ZwOpenSection"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 19,
+      "name": "mlx5.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\defe9921-beee-4045-a7ed-754b547891f8\\extracted\\mlx5.sys",
+      "size": 3018960,
+      "sha256": "23d7c2bc0116021fb747794b7733f895d86edf2faeb573c5397fd068b9c894c8",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 17,
+      "name": "bsitf_unlocked.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\bsitf-poc\\bsitf_unlocked.sys",
+      "size": 36728,
+      "sha256": "9f4d32ff892d5191a4dcf7ad4804dd696fae225f5805651ad05acee8cdb741a1",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 17,
+      "name": "nvpcf.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\a461641d-3acc-4871-98f6-773ed0aaa9f6\\extracted\\nvpcf.sys",
+      "size": 318280,
+      "sha256": "a4b175aace11a252275c83fd676aa7112112f6192d82ab24d728b3ff967f6a7e",
+      "hits": [
+        "HalGetBusDataByOffset",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "ZwOpenSection"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 17,
+      "name": "nvpcf.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\bdd995a8-f86e-47e4-9356-41ce26f2f9df\\extracted\\nvpcf.sys",
+      "size": 318288,
+      "sha256": "6a8921735e5dd796ee9dadfe232da6f52739193c23c9162fac9e456beaeaa898",
+      "hits": [
+        "HalGetBusDataByOffset",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "ZwOpenSection"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 16,
+      "name": "npu_kmd.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\fb74352d-f77d-4f96-aba7-5ec2f92881aa\\extracted\\npu_kmd.sys",
+      "size": 3954304,
+      "sha256": "741866dc7536741a3b158593186d4dc08f23e1fd64b6e397ae2970125c270110",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 15,
+      "name": "NETwtw08.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\080658f2-fb37-4ace-ba22-09fb678d3cf7\\extracted\\NETwtw08.sys",
+      "size": 8940624,
+      "sha256": "03573014e1c84651b2e8d005bb44c261f36dbc4994510e14892ff1349adc8f0d",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 15,
+      "name": "NETwtw08.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\360a71ae-3057-42fd-86ef-e4662aafae90\\extracted\\NETwtw08.sys",
+      "size": 8940624,
+      "sha256": "2726a0687e7444e1af39da33ad9d4cc16df54e4c35f8f4ddb6613a852c758a5b",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 14,
+      "name": "biostoolcommondriver.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\nday-downloads\\biostoolcommondriver.sys",
+      "size": 48352,
+      "sha256": "177227f68cc28ee7726381b95f7d2215da35be3750157ebcb7e113201059026c",
+      "hits": [
+        "HalGetBusDataByOffset",
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 14,
+      "name": "mobilint_pcie.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\e53c809a-5bec-44f7-b0fb-0ea91eca9fc1\\extracted\\mobilint_pcie.sys",
+      "size": 50960,
+      "sha256": "5388830333bdc6202939a08b95e1aa61a6fde1fe2f24f81ae7e4e1df8442c987",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 14,
+      "name": "stwrt64.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\b62428bc-d01b-4e86-b1ea-b0062f4b4789\\extracted\\stwrt64.sys",
+      "size": 561680,
+      "sha256": "c55f51139a60e8598c2ca3b03d508de9235e1713195d46acd12f7ee0a7f02c83",
+      "hits": [
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 14,
+      "name": "stwrt64.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\e7fd28aa-2cf5-4e98-91e7-71bb78e636aa\\extracted\\stwrt64.sys",
+      "size": 561680,
+      "sha256": "430284fc7a0f531f98689795b18528c780a8345cfa425e514d39806f7547665c",
+      "hits": [
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 14,
+      "name": "mlx4_bus.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\internet\\mlx4_bus.sys",
+      "size": 1132336,
+      "sha256": "211bdc6bb0720ee7221d77f205bd828ab4172ac4f454877beaf5e3d74419442c",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 14,
+      "name": "NxpCap64.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\74171caf-4fa8-41c3-8ef5-c1371fefc28c\\extracted\\NxpCap64.sys",
+      "size": 1728672,
+      "sha256": "d95f2f4466d2320adc8c831432b0cf581ebd65b06b3abc56761f8591ab0e6996",
+      "hits": [
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 12,
+      "name": "nvhda64.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\3ae2bfd0-871c-433f-965c-9218e51fe709\\extracted\\nvhda64.sys",
+      "size": 190528,
+      "sha256": "0aa00e295263c09672a2a18d46457e122188e049a1d4e55d3d47d99b671a6419",
+      "hits": [
+        "HalGetBusDataByOffset",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 12,
+      "name": "nvhda64.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\aaef2680-4196-4bf4-a837-a8247215ed52\\extracted\\nvhda64.sys",
+      "size": 199240,
+      "sha256": "ba5ce38da9dbf871b713492b12e5f42688b72ba892fb73e42889188669c3f0cb",
+      "hits": [
+        "HalGetBusDataByOffset",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 12,
+      "name": "nvhda64.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\4891475a-aea8-421d-8916-3ff746a7ed57\\extracted\\nvhda64.sys",
+      "size": 216656,
+      "sha256": "c43f1c305340cf7c1361ec1ca34eca1527f994b43b1e87164290c7ab3cad585b",
+      "hits": [
+        "HalGetBusDataByOffset",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 12,
+      "name": "nvhda64v.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\3ae2bfd0-871c-433f-965c-9218e51fe709\\extracted\\nvhda64v.sys",
+      "size": 221640,
+      "sha256": "e979dcdea68691e726077661bb020967c6194f8155448b5aa9481ee290bc53af",
+      "hits": [
+        "HalGetBusDataByOffset",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 12,
+      "name": "nvhda64v.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\aaef2680-4196-4bf4-a837-a8247215ed52\\extracted\\nvhda64v.sys",
+      "size": 232008,
+      "sha256": "9617ae49451c3bf4c33b8091826706e164f5805d6ff9a4a3acc17aaa6b172317",
+      "hits": [
+        "HalGetBusDataByOffset",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 12,
+      "name": "nvhda64v.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\4891475a-aea8-421d-8916-3ff746a7ed57\\extracted\\nvhda64v.sys",
+      "size": 249424,
+      "sha256": "1b776beb38280ad81e31ab6d88e933e74a1e70fb0c291f0f15f7143fbda1c3fc",
+      "hits": [
+        "HalGetBusDataByOffset",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 11,
+      "name": "RDWM1179.SYS",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\19a9f408-a483-49c9-a001-a42e43d5ea59\\extracted\\Files\\RDWM1179.SYS",
+      "size": 397336,
+      "sha256": "e1bb957a5e2504ec16b05c9003bbf90da0d4683e28c759b4833e9a4b33657b45",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 11,
+      "name": "RDWM1236.SYS",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\b826e62e-42e8-42a1-bbf5-79df2740219a\\extracted\\Files\\RDWM1236.SYS",
+      "size": 398896,
+      "sha256": "9d7ef70c7c244f49cde54c8538ce18f10e4bdc2f1ffbae518118b06cf76b0432",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 11,
+      "name": "PSKD64.SYS",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\nday-downloads\\pciscope_extract\\app\\PSKD64.SYS",
+      "size": 466344,
+      "sha256": "3ff88de6146de4a92728240692a4dfc43af8816d34fce69a5fad7cf2b5eaa785",
+      "hits": [
+        "HalGetBusDataByOffset",
+        "MmMapIoSpace",
+        "MmProbeAndLockPages"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 10,
+      "name": "amdsfhkmdf.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\792dd7fb-4be7-42cd-83b8-d62691be98c4\\extracted\\amdsfhkmdf.sys",
+      "size": 160144,
+      "sha256": "02fb63b97cade4a30fd6b0167256faacd3595ae7a55827e18b560dff28c35220",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 10,
+      "name": "aqnic650.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\3f18a084-2e23-408c-9709-8fa5e4fe5d44\\extracted\\aqnic650.sys",
+      "size": 196736,
+      "sha256": "acb52527f4c021c13ee7610d4d95da7494355bfce97142870a5382b845699d46",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 10,
+      "name": "amdacpbus2.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\093dee54-0df4-4650-9857-76499276a521\\extracted\\amdacpbus2.sys",
+      "size": 653208,
+      "sha256": "3c01e13f9e28967d0e49da4c71a88aa4784f6ff2ccc71f8893ac6eadf9bd324e",
+      "hits": [
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 10,
+      "name": "SynTP.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\d4619dae-8d4f-4012-9e68-27aa85ec9805\\extracted\\SynTP.sys",
+      "size": 872024,
+      "sha256": "b5fb14ad9d7a14fbebe6b2f7e9a88933948766d08d60d93b8acac09ca0c3dbd3",
+      "hits": [
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 10,
+      "name": "SynTP.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\d4ce18da-62d7-4ceb-84b9-69e1581dd857\\extracted\\SynTP.sys",
+      "size": 910968,
+      "sha256": "1bc2b80fa2c325206d4e739c9b2e0d3028beb99d1a1227708cd428b89843419c",
+      "hits": [
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 10,
+      "name": "IntcOED.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\dbac4f2a-8b2f-4953-b488-c83021a0e969\\extracted\\IntcOED.sys",
+      "size": 1563888,
+      "sha256": "d61bc31d8cbec34d5cfcf27ac1ec190ca062b312ae8708c3a77fc44943981be1",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 10,
+      "name": "IntcOED.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\442b3d1c-c3e2-43a3-8162-b74801fddb5b\\extracted\\IntcOED.sys",
+      "size": 1595640,
+      "sha256": "c18016816764037bbcf4e00ca1b214f02c2ada6c2f380d3ae7be0b3234f3077d",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 10,
+      "name": "TbtBusDrv.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\5854aaf0-891a-4a64-a6ee-ba6466cdd48a\\extracted\\TbtBusDrv.sys",
+      "size": 3236576,
+      "sha256": "f15413b1fd3a81a59cb2f0fbf4f03eb1b28646738556dd0652f656a3ad02aaef",
+      "hits": [
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 10,
+      "name": "PP.SC0710.X64.SYS",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\1a606b73-4fe0-432b-9c92-4fd87ee0dbca\\extracted\\PP.SC0710.X64.SYS",
+      "size": 5834720,
+      "sha256": "060d8975aa97fc4ba435a19ed65e100f31589766b1643612a8c9f08fd17bd875",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 10,
+      "name": "PP.SC0710.X64.SYS",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\b84c1312-c683-4f11-9a94-82277c54b141\\extracted\\PP.SC0710.X64.SYS",
+      "size": 5834728,
+      "sha256": "6e5b70f5745b760827c8a0e0bf2c2ef5d36502af8dbf1a1b623f958db07b567c",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 9,
+      "name": "K7Terminator__K7RKScan_1516.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\byovd-internet\\samples\\blacksnufkin\\K7Terminator__K7RKScan_1516.sys",
+      "size": 27936,
+      "sha256": "b16e217cdca19e00c1b68bdfb28ead53b20adeabd6edcd91542f9fbf48942877",
+      "hits": [
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 9,
+      "name": "Xhunter1-Killer__xhunter1.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\byovd-internet\\samples\\blacksnufkin\\Xhunter1-Killer__xhunter1.sys",
+      "size": 48368,
+      "sha256": "e727d0753d2cd0b2f6eeba4cea53aa10b3ff3ed2afeb78f545fcf6d840f85c3e",
+      "hits": [
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 9,
+      "name": "mobilint_pcie.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\568bc62c-27b0-4627-9c45-67f23090f9d0\\extracted\\mobilint_pcie.sys",
+      "size": 50448,
+      "sha256": "fa82264e6dd5af93ca8be4855c5645bc8316053d24ea4077365de74c6dd284a9",
+      "hits": [
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 9,
+      "name": "K7Terminator__K7RKScan_2310.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\byovd-internet\\samples\\blacksnufkin\\K7Terminator__K7RKScan_2310.sys",
+      "size": 55824,
+      "sha256": "5c6ce55a85f5d4640bd1485a72d0812bc4f5188ee966c5fe334248a7175d9040",
+      "hits": [
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 9,
+      "name": "Viragt64-Killer__viragt64.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\byovd-internet\\samples\\blacksnufkin\\Viragt64-Killer__viragt64.sys",
+      "size": 82848,
+      "sha256": "58a74dceb2022cd8a358b92acd1b48a5e01c524c3b0195d7033e4bd55eff4495",
+      "hits": [
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 9,
+      "name": "CcProtect-Killer__CcProtect.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\byovd-internet\\samples\\blacksnufkin\\CcProtect-Killer__CcProtect.sys",
+      "size": 493600,
+      "sha256": "5f0cfe8357bb52b45068ddbac053e32bc38e6cb5e086746f5402657b0a5cfb1c",
+      "hits": [
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 9,
+      "name": "RtsUer.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\290bd624-d425-4036-8d2f-f5d2eb609c58\\extracted\\RtsUer.sys",
+      "size": 819824,
+      "sha256": "02ebef6653ab7b066119674230a24169e548d0b33c659707ed3bba3013c77d15",
+      "hits": [
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 9,
+      "name": "RtsUer.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\b1ae5bea-abcc-4942-b053-3430ae2966bb\\extracted\\RtsUer.sys",
+      "size": 820888,
+      "sha256": "0aaf2aabbf889a00fe7e045da09f696f36e665f5ff87a34ef9cde9c45defb0a9",
+      "hits": [
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 9,
+      "name": "spaceport-9711.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\corpus\\spaceport-9711.sys",
+      "size": 1035592,
+      "sha256": "d31ab77c0a9f172d1686f47f7731e8a281b9bffabc71d47fd4d6eafbfa4bae52",
+      "hits": [
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 9,
+      "name": "spaceport-9974.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\corpus\\spaceport-9974.sys",
+      "size": 1035608,
+      "sha256": "96e46c3571cbe72b33e21258eb4f29d3dcfeeff503d273aef1f3327e9c3fd008",
+      "hits": [
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 7,
+      "name": "WinRing0x64.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\internet\\newdrivers\\WinRing0x64.sys",
+      "size": 14544,
+      "sha256": "11bd2c9f9e2397c9a16e0990e4ed2cf0679498fe0fd418a3dfdac60b5c160ee5",
+      "hits": [
+        "HalGetBusDataByOffset",
+        "MmMapIoSpace"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 7,
+      "name": "WinRing0x64.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\internet\\newdrivers\\bin\\WinRing0x64.sys",
+      "size": 14544,
+      "sha256": "11bd2c9f9e2397c9a16e0990e4ed2cf0679498fe0fd418a3dfdac60b5c160ee5",
+      "hits": [
+        "HalGetBusDataByOffset",
+        "MmMapIoSpace"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 7,
+      "name": "MyPortIO_x64.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\nday-downloads\\poly_extract\\app\\Bin\\MyPortIO_x64.sys",
+      "size": 29184,
+      "sha256": "18bf6cf0224a41058ba3944ff0df9e12fa256c7c353d6fa6132a464cd5db5709",
+      "hits": [
+        "HalGetBusDataByOffset",
+        "MmMapIoSpace"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 7,
+      "name": "HWAudioOs2Ec-Killer__HWAudioOs2Ec_1.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\byovd-internet\\samples\\blacksnufkin\\HWAudioOs2Ec-Killer__HWAudioOs2Ec_1.sys",
+      "size": 47240,
+      "sha256": "5abe477517f51d81061d2e69a9adebdcda80d36667d0afabe103fda4802d33db",
+      "hits": [
+        "HalGetBusDataByOffset",
+        "MmMapIoSpace"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 7,
+      "name": "MonProcess-Killer__MonProcess.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\byovd-internet\\samples\\blacksnufkin\\MonProcess-Killer__MonProcess.sys",
+      "size": 55048,
+      "sha256": "8a8652604f7789a6259ae05266652580b18729e1f1c05612b9d338eb8379ecee",
+      "hits": [
+        "HalGetBusDataByOffset",
+        "MmMapIoSpace"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 7,
+      "name": "HNOs2Ec-Killer__HNOs2Ec.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\byovd-internet\\samples\\blacksnufkin\\HNOs2Ec-Killer__HNOs2Ec.sys",
+      "size": 57152,
+      "sha256": "ebcb856723bd023c7ecb40fc71b3ff2ed3795fa08313f397569866167655dadf",
+      "hits": [
+        "HalGetBusDataByOffset",
+        "MmMapIoSpace"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 7,
+      "name": "VBoxUSBMon.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\internet\\newdrivers\\vbox\\VBoxUSBMon.sys",
+      "size": 191288,
+      "sha256": "b3d24d7491d1af6bd1ca4bce84e52c324ff96b1232dcaac22b09d2ac4324a284",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 5,
+      "name": "WinIo64.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\internet\\newdrivers\\winio\\WinIo64.sys",
+      "size": 10920,
+      "sha256": "a98377059773190f2c5d7d81d2c4ed9b69935293a7d65833988305ddb41febc2",
+      "hits": [
+        "ZwOpenSection"
+      ],
+      "dlls": []
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+﻿{
+    "date":  "2026-11-23T11:22:34",
+    "new_candidates":  [
+                           "bsitf_unlocked",
+                           "biostoolcommondriver",
+                           "PSKD64",
+                           "NxpCap64",
+                           "RDWM1179",
+                           "RDWM1236",
+                           "IntcOED",
+                           "stwrt64"
+                       ],
+    "biostool_state":  "RUNNING",
+    "biostool_device":  "\\\\.\\BiosToolCommonDriver",
+    "biostool_read":  "PA=0x1000 PASS",
+    "backend":  "biostool_common",
+    "bsitf_unlocked":  "exit=577",
+    "note":  "8 new security-corpus candidates; biostool arbitrary PA single-page read verified and backend added"
+}

@@ -1,0 +1,177 @@
+﻿[
+    {
+        "name":  "01_ipustack.sys",
+        "source":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\01de7487-fea6-44fd-bf50-4bca8c8bab2c\\extracted\\ipustack.sys",
+        "size":  500848,
+        "sha256":  "AF6ACB876D62C5F33EB0058550C18D5BA40FF59A272020B829C9689889A6A468",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "02_NETwaw14.sys",
+        "source":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\080658f2-fb37-4ace-ba22-09fb678d3cf7\\extracted\\NETwaw14.sys",
+        "size":  5692496,
+        "sha256":  "A899514A392B7AC86D6DB5DAA809EF423979FED75B39695867F95A1FFE72CC28",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "03_NETwaw18.sys",
+        "source":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\080658f2-fb37-4ace-ba22-09fb678d3cf7\\extracted\\NETwaw18.sys",
+        "size":  6271064,
+        "sha256":  "4AB02A4EF0CB7CB355CC15907E42FD8788C34CFCE040A7D0F26DEE7DA75D0875",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "04_NETwtw08.sys",
+        "source":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\080658f2-fb37-4ace-ba22-09fb678d3cf7\\extracted\\NETwtw08.sys",
+        "size":  8940624,
+        "sha256":  "03573014E1C84651B2E8D005BB44C261F36DBC4994510E14892FF1349ADC8F0D",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "05_NETwtw10.sys",
+        "source":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\080658f2-fb37-4ace-ba22-09fb678d3cf7\\extracted\\NETwtw10.sys",
+        "size":  5290576,
+        "sha256":  "214ED2DAC5C3D07F2C86787EA11825389EA0939A93AF6C55259A9BE2CC591EB6",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "06_NETwtw14.sys",
+        "source":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\080658f2-fb37-4ace-ba22-09fb678d3cf7\\extracted\\NETwtw14.sys",
+        "size":  5646928,
+        "sha256":  "6C92238A2D746AF44622F79C7D0034FCA4BBAEDBE9EFD49B7C7719D04628B8F0",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "07_NETwtw16.sys",
+        "source":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\080658f2-fb37-4ace-ba22-09fb678d3cf7\\extracted\\NETwtw16.sys",
+        "size":  6021200,
+        "sha256":  "61FA33C7C4AA29929667AC055AB4C0648E3A0495A1539B8C4621409ED796AF79",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "08_NETwtw18.sys",
+        "source":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\080658f2-fb37-4ace-ba22-09fb678d3cf7\\extracted\\NETwtw18.sys",
+        "size":  6215248,
+        "sha256":  "432BF29A2D4825A5A4F9EB246F435414529E6B51222E2501E452A05140379E4B",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "09_iaLPSS2_GPIO2_ADL.sys",
+        "source":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\09301f8e-9016-4afe-987f-addafa88843f\\extracted\\iaLPSS2_GPIO2_ADL.sys",
+        "size":  142800,
+        "sha256":  "CB8AB2C2357718BE527E5B70793D5222E8507F2FA50B6836C92CCAC1618A58FE",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "10_iaLPSS2_I2C_ADL.sys",
+        "source":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\09301f8e-9016-4afe-987f-addafa88843f\\extracted\\iaLPSS2_I2C_ADL.sys",
+        "size":  212944,
+        "sha256":  "2A91B2B648326877964D24303B0AE30FF67F35ABD1C88736E8A8FABC4E363E07",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "11_iaLPSS2_SPI_ADL.sys",
+        "source":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\09301f8e-9016-4afe-987f-addafa88843f\\extracted\\iaLPSS2_SPI_ADL.sys",
+        "size":  164280,
+        "sha256":  "A5DD6CC15350AB804091B24809F52ED295C24016F9C8ED35CCFB385A1F827895",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "12_iaLPSS2_UART2_ADL.sys",
+        "source":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\09301f8e-9016-4afe-987f-addafa88843f\\extracted\\iaLPSS2_UART2_ADL.sys",
+        "size":  318392,
+        "sha256":  "01B28D3B7AD26ECD98134F57EE038AB29A45947D094FD80D0470C0D25C1AFFC0",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "13_amdacpbus2.sys",
+        "source":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\093dee54-0df4-4650-9857-76499276a521\\extracted\\amdacpbus2.sys",
+        "size":  653208,
+        "sha256":  "3C01E13F9E28967D0E49DA4C71A88AA4784F6FF2CCC71F8893AC6EADF9BD324E",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "14_DC624e.sys",
+        "source":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\097ad5aa-6243-4492-9cf4-652f6638cbac\\extracted\\x64\\DC624e.sys",
+        "size":  70264,
+        "sha256":  "4AFEF3F9967D8D2E6BA026E6557A2D438904744592B09E78D4F001483BC50833",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "15_DC624e.sys",
+        "source":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\097ad5aa-6243-4492-9cf4-652f6638cbac\\extracted\\x86\\DC624e.sys",
+        "size":  65656,
+        "sha256":  "8B9A7630C6B3C9F07C03F6BB8F1E364A3C0ED8DD41825A727445DAA0F4FA15A4",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "16_RtkBtfilter.sys",
+        "source":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\0a6a49c7-8751-41f4-bfc1-eb3eaef1f891\\extracted\\RtkBtfilter.sys",
+        "size":  834040,
+        "sha256":  "26DE8055A5B85B4594EB913C811E0369D296FBB2E024462AFC3AED347BEC2396",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "17_prj_bind_compat.sys",
+        "source":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\0c9e1517-8570-421a-95a5-1c3a587e90cd\\extracted\\prj_bind_compat.sys",
+        "size":  18552,
+        "sha256":  "A4044133F4E0ABF22D69DF3E86C2A3EC42D934D68DC14D2F5081369BC8C86F37",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "18_Surface1824DigitizerIntegration.sys",
+        "source":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\0d19062e-5a7a-4093-932a-70c45273a6aa\\extracted\\Surface1824DigitizerIntegration.sys",
+        "size":  36320,
+        "sha256":  "4EC1DBCE5C65A10443364023019AB67611A05DD8AD9142EC1B519786A0122CE1",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "19_msu53cx22arm64.sys",
+        "source":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\1032e7f1-9212-4744-884b-e2dedf9447f0\\extracted\\msu53cx22arm64.sys",
+        "size":  1036840,
+        "sha256":  "5905BA4B3B228A733873954AED0EBEF0233E51DB3F8153DF7E9E60CB8407E422",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "20_b57nd60a.sys",
+        "source":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\1054b4ab-a5b0-40f3-b59e-adf3609aea49\\extracted\\b57nd60a.sys",
+        "size":  511408,
+        "sha256":  "B50309D2607E175BFA2621923C45BE9FA4F34B2CBDF52BE7C4092E3DE87DF166",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "21_b57nd60a.sys",
+        "source":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\1054b4ab-a5b0-40f3-b59e-adf3609aea49\\extracted\\Checked\\b57nd60a.sys",
+        "size":  1022896,
+        "sha256":  "7AFBB2CCC1F9A3587C1986ED02461412F2B9865C8D256ECAA40DCA9860D2B329",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "22_b57nd60a.sys",
+        "source":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\1054b4ab-a5b0-40f3-b59e-adf3609aea49\\extracted\\Compaq\\b57nd60a.sys",
+        "size":  511408,
+        "sha256":  "3B4658D4E484CC80E82DEE0EC67A4F03D479D3DE35CC8E48425AD9D66E7B7E08",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "23_b57nd60a.sys",
+        "source":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\1054b4ab-a5b0-40f3-b59e-adf3609aea49\\extracted\\Compaq\\Checked\\b57nd60a.sys",
+        "size":  1022920,
+        "sha256":  "8D970E44A9CDF7A1ADE6965F918D383BB0BE3A0E0F5D607E6551C790872D8B14",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "24_b57nd60a.sys",
+        "source":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\1054b4ab-a5b0-40f3-b59e-adf3609aea49\\extracted\\Compaq\\Free\\b57nd60a.sys",
+        "size":  511408,
+        "sha256":  "B15FB0B9E593D6C6E4544E323B7CA54556300A10C9F124E20A35841BB0E2CF15",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "25_nikksm3dfu.sys",
+        "source":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\driver-security\\0day-web-hunt\\corpus\\catalog\\121066de-4cae-44c5-8b24-37d5c16604d5\\extracted\\nikksm3dfu.sys",
+        "size":  53816,
+        "sha256":  "C98B12A70BAA31002D12D477AC71305747963A725DDC036D832C58ACB022ADBE",
+        "signature":  "Valid"
+    }
+]
