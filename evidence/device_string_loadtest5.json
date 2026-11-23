@@ -1,0 +1,11 @@
+﻿{
+    "date":  "2026-11-23T13:03:42",
+    "running":  [
+                    "MALPCI32_64(1)",
+                    "vcanpciw"
+                ],
+    "devices":  [
+                    "\\Device\\VCANPCID"
+                ],
+    "note":  "both load RUNNING; no MALPCI device; no new physical reader; no BSOD"
+}
