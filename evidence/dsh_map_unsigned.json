@@ -1,0 +1,7 @@
+﻿{
+    "date":  "2026-11-23T21:28:05",
+    "driver":  "dsh_map.sys",
+    "start_exit":  577,
+    "state":  "STOPPED",
+    "note":  "unsigned driver blocked by kernel signature policy; no BSOD"
+}
