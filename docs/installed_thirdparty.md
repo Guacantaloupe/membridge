@@ -45,3 +45,35 @@ drivers/installed_thirdparty/
 1. 对 Razer / VMware / VBox 驱动做静态 IOCTL 分析；
 2. 优先找有独立 `\Device\` 且可打开的设备；
 3. 新候选仍必须用 CR3 页交叉验证。
+## 第二批导入（14 个）
+```
+RtsUer.sys
+rtwlane.sys
+RtkBtfilter.sys
+AppleSSD.sys
+AppleKmdfFilter.sys
+AppleLowerFilter.sys
+VBoxNetAdp6.sys
+VBoxNetLwf.sys
+VBoxUSBMon.sys
+mlx4_bus.sys
+ibbus.sys
+winmad.sys
+winverbs.sys
+ndfltr.sys
+```
+签名均 Valid。
+
+其中：
+- Mellanox RDMA：mlx4_bus / ibbus / winmad / winverbs / ndfltr；
+- VirtualBox：VBox* 网络/USB；
+- Apple：SSD/过滤；
+- Realtek：USB/无线/蓝牙。
+
+## 累计
+```
+原有新增                  265
+第一批 installed            10
+第二批 installed            14
+新增合计                  289
+```

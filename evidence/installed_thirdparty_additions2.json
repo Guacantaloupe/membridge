@@ -1,0 +1,100 @@
+﻿[
+    {
+        "name":  "RtsUer.sys",
+        "size":  785984,
+        "signature":  "Valid",
+        "company":  "Realsil Semiconductor Corporation",
+        "version":  "10.0.22000.31270"
+    },
+    {
+        "name":  "rtwlane.sys",
+        "size":  12230608,
+        "signature":  "Valid",
+        "company":  "Realtek Semiconductor Corporation                           ",
+        "version":  "2024.10.143.0"
+    },
+    {
+        "name":  "RtkBtfilter.sys",
+        "size":  825400,
+        "signature":  "Valid",
+        "company":  "Realtek Semiconductor Corporation",
+        "version":  "1.10.1072.3"
+    },
+    {
+        "name":  "AppleSSD.sys",
+        "size":  113456,
+        "signature":  "Valid",
+        "company":  "Apple Inc.",
+        "version":  "6.1.7800.1"
+    },
+    {
+        "name":  "AppleKmdfFilter.sys",
+        "size":  20032,
+        "signature":  "Valid",
+        "company":  "Apple Inc.",
+        "version":  "486.0.0.0"
+    },
+    {
+        "name":  "AppleLowerFilter.sys",
+        "size":  35976,
+        "signature":  "Valid",
+        "company":  "Apple Inc.",
+        "version":  "486.0.0.0"
+    },
+    {
+        "name":  "VBoxNetAdp6.sys",
+        "size":  242648,
+        "signature":  "Valid",
+        "company":  "Oracle Corporation",
+        "version":  "6.1.50.161033"
+    },
+    {
+        "name":  "VBoxNetLwf.sys",
+        "size":  252672,
+        "signature":  "Valid",
+        "company":  "Oracle Corporation",
+        "version":  "6.1.50.161033"
+    },
+    {
+        "name":  "VBoxUSBMon.sys",
+        "size":  191288,
+        "signature":  "Valid",
+        "company":  "Oracle Corporation",
+        "version":  "6.1.50.161033"
+    },
+    {
+        "name":  "mlx4_bus.sys",
+        "size":  1132336,
+        "signature":  "Valid",
+        "company":  "Mellanox",
+        "version":  "5.50.14695"
+    },
+    {
+        "name":  "ibbus.sys",
+        "size":  559920,
+        "signature":  "Valid",
+        "company":  "Mellanox",
+        "version":  "5.50.14695"
+    },
+    {
+        "name":  "winmad.sys",
+        "size":  37184,
+        "signature":  "Valid",
+        "company":  "Mellanox",
+        "version":  "5.50.14695"
+    },
+    {
+        "name":  "winverbs.sys",
+        "size":  74032,
+        "signature":  "Valid",
+        "company":  "Mellanox",
+        "version":  "5.50.14695"
+    },
+    {
+        "name":  "ndfltr.sys",
+        "size":  147248,
+        "signature":  "Valid",
+        "company":  "Mellanox",
+        "version":  "5.50.14695"
+    }
+]
