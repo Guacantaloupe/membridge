@@ -1,0 +1,15 @@
+﻿{
+    "date":  "2026-11-23T13:00:58",
+    "backend":  "fekern_byov",
+    "pid":  11232,
+    "cr3":  "0x10704B000",
+    "va":  "0x7FF797980000",
+    "pml4e":  "0xA0000024DD57867",
+    "pdpte":  "0xA0000024DD58867",
+    "pde":  "0xA0000024DD59867",
+    "pte":  "0x83000001FCA2F025",
+    "pa":  "0x1FCA2F000",
+    "bytes":  "4D5A90000300000004000000FFFF0000",
+    "verdict":  "PASS",
+    "note":  "fekern full page-table translation to cmd.exe MZ"
+}
