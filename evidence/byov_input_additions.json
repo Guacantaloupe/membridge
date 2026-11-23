@@ -1,0 +1,152 @@
+﻿[
+    {
+        "name":  "360rescon.sys",
+        "size":  29416,
+        "sha256":  "522647B6170B8D90AC70265CBECE857462503FCC3D00A66C422722AC8C76BDF9",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "aac-driver.sys",
+        "size":  431272,
+        "sha256":  "8303BA41D7A652DC26CF186AE1261A2B7B8806671251C2302C4DB0DF40DBFF4B",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "asio3.sys",
+        "size":  59976,
+        "sha256":  "6778E4561A253D73F43D934600E716EDFD755A9F92AB8C4D51ED96803F8DB565",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AsIO3_1.sys",
+        "size":  59976,
+        "sha256":  "6778E4561A253D73F43D934600E716EDFD755A9F92AB8C4D51ED96803F8DB565",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AsrDrv1.sys",
+        "size":  68816,
+        "sha256":  "775331E21193E2FE3E85A0784AB94ADBF66A9541E3EB272C5D1A012CA7681236",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "astra64.sys",
+        "size":  21200,
+        "sha256":  "4A8B6B462C4271AF4A32CF8705FA64913BFCDAEFB6CF02D1E722C611D428CB16",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "asussaio.sys",
+        "size":  37048,
+        "sha256":  "6B89BA6551C56EB781A0BB6E5DCFC35B9CBCBD587BD301663A7F16B80E49ACE5",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "atszio64.sys",
+        "size":  43584,
+        "sha256":  "ECB4B15A847E888D36CA4E317A5D1D8963A305CC9705896A7A6D3769697D9F2D",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "cb_arkmon.sys",
+        "size":  399224,
+        "sha256":  "B1CBF0B46CFA0E4F8D88C6C3A72D63EF85B98DF3F512C563C2A6E3011D316321",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "cb_aswarpot.sys",
+        "size":  296544,
+        "sha256":  "72D3CBCEF16B1DACBA25902700C67F5DD8783496C6300BDFC6B62BBE0C2E4171",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "cb_fekern.sys",
+        "size":  267840,
+        "sha256":  "395CCC3CF81EC21B8809FC8A34AB9AE79663C844CBD838C798EF923B84066632",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "cb_gsdriver.sys",
+        "size":  85736,
+        "sha256":  "5A81EB4FB1750D310B7B95BC30B6F472595A2B5B2EF55049B2768B4B3D292506",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "cb_khwinfo.sys",
+        "size":  80568,
+        "sha256":  "93F6EF28119195B0E35222EADA8DB1AD6B38EC0CEABCC91D842FD80BF5FAD977",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "cb_livekdd.sys",
+        "size":  39272,
+        "sha256":  "829CFCF06E38385F75A759B2AE6BC3ED90B1A71C6195292A72357848B333F593",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "cb_mark.sys",
+        "size":  265416,
+        "sha256":  "5938747DBF6AEA335FDF9131FC912452CEE781DFF8BE61750A9B2EF384B5F835",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "cb_scansafe.sys",
+        "size":  95920,
+        "sha256":  "E13AEAE6291C2977DDD408BD23DAA6B757AFB5D2E37D9C8B2A1CD752D24F4339",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "cb_smr522.sys",
+        "size":  112088,
+        "sha256":  "DD95A3C22938D9C0A64A7728AA2EA48690AD52CCF2002F639A796B2AD49527E8",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "cb_tdcore.sys",
+        "size":  472568,
+        "sha256":  "2940133893270FEA4C25D1820ED27053ED76142C3C9341F44831591B19D09777",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "CTFarmMonitor.sys",
+        "size":  44984,
+        "sha256":  "3799C2071D965FDC1CC8E81DDFC08F405E52B0C667C473F21B513B216BD7D3A6",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ctrl_asmio.sys",
+        "size":  40808,
+        "sha256":  "7ADD48F2DBAE224E0E74637DAB077C7316A393871736DB91487C950B2337F19A",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ctrl_asus.sys",
+        "size":  25232,
+        "sha256":  "07F3280C911AEEF613CCCB2111269E7D6EF4E9B1E3D21E127EC19E4411A1B837",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ctrl_isstrtc.sys",
+        "size":  346728,
+        "sha256":  "D692B762CC54BAC7181B48042129B45CBCDE60B8518175853BAB0B9E37305B74",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ctrl_jmkmd.sys",
+        "size":  618544,
+        "sha256":  "86439D0F0B9A0EA824DDA1E4E19352FABEFC07C78554FB962DF6E03F36DB722F",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ctrl_mst.sys",
+        "size":  87456,
+        "sha256":  "217D771E3D80D1B1C7D16B74AF47D5C794E143C17E1AAC8D30433B24898A3483",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ctrl_pawnio.sys",
+        "size":  85344,
+        "sha256":  "E19F274B9F3C917445BFF19A80BBE2EE34A54995E62BE50073122B20D86AF900",
+        "signature":  "Valid"
+    }
+]
