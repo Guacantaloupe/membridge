@@ -53,3 +53,52 @@ driverstore_thirdparty       30
 1. 对 DriverStore 剩余 124 个继续筛选；
 2. 优先 Intel BERT Reader / ASUS ACPI / 网络类；
 3. 新候选仍必须用 CR3 页交叉验证。
+## 第二批导入（30 个候选，净值 29）
+```
+E1G6032E.sys
+e1i68x64.sys
+e1y60x64.sys
+e2f68.sys
+e2xw10x64.sys
+eFE5b32e.sys
+esif_lf.sys
+ETDI2C.sys
+fetn63a.sys
+getn63a.sys
+gna.sys
+iaLPSS2_GPIO2_TGL.sys
+iaLPSS2_I2C_TGL.sys
+iaLPSS2_SPI_TGL.sys
+iaLPSS2_UART2_TGL.sys
+ibtusb.sys
+IntcAudioBus.sys
+IntcBTAu.sys
+IntcDAud.sys
+IntcDMic.sys
+IntcSDW.sys
+IntcSdwBus.sys
+IntcSST.sys
+IntcUSB.sys
+ipoib6x.sys
+ixe60x64.sys
+k57nd60a.sys
+l160x64.sys
+L1C63x64.sys
+```
+签名 Valid。
+
+## 大文件处理
+`igdkmdn64.sys` 为 Intel 显卡驱动，大小约 52MB，仅作候选库价值低，已删除，不纳入仓库。
+
+## 当前 DriverStore 目录
+```
+drivers/driverstore_thirdparty/  (56 files)
+```
+
+## 累计
+```
+原有新增                  349
+driverstore 第一批            30
+driverstore 第二批净值        29
+新增合计                  408
+```

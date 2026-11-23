@@ -1,0 +1,212 @@
+﻿[
+    {
+        "name":  "E1G6032E.sys",
+        "size":  147584,
+        "company":  "Intel Corporation",
+        "sha256":  "3B0A51E1FC4D5BD3E7EC182799AD712AEEAF1DCD761D7E98BEC8A0A67F7334AF",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "e1i68x64.sys",
+        "size":  576000,
+        "company":  "Intel Corporation",
+        "sha256":  "54EC7351942999E71100B89379EFBBA36E5002F663BD76E0C37E5133C6F7ADD3",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "e1y60x64.sys",
+        "size":  283136,
+        "company":  "Intel Corporation",
+        "sha256":  "8C6C4579048D0D9C43742DBD55CB2E704914D46016BBBF68FCD860320605C6F1",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "e2f68.sys",
+        "size":  507904,
+        "company":  "Intel Corporation",
+        "sha256":  "48A162B6EF7F56F4807A75FEF909B2F76773F6C27E5B26C0CFA8F46559755CA2",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "e2xw10x64.sys",
+        "size":  145920,
+        "company":  "Qualcomm Atheros, Inc.",
+        "sha256":  "02DB524DFA404BD1B46F661E570084C65A404EF1140CBC4439EC0097B4F2B836",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "eFE5b32e.sys",
+        "size":  182656,
+        "company":  "Intel Corporation",
+        "sha256":  "2DBFFF4B7BC30453830523E1BDC8737DD6101102B2E178D4FABD051FF8D01DD4",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "esif_lf.sys",
+        "size":  426144,
+        "company":  "Intel Corporation",
+        "sha256":  "761E5511B205959ED0A0BC01F3D944D4D4A6CFBB7106050889DDFB772BB7C740",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ETDI2C.sys",
+        "size":  226880,
+        "company":  "ELAN Microelectronic Corp.",
+        "sha256":  "3272CAB119752484728942132AF70884E4CF2AB76847724D44411E082CB137D9",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "fetn63a.sys",
+        "size":  53248,
+        "company":  "VIA Technologies, Inc.              ",
+        "sha256":  "19A1F2FCE0FCB6358F2E71F4E63B629260ACAB47E1B94FE123BBA68C7C46B5BA",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "getn63a.sys",
+        "size":  57856,
+        "company":  "VIA Technologies, Inc.              ",
+        "sha256":  "24C19F5F0B5FBF584EB78692C7CDF9100C20E85F2A86142F6D88FA4BB1A15065",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "gna.sys",
+        "size":  87200,
+        "company":  "Intel Corporation",
+        "sha256":  "00A0A18853C970B1B90D70616B3B62A8C1530576518AEE86D609FD9FC837B4FC",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "iaLPSS2_GPIO2_TGL.sys",
+        "size":  131224,
+        "company":  "Intel Corporation",
+        "sha256":  "C5B7311BA245566175E478685A152FFD12B3F6D695FA2D4EC7B3BB864287E417",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "iaLPSS2_I2C_TGL.sys",
+        "size":  204440,
+        "company":  "Intel Corporation",
+        "sha256":  "C89DC12EE639E08C329E5BD08FEE4FEEE20D9C0269955A768AE61A26EF5C82D8",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "iaLPSS2_SPI_TGL.sys",
+        "size":  158352,
+        "company":  "Intel Corporation",
+        "sha256":  "F8586E68B8555753E16CBECE50345716197C81535A69F02C486653CB3CCAC2AD",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "iaLPSS2_UART2_TGL.sys",
+        "size":  313504,
+        "company":  "Intel Corporation",
+        "sha256":  "712666D0AE0005989477913CE6E5A1DEF244F679797B87460C99679B26FBB86A",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ibtusb.sys",
+        "size":  6090312,
+        "company":  "Intel Corporation",
+        "sha256":  "EC31ADB03AF06EA99F37AAE980A28AB802045D40E1FF2F41ECBAEDA8510757AB",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "igdkmdn64.sys",
+        "size":  52542336,
+        "company":  "Intel Corporation",
+        "sha256":  "8AAEFD000A8B1B3291C3AF823380472B5EC7C65587F68CF8AB398BA232034B7B",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "IntcAudioBus.sys",
+        "size":  320952,
+        "company":  "Intel(R) Corporation",
+        "sha256":  "1421A779553E0FE99C62997EE3E3E47104C93190DF7DA42C389918D10768F570",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "IntcBTAu.sys",
+        "size":  916408,
+        "company":  "Intel(R) Corporation",
+        "sha256":  "D85EFD015D452EC1F32C06FF2AC6AA637A4BA21CB0191B0A5417D87613CF926A",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "IntcDAud.sys",
+        "size":  317952,
+        "company":  "Intel(R) Corporation",
+        "sha256":  "342A9A53F9C7A0B49F7317E2F4B8A50ABA0DF193AACF5CF4AD1EA17842A3AD97",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "IntcDMic.sys",
+        "size":  771576,
+        "company":  "Intel(R) Corporation",
+        "sha256":  "35EC53362187B62C2811E49837C487892F88471F7159FF3705E8573B9EBC7E95",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "IntcSDW.sys",
+        "size":  952824,
+        "company":  "Intel(R) Corporation",
+        "sha256":  "0EBF89F632D7BDD7E96C30C5FCC2EF563E6FFF2E4C504E261473C59436053E37",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "IntcSdwBus.sys",
+        "size":  523256,
+        "company":  "Intel(R) Corporation",
+        "sha256":  "09421C3126DC6D82B47450E5B651BEB46522EEA1594EB5E98E6374B8BCB8AE1C",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "IntcSST.sys",
+        "size":  851448,
+        "company":  "Intel(R) Corporation",
+        "sha256":  "5690E8FF2ECE068E796BF106FCC64098FAA47AFE4ADCC21D8332A7E1DB3EBF0E",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "IntcUSB.sys",
+        "size":  923128,
+        "company":  "Intel(R) Corporation",
+        "sha256":  "A746539F380708F14015CF9F669BEF80DDB3519DEB40F89F59F5E0128EBE86F3",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ipoib6x.sys",
+        "size":  579376,
+        "company":  "Mellanox",
+        "sha256":  "585BF746BF943E5F0FD09C6CF3B96643BB1E4B9D0489D205E11A99F7742E6444",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ixe60x64.sys",
+        "size":  188928,
+        "company":  "Intel Corporation",
+        "sha256":  "1B1BEE877DEA7B3444A2F56D8CB6E1F6217639FC3C732F8D84BAB9E6AA161DAB",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "k57nd60a.sys",
+        "size":  446464,
+        "company":  "Broadcom Corporation",
+        "sha256":  "9128F825403B26A39BC769A53555DF1FD2B82882AF1384135D0329FCF2BBAC6D",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "l160x64.sys",
+        "size":  65024,
+        "company":  "Atheros Communications, Inc.",
+        "sha256":  "765C6C98432A9AB6FF73B8D984C69886B115CBBD365E95877C61E52AA16B1AE3",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "L1C63x64.sys",
+        "size":  121344,
+        "company":  "Qualcomm Atheros Co., Ltd.",
+        "sha256":  "ACAEFB839CF7A3113D026B9A715994C3DFF8797D73B991253959EF606C4FBC00",
+        "signature":  "Valid"
+    }
+]
