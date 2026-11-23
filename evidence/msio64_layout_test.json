@@ -1,0 +1,12 @@
+﻿{
+    "date":  "2026-11-23T21:27:15",
+    "driver":  "MsIo64.sys",
+    "state":  "RUNNING",
+    "layouts":  [
+                    "winring0 err87",
+                    "mrt err87",
+                    "glckio2 err87",
+                    "eneio64 err998"
+                ],
+    "note":  "no layout match; no BSOD"
+}
