@@ -1,0 +1,27 @@
+﻿{
+    "date":  "2026-11-23T11:20:30",
+    "running":  [
+                    "loc_bertreader",
+                    "loc_bsitf",
+                    "loc_gna",
+                    "loc_gscaux",
+                    "out_nvflash",
+                    "out_stlwa",
+                    "win10_AMS_Driver"
+                ],
+    "stopped":  [
+                    "loc_vboxsup",
+                    "nagisa",
+                    "ols_jywinring0"
+                ],
+    "devices":  [
+                    "\\\\.\\NVFLASH",
+                    "\\\\.\\STLWA_64sync",
+                    "\\\\.\\bsitf"
+                ],
+    "read_attempts":  [
+                          "NVFLASH eneio64 err=50",
+                          "NVFLASH mrt err=50"
+                      ],
+    "note":  "7/10 RUNNING; NVFLASH/STLWA open; protocol mismatch; no BSOD"
+}
