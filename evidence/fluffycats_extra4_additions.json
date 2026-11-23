@@ -1,0 +1,182 @@
+﻿[
+    {
+        "name":  "amdkfd(5).sys",
+        "size":  248056,
+        "sha256":  "7049C6FE06225F71DA97F553161D961D9E5E0047AACBF55BE5AC75172635D010",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "amdkfd(6).sys",
+        "size":  251640,
+        "sha256":  "E2893707C1798D89B2384CC1A33A227B5281EFD06E700DF1398AC367AE8C766B",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "amdkfd(7).sys",
+        "size":  251072,
+        "sha256":  "9C2BD96F72EFCCA4BD86A9BDA4294E78668C54956A17DF1D480B8094A0AA5980",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "amdkfd(8).sys",
+        "size":  259800,
+        "sha256":  "F612E2723779FD9979DC3961604057872D2DCF82DC0C67F7EE8CA063AC111B32",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "amdkfd(9).sys",
+        "size":  257048,
+        "sha256":  "508AC10536D93E6FEBB6E84EDB1B9CCBE19C4D7A021BC0735BFC193858FCE51F",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "amdkfd.sys",
+        "size":  249592,
+        "sha256":  "AA8BDAED528B77CE90FE1AA6E10A6EBE6818F68244A8829DB940AC62E0E20EFF",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AMDPcore(1).sys",
+        "size":  88376,
+        "sha256":  "ECD88E00117EB04D694AEFEDC9F156A67AFC04E732C0E0F3C820A1B049BDAD0F",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AMDPcore(2).sys",
+        "size":  87800,
+        "sha256":  "E23D5E8DEB5858B3DFF31E96390E5A3CC1CC65242FAEC0FAB24A4EC357628B8F",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AMDPcore(3).sys",
+        "size":  87688,
+        "sha256":  "C860FFEB0F89BD243386CBAC7FA51A4E093709F39C280AA0C3CD4E77ADB3735B",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AMDPcore(4).sys",
+        "size":  86144,
+        "sha256":  "84A08AC64DCBCCBEB0EDD021611E80949F3A1A3671050E978C1453F2AF7D5648",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AMDPcore(5).sys",
+        "size":  65800,
+        "sha256":  "FFCFDA071300ED66275A9E6E879FA183D2E0478831119D37078B622B29518F9D",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AMDPcore.sys",
+        "size":  88096,
+        "sha256":  "047C1B931A5FDFC9C3901486C5C7C77453A023A27E39035CE3118E86828F768F",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AMDPowerProfiler(1).sys",
+        "size":  105800,
+        "sha256":  "1DA3636F27203ED268A65E1D465CDA8491AA8EFB34893265CB7AE160BE19DBF8",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AMDPowerProfiler(2).sys",
+        "size":  104248,
+        "sha256":  "13D0F0C0FD710B2F3652567D2E6A405442325E466CA37680E39F25550D5A1C21",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AMDPowerProfiler(3).sys",
+        "size":  103152,
+        "sha256":  "0D16345B6E099FAA384307034663DE47B8B138E9134E1339D1B4452F153CA56A",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AMDPowerProfiler(4).sys",
+        "size":  85592,
+        "sha256":  "5BCED0CE809FD771A1E09CC18121BC7983A1DB868C06A6F8E24D601BF651E923",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AMDPowerProfiler(5).sys",
+        "size":  90200,
+        "sha256":  "B5C7E25680732A20D8524338B25F989711F7FF52FAD074D85888F847A0B6F530",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AMDPowerProfiler(6).sys",
+        "size":  76552,
+        "sha256":  "5F7BF4E385CD44014F389058411374172ECD79D9066ABCBBBC59DD84F89B85FB",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AMDPowerProfiler(7).sys",
+        "size":  76552,
+        "sha256":  "1E6F08A686BE2E28469B2D71D8567F2023DDBD65BD65618FC7BBAC16D39E04D5",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AMDPowerProfiler.sys",
+        "size":  117800,
+        "sha256":  "31A4B840E1B1D20A55AAB42EE5B449E55AC4D39A61408E5DEB8C71ECC9E9B3A7",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "amdRxhci(1).sys",
+        "size":  350680,
+        "sha256":  "2229B387993BCBE6C501CC89B46163A7DCE3BD4DA75DA82B4880DE3A3F263049",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "amdRxhci(2).sys",
+        "size":  350704,
+        "sha256":  "F7C9F2C4CD481F014A6BDA4C54F3B713F1F16BB32A9C0846278CFF53B91BC472",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "amdRxhci.sys",
+        "size":  359104,
+        "sha256":  "8C8DCC4E071A5EB3C6A3E3D314FA807E96E823900A9B29C02599DFA58538AA46",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AMDRyzenMasterDriver(1).sys",
+        "size":  78552,
+        "sha256":  "3E0ED0574D4C1DE80A8E3F990EE3B13A2A7B638309C881DA7DB21E20C34798F5",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AMDRyzenMasterDriver(2).sys",
+        "size":  61768,
+        "sha256":  "C4AA1596BAF663AFC97F09DEB17C78080F86A7A58C6C9FDC40CD44B92FAC60B5",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AMDRyzenMasterDriver(3).sys",
+        "size":  105056,
+        "sha256":  "FAC8F441EB645A7572C569EB4150F9B897C71173185E9369A9F7E0BD4BEE6CF2",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AMDRyzenMasterDriver(4).sys",
+        "size":  79016,
+        "sha256":  "28A5194E1FE92850A0D90E5AFAEEC5ED57EFD3827E2CE99DA3803502BC5F4C8D",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AMDRyzenMasterDriver(5).sys",
+        "size":  59000,
+        "sha256":  "EE934CF483A5CED89D81E9F2DB7049D0D7253B8734A1EC774331CC4D2106037C",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AMDRyzenMasterDriver(6).sys",
+        "size":  78512,
+        "sha256":  "C5251D84F6DAB1327B2F1EA0C5CCBE4B2790AE6EDA0E20AA9D9ACFC01E427FD9",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AMDRyzenMasterDriver(7).sys",
+        "size":  43336,
+        "sha256":  "47F3979BA6C70699B56E6DFD3CB92007222CACBB96636B1E98892AC8D91E6F42",
+        "signature":  "Valid"
+    }
+]
