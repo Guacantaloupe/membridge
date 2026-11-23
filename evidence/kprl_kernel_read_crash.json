@@ -1,0 +1,9 @@
+﻿{
+    "date":  "2026-11-24T07:14:04",
+    "dump":  "112426-42468-01.dmp",
+    "bugcheck":  "0x50",
+    "p1":  "0xfffff801dc400000",
+    "module":  "System",
+    "cause":  "KPRL kprl-read pid 4 invalid kernel VA",
+    "verdict":  "unsafe; stop kernel VA probes"
+}
