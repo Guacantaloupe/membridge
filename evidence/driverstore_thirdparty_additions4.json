@@ -1,0 +1,170 @@
+﻿[
+    {
+        "name":  "mlx5.sys",
+        "size":  2433440,
+        "company":  "Mellanox",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "netr28ux.sys",
+        "size":  2224128,
+        "company":  "MediaTek Inc.",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "netr28x.sys",
+        "size":  2537984,
+        "company":  "MediaTek Inc.",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Netwbw02.sys",
+        "size":  3485696,
+        "company":  "Intel Corporation",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "NETwew00.sys",
+        "size":  3341824,
+        "company":  "Intel Corporation",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "NETwew01.sys",
+        "size":  3343872,
+        "company":  "Intel Corporation",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Netwtw10.sys",
+        "size":  5162568,
+        "company":  "Intel Corporation",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Qcamain10x64.sys",
+        "size":  2455872,
+        "company":  "Qualcomm Atheros, Inc.",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "qcwlan64.sys",
+        "size":  2706944,
+        "company":  "Qualcomm Atheros, Inc.",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "rtwlane_13.sys",
+        "size":  3717120,
+        "company":  "Realtek Semiconductor Corporation                           ",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "rtwlanu_oldIC.sys",
+        "size":  3814400,
+        "company":  "Realtek Semiconductor Corporation                           ",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "SiSG664.sys",
+        "size":  56832,
+        "company":  "Silicon Integrated Systems Corp.",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "tap0901.sys",
+        "size":  40664,
+        "company":  "The OpenVPN Project",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "tap-quickfox.sys",
+        "size":  51472,
+        "company":  "The OpenVPN Project",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "TeeDriverGSCW8x64.sys",
+        "size":  260384,
+        "company":  "Intel Corporation",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "TeeDriverW10x64.sys",
+        "size":  320712,
+        "company":  "Intel Corporation",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "v1q63x64.sys",
+        "size":  123392,
+        "company":  "Intel Corporation",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "vmnet.sys",
+        "size":  31640,
+        "company":  "VMware, Inc.",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "vmnetadapter.sys",
+        "size":  31128,
+        "company":  "VMware, Inc.",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "vmnetbridge.sys",
+        "size":  53656,
+        "company":  "VMware, Inc.",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "vmxnet3.sys",
+        "size":  87040,
+        "company":  "VMware, Inc.",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "VSTAZL6.SYS",
+        "size":  292864,
+        "company":  "Conexant Systems, Inc.",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "VSTBS26.SYS",
+        "size":  411136,
+        "company":  "Conexant Systems, Inc.",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "VSTBS36.SYS",
+        "size":  287744,
+        "company":  "Conexant Systems, Inc.",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "VSTCNXT6.SYS",
+        "size":  740864,
+        "company":  "Conexant Systems, Inc.",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "VSTDPV6.SYS",
+        "size":  1485312,
+        "company":  "Conexant Systems, Inc.",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "yk63x64.sys",
+        "size":  288768,
+        "company":  "Marvell",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ykinx64.sys",
+        "size":  288768,
+        "company":  "Marvell",
+        "signature":  "Valid"
+    }
+]

@@ -131,3 +131,28 @@ rtwlanu_81xx.sys
 新增合计                  438
 ```
 剩余大量 >2MB 的网卡/显卡驱动未导入，避免仓库膨胀。
+## 第四批：剩余 ≤5MB DriverStore（净值 28）
+```
+mlx5.sys
+netr28ux / netr28x
+Netwbw02 / NETwew00 / NETwew01 / Netwtw10
+Qcamain10x64 / qcwlan64
+rtwlane_13 / rtwlanu_oldIC
+SiSG664.sys
+tap0901 / tap-quickfox
+TeeDriverGSCW8x64 / TeeDriverW10x64
+v1q63x64.sys
+vmnet / vmnetadapter / vmnetbridge / vmxnet3
+VSTAZL6 / VSTBS26 / VSTBS36 / VSTCNXT6 / VSTDPV6
+yk63x64 / ykinx64
+```
+签名均 Valid。
+
+剩余均为 >5MB 的大型网卡/显卡驱动，不导入。
+
+## 累计
+```
+原有新增                  438
+第四批 DriverStore 净值       28
+新增合计                  466
+```
