@@ -1,0 +1,182 @@
+﻿[
+    {
+        "name":  "aehd(1).sys",
+        "size":  390168,
+        "sha256":  "49E3F55528E5DB2A9B3D8ED3F7D3A34353A4C019F1509F34758CBB813C2E2A86",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "aehd.sys",
+        "size":  403080,
+        "sha256":  "03E0F9FA171608F25C05C7DF9BC8AB717B02F037630EFA10FF53113F88AFE468",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "aghww2k.sys",
+        "size":  51232,
+        "sha256":  "A9315985633353DBBF47AD71BFFD462DB0839C97B8478AD8FAB945C3F31C0DCD",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AIOWDM(1).sys",
+        "size":  53552,
+        "sha256":  "B5168EE59342AB5C4F65731EACC9F67015026D130EB10DB7B1E385C16B328B91",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AIOWDM.sys",
+        "size":  62328,
+        "sha256":  "A34352AEEF653E252FCDBD0F93E0EAD8D5818C35A77385CC9258B92712F7E49B",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "alert(1).sys",
+        "size":  78488,
+        "sha256":  "12D1A396AA1A6CD733CB41AC1646CBD277BC2E5E383A14E309FE9CAABBE65A22",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "alert(3).sys",
+        "size":  76160,
+        "sha256":  "87F2C59322AD62F59D116CCAF9D834D5414DA206E3C2A232F68614B367438D54",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "alert(4).sys",
+        "size":  76216,
+        "sha256":  "E9518AF912F0FD5ED91D866514D3B702BAEF2939E260CE46B989D0723A2839CA",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "all shit_emon_bin64_sepdrv_win7_sepdrv5.sys",
+        "size":  202848,
+        "sha256":  "2506CC90144FDC95E465C525D6561B73C86701A89FAFA167966C3C278E3DCE92",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "all shit_emon_bin64_sepdrv_win7_socperf3.sys",
+        "size":  61536,
+        "sha256":  "D51BADA5FAC7D9FF466A780EC00DFF4365F8DBB83E01B98903DBBD6D92CE4CBE",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "alpha(2).sys",
+        "size":  69248,
+        "sha256":  "34C6A56F4769EFB90972A07C3E00FAA65376F2FA20C91D69036B3116724B9D91",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ALSysIO64(1).sys",
+        "size":  73392,
+        "sha256":  "4E1701224C8C60D82C8E213ACFD98DE5288F2D9C65EB70D98180C20408E79802",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ALSysIO64(2).sys",
+        "size":  78496,
+        "sha256":  "FAFDE6797FF80CA01E653B6BD389EA60EE8A691B986B68FB2FAFDDE5E931338D",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ALSysIO64(3).sys",
+        "size":  73352,
+        "sha256":  "99D80ED0E950269C9149CC119E5923C1DB96530FA9800FE96C56D627152EBA65",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ALSysIO64(4).sys",
+        "size":  62616,
+        "sha256":  "082B42D5B2C2B9C4703C9FDA09B1AD373B088908F4972A3CD404D69DBDDD52C7",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ALSysIO64Legacy(1).sys",
+        "size":  80560,
+        "sha256":  "5181B2F3F7ED49B4B568B0B0F21BE26F73B0639018C011C64BE878D9C56DEB9D",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ALSysIO64Legacy(2).sys",
+        "size":  80560,
+        "sha256":  "E03CBAF6750EB5DA99B2638593BA1EA7F92DD78592B4393CA705339D470AEAF8",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ALSysIO64Legacy(3).sys",
+        "size":  75440,
+        "sha256":  "777E8FBA297C3FC212FD867CC8A1F5A70099D93D2668E587AA536EA287EE0212",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "amdacpksd.sys",
+        "size":  242184,
+        "sha256":  "5D3EA6F92C28846AFF85931BA3C2B7CC6D6F10E7204DEA9C3CE30EF9F7355D6C",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AmdCrashDefender.sys",
+        "size":  24152,
+        "sha256":  "8D2A3E51154E4166BDC1000C95583EF4FF6467BA420B01F119C86FBC18D98A77",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "amdembspiflash(1).sys",
+        "size":  39000,
+        "sha256":  "EE170012B83150DA58C4D5FDBD3D3E658ADDF8569FE85ABE78F52C3BC373E57F",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "amdembspiflash(2).sys",
+        "size":  29368,
+        "sha256":  "0AAB245EC0D350383ADED035534A4A5AF58CA4FA9F9F34F13CD8BB5E46B98CC9",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "amdembspiflash.sys",
+        "size":  39024,
+        "sha256":  "276B368E6747D879BAF16B40CC875ABDAA6B8101D2100D1EABA12D737A7F61B3",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "amdfendr.sys",
+        "size":  414104,
+        "sha256":  "DEAEAA1E8C6847D0EC8B8D346B2BD01BA25D71F791F279773FD34ECA837F9EDB",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "amdkfd(1).sys",
+        "size":  251640,
+        "sha256":  "1FC6C28B423F005A4FDF2D7087D9C4928226D6D2740420A3A2371FC5BA9DF98C",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "amdkfd(10).sys",
+        "size":  251632,
+        "sha256":  "F3760BEFC2CFB509E30B5B0F8D85C33DAA31EA7ECF041DB255463796BCAE8055",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "amdkfd(11).sys",
+        "size":  248056,
+        "sha256":  "D7253AB43A3F88C6F73022A08CE1E8070CBCFA3274DAA1391BBDC8497E9FF281",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "amdkfd(2).sys",
+        "size":  249584,
+        "sha256":  "DA648C5B8250A6F3B7E8ADA73249388FDC81A6BFD284E6BAA0A613803C8374A7",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "amdkfd(3).sys",
+        "size":  249592,
+        "sha256":  "0AF205329228EF6915FC8F415679CD0BD98A2E3BA1FEE940DE04CDA89B0F987C",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "amdkfd(4).sys",
+        "size":  251640,
+        "sha256":  "F888C1123B4EC4C984BDFE15C56EB45C1A832542BA90B508C37BC24056A380A3",
+        "signature":  "Valid"
+    }
+]
