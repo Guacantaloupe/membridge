@@ -1,0 +1,16 @@
+﻿{
+    "date":  "2026-11-23T10:49:52",
+    "driver":  "GLCKIO2_3a5ec...sys",
+    "device":  "\\\\.\\GLCKIo2",
+    "cr3":  "0x1548FD000",
+    "cr3_source":  "KPRL (temporary)",
+    "va":  "0x7FF6FBD00000",
+    "pml4e":  "0xA00000155B09867",
+    "pdpte":  "0xA00000109A0A867",
+    "pde":  "0xA0000002E70B867",
+    "pte":  "0x81000001080E8005",
+    "pa":  "0x1080E8000",
+    "bytes":  "4D5A90000300000004000000FFFF0000",
+    "verdict":  "PASS",
+    "note":  "GLCKIO2 full 4-level page walk and target data read; cmd.exe MZ matched"
+}
