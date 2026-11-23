@@ -1,0 +1,86 @@
+﻿[
+    {
+        "name":  "CLib_Tc3_System.sys",
+        "size":  538064,
+        "sha256":  "a8830f8dd6247aa5320289dff3258621966cfb2148852837cce6ffda4af1f1a0",
+        "score":  36,
+        "signature":  "Valid"
+    },
+    {
+        "name":  "TcRteFilter(5).sys",
+        "size":  545952,
+        "sha256":  "21f043b00af4434f51117621319cc4bfc4f909d3166de3eef7f894288d0a2944",
+        "score":  36,
+        "signature":  "Valid"
+    },
+    {
+        "name":  "TcRteFilter(4).sys",
+        "size":  550080,
+        "sha256":  "dfb97c8c0460b65addd1df61d2cdf0fb2f944a57d614a150615610479400d54e",
+        "score":  36,
+        "signature":  "Valid"
+    },
+    {
+        "name":  "TcRteFilter(2).sys",
+        "size":  550184,
+        "sha256":  "c24339caeaf53b4a2336224dd934eb19705381463fa391381ff3c8d4db7217ae",
+        "score":  36,
+        "signature":  "Valid"
+    },
+    {
+        "name":  "TcAnalytics(16).sys",
+        "size":  558520,
+        "sha256":  "80f76653f459076985cf3fcc56e70e895c3fb65faf6463c8d4db07606ed23ae9",
+        "score":  36,
+        "signature":  "Valid"
+    },
+    {
+        "name":  "TcRteFilter(1).sys",
+        "size":  558728,
+        "sha256":  "8c3036c6f78194239dda9af4ced6f4f0c44c09569ea8fdf30a1fc90c0ecac737",
+        "score":  36,
+        "signature":  "Valid"
+    },
+    {
+        "name":  "TcRteFilter.sys",
+        "size":  558728,
+        "sha256":  "9424112ab6c51412d1900eaf63e85a660d1648fddc010a4b676c7c5c2fbc2834",
+        "score":  36,
+        "signature":  "Valid"
+    },
+    {
+        "name":  "TcAnalytics(14).sys",
+        "size":  572480,
+        "sha256":  "e76e9fd2d8e408f0b2127b72c8dc94893778bc596a6e9023bd6aa223398b6241",
+        "score":  36,
+        "signature":  "Valid"
+    },
+    {
+        "name":  "TcAnalytics(12).sys",
+        "size":  640448,
+        "sha256":  "33ed702d2092f10f152fd86c7eed5a17e8340b86cab9d98b559c89f4f3841e39",
+        "score":  36,
+        "signature":  "Valid"
+    },
+    {
+        "name":  "TcAnalytics(10).sys",
+        "size":  667296,
+        "sha256":  "b61049ab2f876778a1588213931f6eaf97b089fed572fd8566f1e5248f0155e9",
+        "score":  36,
+        "signature":  "Valid"
+    },
+    {
+        "name":  "TcAnalytics(8).sys",
+        "size":  668320,
+        "sha256":  "670e9740d93ce520edd21556fde024b91d226be7d237dd93875f66b5447bdfe3",
+        "score":  36,
+        "signature":  "Valid"
+    },
+    {
+        "name":  "TcAnalytics(9).sys",
+        "size":  669344,
+        "sha256":  "44d408c8ac14c754c9dc3e77a43365913dd9456cb7901152d32f750867f32b1d",
+        "score":  36,
+        "signature":  "Valid"
+    }
+]

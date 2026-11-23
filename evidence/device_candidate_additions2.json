@@ -1,0 +1,72 @@
+﻿[
+    {
+        "name":  "windrvr1260(1).sys",
+        "size":  270048,
+        "sha256":  "072f16148483afeeb0c37c745421df83f26d8359da95dc1219a700742cf010f7",
+        "score":  34,
+        "signature":  "Valid"
+    },
+    {
+        "name":  "windrvr1251.sys",
+        "size":  277216,
+        "sha256":  "d217dbb7738ae0a9b8c054d553c94d9d3de9e08d5e98b007c041f4efe766d241",
+        "score":  34,
+        "signature":  "Valid"
+    },
+    {
+        "name":  "windrvr1411(1).sys",
+        "size":  280640,
+        "sha256":  "2421533941c9dab234239feb9f2a72ed13b21f3f9da9829dffe232282b1bc4b6",
+        "score":  34,
+        "signature":  "Valid"
+    },
+    {
+        "name":  "EPIXXCW6(2).SYS",
+        "size":  179976,
+        "sha256":  "5d820096e6323cc679f01e7e889364f6488f2e153eeb7cf958a10e8c3cc28ef3",
+        "score":  34,
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Pce9852x64(3).sys",
+        "size":  60456,
+        "sha256":  "e2daa8d54ee2bcea65ceeb382efca351752abd51c0b1e1943ee0311856afd18b",
+        "score":  33,
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Pce9814x64(3).sys",
+        "size":  66224,
+        "sha256":  "d6171ec6cbd7d73c5ab959890008ee25111e9b7d350075c78483ff4198c14da4",
+        "score":  33,
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Pce9852x64(2).sys",
+        "size":  77808,
+        "sha256":  "6986fbcca478f680811ebc1f3ca2c6ad4fda306142743464b98bb2c835d6922d",
+        "score":  33,
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Pce9814x64(2).sys",
+        "size":  84480,
+        "sha256":  "06a7670424429f06b82f5e22a9905f22817679b4a4a10bdbf89715c550a3f589",
+        "score":  33,
+        "signature":  "Valid"
+    },
+    {
+        "name":  "PSKMAD_64.sys",
+        "size":  63360,
+        "sha256":  "9bf3b737afa4d4f5e7b00ec749d4b75656ad66d9a2b402e1e81934e95ba7df5b",
+        "score":  32,
+        "signature":  "Valid"
+    },
+    {
+        "name":  "vmx86.sys",
+        "size":  100920,
+        "sha256":  "4bfb88a5ebcc36a1d7c45f5b4d51bdc44bbb42179acd023b35ee8ba87ecd9543",
+        "score":  32,
+        "signature":  "Valid"
+    }
+]
