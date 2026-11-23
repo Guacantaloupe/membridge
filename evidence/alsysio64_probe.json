@@ -1,0 +1,20 @@
+﻿{
+    "date":  "2026-11-23T10:43:32",
+    "driver":  "ALSysIO64.sys",
+    "service":  "MbALSysIO64",
+    "state":  "RUNNING",
+    "devices":  [
+                    "\\Device\\ALSysIO",
+                    "\\GLOBAL??\\ALSysIO"
+                ],
+    "opened":  "\\\\.\\ALSysIO -\u003e OPEN_OK",
+    "strings":  [
+                    "ReadMemorySpace",
+                    "ReadPhysicalPCI",
+                    "WritePhysicalPCI",
+                    "ReadPhysicalPCIDeviceRegisters",
+                    "MmMapIoSpace",
+                    "MmUnmapIoSpace"
+                ],
+    "note":  "driver left loaded; no DeviceIoControl sent"
+}
