@@ -1,0 +1,9 @@
+﻿{
+    "date":  "2026-11-24T07:15:18",
+    "pid":  7640,
+    "cr3":  "0x1B815C000",
+    "cr3_page":  "READ_OK bytes 67 28 28 B8...",
+    "pml4e":  "zero for LSTAR index",
+    "pagewalk":  "failed",
+    "note":  "KPRL CR3 not usable for pagewalk this run; KPRL query remains but unstable"
+}
