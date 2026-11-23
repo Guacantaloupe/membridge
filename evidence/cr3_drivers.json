@@ -1,0 +1,11 @@
+﻿{
+    "date":  "2026-11-24T06:44:01",
+    "candidates":  89,
+    "kprl":  "CR3 by PID PASS (explorer 7592 -\u003e 0x1CF6C8000)",
+    "cchwapi":  "current CR3 PASS (0x184472000)",
+    "kkyum":  "device OPEN; locate failed; read-process explorer MZ PASS",
+    "invary":  "device OPEN; locate failed",
+    "l1malwarebits_big":  "start=2",
+    "rtx_hal_ext":  "start=2",
+    "note":  "new EXE VA read via KKYUM; CR3 providers KPRL/CCHWApi"
+}

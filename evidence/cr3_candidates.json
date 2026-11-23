@@ -1,0 +1,779 @@
+[
+  {
+    "file": "byov_input\\l1malwarebits_big.sys",
+    "cr3_read": 5,
+    "cr3_write": 4,
+    "imports": [
+      "KeStackAttachProcess",
+      "MmCopyVirtualMemory",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 538808
+  },
+  {
+    "file": "byov_input\\Rtx_HalExt.sys",
+    "cr3_read": 3,
+    "cr3_write": 4,
+    "imports": [],
+    "size": 155136
+  },
+  {
+    "file": "device_candidates\\vmx86.sys",
+    "cr3_read": 3,
+    "cr3_write": 2,
+    "imports": [],
+    "size": 100920
+  },
+  {
+    "file": "byov_input\\ctrl_pawnio.sys",
+    "cr3_read": 2,
+    "cr3_write": 2,
+    "imports": [],
+    "size": 85344
+  },
+  {
+    "file": "byov_input\\dumpit64.sys",
+    "cr3_read": 2,
+    "cr3_write": 1,
+    "imports": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 82504
+  },
+  {
+    "file": "dumpit\\DumpIt.sys",
+    "cr3_read": 2,
+    "cr3_write": 1,
+    "imports": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 87224
+  },
+  {
+    "file": "CCHWApi(1)_sys\\CCHWApi(1).sys",
+    "cr3_read": 1,
+    "cr3_write": 1,
+    "imports": [],
+    "size": 92136
+  },
+  {
+    "file": "CCHWApi_sys\\CCHWApi.sys",
+    "cr3_read": 1,
+    "cr3_write": 1,
+    "imports": [],
+    "size": 84968
+  },
+  {
+    "file": "asrdrv\\AsrDrv2.sys",
+    "cr3_read": 1,
+    "cr3_write": 1,
+    "imports": [],
+    "size": 50408
+  },
+  {
+    "file": "byov_input\\aac-driver.sys",
+    "cr3_read": 2,
+    "cr3_write": 0,
+    "imports": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 431272
+  },
+  {
+    "file": "byov_input\\cb_livekdd.sys",
+    "cr3_read": 2,
+    "cr3_write": 0,
+    "imports": [
+      "KeStackAttachProcess"
+    ],
+    "size": 39272
+  },
+  {
+    "file": "device_string_candidates\\DMIKD64.SYS",
+    "cr3_read": 1,
+    "cr3_write": 1,
+    "imports": [],
+    "size": 263888
+  },
+  {
+    "file": "fastdumpx64\\fastdumpx64.sys",
+    "cr3_read": 2,
+    "cr3_write": 0,
+    "imports": [],
+    "size": 57472
+  },
+  {
+    "file": "fastdumpx64_v2\\fastdumpx64_v2.sys",
+    "cr3_read": 2,
+    "cr3_write": 0,
+    "imports": [],
+    "size": 57128
+  },
+  {
+    "file": "installed_thirdparty\\cht4vx64.sys",
+    "cr3_read": 2,
+    "cr3_write": 0,
+    "imports": [],
+    "size": 1854880
+  },
+  {
+    "file": "physmem_drivers\\AsrDrv10.sys",
+    "cr3_read": 1,
+    "cr3_write": 1,
+    "imports": [],
+    "size": 21328
+  },
+  {
+    "file": "physmem_drivers\\AsrDrv101.sys",
+    "cr3_read": 1,
+    "cr3_write": 1,
+    "imports": [],
+    "size": 22280
+  },
+  {
+    "file": "physmem_drivers_variants\\AsrAutoChkUpdDrv.sys",
+    "cr3_read": 1,
+    "cr3_write": 1,
+    "imports": [],
+    "size": 22280
+  },
+  {
+    "file": "physmem_drivers_variants\\AsrIbDrv.sys",
+    "cr3_read": 1,
+    "cr3_write": 1,
+    "imports": [],
+    "size": 21288
+  },
+  {
+    "file": "physmem_drivers_variants\\AsrOmgDrv.sys",
+    "cr3_read": 1,
+    "cr3_write": 1,
+    "imports": [],
+    "size": 21328
+  },
+  {
+    "file": "physmem_drivers_variants\\AsrRapidStartDrv.sys",
+    "cr3_read": 1,
+    "cr3_write": 1,
+    "imports": [],
+    "size": 21288
+  },
+  {
+    "file": "physmem_drivers_variants\\AsrSmartConnectDrv.sys",
+    "cr3_read": 1,
+    "cr3_write": 1,
+    "imports": [],
+    "size": 21288
+  },
+  {
+    "file": "physmem_drivers_variants\\cpuz141.sys",
+    "cr3_read": 1,
+    "cr3_write": 1,
+    "imports": [],
+    "size": 46400
+  },
+  {
+    "file": "physmem_drivers_variants\\cpuz_x64.sys",
+    "cr3_read": 1,
+    "cr3_write": 1,
+    "imports": [],
+    "size": 16360
+  },
+  {
+    "file": "security_candidates\\PSKD64.SYS",
+    "cr3_read": 1,
+    "cr3_write": 1,
+    "imports": [],
+    "size": 466344
+  },
+  {
+    "file": "byov_input\\cb_arkmon.sys",
+    "cr3_read": 1,
+    "cr3_write": 0,
+    "imports": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 399224
+  },
+  {
+    "file": "byov_input\\esdd64.sys",
+    "cr3_read": 1,
+    "cr3_write": 0,
+    "imports": [],
+    "size": 32136
+  },
+  {
+    "file": "byov_input\\nagisa.sys",
+    "cr3_read": 1,
+    "cr3_write": 0,
+    "imports": [
+      "MmCopyVirtualMemory"
+    ],
+    "size": 26800
+  },
+  {
+    "file": "device_candidates\\CLib_Tc3_System.sys",
+    "cr3_read": 1,
+    "cr3_write": 0,
+    "imports": [],
+    "size": 538064
+  },
+  {
+    "file": "device_candidates\\PSKMAD_64.sys",
+    "cr3_read": 1,
+    "cr3_write": 0,
+    "imports": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 63360
+  },
+  {
+    "file": "device_candidates\\TcAnalytics(10).sys",
+    "cr3_read": 1,
+    "cr3_write": 0,
+    "imports": [],
+    "size": 667296
+  },
+  {
+    "file": "device_candidates\\TcAnalytics(12).sys",
+    "cr3_read": 1,
+    "cr3_write": 0,
+    "imports": [],
+    "size": 640448
+  },
+  {
+    "file": "device_candidates\\TcAnalytics(14).sys",
+    "cr3_read": 1,
+    "cr3_write": 0,
+    "imports": [],
+    "size": 572480
+  },
+  {
+    "file": "device_candidates\\TcAnalytics(16).sys",
+    "cr3_read": 1,
+    "cr3_write": 0,
+    "imports": [],
+    "size": 558520
+  },
+  {
+    "file": "device_candidates\\TcAnalytics(8).sys",
+    "cr3_read": 1,
+    "cr3_write": 0,
+    "imports": [],
+    "size": 668320
+  },
+  {
+    "file": "device_candidates\\TcAnalytics(9).sys",
+    "cr3_read": 1,
+    "cr3_write": 0,
+    "imports": [],
+    "size": 669344
+  },
+  {
+    "file": "device_candidates\\TcRteFilter(1).sys",
+    "cr3_read": 1,
+    "cr3_write": 0,
+    "imports": [],
+    "size": 558728
+  },
+  {
+    "file": "device_candidates\\TcRteFilter(2).sys",
+    "cr3_read": 1,
+    "cr3_write": 0,
+    "imports": [],
+    "size": 550184
+  },
+  {
+    "file": "device_candidates\\TcRteFilter(4).sys",
+    "cr3_read": 1,
+    "cr3_write": 0,
+    "imports": [],
+    "size": 550080
+  },
+  {
+    "file": "device_candidates\\TcRteFilter(5).sys",
+    "cr3_read": 1,
+    "cr3_write": 0,
+    "imports": [],
+    "size": 545952
+  },
+  {
+    "file": "device_candidates\\TcRteFilter.sys",
+    "cr3_read": 1,
+    "cr3_write": 0,
+    "imports": [],
+    "size": 558728
+  },
+  {
+    "file": "device_string_candidates\\arkmon(13).sys",
+    "cr3_read": 1,
+    "cr3_write": 0,
+    "imports": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 367904
+  },
+  {
+    "file": "driverstore_thirdparty\\BCMWL63a.SYS",
+    "cr3_read": 0,
+    "cr3_write": 1,
+    "imports": [],
+    "size": 7585280
+  },
+  {
+    "file": "driverstore_thirdparty\\NETwew00.sys",
+    "cr3_read": 0,
+    "cr3_write": 1,
+    "imports": [],
+    "size": 3341824
+  },
+  {
+    "file": "fluffycats_extra3\\aehd(1).sys",
+    "cr3_read": 1,
+    "cr3_write": 0,
+    "imports": [],
+    "size": 390168
+  },
+  {
+    "file": "fluffycats_extra3\\aehd.sys",
+    "cr3_read": 1,
+    "cr3_write": 0,
+    "imports": [],
+    "size": 403080
+  },
+  {
+    "file": "fluffycats_extra6\\arkmon(11).sys",
+    "cr3_read": 1,
+    "cr3_write": 0,
+    "imports": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 396032
+  },
+  {
+    "file": "fluffycats_extra6\\arkmon(12).sys",
+    "cr3_read": 1,
+    "cr3_write": 0,
+    "imports": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 397600
+  },
+  {
+    "file": "fluffycats_extra6\\arkmon(14).sys",
+    "cr3_read": 1,
+    "cr3_write": 0,
+    "imports": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 384656
+  },
+  {
+    "file": "fluffycats_extra6\\arkmon(17).sys",
+    "cr3_read": 1,
+    "cr3_write": 0,
+    "imports": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 385072
+  },
+  {
+    "file": "fluffycats_extra6\\arkmon(19).sys",
+    "cr3_read": 1,
+    "cr3_write": 0,
+    "imports": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 360384
+  },
+  {
+    "file": "fluffycats_extra6\\arkmon(2).sys",
+    "cr3_read": 1,
+    "cr3_write": 0,
+    "imports": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 493272
+  },
+  {
+    "file": "fluffycats_extra6\\arkmon(24).sys",
+    "cr3_read": 1,
+    "cr3_write": 0,
+    "imports": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 385808
+  },
+  {
+    "file": "fluffycats_extra6\\arkmon(5).sys",
+    "cr3_read": 1,
+    "cr3_write": 0,
+    "imports": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 424600
+  },
+  {
+    "file": "import_candidates\\PSKMAD_64_1_.sys",
+    "cr3_read": 1,
+    "cr3_write": 0,
+    "imports": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 63344
+  },
+  {
+    "file": "invarysensor\\invarysensor.sys",
+    "cr3_read": 1,
+    "cr3_write": 0,
+    "imports": [],
+    "size": 44848
+  },
+  {
+    "file": "kprl\\l1malwarebits.sys",
+    "cr3_read": 1,
+    "cr3_write": 0,
+    "imports": [
+      "KeStackAttachProcess",
+      "MmCopyVirtualMemory",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 37160
+  },
+  {
+    "file": "KKYUM\\KKYUM.sys",
+    "cr3_read": 0,
+    "cr3_write": 0,
+    "imports": [
+      "KeStackAttachProcess",
+      "MmCopyVirtualMemory",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 26768
+  },
+  {
+    "file": "aswarpot\\aswArPot.sys",
+    "cr3_read": 0,
+    "cr3_write": 0,
+    "imports": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 259168
+  },
+  {
+    "file": "byov_input\\FireEyeRealtime.sys",
+    "cr3_read": 0,
+    "cr3_write": 0,
+    "imports": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 236144
+  },
+  {
+    "file": "byov_input\\cb_aswarpot.sys",
+    "cr3_read": 0,
+    "cr3_write": 0,
+    "imports": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 296544
+  },
+  {
+    "file": "byov_input\\cb_fekern.sys",
+    "cr3_read": 0,
+    "cr3_write": 0,
+    "imports": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 267840
+  },
+  {
+    "file": "byov_input\\cb_gsdriver.sys",
+    "cr3_read": 0,
+    "cr3_write": 0,
+    "imports": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 85736
+  },
+  {
+    "file": "byov_input\\cb_tdcore.sys",
+    "cr3_read": 0,
+    "cr3_write": 0,
+    "imports": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 472568
+  },
+  {
+    "file": "byov_input\\fekern.sys",
+    "cr3_read": 0,
+    "cr3_write": 0,
+    "imports": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 266152
+  },
+  {
+    "file": "byov_input\\hznprotect.sys",
+    "cr3_read": 0,
+    "cr3_write": 0,
+    "imports": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 189872
+  },
+  {
+    "file": "byov_input\\vmwprotect.sys",
+    "cr3_read": 0,
+    "cr3_write": 0,
+    "imports": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 171928
+  },
+  {
+    "file": "byov_input\\win10_AMS_Driver.sys",
+    "cr3_read": 0,
+    "cr3_write": 0,
+    "imports": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 131712
+  },
+  {
+    "file": "fluffycats_extra3\\amdkfd(1).sys",
+    "cr3_read": 0,
+    "cr3_write": 0,
+    "imports": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 251640
+  },
+  {
+    "file": "fluffycats_extra3\\amdkfd(10).sys",
+    "cr3_read": 0,
+    "cr3_write": 0,
+    "imports": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 251632
+  },
+  {
+    "file": "fluffycats_extra3\\amdkfd(11).sys",
+    "cr3_read": 0,
+    "cr3_write": 0,
+    "imports": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 248056
+  },
+  {
+    "file": "fluffycats_extra3\\amdkfd(2).sys",
+    "cr3_read": 0,
+    "cr3_write": 0,
+    "imports": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 249584
+  },
+  {
+    "file": "fluffycats_extra3\\amdkfd(3).sys",
+    "cr3_read": 0,
+    "cr3_write": 0,
+    "imports": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 249592
+  },
+  {
+    "file": "fluffycats_extra3\\amdkfd(4).sys",
+    "cr3_read": 0,
+    "cr3_write": 0,
+    "imports": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 251640
+  },
+  {
+    "file": "fluffycats_extra4\\amdkfd(5).sys",
+    "cr3_read": 0,
+    "cr3_write": 0,
+    "imports": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 248056
+  },
+  {
+    "file": "fluffycats_extra4\\amdkfd(6).sys",
+    "cr3_read": 0,
+    "cr3_write": 0,
+    "imports": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 251640
+  },
+  {
+    "file": "fluffycats_extra4\\amdkfd(7).sys",
+    "cr3_read": 0,
+    "cr3_write": 0,
+    "imports": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 251072
+  },
+  {
+    "file": "fluffycats_extra4\\amdkfd(8).sys",
+    "cr3_read": 0,
+    "cr3_write": 0,
+    "imports": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 259800
+  },
+  {
+    "file": "fluffycats_extra4\\amdkfd(9).sys",
+    "cr3_read": 0,
+    "cr3_write": 0,
+    "imports": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 257048
+  },
+  {
+    "file": "fluffycats_extra4\\amdkfd.sys",
+    "cr3_read": 0,
+    "cr3_write": 0,
+    "imports": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 249592
+  },
+  {
+    "file": "fluffycats_extra\\$(LSTR_37)_heimdall.sra_10_0.sys",
+    "cr3_read": 0,
+    "cr3_write": 0,
+    "imports": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 699128
+  },
+  {
+    "file": "fluffycats_extra\\2.0.0.620_bedrock64.sys",
+    "cr3_read": 0,
+    "cr3_write": 0,
+    "imports": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 545008
+  },
+  {
+    "file": "fluffycats_extra\\3933112b2.sys",
+    "cr3_read": 0,
+    "cr3_write": 0,
+    "imports": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 195160
+  },
+  {
+    "file": "fluffycats_extra\\503111e.sys",
+    "cr3_read": 0,
+    "cr3_write": 0,
+    "imports": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 190616
+  },
+  {
+    "file": "installed_thirdparty\\wintun.sys",
+    "cr3_read": 0,
+    "cr3_write": 0,
+    "imports": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 29592
+  },
+  {
+    "file": "mrt\\fekern_mrt.sys",
+    "cr3_read": 0,
+    "cr3_write": 0,
+    "imports": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 281680
+  },
+  {
+    "file": "physmem_drivers_variants\\Dh_Kernel.sys",
+    "cr3_read": 0,
+    "cr3_write": 0,
+    "imports": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 30544
+  },
+  {
+    "file": "physmem_drivers_variants\\Dh_Kernel_10.sys",
+    "cr3_read": 0,
+    "cr3_write": 0,
+    "imports": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 30544
+  },
+  {
+    "file": "security_corpus2\\CcProtect-Killer__CcProtect.sys",
+    "cr3_read": 0,
+    "cr3_write": 0,
+    "imports": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "size": 493600
+  }
+]
