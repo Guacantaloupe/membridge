@@ -1,0 +1,8 @@
+﻿{
+    "date":  "2026-11-23T12:19:06",
+    "crash_dump":  "112326-41453-01.dmp",
+    "bugcheck":  "0x9A",
+    "culprit":  "Dcpp2k.sys",
+    "process":  "System",
+    "note":  "Dcpp2k load crashed; excluded; other device_string candidates pending"
+}

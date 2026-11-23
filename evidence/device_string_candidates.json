@@ -1,0 +1,1348 @@
+{
+  "total": 75,
+  "top": [
+    {
+      "score": 59,
+      "phys": 24,
+      "devices": [
+        "\\Device\\HR",
+        "\\Device\\IObitUnlockerDevice",
+        "\\Device\\Nal",
+        "\\Device\\PROCEXP152",
+        "\\Device\\VBoxDrv",
+        "\\Device\\mhyprot2",
+        "\\Device\\mimidrv"
+      ],
+      "name": "arkmon(13).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\arkmon(13)_sys\\arkmon(13).sys",
+      "size": 367904,
+      "sha256": "5c07fc853548e0b726cbd5a15946f6e1546c5622cc8b5e62bef1644e0959c8e7",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages",
+        "ZwOpenSection"
+      ]
+    },
+    {
+      "score": 47,
+      "phys": 12,
+      "devices": [
+        "\\Device\\DcPPCrypt",
+        "\\Device\\DcppHddFilter",
+        "\\Device\\DcppKbdFilter",
+        "\\Device\\DcppRamD",
+        "\\Device\\DcppRamVD",
+        "\\Device\\MountPointManager",
+        "\\DosDevices\\Global"
+      ],
+      "name": "Dcpp2k.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Dcpp2k_sys\\Dcpp2k.sys",
+      "size": 233328,
+      "sha256": "32e1a5f6ba475f2dca5a7766e9e3c0c722fe632b36f899c83f3044f49b785cc9",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache"
+      ]
+    },
+    {
+      "score": 36,
+      "phys": 21,
+      "devices": [
+        "\\Device\\Floppy",
+        "\\Device\\Harddisk",
+        "\\Device\\Harddisk0"
+      ],
+      "name": "SDDisk2k(2).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\SDDisk2k(2)_sys\\SDDisk2k(2).sys",
+      "size": 250584,
+      "sha256": "1eaf9e53d970c9df36ef554046f06731fe0e35f22ae736e12967ccc925d54bb1",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 36,
+      "phys": 21,
+      "devices": [
+        "\\Device\\Floppy",
+        "\\Device\\Harddisk",
+        "\\Device\\Harddisk0"
+      ],
+      "name": "SDDisk2k(1).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\SDDisk2k(1)_sys\\SDDisk2k(1).sys",
+      "size": 252112,
+      "sha256": "463d5d765f5890693611fd86d28a37d951eac8334e8054744ec7a9c8d5540a0d",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 36,
+      "phys": 21,
+      "devices": [
+        "\\Device\\Floppy",
+        "\\Device\\Harddisk",
+        "\\Device\\Harddisk0"
+      ],
+      "name": "SDDisk2k.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\SDDisk2k_sys\\SDDisk2k.sys",
+      "size": 265104,
+      "sha256": "7fbd07c74ccb7b9152cfe069105ba104aa91ebcd6288a8ea9904e20f144a54db",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 35,
+      "phys": 10,
+      "devices": [
+        "\\Device\\DF_",
+        "\\Device\\Harddisk",
+        "\\Device\\HarddiskVolume1",
+        "\\Device\\WHALE0",
+        "\\DosDevices\\WHALE"
+      ],
+      "name": "flash.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\flash_sys\\flash.sys",
+      "size": 57432,
+      "sha256": "52c6aaf92699b5538c913d9927c898e5e8627ce191eeea9091073bf8b9e678ed",
+      "hits": [
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache"
+      ]
+    },
+    {
+      "score": 26,
+      "phys": 21,
+      "devices": [
+        "\\Device\\PCIe9524"
+      ],
+      "name": "Pci9524(14).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Pci9524(14)_sys\\Pci9524(14).sys",
+      "size": 109520,
+      "sha256": "a0fcf1fb7aa92ab0ffb98e972110fa89cb4467fc98faa97181571a3d705a805b",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 26,
+      "phys": 21,
+      "devices": [
+        "\\Device\\PCIe9524"
+      ],
+      "name": "Pci9524(15).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Pci9524(15)_sys\\Pci9524(15).sys",
+      "size": 109624,
+      "sha256": "b6942408704a114c06f0860ef9fcbeb097370af8150409b3c76625d18c5f6c3a",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 26,
+      "phys": 21,
+      "devices": [
+        "\\Device\\PCIe9524"
+      ],
+      "name": "Pci9524(6).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Pci9524(6)_sys\\Pci9524(6).sys",
+      "size": 110128,
+      "sha256": "079143a26a36a9da7a8104f057a4c3025be8c678eb808a385552e31734d62995",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 26,
+      "phys": 21,
+      "devices": [
+        "\\Device\\PCIe9524"
+      ],
+      "name": "Pci9524(7).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Pci9524(7)_sys\\Pci9524(7).sys",
+      "size": 110136,
+      "sha256": "132d8cf4baa46c03fc0c2a99b7ac601600ff5e5817c7cf53332577874b0a8870",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 26,
+      "phys": 21,
+      "devices": [
+        "\\Device\\PCIe9524"
+      ],
+      "name": "Pci9524(11).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Pci9524(11)_sys\\Pci9524(11).sys",
+      "size": 110152,
+      "sha256": "10645ebd2342c85ca8edb84629ae35c2348a82b61aa9904c9de3b934a86e0004",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 26,
+      "phys": 21,
+      "devices": [
+        "\\Device\\PCIe9524"
+      ],
+      "name": "Pci9524(4).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Pci9524(4)_sys\\Pci9524(4).sys",
+      "size": 110168,
+      "sha256": "7b4af96875c83c44805f506ce69992fe64ebfdb70538b92ca89be0d8012cf7b9",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 26,
+      "phys": 21,
+      "devices": [
+        "\\Device\\PCIe9524"
+      ],
+      "name": "Pci9524(9).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Pci9524(9)_sys\\Pci9524(9).sys",
+      "size": 110168,
+      "sha256": "950f6cd5517e9f540bcf05402c20ae4541da6f03a86a73c082dc106b365ad2aa",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 26,
+      "phys": 21,
+      "devices": [
+        "\\??\\Global"
+      ],
+      "name": "prot_2k(1).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\prot_2k(1)_sys\\prot_2k(1).sys",
+      "size": 298560,
+      "sha256": "ca117e18b5c94ecb880ea98595709620c19af5243fc5b6ad584f291f8d7e8f96",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 26,
+      "phys": 21,
+      "devices": [
+        "\\??\\Global"
+      ],
+      "name": "prot_2k.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\prot_2k_sys\\prot_2k.sys",
+      "size": 299616,
+      "sha256": "0a5b4e04bd7c591cc5844852e01e7d76a9f9c164658f7c6123815de5fe6d6617",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 26,
+      "phys": 21,
+      "devices": [
+        "\\??\\Global"
+      ],
+      "name": "prot_2k(3).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\prot_2k(3)_sys\\prot_2k(3).sys",
+      "size": 538512,
+      "sha256": "22d0a271d7167843c22436d20fe889585c4f02f5cb9a3c1a1b252a95ba543e11",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 26,
+      "phys": 21,
+      "devices": [
+        "\\??\\Global"
+      ],
+      "name": "prot_2k(5).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\prot_2k(5)_sys\\prot_2k(5).sys",
+      "size": 602136,
+      "sha256": "63809b8121a5838b98d80abbe6c28b7d4b594c90f99aaf38d6f1cfc8116e1741",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 25,
+      "phys": 15,
+      "devices": [
+        "\\Device\\TdkLib",
+        "\\DosDevices\\TdkLib"
+      ],
+      "name": "TdkLib64.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\TdkLib64_sys\\TdkLib64.sys",
+      "size": 57016,
+      "sha256": "be466e353a91acc5ca34625bc89968c2c334f74e617220a2172d1e56a19a606c",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache"
+      ]
+    },
+    {
+      "score": 25,
+      "phys": 20,
+      "devices": [
+        "\\Device\\DAQ2208"
+      ],
+      "name": "Daq2208(4).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Daq2208(4)_sys\\Daq2208(4).sys",
+      "size": 75968,
+      "sha256": "dcbfed09a467ec9eaa650c0699afa0e5b9d856d9b719d4eeb2ddcf6c85269250",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 25,
+      "phys": 20,
+      "devices": [
+        "\\Device\\DAQ2208"
+      ],
+      "name": "Daq2208(6).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Daq2208(6)_sys\\Daq2208(6).sys",
+      "size": 75968,
+      "sha256": "a5a209ef1ab39d11b478cf0c39cbe08c6f85f3265bce2dd025b2f602ed1c4d7e",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 25,
+      "phys": 20,
+      "devices": [
+        "\\Device\\DAQ2213"
+      ],
+      "name": "Daq2213(4).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Daq2213(4)_sys\\Daq2213(4).sys",
+      "size": 77648,
+      "sha256": "8a783407887d2a76e03a7cd44ed80776574584378247935c13c22f584e315e42",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 25,
+      "phys": 20,
+      "devices": [
+        "\\Device\\DAQ2213"
+      ],
+      "name": "Daq2213.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Daq2213_sys\\Daq2213.sys",
+      "size": 77776,
+      "sha256": "fa410f7783158586ab85f61de04e6e1136347446663a6eb196104a31ab74f6e0",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 25,
+      "phys": 20,
+      "devices": [
+        "\\Device\\DAQ2204"
+      ],
+      "name": "Daq2204(4).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Daq2204(4)_sys\\Daq2204(4).sys",
+      "size": 81856,
+      "sha256": "e08729d5e3ff9adde5442976d142cff1e7af0fb69e20ebb4c8ce477dd9a23685",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 25,
+      "phys": 20,
+      "devices": [
+        "\\Device\\DAQ2204"
+      ],
+      "name": "Daq2204(5).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Daq2204(5)_sys\\Daq2204(5).sys",
+      "size": 81872,
+      "sha256": "70382b976ad81dda2636e2567403cc6a341f15289f2481bc79372bd2ac7ed6f1",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 25,
+      "phys": 20,
+      "devices": [
+        "\\Device\\DAQ2204"
+      ],
+      "name": "Daq2204(1).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Daq2204(1)_sys\\Daq2204(1).sys",
+      "size": 82000,
+      "sha256": "99f94810582ca2ead41f6f71d3d579d3ab87648c8f21d32ca39083d061a57d45",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 25,
+      "phys": 20,
+      "devices": [
+        "\\Device\\DAQ2010"
+      ],
+      "name": "Daq2010(4).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Daq2010(4)_sys\\Daq2010(4).sys",
+      "size": 83520,
+      "sha256": "c1e4150f397fc577b8608be999969044424d4c10c57e0e68aae1d4404a4c61ef",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 25,
+      "phys": 20,
+      "devices": [
+        "\\Device\\DAQ2010"
+      ],
+      "name": "Daq2010(6).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Daq2010(6)_sys\\Daq2010(6).sys",
+      "size": 83520,
+      "sha256": "1ed5d7a1681bc4c43a05b298cfecacf581902c36ecab1157cc200bdd05d90a4b",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 25,
+      "phys": 20,
+      "devices": [
+        "\\Device\\DAQ2010"
+      ],
+      "name": "Daq2010(5).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Daq2010(5)_sys\\Daq2010(5).sys",
+      "size": 83536,
+      "sha256": "1f04231c03db8e3cc2055072a47e43244d025863e731b479681ef031a201b1fd",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 25,
+      "phys": 20,
+      "devices": [
+        "\\Device\\DAQ2205"
+      ],
+      "name": "Daq2205(6).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Daq2205(6)_sys\\Daq2205(6).sys",
+      "size": 83648,
+      "sha256": "5f3b63c132e8a3d3f0f01a190e00e30d58d2ff8f0ffe559d63175d4e2567959e",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 25,
+      "phys": 20,
+      "devices": [
+        "\\Device\\DAQ2206"
+      ],
+      "name": "Daq2206(5).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Daq2206(5)_sys\\Daq2206(5).sys",
+      "size": 83648,
+      "sha256": "70aae3e2cff1b9f2c4017cfb6a43bd65d1171717c7fb52931862815cb6a7aea1",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 25,
+      "phys": 20,
+      "devices": [
+        "\\Device\\DAQ2214"
+      ],
+      "name": "Daq2214(3).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Daq2214(3)_sys\\Daq2214(3).sys",
+      "size": 83648,
+      "sha256": "15e3220d6c90d16320fa13459760d7093e224fee24f7ec2a0bb2ac0973b9c05f",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 25,
+      "phys": 20,
+      "devices": [
+        "\\Device\\DAQ2501"
+      ],
+      "name": "Daq2501(6).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Daq2501(6)_sys\\Daq2501(6).sys",
+      "size": 83648,
+      "sha256": "ea98f52a89fce8dfa4a3fa6c5dc5af807d2cb838f6c66a441f09ed14f4aac3f3",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 25,
+      "phys": 20,
+      "devices": [
+        "\\Device\\DAQ2205"
+      ],
+      "name": "Daq2205(5).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Daq2205(5)_sys\\Daq2205(5).sys",
+      "size": 83664,
+      "sha256": "0f62dd306b5f187186ec8d4062c408f4830d4fa7fea5323630739f20efa79b13",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 25,
+      "phys": 20,
+      "devices": [
+        "\\Device\\DAQ2206"
+      ],
+      "name": "Daq2206(4).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Daq2206(4)_sys\\Daq2206(4).sys",
+      "size": 83664,
+      "sha256": "e3a43494009f8c671b2cc17c791627e10b9fb3fff1fc3696a02bc305811e1ef1",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 25,
+      "phys": 20,
+      "devices": [
+        "\\Device\\DAQ2214"
+      ],
+      "name": "Daq2214(4).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Daq2214(4)_sys\\Daq2214(4).sys",
+      "size": 83664,
+      "sha256": "e8acc6456392a8e41805e0e4c8ecb1aecf88789cb512b640fe8753aaae320060",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 25,
+      "phys": 20,
+      "devices": [
+        "\\Device\\DAQ2006"
+      ],
+      "name": "Daq2006(5).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Daq2006(5)_sys\\Daq2006(5).sys",
+      "size": 83776,
+      "sha256": "4d61dc32e9eb671d83acdddff074692cdf2fd6c45a1d11de9093c802bbaef30a",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 25,
+      "phys": 20,
+      "devices": [
+        "\\Device\\DAQ2016"
+      ],
+      "name": "Daq2016(6).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Daq2016(6)_sys\\Daq2016(6).sys",
+      "size": 83776,
+      "sha256": "2273dbcb5428469b2af38f5f2972034d84f11b8d99f5b6db7a59311b8143291e",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 25,
+      "phys": 20,
+      "devices": [
+        "\\Device\\DAQ2205"
+      ],
+      "name": "Daq2205(3).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Daq2205(3)_sys\\Daq2205(3).sys",
+      "size": 83776,
+      "sha256": "7019b518c52104c8701b72ac3f3c42ecdc8a9c1cd0994316f0eb5a8c3a9dcac1",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 25,
+      "phys": 20,
+      "devices": [
+        "\\Device\\DAQ2501"
+      ],
+      "name": "Daq2501(2).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Daq2501(2)_sys\\Daq2501(2).sys",
+      "size": 83776,
+      "sha256": "4fc9967dce5e7651b9ff63204767253b5f8b7d78cef1d8959c92bed0b039096f",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 25,
+      "phys": 20,
+      "devices": [
+        "\\Device\\DAQ2501"
+      ],
+      "name": "Daq2501(5).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Daq2501(5)_sys\\Daq2501(5).sys",
+      "size": 83776,
+      "sha256": "07850916c3dd4584dc7bee3831d70d886af5378e6b6a462c81959ad614eb1c40",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 25,
+      "phys": 20,
+      "devices": [
+        "\\Device\\DAQ2006"
+      ],
+      "name": "Daq2006(3).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Daq2006(3)_sys\\Daq2006(3).sys",
+      "size": 83888,
+      "sha256": "92582fea5761e7f44e569c5aefd9bb985449654b273de530a1953d2801f2a19f",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 25,
+      "phys": 20,
+      "devices": [
+        "\\Device\\DAQ2005"
+      ],
+      "name": "Daq2005(3).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Daq2005(3)_sys\\Daq2005(3).sys",
+      "size": 83904,
+      "sha256": "1907e2e32892bc90a65149132c01700cd44e55ee4cc5d9519b35dafeb66389b1",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 25,
+      "phys": 20,
+      "devices": [
+        "\\Device\\DAQ2005"
+      ],
+      "name": "Daq2005(2).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Daq2005(2)_sys\\Daq2005(2).sys",
+      "size": 83928,
+      "sha256": "c49738d4423cd68ecd40794896e33054b59a6820492c08ccfa071640ddb62332",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 25,
+      "phys": 20,
+      "devices": [
+        "\\Device\\DAQ2204"
+      ],
+      "name": "Daq2204.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Daq2204_sys\\Daq2204.sys",
+      "size": 86736,
+      "sha256": "644c757c064fbcb2551b532a8bcb6276518ebe7d69fc0f16b960503bd9a3beaa",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 25,
+      "phys": 20,
+      "devices": [
+        "\\Device\\DAQ2205"
+      ],
+      "name": "Daq2205.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Daq2205_sys\\Daq2205.sys",
+      "size": 88280,
+      "sha256": "11e485d7915668e8c43dc1043835b80cb3623069bfa4a91154eb8523e0393fbd",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 25,
+      "phys": 20,
+      "devices": [
+        "\\Device\\DAQ2206"
+      ],
+      "name": "Daq2206.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Daq2206_sys\\Daq2206.sys",
+      "size": 88280,
+      "sha256": "ff28833ea9235ea9125449d7802889ba60c09e2a10c0fcaa5a43ca99b934f0ac",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 25,
+      "phys": 20,
+      "devices": [
+        "\\Device\\DAQ2208"
+      ],
+      "name": "Daq2208(2).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Daq2208(2)_sys\\Daq2208(2).sys",
+      "size": 91624,
+      "sha256": "5a4725bcf05bb2975a7668cdb5711170425c7e49db2aed79c20db97e1a54a947",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 25,
+      "phys": 10,
+      "devices": [
+        "\\Device\\CANAC_0",
+        "\\DosDevices\\CANAC_0",
+        "\\DosDevices\\VCANACD"
+      ],
+      "name": "vcanacw.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\vcanacw_sys\\vcanacw.sys",
+      "size": 92568,
+      "sha256": "62f11120c7b1e82f39c3c4a6aeddf587fe968aec779b000ce22eb5c418363e4a",
+      "hits": [
+        "MmMapIoSpace",
+        "ZwOpenSection"
+      ]
+    },
+    {
+      "score": 25,
+      "phys": 20,
+      "devices": [
+        "\\Device\\DAQ2005"
+      ],
+      "name": "Daq2005(7).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Daq2005(7)_sys\\Daq2005(7).sys",
+      "size": 94040,
+      "sha256": "2d887169d1c6746695bc9df4441657109680e658f33411172b3639175c9c288b",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 25,
+      "phys": 20,
+      "devices": [
+        "\\Device\\DAQ2204"
+      ],
+      "name": "Daq2204(7).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Daq2204(7)_sys\\Daq2204(7).sys",
+      "size": 96584,
+      "sha256": "000007f7a5b4dd8c49cbbf4d73a9dda80c90acd64be5249e58217993eb9e3b87",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 25,
+      "phys": 20,
+      "devices": [
+        "\\Device\\DAQ2204"
+      ],
+      "name": "Daq2204(2).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Daq2204(2)_sys\\Daq2204(2).sys",
+      "size": 96744,
+      "sha256": "f036b5a5bedf2a5a5e6cb7dd5b6c2584091bd7446d3dbc87de5ec7409fd22e13",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 25,
+      "phys": 20,
+      "devices": [
+        "\\Device\\DAQ2016"
+      ],
+      "name": "Daq2016(2).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Daq2016(2)_sys\\Daq2016(2).sys",
+      "size": 98280,
+      "sha256": "278116202462d2aea52e30d758838043a996a4a715997c18ea22a8d4c4984510",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 25,
+      "phys": 10,
+      "devices": [
+        "\\Device\\CANPCI0",
+        "\\DosDevices\\CANPCI0",
+        "\\DosDevices\\VCANPCID"
+      ],
+      "name": "vcanpciw.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\vcanpciw_sys\\vcanpciw.sys",
+      "size": 98328,
+      "sha256": "8e7dabe50330d03677c106dce737cf220e5050de954df683338c07149b863e7b",
+      "hits": [
+        "MmMapIoSpace",
+        "ZwOpenSection"
+      ]
+    },
+    {
+      "score": 25,
+      "phys": 20,
+      "devices": [
+        "\\Device\\DAQ2206"
+      ],
+      "name": "Daq2206(1).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Daq2206(1)_sys\\Daq2206(1).sys",
+      "size": 98368,
+      "sha256": "e00f656ef76dd6b64ff3ba373ed62212b2ab71840dc3e24d30e258c92d2feead",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 25,
+      "phys": 20,
+      "devices": [
+        "\\Device\\DAQ2502"
+      ],
+      "name": "Daq2502(5).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Daq2502(5)_sys\\Daq2502(5).sys",
+      "size": 98368,
+      "sha256": "35aa7c0d2549c773cbf249c214df94ac4c0b06cc96e71469dc79666b89b5c3bd",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 25,
+      "phys": 20,
+      "devices": [
+        "\\Device\\DAQ2502"
+      ],
+      "name": "Daq2502(2).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Daq2502(2)_sys\\Daq2502(2).sys",
+      "size": 98496,
+      "sha256": "e5d7467d0f3bfd6e9ee7704678c98aa8c1f431cb7f4447f5c8a0f7935eba2be0",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 25,
+      "phys": 20,
+      "devices": [
+        "\\Device\\DAQ2502"
+      ],
+      "name": "Daq2502(4).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Daq2502(4)_sys\\Daq2502(4).sys",
+      "size": 98496,
+      "sha256": "d56365e42108d5ef8213d0d2e23c679c5215613d054be837c2337e3c157e5007",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 25,
+      "phys": 20,
+      "devices": [
+        "\\Device\\DAQ2502"
+      ],
+      "name": "Daq2502(1).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Daq2502(1)_sys\\Daq2502(1).sys",
+      "size": 98512,
+      "sha256": "f59603daf305fcf0f9bbfe682204d080b222415c1f939f511912ae2c9a9352dd",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 25,
+      "phys": 20,
+      "devices": [
+        "\\Device\\DAQ2006"
+      ],
+      "name": "Daq2006(2).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Daq2006(2)_sys\\Daq2006(2).sys",
+      "size": 98792,
+      "sha256": "1d49d49d6acdec647ddbfa8e91a079366ec7bee30c4874f1fd0d3087f0e87e9a",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 25,
+      "phys": 20,
+      "devices": [
+        "\\Device\\DAQ2006"
+      ],
+      "name": "Daq2006(1).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Daq2006(1)_sys\\Daq2006(1).sys",
+      "size": 98880,
+      "sha256": "652ecaad81c6ddd2845d9cf36674f3c3ea29b5e76f787ca203664f672e049245",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 24,
+      "phys": 14,
+      "devices": [
+        "\\Device\\pded",
+        "\\DosDevices\\pded"
+      ],
+      "name": "DLFdeEd(6).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\DLFdeEd(6)_sys\\DLFdeEd(6).sys",
+      "size": 317072,
+      "sha256": "bfacf9ca3608d42d03e39ff56d4cf7aa2bf4dd4a2fbb4a06eac5381551f74e91",
+      "hits": [
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 24,
+      "phys": 14,
+      "devices": [
+        "\\Device\\pded",
+        "\\DosDevices\\pded"
+      ],
+      "name": "DLFdeEd(3).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\DLFdeEd(3)_sys\\DLFdeEd(3).sys",
+      "size": 317104,
+      "sha256": "86e414d5a600476f0371af94ae8bd8e45242fe4db59175fe4991ad22a842b666",
+      "hits": [
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 24,
+      "phys": 14,
+      "devices": [
+        "\\Device\\pded",
+        "\\DosDevices\\pded"
+      ],
+      "name": "DLFdeEd(4).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\DLFdeEd(4)_sys\\DLFdeEd(4).sys",
+      "size": 317112,
+      "sha256": "d6da0bd61a71fa2f093fed282dfd4d5a3a106c838d8c4df167dab520045b42de",
+      "hits": [
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 24,
+      "phys": 14,
+      "devices": [
+        "\\Device\\pded",
+        "\\DosDevices\\pded"
+      ],
+      "name": "DLFdeEd(5).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\DLFdeEd(5)_sys\\DLFdeEd(5).sys",
+      "size": 317112,
+      "sha256": "97bcb6db6002b4fcc7d5631209ed7e0f837eb56de705043c4ba6697545ea3ae6",
+      "hits": [
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 24,
+      "phys": 14,
+      "devices": [
+        "\\Device\\pded",
+        "\\DosDevices\\pded"
+      ],
+      "name": "DLFdeEd.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\DLFdeEd_sys\\DLFdeEd.sys",
+      "size": 317128,
+      "sha256": "9aef17e9f6c5703e5ac352c7163ed1c6f7c1d30c43bad95c9a74c07eccae73e4",
+      "hits": [
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 24,
+      "phys": 14,
+      "devices": [
+        "\\Device\\pded",
+        "\\DosDevices\\pded"
+      ],
+      "name": "DLFdeEd(1).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\DLFdeEd(1)_sys\\DLFdeEd(1).sys",
+      "size": 317136,
+      "sha256": "a1b1992bf214b0277b9a2d39c6d2c68d6719281f9ea98d3fdfb4fd8b278e724d",
+      "hits": [
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 24,
+      "phys": 14,
+      "devices": [
+        "\\Device\\pded",
+        "\\DosDevices\\pded"
+      ],
+      "name": "DLFdeEd(2).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\DLFdeEd(2)_sys\\DLFdeEd(2).sys",
+      "size": 317136,
+      "sha256": "a403da67b8ac1734356f0be462dcef2371aa1a16585b0132405a374b686d790c",
+      "hits": [
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 21,
+      "phys": 11,
+      "devices": [
+        "\\Device\\BIOS_SMI_DRIVER",
+        "\\DosDevices\\BIOS_SMI_DRIVER"
+      ],
+      "name": "SMIBIOS64_W10.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\SMIBIOS64_W10_sys\\SMIBIOS64_W10.sys",
+      "size": 17504,
+      "sha256": "b81890e840c2c72c45b9f958dc8d433dc60f7c112a4d655203e16bf00c8047d3",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages"
+      ]
+    },
+    {
+      "score": 21,
+      "phys": 11,
+      "devices": [
+        "\\Device\\DMIKD64",
+        "\\DosDevices\\DMIKD64"
+      ],
+      "name": "DMIKD64.SYS",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\DMIKD64_SYS\\DMIKD64.SYS",
+      "size": 263888,
+      "sha256": "e5b8653ec69c42923b0fff0201bd5aae0ceda10aeacf62616ec8da64217a2721",
+      "hits": [
+        "HalGetBusDataByOffset",
+        "MmMapIoSpace",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 20,
+      "phys": 10,
+      "devices": [
+        "\\Device\\expressnet2274",
+        "\\DosDevices\\expressnet2274"
+      ],
+      "name": "ExpressNet.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\ExpressNet_sys\\ExpressNet.sys",
+      "size": 74008,
+      "sha256": "0a8ee67b346bdba9d671e86eee5a06acf59b2b3b1214aaa41c9af3fd8f28dad7",
+      "hits": [
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache"
+      ]
+    },
+    {
+      "score": 20,
+      "phys": 10,
+      "devices": [
+        "\\Device\\bmrbt-0.36",
+        "\\DosDevices\\bmrbt-0.36"
+      ],
+      "name": "C__Program Files (x86)_BenchMate 10_bin_bmrbt64.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\C__Program Files (x86)_BenchMate 10_bin_bmrbt64_sys\\C__Program Files (x86)_BenchMate 10_bin_bmrbt64.sys",
+      "size": 79368,
+      "sha256": "e0c4ee650e65f3ea3782028b0682e9373dde4d7de32e91e19d42a8b3169989a8",
+      "hits": [
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache"
+      ]
+    },
+    {
+      "score": 20,
+      "phys": 15,
+      "devices": [
+        "\\DosDevices\\Global"
+      ],
+      "name": "niserialDriver.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\niserialDriver_sys\\niserialDriver.sys",
+      "size": 397704,
+      "sha256": "7ae37235513434103c02b938764b8a80876a8b540a2fae5de062d36c7aa17517",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache"
+      ]
+    },
+    {
+      "score": 19,
+      "phys": 9,
+      "devices": [
+        "\\Device\\MALPCIe",
+        "\\DosDevices\\MALPCIe"
+      ],
+      "name": "MALPCI32_64(1).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\MALPCI32_64(1)_sys\\MALPCI32_64(1).sys",
+      "size": 38528,
+      "sha256": "c89dc1d4b5cd6e5e8ad937da5fd72fe791691afa2b0b0795c79fb9331c1a0513",
+      "hits": [
+        "MmMapIoSpace",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 19,
+      "phys": 14,
+      "devices": [
+        "\\DosDevices\\Global"
+      ],
+      "name": "MOTUProAudio.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\MOTUProAudio_sys\\MOTUProAudio.sys",
+      "size": 196704,
+      "sha256": "97781eb4b52dabe6ef8e6c3878659f5e3e61c7c3db3790f185818102ac1a4da3",
+      "hits": [
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ]
+    },
+    {
+      "score": 17,
+      "phys": 12,
+      "devices": [
+        "\\Device\\Harddisk"
+      ],
+      "name": "dlpfde.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\dlpfde_sys\\dlpfde.sys",
+      "size": 303312,
+      "sha256": "e5268fd1429bcf00921f12d16f777fbb2d3379af67d22f8a8cabab45516a4cef",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache"
+      ]
+    }
+  ]
+}

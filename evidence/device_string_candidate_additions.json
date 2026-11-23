@@ -1,0 +1,82 @@
+﻿[
+    {
+        "name":  "arkmon(13).sys",
+        "size":  367904,
+        "score":  59,
+        "devices":  "\\Device\\HR,\\Device\\IObitUnlockerDevice,\\Device\\Nal,\\Device\\PROCEXP152,\\Device\\VBoxDrv,\\Device\\mhyprot2,\\Device\\mimidrv",
+        "sha256":  "5c07fc853548e0b726cbd5a15946f6e1546c5622cc8b5e62bef1644e0959c8e7",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Dcpp2k.sys",
+        "size":  233328,
+        "score":  47,
+        "devices":  "\\Device\\DcPPCrypt,\\Device\\DcppHddFilter,\\Device\\DcppKbdFilter,\\Device\\DcppRamD,\\Device\\DcppRamVD,\\Device\\MountPointManager,\\DosDevices\\Global",
+        "sha256":  "32e1a5f6ba475f2dca5a7766e9e3c0c722fe632b36f899c83f3044f49b785cc9",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "SDDisk2k(2).sys",
+        "size":  250584,
+        "score":  36,
+        "devices":  "\\Device\\Floppy,\\Device\\Harddisk,\\Device\\Harddisk0",
+        "sha256":  "1eaf9e53d970c9df36ef554046f06731fe0e35f22ae736e12967ccc925d54bb1",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "SDDisk2k(1).sys",
+        "size":  252112,
+        "score":  36,
+        "devices":  "\\Device\\Floppy,\\Device\\Harddisk,\\Device\\Harddisk0",
+        "sha256":  "463d5d765f5890693611fd86d28a37d951eac8334e8054744ec7a9c8d5540a0d",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "SDDisk2k.sys",
+        "size":  265104,
+        "score":  36,
+        "devices":  "\\Device\\Floppy,\\Device\\Harddisk,\\Device\\Harddisk0",
+        "sha256":  "7fbd07c74ccb7b9152cfe069105ba104aa91ebcd6288a8ea9904e20f144a54db",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "flash.sys",
+        "size":  57432,
+        "score":  35,
+        "devices":  "\\Device\\DF_,\\Device\\Harddisk,\\Device\\HarddiskVolume1,\\Device\\WHALE0,\\DosDevices\\WHALE",
+        "sha256":  "52c6aaf92699b5538c913d9927c898e5e8627ce191eeea9091073bf8b9e678ed",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Pci9524(14).sys",
+        "size":  109520,
+        "score":  26,
+        "devices":  "\\Device\\PCIe9524",
+        "sha256":  "a0fcf1fb7aa92ab0ffb98e972110fa89cb4467fc98faa97181571a3d705a805b",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Pci9524(15).sys",
+        "size":  109624,
+        "score":  26,
+        "devices":  "\\Device\\PCIe9524",
+        "sha256":  "b6942408704a114c06f0860ef9fcbeb097370af8150409b3c76625d18c5f6c3a",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Pci9524(6).sys",
+        "size":  110128,
+        "score":  26,
+        "devices":  "\\Device\\PCIe9524",
+        "sha256":  "079143a26a36a9da7a8104f057a4c3025be8c678eb808a385552e31734d62995",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Pci9524(7).sys",
+        "size":  110136,
+        "score":  26,
+        "devices":  "\\Device\\PCIe9524",
+        "sha256":  "132d8cf4baa46c03fc0c2a99b7ac601600ff5e5817c7cf53332577874b0a8870",
+        "signature":  "Valid"
+    }
+]
