@@ -1,0 +1,7 @@
+﻿{
+    "date":  "2026-11-24T06:49:09",
+    "rtx_hal_ext":  "NT native with exports; not standalone driver",
+    "l1big":  "sc start failed 2 (file/DriverEntry)",
+    "target_cr3":  "KPRL only",
+    "note":  "no new standalone CR3 provider"
+}

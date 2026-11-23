@@ -270,3 +270,33 @@ layers --locate --cchwapi-only --pid 7592
 - CCHWApi 系驱动只能读取当前 CPU 控制寄存器 CR3；
 - 不能直接按 PID 获取目标 CR3；
 - 目标 CR3 仍需 KPRL。
+
+## Rtx_HalExt 加载失败原因
+PE 检查：
+```
+Subsystem = NT native
+AddressOfEntryPoint = 0xff000
+Export Directory = 0xfe000
+Characteristics = 0x2022
+```
+结论：
+- 它是带导出表的 **HAL 扩展/DLL 型镜像**；
+- 不是独立 DriverEntry 驱动；
+- 不能直接 `sc create/start`；
+- 因此不作为 CR3 提供者。
+
+## l1malwarebits_big 启动错误
+```
+sc start -> FAILED 2: The system cannot find the file specified.
+```
+- 路径存在，签名 Valid；
+- 说明是 DriverEntry/加载阶段返回错误，不是路径不存在；
+- 暂无法作为 CR3 提供者。
+
+## 当前 CR3 能力再次确认
+- CCHWApi / CCHWApiExt：只能当前 CPU CR3；
+- umbus2：KPRL 设备可开，0x239584 返回零；
+- FastDump：设备可开，协议未还原；
+- Rtx_HalExt：HAL 扩展 DLL，不能独立加载；
+- l1malwarebits_big：start=2；
+- 目标 PID CR3 仍只有 KPRL。
