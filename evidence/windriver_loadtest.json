@@ -1,0 +1,15 @@
+﻿{
+    "date":  "2026-11-23T10:42:22",
+    "driver":  "windrvr1260.sys",
+    "service":  "MbWinDrv1260",
+    "state":  "RUNNING",
+    "win32_exit":  0,
+    "opened_devices":  [
+                           "\\\\.\\WINDRVR1260",
+                           "\\\\.\\windrvr1260",
+                           "\\\\.\\WinDriver",
+                           "\\\\.\\WINDRVR1281"
+                       ],
+    "open_result":  "ERROR_FILE_NOT_FOUND (2) for all guessed DOS names",
+    "note":  "driver left loaded; no stop/unload to avoid 0x18 IopUnloadDriver"
+}
