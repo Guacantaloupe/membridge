@@ -62,3 +62,22 @@ system CR3
   - KDU: ASRock 系列；
   - 本地语料: KPRL/KKYUM/CCHWApi。
 - 未发现新的安全目标 CR3 路径。
+
+## LOLDrivers 中的 locator 名称检索
+在 713 条记录中搜索：
+```
+KPRL
+KKYUM
+CCHWAPI / CCHWApi
+l1malwarebits
+```
+命中只有 2 个：
+```
+KKYUM.sys        (459c39a0-...)
+l1malwarebits.sys (ec521bd5-...)
+```
+未发现 CCHWApi 记录，也没有其它 locator 驱动。
+
+结论：
+- 公开已知的 CR3 locator 仍是 KPRL / KKYUM / CCHWApi；
+- 没有新的可用目标 CR3 驱动路径。

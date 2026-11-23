@@ -1,0 +1,11 @@
+﻿{
+    "date":  "2026-11-24T07:55:03",
+    "feed_records":  713,
+    "locator_hits":  2,
+    "drivers":  [
+                    "KKYUM.sys",
+                    "l1malwarebits.sys"
+                ],
+    "extra_found":  0,
+    "note":  "no CCHWApi or new locator in LOLDrivers"
+}
