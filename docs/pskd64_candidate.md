@@ -54,3 +54,46 @@ RTKVAC64.sys     (1)
 - 没有新增可用的目标 CR3 路径；
 - PSKD64 是唯一可打开设备的新候选，但当前证据只到 PCI 配置空间；
 - 无 BSOD。
+
+## LOLDrivers 确认：PSKD64 是任意内核内存读写驱动
+LOLDrivers 条目：
+```
+UUID: 7789e9ca-8508-486b-9d77-7497c5c61474
+IOCTL: 0x220044
+子操作: 0x701E / 0x701F
+能力: caller-selected virtual/physical memory read/write
+风险: 任意内核读/写；可移除进程保护、终止安全进程
+```
+公开样本 SHA256：
+```
+34cdbf48f5a51ca9553c14f007aaa1b67c24e1334d8cb29e80f07c80c5dc07e7
+```
+
+## 本地样本
+```
+drivers\security_candidates\PSKD64.SYS
+```
+SHA256 与 LOLDrivers 样本比对结果见 evidence。
+
+## 协议试读（已停止）
+尝试请求：
+```
+IOCTL 0x220044
+子操作 0x701E / 0x701F
+请求长度 0xE0
+address 字段 0xA4 = LSTAR
+size    字段 0xAC = 0x20
+```
+返回：
+```
+ok=True ret=0xC1 status=0
+data 全零
+```
+系统未崩溃，但没有读到 LSTAR 数据；该请求也可能被驱动当作写操作处理，
+因此**停止继续测试 PSKD64 的读写子操作**，避免损坏内核。
+
+## 结论
+- PSKD64 是**新的、已知可用的任意内核内存读写驱动**；
+- 理论上可通过读取 EPROCESS/AE 获取目标 CR3；
+- 但需要正确的请求结构，且存在内核损坏风险；
+- 当前不继续盲试；需要静态逆向完整协议或公开 PoC。

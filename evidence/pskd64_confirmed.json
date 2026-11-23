@@ -1,0 +1,15 @@
+﻿{
+    "date":  "2026-11-24T07:58:53",
+    "file":  "PSKD64.SYS",
+    "sha256":  "3ff88de6146de4a92728240692a4dfc43af8816d34fce69a5fad7cf2b5eaa785",
+    "expected":  "34cdbf48f5a51ca9553c14f007aaa1b67c24e1334d8cb29e80f07c80c5dc07e7",
+    "match":  false,
+    "ioctl":  "0x220044",
+    "subops":  [
+                   "0x701E",
+                   "0x701F"
+               ],
+    "capability":  "arbitrary kernel memory read/write",
+    "test":  "request ret=0xC1 status0 data zeros; stopped",
+    "system":  "no new BSOD"
+}
