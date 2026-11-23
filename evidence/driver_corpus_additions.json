@@ -61,5 +61,33 @@
         "sha256":  "BBB7E83911ABDEDFC9529E9329D0F90CF7C94A7D00845B610C5F7099EFACA492",
         "signature":  "Valid",
         "hits":  "MapPhysicalMemory,PhysicalMemory,MmGetPhysicalAddress"
+    },
+    {
+        "name":  "AsrDrv.sys",
+        "size":  68208,
+        "sha256":  "837F499E9CD8E2774E66F001FC363E2DC5CF96CEBB02A2778CA819C927430599",
+        "signature":  "Valid",
+        "hits":  "MmMapIoSpace,MmGetPhysicalAddress"
+    },
+    {
+        "name":  "DPSysInfo.sys",
+        "size":  70656,
+        "sha256":  "2B23E2D108ED2C765545E5AB564125164C1871D90A801D72B07A4E122E68EF18",
+        "signature":  "Valid",
+        "hits":  "MmMapIoSpace"
+    },
+    {
+        "name":  "SysInfoDriverAMD.sys",
+        "size":  31472,
+        "sha256":  "C1A5A9E4B274B13B3D9FFA8189DB5257537399177E4D9B1E36A60CAF460B8A03",
+        "signature":  "Valid",
+        "hits":  "MmMapIoSpace"
+    },
+    {
+        "name":  "GPU-Z-v2.sys",
+        "size":  49704,
+        "sha256":  "03C12A0B67A338E2405A4D862AABF0C764A8E85A3CCDB4525C38640B313BAAFD",
+        "signature":  "Valid",
+        "hits":  "MmMapIoSpace"
     }
 ]

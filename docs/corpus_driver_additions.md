@@ -1,19 +1,15 @@
-# 新增语料驱动：从 1816 个驱动样本中筛选
+﻿# 鏂板璇枡椹卞姩锛氫粠 1816 涓┍鍔ㄦ牱鏈腑绛涢€?
+## 鏉ユ簮
+`msdriver-0day\evidence\fluffycats_drivers` 璇枡锛?
+- `.sys` 鏂囦欢锛?*1816**
+- 宸插鍒跺埌椤圭洰锛歚drivers\corpus_samples\`
 
-## 来源
-`msdriver-0day\evidence\fluffycats_drivers` 语料：
-
-- `.sys` 文件：**1816**
-- 已复制到项目：`drivers\corpus_samples\`
-
-筛选脚本：
+绛涢€夎剼鏈細
 ```
 scripts/scan_driver_corpus.py
 ```
-它按物理内存/映射相关 API 字符串评分，并排除项目已有 SHA256。
-
-## 已加入的 9 个驱动
-| 文件 | 大小 | 签名 | 关键特征 |
+瀹冩寜鐗╃悊鍐呭瓨/鏄犲皠鐩稿叧 API 瀛楃涓茶瘎鍒嗭紝骞舵帓闄ら」鐩凡鏈?SHA256銆?
+## 宸插姞鍏ョ殑 9 涓┍鍔?| 鏂囦欢 | 澶у皬 | 绛惧悕 | 鍏抽敭鐗瑰緛 |
 |---|---:|---|---|
 | `ALSysIO64.sys` | 73392 | Valid | `ReadPhysical` / `WritePhysical` |
 | `ALSysIO64Legacy.sys` | 80560 | Valid | `MmMapIoSpace` |
@@ -24,22 +20,18 @@ scripts/scan_driver_corpus.py
 | `RtsTpx.sys` | 32048 | Valid | `MmMapIoSpace` |
 | `Sigdrv2785x64.sys` | 31952 | Valid | `MmMapIoSpace` |
 | `WinIo64.sys` | 25320 | Valid | `MapPhysicalMemory` |
+| `AsrDrv.sys` | 68208 | Valid | `MmMapIoSpace` / `MmGetPhysicalAddress` |
+| `DPSysInfo.sys` | 70656 | Valid | `MmMapIoSpace` |
+| `SysInfoDriverAMD.sys` | 31472 | Valid | `MmMapIoSpace` |
+| `GPU-Z-v2.sys` | 49704 | Valid | `MmMapIoSpace` |
 
-SHA256 清单：
-```
+SHA256 娓呭崟锛?```
 evidence\driver_corpus_additions.json
 ```
 
-## 候选价值
-- **ALSysIO64**：已知的物理内存读驱动，最值得优先做 IOCTL 逆向；
-- `asmmap.sys` / `WinIo64.sys`：map 型物理内存；
-- `ComputerZ` / `GPU-Z` / `HWMonitor` / `RtsTpx` / `Sigdrv`：厂商硬件访问驱动，可能含物理/IO 原语。
-
-## 下一步
-1. 对 `ALSysIO64.sys` 做 IOCTL/设备名逆向；
-2. 用 `membridge` layout 接入至少一个新增驱动；
-3. 管理员权限下测试设备打开/读 PA；
-4. 继续扫描 `fluffycats_drivers` 其余候选（1816 个总量）。
-
-## 限制
-当前 DSH 是 Medium 权限，无法加载/测试这些驱动；本次只做静态筛选、复制、签名与 SHA256 校验。
+## 鍊欓€変环鍊?- **ALSysIO64**锛氬凡鐭ョ殑鐗╃悊鍐呭瓨璇婚┍鍔紝鏈€鍊煎緱浼樺厛鍋?IOCTL 閫嗗悜锛?- `asmmap.sys` / `WinIo64.sys`锛歮ap 鍨嬬墿鐞嗗唴瀛橈紱
+- `ComputerZ` / `GPU-Z` / `HWMonitor` / `RtsTpx` / `Sigdrv`锛氬巶鍟嗙‖浠惰闂┍鍔紝鍙兘鍚墿鐞?IO 鍘熻銆?
+## 涓嬩竴姝?1. 瀵?`ALSysIO64.sys` 鍋?IOCTL/璁惧鍚嶉€嗗悜锛?2. 鐢?`membridge` layout 鎺ュ叆鑷冲皯涓€涓柊澧為┍鍔紱
+3. 绠＄悊鍛樻潈闄愪笅娴嬭瘯璁惧鎵撳紑/璇?PA锛?4. 缁х画鎵弿 `fluffycats_drivers` 鍏朵綑鍊欓€夛紙1816 涓€婚噺锛夈€?
+## 闄愬埗
+褰撳墠 DSH 鏄?Medium 鏉冮檺锛屾棤娉曞姞杞?娴嬭瘯杩欎簺椹卞姩锛涙湰娆″彧鍋氶潤鎬佺瓫閫夈€佸鍒躲€佺鍚嶄笌 SHA256 鏍￠獙銆?
