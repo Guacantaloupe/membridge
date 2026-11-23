@@ -1,0 +1,14 @@
+﻿[
+    {
+        "name":  "AsUpIO.sys",
+        "size":  13952,
+        "sha256":  "B9A4E40A5D80FEDD1037EAED958F9F9EFED41EB01ADA73D51B5DCD86E27E0CBF",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "GLCKIO2_3a5ec83fe670e5e23aef3afa0a7241053f5b6be5e6ca01766d6b5f9177183c25.sys",
+        "size":  19392,
+        "sha256":  "3A5EC83FE670E5E23AEF3AFA0A7241053F5B6BE5E6CA01766D6B5F9177183C25",
+        "signature":  "Valid"
+    }
+]
