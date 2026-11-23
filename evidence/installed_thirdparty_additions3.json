@@ -1,0 +1,422 @@
+﻿[
+    {
+        "name":  "3ware.sys",
+        "size":  108464,
+        "company":  "LSI",
+        "version":  "5.01.00.051",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "adp80xx.sys",
+        "size":  1136544,
+        "company":  "PMC-Sierra",
+        "version":  "1.3.0.10769 (NT.150223-1854)",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "amdgpio2.sys",
+        "size":  18432,
+        "company":  "Advanced Micro Devices, Inc",
+        "version":  "2.2.0.71",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "amdi2c.sys",
+        "size":  45568,
+        "company":  "Advanced Micro Devices, Inc",
+        "version":  "1.2.0.99",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "amdsata.sys",
+        "size":  84400,
+        "company":  "Advanced Micro Devices",
+        "version":  "1.1.3.277 (NT.150223-1854)",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "amdsbs.sys",
+        "size":  260512,
+        "company":  "AMD Technologies Inc.",
+        "version":  "3.7.1540.43 (PART3.121207-1123)",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "amdxata.sys",
+        "size":  28064,
+        "company":  "Advanced Micro Devices",
+        "version":  "1.1.3.277 (NT.150223-1854)",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "arcsas.sys",
+        "size":  133024,
+        "company":  "PMC-Sierra, Inc.",
+        "version":  "7.5.0.32048 (NT.150223-1854)",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "bcmfn2.sys",
+        "size":  9728,
+        "company":  "Windows (R) Win 7 DDK provider",
+        "version":  "6.3.9600.17336",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "bxvbda.sys",
+        "size":  534944,
+        "company":  "QLogic Corporation",
+        "version":  "7.12.31.105",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "CH343S64.SYS",
+        "size":  77824,
+        "company":  "WCH.CN",
+        "version":  "1.8",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "cht4dx64.sys",
+        "size":  145200,
+        "company":  "Chelsio Communications",
+        "version":  "6.11.4.100",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "cht4sx64.sys",
+        "size":  320944,
+        "company":  "Chelsio Communications",
+        "version":  "6.11.4.100",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "cht4vfx.sys",
+        "size":  28672,
+        "company":  "Chelsio Communications",
+        "version":  "6.11.4.100",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "cht4vx64.sys",
+        "size":  1854880,
+        "company":  "Chelsio Communications",
+        "version":  "6.11.4.100",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "evbd0a.sys",
+        "size":  3424160,
+        "company":  "QLogic Corporation",
+        "version":  "7.13.65.105",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "evbda.sys",
+        "size":  3441568,
+        "company":  "Marvell Semiconductor Inc.",
+        "version":  "7.13.171.102",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ftser2k.sys",
+        "size":  89792,
+        "company":  "Future Technology Devices International Ltd.",
+        "version":  "2.12.28",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "HpSAMD.sys",
+        "size":  65440,
+        "company":  "Hewlett-Packard Company",
+        "version":  "8.0.4.0 Build 1 Media Driver (x86-64) (PART_L3.130128-0938)",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "iagpio.sys",
+        "size":  36352,
+        "company":  "Intel(R) Corporation",
+        "version":  "1.1.1.0",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "iai2c.sys",
+        "size":  91136,
+        "company":  "Intel(R) Corporation",
+        "version":  "1.1.1.0",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "iaLPSS2i_GPIO2.sys",
+        "size":  79360,
+        "company":  "Intel Corporation",
+        "version":  "30.100.1816.3",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "iaLPSS2i_GPIO2_BXT_P.sys",
+        "size":  93184,
+        "company":  "Intel Corporation",
+        "version":  "30.100.1816.1",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "iaLPSS2i_GPIO2_CNL.sys",
+        "size":  112128,
+        "company":  "Intel Corporation",
+        "version":  "30.100.1816.3",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "iaLPSS2i_GPIO2_GLK.sys",
+        "size":  96256,
+        "company":  "Intel Corporation",
+        "version":  "30.100.1820.1",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "iaLPSS2i_I2C.sys",
+        "size":  171520,
+        "company":  "Intel Corporation",
+        "version":  "30.100.1816.3",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "iaLPSS2i_I2C_BXT_P.sys",
+        "size":  175104,
+        "company":  "Intel Corporation",
+        "version":  "30.100.1816.1",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "iaLPSS2i_I2C_CNL.sys",
+        "size":  177152,
+        "company":  "Intel Corporation",
+        "version":  "30.100.1929.1",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "iaLPSS2i_I2C_GLK.sys",
+        "size":  177664,
+        "company":  "Intel Corporation",
+        "version":  "30.100.1820.1",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "iaLPSSi_GPIO.sys",
+        "size":  38128,
+        "company":  "Intel Corporation",
+        "version":  "1.1.250.0",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "iaLPSSi_I2C.sys",
+        "size":  113152,
+        "company":  "Intel Corporation",
+        "version":  "1.1.253.0",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "iaStorAfs.sys",
+        "size":  74448,
+        "company":  "Intel Corporation",
+        "version":  "18.6.1.1016",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "iaStorAVC.sys",
+        "size":  885568,
+        "company":  "Intel Corporation",
+        "version":  "15.44.0.1015",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "iaStorV.sys",
+        "size":  413088,
+        "company":  "Intel Corporation",
+        "version":  "8.6.2.1019",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "iaStorVD.sys",
+        "size":  1544912,
+        "company":  "Intel Corporation",
+        "version":  "18.6.1.1016",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ItSas35i.sys",
+        "size":  187200,
+        "company":  "Avago Technologies",
+        "version":  "2.61.29.80",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "lsi_sas.sys",
+        "size":  110000,
+        "company":  "LSI Corporation",
+        "version":  "1.34.03.83 (NT.150223-1854)",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "lsi_sas2i.sys",
+        "size":  125344,
+        "company":  "LSI Corporation",
+        "version":  "2.00.79.82",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "lsi_sas3i.sys",
+        "size":  138560,
+        "company":  "Avago Technologies",
+        "version":  "2.51.27.80",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "MegaSas2i.sys",
+        "size":  81840,
+        "company":  "Avago Technologies",
+        "version":  "6.714.22.00",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "megasas35i.sys",
+        "size":  101168,
+        "company":  "Broadcom Inc",
+        "version":  "7.717.02.00",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "megasr.sys",
+        "size":  576944,
+        "company":  "LSI Corporation, Inc.",
+        "version":  "15.02.2013.0129",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "mpi3drvi.sys",
+        "size":  90544,
+        "company":  "Broadcom Limited",
+        "version":  "3.00.71.90",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "mvumis.sys",
+        "size":  64928,
+        "company":  "Marvell Semiconductor, Inc.",
+        "version":  " 1.0.5.1016  (PART_L3.131021-1012)",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "nvraid.sys",
+        "size":  151472,
+        "company":  "NVIDIA Corporation",
+        "version":  "10.6.0.23 (PART_L3.131021-1012)",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "nvstor.sys",
+        "size":  167344,
+        "company":  "NVIDIA Corporation",
+        "version":  "10.6.0.23 (PART_L3.131021-1012)",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "orayvhid.sys",
+        "size":  40136,
+        "company":  "Windows (R) Win 7 DDK provider",
+        "version":  "6.1.7600.16385 built by: WinDDK",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "orayvhidkmdf.sys",
+        "size":  37064,
+        "company":  "Windows (R) Win 7 DDK provider",
+        "version":  "6.1.7600.16385 built by: WinDDK",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "percsas2i.sys",
+        "size":  59824,
+        "company":  "Avago Technologies",
+        "version":  "6.805.03.00 (rs1_onecore_stacksp_sfs4(paudina).160302-1205)",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "percsas3i.sys",
+        "size":  69552,
+        "company":  "Avago Technologies",
+        "version":  "6.604.06.00",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "silabser.sys",
+        "size":  153608,
+        "company":  "Silicon Laboratories Inc.",
+        "version":  "11.3.0.176",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "sisraid2.sys",
+        "size":  45984,
+        "company":  "Silicon Integrated Systems Corp.",
+        "version":  "2.60.01 (NT.070926-1510)",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "sisraid4.sys",
+        "size":  82848,
+        "company":  "Silicon Integrated Systems",
+        "version":  "3.60.03 (NT.070926-1510)",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "SmartSAMD.sys",
+        "size":  210848,
+        "company":  "Microsemi Corportation",
+        "version":  "1.50.1.0",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "stexstor.sys",
+        "size":  32176,
+        "company":  "Promise Technology, Inc.",
+        "version":  " 5.1.0000.10 (PART.121116-1330)",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "usbaapl64.sys",
+        "size":  54784,
+        "company":  "Apple, Inc.",
+        "version":  "1, 67, 0, 0",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "VBoxUSB.sys",
+        "size":  189304,
+        "company":  "Oracle and/or its affiliates",
+        "version":  "7.0.16.162802",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "vsmraid.sys",
+        "size":  167840,
+        "company":  "VIA Technologies Inc.,Ltd",
+        "version":  "7.0.9600,6352",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "VSTXRAID.SYS",
+        "size":  306608,
+        "company":  "VIA Corporation",
+        "version":  "8.0.9200.8110",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "wintun.sys",
+        "size":  29592,
+        "company":  "WireGuard LLC",
+        "version":  "0.14",
+        "signature":  "Valid"
+    }
+]

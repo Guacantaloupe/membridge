@@ -77,3 +77,21 @@ ndfltr.sys
 第二批 installed            14
 新增合计                  289
 ```
+
+## 第三批：导入剩余 60 个，installed_thirdparty 已完成 84/84
+已把本机非 Microsoft、签名 Valid、项目中不存在的第三方驱动全部导入：
+```
+drivers/installed_thirdparty/  (84 files)
+```
+包括：
+- 存储控制器：adp80xx / iaStorVD / iaStorAVC / megasr / SmartSAMD 等；
+- 网络：Mellanox / Chelsio / QLogic / Marvell / Realtek；
+- 虚拟化：VirtualBox / VMware；
+- 外设：Razer / Apple / CH341 / RtsUer。
+
+## 最终累计
+```
+原有新增                  265
+installed_thirdparty        84
+新增合计                   349
+```
