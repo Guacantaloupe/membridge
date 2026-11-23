@@ -1,0 +1,8 @@
+﻿{
+    "date":  "2026-11-24T07:55:37",
+    "helper_pid":  2632,
+    "helper_kprl_cr3":  "0x177A13000",
+    "cchw_all_cpus":  "0x1A9A19000",
+    "verdict":  "CCHW per-CPU not target; same value all CPUs",
+    "note":  "no BSOD"
+}
