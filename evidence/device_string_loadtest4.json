@@ -1,0 +1,14 @@
+﻿{
+    "date":  "2026-11-23T12:30:24",
+    "running":  [
+                    "TdkLib64",
+                    "Daq2208(4)"
+                ],
+    "devices":  [
+                    "\\\\.\\TdkLib"
+                ],
+    "read_attempts":  [
+                          "TdkLib mrt err=1"
+                      ],
+    "note":  "both load RUNNING; no DAQ device; no new physical reader; no BSOD"
+}
