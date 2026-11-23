@@ -1,0 +1,43 @@
+# Invary Sensor 内核 VA 读取尝试
+
+## 目标
+Invary Sensor 提供 IOCTL：
+```
+0x9C402408 -> MmCopyMemory(..., flags=2=Virtual)
+```
+尝试用其作为安全内核 VA 读取路径。
+
+## 直接 IOCTL 测试
+设备：
+```
+\\.\invarysensor -> OPEN_OK
+```
+请求：
+```
+input 0x20:
+  +0x00 u64 VA = 0xFFFFF801DD2CF000 (LSTAR)
+  +0x08 u64 size = 0x20
+  +0x10 u8 append = 0
+output: 0x28 / 0x1000
+```
+结果：
+```
+outlen=0x28   -> ok=False err=487 (ERROR_INVALID_ADDRESS)
+outlen=0x1000 -> ok=False err=0x80090005 (NTE_BAD_DATA?)
+```
+没有 BSOD。
+
+## 结论
+- Invary Sensor 设备可打开；
+- `0x9C402408` 在没有初始化/append 的情况下拒绝读取；
+- 可能是：
+  - 需要先调用 0x9C402400/0x9C402404 初始化；
+  - 或需要特定 session/append 参数；
+- 暂不能作为内核 VA 读取路径；
+- 不再做内核地址探测。
+
+## 当前安全路径
+- KPRL CR3-by-PID：唯一目标 CR3 查询；
+- KKYUM 用户进程 VA 读：已验证；
+- CCHWApi current CR3：可读但不能用于页表；
+- FastDump CPUID/MSR：可用。

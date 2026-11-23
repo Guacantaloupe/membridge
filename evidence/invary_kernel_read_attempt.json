@@ -1,0 +1,9 @@
+﻿{
+    "date":  "2026-11-24T07:22:49",
+    "device":  "\\\\.\\invarysensor",
+    "ioctl":  "0x9C402408",
+    "va":  "0xFFFFF801DD2CF000",
+    "outlen_28":  "err=487",
+    "outlen_1000":  "err=0x80090005",
+    "verdict":  "not usable without init; no BSOD"
+}
