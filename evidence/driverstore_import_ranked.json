@@ -1,0 +1,376 @@
+{
+  "total": 100,
+  "known": 0,
+  "top": [
+    {
+      "score": 20,
+      "name": "k57nd60a.sys",
+      "path": "drivers\\driverstore_thirdparty\\k57nd60a.sys",
+      "size": 446464,
+      "sha256": "9128f825403b26a39bc769a53555df1fd2b82882af1384135d0329fcf2bbac6d",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "ZwOpenSection"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 20,
+      "name": "b57nd60a.sys",
+      "path": "drivers\\driverstore_thirdparty\\b57nd60a.sys",
+      "size": 527872,
+      "sha256": "5533751d721c6660b474bfc240a0e88d38c667838e4a8a09e4fce690a52ebf54",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "ZwOpenSection"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 19,
+      "name": "mlx5.sys",
+      "path": "drivers\\driverstore_thirdparty\\mlx5.sys",
+      "size": 2433440,
+      "sha256": "453ad7f8590adb357405d6deec5f868ba4b09aa351d4abed64eac6cf0b7754f9",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 17,
+      "name": "bsitf.sys",
+      "path": "drivers\\driverstore_thirdparty\\bsitf.sys",
+      "size": 55632,
+      "sha256": "80a211854dc6f34aea0cb17a96d4008e0dade46a1aebaa7112df254704318a1e",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 15,
+      "name": "bcmpciedhd63.sys",
+      "path": "drivers\\driverstore_thirdparty\\bcmpciedhd63.sys",
+      "size": 1037824,
+      "sha256": "8724a7c3cecb9b1ecb597841823253ed67f6b840f5ca97b761e157808d3e2b3d",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 15,
+      "name": "qcwlan64.sys",
+      "path": "drivers\\driverstore_thirdparty\\qcwlan64.sys",
+      "size": 2706944,
+      "sha256": "428b90ec39dadf75041c3926990457cbac46f3cfb2de9833395fae56c45657d0",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 15,
+      "name": "athw8x.sys",
+      "path": "drivers\\driverstore_thirdparty\\athw8x.sys",
+      "size": 4233728,
+      "sha256": "de129e570c85ee8aae8084b40f4e32766b4b789a2eed81e46311712b0826053d",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 15,
+      "name": "athwnx.sys",
+      "path": "drivers\\driverstore_thirdparty\\athwnx.sys",
+      "size": 4233728,
+      "sha256": "8047e2d20724b464b481f06c3ac1fa5734e97f7ec0d86efeecd76480c84b3959",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 15,
+      "name": "BCMWL63AL.SYS",
+      "path": "drivers\\driverstore_thirdparty\\BCMWL63AL.SYS",
+      "size": 5170176,
+      "sha256": "388107153b70c3107ce2db72e319a15ef78a6be776d155f5ece9f9a64a3b8814",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 15,
+      "name": "BCMWL63a.SYS",
+      "path": "drivers\\driverstore_thirdparty\\BCMWL63a.SYS",
+      "size": 7585280,
+      "sha256": "64cbe1aa061f0cc761a6d9e3c0e4c484ee09caca932cb18d1947bc7d9f893ba3",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 14,
+      "name": "amdacpksl.sys",
+      "path": "drivers\\driverstore_thirdparty\\amdacpksl.sys",
+      "size": 353912,
+      "sha256": "d48ce1b0667fc2033323cb951dfd60c319aa11e9d6f266b76fd38da76c56cf36",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 14,
+      "name": "cht4nx64.sys",
+      "path": "drivers\\driverstore_thirdparty\\cht4nx64.sys",
+      "size": 537904,
+      "sha256": "0f03752e6e8d4e9e2b648bea26ad2d577a13454d929aac57f0b0e1835cd15b19",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 10,
+      "name": "b44amd64.sys",
+      "path": "drivers\\driverstore_thirdparty\\b44amd64.sys",
+      "size": 87552,
+      "sha256": "61c4470c67c1bba0d17010e6c09cb98f2d6cb1a605fbb34ad14aa50f7301e2af",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 10,
+      "name": "yk63x64.sys",
+      "path": "drivers\\driverstore_thirdparty\\yk63x64.sys",
+      "size": 288768,
+      "sha256": "fda9d5cd481443882ca5b7e386ea78bf3115a0b9980e0b46a9b67a553f0b4709",
+      "hits": [
+        "MmMapLockedPagesSpecifyCache",
+        "ZwOpenSection"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 10,
+      "name": "ykinx64.sys",
+      "path": "drivers\\driverstore_thirdparty\\ykinx64.sys",
+      "size": 288768,
+      "sha256": "823ee97f1eafa80e3d3692ec5cd79e8f0c7ad8222ac96da009ebe9f709555bf8",
+      "hits": [
+        "MmMapLockedPagesSpecifyCache",
+        "ZwOpenSection"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 10,
+      "name": "bcmdhd63.sys",
+      "path": "drivers\\driverstore_thirdparty\\bcmdhd63.sys",
+      "size": 367104,
+      "sha256": "bb19dd1307eacd14895eb11cc877a1ddd8722a6b0eccf0b184804eec6db3ce6c",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 10,
+      "name": "ipoib6x.sys",
+      "path": "drivers\\driverstore_thirdparty\\ipoib6x.sys",
+      "size": 579376,
+      "sha256": "585bf746bf943e5f0fd09c6cf3b96643bb1e4b9d0489d205e11a99f7742e6444",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 10,
+      "name": "rtl8192se.sys",
+      "path": "drivers\\driverstore_thirdparty\\rtl8192se.sys",
+      "size": 1222656,
+      "sha256": "3868ee0dd6a9fd05fc5eb16fe53f6874a335eb3d46d0b37b2cbdb79a9576db04",
+      "hits": [
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 10,
+      "name": "Qcamain10x64.sys",
+      "path": "drivers\\driverstore_thirdparty\\Qcamain10x64.sys",
+      "size": 2455872,
+      "sha256": "3a9a99ed80529ae2bb661a89d38911c5d1c7230e70f05170864ba6dd70775e7f",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 10,
+      "name": "NETwew00.sys",
+      "path": "drivers\\driverstore_thirdparty\\NETwew00.sys",
+      "size": 3341824,
+      "sha256": "71d6ac59541091fa8d7b421e360075916ccfe20b6cf68d15e4d9224f05616d91",
+      "hits": [
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 10,
+      "name": "NETwew01.sys",
+      "path": "drivers\\driverstore_thirdparty\\NETwew01.sys",
+      "size": 3343872,
+      "sha256": "801c2a1f12e6f0d646e92c98477fcdb84c6743803cd7365b774b0f88eb650584",
+      "hits": [
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 10,
+      "name": "Netwbw02.sys",
+      "path": "drivers\\driverstore_thirdparty\\Netwbw02.sys",
+      "size": 3485696,
+      "sha256": "b8cb13863c1f0c589c008e191a393df241f3067dd7cade02b3b7d36b28bba2ed",
+      "hits": [
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 9,
+      "name": "tap0901.sys",
+      "path": "drivers\\driverstore_thirdparty\\tap0901.sys",
+      "size": 40664,
+      "sha256": "55cfcec7f026c6e2e96a2fbe846ab513bb12bb0348735274fe1b71af019c837b",
+      "hits": [
+        "MmMapLockedPages",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 9,
+      "name": "gna.sys",
+      "path": "drivers\\driverstore_thirdparty\\gna.sys",
+      "size": 87200,
+      "sha256": "00a0a18853c970b1b90d70616b3b62a8c1530576518aee86d609fd9fc837b4fc",
+      "hits": [
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 5,
+      "name": "vmnetadapter.sys",
+      "path": "drivers\\driverstore_thirdparty\\vmnetadapter.sys",
+      "size": 31128,
+      "sha256": "4a144c55be47da084c4866b873ace750dca01fc72116df29808dd1f0cf80c588",
+      "hits": [
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 5,
+      "name": "l260x64.sys",
+      "path": "drivers\\driverstore_thirdparty\\l260x64.sys",
+      "size": 34304,
+      "sha256": "1868cbf823de3b2a8a5e431d9ff29c2e809932f004ebeea523da491466fa71db",
+      "hits": [
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 5,
+      "name": "bertreader.sys",
+      "path": "drivers\\driverstore_thirdparty\\bertreader.sys",
+      "size": 46048,
+      "sha256": "2885da1a4e54e4a929267cd8fe3b89733fcaf99adfc206e6b964b2eb37a0f17f",
+      "hits": [
+        "ZwOpenSection"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 5,
+      "name": "tap-quickfox.sys",
+      "path": "drivers\\driverstore_thirdparty\\tap-quickfox.sys",
+      "size": 51472,
+      "sha256": "0ad74adcd93f1d7dd9cf22986d058d453ede4d5fb52e10fae7a3d11e3d71ee90",
+      "hits": [
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 5,
+      "name": "Rtnic64.sys",
+      "path": "drivers\\driverstore_thirdparty\\Rtnic64.sys",
+      "size": 51712,
+      "sha256": "82c02edb30d4fa1145ab1818f9fce0b73feb1b94c138b5513794f25fac85f2cc",
+      "hits": [
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 5,
+      "name": "libusb0.sys",
+      "path": "drivers\\driverstore_thirdparty\\libusb0.sys",
+      "size": 52832,
+      "sha256": "8058f2afe6ef96a7d2ded432997fd8655970c9ea75a938ee4557d6a2cb4cc989",
+      "hits": [
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    }
+  ]
+}
