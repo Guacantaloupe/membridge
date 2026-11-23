@@ -61,3 +61,20 @@ MmUnmapIoSpace
 - `\\.\ALSysIO` 可打开；
 - 未发任何 DeviceIoControl；
 - 无新 BSOD。
+
+## 已发现 IOCTL
+从 dispatch (0x140003bf0) 提取到：
+```
+0x9C40262C
+0x9C402648
+0x9C402650
+0x9C402654
+0x9C402658
+0x9C402660
+0x9C402664
+0x9C402668
+0x9C40266C
+0x9C402674
+0x9C402678
+```
+对应 handler 在 0x140004xxx 区间，尚未映射到具体功能。
