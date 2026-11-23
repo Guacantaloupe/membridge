@@ -1,0 +1,26 @@
+﻿{
+    "date":  "2026-11-23T11:18:03",
+    "loaded_running":  [
+                           "iomap",
+                           "umbus2",
+                           "sivx64",
+                           "system_monitor",
+                           "JYWinRing0",
+                           "mtxmem",
+                           "out_agmempci",
+                           "out_cptram"
+                       ],
+    "opened":  [
+                   "\\\\.\\IOMap",
+                   "\\\\.\\JYWinRing0_130",
+                   "\\\\.\\mtxmemmanager"
+               ],
+    "read_pass":  [
+                      "JYWinRing0_130 PA=0xF0000"
+                  ],
+    "read_fail":  [
+                      "IOMap eneio64 err=31",
+                      "mtxmemmanager eneio64 err=1"
+                  ],
+    "note":  "8/10 loaded RUNNING; no BSOD"
+}
