@@ -1,0 +1,15 @@
+﻿{
+    "date":  "2026-11-23T12:56:43",
+    "cr3":  "0x10704B000",
+    "fekern":  [
+                   "READ_OK",
+                   "PML4E-looking values",
+                   "VALID"
+               ],
+    "biostool":  [
+                     "READ_OK",
+                     "UTF-16 Data\\ProgramFile...",
+                     "INVALID"
+                 ],
+    "action":  "biostool_common backend removed; fekern retained"
+}
