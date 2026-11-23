@@ -1,0 +1,224 @@
+﻿{
+    "date":  "2026-11-23T10:29:26",
+    "total":  27,
+    "running":  12,
+    "new_dumps":  "",
+    "results":  [
+                    {
+                        "name":  "Agent64_05f052c64d192cf69a462a5ec16dda0d43ca5d0245900c9fcb9201685a2e7748.sys",
+                        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\drivers\\physmem_drivers\\Agent64_05f052c64d192cf69a462a5ec16dda0d43ca5d0245900c9fcb9201685a2e7748.sys",
+                        "create":  0,
+                        "start":  -2146762484,
+                        "state":  "STOPPED",
+                        "win32_exit":  "2148204812"
+                    },
+                    {
+                        "name":  "AsrDrv10.sys",
+                        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\drivers\\physmem_drivers\\AsrDrv10.sys",
+                        "create":  0,
+                        "start":  -2146762484,
+                        "state":  "STOPPED",
+                        "win32_exit":  "2148204812"
+                    },
+                    {
+                        "name":  "AsrDrv101.sys",
+                        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\drivers\\physmem_drivers\\AsrDrv101.sys",
+                        "create":  0,
+                        "start":  -2146762484,
+                        "state":  "STOPPED",
+                        "win32_exit":  "2148204812"
+                    },
+                    {
+                        "name":  "BS_Def64_0040153302B88BEE27EB4F1ECA6855039E1A057370F5E8C615724FA5215BADA3.sys",
+                        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\drivers\\physmem_drivers\\BS_Def64_0040153302B88BEE27EB4F1ECA6855039E1A057370F5E8C615724FA5215BADA3.sys",
+                        "create":  0,
+                        "start":  -2146762484,
+                        "state":  "STOPPED",
+                        "win32_exit":  "2148204812"
+                    },
+                    {
+                        "name":  "gdrv.sys",
+                        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\drivers\\physmem_drivers\\gdrv.sys",
+                        "create":  0,
+                        "start":  -2146762484,
+                        "state":  "STOPPED",
+                        "win32_exit":  "2148204812"
+                    },
+                    {
+                        "name":  "HOSTNT.sys",
+                        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\drivers\\physmem_drivers\\HOSTNT.sys",
+                        "create":  0,
+                        "start":  0,
+                        "state":  "RUNNING",
+                        "win32_exit":  "0"
+                    },
+                    {
+                        "name":  "inpoutx64_2d83ccb1ad9839c9f5b3f10b1f856177df1594c66cbbc7661677d4b462ebf44d.sys",
+                        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\drivers\\physmem_drivers\\inpoutx64_2d83ccb1ad9839c9f5b3f10b1f856177df1594c66cbbc7661677d4b462ebf44d.sys",
+                        "create":  0,
+                        "start":  -2146762484,
+                        "state":  "STOPPED",
+                        "win32_exit":  "2148204812"
+                    },
+                    {
+                        "name":  "iomem64_3D23BDBAF9905259D858DF5BF991EB23D2DC9F4ECDA7F9F77839691ACEF1B8C4.sys",
+                        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\drivers\\physmem_drivers\\iomem64_3D23BDBAF9905259D858DF5BF991EB23D2DC9F4ECDA7F9F77839691ACEF1B8C4.sys",
+                        "create":  0,
+                        "start":  -2146762484,
+                        "state":  "STOPPED",
+                        "win32_exit":  "2148204812"
+                    },
+                    {
+                        "name":  "Mhyprot2.sys",
+                        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\drivers\\physmem_drivers\\Mhyprot2.sys",
+                        "create":  0,
+                        "start":  -2146762484,
+                        "state":  "STOPPED",
+                        "win32_exit":  "2148204812"
+                    },
+                    {
+                        "name":  "MsIo64.sys",
+                        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\drivers\\physmem_drivers\\MsIo64.sys",
+                        "create":  0,
+                        "start":  -2146762484,
+                        "state":  "STOPPED",
+                        "win32_exit":  "2148204812"
+                    },
+                    {
+                        "name":  "OpenLibSys_91314768da140999e682d2a290d48b78bb25a35525ea12c1b1f9634d14602b2c.sys",
+                        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\drivers\\physmem_drivers\\OpenLibSys_91314768da140999e682d2a290d48b78bb25a35525ea12c1b1f9634d14602b2c.sys",
+                        "create":  0,
+                        "start":  -2146762484,
+                        "state":  "STOPPED",
+                        "win32_exit":  "2148204812"
+                    },
+                    {
+                        "name":  "Se64a.sys",
+                        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\drivers\\physmem_drivers\\Se64a.sys",
+                        "create":  0,
+                        "start":  0,
+                        "state":  "RUNNING",
+                        "win32_exit":  "0"
+                    },
+                    {
+                        "name":  "SysInfo.sys",
+                        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\drivers\\physmem_drivers\\SysInfo.sys",
+                        "create":  0,
+                        "start":  -2146762484,
+                        "state":  "STOPPED",
+                        "win32_exit":  "2148204812"
+                    },
+                    {
+                        "name":  "WCPU.sys",
+                        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\drivers\\physmem_drivers\\WCPU.sys",
+                        "create":  0,
+                        "start":  -2146762484,
+                        "state":  "STOPPED",
+                        "win32_exit":  "2148204812"
+                    },
+                    {
+                        "name":  "ALSysIO64.sys",
+                        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\drivers\\corpus_samples\\ALSysIO64.sys",
+                        "create":  0,
+                        "start":  0,
+                        "state":  "RUNNING",
+                        "win32_exit":  "0"
+                    },
+                    {
+                        "name":  "ALSysIO64Legacy.sys",
+                        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\drivers\\corpus_samples\\ALSysIO64Legacy.sys",
+                        "create":  0,
+                        "start":  0,
+                        "state":  "RUNNING",
+                        "win32_exit":  "0"
+                    },
+                    {
+                        "name":  "asmmap.sys",
+                        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\drivers\\corpus_samples\\asmmap.sys",
+                        "create":  0,
+                        "start":  -2146762484,
+                        "state":  "STOPPED",
+                        "win32_exit":  "2148204812"
+                    },
+                    {
+                        "name":  "AsrDrv.sys",
+                        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\drivers\\corpus_samples\\AsrDrv.sys",
+                        "create":  0,
+                        "start":  0,
+                        "state":  "RUNNING",
+                        "win32_exit":  "0"
+                    },
+                    {
+                        "name":  "ComputerZ.Sys",
+                        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\drivers\\corpus_samples\\ComputerZ.Sys",
+                        "create":  0,
+                        "start":  0,
+                        "state":  "RUNNING",
+                        "win32_exit":  "0"
+                    },
+                    {
+                        "name":  "DPSysInfo.sys",
+                        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\drivers\\corpus_samples\\DPSysInfo.sys",
+                        "create":  0,
+                        "start":  2,
+                        "state":  "STOPPED",
+                        "win32_exit":  "2"
+                    },
+                    {
+                        "name":  "GPU-Z-v2.sys",
+                        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\drivers\\corpus_samples\\GPU-Z-v2.sys",
+                        "create":  0,
+                        "start":  0,
+                        "state":  "RUNNING",
+                        "win32_exit":  "0"
+                    },
+                    {
+                        "name":  "GPU-Z-v3.sys",
+                        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\drivers\\corpus_samples\\GPU-Z-v3.sys",
+                        "create":  0,
+                        "start":  0,
+                        "state":  "RUNNING",
+                        "win32_exit":  "0"
+                    },
+                    {
+                        "name":  "HWAuidoOs2Ec.sys",
+                        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\drivers\\corpus_samples\\HWAuidoOs2Ec.sys",
+                        "create":  0,
+                        "start":  0,
+                        "state":  "RUNNING",
+                        "win32_exit":  "0"
+                    },
+                    {
+                        "name":  "RtsTpx.sys",
+                        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\drivers\\corpus_samples\\RtsTpx.sys",
+                        "create":  0,
+                        "start":  0,
+                        "state":  "RUNNING",
+                        "win32_exit":  "0"
+                    },
+                    {
+                        "name":  "Sigdrv2785x64.sys",
+                        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\drivers\\corpus_samples\\Sigdrv2785x64.sys",
+                        "create":  0,
+                        "start":  0,
+                        "state":  "RUNNING",
+                        "win32_exit":  "0"
+                    },
+                    {
+                        "name":  "SysInfoDriverAMD.sys",
+                        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\drivers\\corpus_samples\\SysInfoDriverAMD.sys",
+                        "create":  0,
+                        "start":  0,
+                        "state":  "RUNNING",
+                        "win32_exit":  "0"
+                    },
+                    {
+                        "name":  "WinIo64.sys",
+                        "path":  "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\membridge\\drivers\\corpus_samples\\WinIo64.sys",
+                        "create":  0,
+                        "start":  -2146762484,
+                        "state":  "STOPPED",
+                        "win32_exit":  "2148204812"
+                    }
+                ]
+}
