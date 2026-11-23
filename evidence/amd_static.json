@@ -1,0 +1,10 @@
+﻿{
+    "date":  "2026-11-23T21:25:54",
+    "checked":  [
+                    "AMDPowerProfiler",
+                    "AMDPcore",
+                    "amdRxhci"
+                ],
+    "devices":  "none",
+    "note":  "PnP/platform style; not loaded; no new reader"
+}
