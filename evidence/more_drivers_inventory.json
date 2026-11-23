@@ -1,0 +1,112 @@
+﻿{
+    "date":  "2026-11-23T09:33:43",
+    "total_sys":  42,
+    "new_providers_count":  14,
+    "new_providers":  [
+                          {
+                              "cap":  "read (AES cmd)",
+                              "name":  "asrdrv",
+                              "hvci":  "FAIL(W^X)",
+                              "device":  "\\\\.\\AsrDrv109"
+                          },
+                          {
+                              "cap":  "read (dword, page guard)",
+                              "name":  "cpuz",
+                              "hvci":  "FAIL(W^X)",
+                              "device":  "\\\\.\\Global\\CPUZ152"
+                          },
+                          {
+                              "cap":  "read (PEUPDATER.EXE gate)",
+                              "name":  "asupio64",
+                              "hvci":  "FAIL(W^X)",
+                              "device":  "\\\\.\\AsUpdateio"
+                          },
+                          {
+                              "cap":  "read (ASUSCERT gate)",
+                              "name":  "asio2",
+                              "hvci":  "WARN(vendor)",
+                              "device":  "\\\\.\\Asusgio2"
+                          },
+                          {
+                              "cap":  "read/write (\u003c=4B)",
+                              "name":  "aswarpot",
+                              "hvci":  "PASS(WHQL)",
+                              "device":  "\\\\.\\aswSP_ArPot2"
+                          },
+                          {
+                              "cap":  "read/write (map)",
+                              "name":  "winio64",
+                              "hvci":  "FAIL(W^X)",
+                              "device":  "\\\\.\\WinIo"
+                          },
+                          {
+                              "cap":  "read (dynamic device)",
+                              "name":  "dumpit",
+                              "hvci":  "WARN(vendor)",
+                              "device":  "\\\\.\\C: volume filter"
+                          },
+                          {
+                              "cap":  "read/write (map)",
+                              "name":  "asmmap",
+                              "hvci":  "FAIL(W^X)",
+                              "device":  "\\\\.\\ASMMAP64"
+                          },
+                          {
+                              "cap":  "read/write",
+                              "name":  "atillk64",
+                              "hvci":  "FAIL(W^X)",
+                              "device":  "\\\\.\\atillk64"
+                          },
+                          {
+                              "cap":  "read/write (map)",
+                              "name":  "asio64",
+                              "hvci":  "FAIL(W^X)",
+                              "device":  "\\\\.\\Asusgio"
+                          },
+                          {
+                              "cap":  "read",
+                              "name":  "adv64drv",
+                              "hvci":  "FAIL(W^X)",
+                              "device":  "\\\\.\\ADV64DRV"
+                          },
+                          {
+                              "cap":  "read/write",
+                              "name":  "ntiolib",
+                              "hvci":  "FAIL(W^X)",
+                              "device":  "\\\\.\\NTIOLib_1_0_C"
+                          },
+                          {
+                              "cap":  "read/write (byte)",
+                              "name":  "amifldrv",
+                              "hvci":  "FAIL(W^X)",
+                              "device":  "\\\\.\\genericdrv"
+                          },
+                          {
+                              "cap":  "read (map to caller VA)",
+                              "name":  "citmdrv",
+                              "hvci":  "FAIL(W^X)",
+                              "device":  "\\\\.\\CITMDRV"
+                          }
+                      ],
+    "already_legacy_not_in_11":  [
+                                     "sjtwinio",
+                                     "rtkio",
+                                     "rtkiow8x64",
+                                     "eneio64",
+                                     "winio64_elan",
+                                     "winio64_1",
+                                     "glckio2",
+                                     "fastdumpx64",
+                                     "fastdumpx64_v2",
+                                     "directio",
+                                     "icachex",
+                                     "mrt",
+                                     "winring0x64"
+                                 ],
+    "locators":  [
+                     "KKYUM",
+                     "kprl",
+                     "invarysensor"
+                 ],
+    "note":  "static inventory; live probe needs Administrator"
+}
