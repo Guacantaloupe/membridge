@@ -1,0 +1,31 @@
+﻿{
+    "date":  "2026-11-23T11:18:39",
+    "running":  [
+                    "ctrl_rstpx",
+                    "DellBV",
+                    "esdd64",
+                    "MsIo64",
+                    "out_srswdrv"
+                ],
+    "stopped":  [
+                    "dumpit64",
+                    "hznprotect",
+                    "out_asus_109",
+                    "out_asuss31",
+                    "Rtx_HalExt"
+                ],
+    "devices":  [
+                    "\\\\.\\MsIo",
+                    "\\\\.\\DellBV",
+                    "\\\\.\\esdd",
+                    "\\\\.\\srswdrv",
+                    "\\\\.\\RtsTpx"
+                ],
+    "read_attempts":  [
+                          "MsIo eneio64 err=998",
+                          "esdd eneio64 err=87",
+                          "DellBV glckio2 err=1",
+                          "srswdrv eneio64 err=1"
+                      ],
+    "note":  "5/10 RUNNING; devices open; protocol mismatch; no BSOD"
+}
