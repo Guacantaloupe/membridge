@@ -1,0 +1,135 @@
+﻿[
+    {
+        "name":  "Daq2006(3).sys",
+        "size":  83888,
+        "score":  25,
+        "devices":  "\\Device\\DAQ2006",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Daq2005(3).sys",
+        "size":  83904,
+        "score":  25,
+        "devices":  "\\Device\\DAQ2005",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Daq2005(2).sys",
+        "size":  83928,
+        "score":  25,
+        "devices":  "\\Device\\DAQ2005",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Daq2204.sys",
+        "size":  86736,
+        "score":  25,
+        "devices":  "\\Device\\DAQ2204",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Daq2205.sys",
+        "size":  88280,
+        "score":  25,
+        "devices":  "\\Device\\DAQ2205",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Daq2206.sys",
+        "size":  88280,
+        "score":  25,
+        "devices":  "\\Device\\DAQ2206",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Daq2208(2).sys",
+        "size":  91624,
+        "score":  25,
+        "devices":  "\\Device\\DAQ2208",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Daq2005(7).sys",
+        "size":  94040,
+        "score":  25,
+        "devices":  "\\Device\\DAQ2005",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Daq2204(7).sys",
+        "size":  96584,
+        "score":  25,
+        "devices":  "\\Device\\DAQ2204",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Daq2204(2).sys",
+        "size":  96744,
+        "score":  25,
+        "devices":  "\\Device\\DAQ2204",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Daq2016(2).sys",
+        "size":  98280,
+        "score":  25,
+        "devices":  "\\Device\\DAQ2016",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Daq2206(1).sys",
+        "size":  98368,
+        "score":  25,
+        "devices":  "\\Device\\DAQ2206",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Daq2502(5).sys",
+        "size":  98368,
+        "score":  25,
+        "devices":  "\\Device\\DAQ2502",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Daq2502(2).sys",
+        "size":  98496,
+        "score":  25,
+        "devices":  "\\Device\\DAQ2502",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Daq2502(4).sys",
+        "size":  98496,
+        "score":  25,
+        "devices":  "\\Device\\DAQ2502",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Daq2502(1).sys",
+        "size":  98512,
+        "score":  25,
+        "devices":  "\\Device\\DAQ2502",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Daq2006(2).sys",
+        "size":  98792,
+        "score":  25,
+        "devices":  "\\Device\\DAQ2006",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Daq2006(1).sys",
+        "size":  98880,
+        "score":  25,
+        "devices":  "\\Device\\DAQ2006",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "dlpfde.sys",
+        "size":  303312,
+        "score":  17,
+        "devices":  "\\Device\\Harddisk",
+        "signature":  "Valid"
+    }
+]
