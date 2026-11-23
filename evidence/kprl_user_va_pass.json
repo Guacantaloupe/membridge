@@ -1,0 +1,10 @@
+﻿{
+    "date":  "2026-11-24T07:54:38",
+    "pid":  7648,
+    "imagebase":  "0x7FF72CF20000",
+    "cr3":  "0x1979B1000",
+    "pa":  "0x1EF2AE000",
+    "bytes":  "4D5A9000...",
+    "verdict":  "user VA PASS; kernel VA fails due KPTI",
+    "note":  "KPRL CR3 valid for target user memory"
+}

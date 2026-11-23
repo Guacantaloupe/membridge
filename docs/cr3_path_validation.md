@@ -84,3 +84,28 @@ CR3 = 0x270986000
 - 不是 5-level paging 索引问题；
 - CCHWApi current CR3 仍不能作为页表基址；
 - 第二条路径继续排除。
+
+## KPRL CR3 对目标用户 VA 有效（KPTI 说明）
+当前 explorer：
+```
+PID 7648
+ImageBase = 0x7FF72CF20000
+KPRL CR3 = 0x1979B1000
+```
+用 GLCKIO2 做页表翻译：
+```
+VA=0x7FF72CF20000 -> PA=0x1EF2AE000
+bytes:
+4D 5A 90 00 03 00 00 00 04 00 00 00 FF FF 00 00
+...
+VERDICT=PASS
+```
+结论：
+- **KPRL 返回的 CR3 对目标进程的用户 VA 有效**；
+- 之前内核 VA LSTAR 翻译失败，是因为 KPTI/用户 CR3 不包含完整内核映射；
+- 不是 KPRL CR3 本身无效；
+- “KPRL CR3 + 物理读”对 **目标 EXE 用户内存** 的路径仍然成立。
+
+## 修正
+- 之前“KPRL CR3 pagewalk 不稳定”的结论需要限定为 **内核 VA pagewalk**；
+- 目标用户 VA 读取已验证 PASS。
