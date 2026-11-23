@@ -1,0 +1,212 @@
+﻿[
+    {
+        "name":  "amdacpksl.sys",
+        "size":  353912,
+        "company":  "Advanced Micro Devices",
+        "sha256":  "D48CE1B0667FC2033323CB951DFD60C319AA11E9D6F266B76FD38DA76C56CF36",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "asiovadpro.sys",
+        "size":  42984,
+        "company":  "John Shield/O Deus Audio",
+        "sha256":  "D20067DCB0A9729DBFA42C6C315CC80FF642A1C70C6C557D58F5968CA5A093B6",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AsusConsumerDevFilter.sys",
+        "size":  74248,
+        "company":  "Human Interface Tech.",
+        "sha256":  "B674149669382FBB6C8A0DA9345DE5C6F5CFD9FC17F83E83F32FBB1BBEEAE3D1",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AsusDigiFilter.sys",
+        "size":  144344,
+        "company":  "ASUSTek COMPUTER INC.",
+        "sha256":  "90B840812F425FFF7C99D92416F760E568453C53391CB7B3F54DCC2A6330165F",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AsusDigiFilter.sys",
+        "size":  144344,
+        "company":  "ASUSTek COMPUTER INC.",
+        "sha256":  "90B840812F425FFF7C99D92416F760E568453C53391CB7B3F54DCC2A6330165F",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AsusKeyboardFilter.sys",
+        "size":  80416,
+        "company":  "Human Interface Tech.",
+        "sha256":  "F9EE1ED1A237E642D44959CA6E2CD3EA66B6514A62648A6D606603849F0A2E02",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AsusVirtualDevice.sys",
+        "size":  34864,
+        "company":  "Windows (R) Win 7 DDK provider",
+        "sha256":  "A13D52576FF86D93E943BC000915D9E4833DCF01881A35F8984F702DBF3BCA1A",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AsusWmiAcpi.sys",
+        "size":  51976,
+        "company":  "ASUSTeK COMPUTER INC.",
+        "sha256":  "0F0A7BF9631751AF691458831C9EE69845AF19E8D49B57AD8F75F4250A060934",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "AsusWmiAcpi.sys",
+        "size":  50952,
+        "company":  "ASUSTeK COMPUTER INC.",
+        "sha256":  "B20DDD813018CE9424C94286CC8A1FC76F527639CF88113F7E091B8AD2AE15EA",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "athw8x.sys",
+        "size":  4233728,
+        "company":  "Qualcomm Atheros Communications, Inc.",
+        "sha256":  "DE129E570C85EE8AAE8084B40F4E32766B4B789A2EED81E46311712B0826053D",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "athwnx.sys",
+        "size":  4233728,
+        "company":  "Qualcomm Atheros Communications, Inc.",
+        "sha256":  "8047E2D20724B464B481F06C3AC1FA5734E97F7EC0D86EFEECD76480C84B3959",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ax88179_178a.sys",
+        "size":  79872,
+        "company":  "ASIX Electronics Corp.",
+        "sha256":  "66FABC9BD554254AEDA9F1FAF7F46C4E99CA64CCFD8D88FC8ECF2A62A4EF0C9F",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ax88179x_178a_772d.sys",
+        "size":  146224,
+        "company":  "ASIX Electronics Corp.",
+        "sha256":  "3BE2052C2F6DF94374861F801623A1ADC1E6FA059534F0A9E1150CC18A747FE4",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ax88772.sys",
+        "size":  116736,
+        "company":  "ASIX Electronics Corp.",
+        "sha256":  "0C41A77B0E795D7342063030039200220D2D13B292E70A2191D8FE6EBFBF6C35",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "b44amd64.sys",
+        "size":  87552,
+        "company":  "Broadcom Corporation",
+        "sha256":  "61C4470C67C1BBA0D17010E6C09CB98F2D6CB1A605FBB34AD14AA50F7301E2AF",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "b57nd60a.sys",
+        "size":  527872,
+        "company":  "Broadcom Limited",
+        "sha256":  "5533751D721C6660B474BFC240A0E88D38C667838E4A8A09E4FCE690A52EBF54",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "bcmdhd63.sys",
+        "size":  367104,
+        "company":  "Broadcom Corp",
+        "sha256":  "BB19DD1307EACD14895EB11CC877A1DDD8722A6B0ECCF0B184804EEC6DB3CE6C",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "bcmpciedhd63.sys",
+        "size":  1037824,
+        "company":  "Broadcom Corp",
+        "sha256":  "8724A7C3CECB9B1ECB597841823253ED67F6B840F5CA97B761E157808D3E2B3D",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "BCMWL63a.SYS",
+        "size":  7585280,
+        "company":  "Broadcom Corporation",
+        "sha256":  "64CBE1AA061F0CC761A6D9E3C0E4C484EE09CACA932CB18D1947BC7D9F893BA3",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "BCMWL63AL.SYS",
+        "size":  5170176,
+        "company":  "Broadcom Corporation",
+        "sha256":  "388107153B70C3107CE2DB72E319A15EF78A6BE776D155F5ECE9F9A64A3B8814",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "bertreader.sys",
+        "size":  44696,
+        "company":  "Intel Corporation",
+        "sha256":  "9CB24DC6CBB72C600010E173C91E8804EAAF8F7E16E0278490FEADFE37C74E22",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "bertreader.sys",
+        "size":  46048,
+        "company":  "Intel Corporation",
+        "sha256":  "2885DA1A4E54E4A929267CD8FE3B89733FCAF99ADFC206E6B964B2EB37A0F17F",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "bsitf.sys",
+        "size":  55632,
+        "company":  "Windows (R) Win 7 DDK provider",
+        "sha256":  "80A211854DC6F34AEA0CB17A96D4008E0DADE46A1AEBAA7112DF254704318A1E",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "btfilter.sys",
+        "size":  106280,
+        "company":  "Qualcomm",
+        "sha256":  "3553FD3602D8923D6FB1CA912E3B85ED2725FA09B8BEED61DB1386D369B838C3",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "bxnd0a.sys",
+        "size":  141744,
+        "company":  "QLogic Corporation",
+        "sha256":  "F8AD618DE3B48BA90C1A8312F5F7461A00A0B6567719E87B273CA2810C743F3F",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "bxnd60a.sys",
+        "size":  144192,
+        "company":  "Marvell Semiconductor Inc.",
+        "sha256":  "D31B1A4C81B501A64ED4372EC1AAC9309C1F2A8D00B9FD44D5B7B406F8DFBFD3",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "cht4nx64.sys",
+        "size":  537904,
+        "company":  "Chelsio Communications",
+        "sha256":  "0F03752E6E8D4E9E2B648BEA26AD2D577A13454D929AAC57F0B0E1835CD15B19",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "dptf_acpi.sys",
+        "size":  81056,
+        "company":  "Intel Corporation",
+        "sha256":  "9833A800C23645BAD1113D40E7B5A973721AA80E9BDDD671B3C2F210A086EB8E",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "dptf_cpu.sys",
+        "size":  76960,
+        "company":  "Intel Corporation",
+        "sha256":  "70BCA8F97027CA50E3B942367F163EA742EDD41653F7EC1B94D73A0899C33B8E",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "e1e6032e.sys",
+        "size":  300544,
+        "company":  "Intel Corporation",
+        "sha256":  "1872134ADE262953128BF8FC07E41A5BE9AEBB58BD859D152991C1EACB9ADB41",
+        "signature":  "Valid"
+    }
+]

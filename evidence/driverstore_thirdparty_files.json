@@ -1,0 +1,926 @@
+﻿[
+    {
+        "name":  "libusb0.sys",
+        "size":  52832,
+        "company":  "http://libusb-win32.sourceforge.net",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\arduino_gemma.inf_amd64_ccc1c03de7b2c57b\\amd64\\libusb0.sys"
+    },
+    {
+        "name":  "asiovadpro.sys",
+        "size":  42984,
+        "company":  "John Shield/O Deus Audio",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\asiovadpro.inf_amd64_b6974654a52821c5\\asiovadpro.sys"
+    },
+    {
+        "name":  "AsusConsumerDevFilter.sys",
+        "size":  74248,
+        "company":  "Human Interface Tech.",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\asusconsumerdevfilter.inf_amd64_019b608e10a1eba4\\AsusConsumerDevFilter.sys"
+    },
+    {
+        "name":  "AsusDigiFilter.sys",
+        "size":  144344,
+        "company":  "ASUSTek COMPUTER INC.",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\asusdigifilter.inf_amd64_570a90d182f53fa5\\AsusDigiFilter.sys"
+    },
+    {
+        "name":  "AsusDigiFilter.sys",
+        "size":  144344,
+        "company":  "ASUSTek COMPUTER INC.",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\asusdigifilterkbd.inf_amd64_33fae209850d2cb7\\AsusDigiFilter.sys"
+    },
+    {
+        "name":  "AsusKeyboardFilter.sys",
+        "size":  80416,
+        "company":  "Human Interface Tech.",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\asuskeyboardfilter.inf_amd64_56b7eb5469f22c87\\AsusKeyboardFilter.sys"
+    },
+    {
+        "name":  "AsusWmiAcpi.sys",
+        "size":  51976,
+        "company":  "ASUSTeK COMPUTER INC.",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\asussci2.inf_amd64_01a5341a45b84f7d\\ASUSOptimization\\AsusWmiAcpi.sys"
+    },
+    {
+        "name":  "bsitf.sys",
+        "size":  55632,
+        "company":  "Windows (R) Win 7 DDK provider",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\asussci2.inf_amd64_01a5341a45b84f7d\\ASUSSoftwareManager\\bsitf.sys"
+    },
+    {
+        "name":  "AsusWmiAcpi.sys",
+        "size":  50952,
+        "company":  "ASUSTeK COMPUTER INC.",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\asussci2.inf_amd64_197d319fab43e0fe\\ASUSOptimization\\AsusWmiAcpi.sys"
+    },
+    {
+        "name":  "bsitf.sys",
+        "size":  55632,
+        "company":  "Windows (R) Win 7 DDK provider",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\asussci2.inf_amd64_197d319fab43e0fe\\ASUSSoftwareManager\\bsitf.sys"
+    },
+    {
+        "name":  "AsusVirtualDevice.sys",
+        "size":  34864,
+        "company":  "Windows (R) Win 7 DDK provider",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\asusvirtualdevice.inf_amd64_7b05bff36433ae14\\AsusVirtualDevice.sys"
+    },
+    {
+        "name":  "btfilter.sys",
+        "size":  106280,
+        "company":  "Qualcomm",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\atheros_bth.inf_amd64_84420d343a90f6f1\\btfilter.sys"
+    },
+    {
+        "name":  "athw8x.sys",
+        "size":  4233728,
+        "company":  "Qualcomm Atheros Communications, Inc.",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\athw8x.inf_amd64_600627b27b9c7b10\\athw8x.sys"
+    },
+    {
+        "name":  "b57nd60a.sys",
+        "size":  527872,
+        "company":  "Broadcom Limited",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\b57nd60a.inf_amd64_86493878b5fef607\\b57nd60a.sys"
+    },
+    {
+        "name":  "bcmdhd63.sys",
+        "size":  367104,
+        "company":  "Broadcom Corp",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\bcmdhd64.inf_amd64_0c3c6ca9708e5a9a\\bcmdhd63.sys"
+    },
+    {
+        "name":  "bcmpciedhd63.sys",
+        "size":  1037824,
+        "company":  "Broadcom Corp",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\bcmwdidhdpcie.inf_amd64_b244d6a9a7f90517\\bcmpciedhd63.sys"
+    },
+    {
+        "name":  "bertreader.sys",
+        "size":  46032,
+        "company":  "Intel Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\bertreader.inf_amd64_127147c3b0003be2\\bertreader.sys"
+    },
+    {
+        "name":  "bertreader.sys",
+        "size":  44696,
+        "company":  "Intel Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\bertreader.inf_amd64_35957fe211381ec1\\bertreader.sys"
+    },
+    {
+        "name":  "bertreader.sys",
+        "size":  46048,
+        "company":  "Intel Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\bertreader.inf_amd64_d168344202d40e70\\bertreader.sys"
+    },
+    {
+        "name":  "dptf_acpi.sys",
+        "size":  81056,
+        "company":  "Intel Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\dptf_acpi.inf_amd64_ec9dc29e11676412\\dptf_acpi.sys"
+    },
+    {
+        "name":  "dptf_cpu.sys",
+        "size":  76960,
+        "company":  "Intel Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\dptf_cpu.inf_amd64_897ea327b3fe52f7\\dptf_cpu.sys"
+    },
+    {
+        "name":  "esif_lf.sys",
+        "size":  426144,
+        "company":  "Intel Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\dptf_cpu.inf_amd64_897ea327b3fe52f7\\esif_lf.sys"
+    },
+    {
+        "name":  "e2xw10x64.sys",
+        "size":  145920,
+        "company":  "Qualcomm Atheros, Inc.",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\e2xw10x64.inf_amd64_b78633a7607613a0\\e2xw10x64.sys"
+    },
+    {
+        "name":  "ETDI2C.sys",
+        "size":  226880,
+        "company":  "ELAN Microelectronic Corp.",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\etdi2c.inf_amd64_170bde659adbcd35\\ETDI2C.sys"
+    },
+    {
+        "name":  "gna.sys",
+        "size":  88776,
+        "company":  "Intel Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\gna.inf_amd64_04d4eecc5838a558\\gna.sys"
+    },
+    {
+        "name":  "gna.sys",
+        "size":  87200,
+        "company":  "Intel Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\gna.inf_amd64_19ceb7ce67a7cf8b\\gna.sys"
+    },
+    {
+        "name":  "GSCAuxDriverx64.sys",
+        "size":  79640,
+        "company":  "Intel Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\gscauxdriver.inf_amd64_47dea9773e9dfab7\\GSCAuxDriverx64.sys"
+    },
+    {
+        "name":  "TeeDriverGSCW8x64.sys",
+        "size":  260384,
+        "company":  "Intel Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\gscheci.inf_amd64_1027aa064fe1f3f7\\TeeDriverGSCW8x64.sys"
+    },
+    {
+        "name":  "amdacpksl.sys",
+        "size":  353912,
+        "company":  "Advanced Micro Devices",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\hdxhapasus.inf_amd64_a6bf9ad299ecb71e\\amdacpksl.sys"
+    },
+    {
+        "name":  "TeeDriverW10x64.sys",
+        "size":  320712,
+        "company":  "Intel Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\heci.inf_amd64_96cd661731a25dc4\\x64\\TeeDriverW10x64.sys"
+    },
+    {
+        "name":  "iaLPSS2_GPIO2_TGL.sys",
+        "size":  131224,
+        "company":  "Intel Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\ialpss2_gpio2_tgl.inf_amd64_2546dafe2183e972\\iaLPSS2_GPIO2_TGL.sys"
+    },
+    {
+        "name":  "iaLPSS2_I2C_TGL.sys",
+        "size":  204440,
+        "company":  "Intel Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\ialpss2_i2c_tgl.inf_amd64_1308f85f1b0adf27\\iaLPSS2_I2C_TGL.sys"
+    },
+    {
+        "name":  "iaLPSS2_SPI_TGL.sys",
+        "size":  158352,
+        "company":  "Intel Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\ialpss2_spi_tgl.inf_amd64_fc1ed3a5a1d514f2\\iaLPSS2_SPI_TGL.sys"
+    },
+    {
+        "name":  "iaLPSS2_UART2_TGL.sys",
+        "size":  313504,
+        "company":  "Intel Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\ialpss2_uart2_tgl.inf_amd64_cd8c3a141c1b1284\\iaLPSS2_UART2_TGL.sys"
+    },
+    {
+        "name":  "ibtusb.sys",
+        "size":  6090312,
+        "company":  "Intel Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\ibtusb.inf_amd64_2b10370d0ee71671\\ibtusb.sys"
+    },
+    {
+        "name":  "ibtusb.sys",
+        "size":  1239624,
+        "company":  "Intel Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\ibtusb.inf_amd64_5fb4eceb794c1b4a\\ibtusb.sys"
+    },
+    {
+        "name":  "ibtusb.sys",
+        "size":  6890568,
+        "company":  "Intel Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\ibtusb.inf_amd64_8da078199f9b549c\\ibtusb.sys"
+    },
+    {
+        "name":  "ibtusb.sys",
+        "size":  1114184,
+        "company":  "Intel Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\ibtusb.inf_amd64_959e4d1ddc38c2a5\\ibtusb.sys"
+    },
+    {
+        "name":  "ibtusb.sys",
+        "size":  7565384,
+        "company":  "Intel Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\ibtusb.inf_amd64_a4636aa018bec680\\ibtusb.sys"
+    },
+    {
+        "name":  "igdkmdn64.sys",
+        "size":  51591040,
+        "company":  "Intel Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\iigd_dch.inf_amd64_046f5bd4083e9122\\igdkmdn64.sys"
+    },
+    {
+        "name":  "igdkmdn64.sys",
+        "size":  52542336,
+        "company":  "Intel Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\iigd_dch.inf_amd64_9741ef1f4093481f\\igdkmdn64.sys"
+    },
+    {
+        "name":  "IntcAudioBus.sys",
+        "size":  320952,
+        "company":  "Intel(R) Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\intcaudiobus.inf_amd64_537c3998c3243f45\\IntcAudioBus.sys"
+    },
+    {
+        "name":  "IntcBTAu.sys",
+        "size":  893944,
+        "company":  "Intel(R) Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\intcbtau.inf_amd64_164a440e6b400316\\IntcBTAu.sys"
+    },
+    {
+        "name":  "IntcBTAu.sys",
+        "size":  916408,
+        "company":  "Intel(R) Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\intcbtau.inf_amd64_323e55f60cbc7b9e\\IntcBTAu.sys"
+    },
+    {
+        "name":  "IntcDAud.sys",
+        "size":  311128,
+        "company":  "Intel(R) Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\intcdaud.inf_amd64_432d29e6451ba80b\\IntcDAud.sys"
+    },
+    {
+        "name":  "IntcDAud.sys",
+        "size":  665104,
+        "company":  "Intel(R) Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\intcdaud.inf_amd64_461786e87388a070\\IntcDAud.sys"
+    },
+    {
+        "name":  "IntcDAud.sys",
+        "size":  317952,
+        "company":  "Intel(R) Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\intcdaud.inf_amd64_5d859c98b498348f\\IntcDAud.sys"
+    },
+    {
+        "name":  "IntcDAud.sys",
+        "size":  358392,
+        "company":  "Intel(R) Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\intcdaud.inf_amd64_718877413f6508de\\IntcDAud.sys"
+    },
+    {
+        "name":  "IntcDAud.sys",
+        "size":  375312,
+        "company":  "Intel(R) Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\intcdaud.inf_amd64_a170e240b85cd032\\IntcDAud.sys"
+    },
+    {
+        "name":  "IntcDMic.sys",
+        "size":  785848,
+        "company":  "Intel(R) Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\intcdmic.inf_amd64_61452e86c84293b2\\IntcDMic.sys"
+    },
+    {
+        "name":  "IntcDMic.sys",
+        "size":  771576,
+        "company":  "Intel(R) Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\intcdmic.inf_amd64_acd402699ea3db34\\IntcDMic.sys"
+    },
+    {
+        "name":  "IntcSDW.sys",
+        "size":  952824,
+        "company":  "Intel(R) Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\intcsdw.inf_amd64_2d7cda5cbd4025ed\\IntcSDW.sys"
+    },
+    {
+        "name":  "IntcSDW.sys",
+        "size":  967608,
+        "company":  "Intel(R) Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\intcsdw.inf_amd64_dc1a7d9a643bf46e\\IntcSDW.sys"
+    },
+    {
+        "name":  "IntcSdwBus.sys",
+        "size":  523256,
+        "company":  "Intel(R) Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\intcsdwbus.inf_amd64_f52c196d9030ea0e\\IntcSdwBus.sys"
+    },
+    {
+        "name":  "IntcSST.sys",
+        "size":  866744,
+        "company":  "Intel(R) Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\intcsst.inf_amd64_37c349e000bc9f6d\\IntcSST.sys"
+    },
+    {
+        "name":  "IntcSST.sys",
+        "size":  851448,
+        "company":  "Intel(R) Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\intcsst.inf_amd64_ebe13334e0ddaeed\\IntcSST.sys"
+    },
+    {
+        "name":  "IntcUSB.sys",
+        "size":  941008,
+        "company":  "Intel(R) Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\intcusb.inf_amd64_597fa055d37ffe1e\\IntcUSB.sys"
+    },
+    {
+        "name":  "IntcUSB.sys",
+        "size":  923128,
+        "company":  "Intel(R) Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\intcusb.inf_amd64_c2a06a639869c7cd\\IntcUSB.sys"
+    },
+    {
+        "name":  "ipoib6x.sys",
+        "size":  579376,
+        "company":  "Mellanox",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\ipoib6x.inf_amd64_c009b0cd3e63f884\\ipoib6x.sys"
+    },
+    {
+        "name":  "VSTAZL6.SYS",
+        "size":  292864,
+        "company":  "Conexant Systems, Inc.",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\mdmcxhv6.inf_amd64_f1a7a2fbd6554d60\\VSTAZL6.SYS"
+    },
+    {
+        "name":  "VSTBS26.SYS",
+        "size":  411136,
+        "company":  "Conexant Systems, Inc.",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\mdmcxhv6.inf_amd64_f1a7a2fbd6554d60\\VSTBS26.SYS"
+    },
+    {
+        "name":  "VSTBS36.SYS",
+        "size":  287744,
+        "company":  "Conexant Systems, Inc.",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\mdmcxhv6.inf_amd64_f1a7a2fbd6554d60\\VSTBS36.SYS"
+    },
+    {
+        "name":  "VSTCNXT6.SYS",
+        "size":  740864,
+        "company":  "Conexant Systems, Inc.",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\mdmcxhv6.inf_amd64_f1a7a2fbd6554d60\\VSTCNXT6.SYS"
+    },
+    {
+        "name":  "VSTDPV6.SYS",
+        "size":  1485312,
+        "company":  "Conexant Systems, Inc.",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\mdmcxhv6.inf_amd64_f1a7a2fbd6554d60\\VSTDPV6.SYS"
+    },
+    {
+        "name":  "VSTBS26.SYS",
+        "size":  411136,
+        "company":  "Conexant Systems, Inc.",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\mdmcxpv6.inf_amd64_46a3b42507e9d29e\\VSTBS26.SYS"
+    },
+    {
+        "name":  "VSTCNXT6.SYS",
+        "size":  740864,
+        "company":  "Conexant Systems, Inc.",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\mdmcxpv6.inf_amd64_46a3b42507e9d29e\\VSTCNXT6.SYS"
+    },
+    {
+        "name":  "VSTDPV6.SYS",
+        "size":  1485312,
+        "company":  "Conexant Systems, Inc.",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\mdmcxpv6.inf_amd64_46a3b42507e9d29e\\VSTDPV6.SYS"
+    },
+    {
+        "name":  "mrvlpcie8897.sys",
+        "size":  1036288,
+        "company":  "Marvell Semiconductors Inc.",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\mrvlpcie8897.inf_amd64_668551398886eaf3\\mrvlpcie8897.sys"
+    },
+    {
+        "name":  "e1i68x64.sys",
+        "size":  576000,
+        "company":  "Intel Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\net1ic64.inf_amd64_93678a2d694d4579\\e1i68x64.sys"
+    },
+    {
+        "name":  "e1y60x64.sys",
+        "size":  283136,
+        "company":  "Intel Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\net1yx64.inf_amd64_3e5c319fac7067a7\\e1y60x64.sys"
+    },
+    {
+        "name":  "e2f68.sys",
+        "size":  507904,
+        "company":  "Intel Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\net2ic68.inf_amd64_7af2e2aa52ab9b71\\e2f68.sys"
+    },
+    {
+        "name":  "b44amd64.sys",
+        "size":  87552,
+        "company":  "Broadcom Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\net44amd.inf_amd64_6af2734d06d3e49f\\b44amd64.sys"
+    },
+    {
+        "name":  "lan7400-x64-n650.sys",
+        "size":  234496,
+        "company":  "Microchip Technology Inc.",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\net7400-x64-n650.inf_amd64_213b9c153c9b4d01\\lan7400-x64-n650.sys"
+    },
+    {
+        "name":  "lan7500-x64-n650f.sys",
+        "size":  102912,
+        "company":  "Microchip Technology Inc.",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\net7500-x64-n650f.inf_amd64_7a936ac081dc1b16\\lan7500-x64-n650f.sys"
+    },
+    {
+        "name":  "lan7800-x64-n650f.sys",
+        "size":  130560,
+        "company":  "Microchip Technology Inc.",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\net7800-x64-n650f.inf_amd64_bfc44179ca196669\\lan7800-x64-n650f.sys"
+    },
+    {
+        "name":  "RTL85n64.sys",
+        "size":  2055168,
+        "company":  "Realtek Semiconductor Corporation                           ",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\net8185.inf_amd64_73f80bb398515a03\\RTL85n64.sys"
+    },
+    {
+        "name":  "RTL8187B.sys",
+        "size":  452096,
+        "company":  "Realtek Semiconductor Corporation                           ",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\net8187bv64.inf_amd64_4295cf068229eafc\\RTL8187B.sys"
+    },
+    {
+        "name":  "RTL8187Se.sys",
+        "size":  443904,
+        "company":  "Realtek Semiconductor Corporation                           ",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\net8187se64.inf_amd64_a25c5622ec3aeb75\\RTL8187Se.sys"
+    },
+    {
+        "name":  "rtl8192se.sys",
+        "size":  1222656,
+        "company":  "Realtek Semiconductor Corporation                           ",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\net8192se64.inf_amd64_3d81196084e3f594\\rtl8192se.sys"
+    },
+    {
+        "name":  "rtl819xp.sys",
+        "size":  620032,
+        "company":  "Realtek Semiconductor Corporation                           ",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\net819xp.inf_amd64_ff7a5dd4f9b1ceba\\rtl819xp.sys"
+    },
+    {
+        "name":  "lan9500-x64-n650f.sys",
+        "size":  94208,
+        "company":  "Microchip Technology Inc.",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\net9500-x64-n650f.inf_amd64_566fa98f770451d2\\lan9500-x64-n650f.sys"
+    },
+    {
+        "name":  "vmnet.sys",
+        "size":  31640,
+        "company":  "VMware, Inc.",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netadapter.inf_amd64_60e2431d176b9d92\\vmnet.sys"
+    },
+    {
+        "name":  "vmnetadapter.sys",
+        "size":  31128,
+        "company":  "VMware, Inc.",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netadapter.inf_amd64_60e2431d176b9d92\\vmnetadapter.sys"
+    },
+    {
+        "name":  "Qcamain10x64.sys",
+        "size":  2455872,
+        "company":  "Qualcomm Atheros, Inc.",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netathr10x.inf_amd64_8df47f8f43450002\\Qcamain10x64.sys"
+    },
+    {
+        "name":  "Qcamain10x64.sys",
+        "size":  2342912,
+        "company":  "Qualcomm Atheros, Inc.",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netathr10x.inf_amd64_e4b0b7be4ba10fc1\\Qcamain10x64.sys"
+    },
+    {
+        "name":  "athwnx.sys",
+        "size":  4233728,
+        "company":  "Qualcomm Atheros Communications, Inc.",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netathrx.inf_amd64_ba496c81c003f721\\athwnx.sys"
+    },
+    {
+        "name":  "ax88179x_178a_772d.sys",
+        "size":  146224,
+        "company":  "ASIX Electronics Corp.",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netax88179x_178a_772d.inf_amd64_0c9b56e14e4b421d\\ax88179x_178a_772d.sys"
+    },
+    {
+        "name":  "ax88179_178a.sys",
+        "size":  79872,
+        "company":  "ASIX Electronics Corp.",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netax88179_178a.inf_amd64_be76888d30e8464a\\ax88179_178a.sys"
+    },
+    {
+        "name":  "ax88772.sys",
+        "size":  116736,
+        "company":  "ASIX Electronics Corp.",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netax88772.inf_amd64_8cf5f634aa308898\\ax88772.sys"
+    },
+    {
+        "name":  "BCMWL63AL.SYS",
+        "size":  5170176,
+        "company":  "Broadcom Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netbc63a.inf_amd64_adc1c27c4a8b0d4f\\BCMWL63AL.SYS"
+    },
+    {
+        "name":  "BCMWL63a.SYS",
+        "size":  7585280,
+        "company":  "Broadcom Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netbc64.inf_amd64_4c416384b17ee84f\\BCMWL63a.SYS"
+    },
+    {
+        "name":  "vmnet.sys",
+        "size":  31640,
+        "company":  "VMware, Inc.",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netbridge.inf_amd64_7c9468535f437f0e\\vmnet.sys"
+    },
+    {
+        "name":  "vmnetbridge.sys",
+        "size":  53656,
+        "company":  "VMware, Inc.",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netbridge.inf_amd64_7c9468535f437f0e\\vmnetbridge.sys"
+    },
+    {
+        "name":  "bxnd0a.sys",
+        "size":  141744,
+        "company":  "QLogic Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netbxnd0a.inf_amd64_9744de6fd6c11c4f\\bxnd0a.sys"
+    },
+    {
+        "name":  "bxnd60a.sys",
+        "size":  144192,
+        "company":  "Marvell Semiconductor Inc.",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netbxnda.inf_amd64_5cfb6a07d9d75a4a\\bxnd60a.sys"
+    },
+    {
+        "name":  "e1e6032e.sys",
+        "size":  300544,
+        "company":  "Intel Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\nete1e3e.inf_amd64_71ee3a27d9580084\\e1e6032e.sys"
+    },
+    {
+        "name":  "E1G6032E.sys",
+        "size":  147584,
+        "company":  "Intel Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\nete1g3e.inf_amd64_1bcc7029f170b19a\\E1G6032E.sys"
+    },
+    {
+        "name":  "eFE5b32e.sys",
+        "size":  182656,
+        "company":  "Intel Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netefe3e.inf_amd64_c4fbd94d20e3c73c\\eFE5b32e.sys"
+    },
+    {
+        "name":  "ocnd65.sys",
+        "size":  531376,
+        "company":  "Emulex",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netelx.inf_amd64_b821dc8c43094e14\\ocnd65.sys"
+    },
+    {
+        "name":  "SiSG664.sys",
+        "size":  56832,
+        "company":  "Silicon Integrated Systems Corp.",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netg664.inf_amd64_f4299f18c1844724\\SiSG664.sys"
+    },
+    {
+        "name":  "NETJME.sys",
+        "size":  137728,
+        "company":  "JMicron Technology Corp.",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netjme.inf_amd64_7d2f6f04d092b277\\NETJME.sys"
+    },
+    {
+        "name":  "k57nd60a.sys",
+        "size":  446464,
+        "company":  "Broadcom Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netk57a.inf_amd64_a4804fffb8ffc2e6\\k57nd60a.sys"
+    },
+    {
+        "name":  "l160x64.sys",
+        "size":  65024,
+        "company":  "Atheros Communications, Inc.",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netl160a.inf_amd64_24496b197c188680\\l160x64.sys"
+    },
+    {
+        "name":  "L1C63x64.sys",
+        "size":  121344,
+        "company":  "Qualcomm Atheros Co., Ltd.",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netl1c63x64.inf_amd64_20b3691d6e7445a9\\L1C63x64.sys"
+    },
+    {
+        "name":  "L1E62x64.sys",
+        "size":  59904,
+        "company":  "Atheros Communications, Inc.",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netl1e64.inf_amd64_616d8a2e59fc462f\\L1E62x64.sys"
+    },
+    {
+        "name":  "l260x64.sys",
+        "size":  34304,
+        "company":  "Atheros Communications, Inc.",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netl260a.inf_amd64_39ee03ea6ee818e4\\l260x64.sys"
+    },
+    {
+        "name":  "mlx4eth63.sys",
+        "size":  709952,
+        "company":  "Mellanox",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netmlx4eth63.inf_amd64_59e293fc00a669f4\\mlx4eth63.sys"
+    },
+    {
+        "name":  "mlx5.sys",
+        "size":  2433440,
+        "company":  "Mellanox",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netmlx5.inf_amd64_daa0dfc87505ee8d\\mlx5.sys"
+    },
+    {
+        "name":  "yk63x64.sys",
+        "size":  288768,
+        "company":  "Marvell",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netmyk64.inf_amd64_2f029cbaae1f9a8c\\yk63x64.sys"
+    },
+    {
+        "name":  "nvm62x64.sys",
+        "size":  344192,
+        "company":  "NVIDIA Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netnvm64.inf_amd64_3dc2e896fdc07ff7\\nvm62x64.sys"
+    },
+    {
+        "name":  "nvm60x64.sys",
+        "size":  735744,
+        "company":  "NVIDIA Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netnvma.inf_amd64_f3a84765144777ee\\nvm60x64.sys"
+    },
+    {
+        "name":  "netr28ux.sys",
+        "size":  2224128,
+        "company":  "MediaTek Inc.",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netr28ux.inf_amd64_2613a90929adebda\\netr28ux.sys"
+    },
+    {
+        "name":  "netr28x.sys",
+        "size":  2537984,
+        "company":  "MediaTek Inc.",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netr28x.inf_amd64_bd4998128e365665\\netr28x.sys"
+    },
+    {
+        "name":  "netr7364.sys",
+        "size":  721920,
+        "company":  "Ralink Technology, Corp.",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netr7364.inf_amd64_3d06f050b5db1b2c\\netr7364.sys"
+    },
+    {
+        "name":  "Rtnic64.sys",
+        "size":  51712,
+        "company":  "Realtek Semiconductor Corporation                           ",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netrtl64.inf_amd64_e646b306d9138846\\Rtnic64.sys"
+    },
+    {
+        "name":  "rtwlane01.sys",
+        "size":  8169472,
+        "company":  "Realtek Semiconductor Corporation                           ",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netrtwlane01.inf_amd64_e88ba65a7546f702\\rtwlane01.sys"
+    },
+    {
+        "name":  "rtwlane_13.sys",
+        "size":  3717120,
+        "company":  "Realtek Semiconductor Corporation                           ",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netrtwlane_13.inf_amd64_34c21e0a7f9c97b4\\rtwlane_13.sys"
+    },
+    {
+        "name":  "rtwlans.sys",
+        "size":  7889408,
+        "company":  "Realtek Semiconductor Corporation                           ",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netrtwlans.inf_amd64_e0770fc2820687e2\\rtwlans.sys"
+    },
+    {
+        "name":  "rtwlanu.sys",
+        "size":  12434304,
+        "company":  "Realtek Semiconductor Corporation                           ",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netrtwlanu.inf_amd64_0dc97ba2af82c338\\rtwlanu.sys"
+    },
+    {
+        "name":  "rtwlanu.sys",
+        "size":  9893888,
+        "company":  "Realtek Semiconductor Corporation                           ",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netrtwlanu.inf_amd64_2814b0012fc3a833\\rtwlanu.sys"
+    },
+    {
+        "name":  "rtwlanu_81xx.sys",
+        "size":  1282360,
+        "company":  "Realtek Semiconductor Corporation                           ",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netrtwlanu_81xx.inf_amd64_04817374fb707c9c\\rtwlanu_81xx.sys"
+    },
+    {
+        "name":  "cht4nx64.sys",
+        "size":  537904,
+        "company":  "Chelsio Communications",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\nett4x64.inf_amd64_345dd70a1546350e\\cht4nx64.sys"
+    },
+    {
+        "name":  "v1q63x64.sys",
+        "size":  123392,
+        "company":  "Intel Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netv1x64.inf_amd64_b0aef9976b305f93\\v1q63x64.sys"
+    },
+    {
+        "name":  "fetn63a.sys",
+        "size":  53248,
+        "company":  "VIA Technologies, Inc.              ",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netvf63a.inf_amd64_6d0895d8fed6bb96\\fetn63a.sys"
+    },
+    {
+        "name":  "getn63a.sys",
+        "size":  57856,
+        "company":  "VIA Technologies, Inc.              ",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netvg63a.inf_amd64_dd38edc9e96390ae\\getn63a.sys"
+    },
+    {
+        "name":  "Netwbw02.sys",
+        "size":  3485696,
+        "company":  "Intel Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netwbw02.inf_amd64_d0afc216e2ec6863\\Netwbw02.sys"
+    },
+    {
+        "name":  "NETwew00.sys",
+        "size":  3341824,
+        "company":  "Intel Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netwew00.inf_amd64_cc8804127f78dd92\\NETwew00.sys"
+    },
+    {
+        "name":  "NETwew01.sys",
+        "size":  3343872,
+        "company":  "Intel Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netwew01.inf_amd64_a78e41f934de228a\\NETwew01.sys"
+    },
+    {
+        "name":  "netwlv64.sys",
+        "size":  7530496,
+        "company":  "Intel Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netwlv64.inf_amd64_786cb697586229e5\\netwlv64.sys"
+    },
+    {
+        "name":  "NETwNs64.sys",
+        "size":  8604672,
+        "company":  "Intel Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netwns64.inf_amd64_d630255fa92e6727\\NETwNs64.sys"
+    },
+    {
+        "name":  "Netwsw00.sys",
+        "size":  11518976,
+        "company":  "Intel Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netwsw00.inf_amd64_8bd5558c3d9b718a\\Netwsw00.sys"
+    },
+    {
+        "name":  "Netwtw02.sys",
+        "size":  6715904,
+        "company":  "Intel Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netwtw02.inf_amd64_669639d5a41714fa\\Netwtw02.sys"
+    },
+    {
+        "name":  "Netwtw04.sys",
+        "size":  8695808,
+        "company":  "Intel Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netwtw04.inf_amd64_28271e5be9a9f6f4\\Netwtw04.sys"
+    },
+    {
+        "name":  "Netwtw06.sys",
+        "size":  8803328,
+        "company":  "Intel Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netwtw06.inf_amd64_c5f16d20642e3070\\Netwtw06.sys"
+    },
+    {
+        "name":  "Netwtw08.sys",
+        "size":  8814152,
+        "company":  "Intel Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netwtw08.inf_amd64_2fe3b54e7dee80b8\\Netwtw08.sys"
+    },
+    {
+        "name":  "Netwtw10.sys",
+        "size":  5162568,
+        "company":  "Intel Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netwtw08.inf_amd64_2fe3b54e7dee80b8\\Netwtw10.sys"
+    },
+    {
+        "name":  "Netwtw08.sys",
+        "size":  8815104,
+        "company":  "Intel Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netwtw08.inf_amd64_448906930b28afd9\\Netwtw08.sys"
+    },
+    {
+        "name":  "Netwtw10.sys",
+        "size":  5507072,
+        "company":  "Intel Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netwtw10.inf_amd64_400af1170541b7b0\\Netwtw10.sys"
+    },
+    {
+        "name":  "ixe60x64.sys",
+        "size":  188928,
+        "company":  "Intel Corporation",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\netxex64.inf_amd64_01587744078125a1\\ixe60x64.sys"
+    },
+    {
+        "name":  "npcap.sys",
+        "size":  69984,
+        "company":  "Insecure.Com LLC.",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\npcap.inf_amd64_7e15104413fda30a\\npcap.sys"
+    },
+    {
+        "name":  "tap0901.sys",
+        "size":  39920,
+        "company":  "The OpenVPN Project",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\oemvista.inf_amd64_662fd96dfdced4ae\\tap0901.sys"
+    },
+    {
+        "name":  "tap-quickfox.sys",
+        "size":  51472,
+        "company":  "The OpenVPN Project",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\oemvista.inf_amd64_f8792ad2d7912031\\tap-quickfox.sys"
+    },
+    {
+        "name":  "tap0901.sys",
+        "size":  40664,
+        "company":  "The OpenVPN Project",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\oemwin2k.inf_amd64_5a1fec2fbbccefcc\\tap0901.sys"
+    },
+    {
+        "name":  "qcwlan64.sys",
+        "size":  2706944,
+        "company":  "Qualcomm Atheros, Inc.",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\qcwlan64.inf_amd64_71c84e1405061462\\qcwlan64.sys"
+    },
+    {
+        "name":  "rt640x64.sys",
+        "size":  729088,
+        "company":  "Realtek                                        ",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\rt640x64.inf_amd64_cbf4e23981c3c8a3\\rt640x64.sys"
+    },
+    {
+        "name":  "rtcx21x64.sys",
+        "size":  539648,
+        "company":  "Realtek                                        ",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\rtcx21x64.inf_amd64_feec7a9662e785f0\\rtcx21x64.sys"
+    },
+    {
+        "name":  "rtu53cx21x64.sys",
+        "size":  850768,
+        "company":  "Realtek Corporation                                                                ",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\rtu53cx21x64sta.inf_amd64_b8ffb1088f34e798\\rtu53cx21x64.sys"
+    },
+    {
+        "name":  "rtu53cx22x64.sys",
+        "size":  1024768,
+        "company":  "Realtek Corporation                                                                ",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\rtu53cx22x64sta.inf_amd64_a62c4c27c6f7b549\\rtu53cx22x64.sys"
+    },
+    {
+        "name":  "rtucx21x64.sys",
+        "size":  1359360,
+        "company":  "Realtek Corporation                                                                ",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\rtucx21x64.inf_amd64_286645bc82b2f9fb\\rtucx21x64.sys"
+    },
+    {
+        "name":  "rtump64x64.sys",
+        "size":  937472,
+        "company":  "Realtek Corporation                                                                ",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\rtump64x64sta.inf_amd64_42b5d83c6ba5829f\\rtump64x64.sys"
+    },
+    {
+        "name":  "rtux64w10.sys",
+        "size":  683520,
+        "company":  "Realtek Corporation                                                                ",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\rtux64w10.inf_amd64_382d70e2c349183c\\rtux64w10.sys"
+    },
+    {
+        "name":  "rtwlanu_oldIC.sys",
+        "size":  3814400,
+        "company":  "Realtek Semiconductor Corporation                           ",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\rtwlanu_oldic.inf_amd64_de1bf895eba0afa5\\rtwlanu_oldIC.sys"
+    },
+    {
+        "name":  "vmxnet3.sys",
+        "size":  87040,
+        "company":  "VMware, Inc.",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\vmxnet3.inf_amd64_de19380e1b34c369\\vmxnet3.sys"
+    },
+    {
+        "name":  "ykinx64.sys",
+        "size":  288768,
+        "company":  "Marvell",
+        "path":  "C:\\Windows\\System32\\DriverStore\\FileRepository\\ykinx64.inf_amd64_5f83c04f4adb7630\\ykinx64.sys"
+    }
+]
