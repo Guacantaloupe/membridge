@@ -300,3 +300,27 @@ sc start -> FAILED 2: The system cannot find the file specified.
 - Rtx_HalExt：HAL 扩展 DLL，不能独立加载；
 - l1malwarebits_big：start=2；
 - 目标 PID CR3 仍只有 KPRL。
+
+## FastDump IOCTL 实测
+设备：
+```
+\\.\FastDump -> OPEN_OK
+```
+被调用的 IOCTL：
+
+| IOCTL | 结果 |
+|---|---|
+| `0x9C400018` | `err=0x6F8`（参数不匹配） |
+| `0x9C40002C` | `ok=True ret=0x410`，返回 CPUID/CPU 拓扑数据 |
+| `0x9C400030` | `ok=True ret=16`，返回 MSR 数据 |
+
+结论：
+- FastDump 确实向用户态暴露 CPUID、MSR 等能力；
+- `0x9C400018` 是复杂 VA/内存结构，当前输入格式错误；
+- 尚未证明它能直接返回 CR3；
+- 继续作为“有 CR3 指令/物理内存能力”的候选，不做盲 fuzz。
+
+## 本轮额外发现
+- AsrCDDrv 的 CR 访问违反 HVCI，0x20001 崩溃；
+- CCHWApi/CCHWApiExt 仍只能当前 CPU CR3；
+- KPRL 仍是唯一目标 PID CR3 路径。

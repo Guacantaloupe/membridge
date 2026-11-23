@@ -1,0 +1,11 @@
+﻿{
+    "date":  "2026-11-24T07:01:46",
+    "fastdump":  [
+                     "0x9C40002C CPUID OK",
+                     "0x9C400030 MSR OK",
+                     "0x9C400018 err 0x6F8"
+                 ],
+    "target_cr3":  "KPRL only",
+    "current_cr3":  "CCHWApi/CCHWApiExt",
+    "note":  "no new target CR3 provider; FastDump has CPUID/MSR but CR3 path unproven"
+}
