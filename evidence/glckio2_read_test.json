@@ -1,0 +1,10 @@
+﻿{
+    "date":  "2026-11-23T10:48:39",
+    "driver":  "GLCKIO2_3a5ec...sys",
+    "service":  "MbGLCKIO2",
+    "state":  "RUNNING",
+    "device":  "\\\\.\\GLCKIo2",
+    "test_pa":  "0x1000",
+    "output_hex":  "E9 4D 06 00 01 00 00 00 01 00 00 00 3F 00 18 10",
+    "verdict":  "PASS"
+}
