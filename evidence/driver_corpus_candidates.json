@@ -1,0 +1,2314 @@
+{
+  "root": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers",
+  "total_candidates": 1786,
+  "known_filtered": 41,
+  "top": [
+    {
+      "score": 38,
+      "name": "CLib_Tc3_System.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\CLib_Tc3_System_sys\\CLib_Tc3_System.sys",
+      "size": 538064,
+      "machine": "0x8664",
+      "sha256": "a8830f8dd6247aa5320289dff3258621966cfb2148852837cce6ffda4af1f1a0",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory",
+        "HalTranslateBusAddress"
+      ],
+      "devices": []
+    },
+    {
+      "score": 38,
+      "name": "TcRteFilter(5).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\TcRteFilter(5)_sys\\TcRteFilter(5).sys",
+      "size": 545952,
+      "machine": "0x8664",
+      "sha256": "21f043b00af4434f51117621319cc4bfc4f909d3166de3eef7f894288d0a2944",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory",
+        "HalTranslateBusAddress"
+      ],
+      "devices": []
+    },
+    {
+      "score": 38,
+      "name": "TcRteFilter(4).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\TcRteFilter(4)_sys\\TcRteFilter(4).sys",
+      "size": 550080,
+      "machine": "0x8664",
+      "sha256": "dfb97c8c0460b65addd1df61d2cdf0fb2f944a57d614a150615610479400d54e",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory",
+        "HalTranslateBusAddress"
+      ],
+      "devices": []
+    },
+    {
+      "score": 38,
+      "name": "TcRteFilter(2).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\TcRteFilter(2)_sys\\TcRteFilter(2).sys",
+      "size": 550184,
+      "machine": "0x8664",
+      "sha256": "c24339caeaf53b4a2336224dd934eb19705381463fa391381ff3c8d4db7217ae",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory",
+        "HalTranslateBusAddress"
+      ],
+      "devices": []
+    },
+    {
+      "score": 38,
+      "name": "TcAnalytics(16).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\TcAnalytics(16)_sys\\TcAnalytics(16).sys",
+      "size": 558520,
+      "machine": "0x8664",
+      "sha256": "80f76653f459076985cf3fcc56e70e895c3fb65faf6463c8d4db07606ed23ae9",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory",
+        "HalTranslateBusAddress"
+      ],
+      "devices": []
+    },
+    {
+      "score": 38,
+      "name": "TcRteFilter(1).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\TcRteFilter(1)_sys\\TcRteFilter(1).sys",
+      "size": 558728,
+      "machine": "0x8664",
+      "sha256": "8c3036c6f78194239dda9af4ced6f4f0c44c09569ea8fdf30a1fc90c0ecac737",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory",
+        "HalTranslateBusAddress"
+      ],
+      "devices": []
+    },
+    {
+      "score": 38,
+      "name": "TcRteFilter.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\TcRteFilter_sys\\TcRteFilter.sys",
+      "size": 558728,
+      "machine": "0x8664",
+      "sha256": "9424112ab6c51412d1900eaf63e85a660d1648fddc010a4b676c7c5c2fbc2834",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory",
+        "HalTranslateBusAddress"
+      ],
+      "devices": []
+    },
+    {
+      "score": 38,
+      "name": "TcAnalytics(14).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\TcAnalytics(14)_sys\\TcAnalytics(14).sys",
+      "size": 572480,
+      "machine": "0x8664",
+      "sha256": "e76e9fd2d8e408f0b2127b72c8dc94893778bc596a6e9023bd6aa223398b6241",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory",
+        "HalTranslateBusAddress"
+      ],
+      "devices": []
+    },
+    {
+      "score": 38,
+      "name": "TcAnalytics(12).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\TcAnalytics(12)_sys\\TcAnalytics(12).sys",
+      "size": 640448,
+      "machine": "0x8664",
+      "sha256": "33ed702d2092f10f152fd86c7eed5a17e8340b86cab9d98b559c89f4f3841e39",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory",
+        "HalTranslateBusAddress"
+      ],
+      "devices": []
+    },
+    {
+      "score": 38,
+      "name": "TcAnalytics(10).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\TcAnalytics(10)_sys\\TcAnalytics(10).sys",
+      "size": 667296,
+      "machine": "0x8664",
+      "sha256": "b61049ab2f876778a1588213931f6eaf97b089fed572fd8566f1e5248f0155e9",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory",
+        "HalTranslateBusAddress"
+      ],
+      "devices": []
+    },
+    {
+      "score": 38,
+      "name": "TcAnalytics(8).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\TcAnalytics(8)_sys\\TcAnalytics(8).sys",
+      "size": 668320,
+      "machine": "0x8664",
+      "sha256": "670e9740d93ce520edd21556fde024b91d226be7d237dd93875f66b5447bdfe3",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory",
+        "HalTranslateBusAddress"
+      ],
+      "devices": []
+    },
+    {
+      "score": 38,
+      "name": "TcAnalytics(9).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\TcAnalytics(9)_sys\\TcAnalytics(9).sys",
+      "size": 669344,
+      "machine": "0x8664",
+      "sha256": "44d408c8ac14c754c9dc3e77a43365913dd9456cb7901152d32f750867f32b1d",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory",
+        "HalTranslateBusAddress"
+      ],
+      "devices": []
+    },
+    {
+      "score": 38,
+      "name": "TcAnalytics(5).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\TcAnalytics(5)_sys\\TcAnalytics(5).sys",
+      "size": 697536,
+      "machine": "0x8664",
+      "sha256": "f57e690a2b598d44d494d8d0df9a4f29b8d73198850ed35e497bd2a5bc09d858",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory",
+        "HalTranslateBusAddress"
+      ],
+      "devices": []
+    },
+    {
+      "score": 38,
+      "name": "TcAnalytics(4).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\TcAnalytics(4)_sys\\TcAnalytics(4).sys",
+      "size": 698048,
+      "machine": "0x8664",
+      "sha256": "5f71a4322472dbc379a058ee6afa037895c7df5236e28cbb25593948b8973128",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory",
+        "HalTranslateBusAddress"
+      ],
+      "devices": []
+    },
+    {
+      "score": 38,
+      "name": "TcAnalytics(2).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\TcAnalytics(2)_sys\\TcAnalytics(2).sys",
+      "size": 701224,
+      "machine": "0x8664",
+      "sha256": "f0259d9efbb5cb9558d41d4128865665e95fcfae49f85e3a0c43d1f1ac1d1035",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory",
+        "HalTranslateBusAddress"
+      ],
+      "devices": []
+    },
+    {
+      "score": 38,
+      "name": "TcAnalytics(1).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\TcAnalytics(1)_sys\\TcAnalytics(1).sys",
+      "size": 705672,
+      "machine": "0x8664",
+      "sha256": "b287ba54f5533cc4fada0f933b4b86d90ed636b4225d78a0ba5c4aafb6d91f17",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory",
+        "HalTranslateBusAddress"
+      ],
+      "devices": []
+    },
+    {
+      "score": 38,
+      "name": "TcRTime(16).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\TcRTime(16)_sys\\TcRTime(16).sys",
+      "size": 745912,
+      "machine": "0x8664",
+      "sha256": "fe47e90861c4216270004473cb4d41cb2faad65090c982bedf18218fd99b682d",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory",
+        "HalTranslateBusAddress"
+      ],
+      "devices": []
+    },
+    {
+      "score": 38,
+      "name": "TcRTime(15).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\TcRTime(15)_sys\\TcRTime(15).sys",
+      "size": 754616,
+      "machine": "0x8664",
+      "sha256": "1a15948e27246e45d954baea9075d20335d6703a330d9e281d52f2040da3852c",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory",
+        "HalTranslateBusAddress"
+      ],
+      "devices": []
+    },
+    {
+      "score": 38,
+      "name": "TcRTime(14).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\TcRTime(14)_sys\\TcRTime(14).sys",
+      "size": 766648,
+      "machine": "0x8664",
+      "sha256": "017f494034d71ee820e1b67d2bbb162a893a72ee638919e982f05f9f46a32a4b",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory",
+        "HalTranslateBusAddress"
+      ],
+      "devices": []
+    },
+    {
+      "score": 38,
+      "name": "CLib_Tc3_McCoordinatedMotion.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\CLib_Tc3_McCoordinatedMotion_sys\\CLib_Tc3_McCoordinatedMotion.sys",
+      "size": 795088,
+      "machine": "0x8664",
+      "sha256": "5e91a0ecd8ae185725229c9d943b987ab000f17d1488085bbb7e49e352984aa1",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory",
+        "HalTranslateBusAddress"
+      ],
+      "devices": []
+    },
+    {
+      "score": 35,
+      "name": "vmx86(6).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\vmx86(6)_sys\\vmx86(6).sys",
+      "size": 95704,
+      "machine": "0x8664",
+      "sha256": "08589d70decd41c30906183b8ab36efe8d00cd71116a9f93791470ee0c0c65cc",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory"
+      ],
+      "devices": []
+    },
+    {
+      "score": 35,
+      "name": "vmx86(12).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\vmx86(12)_sys\\vmx86(12).sys",
+      "size": 96272,
+      "machine": "0x8664",
+      "sha256": "6f9f9bb3c57340850f1dd150d3f054852a690dd4fd3e8c0f5a97276e24370325",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory"
+      ],
+      "devices": []
+    },
+    {
+      "score": 35,
+      "name": "vmx86(8).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\vmx86(8)_sys\\vmx86(8).sys",
+      "size": 97696,
+      "machine": "0x8664",
+      "sha256": "9dfcfa4eeb5eb64ea595f169379fadb008d61c62859b1b4dca891ecf373bf64c",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory"
+      ],
+      "devices": []
+    },
+    {
+      "score": 35,
+      "name": "vmx86(9).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\vmx86(9)_sys\\vmx86(9).sys",
+      "size": 99136,
+      "machine": "0x8664",
+      "sha256": "9f5ddc3477e38ece2c6de00c5b45bfb4ae6b073b545bd4fd4f97224fea719c11",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory"
+      ],
+      "devices": []
+    },
+    {
+      "score": 35,
+      "name": "vmx86(10).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\vmx86(10)_sys\\vmx86(10).sys",
+      "size": 99272,
+      "machine": "0x8664",
+      "sha256": "9cd54e8d3718b9358a085edc584d20cc3f54dd852461b7d65f30aca141fcaea7",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory"
+      ],
+      "devices": []
+    },
+    {
+      "score": 35,
+      "name": "vmx86(5).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\vmx86(5)_sys\\vmx86(5).sys",
+      "size": 99768,
+      "machine": "0x8664",
+      "sha256": "27932c4ba456fac38348d441c054692ff4e21a3640db37bd623da5358af3195b",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory"
+      ],
+      "devices": []
+    },
+    {
+      "score": 35,
+      "name": "vmx86.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\vmx86_sys\\vmx86.sys",
+      "size": 100920,
+      "machine": "0x8664",
+      "sha256": "4bfb88a5ebcc36a1d7c45f5b4d51bdc44bbb42179acd023b35ee8ba87ecd9543",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory"
+      ],
+      "devices": []
+    },
+    {
+      "score": 35,
+      "name": "vmx86(1).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\vmx86(1)_sys\\vmx86(1).sys",
+      "size": 102200,
+      "machine": "0x8664",
+      "sha256": "08e2d10eeacdc37f5de10afc8ef28422349f3eb0bf5e9c1feb812b1cdcf5a868",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory"
+      ],
+      "devices": []
+    },
+    {
+      "score": 35,
+      "name": "vmx86(11).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\vmx86(11)_sys\\vmx86(11).sys",
+      "size": 103360,
+      "machine": "0x8664",
+      "sha256": "2789e289565429e46dd181dec1432b2f0a8aa117dac96c657c16c8d0092f44a9",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory"
+      ],
+      "devices": []
+    },
+    {
+      "score": 35,
+      "name": "vmx86(4).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\vmx86(4)_sys\\vmx86(4).sys",
+      "size": 110696,
+      "machine": "0x8664",
+      "sha256": "b2add1d65de84b4b1485d8c06b61de2d6ae3e86f7e1b1c47fa01f59861abe66d",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory"
+      ],
+      "devices": []
+    },
+    {
+      "score": 35,
+      "name": "vmx86(7).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\vmx86(7)_sys\\vmx86(7).sys",
+      "size": 110696,
+      "machine": "0x8664",
+      "sha256": "452198fd940d45d404c5a127199c483b706b9b1c2ed84b158cbb51a3f95ed311",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory"
+      ],
+      "devices": []
+    },
+    {
+      "score": 35,
+      "name": "vmx86(3).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\vmx86(3)_sys\\vmx86(3).sys",
+      "size": 114232,
+      "machine": "0x8664",
+      "sha256": "de30683815f3ee977086a56bb1e0aadb0aa384ce9ec424d8298b917ca4b5a827",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory"
+      ],
+      "devices": []
+    },
+    {
+      "score": 35,
+      "name": "windrvr1260(1).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\windrvr1260(1)_sys\\windrvr1260(1).sys",
+      "size": 270048,
+      "machine": "0x8664",
+      "sha256": "072f16148483afeeb0c37c745421df83f26d8359da95dc1219a700742cf010f7",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory",
+        "HalTranslateBusAddress"
+      ],
+      "devices": []
+    },
+    {
+      "score": 35,
+      "name": "windrvr1411(2).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\windrvr1411(2)_sys\\windrvr1411(2).sys",
+      "size": 271184,
+      "machine": "0x8664",
+      "sha256": "de8172a5989463dee93862985da6384b1e265c29ff5ff7b546f7ca38e0043377",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory",
+        "HalTranslateBusAddress"
+      ],
+      "devices": []
+    },
+    {
+      "score": 35,
+      "name": "windrvr1251.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\windrvr1251_sys\\windrvr1251.sys",
+      "size": 277216,
+      "machine": "0x8664",
+      "sha256": "d217dbb7738ae0a9b8c054d553c94d9d3de9e08d5e98b007c041f4efe766d241",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory",
+        "HalTranslateBusAddress"
+      ],
+      "devices": []
+    },
+    {
+      "score": 35,
+      "name": "windrvr1260.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\windrvr1260_sys\\windrvr1260.sys",
+      "size": 280368,
+      "machine": "0x8664",
+      "sha256": "7203e3a3621f52785840e79da262d03b2ad179a406f448ad83bbbbd32ba64dd0",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory",
+        "HalTranslateBusAddress"
+      ],
+      "devices": []
+    },
+    {
+      "score": 35,
+      "name": "windrvr1411(1).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\windrvr1411(1)_sys\\windrvr1411(1).sys",
+      "size": 280640,
+      "machine": "0x8664",
+      "sha256": "2421533941c9dab234239feb9f2a72ed13b21f3f9da9829dffe232282b1bc4b6",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory",
+        "HalTranslateBusAddress"
+      ],
+      "devices": []
+    },
+    {
+      "score": 35,
+      "name": "windrvr1281.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\windrvr1281_sys\\windrvr1281.sys",
+      "size": 283216,
+      "machine": "0x8664",
+      "sha256": "fb007d649728eace633ce12eb4287cc3ecf47fbfe1f9a875a7e8e992fa36b972",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory",
+        "HalTranslateBusAddress"
+      ],
+      "devices": []
+    },
+    {
+      "score": 35,
+      "name": "windrvr1280.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\windrvr1280_sys\\windrvr1280.sys",
+      "size": 288312,
+      "machine": "0x8664",
+      "sha256": "b8d8f642ef62d2781e2dc4d1f797c66599961b43e469d30b6ce1dce718cc5808",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory",
+        "HalTranslateBusAddress"
+      ],
+      "devices": []
+    },
+    {
+      "score": 35,
+      "name": "nipalk(1).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\nipalk(1)_sys\\nipalk(1).sys",
+      "size": 788536,
+      "machine": "0x8664",
+      "sha256": "d662e1392ef2805cc1933f2b4ccecd47f908b750cdd036bf8cb42757f0a0494d",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory"
+      ],
+      "devices": []
+    },
+    {
+      "score": 35,
+      "name": "nipalk(8).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\nipalk(8)_sys\\nipalk(8).sys",
+      "size": 792344,
+      "machine": "0x8664",
+      "sha256": "79ef09224516ee08af9627f5f5e6f3729431d01fc5d8e0e891c5834ee9beeb3b",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory"
+      ],
+      "devices": []
+    },
+    {
+      "score": 35,
+      "name": "nipalk(2).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\nipalk(2)_sys\\nipalk(2).sys",
+      "size": 792376,
+      "machine": "0x8664",
+      "sha256": "dc921b0acdf9e32947233e7e607e720efae6acde0bc78001b36eaa8819a025bd",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory"
+      ],
+      "devices": []
+    },
+    {
+      "score": 35,
+      "name": "nipalk(10).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\nipalk(10)_sys\\nipalk(10).sys",
+      "size": 792392,
+      "machine": "0x8664",
+      "sha256": "f4a125fd04e1d778aa94ae64af1cb06247450d6fd98bc15d9fe9424db24f384c",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory"
+      ],
+      "devices": []
+    },
+    {
+      "score": 35,
+      "name": "nipalk(7).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\nipalk(7)_sys\\nipalk(7).sys",
+      "size": 792392,
+      "machine": "0x8664",
+      "sha256": "bf45f41b04afbcd358fe9d58f9b6d9156841136d66b69e5a666ce88139ca14a8",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory"
+      ],
+      "devices": []
+    },
+    {
+      "score": 35,
+      "name": "nipalk(6).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\nipalk(6)_sys\\nipalk(6).sys",
+      "size": 792496,
+      "machine": "0x8664",
+      "sha256": "0b31bf3bd40ce06bc37877fe505b9e5feaf5e363dfc840e479f3ddef762f11d4",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory"
+      ],
+      "devices": []
+    },
+    {
+      "score": 35,
+      "name": "nipalk(5).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\nipalk(5)_sys\\nipalk(5).sys",
+      "size": 793312,
+      "machine": "0x8664",
+      "sha256": "5850dc84c1133ee616db5ba6b77907500a5dee461e873b1382731123b2cbee5a",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory"
+      ],
+      "devices": []
+    },
+    {
+      "score": 35,
+      "name": "nipalk(3).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\nipalk(3)_sys\\nipalk(3).sys",
+      "size": 793416,
+      "machine": "0x8664",
+      "sha256": "b3910fc2eb19dc367a45d5f1a68521ec9509d4c85df0ea5c1207faffffab3163",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory"
+      ],
+      "devices": []
+    },
+    {
+      "score": 35,
+      "name": "nipalk(12).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\nipalk(12)_sys\\nipalk(12).sys",
+      "size": 798304,
+      "machine": "0x8664",
+      "sha256": "d01c734b309a4ee5425afbb1a3181fcecffe5281dd6d654793a33394fd6b8e10",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory"
+      ],
+      "devices": []
+    },
+    {
+      "score": 35,
+      "name": "nipalk.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\nipalk_sys\\nipalk.sys",
+      "size": 828432,
+      "machine": "0x8664",
+      "sha256": "8adeddf6acd36dcd0edc14802b40ebc6dd7634dd60dd095f4d9e1689d6f29484",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory"
+      ],
+      "devices": []
+    },
+    {
+      "score": 33,
+      "name": "arkmon(19).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\arkmon(19)_sys\\arkmon(19).sys",
+      "size": 360384,
+      "machine": "0x8664",
+      "sha256": "d6b1961e3cd589107e64c7f69f65ccc8822b63bf1a0e3695ba8f6795d28a907c",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "devices": []
+    },
+    {
+      "score": 33,
+      "name": "arkmon(13).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\arkmon(13)_sys\\arkmon(13).sys",
+      "size": 367904,
+      "machine": "0x8664",
+      "sha256": "5c07fc853548e0b726cbd5a15946f6e1546c5622cc8b5e62bef1644e0959c8e7",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "devices": []
+    },
+    {
+      "score": 33,
+      "name": "arkmon(14).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\arkmon(14)_sys\\arkmon(14).sys",
+      "size": 384656,
+      "machine": "0x8664",
+      "sha256": "69017a3ae7007eae5e6e674e303bbf9f568dd9daa12948b3b1b4dcc6cce8856f",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "devices": []
+    },
+    {
+      "score": 33,
+      "name": "arkmon(17).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\arkmon(17)_sys\\arkmon(17).sys",
+      "size": 385072,
+      "machine": "0x8664",
+      "sha256": "72bbe3b4e8c91a7acfdc0a96cf08912b9a936d7d332005375dff0ae31cbabf5b",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "devices": []
+    },
+    {
+      "score": 33,
+      "name": "arkmon(24).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\arkmon(24)_sys\\arkmon(24).sys",
+      "size": 385808,
+      "machine": "0x8664",
+      "sha256": "ed178f5e3251109890fe7e511568330f8aa7d66feb96ba50290f567cb7ad3c8a",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "devices": []
+    },
+    {
+      "score": 33,
+      "name": "arkmon(11).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\arkmon(11)_sys\\arkmon(11).sys",
+      "size": 396032,
+      "machine": "0x8664",
+      "sha256": "40743b8719af4a17ce3b08745288f3866824eb1fedf70ba5e43ed624a52939fe",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "devices": []
+    },
+    {
+      "score": 33,
+      "name": "arkmon(12).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\arkmon(12)_sys\\arkmon(12).sys",
+      "size": 397600,
+      "machine": "0x8664",
+      "sha256": "088aeef770f9048ad5d25acd23908079b4c1551399c25fa37883410a0000e8e9",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "devices": []
+    },
+    {
+      "score": 33,
+      "name": "arkmon(1).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\arkmon(1)_sys\\arkmon(1).sys",
+      "size": 399224,
+      "machine": "0x8664",
+      "sha256": "b1cbf0b46cfa0e4f8d88c6c3a72d63ef85b98df3f512c563c2a6e3011d316321",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "devices": []
+    },
+    {
+      "score": 33,
+      "name": "arkmon(5).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\arkmon(5)_sys\\arkmon(5).sys",
+      "size": 424600,
+      "machine": "0x8664",
+      "sha256": "44266e761ffff2ee5fee7bd61d1d92a42bdc701b2e85e76b3e3de5758c05c711",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "devices": []
+    },
+    {
+      "score": 33,
+      "name": "arkmon(2).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\arkmon(2)_sys\\arkmon(2).sys",
+      "size": 493272,
+      "machine": "0x8664",
+      "sha256": "f84b0af70959602de72d903a924b3498910d2b028bf866c28a82d383cf3d3288",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "devices": []
+    },
+    {
+      "score": 32,
+      "name": "basler_ic(1).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\basler_ic(1)_sys\\basler_ic(1).sys",
+      "size": 128792,
+      "machine": "0x8664",
+      "sha256": "382cd561a003a0c7148b8b00a1e0a7224055c97be860109c70b39b64bd87ebbc",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory"
+      ],
+      "devices": []
+    },
+    {
+      "score": 32,
+      "name": "basler_ic(3).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\basler_ic(3)_sys\\basler_ic(3).sys",
+      "size": 141296,
+      "machine": "0x8664",
+      "sha256": "fb1b7e4759d9bf80ad61fb77dea3cf9999a688e7ea0c89d524daecdb81e0cb4b",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory"
+      ],
+      "devices": []
+    },
+    {
+      "score": 32,
+      "name": "EPIXXCW6.SYS",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\EPIXXCW6_SYS\\EPIXXCW6.SYS",
+      "size": 168944,
+      "machine": "0x8664",
+      "sha256": "5fdc7fc6a29bf059a86a2c6fb9f7228646893168e07cd49c15753ab25ad3140f",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory"
+      ],
+      "devices": []
+    },
+    {
+      "score": 32,
+      "name": "EPIXXCW6(1).SYS",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\EPIXXCW6(1)_SYS\\EPIXXCW6(1).SYS",
+      "size": 178960,
+      "machine": "0x8664",
+      "sha256": "0f0ff8ff2ccb7edc36eff5bdc8de841e733c4d9d7f8a5ef78d9a6a3b402a3bdf",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory"
+      ],
+      "devices": []
+    },
+    {
+      "score": 32,
+      "name": "EPIXXCW6(2).SYS",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\EPIXXCW6(2)_SYS\\EPIXXCW6(2).SYS",
+      "size": 179976,
+      "machine": "0x8664",
+      "sha256": "5d820096e6323cc679f01e7e889364f6488f2e153eeb7cf958a10e8c3cc28ef3",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory"
+      ],
+      "devices": []
+    },
+    {
+      "score": 32,
+      "name": "Dalwdm(1).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Dalwdm(1)_sys\\Dalwdm(1).sys",
+      "size": 196768,
+      "machine": "0x8664",
+      "sha256": "0349a8102150c8897f4bfd968870e1a991489c1402fbbc5f72f8e91851856834",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory"
+      ],
+      "devices": []
+    },
+    {
+      "score": 31,
+      "name": "amigendrv64.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\amigendrv64_sys\\amigendrv64.sys",
+      "size": 27208,
+      "machine": "0x8664",
+      "sha256": "71114f4521fc92abdfac7d7192f3b7e29fc42e9eadc9320d5a58c9b4432bd9e7",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory",
+        "HalTranslateBusAddress"
+      ],
+      "devices": []
+    },
+    {
+      "score": 31,
+      "name": "amigendrv64(1).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\amigendrv64(1)_sys\\amigendrv64(1).sys",
+      "size": 37040,
+      "machine": "0x8664",
+      "sha256": "15b7c48afcd8151e9810b045536c438341b921448f97859c3e49d919b8ee3009",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory",
+        "HalTranslateBusAddress"
+      ],
+      "devices": []
+    },
+    {
+      "score": 31,
+      "name": "amigendrv64(2).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\amigendrv64(2)_sys\\amigendrv64(2).sys",
+      "size": 37040,
+      "machine": "0x8664",
+      "sha256": "d218dd9cd3dd657e683d31935d887d5cb38a3ba84e13bf626315a91c52cd7030",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory",
+        "HalTranslateBusAddress"
+      ],
+      "devices": []
+    },
+    {
+      "score": 31,
+      "name": "pfb.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\pfb_sys\\pfb.sys",
+      "size": 78920,
+      "machine": "0x8664",
+      "sha256": "9957c3bb58feac4e3677f85a5f9c0ba6a497487b12575c10149dfb85c2cf9e36",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory",
+        "HalTranslateBusAddress"
+      ],
+      "devices": []
+    },
+    {
+      "score": 31,
+      "name": "aswArPot(8).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\aswArPot(8)_sys\\aswArPot(8).sys",
+      "size": 229832,
+      "machine": "0x8664",
+      "sha256": "19bbb46b61be8e3d6fe013fe53d95d5282cb6e00ad6d53043aa7442c881c4c0e",
+      "hits": [
+        "MmMapIoSpace",
+        "MmCopyMemory",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "devices": []
+    },
+    {
+      "score": 31,
+      "name": "aswArPot(17).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\aswArPot(17)_sys\\aswArPot(17).sys",
+      "size": 229952,
+      "machine": "0x8664",
+      "sha256": "928b1e6f9bfe6761d07f8d919d039efb77e9f1bb3f7147ef0a68b282ae0c0cc6",
+      "hits": [
+        "MmMapIoSpace",
+        "MmCopyMemory",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "devices": []
+    },
+    {
+      "score": 31,
+      "name": "aswArPot(22).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\aswArPot(22)_sys\\aswArPot(22).sys",
+      "size": 230464,
+      "machine": "0x8664",
+      "sha256": "443b2d601c851c92766882b451253b821d10d14cdb0bd6e56f3555624d8de3d6",
+      "hits": [
+        "MmMapIoSpace",
+        "MmCopyMemory",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "devices": []
+    },
+    {
+      "score": 31,
+      "name": "aswArPot(21).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\aswArPot(21)_sys\\aswArPot(21).sys",
+      "size": 230968,
+      "machine": "0x8664",
+      "sha256": "910f49b9c25d6d3044b868567595e82a38f8f1b70640c0c4b31cacafff00c57a",
+      "hits": [
+        "MmMapIoSpace",
+        "MmCopyMemory",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "devices": []
+    },
+    {
+      "score": 31,
+      "name": "aswArPot(20).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\aswArPot(20)_sys\\aswArPot(20).sys",
+      "size": 231480,
+      "machine": "0x8664",
+      "sha256": "e5ed0f8fac7e8606a40ee8a394f4687a327981a70a21f082459793257afbfaa2",
+      "hits": [
+        "MmMapIoSpace",
+        "MmCopyMemory",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "devices": []
+    },
+    {
+      "score": 31,
+      "name": "aswArPot(15).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\aswArPot(15)_sys\\aswArPot(15).sys",
+      "size": 233016,
+      "machine": "0x8664",
+      "sha256": "56f7e07b61fbbb19ced81ded24ed51c539a0db7ef87c1fff9abfbb0e9ddaec94",
+      "hits": [
+        "MmMapIoSpace",
+        "MmCopyMemory",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "devices": []
+    },
+    {
+      "score": 31,
+      "name": "aswArPot(12).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\aswArPot(12)_sys\\aswArPot(12).sys",
+      "size": 235064,
+      "machine": "0x8664",
+      "sha256": "f7897ea383103f1362cce22788037271f711d674f17db6d87ff99a098f3f479e",
+      "hits": [
+        "MmMapIoSpace",
+        "MmCopyMemory",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "devices": []
+    },
+    {
+      "score": 31,
+      "name": "aswArPot(24).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\aswArPot(24)_sys\\aswArPot(24).sys",
+      "size": 240176,
+      "machine": "0x8664",
+      "sha256": "9361065685935bec4dced027161d6fbac3b99114a56d674ac9f757831378cb48",
+      "hits": [
+        "MmMapIoSpace",
+        "MmCopyMemory",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "devices": []
+    },
+    {
+      "score": 31,
+      "name": "aswArPot(9).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\aswArPot(9)_sys\\aswArPot(9).sys",
+      "size": 245304,
+      "machine": "0x8664",
+      "sha256": "19fdfbe08d5b47d316035e19deb5927b356cbad5d2e10a5ec98df2f5eb8a5135",
+      "hits": [
+        "MmMapIoSpace",
+        "MmCopyMemory",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "devices": []
+    },
+    {
+      "score": 31,
+      "name": "aswArPot(6).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\aswArPot(6)_sys\\aswArPot(6).sys",
+      "size": 245344,
+      "machine": "0x8664",
+      "sha256": "8eba3a0229e5b2ffc6ab1821eba1701caac2a5e51f88e74892d935df7d43ebc3",
+      "hits": [
+        "MmMapIoSpace",
+        "MmCopyMemory",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "devices": []
+    },
+    {
+      "score": 31,
+      "name": "aswArPot(13).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\aswArPot(13)_sys\\aswArPot(13).sys",
+      "size": 246880,
+      "machine": "0x8664",
+      "sha256": "940f9a7d48965bd161895e6dd50f01c58a61fcfbbf1d94854f1c08589da218f6",
+      "hits": [
+        "MmMapIoSpace",
+        "MmCopyMemory",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "devices": []
+    },
+    {
+      "score": 31,
+      "name": "IntelFirmwareInterface.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\IntelFirmwareInterface_sys\\IntelFirmwareInterface.sys",
+      "size": 261056,
+      "machine": "0x8664",
+      "sha256": "83a5f975f3f5392387e1ba0c38ba113237a79a16651584fe4e168b09afea0c32",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory",
+        "HalTranslateBusAddress"
+      ],
+      "devices": []
+    },
+    {
+      "score": 31,
+      "name": "VBoxGuest(34).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\VBoxGuest(34)_sys\\VBoxGuest(34).sys",
+      "size": 263976,
+      "machine": "0x8664",
+      "sha256": "5cff34e5786bf7dce54702ddd94fe7c33fd55e1d422584b71bd0bc2f9771d709",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory",
+        "HalTranslateBusAddress"
+      ],
+      "devices": []
+    },
+    {
+      "score": 31,
+      "name": "VBoxGuest(28).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\VBoxGuest(28)_sys\\VBoxGuest(28).sys",
+      "size": 267408,
+      "machine": "0x8664",
+      "sha256": "2c9839139db197a5761a52b3387b2ac533f4e538d8a78c6423a6f2b2f48d781d",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory",
+        "HalTranslateBusAddress"
+      ],
+      "devices": []
+    },
+    {
+      "score": 31,
+      "name": "VBoxGuest(8).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\VBoxGuest(8)_sys\\VBoxGuest(8).sys",
+      "size": 290120,
+      "machine": "0x8664",
+      "sha256": "1131009ba4688b6fa595c47fdd05e295adbde898c25c45bfbde819abda4061c9",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory",
+        "HalTranslateBusAddress"
+      ],
+      "devices": []
+    },
+    {
+      "score": 31,
+      "name": "VBoxGuest(7).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\VBoxGuest(7)_sys\\VBoxGuest(7).sys",
+      "size": 290152,
+      "machine": "0x8664",
+      "sha256": "48066d7c847c9849cf655905953d7016970cb2535adaf4a8e8446e7d381c2f88",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory",
+        "HalTranslateBusAddress"
+      ],
+      "devices": []
+    },
+    {
+      "score": 31,
+      "name": "aswArPot(1).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\aswArPot(1)_sys\\aswArPot(1).sys",
+      "size": 296544,
+      "machine": "0x8664",
+      "sha256": "72d3cbcef16b1dacba25902700c67f5dd8783496c6300bdfc6b62bbe0c2e4171",
+      "hits": [
+        "MmMapIoSpace",
+        "MmCopyMemory",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "devices": []
+    },
+    {
+      "score": 30,
+      "name": "CorMem(1).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\CorMem(1)_sys\\CorMem(1).sys",
+      "size": 60496,
+      "machine": "0x8664",
+      "sha256": "a1493cacb1f06a2cc64bee4550ba2d551e86b321eeaf0d8b43ff19921e967a28",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory",
+        "HalTranslateBusAddress"
+      ],
+      "devices": []
+    },
+    {
+      "score": 30,
+      "name": "PSKMAD_64(1).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\PSKMAD_64(1)_sys\\PSKMAD_64(1).sys",
+      "size": 63344,
+      "machine": "0x8664",
+      "sha256": "d1c11a952f91d309a4af6ea0d68fe424ab4b058b41adfc69a9cc7ca16dd3595a",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "devices": []
+    },
+    {
+      "score": 30,
+      "name": "PSKMAD_64.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\PSKMAD_64_sys\\PSKMAD_64.sys",
+      "size": 63360,
+      "machine": "0x8664",
+      "sha256": "9bf3b737afa4d4f5e7b00ec749d4b75656ad66d9a2b402e1e81934e95ba7df5b",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "devices": []
+    },
+    {
+      "score": 30,
+      "name": "CorMem(3).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\CorMem(3)_sys\\CorMem(3).sys",
+      "size": 70736,
+      "machine": "0x8664",
+      "sha256": "6b4a3155088675ef197256768715365091d4e35d9a274b8eafc7a215a4788376",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory",
+        "HalTranslateBusAddress"
+      ],
+      "devices": []
+    },
+    {
+      "score": 30,
+      "name": "CorMem(2).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\CorMem(2)_sys\\CorMem(2).sys",
+      "size": 72144,
+      "machine": "0x8664",
+      "sha256": "63087454ddeb0fcc54c3838aa37c7630ba100580629d9af44550b0bf03f50b1d",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory",
+        "HalTranslateBusAddress"
+      ],
+      "devices": []
+    },
+    {
+      "score": 30,
+      "name": "CorMem.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\CorMem_sys\\CorMem.sys",
+      "size": 75976,
+      "machine": "0x8664",
+      "sha256": "b93f19e90480b14b03dc5996b4ad19ea89e5878e9703d63a8b8034cea0d713f8",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory",
+        "HalTranslateBusAddress"
+      ],
+      "devices": []
+    },
+    {
+      "score": 30,
+      "name": "C__Windows_system32_Drivers_dumpit.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\C__Windows_system32_Drivers_dumpit_sys\\C__Windows_system32_Drivers_dumpit.sys",
+      "size": 82104,
+      "machine": "0x8664",
+      "sha256": "ccfe72a0da64fa8e350156301d23cf2fabdcf1c7387b0f20f739ced9e6c01f71",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "devices": []
+    },
+    {
+      "score": 30,
+      "name": "C__WINDOWS_system32_Drivers_DumpIt64(1).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\C__WINDOWS_system32_Drivers_DumpIt64(1)_sys\\C__WINDOWS_system32_Drivers_DumpIt64(1).sys",
+      "size": 82504,
+      "machine": "0x8664",
+      "sha256": "d121241d25abe715fc664cf27b1bebcdfedfe75f5b7086c00349cdbb22edc5fd",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "devices": []
+    },
+    {
+      "score": 30,
+      "name": "c__windows_system32_drivers_dumpit64.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\c__windows_system32_drivers_dumpit64_sys\\c__windows_system32_drivers_dumpit64.sys",
+      "size": 89408,
+      "machine": "0x8664",
+      "sha256": "bd22a8964daf524be97739eb612ea4887e3117eb44bf0ee311634cc0ef0fdd63",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "devices": []
+    },
+    {
+      "score": 30,
+      "name": "basler_ic.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\basler_ic_sys\\basler_ic.sys",
+      "size": 166856,
+      "machine": "0x8664",
+      "sha256": "2fef94231b2e580cc1f837ef94504d41f034420ef9b437c3e242abe915311790",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "devices": []
+    },
+    {
+      "score": 30,
+      "name": "sysdiag(5).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\sysdiag(5)_sys\\sysdiag(5).sys",
+      "size": 490544,
+      "machine": "0x8664",
+      "sha256": "35db86ad93253b951b7ccbd59d3c48b178812920edd4647f0b5f55534db1ea0f",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "devices": []
+    },
+    {
+      "score": 30,
+      "name": "sysdiag(16).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\sysdiag(16)_sys\\sysdiag(16).sys",
+      "size": 490552,
+      "machine": "0x8664",
+      "sha256": "a31b379a9ef8b53737439e02c4a956d8f7d57a76cbc8213537c00cc463e00a86",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "devices": []
+    },
+    {
+      "score": 30,
+      "name": "sysdiag(18).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\sysdiag(18)_sys\\sysdiag(18).sys",
+      "size": 490920,
+      "machine": "0x8664",
+      "sha256": "923d90868a01abe396e98d38f704f20883bdcec220c690ccfa357639b8722393",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "devices": []
+    },
+    {
+      "score": 30,
+      "name": "sysdiag(11).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\sysdiag(11)_sys\\sysdiag(11).sys",
+      "size": 501896,
+      "machine": "0x8664",
+      "sha256": "0ee0ce196abf66ea1b85e2731fed63bdc2ca09b8905c2e3108ef25d1a0f21f58",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "devices": []
+    },
+    {
+      "score": 30,
+      "name": "sysdiag(10).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\sysdiag(10)_sys\\sysdiag(10).sys",
+      "size": 501936,
+      "machine": "0x8664",
+      "sha256": "ec08e4e8aadd9385228f6766ca16193de2001b2af953a44c4e3face6b31903b3",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "devices": []
+    },
+    {
+      "score": 30,
+      "name": "sysdiag(6).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\sysdiag(6)_sys\\sysdiag(6).sys",
+      "size": 525464,
+      "machine": "0x8664",
+      "sha256": "85cb01ff83abe93df9880fdddfdde2c890212ac4aeaf473cd04df31884a923eb",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "devices": []
+    },
+    {
+      "score": 30,
+      "name": "sysdiag(7).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\sysdiag(7)_sys\\sysdiag(7).sys",
+      "size": 525480,
+      "machine": "0x8664",
+      "sha256": "7496b34c00e41fb541983758b33269912dadce0e69619c22dfb1bc451e91dc66",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "devices": []
+    },
+    {
+      "score": 30,
+      "name": "$(LSTR_37)_heimdall.sra_10_0.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\$(LSTR_37)_heimdall_sra_10_0_sys\\$(LSTR_37)_heimdall.sra_10_0.sys",
+      "size": 699128,
+      "machine": "0x8664",
+      "sha256": "55fe2010adfc2bee273897ba14a95822768819c87a4e1d129bb49f22b4a77f24",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "devices": []
+    },
+    {
+      "score": 29,
+      "name": "C__Users_user_AppData_Local_Temp_20240525.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\C__Users_user_AppData_Local_Temp_20240525_sys\\C__Users_user_AppData_Local_Temp_20240525.sys",
+      "size": 26800,
+      "machine": "0x8664",
+      "sha256": "501b532e5d4b8b54d7f7b4ca008538b195f32bfb33387d67457bbcf08196ee7b",
+      "hits": [
+        "MmMapIoSpace",
+        "MmCopyMemory",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "PhysicalMemory",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "devices": []
+    },
+    {
+      "score": 29,
+      "name": "seraphad8.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\seraphad8_sys\\seraphad8.sys",
+      "size": 215744,
+      "machine": "0x8664",
+      "sha256": "620f05ecf23b254e6b4b30f66c5bd60893b7b7bad9d6ad7040192769ef224e2f",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "ZwOpenSection",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory"
+      ],
+      "devices": []
+    },
+    {
+      "score": 29,
+      "name": "BitFlow.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\BitFlow_sys\\BitFlow.sys",
+      "size": 836296,
+      "machine": "0x8664",
+      "sha256": "26689f17278879730b4ecca34873dfc83b6f316d6895cc08e6500b18ff3e99c6",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "MmMapLockedPagesSpecifyCache",
+        "HalTranslateBusAddress"
+      ],
+      "devices": []
+    },
+    {
+      "score": 28,
+      "name": "AmdCrashDefender.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\AmdCrashDefender_sys\\AmdCrashDefender.sys",
+      "size": 24152,
+      "machine": "0x8664",
+      "sha256": "8d2a3e51154e4166bdc1000c95583ef4ff6467ba420b01f119c86fbc18d98a77",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory"
+      ],
+      "devices": []
+    },
+    {
+      "score": 28,
+      "name": "FocusriteRedNetPCIe.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\FocusriteRedNetPCIe_sys\\FocusriteRedNetPCIe.sys",
+      "size": 38872,
+      "machine": "0x8664",
+      "sha256": "725ed1aa5dd6bf45c97a3c0b2464b50d6a833ffc64d5f39431d2495bd3c6dcc4",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "IoAllocateMdl",
+        "ZwOpenSection",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory"
+      ],
+      "devices": []
+    },
+    {
+      "score": 28,
+      "name": "HwOs2Ec(13).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\HwOs2Ec(13)_sys\\HwOs2Ec(13).sys",
+      "size": 48520,
+      "machine": "0x8664",
+      "sha256": "ea5fbc8c475de492b9599dc0c005e0aa55a6d8bc80284f608bbd045d42138e53",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory"
+      ],
+      "devices": []
+    },
+    {
+      "score": 28,
+      "name": "HwOs2Ec(12).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\HwOs2Ec(12)_sys\\HwOs2Ec(12).sys",
+      "size": 57152,
+      "machine": "0x8664",
+      "sha256": "5044e98447242854f777fe7fe6ef2cfe7f0e3a3fa67c6fce00fe9f3dfd3387e7",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory"
+      ],
+      "devices": []
+    },
+    {
+      "score": 28,
+      "name": "GFAC_Sys_x64.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\GFAC_Sys_x64_sys\\GFAC_Sys_x64.sys",
+      "size": 60744,
+      "machine": "0x8664",
+      "sha256": "f30d01ee2e74accc077e8ced20a0e35f36953fab04b78f31e0cee36830da3008",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory"
+      ],
+      "devices": []
+    },
+    {
+      "score": 28,
+      "name": "vmci.sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\vmci_sys\\vmci.sys",
+      "size": 106424,
+      "machine": "0x8664",
+      "sha256": "271ba545a48ce19a6cde058b1292369fa6440f1c0a35780526dfe2cf25073419",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory"
+      ],
+      "devices": []
+    },
+    {
+      "score": 28,
+      "name": "vmci(1).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\vmci(1)_sys\\vmci(1).sys",
+      "size": 106560,
+      "machine": "0x8664",
+      "sha256": "023efb6166fc1291f4ade77910a9f2c9c3bf38d807a33196639da5e59bd8a2bc",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory"
+      ],
+      "devices": []
+    },
+    {
+      "score": 28,
+      "name": "vmci(2).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\vmci(2)_sys\\vmci(2).sys",
+      "size": 106568,
+      "machine": "0x8664",
+      "sha256": "54df46d3b8aeea59c2d35306ab688481214f6fcfc739a5ecfabe1c51143a4256",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory"
+      ],
+      "devices": []
+    },
+    {
+      "score": 28,
+      "name": "Pci9524(14).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Pci9524(14)_sys\\Pci9524(14).sys",
+      "size": 109520,
+      "machine": "0x8664",
+      "sha256": "a0fcf1fb7aa92ab0ffb98e972110fa89cb4467fc98faa97181571a3d705a805b",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory"
+      ],
+      "devices": []
+    },
+    {
+      "score": 28,
+      "name": "Pci9524(15).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Pci9524(15)_sys\\Pci9524(15).sys",
+      "size": 109624,
+      "machine": "0x8664",
+      "sha256": "b6942408704a114c06f0860ef9fcbeb097370af8150409b3c76625d18c5f6c3a",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory"
+      ],
+      "devices": []
+    },
+    {
+      "score": 28,
+      "name": "Pci9524(6).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Pci9524(6)_sys\\Pci9524(6).sys",
+      "size": 110128,
+      "machine": "0x8664",
+      "sha256": "079143a26a36a9da7a8104f057a4c3025be8c678eb808a385552e31734d62995",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory"
+      ],
+      "devices": []
+    },
+    {
+      "score": 28,
+      "name": "Pci9524(7).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Pci9524(7)_sys\\Pci9524(7).sys",
+      "size": 110136,
+      "machine": "0x8664",
+      "sha256": "132d8cf4baa46c03fc0c2a99b7ac601600ff5e5817c7cf53332577874b0a8870",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory"
+      ],
+      "devices": []
+    },
+    {
+      "score": 28,
+      "name": "Pci9524(11).sys",
+      "path": "C:\\Users\\m4a1_\\Documents\\deepseek-harness\\default-workspace\\msdriver-0day\\evidence\\fluffycats_drivers\\vulnerable-drivers-main\\Pci9524(11)_sys\\Pci9524(11).sys",
+      "size": 110152,
+      "machine": "0x8664",
+      "sha256": "10645ebd2342c85ca8edb84629ae35c2348a82b61aa9904c9de3b934a86e0004",
+      "hits": [
+        "MmMapIoSpace",
+        "MmGetPhysicalAddress",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages",
+        "IoAllocateMdl",
+        "MmMapLockedPagesSpecifyCache",
+        "MmAllocateContiguousMemory"
+      ],
+      "devices": []
+    }
+  ]
+}

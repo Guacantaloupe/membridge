@@ -1,0 +1,65 @@
+﻿[
+    {
+        "name":  "ALSysIO64.sys",
+        "size":  73392,
+        "sha256":  "7DC7E55619469DA7473FF18C817AC5AF23EEFCDEC4A1392DBD5C34ACF42E7887",
+        "signature":  "Valid",
+        "hits":  "ReadPhysical,WritePhysical,MmMapIoSpace"
+    },
+    {
+        "name":  "ALSysIO64Legacy.sys",
+        "size":  80560,
+        "sha256":  "8B2884FF88353312811C420A79785DF45B89CA44DC35180CDBF6888F324D7EBC",
+        "signature":  "Valid",
+        "hits":  "MmMapIoSpace"
+    },
+    {
+        "name":  "asmmap.sys",
+        "size":  18048,
+        "sha256":  "003326A58256A5BF9912A0B4F6F39295C2909596B33C3837A0C85C7BA7523E14",
+        "signature":  "Valid",
+        "hits":  "MmGetPhysicalAddress"
+    },
+    {
+        "name":  "ComputerZ.Sys",
+        "size":  46888,
+        "sha256":  "4F6D0341374F7BD879E165482F68EE031DA39ACF93F6D8582D7E8E3028FE21D4",
+        "signature":  "Valid",
+        "hits":  "MmMapIoSpace"
+    },
+    {
+        "name":  "GPU-Z-v3.sys",
+        "size":  66440,
+        "sha256":  "6F6A53B5ED724E8F95B030F5CAC3CE267A72DC62937A882BB266111910932520",
+        "signature":  "Valid",
+        "hits":  "MmMapIoSpace"
+    },
+    {
+        "name":  "HWAuidoOs2Ec.sys",
+        "size":  38824,
+        "sha256":  "92CB176FB0DF1C2A61247862B8B5BAF9DEB2DA04119E2083C9DB94ED50F35854",
+        "signature":  "Valid",
+        "hits":  "MmMapIoSpace"
+    },
+    {
+        "name":  "RtsTpx.sys",
+        "size":  32048,
+        "sha256":  "BC12AE6835F5189D00A804C975F64C9EC47F7A0356840DBC29A0ED9A4694C185",
+        "signature":  "Valid",
+        "hits":  "MmMapIoSpace"
+    },
+    {
+        "name":  "Sigdrv2785x64.sys",
+        "size":  31952,
+        "sha256":  "C506C04768216391023B92EB91EE2BA4CA3F81BA3DDC3A69D5CEE37EEBAC9BFB",
+        "signature":  "Valid",
+        "hits":  "MmMapIoSpace"
+    },
+    {
+        "name":  "WinIo64.sys",
+        "size":  25320,
+        "sha256":  "BBB7E83911ABDEDFC9529E9329D0F90CF7C94A7D00845B610C5F7099EFACA492",
+        "signature":  "Valid",
+        "hits":  "MapPhysicalMemory,PhysicalMemory,MmGetPhysicalAddress"
+    }
+]
