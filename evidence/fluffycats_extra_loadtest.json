@@ -1,0 +1,13 @@
+﻿{
+    "date":  "2026-11-23T11:24:47",
+    "running":  [
+                    "3933112b2",
+                    "$0_IntelFirmwareInterface"
+                ],
+    "stopped":  [
+                    "2.0.0.620_bedrock64 exit=2",
+                    "503111e exit=87",
+                    "1.sys exit=31"
+                ],
+    "note":  "2/5 RUNNING; no DOS device strings; no new physical reader; no BSOD"
+}

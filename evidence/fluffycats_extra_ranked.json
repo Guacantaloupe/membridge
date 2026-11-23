@@ -1,0 +1,329 @@
+{
+  "total": 25,
+  "known": 0,
+  "top": [
+    {
+      "score": 22,
+      "name": "2.0.0.620_bedrock64.sys",
+      "path": "drivers\\fluffycats_extra\\2.0.0.620_bedrock64.sys",
+      "size": 545008,
+      "sha256": "ba30cd757f0fcba317a36d7d55b23c12ca3591a3b1f7959252ad8b033ec4a9b1",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapLockedPagesSpecifyCache",
+        "MmMapViewInSystemSpace",
+        "MmProbeAndLockPages",
+        "ZwOpenSection"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 21,
+      "name": "503111e.sys",
+      "path": "drivers\\fluffycats_extra\\503111e.sys",
+      "size": 190616,
+      "sha256": "6f6ad9f0c2c27a2db5ca9d8bac396954e153abcc925700e337cc0f2e6cf9dc45",
+      "hits": [
+        "HalGetBusDataByOffset",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages",
+        "ZwOpenSection"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 21,
+      "name": "3933112b2.sys",
+      "path": "drivers\\fluffycats_extra\\3933112b2.sys",
+      "size": 195160,
+      "sha256": "c077c23ab4cc9d1d44f2d6643fbac20065086204fa3a65b50dc66644519e080c",
+      "hits": [
+        "HalGetBusDataByOffset",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages",
+        "ZwOpenSection"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 20,
+      "name": "$0_IntelFirmwareInterface_IntelFirmwareInterface.sys",
+      "path": "drivers\\fluffycats_extra\\$0_IntelFirmwareInterface_IntelFirmwareInterface.sys",
+      "size": 291568,
+      "sha256": "fad7afa29a3cf29759d3601a84ae1b5b2be546dbdb388e2abc37c08aa10ce0f0",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPages",
+        "MmProbeAndLockPages"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 19,
+      "name": "1.sys",
+      "path": "drivers\\fluffycats_extra\\1.sys",
+      "size": 75976,
+      "sha256": "25607d285a592b9990ed1528293fced6fccff73c6b7ef6e921020546032a7627",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 19,
+      "name": "_8501E05BDFE247FD8BDE70051C0A14D9.sys",
+      "path": "drivers\\fluffycats_extra\\_8501E05BDFE247FD8BDE70051C0A14D9.sys",
+      "size": 213544,
+      "sha256": "07e144248feb646bbf1947ed4277097a332ca100490f6b09b352fe69f841e1ee",
+      "hits": [
+        "HalGetBusDataByOffset",
+        "MmAllocateContiguousMemory",
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 19,
+      "name": "$(LSTR_37)_heimdall.sra_10_0.sys",
+      "path": "drivers\\fluffycats_extra\\$(LSTR_37)_heimdall.sra_10_0.sys",
+      "size": 699128,
+      "sha256": "55fe2010adfc2bee273897ba14a95822768819c87a4e1d129bb49f22b4a77f24",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 16,
+      "name": "$(LSTR_37)_nep.sra_10_0.sys",
+      "path": "drivers\\fluffycats_extra\\$(LSTR_37)_nep.sra_10_0.sys",
+      "size": 174840,
+      "sha256": "87e791e95d65f3f6f1f5fd1d62309030822dac3c3d124da820bc692566e84b48",
+      "hits": [
+        "MmAllocateContiguousMemory",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 14,
+      "name": "$SYSDIR_drivers_kscsidisk64.sys",
+      "path": "drivers\\fluffycats_extra\\$SYSDIR_drivers_kscsidisk64.sys",
+      "size": 130088,
+      "sha256": "d95552e07bb1dc9991616598a85d5c82ce5917b3d6d1c379f35f11d7655bf5ee",
+      "hits": [
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 14,
+      "name": "AdaptiveTransport(4).sys",
+      "path": "drivers\\fluffycats_extra\\AdaptiveTransport(4).sys",
+      "size": 148792,
+      "sha256": "ae0789d115d18a95f935e910ba15fa0ca371135cc06ef6ac8e61d727c06f9ec9",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 14,
+      "name": "AdaptiveTransport(3).sys",
+      "path": "drivers\\fluffycats_extra\\AdaptiveTransport(3).sys",
+      "size": 149504,
+      "sha256": "4a91f3f27b9595f19c0b205199510f497122f5bd430d5f13b00ec6f9bc0fba9a",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 14,
+      "name": "AdaptiveTransport(2).sys",
+      "path": "drivers\\fluffycats_extra\\AdaptiveTransport(2).sys",
+      "size": 176808,
+      "sha256": "ea9d686f66e57e03ce1fd1b8124cf358a2117674146749a5878a5f8c6768fc2b",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 14,
+      "name": "AdaptiveTransport(1).sys",
+      "path": "drivers\\fluffycats_extra\\AdaptiveTransport(1).sys",
+      "size": 176920,
+      "sha256": "4e369e6d06969e4c0807d957de8a02e5ff065d9195b35b59867e089d25b23dc2",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 14,
+      "name": "AdaptiveTransport.sys",
+      "path": "drivers\\fluffycats_extra\\AdaptiveTransport.sys",
+      "size": 176920,
+      "sha256": "dcd9897c4ad5221530f9e1eea9ae7ff79b15679ba860039fe33387667b69e63a",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapLockedPagesSpecifyCache",
+        "MmProbeAndLockPages"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 12,
+      "name": ".rsrc_RCDATA_141.sys",
+      "path": "drivers\\fluffycats_extra\\.rsrc_RCDATA_141.sys",
+      "size": 52008,
+      "sha256": "beb24158f3c09443c70109380c4cffebfe446b9c462a0de949dc6f93345b0f63",
+      "hits": [
+        "HalGetBusDataByOffset",
+        "MmMapIoSpace",
+        "MmMapLockedPagesSpecifyCache"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 10,
+      "name": ".rsrc_1033_CORE_248(3).sys",
+      "path": "drivers\\fluffycats_extra\\.rsrc_1033_CORE_248(3).sys",
+      "size": 94936,
+      "sha256": "20527185a415ba79f9ec2a1344eb6157444272f88ec27cf79f6a0f6eb03b15d9",
+      "hits": [
+        "MmMapIoSpace",
+        "ZwOpenSection"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 10,
+      "name": ".rsrc_1033_RCDATA_10101.sys",
+      "path": "drivers\\fluffycats_extra\\.rsrc_1033_RCDATA_10101.sys",
+      "size": 119048,
+      "sha256": "48c18955d0bb46aaf2f95b31cd5f34478db9e3a25b7600bc3f1ddc43241c0a5e",
+      "hits": [
+        "MmGetPhysicalAddress",
+        "MmMapIoSpace"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 9,
+      "name": "_driver_SYS64_ShdcPci.sys",
+      "path": "drivers\\fluffycats_extra\\_driver_SYS64_ShdcPci.sys",
+      "size": 463264,
+      "sha256": "c7972e0add6405bbcdc9d44661d15713f97d2516e74a0edc9b8b41e0caf69217",
+      "hits": [
+        "MmMapIoSpace",
+        "MmMapLockedPages"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 7,
+      "name": "addrv2785x64(10).sys",
+      "path": "drivers\\fluffycats_extra\\addrv2785x64(10).sys",
+      "size": 31912,
+      "sha256": "5d78f8d946cb27a5aea0e34e358decdca1734907be12977e7ec45fcc4e113a99",
+      "hits": [
+        "HalGetBusDataByOffset",
+        "MmMapIoSpace"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 7,
+      "name": "addrv2785x64(1).sys",
+      "path": "drivers\\fluffycats_extra\\addrv2785x64(1).sys",
+      "size": 31960,
+      "sha256": "a43665f4cc2791b3f257878bad08a08df2d7298e181d045f3e3212487bab56aa",
+      "hits": [
+        "HalGetBusDataByOffset",
+        "MmMapIoSpace"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 5,
+      "name": "$WINDIR_system32_drivers_WfNicPnp64.sys",
+      "path": "drivers\\fluffycats_extra\\$WINDIR_system32_drivers_WfNicPnp64.sys",
+      "size": 55744,
+      "sha256": "d1bcd9cd128d3481664af69a2b09d729910663683aa1a8ee1fcd3b3a3989c77c",
+      "hits": [
+        "MmMapIoSpace"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 5,
+      "name": "$SYSDIR_drivers_kboot64(2).sys",
+      "path": "drivers\\fluffycats_extra\\$SYSDIR_drivers_kboot64(2).sys",
+      "size": 189096,
+      "sha256": "a01a01907a7990d3f48484c14f4c50d1ca7e6dbb1e7b9967343fb9dece86bf87",
+      "hits": [
+        "MmMapIoSpace"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 5,
+      "name": "$SYSDIR_drivers_kboot64(1).sys",
+      "path": "drivers\\fluffycats_extra\\$SYSDIR_drivers_kboot64(1).sys",
+      "size": 191128,
+      "sha256": "b1f9f7759dc39f443002c04cba3e6296dc8ee5a9d4e0b8f684beb776ee0a4a92",
+      "hits": [
+        "MmMapIoSpace"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 5,
+      "name": "$SYSDIR_drivers_kboot64.sys",
+      "path": "drivers\\fluffycats_extra\\$SYSDIR_drivers_kboot64.sys",
+      "size": 218776,
+      "sha256": "ac33906aa5496b2ff142656c1f1d4180cc03d14b6f473043b483f92cdd728224",
+      "hits": [
+        "MmMapIoSpace"
+      ],
+      "dlls": []
+    },
+    {
+      "score": 5,
+      "name": "052e0dd77bc0c5f55a6bc028bc5b5e30_innodim64.sys",
+      "path": "drivers\\fluffycats_extra\\052e0dd77bc0c5f55a6bc028bc5b5e30_innodim64.sys",
+      "size": 454768,
+      "sha256": "c436579eb4fe847e2ebec898bc7d9a8361f97657e5f905852e356f945e9243da",
+      "hits": [
+        "MmMapIoSpace"
+      ],
+      "dlls": []
+    }
+  ]
+}
