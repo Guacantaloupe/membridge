@@ -1,0 +1,13 @@
+﻿{
+    "date":  "2026-11-23T21:31:45",
+    "driver":  "ArgusMonitor.sys",
+    "device":  "\\\\.\\ArgusMonitorCTLD",
+    "imports":  [
+                    "MmMapIoSpace",
+                    "MmMapLockedPagesSpecifyCache",
+                    "IoBuildDeviceIoControlRequest"
+                ],
+    "ioctl_family":  "0x9C402xxx",
+    "physical_helper":  "0x14000B8F8 (MmMapIoSpace)",
+    "note":  "new openable device with physical mapping helper; protocol not yet identified"
+}
