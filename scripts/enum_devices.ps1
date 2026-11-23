@@ -35,6 +35,6 @@ public static class MbObjEnum {
 $items = [MbObjEnum]::List($Path)
 if ($Filter) { $items = $items | Where-Object { $_ -match $Filter } }
 $items | ForEach-Object {
-    $parts = $_ -split "`t", 2
+    $parts = $_ -split ([char]9), 2
     [pscustomobject]@{ Name=$parts[0]; Type=if($parts.Count -gt 1){$parts[1]}else{''} }
 } | Format-Table -AutoSize
