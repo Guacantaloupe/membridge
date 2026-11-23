@@ -1,0 +1,384 @@
+{
+  "pairs": [
+    {
+      "ioctl": "0x9c402014",
+      "handler": "0x140001f5c",
+      "handler_func": "0x140001020",
+      "reaches_phys_helper": true,
+      "path": [
+        "0x140008708"
+      ]
+    },
+    {
+      "ioctl": "0x9c40208c",
+      "handler": "0x1400014b1",
+      "handler_func": "0x140001020",
+      "reaches_phys_helper": true,
+      "path": [
+        "0x140008708"
+      ]
+    },
+    {
+      "ioctl": "0x9c4020a4",
+      "handler": "0x14000143e",
+      "handler_func": "0x140001020",
+      "reaches_phys_helper": true,
+      "path": [
+        "0x140008708"
+      ]
+    },
+    {
+      "ioctl": "0x9c402110",
+      "handler": "0x14000138a",
+      "handler_func": "0x140001020",
+      "reaches_phys_helper": true,
+      "path": [
+        "0x140008708"
+      ]
+    },
+    {
+      "ioctl": "0x9c402180",
+      "handler": "0x1400012ea",
+      "handler_func": "0x140001020",
+      "reaches_phys_helper": true,
+      "path": [
+        "0x140008708"
+      ]
+    },
+    {
+      "ioctl": "0x9c402194",
+      "handler": "0x140001202",
+      "handler_func": "0x140001020",
+      "reaches_phys_helper": true,
+      "path": [
+        "0x140008708"
+      ]
+    },
+    {
+      "ioctl": "0x9c402324",
+      "handler": "0x14000231a",
+      "handler_func": "0x140001020",
+      "reaches_phys_helper": true,
+      "path": [
+        "0x140008708"
+      ]
+    },
+    {
+      "ioctl": "0x9c402448",
+      "handler": "0x140001873",
+      "handler_func": "0x140001020",
+      "reaches_phys_helper": true,
+      "path": [
+        "0x140008708"
+      ]
+    },
+    {
+      "ioctl": "0x9c4024f0",
+      "handler": "0x140001808",
+      "handler_func": "0x140001020",
+      "reaches_phys_helper": true,
+      "path": [
+        "0x140008708"
+      ]
+    },
+    {
+      "ioctl": "0x9c402504",
+      "handler": "0x14000172a",
+      "handler_func": "0x140001020",
+      "reaches_phys_helper": true,
+      "path": [
+        "0x140008708"
+      ]
+    },
+    {
+      "ioctl": "0x9c402544",
+      "handler": "0x14000168c",
+      "handler_func": "0x140001020",
+      "reaches_phys_helper": true,
+      "path": [
+        "0x140008708"
+      ]
+    },
+    {
+      "ioctl": "0x9c4026ac",
+      "handler": "0x140001d01",
+      "handler_func": "0x140001020",
+      "reaches_phys_helper": true,
+      "path": [
+        "0x140008708"
+      ]
+    },
+    {
+      "ioctl": "0x9c4026f8",
+      "handler": "0x140001c97",
+      "handler_func": "0x140001020",
+      "reaches_phys_helper": true,
+      "path": [
+        "0x140008708"
+      ]
+    },
+    {
+      "ioctl": "0x9c402770",
+      "handler": "0x140001ba5",
+      "handler_func": "0x140001020",
+      "reaches_phys_helper": true,
+      "path": [
+        "0x140008708"
+      ]
+    },
+    {
+      "ioctl": "0x9c4029b4",
+      "handler": "0x140001ae2",
+      "handler_func": "0x140001020",
+      "reaches_phys_helper": true,
+      "path": [
+        "0x140008708"
+      ]
+    },
+    {
+      "ioctl": "0x9c4029d4",
+      "handler": "0x140001a49",
+      "handler_func": "0x140001020",
+      "reaches_phys_helper": true,
+      "path": [
+        "0x140008708"
+      ]
+    },
+    {
+      "ioctl": "0x9c402b68",
+      "handler": "0x14000215b",
+      "handler_func": "0x140001020",
+      "reaches_phys_helper": true,
+      "path": [
+        "0x140008708"
+      ]
+    },
+    {
+      "ioctl": "0x9c402c8c",
+      "handler": "0x140002313",
+      "handler_func": "0x140001020",
+      "reaches_phys_helper": true,
+      "path": [
+        "0x140008708"
+      ]
+    },
+    {
+      "ioctl": "0x9c402c90",
+      "handler": "0x1400020f4",
+      "handler_func": "0x140001020",
+      "reaches_phys_helper": true,
+      "path": [
+        "0x140008708"
+      ]
+    },
+    {
+      "ioctl": "0x9c402d5c",
+      "handler": "0x140002053",
+      "handler_func": "0x140001020",
+      "reaches_phys_helper": true,
+      "path": [
+        "0x140008708"
+      ]
+    },
+    {
+      "ioctl": "0x9c403010",
+      "handler": "0x140002692",
+      "handler_func": "0x140001020",
+      "reaches_phys_helper": true,
+      "path": [
+        "0x140008708"
+      ]
+    },
+    {
+      "ioctl": "0x9c403038",
+      "handler": "0x140002625",
+      "handler_func": "0x140001020",
+      "reaches_phys_helper": true,
+      "path": [
+        "0x140008708"
+      ]
+    },
+    {
+      "ioctl": "0x9c4030fc",
+      "handler": "0x1400025b8",
+      "handler_func": "0x140001020",
+      "reaches_phys_helper": true,
+      "path": [
+        "0x140008708"
+      ]
+    },
+    {
+      "ioctl": "0x9c40319c",
+      "handler": "0x140002492",
+      "handler_func": "0x140001020",
+      "reaches_phys_helper": true,
+      "path": [
+        "0x140008708"
+      ]
+    },
+    {
+      "ioctl": "0x9c4031a8",
+      "handler": "0x140002313",
+      "handler_func": "0x140001020",
+      "reaches_phys_helper": true,
+      "path": [
+        "0x140008708"
+      ]
+    },
+    {
+      "ioctl": "0x9c40332c",
+      "handler": "0x140002c82",
+      "handler_func": "0x140001020",
+      "reaches_phys_helper": true,
+      "path": [
+        "0x140008708"
+      ]
+    },
+    {
+      "ioctl": "0x9c403404",
+      "handler": "0x140002c1b",
+      "handler_func": "0x140001020",
+      "reaches_phys_helper": true,
+      "path": [
+        "0x140008708"
+      ]
+    },
+    {
+      "ioctl": "0x9c40340c",
+      "handler": "0x140002b8f",
+      "handler_func": "0x140001020",
+      "reaches_phys_helper": true,
+      "path": [
+        "0x140008708"
+      ]
+    },
+    {
+      "ioctl": "0x9c4034d8",
+      "handler": "0x140002932",
+      "handler_func": "0x140001020",
+      "reaches_phys_helper": true,
+      "path": [
+        "0x140008708"
+      ]
+    },
+    {
+      "ioctl": "0x9c403504",
+      "handler": "0x1400028a1",
+      "handler_func": "0x140001020",
+      "reaches_phys_helper": true,
+      "path": [
+        "0x140008708"
+      ]
+    },
+    {
+      "ioctl": "0x9c403838",
+      "handler": "0x140001f5c",
+      "handler_func": "0x140001020",
+      "reaches_phys_helper": true,
+      "path": [
+        "0x140008708"
+      ]
+    },
+    {
+      "ioctl": "0x9c4039e8",
+      "handler": "0x140003146",
+      "handler_func": "0x140001020",
+      "reaches_phys_helper": true,
+      "path": [
+        "0x140008708"
+      ]
+    },
+    {
+      "ioctl": "0x9c403b50",
+      "handler": "0x1400030d3",
+      "handler_func": "0x140001020",
+      "reaches_phys_helper": true,
+      "path": [
+        "0x140008708"
+      ]
+    },
+    {
+      "ioctl": "0x9c403bc0",
+      "handler": "0x140003066",
+      "handler_func": "0x140001020",
+      "reaches_phys_helper": true,
+      "path": [
+        "0x140008708"
+      ]
+    },
+    {
+      "ioctl": "0x9c403bd0",
+      "handler": "0x140002f61",
+      "handler_func": "0x140001020",
+      "reaches_phys_helper": true,
+      "path": [
+        "0x140008708"
+      ]
+    },
+    {
+      "ioctl": "0x9c403d88",
+      "handler": "0x14000355a",
+      "handler_func": "0x140001020",
+      "reaches_phys_helper": true,
+      "path": [
+        "0x140008708"
+      ]
+    },
+    {
+      "ioctl": "0x9c403ee0",
+      "handler": "0x1400034d9",
+      "handler_func": "0x140001020",
+      "reaches_phys_helper": true,
+      "path": [
+        "0x140008708"
+      ]
+    },
+    {
+      "ioctl": "0x9c403f7c",
+      "handler": "0x14000341e",
+      "handler_func": "0x140001020",
+      "reaches_phys_helper": true,
+      "path": [
+        "0x140008708"
+      ]
+    },
+    {
+      "ioctl": "0x9c40f146",
+      "handler": "0x1400033a0",
+      "handler_func": "0x140001020",
+      "reaches_phys_helper": true,
+      "path": [
+        "0x140008708"
+      ]
+    },
+    {
+      "ioctl": "0x9c40f582",
+      "handler": "0x14000331b",
+      "handler_func": "0x140001020",
+      "reaches_phys_helper": true,
+      "path": [
+        "0x140008708"
+      ]
+    },
+    {
+      "ioctl": "0x9c40f802",
+      "handler": "0x140003297",
+      "handler_func": "0x140001020",
+      "reaches_phys_helper": true,
+      "path": [
+        "0x140008708"
+      ]
+    }
+  ],
+  "helper_call_funcs": [
+    "0x140009da8",
+    "0x1400083b0",
+    "0x14000a544",
+    "0x1400088a0",
+    "0x140008708",
+    "0x140008838",
+    "0x140009ebc",
+    "0x140009360",
+    "0x140009a34"
+  ]
+}

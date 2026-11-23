@@ -67,3 +67,22 @@ ZwCreateFile / ZwReadFile / ZwWriteFile
 2. 找 handler 中调用 `0x14000B8F8` 的分支；
 3. 确认输入结构（PA、size、cache）后做单页测试；
 4. 最后必须用 CR3 页交叉验证。
+## Dispatch → physical helper 映射结果
+新增脚本：
+```
+scripts/analyze_argus_dispatch.py
+```
+解析结果：
+- 41 个 IOCTL 对；
+- 9 个直接调用 `0x14000B8F8` 的函数；
+- 所有 41 个 IOCTL handler 都通过 `0x140008708` 间接触达该 helper。
+
+说明：
+- `0x140008708` 更像通用缓冲区/映射包装；
+- 不能仅凭调用关系确定哪个 IOCTL 接受用户 PA；
+- helper 也可能用于固定硬件窗口，而不是任意物理地址。
+
+## 判断
+- 仍需定位具体 handler 的参数解析；
+- 不进行 IOCTL fuzz；
+- ArgusMonitor 暂保留为“可打开但协议未知”的强候选。

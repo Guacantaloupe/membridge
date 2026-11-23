@@ -1,0 +1,7 @@
+﻿{
+    "date":  "2026-11-23T21:32:22",
+    "ioctl_pairs":  41,
+    "helper_funcs":  9,
+    "common_wrapper":  "0x140008708",
+    "note":  "all handlers reach helper indirectly; user PA control not proven; no fuzz"
+}
