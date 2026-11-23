@@ -1,0 +1,13 @@
+﻿{
+    "date":  "2026-11-24T05:28:35",
+    "sample":  "ArgusMonitor_2.40.2.sys",
+    "sha256":  "DF9B2892498C68805FDC0FABB369F8BCF011E784898CB32FDC5D85F6123F1126",
+    "handshake":  "0x9C402B74 0x200 zeros -\u003e 0x210 output OK",
+    "read_ioctl":  "0x9C402994",
+    "read_input":  "32 bytes: pa u64, busNum=0xFF u32, width=1 u32, pad, additive checksum BE",
+    "read_output":  "24 bytes, value at 0",
+    "pa_test":  "0x1000 PASS (E9 4D 06 00 ...)",
+    "cr3_test":  "0x367C7000 err=31 (not fully arbitrary yet)",
+    "backend":  "argusmonitor",
+    "note":  "backend added; not counted as fully verified arbitrary PA reader yet"
+}

@@ -1,0 +1,8186 @@
+[
+  {
+    "file": "adv64drv\\ADV64DRV.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "amifldrv64\\amifldrv64.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "argusmonitor_new\\ArgusMonitor_2.40.2.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "asio2\\AsIO2.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "asio64\\AsIO64.sys",
+    "phys": [
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "asmmap64\\asmmap64.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapLockedPages",
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "asrdrv\\AsrDrv2.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "asupio64\\AsUpIO64.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "aswarpot\\aswArPot.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "MmProbeAndLockPages",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle",
+      "ZwOpenProcess"
+    ]
+  },
+  {
+    "file": "atillk64\\atillk64.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPages"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "byov_input\\360rescon.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest"
+    ]
+  },
+  {
+    "file": "byov_input\\aac-driver.sys",
+    "phys": [
+      "MmCopyMemory",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "MmCopyMemory",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "byov_input\\asio3.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "byov_input\\AsIO3_1.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "byov_input\\AsrDrv1.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace"
+    ],
+    "proc": [
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle",
+      "ZwOpenProcess"
+    ]
+  },
+  {
+    "file": "byov_input\\astra64.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapLockedPages",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "byov_input\\asussaio.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "byov_input\\atszio64.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "byov_input\\cb_arkmon.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "MmProbeAndLockPages",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "byov_input\\cb_aswarpot.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "MmProbeAndLockPages",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle",
+      "ZwOpenProcess"
+    ]
+  },
+  {
+    "file": "byov_input\\cb_fekern.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "byov_input\\cb_gsdriver.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "MmProbeAndLockPages",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle",
+      "ZwOpenProcess"
+    ]
+  },
+  {
+    "file": "byov_input\\cb_khwinfo.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "byov_input\\cb_livekdd.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapLockedPages",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "KeStackAttachProcess"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "byov_input\\cb_mark.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "byov_input\\cb_scansafe.sys",
+    "phys": [
+      "MmCopyMemory"
+    ],
+    "proc": [
+      "MmCopyMemory",
+      "MmCopyVirtualMemory",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": []
+  },
+  {
+    "file": "byov_input\\cb_smr522.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace"
+    ],
+    "proc": [
+      "KeStackAttachProcess"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "byov_input\\cb_tdcore.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "MmProbeAndLockPages",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle",
+      "ZwOpenProcess"
+    ]
+  },
+  {
+    "file": "byov_input\\CTFarmMonitor.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "byov_input\\ctrl_asmio.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "byov_input\\ctrl_asus.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "byov_input\\ctrl_isstrtc.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "byov_input\\ctrl_jmkmd.sys",
+    "phys": [
+      "MmCopyMemory",
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmCopyMemory"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle",
+      "ZwOpenProcess"
+    ]
+  },
+  {
+    "file": "byov_input\\ctrl_mst.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "byov_input\\ctrl_pawnio.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "byov_input\\ctrl_rstpx.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "byov_input\\DellBV.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "byov_input\\dumpit64.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "MmProbeAndLockPages",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "byov_input\\esdd64.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "byov_input\\fekern.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "byov_input\\FireEyeRealtime.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "byov_input\\hznprotect.sys",
+    "phys": [
+      "MmCopyMemory"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "MmCopyMemory",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "byov_input\\iomap.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "byov_input\\JYWinRing0.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "byov_input\\l1malwarebits_big.sys",
+    "phys": [
+      "MmCopyMemory"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "MmCopyMemory",
+      "MmCopyVirtualMemory",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "byov_input\\local_asussaio.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "byov_input\\loc_bertreader.sys",
+    "phys": [
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "byov_input\\loc_bsitf.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "byov_input\\loc_gna.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "byov_input\\loc_gscaux.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "byov_input\\loc_vboxsup.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages"
+    ],
+    "proc": [
+      "MmProbeAndLockPages",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "byov_input\\MsIo64.sys",
+    "phys": [
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "byov_input\\mtxmem.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "byov_input\\nagisa.sys",
+    "phys": [
+      "MmCopyMemory",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmCopyMemory",
+      "MmCopyVirtualMemory",
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": []
+  },
+  {
+    "file": "byov_input\\ols_jywinring0.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "byov_input\\out_agmempci.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "byov_input\\out_asuss31.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "byov_input\\out_asuss33.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "byov_input\\out_asus_109.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "byov_input\\out_cptram.sys",
+    "phys": [
+      "MmGetPhysicalAddress"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "byov_input\\out_itkvar.sys",
+    "phys": [
+      "MmGetPhysicalAddress"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "byov_input\\out_mst.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "byov_input\\out_mst10.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "byov_input\\out_nvflash.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "byov_input\\out_nvflash1.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "byov_input\\out_srswdrv.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "byov_input\\out_stlwa.sys",
+    "phys": [
+      "MmGetPhysicalAddress"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "byov_input\\Rtx_HalExt.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "byov_input\\sivx64.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "byov_input\\system_monitor.sys",
+    "phys": [
+      "MmGetPhysicalAddress"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "byov_input\\uiomap.sys",
+    "phys": [],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "byov_input\\umbus2.sys",
+    "phys": [
+      "MmCopyMemory"
+    ],
+    "proc": [
+      "MmCopyMemory",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": []
+  },
+  {
+    "file": "byov_input\\vmwprotect.sys",
+    "phys": [
+      "MmCopyMemory"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "MmCopyMemory",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "byov_input\\win10_AMS_Driver.sys",
+    "phys": [
+      "MmCopyMemory",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "MmCopyMemory",
+      "MmProbeAndLockPages",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "CCHWApi(1)_sys\\CCHWApi(1).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "CCHWApiExt(1)_sys\\CCHWApiExt(1).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "CCHWApi_sys\\CCHWApi.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "citmdrv\\CITMDRV.sys",
+    "phys": [
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "corpus_samples\\ALSysIO64.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "corpus_samples\\ALSysIO64Legacy.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "corpus_samples\\asmmap.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapLockedPages",
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "corpus_samples\\AsrDrv.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace"
+    ],
+    "proc": [
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle",
+      "ZwOpenProcess"
+    ]
+  },
+  {
+    "file": "corpus_samples\\ComputerZ.Sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "corpus_samples\\DPSysInfo.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "corpus_samples\\GPU-Z-v2.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "corpus_samples\\GPU-Z-v3.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "corpus_samples\\HWAuidoOs2Ec.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle",
+      "ZwOpenProcess"
+    ]
+  },
+  {
+    "file": "corpus_samples\\RtsTpx.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "corpus_samples\\Sigdrv2785x64.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "corpus_samples\\SysInfoDriverAMD.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "corpus_samples\\WinIo64.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "cpuz\\cpuz1.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "device_candidates\\CLib_Tc3_System.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_candidates\\EPIXXCW6(2).SYS",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_candidates\\Pce9814x64(2).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_candidates\\Pce9814x64(3).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_candidates\\Pce9852x64(2).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_candidates\\Pce9852x64(3).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_candidates\\PSKMAD_64.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "MmProbeAndLockPages",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_candidates\\TcAnalytics(10).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_candidates\\TcAnalytics(12).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_candidates\\TcAnalytics(14).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_candidates\\TcAnalytics(16).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_candidates\\TcAnalytics(8).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_candidates\\TcAnalytics(9).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_candidates\\TcRteFilter(1).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_candidates\\TcRteFilter(2).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_candidates\\TcRteFilter(4).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_candidates\\TcRteFilter(5).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_candidates\\TcRteFilter.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_candidates\\vmx86.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_candidates\\windrvr1251.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_candidates\\windrvr1260(1).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_candidates\\windrvr1411(1).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\arkmon(13).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "MmProbeAndLockPages",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\C__Program Files (x86)_BenchMate 10_bin_bmrbt64.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Daq2005(2).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Daq2005(3).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Daq2005(7).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Daq2006(1).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Daq2006(2).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Daq2006(3).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Daq2006(5).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Daq2010(4).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Daq2010(5).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Daq2010(6).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Daq2016(2).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Daq2016(6).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Daq2204(1).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Daq2204(2).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Daq2204(4).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Daq2204(5).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Daq2204(7).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Daq2204.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Daq2205(3).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Daq2205(5).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Daq2205(6).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Daq2205.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Daq2206(1).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Daq2206(4).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Daq2206(5).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Daq2206.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Daq2208(2).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Daq2208(4).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Daq2208(6).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Daq2213(4).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Daq2213.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Daq2214(3).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Daq2214(4).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Daq2501(2).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Daq2501(5).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Daq2501(6).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Daq2502(1).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Daq2502(2).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Daq2502(4).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Daq2502(5).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Dcpp2k.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\DLFdeEd(1).sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\DLFdeEd(2).sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\DLFdeEd(3).sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\DLFdeEd(4).sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\DLFdeEd(5).sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\DLFdeEd(6).sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\DLFdeEd.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\dlpfde.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\DMIKD64.SYS",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\ExpressNet.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\flash.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\MALPCI32_64(1).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\MOTUProAudio.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\niserialDriver.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Pci9524(11).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Pci9524(14).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Pci9524(15).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Pci9524(4).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Pci9524(6).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Pci9524(7).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\Pci9524(9).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\prot_2k(1).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\prot_2k(3).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\prot_2k(5).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\prot_2k.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\SDDisk2k(1).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\SDDisk2k(2).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\SDDisk2k.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\SMIBIOS64_W10.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapLockedPages"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\TdkLib64.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\vcanacw.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "device_string_candidates\\vcanpciw.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "directio\\DirectIo.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "KeStackAttachProcess"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\amdacpksl.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\asiovadpro.sys",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\AsusConsumerDevFilter.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\AsusDigiFilter.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\AsusKeyboardFilter.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\AsusWmiAcpi.sys",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\athw8x.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\athwnx.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\ax88179x_178a_772d.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\ax88179_178a.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "driverstore_thirdparty\\ax88772.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "driverstore_thirdparty\\b44amd64.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\b57nd60a.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\bcmdhd63.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\bcmpciedhd63.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "driverstore_thirdparty\\BCMWL63a.SYS",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "driverstore_thirdparty\\BCMWL63AL.SYS",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "driverstore_thirdparty\\bertreader.sys",
+    "phys": [
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\bsitf.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\btfilter.sys",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\bxnd0a.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\bxnd60a.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\cht4nx64.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\dptf_acpi.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "driverstore_thirdparty\\dptf_cpu.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "driverstore_thirdparty\\e1e6032e.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\E1G6032E.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\e1i68x64.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\e1y60x64.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\e2f68.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\eFE5b32e.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\esif_lf.sys",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\ETDI2C.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\fetn63a.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "driverstore_thirdparty\\getn63a.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "driverstore_thirdparty\\gna.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\GSCAuxDriverx64.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\iaLPSS2_GPIO2_TGL.sys",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\iaLPSS2_I2C_TGL.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\iaLPSS2_SPI_TGL.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\iaLPSS2_UART2_TGL.sys",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\ibtusb.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\IntcAudioBus.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\IntcBTAu.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\IntcDAud.sys",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\IntcDMic.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\IntcSDW.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\IntcSdwBus.sys",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\IntcSST.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\IntcUSB.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\ipoib6x.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\ixe60x64.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\k57nd60a.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\l160x64.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\L1E62x64.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\l260x64.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\lan7400-x64-n650.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\lan7500-x64-n650f.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "driverstore_thirdparty\\lan7800-x64-n650f.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "driverstore_thirdparty\\lan9500-x64-n650f.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "driverstore_thirdparty\\libusb0.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\mlx4eth63.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\mlx5.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\mrvlpcie8897.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\NETJME.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\netr28ux.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\netr28x.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\netr7364.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\Netwbw02.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\NETwew00.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\NETwew01.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\Netwtw10.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\npcap.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\nvm60x64.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\nvm62x64.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\ocnd65.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "driverstore_thirdparty\\Qcamain10x64.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\qcwlan64.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\rt640x64.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\rtcx21x64.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\RTL8187B.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\RTL8187Se.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\rtl8192se.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\rtl819xp.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\RTL85n64.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\Rtnic64.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\rtu53cx21x64.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\rtu53cx22x64.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\rtucx21x64.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\rtump64x64.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\rtux64w10.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\rtwlane_13.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\rtwlanu_81xx.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\rtwlanu_oldIC.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\SiSG664.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\tap-quickfox.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\tap0901.sys",
+    "phys": [
+      "MmMapLockedPages",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\TeeDriverGSCW8x64.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\TeeDriverW10x64.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\v1q63x64.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "driverstore_thirdparty\\vmnet.sys",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\vmnetadapter.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\vmnetbridge.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\vmxnet3.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\VSTAZL6.SYS",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\VSTBS26.SYS",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\VSTBS36.SYS",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\VSTCNXT6.SYS",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\VSTDPV6.SYS",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "driverstore_thirdparty\\yk63x64.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "driverstore_thirdparty\\ykinx64.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "dumpit\\DumpIt.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "MmProbeAndLockPages",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "eneio64\\eneio64.sys",
+    "phys": [
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fastdumpx64\\fastdumpx64.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fastdumpx64_v2\\fastdumpx64_v2.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra\\$(LSTR_37)_heimdall.sra_10_0.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "MmProbeAndLockPages",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle",
+      "ZwOpenProcess"
+    ]
+  },
+  {
+    "file": "fluffycats_extra\\$(LSTR_37)_nep.sra_10_0.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra\\$0_IntelFirmwareInterface_IntelFirmwareInterface.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra\\$SYSDIR_drivers_kboot64(1).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle",
+      "ZwOpenProcess"
+    ]
+  },
+  {
+    "file": "fluffycats_extra\\$SYSDIR_drivers_kboot64(2).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle",
+      "ZwOpenProcess"
+    ]
+  },
+  {
+    "file": "fluffycats_extra\\$SYSDIR_drivers_kboot64.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle",
+      "ZwOpenProcess"
+    ]
+  },
+  {
+    "file": "fluffycats_extra\\$SYSDIR_drivers_kscsidisk64.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle",
+      "ZwOpenProcess"
+    ]
+  },
+  {
+    "file": "fluffycats_extra\\$WINDIR_system32_drivers_WfNicPnp64.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra\\.rsrc_1033_CORE_248(3).sys",
+    "phys": [
+      "MmMapIoSpace",
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra\\.rsrc_1033_RCDATA_10101.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace"
+    ],
+    "proc": [
+      "KeStackAttachProcess"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra\\.rsrc_RCDATA_141.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "fluffycats_extra\\052e0dd77bc0c5f55a6bc028bc5b5e30_innodim64.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "fluffycats_extra\\1.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "fluffycats_extra\\2.0.0.620_bedrock64.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "MmProbeAndLockPages",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle",
+      "ZwOpenProcess"
+    ]
+  },
+  {
+    "file": "fluffycats_extra\\3933112b2.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "MmProbeAndLockPages",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle",
+      "ZwOpenProcess"
+    ]
+  },
+  {
+    "file": "fluffycats_extra\\503111e.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "MmProbeAndLockPages",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "ObReferenceObjectByHandle",
+      "ZwOpenProcess"
+    ]
+  },
+  {
+    "file": "fluffycats_extra\\AdaptiveTransport(1).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra\\AdaptiveTransport(2).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra\\AdaptiveTransport(3).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra\\AdaptiveTransport(4).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra\\AdaptiveTransport.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra\\addrv2785x64(1).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "fluffycats_extra\\addrv2785x64(10).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "fluffycats_extra\\_8501E05BDFE247FD8BDE70051C0A14D9.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra\\_driver_SYS64_ShdcPci.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPages"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "fluffycats_extra2\\addrv2785x64(11).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "fluffycats_extra2\\addrv2785x64(12).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "fluffycats_extra2\\addrv2785x64(13).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "fluffycats_extra2\\addrv2785x64(14).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "fluffycats_extra2\\addrv2785x64(15).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "fluffycats_extra2\\addrv2785x64(16).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "fluffycats_extra2\\addrv2785x64(17).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "fluffycats_extra2\\addrv2785x64(18).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "fluffycats_extra2\\addrv2785x64(19).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "fluffycats_extra2\\addrv2785x64(2).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "fluffycats_extra2\\addrv2785x64(20).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "fluffycats_extra2\\addrv2785x64(3).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "fluffycats_extra2\\addrv2785x64(4).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "fluffycats_extra2\\addrv2785x64(5).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "fluffycats_extra2\\addrv2785x64(6).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "fluffycats_extra2\\addrv2785x64(7).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "fluffycats_extra2\\addrv2785x64(9).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "fluffycats_extra2\\addrv2785x64.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "fluffycats_extra2\\adlgpib(1).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra2\\adlgpib.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra2\\ADRMDRVSYS(11).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "fluffycats_extra2\\ADRMDRVSYS(2).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "fluffycats_extra2\\ADRMDRVSYS(5).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "fluffycats_extra2\\ADRMDRVSYS(6).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "fluffycats_extra2\\ADRMDRVSYS(8).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "fluffycats_extra2\\ADRMDRVSYS(9).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "fluffycats_extra2\\ADRMDRV_SYS(2).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "fluffycats_extra2\\ADRMDRV_SYS(3).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "fluffycats_extra2\\ADRMDRV_SYS.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "fluffycats_extra2\\advExarPort.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "fluffycats_extra3\\aehd(1).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "fluffycats_extra3\\aehd.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "fluffycats_extra3\\aghww2k.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "fluffycats_extra3\\AIOWDM(1).sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "fluffycats_extra3\\AIOWDM.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "fluffycats_extra3\\alert(1).sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra3\\alert(3).sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra3\\alert(4).sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra3\\all shit_emon_bin64_sepdrv_win7_sepdrv5.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra3\\all shit_emon_bin64_sepdrv_win7_socperf3.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "fluffycats_extra3\\alpha(2).sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra3\\ALSysIO64(1).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "fluffycats_extra3\\ALSysIO64(2).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "fluffycats_extra3\\ALSysIO64(3).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "fluffycats_extra3\\ALSysIO64(4).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "fluffycats_extra3\\ALSysIO64Legacy(1).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "fluffycats_extra3\\ALSysIO64Legacy(2).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "fluffycats_extra3\\ALSysIO64Legacy(3).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "fluffycats_extra3\\amdacpksd.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra3\\AmdCrashDefender.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ZwOpenProcess"
+    ]
+  },
+  {
+    "file": "fluffycats_extra3\\amdembspiflash(1).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "fluffycats_extra3\\amdembspiflash(2).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "fluffycats_extra3\\amdembspiflash.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "fluffycats_extra3\\amdfendr.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra3\\amdkfd(1).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "MmProbeAndLockPages",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra3\\amdkfd(10).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "MmProbeAndLockPages",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra3\\amdkfd(11).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "MmProbeAndLockPages",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra3\\amdkfd(2).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "MmProbeAndLockPages",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra3\\amdkfd(3).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "MmProbeAndLockPages",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra3\\amdkfd(4).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "MmProbeAndLockPages",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra4\\amdkfd(5).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "MmProbeAndLockPages",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra4\\amdkfd(6).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "MmProbeAndLockPages",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra4\\amdkfd(7).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "MmProbeAndLockPages",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra4\\amdkfd(8).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "MmProbeAndLockPages",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra4\\amdkfd(9).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "MmProbeAndLockPages",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra4\\amdkfd.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "MmProbeAndLockPages",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra4\\AMDPcore(1).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "fluffycats_extra4\\AMDPcore(2).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "fluffycats_extra4\\AMDPcore(3).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "fluffycats_extra4\\AMDPcore(4).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "fluffycats_extra4\\AMDPcore(5).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "fluffycats_extra4\\AMDPcore.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "fluffycats_extra4\\AMDPowerProfiler(1).sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra4\\AMDPowerProfiler(2).sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra4\\AMDPowerProfiler(3).sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra4\\AMDPowerProfiler(4).sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra4\\AMDPowerProfiler(5).sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra4\\AMDPowerProfiler(6).sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra4\\AMDPowerProfiler(7).sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra4\\AMDPowerProfiler.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra4\\amdRxhci(1).sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra4\\amdRxhci(2).sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra4\\amdRxhci.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra4\\AMDRyzenMasterDriver(1).sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "fluffycats_extra4\\AMDRyzenMasterDriver(2).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "fluffycats_extra4\\AMDRyzenMasterDriver(3).sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "fluffycats_extra4\\AMDRyzenMasterDriver(4).sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "fluffycats_extra4\\AMDRyzenMasterDriver(5).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "fluffycats_extra4\\AMDRyzenMasterDriver(6).sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "fluffycats_extra4\\AMDRyzenMasterDriver(7).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "fluffycats_extra5\\AMDRyzenMasterDriver(8).sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "fluffycats_extra5\\AMDRyzenMasterDriver(9).sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "fluffycats_extra5\\AMDRyzenMasterDriver.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "fluffycats_extra5\\AMDXHC(2).SYS",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra5\\AMDXHC.SYS",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra5\\amdxhc31(2).sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra5\\amdxhc31(5).sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra5\\amdxhc31.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra5\\amdxhci(1).sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra5\\amdxhci(2).sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra5\\amdxhci(3).sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra5\\amdxhci(4).sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra5\\amdxhci.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra5\\amigendrv(1).sys",
+    "phys": [
+      "MmMapIoSpace",
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra5\\amigendrv.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra5\\amigendrv64(1).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra5\\amigendrv64(2).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra5\\amigendrv64.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra5\\Antidetect.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "fluffycats_extra5\\ApsX64(1).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra5\\ApsX64(2).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra5\\ApsX64(3).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra5\\ApsX64(4).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra5\\ApsX64(5).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra5\\ApsX64(6).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra6\\ApsX64.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra6\\apx3600.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra6\\aqnicnvm64(1).sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "fluffycats_extra6\\aqnicnvm64.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "fluffycats_extra6\\ArcaSD.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra6\\ArgusMonitor(1).sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "fluffycats_extra6\\ArgusMonitor(10).sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "fluffycats_extra6\\ArgusMonitor(11).sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "fluffycats_extra6\\ArgusMonitor(13).sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "fluffycats_extra6\\ArgusMonitor(2).sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "fluffycats_extra6\\ArgusMonitor(3).sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "fluffycats_extra6\\ArgusMonitor(4).sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "fluffycats_extra6\\ArgusMonitor(5).sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "fluffycats_extra6\\ArgusMonitor(6).sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "fluffycats_extra6\\ArgusMonitor(9).sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "fluffycats_extra6\\ArgusMonitor.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "fluffycats_extra6\\arkmon(11).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "MmProbeAndLockPages",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra6\\arkmon(12).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "MmProbeAndLockPages",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra6\\arkmon(14).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "MmProbeAndLockPages",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra6\\arkmon(17).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "MmProbeAndLockPages",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra6\\arkmon(19).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "MmProbeAndLockPages",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra6\\arkmon(2).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "MmProbeAndLockPages",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra6\\arkmon(24).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "MmProbeAndLockPages",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra6\\arkmon(5).sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "MmProbeAndLockPages",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "fluffycats_extra6\\ArkVSSDisk.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "gibepext\\gibepext.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle",
+      "ZwOpenProcess"
+    ]
+  },
+  {
+    "file": "gibepext2\\gibepext2.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle",
+      "ZwOpenProcess"
+    ]
+  },
+  {
+    "file": "glckio2\\glckio2.sys",
+    "phys": [
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "HP SW TOOLS DRIVER_sys\\HP SW TOOLS DRIVER.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "hp_swtools_v1\\HP_SWTOOLS_DRIVER_V1.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "icachex\\iCacheX.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "import_candidates\\Dalwdm_1_.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "import_candidates\\EPIXXCW6.SYS",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "import_candidates\\EPIXXCW6_1_.SYS",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "import_candidates\\Pce9814x64.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "import_candidates\\Pce9852x64.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "import_candidates\\Pce9852x64_1_.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "import_candidates\\PSKMAD_64_1_.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "MmProbeAndLockPages",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "import_candidates\\seraphad8.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "import_candidates\\windrvr1260.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "import_candidates\\windrvr1280.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "import_candidates\\windrvr1281.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "import_candidates\\windrvr1411_2_.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\amdgpio2.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "installed_thirdparty\\amdi2c.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\amdsbs.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\amdxata.sys",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\AppleLowerFilter.sys",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\AsusPTPFilter.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\bxvbda.sys",
+    "phys": [
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\CH341S64.SYS",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\CH343S64.SYS",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\cht4sx64.sys",
+    "phys": [
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\cht4vx64.sys",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\evbd0a.sys",
+    "phys": [
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\evbda.sys",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\ftser2k.sys",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\iagpio.sys",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\iai2c.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\iaLPSS2i_GPIO2.sys",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\iaLPSS2i_GPIO2_BXT_P.sys",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\iaLPSS2i_GPIO2_CNL.sys",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\iaLPSS2i_GPIO2_GLK.sys",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\iaLPSS2i_I2C.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\iaLPSS2i_I2C_BXT_P.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\iaLPSS2i_I2C_CNL.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\iaLPSS2i_I2C_GLK.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\iaLPSSi_GPIO.sys",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\iaLPSSi_I2C.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\iaStorAfs.sys",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\iaStorAVC.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\iaStorV.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\iaStorVD.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\ibbus.sys",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\mlx4_bus.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\ndfltr.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "KeStackAttachProcess"
+    ],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\nvraid.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\nvstor.sys",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\orayvhid.sys",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\orayvhidkmdf.sys",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\pvscsii.sys",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\RtkBtfilter.sys",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\RTKVHD64.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\RtsUer.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\rtwlane.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\RzCommon.sys",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\RzDev_0099.sys",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\silabser.sys",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\sisraid2.sys",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\sisraid4.sys",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\stexstor.sys",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\usbaapl64.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\VBoxNetAdp6.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\VBoxNetLwf.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\VBoxSup.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages"
+    ],
+    "proc": [
+      "MmProbeAndLockPages",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\VBoxUSB.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\VBoxUSBMon.sys",
+    "phys": [
+      "MmGetPhysicalAddress"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\vmci.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\vmusb.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\winmad.sys",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\wintun.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "MmProbeAndLockPages",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "installed_thirdparty\\winverbs.sys",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "invarysensor\\invarysensor.sys",
+    "phys": [
+      "MmCopyMemory"
+    ],
+    "proc": [
+      "MmCopyMemory"
+    ],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "isharepp\\iSharePp.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "KKYUM\\KKYUM.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "MmCopyVirtualMemory",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": []
+  },
+  {
+    "file": "kprl\\l1malwarebits.sys",
+    "phys": [
+      "MmCopyMemory"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "MmCopyMemory",
+      "MmCopyVirtualMemory",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "mrt\\fekern_mrt.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "namazso_extra\\AsUpIO.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "namazso_extra\\GLCKIO2_3a5ec83fe670e5e23aef3afa0a7241053f5b6be5e6ca01766d6b5f9177183c25.sys",
+    "phys": [
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "namazso_rest\\ALSysIO64_7196187FB1EF8D108B380D37B2AF8EFDEB3CA1F6EEFD37B5DC114C609147216D.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "namazso_rest\\ALSysIO64_7F375639A0DF7FE51E5518CF87C3F513C55BC117DB47D28DA8C615642EB18BFA.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "namazso_rest\\AsIO_2DA330A2088409EFC351118445A824F11EDBE51CF3D653B298053785097FE40E.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "namazso_rest\\AsIO_436CCAB6F62FA2D29827916E054ADE7ACAE485B3DE1D3E5C6C62D3DEBF1480E7.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "namazso_rest\\AsIO_B4D47EA790920A4531E3DF5A4B4B0721B7FEA6B49A35679F0652F1E590422602.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "namazso_rest\\AsIO_DDE6F28B3F7F2ABBEE59D4864435108791631E9CB4CDFB1F178E5AA9859956D8.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "namazso_rest\\CITMDRV_AMD64_45abdbcd4c0916b7d9faaf1cd08543a3a5178871074628e0126a6eda890d26e0.sys",
+    "phys": [
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "namazso_rest\\CITMDRV_AMD64_50db5480d0392a7dd6ab5df98389dc24d1ed1e9c98c9c35964b19dabcd6dc67f.sys",
+    "phys": [
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "namazso_rest\\CITMDRV_AMD64_607dc4c75ac7aef82ae0616a453866b3b358c6cf5c8f9d29e4d37f844306b97c.sys",
+    "phys": [
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "namazso_rest\\CITMDRV_AMD64_61d6e40601fa368800980801a662a5b3b36e3c23296e8ae1c85726a56ef18cc8.sys",
+    "phys": [
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "namazso_rest\\CITMDRV_AMD64_74a846c61adc53692d3040aff4c1916f32987ad72b07fe226e9e7dbeff1036c4.sys",
+    "phys": [
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "namazso_rest\\CITMDRV_AMD64_76fb4deaee57ef30e56c382c92abffe2cf616d08dbecb3368c8ee6b02e59f303.sys",
+    "phys": [
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "namazso_rest\\CITMDRV_AMD64_81939e5c12bd627ff268e9887d6fb57e95e6049f28921f3437898757e7f21469.sys",
+    "phys": [
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "namazso_rest\\CITMDRV_AMD64_9790a7b9d624b2b18768bb655dda4a05a9929633cef0b1521e79e40d7de0a05b.sys",
+    "phys": [
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "namazso_rest\\CITMDRV_AMD64_9a1d66036b0868bbb1b2823209fedea61a301d5dd245f8e7d390bd31e52d663e.sys",
+    "phys": [
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "namazso_rest\\CITMDRV_AMD64_aa9ab1195dc866270e984f1bed5e1358d6ef24c515dfdb6c2a92d1e1b94bf608.sys",
+    "phys": [
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "namazso_rest\\CITMDRV_AMD64_af095de15a16255ca1b2c27dad365dff9ac32d2a75e8e288f5a1307680781685.sys",
+    "phys": [
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "namazso_rest\\CITMDRV_AMD64_d5586dc1e61796a9ae5e5d1ced397874753056c3df2eb963a8916287e1929a71.sys",
+    "phys": [
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "namazso_rest\\CITMDRV_AMD64_d8459f7d707c635e2c04d6d6d47b63f73ba3f6629702c7a6e0df0462f6478ae2.sys",
+    "phys": [
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "namazso_rest\\CITMDRV_AMD64_e81230217988f3e7ec6f89a06d231ec66039bdba340fd8ebb2bbb586506e3293.sys",
+    "phys": [
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "namazso_rest\\CITMDRV_AMD64_f88ebb633406a086d9cca6bc8b66a4ea940c5476529f9033a9e0463512a23a57.sys",
+    "phys": [
+      "ZwOpenSection"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "ntiolib\\NTIOLib.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "physmem_drivers\\Agent64_05f052c64d192cf69a462a5ec16dda0d43ca5d0245900c9fcb9201685a2e7748.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapLockedPages",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "physmem_drivers\\AsrDrv10.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "physmem_drivers\\AsrDrv101.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "physmem_drivers\\BS_Def64_0040153302B88BEE27EB4F1ECA6855039E1A057370F5E8C615724FA5215BADA3.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages",
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "physmem_drivers\\gdrv.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages",
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "physmem_drivers\\HOSTNT.sys",
+    "phys": [
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "physmem_drivers\\inpoutx64_2d83ccb1ad9839c9f5b3f10b1f856177df1594c66cbbc7661677d4b462ebf44d.sys",
+    "phys": [
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "physmem_drivers\\iomem64_3D23BDBAF9905259D858DF5BF991EB23D2DC9F4ECDA7F9F77839691ACEF1B8C4.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "physmem_drivers\\MsIo64.sys",
+    "phys": [
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "physmem_drivers\\OpenLibSys_91314768da140999e682d2a290d48b78bb25a35525ea12c1b1f9634d14602b2c.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "physmem_drivers\\Se64a.sys",
+    "phys": [
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "physmem_drivers\\SysInfo.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "physmem_drivers\\WCPU.sys",
+    "phys": [
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "physmem_drivers_variants\\Agent64_4045ae77859b1dbf13972451972eaaf6f3c97bea423e9e78f1c2f14330cd47ca.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapLockedPages",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "physmem_drivers_variants\\Agent64_6948480954137987a0be626c24cf594390960242cd75f094cd6aaa5c2e7a54fa.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapLockedPages",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "physmem_drivers_variants\\Agent64_8cb62c5d41148de416014f80bd1fd033fd4d2bd504cb05b90eeb6992a382d58f.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapLockedPages",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "physmem_drivers_variants\\Agent64_b1d96233235a62dbb21b8dbe2d1ae333199669f67664b107bff1ad49b41d9414.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapLockedPages",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "physmem_drivers_variants\\AsrAutoChkUpdDrv.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "physmem_drivers_variants\\AsrIbDrv.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "physmem_drivers_variants\\AsrOmgDrv.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "physmem_drivers_variants\\AsrRapidStartDrv.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "physmem_drivers_variants\\AsrSmartConnectDrv.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "physmem_drivers_variants\\BS_Def64_3326E2D32BBABD69FEB6024809AFC56C7E39241EBE70A53728C77E80995422A5.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages",
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "physmem_drivers_variants\\BS_Def64_36B9E31240AB0341873C7092B63E2E0F2CAB2962EBF9B25271C3A1216B7669EB.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPages",
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "physmem_drivers_variants\\cpuz141.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "physmem_drivers_variants\\cpuz_x64.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "physmem_drivers_variants\\dbutil_2_3.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "physmem_drivers_variants\\Dh_Kernel.sys",
+    "phys": [
+      "MmMapLockedPages"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "MmProbeAndLockPages",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "physmem_drivers_variants\\Dh_Kernel_10.sys",
+    "phys": [
+      "MmMapLockedPages"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "MmProbeAndLockPages",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "physmem_drivers_variants\\inpoutx64_f581decc2888ef27ee1ea85ea23bbb5fb2fe6a554266ff5a1476acd1d29d53af.sys",
+    "phys": [
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "physmem_drivers_variants\\inpoutx64_f8965fdce668692c3785afa3559159f9a18287bc0d53abb21902895a8ecf221b.sys",
+    "phys": [
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "physmem_drivers_variants\\iomem64_DD4A1253D47DE14EF83F1BC8B40816A86CCF90D1E624C5ADF9203AE9D51D4097.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "physmem_drivers_variants\\OpenLibSys_f0605dda1def240dc7e14efa73927d6c6d89988c01ea8647b671667b2b167008.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "physmem_drivers_variants\\smep_capcom.sys",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "physmem_drivers_variants\\smep_namco.sys",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "physmem_drivers_variants\\VProEventMonitor.sys",
+    "phys": [],
+    "proc": [
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ZwOpenProcess"
+    ]
+  },
+  {
+    "file": "physmem_drivers_variants\\WINIODrv_3243aab18e273a9b9c4280a57aecef278e10bfff19abb260d7a7820e41739099.sys",
+    "phys": [
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "physmem_drivers_variants\\WINIODrv_7cfa5e10dff8a99a5d544b011f676bc383991274c693e21e3af40cf6982adb8c.sys",
+    "phys": [
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "physmem_drivers_variants\\WINIODrv_c9b49b52b493b53cd49c12c3fa9553e57c5394555b64e32d1208f5b96a5b8c6e.sys",
+    "phys": [
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "physmem_drivers_variants\\WinRing0_47eaebc920ccf99e09fc9924feb6b19b8a28589f52783327067c9b09754b5e84.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "physmem_drivers_variants\\WinRing0_a7b000abbcc344444a9b00cfade7aa22ab92ce0cadec196c30eb1851ae4fa062.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "rtkio\\rtkio.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "rtkiow8x64\\rtkiow8x64.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "security_candidates\\biostoolcommondriver.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "security_candidates\\bsitf_unlocked.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "security_candidates\\IntcOED.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "security_candidates\\NxpCap64.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "security_candidates\\PSKD64.SYS",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "security_candidates\\RDWM1179.SYS",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "security_candidates\\RDWM1236.SYS",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "security_candidates\\stwrt64.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "MmProbeAndLockPages"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "security_corpus2\\aldwa.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest"
+    ]
+  },
+  {
+    "file": "security_corpus2\\amdacpafd.sys",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest"
+    ]
+  },
+  {
+    "file": "security_corpus2\\amdacpbus2.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "security_corpus2\\amdsfhkmdf.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "security_corpus2\\amdusbhubfilter.sys",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "security_corpus2\\AppRemover-Killer__ardrv.sys",
+    "phys": [],
+    "proc": [
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "security_corpus2\\aqnic650.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "security_corpus2\\AsrNfDrv000.sys",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "security_corpus2\\AVerPola.sys",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "security_corpus2\\AVKsCIR.sys",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "security_corpus2\\AVPolCIR.sys",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "security_corpus2\\AVPolDIR.sys",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "security_corpus2\\b57nd60a.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache",
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "security_corpus2\\bcmnfcusb.sys",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "security_corpus2\\bthpan.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "security_corpus2\\CcProtect-Killer__CcProtect.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [
+      "KeStackAttachProcess",
+      "MmProbeAndLockPages",
+      "PsLookupProcessByProcessId"
+    ],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "KeBugCheckEx",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "security_corpus2\\ch64usb.sys",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "IoBuildDeviceIoControlRequest",
+      "MmGetSystemRoutineAddress",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "security_corpus2\\cvusbdrv.sys",
+    "phys": [],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  },
+  {
+    "file": "security_corpus2\\devmap.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "security_corpus2\\DisplayLinkUsbIo_x64.sys",
+    "phys": [
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "SjtWinIo_sys\\SjtWinIo.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "SjtWinIo_sys\\SjtWinIo_copy.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "swtoolsdriver\\swtoolsdriver.sys",
+    "phys": [
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "tdeio\\TdeIo64.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "ufu\\win10_ufudev64.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "MmMapIoSpace",
+      "MmMapLockedPagesSpecifyCache"
+    ],
+    "proc": [],
+    "kernel_api": []
+  },
+  {
+    "file": "winio64_1\\WinIo64_1.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "winio64_elan\\WinIo64_ELAN.sys",
+    "phys": [
+      "MmGetPhysicalAddress",
+      "ZwOpenSection"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx",
+      "ObReferenceObjectByHandle"
+    ]
+  },
+  {
+    "file": "winring0\\WinRing0.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "KeBugCheckEx"
+    ]
+  },
+  {
+    "file": "winring0\\WinRing0x64.sys",
+    "phys": [
+      "MmMapIoSpace"
+    ],
+    "proc": [],
+    "kernel_api": [
+      "MmGetSystemRoutineAddress"
+    ]
+  }
+]

