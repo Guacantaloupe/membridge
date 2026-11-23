@@ -1,0 +1,6 @@
+﻿{
+    "date":  "2026-11-23T21:28:23",
+    "dsh_ntbase_diag":  "exit=577",
+    "dsh_probe_s0":  "exit=577",
+    "note":  "signature policy blocks DSH custom drivers; no BSOD"
+}
