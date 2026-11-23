@@ -1,0 +1,13 @@
+﻿{
+    "date":  "2026-11-23T21:30:48",
+    "driver":  "ArgusMonitor.sys",
+    "state":  "RUNNING",
+    "device":  "\\\\.\\ArgusMonitorCTLD",
+    "open":  "OK",
+    "layouts":  [
+                    "mrt err1",
+                    "winring0 err1",
+                    "eneio64 err1"
+                ],
+    "note":  "new user-mode accessible device; protocol unknown"
+}
