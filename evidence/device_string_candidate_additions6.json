@@ -1,0 +1,82 @@
+﻿[
+    {
+        "name":  "DLFdeEd(6).sys",
+        "size":  317072,
+        "score":  24,
+        "devices":  "\\Device\\pded,\\DosDevices\\pded",
+        "sha256":  "bfacf9ca3608d42d03e39ff56d4cf7aa2bf4dd4a2fbb4a06eac5381551f74e91",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "DLFdeEd(3).sys",
+        "size":  317104,
+        "score":  24,
+        "devices":  "\\Device\\pded,\\DosDevices\\pded",
+        "sha256":  "86e414d5a600476f0371af94ae8bd8e45242fe4db59175fe4991ad22a842b666",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "DLFdeEd(4).sys",
+        "size":  317112,
+        "score":  24,
+        "devices":  "\\Device\\pded,\\DosDevices\\pded",
+        "sha256":  "d6da0bd61a71fa2f093fed282dfd4d5a3a106c838d8c4df167dab520045b42de",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "DLFdeEd(5).sys",
+        "size":  317112,
+        "score":  24,
+        "devices":  "\\Device\\pded,\\DosDevices\\pded",
+        "sha256":  "97bcb6db6002b4fcc7d5631209ed7e0f837eb56de705043c4ba6697545ea3ae6",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "DLFdeEd.sys",
+        "size":  317128,
+        "score":  24,
+        "devices":  "\\Device\\pded,\\DosDevices\\pded",
+        "sha256":  "9aef17e9f6c5703e5ac352c7163ed1c6f7c1d30c43bad95c9a74c07eccae73e4",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "DLFdeEd(1).sys",
+        "size":  317136,
+        "score":  24,
+        "devices":  "\\Device\\pded,\\DosDevices\\pded",
+        "sha256":  "a1b1992bf214b0277b9a2d39c6d2c68d6719281f9ea98d3fdfb4fd8b278e724d",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "DLFdeEd(2).sys",
+        "size":  317136,
+        "score":  24,
+        "devices":  "\\Device\\pded,\\DosDevices\\pded",
+        "sha256":  "a403da67b8ac1734356f0be462dcef2371aa1a16585b0132405a374b686d790c",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "C__Program Files (x86)_BenchMate 10_bin_bmrbt64.sys",
+        "size":  79368,
+        "score":  20,
+        "devices":  "\\Device\\bmrbt-0.36,\\DosDevices\\bmrbt-0.36",
+        "sha256":  "e0c4ee650e65f3ea3782028b0682e9373dde4d7de32e91e19d42a8b3169989a8",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "niserialDriver.sys",
+        "size":  397704,
+        "score":  20,
+        "devices":  "\\DosDevices\\Global",
+        "sha256":  "7ae37235513434103c02b938764b8a80876a8b540a2fae5de062d36c7aa17517",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "MOTUProAudio.sys",
+        "size":  196704,
+        "score":  19,
+        "devices":  "\\DosDevices\\Global",
+        "sha256":  "97781eb4b52dabe6ef8e6c3878659f5e3e61c7c3db3790f185818102ac1a4da3",
+        "signature":  "Valid"
+    }
+]

@@ -1,0 +1,13 @@
+﻿{
+    "date":  "2026-11-23T13:03:42",
+    "added":  [
+                  "10 DAQ variants",
+                  "DLFdeEd x7",
+                  "bmrbt64",
+                  "niserialDriver",
+                  "MOTUProAudio"
+              ],
+    "total_new":  265,
+    "device_string_candidates":  50,
+    "note":  "no load test for DLFdeEd (disk filter hang risk); no BSOD"
+}
