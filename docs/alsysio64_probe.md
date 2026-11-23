@@ -78,3 +78,23 @@ MmUnmapIoSpace
 0x9C402678
 ```
 对应 handler 在 0x140004xxx 区间，尚未映射到具体功能。
+
+## 重要结论：0x9C402664 不是通用物理读
+继续分析 handler 0x140004C74：
+
+- 它调用 0x1400065C4；
+- 0x1400065C4 调用 ReadMemorySpace 读取固定物理区：
+  - 0x400
+  - 0xF0000
+  - 0x9FC00
+- 在数据中搜索：
+  - `_MP_`
+- 这是 **MP/BIOS 表解析**，不是任意 PA 读取接口。
+
+因此 ALSysIO64 当前发现：
+- 可以加载；
+- 设备可打开；
+- ReadMemorySpace 只是内部 helper；
+- 未发现“任意 PA + size -> 输出”的通用 IOCTL。
+
+结论：ALSysIO64 更适合作为硬件/BIOS 信息查询驱动，不能直接当物理内存读取器。
