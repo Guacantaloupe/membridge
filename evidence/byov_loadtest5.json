@@ -1,0 +1,26 @@
+﻿{
+    "date":  "2026-11-23T11:19:52",
+    "running":  [
+                    "cb_arkmon",
+                    "cb_gsdriver",
+                    "cb_khwinfo",
+                    "cb_livekdd",
+                    "cb_mark",
+                    "cb_scansafe",
+                    "cb_smr522",
+                    "cb_tdcore"
+                ],
+    "failed":  [
+                   "cb_aswarpot create access denied",
+                   "cb_fekern exit=183"
+               ],
+    "devices":  [
+                    "\\\\.\\TDCoreDevice",
+                    "\\\\.\\Symantec-SMR522"
+                ],
+    "read_attempts":  [
+                          "TDCore mrt err=1",
+                          "TDCore eneio64 err=1"
+                      ],
+    "note":  "8/10 RUNNING; TDCore/SMR522 devices open; no BSOD"
+}
