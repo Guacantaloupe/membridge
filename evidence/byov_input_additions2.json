@@ -1,0 +1,152 @@
+﻿[
+    {
+        "name":  "ctrl_rstpx.sys",
+        "size":  35440,
+        "sha256":  "1E4A532E649A10DF6078BE5901A771866862C2965C489F9C009A5DCB9D952DF0",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "DellBV.sys",
+        "size":  69496,
+        "sha256":  "4A4B1FECCC82B6C1FE1780BB251B424DC54AE67048E808D34C9C1B83B2FAB718",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "dumpit64.sys",
+        "size":  82504,
+        "sha256":  "D121241D25ABE715FC664CF27B1BEBCDFEDFE75F5B7086C00349CDBB22EDC5FD",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "esdd64.sys",
+        "size":  32136,
+        "sha256":  "720EE59E39A875B328D1ABB7991CAD424FEEB4D8F1E4149A350790A05E524507",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "fekern.sys",
+        "size":  266152,
+        "sha256":  "9BB9902BC3F2137B80D2D9AD241EFCA13FCDE279C7F7AE4F98F93906A5EC3BA5",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "FireEyeRealtime.sys",
+        "size":  236144,
+        "sha256":  "6E1D03A364C3F525CAF4A05DA909624D85A3AB6214496CF1F98D94550C01180D",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "hznprotect.sys",
+        "size":  189872,
+        "sha256":  "A629CAAFC704BEA249262BBA39100351B6D298B730E5848479E4463EC99FBA84",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "iomap.sys",
+        "size":  35344,
+        "sha256":  "F26653071F6F09205BA7B512B788FE6E61EAB1EAC5EC3FD0C79112CA7A4BA4D8",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "JYWinRing0.sys",
+        "size":  22680,
+        "sha256":  "1C2FFE23593EB2711A4A768E4D9D9C2DB59C88D443716F626093949E1FDCFC67",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "l1malwarebits_big.sys",
+        "size":  538808,
+        "sha256":  "8C69F472F23237020D126CAC8E3F36DC8BC9FA734033093F6E1145CFD240202D",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "loc_bertreader.sys",
+        "size":  46032,
+        "sha256":  "1A2982A647AAF5FB679442D978F64DE761DD1EDCA46091AE01E26A5800139822",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "loc_bsitf.sys",
+        "size":  55632,
+        "sha256":  "866164FB94ADAD80F94EBD808D1AE662907EFCB6F6D7BDDFE08D3F435AFF541D",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "loc_gna.sys",
+        "size":  88776,
+        "sha256":  "BF0816E1BC5561094E3E4B2F27859AEA4D655F1546E9193100DE9A8A4D4C14D3",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "loc_gscaux.sys",
+        "size":  79640,
+        "sha256":  "283427B04A008A1FBAA8EEEBFC436626EB5E19BFF914411C7876F419712DABD4",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "loc_vboxsup.sys",
+        "size":  1083808,
+        "sha256":  "C978FA07DFE82EABC525C9DDD28F952D56E6FB1F269B656C07BA904642B964A9",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "local_asussaio.sys",
+        "size":  51288,
+        "sha256":  "EEF750C7FB515D162A76423531F4F6773BCF837D9607069E797A26D198EDD892",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "MsIo64.sys",
+        "size":  19672,
+        "sha256":  "A7261F13F11C3B845C27CFEEB1CDC6A9400090CEBD8E5ADBF8C506C1FD9811DE",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "mtxmem.sys",
+        "size":  73552,
+        "sha256":  "1AD9106D3037D3DBEF33D0A66C0DC33F02AE515494F496981241F889CFA62595",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "nagisa.sys",
+        "size":  26800,
+        "sha256":  "501B532E5D4B8B54D7F7B4CA008538B195F32BFB33387D67457BBCF08196EE7B",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "ols_jywinring0.sys",
+        "size":  22680,
+        "sha256":  "1C2FFE23593EB2711A4A768E4D9D9C2DB59C88D443716F626093949E1FDCFC67",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "out_agmempci.sys",
+        "size":  22064,
+        "sha256":  "329E97055EE4C9BB408565DBBC85D4817C01EF1ED39BBA8F3C8BB101FF13A71A",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "out_asus_109.sys",
+        "size":  51296,
+        "sha256":  "14A38B6141AADDA612097690C6A4D50855836DD753D6C1D41A5FD51B304ECFA6",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "out_asuss31.sys",
+        "size":  27256,
+        "sha256":  "368BE3D554798FE3629B770439B584BCD33C0B3685D701821042DC25800F12A8",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "out_asuss33.sys",
+        "size":  24728,
+        "sha256":  "D62B16BEE13BB827159B3B1ADAC05A60B24A9477AA282A80D44546744C34ABE8",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "out_cptram.sys",
+        "size":  47888,
+        "sha256":  "DC2B33CC1029DE1CA4E82D88FE0BF457D31301DD1238DAB4348321187ACAFC47",
+        "signature":  "Valid"
+    }
+]

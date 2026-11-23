@@ -55,3 +55,51 @@ evidence/byov_input_additions.json
 2. 对能加载+设备可打开者做单页读；
 3. 避免批量扫描；
 4. 继续从 byov_input 其余样本和 namazso 仓库补驱动。
+
+## 后续批次
+共从 byov_input 112 个样本中导入 64 个唯一驱动到 drivers/byov_input/。
+
+新增包括：
+`
+ctrl_rstpx.sys
+DellBV.sys
+dumpit64.sys
+esdd64.sys
+fekern.sys
+FireEyeRealtime.sys
+hznprotect.sys
+iomap.sys
+JYWinRing0.sys
+l1malwarebits_big.sys
+loc_bertreader.sys
+loc_bsitf.sys
+loc_gna.sys
+loc_gscaux.sys
+loc_vboxsup.sys
+local_asussaio.sys
+MsIo64.sys
+mtxmem.sys
+nagisa.sys
+ols_jywinring0.sys
+out_agmempci.sys
+out_asus_109.sys
+out_asuss31.sys
+out_asuss33.sys
+out_cptram.sys
+out_itkvar.sys
+out_mst.sys
+out_mst10.sys
+out_nvflash.sys
+out_nvflash1.sys
+out_srswdrv.sys
+out_stlwa.sys
+Rtx_HalExt.sys
+sivx64.sys
+system_monitor.sys
+uiomap.sys
+umbus2.sys
+vmwprotect.sys
+win10_AMS_Driver.sys
+`
+
+剩余 48 个与项目现有驱动 SHA256 重复或非有效 PE。

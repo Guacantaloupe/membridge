@@ -1,0 +1,86 @@
+﻿[
+    {
+        "name":  "out_itkvar.sys",
+        "size":  38440,
+        "sha256":  "5D352308F9254252DBECA346F0A6919739E4AAD560348A0FEA47160B011AB829",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "out_mst.sys",
+        "size":  87456,
+        "sha256":  "EAC2D5075ED53F3ADEC629BC94218FA35B9682A23F816DC49348E84FCEE3B4A0",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "out_mst10.sys",
+        "size":  78800,
+        "sha256":  "0773088BBEC1528466E2644CA8C006E091B9E366A07EA9FA0245073CF11F8432",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "out_nvflash.sys",
+        "size":  48848,
+        "sha256":  "8C2D9847B70C3DC1AAC5D9E5330C67DEB86F369DCD3CA85845ADF2A001088DDE",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "out_nvflash1.sys",
+        "size":  45776,
+        "sha256":  "79050454D06AB7B6607BCA09386F704DF021C3C367CC0743DE6845301BB192AC",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "out_srswdrv.sys",
+        "size":  44624,
+        "sha256":  "8FD52E7DDB27AF8A2C982EC639F091F7CAD2D6895F2CFBFE86BEEC8F0FACC246",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "out_stlwa.sys",
+        "size":  58840,
+        "sha256":  "937F1222108651DD2A2448A28BACB282B6065AD1208AC54987C5BDFFB4B30EEE",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "Rtx_HalExt.sys",
+        "size":  155136,
+        "sha256":  "422CD00CD3675AF9F537693E0C758F4E42703E5120A6A7C147BD5D26BD7918B6",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "sivx64.sys",
+        "size":  203088,
+        "sha256":  "5179E88B87B45E158F5DAAEC8BBAFC062AC9E8A2640C89B2805AF41EBE4E7E8D",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "system_monitor.sys",
+        "size":  55376,
+        "sha256":  "BF66AA643BE82E628AB515ABFFE837E7C7615125B40EEC4315B2B90D3DBAA0D9",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "uiomap.sys",
+        "size":  69632,
+        "sha256":  "83F88B61B520CD615F305E07BCD7A85842037A082B4C83ECFEEE12A2029FB4C9",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "umbus2.sys",
+        "size":  31008,
+        "sha256":  "14C8CB98EC33C28E764B7C8E41AF3606F68A0E37C94DA36852CE4FBCEACA63E9",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "vmwprotect.sys",
+        "size":  171928,
+        "sha256":  "F2E23B6CA7F537912022A771F28CE7937F98DFFAABBDCF9346C0C25F53E39D4A",
+        "signature":  "Valid"
+    },
+    {
+        "name":  "win10_AMS_Driver.sys",
+        "size":  131712,
+        "sha256":  "757170BAD11B40BC7B6462C42CB87CF291AA713E9F0ADA8A0A9A55D204ECB60E",
+        "signature":  "Valid"
+    }
+]
