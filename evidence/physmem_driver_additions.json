@@ -1,0 +1,107 @@
+﻿[
+    {
+        "name":  "Mhyprot2.sys",
+        "size":  1269880,
+        "sha256":  "509628B6D16D2428031311D7BD2ADD8D5F5160E9ECC0CD909F1E82BBBB3234D6",
+        "signature":  "Valid",
+        "hits":  ""
+    },
+    {
+        "name":  "gdrv.sys",
+        "size":  26792,
+        "sha256":  "FF6729518A380BF57F1BC6F1EC0AA7F3012E1618B8D9B0F31A61D299EE2B4339",
+        "signature":  "Valid",
+        "hits":  "MmMapIoSpace,MmGetPhysicalAddress"
+    },
+    {
+        "name":  "MsIo64.sys",
+        "size":  25616,
+        "sha256":  "525D9B51A80CA0CD4C5889A96F857E73F3A80DA1FFBAE59851E0F51BDFB0B6CD",
+        "signature":  "Valid",
+        "hits":  "MapPhysicalMemory,PhysicalMemory"
+    },
+    {
+        "name":  "AsrDrv10.sys",
+        "size":  21328,
+        "sha256":  "ECE0A900EA089E730741499614C0917432246CEB5E11599EE3A1BB679E24FD2C",
+        "signature":  "Valid",
+        "hits":  "MmGetPhysicalAddress,MmMapIoSpace"
+    },
+    {
+        "name":  "AsrDrv101.sys",
+        "size":  22280,
+        "sha256":  "F40435488389B4FB3B945CA21A8325A51E1B5F80F045AB019748D0EC66056A8B",
+        "signature":  "Valid",
+        "hits":  "MmGetPhysicalAddress,MmMapIoSpace"
+    },
+    {
+        "name":  "HOSTNT.sys",
+        "size":  13864,
+        "sha256":  "07B6D69BAFCFD767F1B63A490A8843C3BB1F8E1BBEA56176109B5743C8F7D357",
+        "signature":  "Valid",
+        "hits":  ""
+    },
+    {
+        "name":  "Se64a.sys",
+        "size":  14032,
+        "sha256":  "6CB51AE871FBD5D07C5AAD6FF8EEA43D34063089528603CA9CEB8B4F52F68DDC",
+        "signature":  "Valid",
+        "hits":  ""
+    },
+    {
+        "name":  "SysInfo.sys",
+        "size":  18128,
+        "sha256":  "7049F3C939EFE76A5556C2A2C04386DB51DAF61D56B679F4868BB0983C996EBB",
+        "signature":  "Valid",
+        "hits":  "MmMapIoSpace"
+    },
+    {
+        "name":  "WCPU.sys",
+        "size":  14904,
+        "sha256":  "159E7C5A12157AF92E0D14A0D3EA116F91C09E21A9831486E6DC592C93C10980",
+        "signature":  "Valid",
+        "hits":  ""
+    },
+    {
+        "name":  "iomem64_3D23BDBAF9905259D858DF5BF991EB23D2DC9F4ECDA7F9F77839691ACEF1B8C4.sys",
+        "size":  17632,
+        "sha256":  "3D23BDBAF9905259D858DF5BF991EB23D2DC9F4ECDA7F9F77839691ACEF1B8C4",
+        "signature":  "Valid",
+        "hits":  "MmMapIoSpace"
+    },
+    {
+        "name":  "inpoutx64_2d83ccb1ad9839c9f5b3f10b1f856177df1594c66cbbc7661677d4b462ebf44d.sys",
+        "size":  16016,
+        "sha256":  "2D83CCB1AD9839C9F5B3F10B1F856177DF1594C66CBBC7661677D4B462EBF44D",
+        "signature":  "Valid",
+        "hits":  ""
+    },
+    {
+        "name":  "OpenLibSys_91314768da140999e682d2a290d48b78bb25a35525ea12c1b1f9634d14602b2c.sys",
+        "size":  14544,
+        "sha256":  "91314768DA140999E682D2A290D48B78BB25A35525EA12C1B1F9634D14602B2C",
+        "signature":  "Valid",
+        "hits":  "MmMapIoSpace"
+    },
+    {
+        "name":  "HwRwDrv_21ccdd306b5183c00ecfd0475b3152e7d94b921e858e59b68a03e925d1715f21.sys",
+        "size":  14544,
+        "sha256":  null,
+        "signature":  "Valid",
+        "hits":  "MmMapIoSpace"
+    },
+    {
+        "name":  "BS_Def64_0040153302B88BEE27EB4F1ECA6855039E1A057370F5E8C615724FA5215BADA3.sys",
+        "size":  20288,
+        "sha256":  "0040153302B88BEE27EB4F1ECA6855039E1A057370F5E8C615724FA5215BADA3",
+        "signature":  "Valid",
+        "hits":  "MmGetPhysicalAddress,MmMapIoSpace"
+    },
+    {
+        "name":  "Agent64_05f052c64d192cf69a462a5ec16dda0d43ca5d0245900c9fcb9201685a2e7748.sys",
+        "size":  22200,
+        "sha256":  "05F052C64D192CF69A462A5EC16DDA0D43CA5D0245900C9FCB9201685A2E7748",
+        "signature":  "Valid",
+        "hits":  "MmGetPhysicalAddress"
+    }
+]
