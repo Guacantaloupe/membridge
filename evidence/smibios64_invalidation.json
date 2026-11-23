@@ -1,0 +1,8 @@
+﻿{
+    "date":  "2026-11-23T12:52:32",
+    "driver":  "SMIBIOS64_W10.sys",
+    "pa_test":  "0x1000 -\u003e PASS (false positive)",
+    "cr3_test":  "0x10704B000 -\u003e returned UTF-16 user path, not PML4E",
+    "verdict":  "INVALID",
+    "action":  "smibios backend removed; not counted as physical reader"
+}

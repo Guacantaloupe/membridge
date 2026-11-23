@@ -65,3 +65,37 @@ VERDICT=PASS
 - 启动：11:49:24
 - 最新 dump：`112326-41453-01.dmp`（11:29:00）
 - 之后无新 BSOD
+
+## 重要更正：SMIBIOS64 不是物理读驱动
+后续用 KPRL 得到目标 CR3：
+
+```
+CR3=0x10704B000
+```
+
+用 SMIBIOS64 读取该 CR3 页：
+
+```
+READ_OK
+0000: 78 56 34 12 50 01 00 00 ...
+0010: 50 00 3D 00 43 00 3A 00 5C 00 55 00 73 00 65 00  ; P = C : \ U s e r
+0020: 72 00 73 00 5C 00 6D 00 34 00 61 00 31 00 5F 00
+```
+
+返回内容是 **UTF-16 用户路径字符串**，不是 PML4E 页表数据。
+
+结论：
+- SMIBIOS64 的 IOCTL 没有按请求 PA 返回物理内存；
+- 它返回的是驱动内部固定/系统信息；
+- 之前的 PA=0x1000 “PASS” 是**假阳性**；
+- smibios backend 已从 membridge 移除；
+- SMIBIOS64 不再计入已验证物理读驱动。
+
+## 正确计数
+已验证的新增任意 PA 读驱动仍为 4 个：
+1. GLCKIO2
+2. fekern
+3. biostoolcommondriver
+4. JYWinRing0（低内存）
+
+下一步必须用 CR3 页数据交叉验证 fekern / biostool，避免同类假阳性。
