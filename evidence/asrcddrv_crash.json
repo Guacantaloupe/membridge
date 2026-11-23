@@ -1,0 +1,14 @@
+﻿{
+    "date":  "2026-11-24T06:56:11",
+    "driver":  "AsrCDDrv.sys",
+    "dump":  "112426-43437-01.dmp",
+    "bugcheck":  "0x20001",
+    "p1":  "0x26",
+    "module":  "ntkrnlmp.exe",
+    "bucket":  "0x20001_26_0_nt!HvlSkCrashdumpCallbackRoutine",
+    "ioctls":  [
+                   "0x22286C READ CR",
+                   "0x222870 WRITE CR"
+               ],
+    "verdict":  "unsafe under HVCI; no more CR tests"
+}
