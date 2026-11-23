@@ -71,3 +71,46 @@ data 全零
 - 但字段含义仍未确认；
 - 暂不继续动态试错；
 - 无新 BSOD。
+
+## 关键修正：0x701E 是读，0x701F 是写
+对 `0x228d4` 的尾部静态分析：
+```
+0x2e458(address, size, 1)   // 地址/长度校验
+0x4a4b0(dest, src, size)    // memcpy
+```
+`0x4a4b0` 汇编确认是 **memcpy：rcx=dest, rdx=src, r8=size**。
+
+`0x228d4` 的调用参数：
+```
+r8d = 0 -> rcx = request+0xA4 (address), rdx = request+0xC0 (data)
+           => memcpy(address, data, size)   // 写
+r8d = 1 -> rcx = request+0xC0 (data), rdx = request+0xA4 (address)
+           => memcpy(data, address, size)   // 读
+```
+分发关系：
+```
+0x701F -> r8d=0 -> 写
+0x701E -> r8d=1 -> 读
+```
+
+## 安全事件记录
+之前测试同时调用了：
+```
+0x701E
+0x701F
+```
+其中 0x701F 实际是**写路径**，请求中 data 为零。理论上可能向 LSTAR 写入零。
+本次没有观察到新 BSOD，系统仍可用，但这是高风险操作。
+
+**立即规则：**
+1. 禁止再调用 PSKD64 0x701F；
+2. 禁止任何 PSKD64 写操作；
+3. PSKD64 只允许在完整协议确认后做只读测试；
+4. 当前不继续动态测试 PSKD64。
+
+## 结论
+- 读/写方向已确认；
+- 0x701E 是读子操作；
+- 0x701F 是写子操作；
+- 之前的数据为零是读失败或请求结构问题；
+- 后续只做静态分析或只读、已知有效地址测试。

@@ -1,0 +1,9 @@
+﻿{
+    "date":  "2026-11-24T07:59:50",
+    "subop_701e":  "read",
+    "subop_701f":  "write",
+    "memcpy":  "0x4a4b0 rcx=dest rdx=src",
+    "incident":  "0x701F write path called with zero data; no new BSOD",
+    "rule":  "never call 0x701F; read-only only",
+    "note":  "system stable"
+}
