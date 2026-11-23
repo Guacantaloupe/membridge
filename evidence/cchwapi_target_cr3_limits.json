@@ -1,0 +1,7 @@
+﻿{
+    "date":  "2026-11-24T06:48:32",
+    "cchwapi12":  "start=183 duplicate",
+    "cchwapi_ext":  "current CR3 0x1D746F000 PASS",
+    "cchwapi_only":  "target CR3 locate failed: ntoskrnl base not found",
+    "note":  "no new target-PID CR3 provider; KPRL remains only one"
+}

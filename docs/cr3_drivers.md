@@ -243,3 +243,30 @@ ReadFile(16字节)       -> False err=1
 - 它不是当前 KPRL 查询协议的兼容实现；
 - 仍需单独逆向其真正 IOCTL/请求格式；
 - 目标 PID CR3 仍只能由原版 KPRL 提供。
+
+## CCHWApi 2.12 / CCHWApiExt 复测
+### CCHWApi 2.12
+尝试加载：
+```
+drivers/CCHWApi(1)_sys/CCHWApi(1).sys
+sc start -> 183 (device/service duplicate)
+```
+当前设备已被 CCHWApiExt 占用，无法单独验证 2.12 版本。
+
+### CCHWApiExt
+```
+STATE: RUNNING
+\\.\CCHWAPI -> OPEN_OK
+current CR3 = 0x1D746F000
+```
+仍只有当前 CPU CR3。
+
+### CCHWApi-only 目标 CR3 尝试
+```
+layers --locate --cchwapi-only --pid 7592
+=> ntoskrnl base not found
+```
+结论：
+- CCHWApi 系驱动只能读取当前 CPU 控制寄存器 CR3；
+- 不能直接按 PID 获取目标 CR3；
+- 目标 CR3 仍需 KPRL。
