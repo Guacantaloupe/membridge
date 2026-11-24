@@ -1,0 +1,9 @@
+﻿{
+    "date":  "2026-11-24T10:13:50",
+    "source":  "KDU DBPACK drv",
+    "binaries":  "50+",
+    "cr3_read_candidates":  0,
+    "crx_write_only":  "dbutildrv2.bin",
+    "new_locator":  false,
+    "note":  "no BSOD"
+}
