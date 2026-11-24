@@ -1,0 +1,7080 @@
+{
+  "scanned": 2222,
+  "candidates": [
+    {
+      "md5": "cf42cc217c139298641901aad4e5db08",
+      "cr3_read_insns": 111,
+      "crx_write_insns": 110,
+      "meta": {
+        "filename": "",
+        "sha256": "4d8bc539ca7c72e552b7065d2a84fef43b75a46a53c82b50556c2984e0a86a9e"
+      },
+      "hits": []
+    },
+    {
+      "md5": "7296e9a1ef2e6aaafc6915e1eb552780",
+      "cr3_read_insns": 13,
+      "crx_write_insns": 9,
+      "meta": {
+        "filename": "neacsafe",
+        "sha256": "b1147d9b4bed22d8b6e6dcc7366950ffb57ecc10fbfe8f4ee9615b3d3cdd2368"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId",
+        "MmCopyVirtualMemory"
+      ]
+    },
+    {
+      "md5": "ebfad15f91e3e4bd7f538c96dc855924",
+      "cr3_read_insns": 13,
+      "crx_write_insns": 8,
+      "meta": {
+        "filename": "neacsafe",
+        "sha256": "f79a4ba7f5656fa9ccfe245a90e6e861e2d1aaf0f9d52240abaad0521da063be"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId",
+        "MmCopyVirtualMemory"
+      ]
+    },
+    {
+      "md5": "dcc288fafad0bf3b505c4b44791d423d",
+      "cr3_read_insns": 12,
+      "crx_write_insns": 8,
+      "meta": {
+        "filename": "neacsafe",
+        "sha256": "65447f727801e8be8a51aaaafc07618c8196553e683affb0721da441e2430bad"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId",
+        "MmCopyVirtualMemory"
+      ]
+    },
+    {
+      "md5": "1607f41c32e67edf39d0968f332aef9f",
+      "cr3_read_insns": 12,
+      "crx_write_insns": 6,
+      "meta": {
+        "filename": "neacsafe",
+        "sha256": "1d828fe7d97620cd92275c6d14fe9721c9b04b514f4dce084f7f6ea05b7d5acd"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId",
+        "MmCopyVirtualMemory"
+      ]
+    },
+    {
+      "md5": "e8f177545acc656c837b74102cd76527",
+      "cr3_read_insns": 10,
+      "crx_write_insns": 2,
+      "meta": {
+        "filename": "ACE-BASE.sys",
+        "sha256": "7326aefff9ea3a32286b423a62baebe33b73251348666c1ee569afe62dd60e11"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "0ccc4e9396e0be9c4639faec53715831",
+      "cr3_read_insns": 9,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "b7bba82777c9912e6a728c3e873c5a8fd3546982e0d5fa88e64b3e2122f9bc3b"
+      },
+      "hits": []
+    },
+    {
+      "md5": "0bee791c7c7ace453c134e73633c497d",
+      "cr3_read_insns": 7,
+      "crx_write_insns": 4,
+      "meta": {
+        "filename": "pmxdrv.sys",
+        "sha256": "82b30461dbf40ac15fce6a83b9bad2ebd05b27dea1b784eaa096422fe8927b7b"
+      },
+      "hits": []
+    },
+    {
+      "md5": "a5f637d61719d37a5b4868c385e363c0",
+      "cr3_read_insns": 6,
+      "crx_write_insns": 2,
+      "meta": {
+        "filename": "aswVmm.sys",
+        "sha256": "36505921af5a09175395ebaea29c72b2a69a3a9204384a767a5be8a721f31b10"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "3e62bffd59054488001977738bb917c6",
+      "cr3_read_insns": 6,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "vsapint.sys",
+        "sha256": "0e674d7e96e2e2e33ca96a5537cd4dd9db247249131ac91c44ebe9764efbfffe"
+      },
+      "hits": []
+    },
+    {
+      "md5": "0b5c4cd701956b332e60ae85b8c3a7ea",
+      "cr3_read_insns": 4,
+      "crx_write_insns": 7,
+      "meta": {
+        "filename": "360Hvm64.sys",
+        "sha256": "f89d5d95b8a59e6d5e50a49217f83d080e4eaf4bb77b80d8f38cd915640ba124"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "CR3",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "2315a8919cfb167e718d8c788ed3ceca",
+      "cr3_read_insns": 4,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "",
+        "sha256": "9e2622d8e7a0ec136ba1fff639833f05137f8a1ff03e7a93b9a4aea25e7abb8d"
+      },
+      "hits": []
+    },
+    {
+      "md5": "2a2867e1f323320fdeef40c1da578a9a",
+      "cr3_read_insns": 4,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "",
+        "sha256": "af298d940b186f922464d2ef19ccfc129c77126a4f337ecf357b4fe5162a477c"
+      },
+      "hits": []
+    },
+    {
+      "md5": "ff3351f67270b2021937cb8a54af3d25",
+      "cr3_read_insns": 3,
+      "crx_write_insns": 2,
+      "meta": {
+        "filename": "KSophon_x64.sys",
+        "sha256": "2005e9afa51b7918dd1d0143d181641529c488e945fc6bfe1db48805aabdedb3"
+      },
+      "hits": [
+        "CR3"
+      ]
+    },
+    {
+      "md5": "1b2e3b7f2966f2f6e6a1bb89f97228e5",
+      "cr3_read_insns": 3,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "",
+        "sha256": "8bf01cd6d55502838853851703eb297ec71361fa9a0b088a30c2434f4d2bf9c6"
+      },
+      "hits": []
+    },
+    {
+      "md5": "eb59b40453b7d61b14559155c176e527",
+      "cr3_read_insns": 3,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "Kinkajou.sys",
+        "sha256": "f5dd6db447868c2964c1d109e7d2cc31ebdace198b3d0a02cfba5b7ef7ae6964"
+      },
+      "hits": [
+        "KeStackAttachProcess"
+      ]
+    },
+    {
+      "md5": "982d39a9c76395dd4c826fe77c00a4bd",
+      "cr3_read_insns": 2,
+      "crx_write_insns": 3,
+      "meta": {
+        "filename": "",
+        "sha256": "edeb35e4341034b2de389017c4884b081a821f34349a620897a2a845c84cb09e"
+      },
+      "hits": [
+        "CR3"
+      ]
+    },
+    {
+      "md5": "57cd52ed992b634e74d2ddf9853a73b3",
+      "cr3_read_insns": 2,
+      "crx_write_insns": 2,
+      "meta": {
+        "filename": "",
+        "sha256": "c0ae3349ebaac9a99c47ec55d5f7de00dc03bd7c5cd15799bc00646d642aa8de"
+      },
+      "hits": []
+    },
+    {
+      "md5": "b316425d6f200244a25bd7b9998d9c43",
+      "cr3_read_insns": 2,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "KSLD.sys",
+        "sha256": "2b3195346d9b62b08bb61bb61f0da20b2abb0c726186c09a2e4fa926baacbfc5"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "d788954cd8f0aa8b45dc497a1653465e",
+      "cr3_read_insns": 2,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "AppVkgr.sys",
+        "sha256": "70b47bd596e76297ded3b096839082bc31f79ef58cdffeaac7308e8b9565a6d5"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId",
+        "MmCopyVirtualMemory"
+      ]
+    },
+    {
+      "md5": "cfe59d68df1eaa4f33852a60c81f4fd0",
+      "cr3_read_insns": 2,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "82d928c586159342837cb457f45619f49db38bb91631a82e4f1b373fb994cd73"
+      },
+      "hits": [
+        "CR3"
+      ]
+    },
+    {
+      "md5": "016c1d3cc193732736eeaeb3094154f2",
+      "cr3_read_insns": 2,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "fastdumpx64.sys",
+        "sha256": "9cb90643674a941bca2ff0823618e4790a737b9bdcfe882b3af6926591b84d80"
+      },
+      "hits": []
+    },
+    {
+      "md5": "7475bfea6ea1cd54029208ed59b96c6b",
+      "cr3_read_insns": 2,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "BEDAISY.SYS",
+        "sha256": "2b120de80a5462f8395cfb7153c86dfd44f29f0776ea156ec4a34fa64e5c4797"
+      },
+      "hits": []
+    },
+    {
+      "md5": "8aa9d47ec9a0713c56b6dec3d601d105",
+      "cr3_read_insns": 2,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "a0e583bd88eb198558442f69a8bbfc96f4c5c297befea295138cfd2070f745c5"
+      },
+      "hits": []
+    },
+    {
+      "md5": "d3026938514218766cb6d3b36ccfa322",
+      "cr3_read_insns": 2,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "a19fc837ca342d2db43ee8ad7290df48a1b8b85996c58a19ca3530101862a804"
+      },
+      "hits": []
+    },
+    {
+      "md5": "f670d1570c75ab1d8e870c1c6e3baba1",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 4,
+      "meta": {
+        "filename": "",
+        "sha256": "0a9b608461d55815e99700607a52fbdb7d598f968126d38e10cc4293ac4b1ad8"
+      },
+      "hits": []
+    },
+    {
+      "md5": "e4b50e44d1f12a47e18259b41074f126",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 3,
+      "meta": {
+        "filename": "",
+        "sha256": "3b19a7207a55d752db1b366b1dea2fd2c7620a825a3f0dcffca10af76611118c"
+      },
+      "hits": []
+    },
+    {
+      "md5": "1b2497558f05c560e25b09c45d033245",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 2,
+      "meta": {
+        "filename": "sysdiag.sys",
+        "sha256": "5aeae04dd27ff148cb8c0f646e34b0404a963b8ec6fc930e75ae5b09d5ec3291"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "3a48f0e4297947663fbb11702aa1d728",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 2,
+      "meta": {
+        "filename": "dbk64.sys",
+        "sha256": "626fae47811450d080d08c3d9fd890aa64bfecdc45eacd42a40850c1833c8763"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "1c294146fc77565030603878fd0106f9",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 2,
+      "meta": {
+        "filename": "dbk64.sys",
+        "sha256": "18e1707b319c279c7e0204074088cc39286007a1cf6cb6e269d5067d8d0628c6"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "CR3",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "0aaae94aeed94870f755487e8ec17259",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 2,
+      "meta": {
+        "filename": "tdevflt.sys",
+        "sha256": "8284c8676cc22c4b2e66826ac16986da7ddecba1f2776b16771be17bfdc45dc2"
+      },
+      "hits": []
+    },
+    {
+      "md5": "8886bdebbc33f3a8830f38065e7f7e40",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 2,
+      "meta": {
+        "filename": "nxeng.sys",
+        "sha256": "68d698a978b8ea3bf467bdea2d75ef3099826c3a0d4a1ddb95b078f48f0ae7a1"
+      },
+      "hits": []
+    },
+    {
+      "md5": "01d673c8b80f4df91147e29e6cecefe5",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "hax.sys",
+        "sha256": "e6d2868eeaaf315c4f022844a2fe55dff7f76445c057b3057024e6fd3365d020"
+      },
+      "hits": [
+        "CR3"
+      ]
+    },
+    {
+      "md5": "09bfdf7a7f87af879e98c3000d7048cb",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "hax.sys",
+        "sha256": "a17b6c35f161f9333eecfd24577d4bf544e228c239d4ce87b093c7e4a77326bd"
+      },
+      "hits": [
+        "CR3"
+      ]
+    },
+    {
+      "md5": "0be920b2bfce125b87163809b9936024",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "hax.sys",
+        "sha256": "6272aa047c054424f30f09b9ffbc543f4084fa4ac878c7b90d29fbc0502e0e33"
+      },
+      "hits": [
+        "CR3"
+      ]
+    },
+    {
+      "md5": "20afdbd8c895807a95ac17ad70a7d1a1",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "hax.sys",
+        "sha256": "b1b502bfac0509b3c08df2e09ad5b3c6f508a3abf7b85eb025d9b961151d8cb2"
+      },
+      "hits": [
+        "CR3"
+      ]
+    },
+    {
+      "md5": "5e9d5c59ba1f1060f53909c129df3355",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "",
+        "sha256": "0bd164da36bd637bb76ca66602d732af912bd9299cb3d520d26db528cb54826d"
+      },
+      "hits": [
+        "CR3"
+      ]
+    },
+    {
+      "md5": "668e445ce229e319623e32515fa4c6e9",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "hax.sys",
+        "sha256": "df22e797390c7cc401eade8e06d2961aa402801acaaca704ddef7b6c1d457166"
+      },
+      "hits": [
+        "CR3"
+      ]
+    },
+    {
+      "md5": "67707c0139c68f9b508f7455fe963c11",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "hax.sys",
+        "sha256": "7e2e727d71baa430d38988a08b9879bca72cf9fb203dd100e00da2416c87f8b0"
+      },
+      "hits": [
+        "CR3"
+      ]
+    },
+    {
+      "md5": "908af5100aec581ca91a98ca516f6ded",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "hax.sys",
+        "sha256": "d91272678e1adedef58c9f258e032e84c0a2d4e7a101636de6931836add73321"
+      },
+      "hits": [
+        "CR3"
+      ]
+    },
+    {
+      "md5": "a0c976d84bc63855293709d3388dde48",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "hax.sys",
+        "sha256": "c5a1957b8fcdcaa1890889f89629c9a9a3ff6b58d01fa7eb061c50c8213bbf97"
+      },
+      "hits": [
+        "CR3"
+      ]
+    },
+    {
+      "md5": "e62d7455629aa7b10e4b5061d375b5d9",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "hax.sys",
+        "sha256": "b68e8cd643e9d28bade6867563939de0638cbb3b6e6bbff5933449eacbcb68d9"
+      },
+      "hits": [
+        "CR3"
+      ]
+    },
+    {
+      "md5": "003dc41d148ec3286dc7df404ba3f2aa",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "stdcdrvws64.sys",
+        "sha256": "70afdc0e11db840d5367afe53c35d9642c1cf616c7832ab283781d085988e505"
+      },
+      "hits": []
+    },
+    {
+      "md5": "0283b43c6bc965175a1c92b255d39556",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "80eeb8c2890f3535ed14f5881baf2f2226e6763be099d09fb8aadaba5b4474c1"
+      },
+      "hits": []
+    },
+    {
+      "md5": "07493c774aa406478005e8fe52c788b2",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "dbb457ae1bd07a945a1466ce4a206c625e590aee3922fa7d86fbe956beccfc98"
+      },
+      "hits": []
+    },
+    {
+      "md5": "0e14b69dcf67c20343f85f9fdb5b9300",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "3813c1aab1760acb963bcc10d6ea3fddc2976b9e291710756408de392bc9e5d5"
+      },
+      "hits": []
+    },
+    {
+      "md5": "0d4306983e694c1f34920bae12d887e6",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "8d6febd54ce0c98ea3653e582f7791061923a9a4842bd4a1326564204431ca9f"
+      },
+      "hits": []
+    },
+    {
+      "md5": "1276f735d22cf04676a719edc6b0df18",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "RwDrv.sys",
+        "sha256": "83fbf5d46cff38dd1c0f83686708b3bd6a3a73fddd7a2da2b5a3acccd1d9359c"
+      },
+      "hits": []
+    },
+    {
+      "md5": "12908c285b9d68ee1f39186110df0f1e",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "AsrDrv.sys",
+        "sha256": "3943a796cc7c5352aa57ccf544295bfd6fb69aae147bc8235a00202dc6ed6838"
+      },
+      "hits": []
+    },
+    {
+      "md5": "13a0d3f9d5f39adaca0a8d3bb327eb31",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "c7f64b27cd3be5af1c8454680529ea493dfbb09e634eec7e316445ad73499ae0"
+      },
+      "hits": []
+    },
+    {
+      "md5": "118f3fdba730094d17aa1b259586aef6",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "922d23999a59ce0d84b479170fd265650bc7fae9e7d41bf550d8597f472a3832"
+      },
+      "hits": []
+    },
+    {
+      "md5": "1a234f4643f5658bab07bfa611282267",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "AsrDrv.sys",
+        "sha256": "f40435488389b4fb3b945ca21a8325a51e1b5f80f045ab019748d0ec66056a8b"
+      },
+      "hits": []
+    },
+    {
+      "md5": "1b76363059fef4f7da752eb0dfb0c1e1",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "f7e0cca8ad9ea1e34fa1a5e0533a746b2fa0988ba56b01542bc43841e463b686"
+      },
+      "hits": []
+    },
+    {
+      "md5": "1bca427ab8e67a9db833eb8f0ff92196",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "8a0702681bc51419fbd336817787a966c7f92cabe09f8e959251069578dfa881"
+      },
+      "hits": []
+    },
+    {
+      "md5": "1f263a57c5ef46c8577744ecb32c9548",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "019c2955e380dd5867c4b82361a8d8de62346ef91140c95cb311b84448c0fa4f"
+      },
+      "hits": []
+    },
+    {
+      "md5": "21be10f66bb65c1d406407faa0b9ba95",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "2101d5e80e92c55ecfd8c24fcf2202a206a4fd70195a1378f88c4cc04d336f22"
+      },
+      "hits": []
+    },
+    {
+      "md5": "17719a7f571d4cd08223f0b30f71b8b8",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "1f4d4db4abe26e765a33afb2501ac134d14cadeaa74ae8a0fae420e4ecf58e0c"
+      },
+      "hits": []
+    },
+    {
+      "md5": "257483d5d8b268d0d679956c7acdf02d",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "RwDrv.sys",
+        "sha256": "ea0b9eecf4ad5ec8c14aec13de7d661e7615018b1a3c65464bf5eca9bbf6ded3"
+      },
+      "hits": []
+    },
+    {
+      "md5": "262969a3fab32b9e17e63e2d17a57744",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "1ee59eb28688e73d10838c66e0d8e011c8df45b6b43a4ac5d0b75795ca3eb512"
+      },
+      "hits": []
+    },
+    {
+      "md5": "29872c7376c42e2a64fa838dad98aa11",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "a072197177aad26c31960694e38e2cae85afbab070929e67e331b99d3a418cf4"
+      },
+      "hits": []
+    },
+    {
+      "md5": "2714c93eb240375a2893ed7f8818004f",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "53bd8e8d3542fcf02d09c34282ebf97aee9515ee6b9a01cefd81baa45c6fd3d6"
+      },
+      "hits": []
+    },
+    {
+      "md5": "2b8814cff6351c2b775387770053bdec",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "ff987c30ce822d99f3b4b4e23c61b88955f52406a95e6331570a2a13cbebc498"
+      },
+      "hits": []
+    },
+    {
+      "md5": "2da269863ed99be7b6b8ec2adc710648",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "68671b735716ffc168addc052c5dc3d635e63e71c1e78815e7874286c3fcc248"
+      },
+      "hits": []
+    },
+    {
+      "md5": "2dbc09c853c4bf2e058d29aaa21fa803",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "b7aa4c17afdaff1603ef9b5cc8981bed535555f8185b59d5ae13f342f27ca6c5"
+      },
+      "hits": []
+    },
+    {
+      "md5": "2f8653034a35526df88ea0c62b035a42",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "4d19ee789e101e5a76834fb411aadf8229f08b3ece671343ad57a6576a525036"
+      },
+      "hits": []
+    },
+    {
+      "md5": "26ce59f9fc8639fd7fed53ce3b785015",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "11d258e05b850dcc9ecfacccc9486e54bd928aaa3d5e9942696c323fdbd3481b"
+      },
+      "hits": []
+    },
+    {
+      "md5": "3411fdf098aa20193eee5ffa36ba43b2",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "67734c7c0130dd66c964f76965f09a2290da4b14c94412c0056046e700654bdc"
+      },
+      "hits": []
+    },
+    {
+      "md5": "3ab94fba7196e84a97e83b15f7bcb270",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "3e07bb866d329a2f9aaa4802bad04fdac9163de9bf9cfa1d035f5ca610b4b9bf"
+      },
+      "hits": []
+    },
+    {
+      "md5": "3f053c140e788ae8c230be5b741dc260",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "AIDA64Driver.sys",
+        "sha256": "7790ab2136def33afc6c86d64da81c2e1bc25d34e33282c987961cdaa87e4330"
+      },
+      "hits": []
+    },
+    {
+      "md5": "43bfc857406191963f4f3d9f1b76a7bf",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "e0b5a5f8333fc1213791af5c5814d7a99615b3951361ca75f8aa5022c9cfbc2b"
+      },
+      "hits": []
+    },
+    {
+      "md5": "44a3b9cc0a8e89c11544932b295ea113",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "a11cf43794ea5b5122a0851bf7de08e559f6e9219c77f9888ff740055f2c155e"
+      },
+      "hits": []
+    },
+    {
+      "md5": "4885e1bf1971c8fa9e7686fd5199f500",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "26e3bfef255efd052a84c3c43994c73222b14c95db9a4b1fc2e98f1a5cb26e43"
+      },
+      "hits": []
+    },
+    {
+      "md5": "4a85754636c694572ca9f440d254f5ce",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "8688e43d94b41eeca2ed458b8fc0d02f74696a918e375ecd3842d8627e7a8f2b"
+      },
+      "hits": []
+    },
+    {
+      "md5": "4f27c09cc8680e06b04d6a9c34ca1e08",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "AsrDrv.sys",
+        "sha256": "950a4c0c772021cee26011a92194f0e58d61588f77f2873aa0599dff52a160c9"
+      },
+      "hits": []
+    },
+    {
+      "md5": "5158f786afa19945d19bee9179065e4d",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "d366cbc1d5dd8863b45776cfb982904abd21d0c0d4697851ff54381055abcfc8"
+      },
+      "hits": []
+    },
+    {
+      "md5": "5212e0957468d3f94d90fa7a0f06b58f",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "955dac77a0148e9f9ed744f5d341cb9c9118261e52fe622ac6213965f2bc4cad"
+      },
+      "hits": []
+    },
+    {
+      "md5": "56a515173b211832e20fbc64e5a0447c",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "RwDrv.sys",
+        "sha256": "47f08f7d30d824a8f4bb8a98916401a37c0fd8502db308aba91fe3112b892dcc"
+      },
+      "hits": []
+    },
+    {
+      "md5": "56b54823a79a53747cbe11f8c4db7b1e",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "9a523854fe84f15efc1635d7f5d3e71812c45d6a4d2c99c29fdc4b4d9c84954c"
+      },
+      "hits": []
+    },
+    {
+      "md5": "5bab40019419a2713298a5c9173e5d30",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "RwDrv.sys",
+        "sha256": "2a652de6b680d5ad92376ad323021850dab2c653abf06edf26120f7714b8e08a"
+      },
+      "hits": []
+    },
+    {
+      "md5": "5cd0ec261c8c2a39d9105fbbcad4e5b9",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "AsrSetupDrv103.sys",
+        "sha256": "a0728184caead84f2e88777d833765f2d8af6a20aad77b426e07e76ef91f5c3f"
+      },
+      "hits": []
+    },
+    {
+      "md5": "4ad30223df1361726ff64417f8515272",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "RwDrv.sys",
+        "sha256": "2470fd1b733314c9b0afa19fd39c5d19aa1b36db598b5ebbe93445caa545da5f"
+      },
+      "hits": []
+    },
+    {
+      "md5": "5e71c0814287763d529822d0a022e693",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "6001c6acae09d2a91f8773bbdfd52654c99bc672a9756dc4cb53dc2e3efeb097"
+      },
+      "hits": []
+    },
+    {
+      "md5": "641243746597fbd650e5000d95811ea3",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "c3e150eb7e7292f70299d3054ed429156a4c32b1f7466a706a2b99249022979e"
+      },
+      "hits": []
+    },
+    {
+      "md5": "649ff59b8e571c1fc6535b31662407aa",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "f8d6ce1c86cbd616bb821698037f60a41e129d282a8d6f1f5ecdd37a9688f585"
+      },
+      "hits": []
+    },
+    {
+      "md5": "65c069af3875494ec686afbb0c3da399",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "b738eab6f3e32cec59d5f53c12f13862429d3db6756212bbcd78ba4b4dbc234c"
+      },
+      "hits": []
+    },
+    {
+      "md5": "6917ef5d483ed30be14f8085eaef521b",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "",
+        "sha256": "4ba224af60a50cad10d0091c89134c72fc021da8d34a6f25c4827184dc6ca5c7"
+      },
+      "hits": []
+    },
+    {
+      "md5": "6ae4dec687ac6d1b635a4e351dddf73e",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "79440da6b8178998bdda5ebde90491c124b1967d295db1449ec820a85dc246dd"
+      },
+      "hits": []
+    },
+    {
+      "md5": "6bada94085b6709694f8327c211d12e1",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "c8f0bb5d8836e21e7a22a406c69c01ba7d512a808c37c45088575d548ee25caa"
+      },
+      "hits": []
+    },
+    {
+      "md5": "6c28461e78f8d908ca9a66bad2e212f7",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "fb1183ef22ecbcc28f9c0a351c2c0280f1312a0fdf8a9983161691e2585efc70"
+      },
+      "hits": []
+    },
+    {
+      "md5": "6f5cf7feb9bb8108b68f169b8e625ffe",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "b4c07f7e7c87518e8950eb0651ae34832b1ecee56c89cdfbd1b4efa8cf97779f"
+      },
+      "hits": []
+    },
+    {
+      "md5": "729dd4df669dc96e74f4180c6ee2a64b",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "2298e838e3c015aedfb83ab18194a2503fe5764a862c294c8b39c550aab2f08e"
+      },
+      "hits": []
+    },
+    {
+      "md5": "31469f1313871690e8dc2e8ee4799b22",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "RwDrv.sys",
+        "sha256": "0aafa9f47acf69d46c9542985994ff5321f00842a28df2396d4a3076776a83cb"
+      },
+      "hits": []
+    },
+    {
+      "md5": "7437d4070b5c018e05354c179f1d5e2a",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "RwDrv.sys",
+        "sha256": "3384f4a892f7aa72c43280ff682d85c8e3936f37a68d978d307a9461149192de"
+      },
+      "hits": []
+    },
+    {
+      "md5": "741daa162541343e15f0448487ca52c5",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "PSKD64.SYS",
+        "sha256": "34cdbf48f5a51ca9553c14f007aaa1b67c24e1334d8cb29e80f07c80c5dc07e7"
+      },
+      "hits": []
+    },
+    {
+      "md5": "60e84516c6ec6dfdae7b422d1f7cab06",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "RwDrv.sys",
+        "sha256": "d969845ef6acc8e5d3421a7ce7e244f419989710871313b04148f9b322751e5d"
+      },
+      "hits": []
+    },
+    {
+      "md5": "743c403d20a89db5ed84c874768b7119",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "2a9d481ffdc5c1e2cb50cf078be32be06b21f6e2b38e90e008edfc8c4f2a9c4e"
+      },
+      "hits": []
+    },
+    {
+      "md5": "75d6c3469347de1cdfa3b1b9f1544208",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "AsrAutoChkUpdDrv.sys",
+        "sha256": "2aa1b08f47fbb1e2bd2e4a492f5d616968e703e1359a921f62b38b8e4662f0c4"
+      },
+      "hits": []
+    },
+    {
+      "md5": "75dbd5db9892d7451d0429bec1aabe1a",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "19696fb0db3fcae22f705ae1eb1e9f1151c823f3ff5d8857e90f2a4a6fdc5758"
+      },
+      "hits": []
+    },
+    {
+      "md5": "75fa19142531cbf490770c2988a7db64",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "c673f2eed5d0eed307a67119d20a91c8818a53a3cb616e2984876b07e5c62547"
+      },
+      "hits": []
+    },
+    {
+      "md5": "76355d5eafdfa3e9b7580b9153de1f30",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "e51ec2876af3c9c3f1563987a9a35a10f091ea25ede16b1a34ba2648c53e9dfc"
+      },
+      "hits": []
+    },
+    {
+      "md5": "76bb1a4332666222a8e3e1339e267179",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "AsrDrv.sys",
+        "sha256": "a7c2e7910942dd5e43e2f4eb159bcd2b4e71366e34a68109548b9fb12ac0f7cc"
+      },
+      "hits": []
+    },
+    {
+      "md5": "7c72a7e1d42b0790773efd8700e24952",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "AsrDrv.sys",
+        "sha256": "2003b478b9fd1b3d76ec5bf4172c2e8915babbbee7ad1783794acbf8d4c2519d"
+      },
+      "hits": []
+    },
+    {
+      "md5": "7c4e513702a0322b0e3bce29dea9e3e9",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "b0f6cd34717d0cea5ab394b39a9de3a479ca472a071540a595117219d9a61a44"
+      },
+      "hits": []
+    },
+    {
+      "md5": "7d46d0ddaf8c7e1776a70c220bf47524",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "3871e16758a1778907667f78589359734f7f62f9dc953ec558946dcdbe6951e3"
+      },
+      "hits": []
+    },
+    {
+      "md5": "7ee002414a5fa3650d418ebde92e528d",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "AsrCDDrv.sys",
+        "sha256": "04cc7df4077e36199b04afa39204c8f568f7f66f045e73010fb9b7685324442f"
+      },
+      "hits": []
+    },
+    {
+      "md5": "80b4041695810f98e1c71ff0cf420b6d",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "ef1abc77f4000e68d5190f9e11025ea3dc1e6132103d4c3678e15a678de09f33"
+      },
+      "hits": []
+    },
+    {
+      "md5": "82854a57630059d1ce2870159dc2f86b",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "0484defcf1b5afbe573472753dc2395e528608b688e5c7d1d178164e48e7bed7"
+      },
+      "hits": []
+    },
+    {
+      "md5": "8741e6df191c805028b92cec44b1ba88",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "8cf0cbbdc43f9b977f0fb79e0a0dd0e1adabe08a67d0f40d727c717c747de775"
+      },
+      "hits": []
+    },
+    {
+      "md5": "7f9c2649000242416349e1e4f0f76955",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "AsrDrv.sys",
+        "sha256": "14c5576eda5a28d476a93c9cdb91236f18573dbd0578ac2bb183dfd115f4a166"
+      },
+      "hits": []
+    },
+    {
+      "md5": "894b30abec6e268d1e8b10edc030e8b4",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "AsrDrv.sys",
+        "sha256": "be131e30464c7be03bd2d16f99ea2b04c106b482cc5c52be659e4c0301206348"
+      },
+      "hits": []
+    },
+    {
+      "md5": "8ad9dfc971df71cd43788ade6acf8e7d",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "f74ffd6916333662900cbecb90aca2d6475a714ce410adf9c5c3264abbe5732c"
+      },
+      "hits": []
+    },
+    {
+      "md5": "8b47c5580b130dd3f580af09323bc949",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "b01ebea651ec7780d0fe88dd1b6c2500a36dacf85e3a4038c2ca1c5cb44c7b5d"
+      },
+      "hits": []
+    },
+    {
+      "md5": "8f5b84350bfc4fe3a65d921b4bd0e737",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "e58bbf3251906ff722aa63415bf169618e78be85cb92c8263d3715c260491e90"
+      },
+      "hits": []
+    },
+    {
+      "md5": "903c149851e9929ec45daefc544fcd99",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "RwDrv.sys",
+        "sha256": "45ba688a4bded8a7e78a4f5b0dc21004e951ddceb014bb92f51a3301d2fbc56a"
+      },
+      "hits": []
+    },
+    {
+      "md5": "9226339848e359f5e4cd519bef7dcd39",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "AsrSetupDrv103.sys",
+        "sha256": "9d9346e6f46f831e263385a9bd32428e01919cca26a035bbb8e9cb00bf410bc3"
+      },
+      "hits": []
+    },
+    {
+      "md5": "9261f8881611d1b84dfa8b1a54802cf0",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "AsrDrv.sys",
+        "sha256": "12177d777345f60a579e7bd8f0df95296af6e293e5560ee544fcced99a5db0df"
+      },
+      "hits": []
+    },
+    {
+      "md5": "8d14b013fc2b555e404b1c3301150c34",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "a3975db1127c331ba541fffff0c607a15c45b47aa078e756b402422ef7e81c2c"
+      },
+      "hits": []
+    },
+    {
+      "md5": "94ccef76fda12ab0b8270f9b2980552b",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "8e5aef7c66c0e92dfc037ee29ade1c8484b8d7fadebdcf521d2763b1d8215126"
+      },
+      "hits": []
+    },
+    {
+      "md5": "95c88d25e211a4d52a82c53e5d93e634",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "65deb5dca18ee846e7272894f74d84d9391bbe260c22f24a65ab37d48bd85377"
+      },
+      "hits": []
+    },
+    {
+      "md5": "9650db2ef0a44984845841ab24972ced",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "RwDrv.sys",
+        "sha256": "bdcacb9f373b017d0905845292bca2089feb0900ce80e78df1bcaae8328ce042"
+      },
+      "hits": []
+    },
+    {
+      "md5": "969f1d19449dc5c2535dd5786093f651",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "RwDrv.sys",
+        "sha256": "2bf29a2df52110ed463d51376562afceac0e80fbb1033284cf50edd86c406b14"
+      },
+      "hits": []
+    },
+    {
+      "md5": "9945823e9846724c70d2f8d66a403300",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "",
+        "sha256": "fa21e3d2bfb9fafddec0488852377fbb2dbdd6c066ca05bb5c4b6aa840fb7879"
+      },
+      "hits": []
+    },
+    {
+      "md5": "9a1cd3071888ba68fb131f36bcc000e9",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "KSophon_x64.sys",
+        "sha256": "4ea893c2da9f60590c6223b3c71b13e071d5f700cc3b93f4508b90187ef6091a"
+      },
+      "hits": []
+    },
+    {
+      "md5": "9b157f1261a8a42e4ef5ec23dd4cda9e",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "900dd68ccc72d73774a347b3290c4b6153ae496a81de722ebb043e2e99496f88"
+      },
+      "hits": []
+    },
+    {
+      "md5": "9b91a44a488e4d539f2e55476b216024",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "AsrDrv.sys",
+        "sha256": "ece0a900ea089e730741499614c0917432246ceb5e11599ee3a1bb679e24fd2c"
+      },
+      "hits": []
+    },
+    {
+      "md5": "9c56e390589ceb75d773229567924dcd",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "AsrDrv.sys",
+        "sha256": "4d03a01257e156a3a018230059052791c3cde556e5cec7a4dd2f55f65c06e146"
+      },
+      "hits": []
+    },
+    {
+      "md5": "a223f8584bcb978c003dd451b1439f8d",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "bc8cb3aebe911bd9b4a3caf46f7dda0f73fec4d2e4e7bc9601bb6726f5893091"
+      },
+      "hits": []
+    },
+    {
+      "md5": "a453083b8f4ca7cb60cac327e97edbe2",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "c50f8ab8538c557963252b702c1bd3cee4604b5fc2497705d2a6a3fd87e3cc26"
+      },
+      "hits": []
+    },
+    {
+      "md5": "a89ca92145fc330adced0dd005421183",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "0d3790af5f8e5c945410929e31d06144a471ac82f828afe89a4758a5bbeb7f9f"
+      },
+      "hits": []
+    },
+    {
+      "md5": "aa69b4255e786d968adbd75ba5cf3e93",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "60b163776e7b95e0c2280d04476304d0c943b484909131f340e3ce6045a49289"
+      },
+      "hits": []
+    },
+    {
+      "md5": "ab4ee84e09b09012ac86d3a875af9d43",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "2a6db9facf9e13d35c37dd468be04bae5f70c6127a9aee76daebddbdec95d486"
+      },
+      "hits": []
+    },
+    {
+      "md5": "ab859723016484790c87b2218931d55f",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "AsrDrv.sys",
+        "sha256": "4bf974f5d3489638a48ee508b4a8cfa0f0262909778ccdd2e871172b71654d89"
+      },
+      "hits": []
+    },
+    {
+      "md5": "b2600502a5b962b8cdfac2ead24b17b4",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "nvoclock.sys",
+        "sha256": "b0dcdbdc62949c981c4fc04ccea64be008676d23506fc05637d9686151a4b77f"
+      },
+      "hits": []
+    },
+    {
+      "md5": "be17a598e0f5314748ade0871ad343e7",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "40da0adf588cbb2841a657239d92f24b111d62b173204b8102dd0e014932fe59"
+      },
+      "hits": []
+    },
+    {
+      "md5": "be5f46fd1056f02a7a241e052fa5888f",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "",
+        "sha256": "8ae383546761069b26826dfbf2ac0233169d155bca6a94160488092b4e70b222"
+      },
+      "hits": []
+    },
+    {
+      "md5": "bf581e9eb91bace0b02a2c5a54bf1419",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "8d57e416ea4bb855b78a2ff3c80de1dfbb5dc5ee9bfbdddb23e46bd8619287e2"
+      },
+      "hits": []
+    },
+    {
+      "md5": "c08063f052308b6f5882482615387f30",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "523d1d43e896077f32cd9acaa8e85b513bfb7b013a625e56f0d4e9675d9822ba"
+      },
+      "hits": []
+    },
+    {
+      "md5": "c2585e2696e21e25c05122e37e75a947",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "RwDrv.sys",
+        "sha256": "3279593db91bb7ad5b489a01808c645eafafda6cc9c39f50d10ccc30203f2ddf"
+      },
+      "hits": []
+    },
+    {
+      "md5": "c2eb4539a4f6ab6edd01bdc191619975",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "8c95d28270a4a314299cf50f05dcbe63033b2a555195d2ad2f678e09e00393e6"
+      },
+      "hits": []
+    },
+    {
+      "md5": "c31610f4c383204a1fc105c54b7403c9",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "6c5c6c350c8dd4ca90a8cca0ed1eeca185ebc67b1100935c8f03eb3032aca388"
+      },
+      "hits": []
+    },
+    {
+      "md5": "c430d33293f9abf681899ff0e25de3ac",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "amdtools64.sys",
+        "sha256": "891007bc9f3b55ae168fa60ccbb831ccdb5dce4da4a591d000806d5a2c6115c3"
+      },
+      "hits": []
+    },
+    {
+      "md5": "c5d1f8ed329ebb86ddd01e414a6a1718",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "",
+        "sha256": "3d8cfc9abea6d83dfea6da03260ff81be3b7b304321274f696ff0fdb9920c645"
+      },
+      "hits": []
+    },
+    {
+      "md5": "c5e7e8ca0d76a13a568901b6b304c3ba",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "8e92aacd60fca1f09b7257e62caf0692794f5d741c5d1eec89d841e87f2c359c"
+      },
+      "hits": []
+    },
+    {
+      "md5": "c607c37af638fa4eac751976a6afbaa6",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "",
+        "sha256": "cf66fcbcb8b2ea7fb4398f398b7480c50f6a451b51367718c36330182c1bb496"
+      },
+      "hits": []
+    },
+    {
+      "md5": "c6cfa2d6e4c443e673c2c12417ea3001",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "69640e9209f8e2ac25416bd3119b5308894b6ce22b5c80cb5d5f98f2f85d42ce"
+      },
+      "hits": []
+    },
+    {
+      "md5": "c9c25778efe890baa4087e32937016a0",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "49329fa09f584d1960b09c1b15df18c0bc1c4fdb90bf48b6b5703e872040b668"
+      },
+      "hits": []
+    },
+    {
+      "md5": "ccb09eb78e047c931708149992c2e435",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "df0dcfb3971829af79629efd036b8e1c6e2127481b3644ccc6e2ddd387489a15"
+      },
+      "hits": []
+    },
+    {
+      "md5": "cf7aeedd674417b648fc334d179c94ae",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "0e8595217f4457757bed0e3cdea25ea70429732b173bba999f02dc85c7e06d02"
+      },
+      "hits": []
+    },
+    {
+      "md5": "d011d5fecdc94754bf02014cb229d6bc",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "84c5f6ddd9c90de873236205b59921caabb57ac6f7a506abbe2ce188833bbe51"
+      },
+      "hits": []
+    },
+    {
+      "md5": "d0c2caa17c7b6d2200e1b5aa9d07135e",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "5b3705b47dc15f2b61ca3821b883b9cd114d83fcc3344d11eb1d3df495d75abe"
+      },
+      "hits": []
+    },
+    {
+      "md5": "d74d202646e5a6d0d2c4207e1f949826",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "65e3548bc09dffd550e79501e3fe0fee268f895908e2bba1aa5620eb9bdac52d"
+      },
+      "hits": []
+    },
+    {
+      "md5": "d95c9a241e52b4f967fa4cdb7b99fc80",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "stdcdrv64.sys",
+        "sha256": "37022838c4327e2a5805e8479330d8ff6f8cd3495079905e867811906c98ea20"
+      },
+      "hits": []
+    },
+    {
+      "md5": "d9c24542dd04d2562ae9e050061cee1d",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "AsrAutoChkUpdDrv_1_0_32.sys",
+        "sha256": "4ae42c1f11a98dee07a0d7199f611699511f1fb95120fabc4c3c349c485467fe"
+      },
+      "hits": []
+    },
+    {
+      "md5": "db72def618cbc3c5f9aa82f091b54250",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "ded2927f9a4e64eefd09d0caba78e94f309e3a6292841ae81d5528cab109f95d"
+      },
+      "hits": []
+    },
+    {
+      "md5": "dbdac970026703dfa5ccaf69b04086ec",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "AsrDrv.sys",
+        "sha256": "53bb076e81f6104f41bc284eedae36bd99b53e42719573fa5960932720ebc854"
+      },
+      "hits": []
+    },
+    {
+      "md5": "de1cc5c266140bff9d964fab87a29421",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "AsrDrv.sys",
+        "sha256": "6ed35f310c96920a271c59a097b382da07856e40179c2a4239f8daa04eef38e7"
+      },
+      "hits": []
+    },
+    {
+      "md5": "e0bfbdf3793ea2742c03f5a82cb305a5",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "2ef7df384e93951893b65500dac6ee09da6b8fe9128326caad41b8be4da49a1e"
+      },
+      "hits": []
+    },
+    {
+      "md5": "e0fb44aba5e7798f2dc637c6d1f6ca84",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "73c03b01d5d1eb03ec5cb5a443714b12fa095cc4b09ddc34671a92117ae4bb3a"
+      },
+      "hits": []
+    },
+    {
+      "md5": "e323413de3caec7f7730b43c551f26a0",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "45c3d607cb57a1714c1c604a25cbadf2779f4734855d0e43aa394073b6966b26"
+      },
+      "hits": []
+    },
+    {
+      "md5": "e425c66663c96d5a9f030b0ad4d219a8",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "deecbcd260849178de421d8e2f177dce5c63cf67a48abb23a0e3cf3aa3e00578"
+      },
+      "hits": []
+    },
+    {
+      "md5": "e4f8cab9d478d892ab076f182a951d0d",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "AsrDrv.sys",
+        "sha256": "d20d8bf80017e98b6dfc9f6c3960271fa792a908758bef49a390e2692a2a4341"
+      },
+      "hits": []
+    },
+    {
+      "md5": "e68972cd9f28f0be0f9df7207aba9d1d",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "ac1af529c9491644f1bda63267e0f0f35e30ab0c98ab1aecf4571f4190ab9db4"
+      },
+      "hits": []
+    },
+    {
+      "md5": "f3063aeff8b4ca56c6d870302ae80a0d",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "amdtools64.sys",
+        "sha256": "eee1fb0995f1916820e25d6b4ee03ed7276ab66894f9654d30e6c33e759a0011"
+      },
+      "hits": []
+    },
+    {
+      "md5": "f310b453ac562f2c53d30aa6e35506bb",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "600a2119657973112025db3c0eeab2e69d528bccfeed75f40c6ef50b059ec8a0"
+      },
+      "hits": []
+    },
+    {
+      "md5": "f7a09ac4a91a6390f8d00bf09f53ae37",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "RwDrv.sys",
+        "sha256": "d15a0bc7a39bbeff10019496c1ed217b7c1b26da37b2bdd46820b35161ddb3c4"
+      },
+      "hits": []
+    },
+    {
+      "md5": "f7edd110de10f9a50c2922f1450819aa",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "",
+        "sha256": "eba14a2b4cefd74edaf38d963775352dc3618977e30261aab52be682a76b536f"
+      },
+      "hits": []
+    },
+    {
+      "md5": "f853abe0dc162601e66e4a346faed854",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "RwDrv.sys",
+        "sha256": "1e0eb0811a7cf1bdaf29d3d2cab373ca51eb8d8b58889ab7728e2d3aed244abe"
+      },
+      "hits": []
+    },
+    {
+      "md5": "fe820a5f99b092c3660762c6fc6c64e0",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "1e16a01ef44e4c56e87abfbe03b2989b0391b172c3ec162783ad640be65ab961"
+      },
+      "hits": []
+    },
+    {
+      "md5": "ff6d5b0c4d9b2fd12d60656fd031c184",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "AppShopDrv103.sys",
+        "sha256": "cea231333781085538127bdcfbf49ef1d7500c057295fba061e962376e8219e6"
+      },
+      "hits": []
+    },
+    {
+      "md5": "11cf20a428b8fb81ff20dfe4dc3e28bd",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "ce106afd6a9996ac0150709a30d61ece7d7bfe1f27492c00f4fabab9ec40575d"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "63366b4fb6f3b974900985ab064beb9b",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "312c83a99928c30c1fc55a0a1e7571a63b0e04391abe3392115bb3b7e3f60f47"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "7190f99ecf8bc3f4c496443ff1f9ee83",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "54942b92790dc0b84c56d4a00f3ac419b0a506344ca7e9f1fb666a86dbc4117f"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId",
+        "MmCopyVirtualMemory"
+      ]
+    },
+    {
+      "md5": "b3ce4e620e0e7c45f84000c5eac2a8e9",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "l1malwarebits.sys",
+        "sha256": "d6d219628ab3acdc799b1b631d378742a4b266d6f55b12e568e4054091b08be6"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId",
+        "MmCopyVirtualMemory"
+      ]
+    },
+    {
+      "md5": "b5f122f3f07f618c0a7678fa40801faa",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "SakDriver.sys",
+        "sha256": "4e95aba17c1a423cda5cc9f9f04f7cf8db17e294eb31ed1aa85063601b82fe8d"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId",
+        "MmCopyVirtualMemory"
+      ]
+    },
+    {
+      "md5": "01d01adc1241c8f0a4caf6764439679c",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "xhunter1.sys",
+        "sha256": "0d1fd685dc98d0c193529df3ddde7144d839f56b7b38251fd7039c33c0fcf760"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "43fe428d3e109c81bb1737afd0f9bfa6",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "PSKMAD_64",
+        "sha256": "9bf3b737afa4d4f5e7b00ec749d4b75656ad66d9a2b402e1e81934e95ba7df5b"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "5983eaf01499c65f35302cd962b849f5",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "668c5bead3c7fcd919afd742ede7e5fe07972dc4cf730ff37deabdd22d88de4a"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "9746d407113028f9cdac7031d717203e",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "PSKMAD_64",
+        "sha256": "7f9a397038732678c52a73e5e2238ab3619e3c1fcb2ce41efc8e5bd38d77f83e"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "9976ae79fb3887e0243dc159b2b68a48",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "xhunter1.sys",
+        "sha256": "44cefb0b3b6516e6731de09a3e2e0eb8b98b02cc3fdf7bb4b22680e93f3cde1e"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "f803473cd0e5d36d02eb58109f1294cd",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "PSKMAD_64",
+        "sha256": "db6ffb4100bd35d491ff1c61fb3073049c2c18038d004a6d1e279a95ab8ba2ec"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "3d47b72711f29447c0105e6617e849d9",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "watabe.sys",
+        "sha256": "42bbad0caff790db44833fc67a202850576d73d278ea85fb8095e3f93b0b4370"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "MmCopyVirtualMemory"
+      ]
+    },
+    {
+      "md5": "88598baf92597ae6955390cbbf2a9c8f",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "360Box64.sys",
+        "sha256": "08b9b779132fe1de4eaa653005cb448c7efec4dae1acb036ad8ead0083f47880"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "CR3",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "eb4de413782193e824773723d790cfc4",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "ffd03584246730397e231eb8d16c1449aef2c3bc79bf9da3ebf8400a21b20ae7"
+      },
+      "hits": [
+        "CR3"
+      ]
+    },
+    {
+      "md5": "112b4a6d8c205c1287c66ad0009c3226",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "rtif.sys",
+        "sha256": "4ce8583768720be90fae66eed3b6b4a8c7c64e033be53d4cd98246d6e06086d0"
+      },
+      "hits": []
+    },
+    {
+      "md5": "1010d96b7682e1f9c92666df47864e82",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "vusbbus.sys",
+        "sha256": "b4f33ffef069c18e8a8834eb448dd1f1dbdaae93b140cfff5a1db015eb3ada2f"
+      },
+      "hits": []
+    },
+    {
+      "md5": "1873a2ce2df273d409c47094bc269285",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "rtif.sys",
+        "sha256": "3670ccd9515d529bb31751fcd613066348057741adeaf0bffd1b9a54eb8baa76"
+      },
+      "hits": []
+    },
+    {
+      "md5": "1d768959aaa194d60e4524ce47708377",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "LHA.sys",
+        "sha256": "23ba19352b1e71a965260bf4d5120f0200709ee8657ed381043bec9a938a1ade"
+      },
+      "hits": []
+    },
+    {
+      "md5": "35fbc4c04c31c1a40e666be6529c6321",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "rtif.sys",
+        "sha256": "9399f35b90f09b41f9eeda55c8e37f6d1cb22de6e224e54567d1f0865a718727"
+      },
+      "hits": []
+    },
+    {
+      "md5": "4b42a7a6327827a8dbdecf367832c0cd",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "rtif.sys",
+        "sha256": "ba40b1fc798c2f78165e78997b4baf3d99858ee39a372ca6fbc303057793e50d"
+      },
+      "hits": []
+    },
+    {
+      "md5": "508fce0a671bdd7f157c3f456bb7d33e",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "TcIo.sys",
+        "sha256": "e0c58531501d6176ed0f632addca977616b0dab460f32f0a5909d21f828fc63b"
+      },
+      "hits": []
+    },
+    {
+      "md5": "5eabc87416f59e894adfde065d0405fa",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "5d7bfe05792189eaf7193bee85f0c792c33315cfcb40b2e62cc7baef6cafbc5c"
+      },
+      "hits": []
+    },
+    {
+      "md5": "6c5e50ef2069896f408cdaaddd307893",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "rtif.sys",
+        "sha256": "a66b4420fa1df81a517e2bbea1a414b57721c67a4aa1df1967894f77e81d036e"
+      },
+      "hits": []
+    },
+    {
+      "md5": "748cf64b95ca83abc35762ad2c25458f",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "LHA.sys",
+        "sha256": "e75714f8e0ff45605f6fc7689a1a89c7dcd34aab66c6131c63fefaca584539cf"
+      },
+      "hits": []
+    },
+    {
+      "md5": "86bec99cd121b0386a5acc1c368a9d49",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "9bd8b0289955a6eb791f45c3203f08a64cbd457fd1b9d598a6fbbca5d0372e36"
+      },
+      "hits": []
+    },
+    {
+      "md5": "a15235fcec1c9b65d736661d4bec0d38",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "rtif.sys",
+        "sha256": "0d133ced666c798ea63b6d8026ec507d429e834daa7c74e4e091e462e5815180"
+      },
+      "hits": []
+    },
+    {
+      "md5": "a5deee418b7b580ca89db8a871dc1645",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "773999db2f07c50aad70e50c1983fa95804369d25a5b4f10bd610f864c27f2fc"
+      },
+      "hits": []
+    },
+    {
+      "md5": "aae460e5be936aeb0e79317927d79ca0",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "TcRouter.sys",
+        "sha256": "d89938a469e8e4b429507522b5a52cb6f87c50f559f22f3042921631b768e59a"
+      },
+      "hits": []
+    },
+    {
+      "md5": "b0809d8adc254c52f9d06362489ce474",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "eaa5dae373553024d7294105e4e07d996f3a8bd47c770cdf8df79bf57619a8cd"
+      },
+      "hits": []
+    },
+    {
+      "md5": "b5f96dd5cc7d14a9860ab99d161bf171",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "cpuz.sys",
+        "sha256": "be683cd38e64280567c59f7dc0a45570abcb8a75f1d894853bbbd25675b4adf7"
+      },
+      "hits": []
+    },
+    {
+      "md5": "b668c532afda4f2cca4ee38b4b1bcad6",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "fbiosdrv.sys",
+        "sha256": "23a99ab2bd0ad069a088a2b256bf45ff96082e33ed2580ae06eeca06c053bec8"
+      },
+      "hits": []
+    },
+    {
+      "md5": "e96522a7b9b55917a01f953018116d18",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "RzDev_00X10.sys",
+        "sha256": "80f97dabef128a391e3ad10e4521dd0a28adc01a97e1cef980f535ac23bd0847"
+      },
+      "hits": []
+    },
+    {
+      "md5": "ec7f14be325648533fc04aff9da8635f",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "XLHA.sys",
+        "sha256": "11c9cbc39b6e028f2e8f9e7f83b47ae83ca73961ecfebb2f7213f9478f5446d5"
+      },
+      "hits": []
+    },
+    {
+      "md5": "ff795e4f387c3e22291083b7d6b92ffb",
+      "cr3_read_insns": 1,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "rtif.sys",
+        "sha256": "eae5c993b250dcc5fee01deeb30045b0e5ee7cf9306ef6edd8c58e4dc743a8ed"
+      },
+      "hits": []
+    },
+    {
+      "md5": "c9cb486b4f652c9cfb8411803f8ed5f0",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 4,
+      "meta": {
+        "filename": "",
+        "sha256": "f2ed6c1906663016123559d9f3407bc67f64e0d235fa6f10810a3fa7bb322967"
+      },
+      "hits": [
+        "CR3"
+      ]
+    },
+    {
+      "md5": "00685003005b0b437af929f0499545e4",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 3,
+      "meta": {
+        "filename": "",
+        "sha256": "edfc38f91b5e198f3bf80ef6dcaebb5e86963936bcd2e5280088ca90d6998b8c"
+      },
+      "hits": []
+    },
+    {
+      "md5": "2a5ccd95292f03f0dd4899d18b55b428",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 2,
+      "meta": {
+        "filename": "kEvP64.sys",
+        "sha256": "7c0f77d103015fc29379ba75d133dc3450d557b0ba1f7495c6b43447abdae230"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "CR3",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "608f9ef01086e9a8bdb373925a878c3a",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "",
+        "sha256": "c5400ae731464079590aad494bcf2e0799bb4281ea49baa9580ab2f1ee207861"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "89c7bd12495e29413038224cb61db02e",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "mhyprot2.sys",
+        "sha256": "b8b94c2646b62f6ac08f16514b6efaa9866aa3c581e4c0435a7aeafe569b2418"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId",
+        "MmCopyVirtualMemory"
+      ]
+    },
+    {
+      "md5": "fa63a634189bd4d6570964e2161426b0",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "",
+        "sha256": "7fd90500b57f9ac959c87f713fe9ca59e669e6e1512f77fccb6a75cdc0dfee8e"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId",
+        "MmCopyVirtualMemory"
+      ]
+    },
+    {
+      "md5": "c2c1b8c00b99e913d992a870ed478a24",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "PCHunter.sys",
+        "sha256": "1b7fb154a7b7903a3c81f12f4b094f24a3c60a6a8cffca894c67c264ab7545fa"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "df9953fa93e1793456a8d428ba7e5700",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "TmComm.sys",
+        "sha256": "7837cb350338c4958968d06b105466da6518f5bb522a6e70e87c0cad85128408"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "e4d4a22cbf94e6b0a92fc36d46741f56",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "aswArPot.sys",
+        "sha256": "2732050a7d836ae0bdc5c0aea4cdf8ce205618c3e7f613b8139c176e86476d0c"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "1c9c646cf39c9e3ecd0e061bf5f21551",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "",
+        "sha256": "c619a7fbb27940428b80129e0fa2d976fce52f93ab37667d2ca01330c6c561a5"
+      },
+      "hits": []
+    },
+    {
+      "md5": "e6eaee1b3e41f404c289e22df66ef66b",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "",
+        "sha256": "7108613244f16c2279c3c917aa49cef8acf0b92fdaa9ace19bf5cf634360d727"
+      },
+      "hits": []
+    },
+    {
+      "md5": "eba6b88bc7bca21658bda9533f0bbff8",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 1,
+      "meta": {
+        "filename": "",
+        "sha256": "7c830ed39c9de8fe711632bf44846615f84b10db383f47b7d7c9db29a2bd829a"
+      },
+      "hits": []
+    },
+    {
+      "md5": "187ddca26d119573223cf0a32ba55a61",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "echo_driver.sys",
+        "sha256": "ea3c5569405ed02ec24298534a983bcb5de113c18bc3fd01a4dd0b5839cd17b9"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId",
+        "MmCopyVirtualMemory"
+      ]
+    },
+    {
+      "md5": "08e06b839499cb4b752347399db41b57",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "viragt.sys",
+        "sha256": "ef6d3c00f9d0aa31a218094480299ef73fc85146adf62fd0c2f4f88972c5c850"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "099b1f700fbe9d6cebe21e6edd24ba80",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "ardrv.sys",
+        "sha256": "0b4c5a2d24810748de8ce6fb3d6a3e8acd0305272d6425fa054632410d23ec80"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "0d9bbed76c17b954ec9120bdfb144ec9",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "GameDriverX64.sys",
+        "sha256": "9d396b83647f5233cd93f47caa05e0a0d0dd5dd2f17ba2b0ae5cd1afc0afa69d"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "0ef05030abd55ba6b02faa2c0970f67f",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "procexp.Sys",
+        "sha256": "bced04bdefad6a08c763265d6993f07aa2feb57d33ed057f162a947cf0e6668f"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "0f5b41e746b09c740e57c0262edbd140",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "thelper.sys",
+        "sha256": "7e783b0a0ff4710306bb3bca29296cf962ae77abc81245a99f12a9039158226f"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "10dd681f56cfbb329c7f470ebb9f4b31",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "ProcObsrvesx.sys",
+        "sha256": "37206b758eac2c7775ef881c1dc9a96129a517069bdf47049afc3b29e328408e"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "14acd57bd9fa8093c46fdd5e9f271b70",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "netfilter2.sys",
+        "sha256": "639ff79f13e40d47b90ecd709699edd10e740cb41451acb95590a68b6352de2b"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "1569d08f94cca34993ae1ccb763de7d0",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "ardrv.sys",
+        "sha256": "6b208ce68ba3f6c788bd89ba677ebf1c2407a55f9f43a42ea7207635634baf66"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "1b54c047e17f0319a6202b579a850c54",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "netfilter2.sys",
+        "sha256": "8017e618b5a7aa608cc4bce16e4defd6b4e99138c4ba1bdd6ad78e39f035cf59"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "1cb26adeca26aefb5a61065e990402da",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "nscm.sys",
+        "sha256": "c6feb3f4932387df7598e29d4f5bdacec0b9ce98db3f51d96fc4ffdcc6eb10e1"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "1f06e06a9e64bad05ba9cccfffa92421",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "GameDriverX64.sys",
+        "sha256": "ca22e593362a8fa4f728e83f6861f983373f61480d0384e26ed149e507706d6a"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "20a783d3d7076d7a51c66e9eac2ae643",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "EnPortv.sys",
+        "sha256": "d42f1b420747b82533e33107c710c45c29ff20aa5da3d1c8498b7bed7f9ebc81"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "25ebe6f757129adbe78ec312a5f1800b",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "viragt.sys",
+        "sha256": "263e8f1e20612849aea95272da85773f577fd962a7a6d525b53f43407aa7ad24"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "29e1264dd642b646fbef9bd347b1b860",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "BdApiUtil.sys",
+        "sha256": "32198295d2a2700b9895fff999c2b233f9befb0bc175815ec4b71ee926b6edfc"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "303d0cc0864955eb20fe820104713d5f",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "netfilter2.sys",
+        "sha256": "9dbc2a37f53507296cc912e7d354dab4e55541ba821561aa84f74d1bd8346be2"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "3226c85fee6897a798a566aeb9d0b2f0",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "ardrv.sys",
+        "sha256": "34ad901b4fea05da301ebb619fa48cfac058720e41db71b3fca1c47763bae066"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "3467b0d996251dc56a72fc51a536dd6b",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "viragt.sys",
+        "sha256": "2b4c7d3820fe08400a7791e2556132b902a9bbadc1942de57077ecb9d21bf47a"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "353e5d424668d785f13c904fde3bac84",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "nscm.sys",
+        "sha256": "1675eedd4c7f2ec47002d623bb4ec689ca9683020e0fdb0729a9047c8fb953dd"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "3a53fe6598d2b9bc3b81d3dd6bc5d843",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "netfilter2.sys",
+        "sha256": "f488500be4eaafba74b644be95d4c0523297770fb9bb78c449f643ab8d4a05d9"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "3ad7b36a584504b3c70b5f552ba33015",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "viragt.sys",
+        "sha256": "e4eca7db365929ff7c5c785e2eab04ef8ec67ea9edcf7392f2b74eccd9449148"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "3b1c40c32b92696d192d846ab4ca2b45",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "GameDriverX64.sys",
+        "sha256": "c0db95a62e50f3a2c757ac264534ef17340bf8b8aa94b98fcb7663c493b2d569"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "3c06828180ffe41164bf353c97c813bb",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "ardrv.sys",
+        "sha256": "33233988d8c735fdf1162e043ed1e6fff62e7d6102c5bd300561d71fd32526f3"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "3d2a9d56b16831b18de4b4dfd26603c9",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "GameDriverX64.sys",
+        "sha256": "e55bfbb979143c6d1bc97129c9b5663639b895f1db605cef578b7f06633c08f6"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "3d35317f967464aa670a52d3d632cd32",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "dsark.sys",
+        "sha256": "a22358cb2fb1aa334272deaa24e2280425f9661862b46331cbdc786138ede8be"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "3d5164e85d740bce0391e2b81d49d308",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "viragt.sys",
+        "sha256": "d0e25b879d830e4f867b09d6540a664b6f88bad353cd14494c33b31a8091f605"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "3e5c04eced0e89aa8bfc279323c3544e",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "netfilter2.sys",
+        "sha256": "62b14bb308c99132d90646e85bc7d6eb593f38e225c8232f69f24b74a019c176"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "3e87e3346441539d3a90278a120766df",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "VBoxDrv.sys",
+        "sha256": "9dab4b6fddc8e1ec0a186aa8382b184a5d52cfcabaaf04ff9e3767021eb09cf4"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "3f87df040c35ea45dfd4ae371b9641ae",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "LgDataCatcher.sys",
+        "sha256": "516159871730b18c2bddedb1a9da110577112d4835606ee79bb80e7a58784a13"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "3f9829071109fc051bd7f6b01a35ed46",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "tm_filter.sys",
+        "sha256": "e9fda504c9bdbe785c55a279ebb27e31783155570ab0c242e1de5bf79fbca6ed"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "400dadc6b2cedba270fd1e2ff8295813",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "ardrv.sys",
+        "sha256": "e3cb9f52a4fde53fc886dc35d41bb36e8b993c74826389d22440b92d94480a6d"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "41046ce853788277da0d7e8c4e0a3123",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "RWTKrl.sys",
+        "sha256": "090d409f86430e078694e621ad0bd5e458d32aa727f0eb99bda3961577df8d49"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "414904e1562e3fd9ea5d9539989b3f03",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "biontdrv.sys",
+        "sha256": "f83560719a0054cb9911811372d0fcb2d8b3704d30c5503cd0aeeccda3dc6b4b"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "3db2afc15e7cc78bd11f4c726060db5c",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "c7079033659ac9459b3b7ab2510805832db2e2a70fe9beb1a6e13c1f51890d88"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "41c580714dd28bda7da36dc5dc660710",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "1109.sys",
+        "sha256": "f154167b4b92851f478b3c3f88423cd719e3139bac5da07f33dd7929796c96f5"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "42e7463e46255bf19b9b540d65ed304c",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "biontdrv.sys",
+        "sha256": "6415b01fbe1e2694547c472f3fad6e17ffb33efdfb44a89cbb623cbd4f731f2a"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "443e8d915c04c370b7c31bb5f11ebab7",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "bdc73f752c1353d41e877d8bf42a1c53f0bba7d6f52348aaef60e06f4d3087d0"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "448453590f8694e15f1f2092fdfd5efd",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "RWTKrl.sys",
+        "sha256": "146b8f4fc91a4915e8f6aa6e0d871f7161a809c46760ef602bab534836142436"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "475f33ff28ba2c8007f39602c5f7ecf1",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "RWTKrl.sys",
+        "sha256": "930da474a6d1be97b54f2c81e883e14d62897aa58622e5b040e412bd36cee0a7"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "305b05de211be69446444284923bd676",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "netfilter2.sys",
+        "sha256": "1a0f57a4d7c8137baf24c65d542729547b876979273df7a245aaeea87280c090"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "50390455e92fb62cbe6a89dbb61037c2",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "ardrv.sys",
+        "sha256": "d82108e6578f4866d7114d6847282c04f0b146809bc66ded3300fe993b42d20f"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "525ef6014f0ef20e44fe47c1d9980b69",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "biontdrv.sys",
+        "sha256": "174c8d771d31d70fc95448e961a395f5ceb7658f0cc381a718fb3b854cde4efe"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "567c158ee0858f8e941d4ab7a6c18dbc",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "DCRCVDrv.sys",
+        "sha256": "87e8d39db624f37d3e77aedf487a2dfd197f71a4730ea74f4e7a4341deaec2ff"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "567f0e5ba3865b0c3af7083ca02794d9",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "ardrv.sys",
+        "sha256": "7504887e1e195ad585cffa5b6a5034161a7cc49f351123d60def79302bdb8326"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "58b75386e369e2d536271d36d50af17a",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "Adlice RootLaser",
+        "sha256": "85b69f4e518c66b8ba7154ecb1ac1e8791dfe2fdf1e20b7c3a707f59639ac10d"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "58e6c458409f748711353beb9acfc8ed",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "LgDataCatcher.sys",
+        "sha256": "45b07a2f387e047a6bb0e59b7f22fb56182d57b50e84e386a38c2dbb7e773837"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "550b7991d93534bc510bc4f237155a7a",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "NQrmq.sys",
+        "sha256": "ad938d15ecfd70083c474e1642a88b078c3cea02cdbddf66d4fb1c01b9b29d9a"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "5ee52684ee22f3ad730b6af7e327d82b",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "ProcessCtrl",
+        "sha256": "d64eeb940daffdc8327fb18b160c20e539088cf8407813655f59efa9fdf0022e"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "5f4a232d92480a1bebbe025ef64dc760",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "nscm.sys",
+        "sha256": "5351c81b4ec5a0d79c39d24bac7600d10eac30c13546fde43d23636b3f421e7c"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "630c1751ae29f3e1a127afcbcfa7c4d7",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "ardrv.sys",
+        "sha256": "9f326ede322930a7d5e149fa8720802b0623c1972dc54e41a2a73608fb6810dd"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "650f6531db6fb0ed25d7fc70be35a4da",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "viragt.sys",
+        "sha256": "2a6212f3b68a6f263e96420b3607b31cfdfe51afff516f3c87d27bf8a89721e8"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "6a978194ee4214b2410f70862663d977",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "Windows-Memory-Informer.sys",
+        "sha256": "4cdae25483cb73a7a75dadc2d22c0115dece7e1a3c0162ae810e229faace5a44"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "6b3abe55c4d39e305a11b4d1091dfaac",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "procexp.Sys",
+        "sha256": "86721ee8161096348ed3dbe1ccbf933ae004c315b1691745a8af4a0df9fed675"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "6d46f925df569b488e9b63778ab0d91e",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "BdApiUtil.sys",
+        "sha256": "d8ce0a5866178495a66d23c9587822164966111fcd34764011e907951c599711"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "724c7d404a7c182084c6f6c2d20e9e05",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "netfilter2.sys",
+        "sha256": "71701c5c569ef67391c995a12b21ca06935b7799ed211d978f7877115c58dce0"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "75f0123d41e16a14f98c47a2d40bce68",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "ardrv.sys",
+        "sha256": "1c5129b4d63f2d5252b5b02a0a7d655dac3b6eac23dd4ed92b4dd55f243387ff"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "77bdf1dada2014c98e4e50b2765fbd05",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "ardrv.sys",
+        "sha256": "59080957de2519f5013be8ccf0b9012dc97ad692e69578cb3f60148c528bdbb1"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "78518c0636da8f3bf1bbeefbeb2b4920",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "ardrv.sys",
+        "sha256": "7b3f8fa5844d829142002d47c2df8573c7d67defe4171414c6a015a38afe55f5"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "750d1f07ea9d10b38a33636036c30cca",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "nscm.sys",
+        "sha256": "e7b79fe1377b3da749590c080d4d96e59e622b1013b2183b98c81baa8bf2fffe"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "82699276b0f59a2304120a6baaf64a6b",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "BootRepair.sys",
+        "sha256": "5ab36c116767eaae53a466fbc2dae7cfd608ed77721f65e83312037fbd57c946"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "826c6d2e3d80f2d43f7977f998525ad3",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "ardrv.sys",
+        "sha256": "07c5209bf83065fe760f4fee4ed2308b0c523671f68ca73a3854c2c8c28c0541"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "837b27efec864ae45d89cfffc1e635f0",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "netfilter2.sys",
+        "sha256": "0f3e7bf7b103613844a38afb574817ddaecd00e4d206d891660dbb0e5dfee04e"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "880686bceaf66bfde3c80569eb1ebfa7",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "procexp.Sys",
+        "sha256": "51e91dd108d974ae809e5fc23f6fbd16e13f672f86aa594dae4a5c4bc629b0b5"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "8bc5c3a6284e0e46ad37408e622e47ae",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "Realtime Driver",
+        "sha256": "1e87c118482101a9acb0952f4545dad155956dd397858b5d2748c63f0d836704"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "8f0577d28c4ff5f71b149f444bfaba8e",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "GameDriverX64.sys",
+        "sha256": "9ddae47ff968343a8c32a5344060257fdc08e2a7bdb9a227c8b3a584ee3c9f1e"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "9532893c1d358188d66b0d7b0784bb6b",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "Chaos-Rootkit.sys",
+        "sha256": "0ae8d1dd56a8a000ced74a627052933d2e9bff31d251de185b3c0c5fc94a44db"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "98df4e7708fa2fd92a01c89ddd043d5e",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "dsark.sys",
+        "sha256": "35035495a36f8537e2a5f56031277cd884de557257b40b92bd39454877a264fb"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "986f083e5fd01eea4ec3b2575a110a95",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "082d4d4d4ba1bda5e1599bd24e930ae9f000e7d12b00f7021cca90a4600ea470"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "a21bc9c04bd840d655bfcd274cc84e40",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "ardrv.sys",
+        "sha256": "4d07b6423f4d5d80d2daec8faed7ecc40855339bee95c26289179c1fd083078e"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "a91a1bc393971a662a3210dac8c17dfd",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "procexp.Sys",
+        "sha256": "3ff39728f1c11d1108f65ec5eb3d722fd1a1279c530d79712e0d32b34880baaa"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "9b04a93e05ccff94667f04bffa7af600",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "K7RKScan",
+        "sha256": "b16e217cdca19e00c1b68bdfb28ead53b20adeabd6edcd91542f9fbf48942877"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "aca70899d834124fa02dc52f098cad05",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "LgDataCatcher.sys",
+        "sha256": "07fb2bb6c852f6a6fe982b2232f047e167be39738bac26806ffe0927ba873756"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "af036499a90e70e9ec4121ac4da9f5e2",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "GameDriverX64.sys",
+        "sha256": "f90cab0c3b8159162be3103fcca5bafc27fbf4ec24620900acedaf84b7c0cf30"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "b04685112a0a8f7689c8d827bfcfe158",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "netfilter2.sys",
+        "sha256": "db1dbb09d437d3e8bed08c88ca43769b4fe8728f68b78ff6f9c8d2557e28d2b1"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "b7ca4c32c844df9b61634052ae276387",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "procexp.Sys",
+        "sha256": "bdbceca41e576841cad2f2b38ee6dbf92fd77fbbfdfe6ecf99f0623d44ef182c"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "ad6d5177656dfc5b43def5d13d32f9f6",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "LgDCatcher.sys",
+        "sha256": "0c42fe45ffa9a9c36c87a7f01510a077da6340ffd86bf8509f02c6939da133c5"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "c3e397dc9fb61a75521548048458a018",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "netfilter2.sys",
+        "sha256": "7ff8fe4c220cf6416984b70a7e272006a018e5662da3cedc2a88efeb6411b4a4"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "c56a9ed0192c5a2b39691e54f2132a2f",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "procexp.Sys",
+        "sha256": "30abc0cc700fdebc74e62d574addc08f6227f9c7177d9eaa8cbc37d5c017c9bb"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "c64767a1c4ac46caf10e88b266444a25",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "libwasys.sys",
+        "sha256": "04fda396f42384d9295fe306336ee4a685a0c341debdc27ddf9169f0336b46a6"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "c6dcf97b669be21dffd4e96aecec3066",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "netfilter2.sys",
+        "sha256": "47e35f474f259314c588af35e88561a015801b52db523eb75fc7eccff8b3be4d"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "c8078d9e8bc13f562631c2a742b42c39",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "ardrv.sys",
+        "sha256": "4574cf50dbe2fbce849881e8875297753ce2e240c312e01b3b461d80df063bbe"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "c8c6fadcb7cb85f197ab77e6a7b67aa9",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "ae5cc99f3c61c86c7624b064fd188262e0160645c1676d231516bf4e716a22d3"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "cb1f1880aafd7d9bbdd70c54e56c9dd0",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "kgameprotect.sys",
+        "sha256": "6c1d596d18213e24f0c88d58ea7f3ca24114eded806b6198a8abc701251126ee"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "cd9f0fcecf1664facb3671c0130dc8bb",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "VProEventMonitor.Sys",
+        "sha256": "7877c1b0e7429453b750218ca491c2825dae684ad9616642eff7b41715c70aca"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "d04043db948ce9f4c5ba03dc23675556",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "netfilter2.sys",
+        "sha256": "206006a11f233b9ae876952308f6d60d7a75c80b4d530a3e6146a0b4d8cd3e4f"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "d1440503d1528c55fdc569678a663667",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "nscm.sys",
+        "sha256": "49ef680510e3dac6979a20629d10f06822c78f45b9a62ec209b71827a526be94"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "d2fdad79aa8fc5c66687dc8516cab756",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "biontdrv.sys",
+        "sha256": "e78f14d0adf4c5599b09d3995f84d265dbea20fc25112a9c3227b7a35910ca90"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "d690827cdb58631444dfd8607d99b9c1",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "K7RKScan",
+        "sha256": "5c6ce55a85f5d4640bd1485a72d0812bc4f5188ee966c5fe334248a7175d9040"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "d8d1c6cd663c9c5a457d8147e10c4e64",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "tmfsdrv2.sys",
+        "sha256": "2cea1a8d5d23a5ed2c2ac2a0c7c0d95da516aa355224cc707f86de8ade5880ef"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "d9afa784f62d5a2c282074c90f220e35",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "afd.sys",
+        "sha256": "95fd266cc454177901cb58f4d30417c4a7caf29be62bb8649e5b8fca58823600"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "dd38cc344d2a0da1c03e92eb4b89a193",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "nscm.sys",
+        "sha256": "f77fe6b1e0e913ac109335a8fa2ac4961d35cbbd50729936059aba8700690a9e"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "e03e68542ce64a1922794f497faeb861",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "ardrv.sys",
+        "sha256": "551254a5e59df92e6049867162633e3e476cdf5999d05c3e23a57c98be03f475"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "e04ff937f6fd273b774f23aed5dd8c13",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "c8926e31be2d1355e542793af8ff9ccc4d1d60cae40c9564b2400dd4e1090bda"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "dc83a482d5900f19c0b92b9d183449ed",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "netfilter2.sys",
+        "sha256": "5c54a5cd3386ac14725a07962562e9fdcefbb7be0d19803f9d71de24573de1e3"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "e1190b7a0bd3b8cc3a819d471ede264f",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "netfilter2.sys",
+        "sha256": "65a3e69854c729659281d2c5f8a4c8274ad3606befdcd9e1b79d3262f260bfa1"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "e1787057703c662e07f022f1bd67d008",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "GameDriverX64.sys",
+        "sha256": "fd08ac95226585436c03b01745c608035bfb15a3a832135589a049cb243cefd9"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "e2db558c3996bb34fbf21017f0ce5591",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "afd.sys",
+        "sha256": "ebf6be42d39fd5d9361afa43479f883ff8eba97d72f313ece289f78cb51c22f2"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "e4a0bba88605d4c07b58a2cc3fac0fe9",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "procexp.Sys",
+        "sha256": "46621554728bc55438c7c241137af401250f062edef6e7efecf1a6f0f6d0c1f7"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "e53dd75097a7afbb9bdf68713d47df01",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "RCFlCtrl.sys",
+        "sha256": "04bdcd0c70fb07e1c551be3078cf0e82cf53dd4dba3752b74e5db4a715933d16"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "e5df31054a60be8aa858a28a8fe0f73e",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "netfilter2.sys",
+        "sha256": "81bcd8a3f8c17ac6dc4bad750ad3417914db10aa15485094eef0951a3f72bdbd"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "e62c7582ecc0f5a9694f02374c0014ed",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "ardrv.sys",
+        "sha256": "75454a8583ea2a5b6c7711e9bf32c61b8a7e902f5c429fcbe36673ccc076e910"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "e79c91c27df3eaf82fb7bd1280172517",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "viragt.sys",
+        "sha256": "e05eeb2b8c18ad2cb2d1038c043d770a0d51b96b748bc34be3e7fc6f3790ce53"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "e8f4a9208f93d895493a11d39331cddd",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "d1ea9e16cefbec53a65a290bb42ee9d6e31218b9d4dfca676b66373cece9a54a"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "e9e4b27f98eb15dcfc01837e7816ad67",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "netfilter2.sys",
+        "sha256": "0eace788e09c8d3f793a1fad94d35bcfd233f0777873412cd0c8172865562eec"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "ecd42cec81bc4c08b1ffd99ab760581d",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "RWTKrl.sys",
+        "sha256": "1a74c2bde0c9a76486657ccb9c79ea87c9891a32cdd4aa15c7542f7c9487a539"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "ed6348707f177629739df73b97ba1b6e",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "LgDCatcher.sys",
+        "sha256": "58c071cfe72e9ee867bba85cbd0abe72eb223d27978d6f0650d0103553839b59"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "ee831c7f623190a53ce3f7b9cc3083a7",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "dXIw8eZ9aYxQYzgm.sys",
+        "sha256": "c3ea9a13da6f137238b4b912b1f398b8ccfae41ba618993e6cc6c73eb24800db"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "eeb8e039f6d942538eb4b0252117899a",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "procexp.Sys",
+        "sha256": "1b00d6e5d40b1b84ca63da0e99246574cdd2a533122bc83746f06c0d66e63a6e"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "ef814560ab68d384aa056881cf4342a4",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "1afc1d0672c14df8c9e4caa88f5d3b7968421d72c548b6df307e371b9a8776d5"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "faf0f09e10c49f78812d593674638ce2",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "libwasys.sys",
+        "sha256": "24a4dd32b633781c8c1193c9b445388ca7277799941a36ba9977b84382125e5c"
+      },
+      "hits": [
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "00f887e74faad40e6e97d9d0e9c71370",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "b617a072c578cea38c460e2851f3d122ba1b7cfa1f5ee3e9f5927663ac37af61"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId",
+        "MmCopyVirtualMemory"
+      ]
+    },
+    {
+      "md5": "1265a42ceab0418f2371e0f3e72c9b39",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "p2KGhmzsARY1.sys",
+        "sha256": "4473fef2a90a3217db685de44f575d2586666fcf3db7fa9efa1328afcdbf34a8"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId",
+        "MmCopyVirtualMemory"
+      ]
+    },
+    {
+      "md5": "16371565c1ee97f68ba76fb78e6620e7",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "Filter.sys",
+        "sha256": "97550af2414d6c9b70d67b2142b6711e98289483cec3f788192096638c2dda51"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId",
+        "MmCopyVirtualMemory"
+      ]
+    },
+    {
+      "md5": "214a9aba01ee1ba067b2feb382748c16",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "8bf84bed9b5fa4576182c84d2f31679dc472acd0f83c9813498e9f71ed9fef3e"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId",
+        "MmCopyVirtualMemory"
+      ]
+    },
+    {
+      "md5": "3f79ea5d2bbd2023d2f3e47d531f0e33",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "8bdcf7457c2caf7fa0386571f972d7f5220d385ad686e2c3536f4c67ba4333e6"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId",
+        "MmCopyVirtualMemory"
+      ]
+    },
+    {
+      "md5": "5c9f240e0b83df758993837d18859cbe",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "b531f0a11ca481d5125c93c977325e135a04058019f939169ce3cdedaddd422d"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId",
+        "MmCopyVirtualMemory"
+      ]
+    },
+    {
+      "md5": "5cc5c26fc99175997d84fe95c61ab2c2",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "mhyprot3.sys",
+        "sha256": "475e5016c9c0f5a127896f9179a1b1577a67b357f399ab5a1e68aab07134729a"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId",
+        "MmCopyVirtualMemory"
+      ]
+    },
+    {
+      "md5": "64ae0358860e2a5b658383f7e651038e",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "40263b08b3c3659529ab605d1daa3033db0fdc4b19c26aa375be0c19686807e6"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId",
+        "MmCopyVirtualMemory"
+      ]
+    },
+    {
+      "md5": "67e3b720cee8184c714585a85f8058a0",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "mhyprot.sys",
+        "sha256": "69e3fda487a5ec2ec0f67b7d79a5a836ff0036497b2d1aec514c67d2efa789b2"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId",
+        "MmCopyVirtualMemory"
+      ]
+    },
+    {
+      "md5": "6b2df08bacf640cc2ac6f20c76af07ee",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "mhyprot2.sys",
+        "sha256": "26d69e677d30bb53c7ac7f3fce76291fe2c44720ef17ee386f95f08ec5175288"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId",
+        "MmCopyVirtualMemory"
+      ]
+    },
+    {
+      "md5": "70053ab9df31eb2dcd6f5b001386a8d2",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "603ccc97a198b004f9fa56deed2295d1b2d42ef01f22d80a00cb28bcf1b85646"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId",
+        "MmCopyVirtualMemory"
+      ]
+    },
+    {
+      "md5": "766f9ea38918827df59a6aed204d2b09",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "24e70c87d58fa5771f02b9ddf0d8870cba6b26e35c6455a2c77f482e2080d3e9"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId",
+        "MmCopyVirtualMemory"
+      ]
+    },
+    {
+      "md5": "7b2918d0a19ca452d39ec59b7670e880",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "19dba69b48b085d9487cc23a4135f3ef4849c181965bffc55baed9fa6c205429"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId",
+        "MmCopyVirtualMemory"
+      ]
+    },
+    {
+      "md5": "7b3fcc6007d842c4b3235fe2327f4ab5",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "5c308aede12fefb8145c015a97d7844106df5469de97773cba3bd3d772dc7d24"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId",
+        "MmCopyVirtualMemory"
+      ]
+    },
+    {
+      "md5": "8516410b49bb79c08c19a37c516dad72",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "KKYUM.sys",
+        "sha256": "72bd55f4459c992b9caa1a33cb6862f1f3085ca35839c58dee8b75db22ca605f"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId",
+        "MmCopyVirtualMemory"
+      ]
+    },
+    {
+      "md5": "8b779fe1d71839ad361226f66f1b3fe5",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "mhyprot.sys",
+        "sha256": "0c512b615eac374d4d494e3c36838d8e788b3dc2691bf27916f7f42694b14467"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId",
+        "MmCopyVirtualMemory"
+      ]
+    },
+    {
+      "md5": "8b6fc18d944ae44403dd03a6c63b7fbb",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "f6d7faddc3a56875a8d24e4785a139141dd892968f70bf0e37d505af9a3324fd"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId",
+        "MmCopyVirtualMemory"
+      ]
+    },
+    {
+      "md5": "8f47af49c330c9fcf3451ad2252b9e04",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "mhyprot2.sys",
+        "sha256": "ad2477632b9b07588cfe0e692f244c05fa4202975c1fe91dd3b90fa911ac6058"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId",
+        "MmCopyVirtualMemory"
+      ]
+    },
+    {
+      "md5": "9c8fffef24fc480917236f9a20b80a47",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "mhyprot2.Sys",
+        "sha256": "6e76764d750ebd835aa4bb055830d278df530303585614c1dc743f8d5adf97d7"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId",
+        "MmCopyVirtualMemory"
+      ]
+    },
+    {
+      "md5": "a2c5f994e9b4a74b2f5b51c7a44c4401",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "mhyprot2.Sys",
+        "sha256": "247aadaf17ed894fcacf3fc4e109b005540e3659fd0249190eb33725d3d3082f"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId",
+        "MmCopyVirtualMemory"
+      ]
+    },
+    {
+      "md5": "a860d74c13d125d7c6253a4dc3b47ddf",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "f7d72d22cd4ad3e44fd617bdb4c90b9a884f4eb045688c0e3fb64dd33e033eaa"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId",
+        "MmCopyVirtualMemory"
+      ]
+    },
+    {
+      "md5": "d717f8de642b65f029829c34fbd13a45",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "mhyprot2.sys",
+        "sha256": "46cf46e1073b7c99142964b7c4bef1e5285fabcf2c6dbe5be99000a393d9f474"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId",
+        "MmCopyVirtualMemory"
+      ]
+    },
+    {
+      "md5": "dc358c301fb463c2f4e7edb028dfe7e8",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "mhyprot2.sys",
+        "sha256": "342cf884840fc2b48c96398f690a1801ed8ac1ea59305af9e3d070d13ef85601"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId",
+        "MmCopyVirtualMemory"
+      ]
+    },
+    {
+      "md5": "e052ac7d39d07f6657cf049aae0c5b60",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "signeddrv.sys",
+        "sha256": "4dc3a03a046c210a7c6cd37db8d6bd34bf3760a612232cc82acf941a9e508e0f"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId",
+        "MmCopyVirtualMemory"
+      ]
+    },
+    {
+      "md5": "f157ac999b29ac010862177c1c66cee7",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "89036534a3da657882da96d9f211ae41efab4083bd6dbedbeaa2516d1d04cff4"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId",
+        "MmCopyVirtualMemory"
+      ]
+    },
+    {
+      "md5": "f7393fb917aed182e4cbef25ce8af950",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "BlackBoneDrv10.sys",
+        "sha256": "f51bdb0ad924178131c21e39a8ccd191e46b5512b0f2e1cc8486f63e84e5d960"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId",
+        "MmCopyVirtualMemory"
+      ]
+    },
+    {
+      "md5": "fbf729350ca08a7673b115ce9c9eb7e5",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "c3d479d7efd0f6b502d6829b893711bdd51aac07d66326b41ef5451bafdfcb29"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId",
+        "MmCopyVirtualMemory"
+      ]
+    },
+    {
+      "md5": "f05ed5805c259c3c770db028188b1e75",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "Driver_win10.sys",
+        "sha256": "c4179ed787aab61dc99879e87e1155003c5438cf683455b1230959f55296579d"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId",
+        "MmCopyVirtualMemory"
+      ]
+    },
+    {
+      "md5": "045ef7a39288ba1f4b8d6eca43def44f",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "aswArPot.sys",
+        "sha256": "6e0aa67cfdbe27a059cbd066443337f81c5b6d37444d14792d1c765d9d122dcf"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "054a32d6033b1744dca7f49b2e466ea2",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "rspot.sys",
+        "sha256": "ea8c8f834523886b07d87e85e24f124391d69a738814a0f7c31132b6b712ed65"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "0146c74cb125b188dbac4f9fa8ab867e",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "bin_intigua_driver64.sys",
+        "sha256": "e9a1c39600193c7fd546733284a575b2d5192e2fd3ff64ca1a33b00739f8d429"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "05a6f843c43d75fbce8e885bb8656aa4",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "Rzpnk.sys",
+        "sha256": "e77786b21dbe73e9619ac9aac5e7e92989333d559aa22b4b65c97f0a42ff2e21"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "085d3423f3c12a17119920f1a293ab4d",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "TmComm.sys",
+        "sha256": "5192ec4501d0fe0b1c8f7bf9b778f7524a7a70a26bbbb66e5dab8480f6fdbb8b"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "08bac71557df8a9b1381c8c165f64520",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "TmComm.sys",
+        "sha256": "61befeef14783eb0fed679fca179d2f5c33eb2dcbd40980669ca2ebeb3bf11cf"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "05ad4a6ef441e94acb1a1a9a11a26f3a",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "7a1feb8649a5c0679e1073e6d8a02c8a6ebc5825f02999f16c9459284f1b198b"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "09927915aba84c8acd91efdaac674b86",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "TmComm.sys",
+        "sha256": "bcfc2c9883e6c1b8429be44cc4db988a9eecb544988fbd756d18cfca6201876f"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "0b9b78d1281c7d4ab50497cf6ea7452a",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "751e9376cb7cb9de63e1808d43579d787d3f6d659173038fe44a2d7fdb4fd17e"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "0e207ef80361b3d047a2358d0e2206b4",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "aswArPot.sys",
+        "sha256": "dcb815eb8e9016608d0d917101b6af8c84b96fb709dc0344bceed02cbc4ed258"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "10b3049f4a954665512eca5d24728c89",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "Alinubx.sys",
+        "sha256": "611b3ba687b7f46319a19609605ddfe5225e6d85277d8e923eea3fdb6f7b5b61"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "0d8daf471d871deb90225d2953c0eb95",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "Rzpnk.sys",
+        "sha256": "9724488ca2ba4c787640c49131f4d1daae5bd47d6b2e7e5f9e8918b1d6f655be"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "11dc5523bb559f8d2ce637f6a2b70dea",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "aswArPot.sys",
+        "sha256": "6fb5bc9c51f6872de116c7db8a2134461743908efc306373f6de59a0646c4f5d"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "1258a8e1beab105aa96c93aa34dd9ef8",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "mbamchameleon.sys",
+        "sha256": "d86b9b20788b6bff70a1a4c4111b2ea33b9ec705cc6b8fe869362fc3899820a3"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "13e5678932fe26a7a7f864acbff40e82",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "aswArPot.sys",
+        "sha256": "bf5beb8560b85454ded94d2954c446970ab44dc2eeb83d80170ea3a68afa1787"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "1493d342e7a36553c56b2adea150949e",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "elrawdsk.sys",
+        "sha256": "4744df6ac02ff0a3f9ad0bf47b15854bbebb73c936dd02f7c79293a2828406f6"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "148bd10da8c8d64928a213c7bf1f2fca",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "TmComm.sys",
+        "sha256": "fda93c6e41212e86af07f57ca95db841161f00b08dae6304a51b467056e56280"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "14add4f16d80595e6e816abf038141e5",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "aswArPot.sys",
+        "sha256": "5bd41a29cbba0d24e639f49d1f201b9bd119b11f5e3b8a5fefa3a5c6f1e7692c"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "16472fca75ab4b5647c99de608949cde",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "aswArPot.sys",
+        "sha256": "d5c4ff35eaa74ccdb80c7197d3d113c9cd38561070f2aa69c0affe8ed84a77c9"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "190fe0ce4d43ad8eed97aaa68827e2c6",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "vsdatant.sys",
+        "sha256": "1c43f33573a0815c5edc5e18ba1038afdd11f55a7cd8b08ba59b8f7357117e4c"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "1b5c3c458e31bede55145d0644e88d75",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "kprocesshacker.sys",
+        "sha256": "70211a3f90376bbc61f49c22a63075d1d4ddd53f0aefa976216c46e6ba39a9f4"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "1c9d2a993e99054050b596d88b307d95",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "Rzpnk.sys",
+        "sha256": "9eba5d1545fdbf37cf053ac3f3ba45bcb651b8abb7805cbfdfb5f91ea294fb95"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "1db988eb9ac5f99756c33b91830a9cf6",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "TmComm.sys",
+        "sha256": "818e396595d08d724666803cd29dac566dc7db23bf50e9919d04b33afa988c01"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "113056ec5c679b6f74c9556339ebf962",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "TmComm.sys",
+        "sha256": "c082514317bf80a2f5129d84a5a55e411a95e32d03a4df1274537704c80e41dd"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "2229d5a9a92b62df4df9cf51f48436f7",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "Rzpnk.sys",
+        "sha256": "0507d893e3fd2917c81c1dc13ccb22ae5402ab6ca9fb8d89485010838050d08d"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "2391fb461b061d0e5fccb050d4af7941",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "IObitUnlocker.sys",
+        "sha256": "f85cca4badff17d1aa90752153ccec77a68ad282b69e3985fdc4743eaea85004"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "25190f667f31318dd9a2e36383d5709f",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "aswArPot.sys",
+        "sha256": "0f17e5cfc5bdd74aff91bfb1a836071345ba2b5d1b47b0d5bf8e7e0d4d5e2dbf"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "259381daae0357fbfefe1d92188c496a",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "aswArPot.sys",
+        "sha256": "be8dd2d39a527649e34dc77ef8bc07193a4234b38597b8f51e519dadc5479ec2"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "2406ea37152d2154be3fef6d69ada2c6",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "4f02aed3750bc6a924c75e774404f259f721d8f4081ed68aa01cf73ca5430f85"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "2491a4ddb3f7a6688669831969b47669",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "831b62145c21557928a694e6261e830f1545b5756ad51dcbd28a15fde570f4e7"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "288471f132c7249f598032d03575f083",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "Rzpnk.sys",
+        "sha256": "9e3430d5e0e93bc4a5dccc985053912065e65722bfc2eaf431bc1da91410434c"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "28d6b138adc174a86c0f6248d8a88275",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "TmComm.sys",
+        "sha256": "12eda8b65ed8c1d80464a0c535ea099dffdb4981c134294cb0fa424efc85ee56"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "29122f970a9e766ef01a73e0616d68b3",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "TmComm.sys",
+        "sha256": "4e37592a2a415f520438330c32cfbdbd6af594deef5290b2fa4b9722b898ff69"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "29a53ceac3376e0928a898779adb4c5a",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "sxav.sys",
+        "sha256": "4d47e7f1c87d758d9e3f17d0d53634c454ee1785478a8c7de7f3c83ecd3d3896"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "2e1f8a2a80221deb93496a861693c565",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "TmComm.sys",
+        "sha256": "cc687fe3741bbde1dd142eac0ef59fd1d4457daee43cdde23bb162ef28d04e64"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "2e219df70fccb79351f0452cba86623e",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "procexp.Sys",
+        "sha256": "9d5ebd0f4585ec20a5fe3c5276df13ece5a2645d3d6f70cedcda979bd1248fc2"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "2ddd3c0e23bc0fd63702910c597298b4",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "TmComm.sys",
+        "sha256": "a8027daa6facf1ff81405daf6763249e9acf232a1a191b6bf106711630e6188e"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "2e7d824a49d731da9fc96262a29c85ce",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "Rzpnk.sys",
+        "sha256": "2665d3127ddd9411af38a255787a4e2483d720aa021be8d6418e071da52ed266"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "2f6cf948117cbd383315ebf070d27aa4",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "29cf2d374d7afe009bbf60ba5f50db7016314de682cf3a6f90c0996810c821ef"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "300d6ac47a146eb8eb159f51bc13f7cf",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "aswArPot.sys",
+        "sha256": "a5a50449e2cc4d0dbc80496f757935ae38bf8a1bebdd6555a3495d8c219df2ad"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "318e309e11199ec69d8928c46a4d901b",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "procexp.Sys",
+        "sha256": "d6827cd3a8f273a66ecc33bb915df6c7dea5cc1b8134b0c348303ef50db33476"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "34686a4b10f239d781772e9e94486c1a",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "TmComm.sys",
+        "sha256": "0909005d625866ef8ccd8ae8af5745a469f4f70561b644d6e38b80bccb53eb06"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "35c8fdf881909fa28c92b1c2741ac60b",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "aswArPot.sys",
+        "sha256": "a2f45d95d54f4e110b577e621fefa0483fa0e3dcca14c500c298fb9209e491c1"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "36527fdb70ed6f74b70a98129f82ad62",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "Rzpnk.sys",
+        "sha256": "9fa120bda98633e30480d8475c9ac6637470c4ca7c63763560bf869138091b01"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "366bd312aad96a7eb4912688b9e8d268",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "3f20ac5dac9171857fc5791865458fdb6eac4fab837d7eabc42cb0a83cb522fc"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "3a3d54e49cae4b51f5231d3ae6724fcd",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "IObitUnlocker.sys",
+        "sha256": "d3e95b8d8cbb0c4c3bb78d929408b37fd3b8f305b6234f7f03954465d52454eb"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "3a41edc1dda049a1b8aa411f728831e0",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "IObitUnlocker.sys",
+        "sha256": "507724d96a54f3e45c16a065bf38ae82a9b80d07096a461068a701cae0c1cf29"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "3b967b644881ccb5a95f06e903d8b218",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "IObitUnlocker.sys",
+        "sha256": "c2e1a3dd0dfb3477a3e855368b23d12b8818df8fa3bc3508abf069a0873d6bf8"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "3c18a7e1d5d04e5d89770ffa0be0e32e",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "inetcache.sys",
+        "sha256": "21996ff297cfd67e0f722b9b5b1f7b8252782ea777e6d3486cbee335e92f88c4"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "3c1f92a1386fa6cf1ba51bae5e9a98dd",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "Rzpnk.sys",
+        "sha256": "4c2d2122ef7a100e1651f2ec50528c0d1a2b8a71c075461f0dc58a1aca36bc61"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "3e4a1384a27013ab7b767a88b8a1bd34",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "TmComm.sys",
+        "sha256": "a903f329b70f0078197cb7683aae1bb432eaf58572fe572f7cb4bc2080042d7e"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "3e796eb95aca7e620d6a0c2118d6871b",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "TmComm.sys",
+        "sha256": "478d855b648ef4501d3b08b3b10e94076ac67546b0ce86b454324f1bf9a78aa0"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "3e85c7fef77b908bead77d205596921d",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "360FsFlt.sys",
+        "sha256": "1c738be5e36be196c23c0d092ed1dd2e81b00158475e0f361105e0cdc9726d0c"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "3ee985c5fd1f5784e15a4d11b3ca70a1",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "chinese_cheat_driver.sys",
+        "sha256": "4f412f9aa89994cda45422d23d6d961809225de9a4f5a8bfbfb9ac0e8725917e"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "3fda3d414c31ad73efd8ccceeaa3bdc2",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "Rzpnk.sys",
+        "sha256": "f15962354d37089884abba417f58e9dbd521569b4f69037a24a37cfc2a490672"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "40f64b91348bed955acf8551853b72a8",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "360netmon.sys",
+        "sha256": "3d769a5f1ad0d32fb4e06478d35401d9788bad1a477b813adbdf4fd93b2c2694"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "413184d2547bba85b13b943df8200a81",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "ImmunetUtilDriver.sys",
+        "sha256": "2e270063af92a4f37d3f828dbb444c9a6277ea0d15a5b808e66e3b66ca5f5a58"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "42132c7a755064f94314b01afb80e73c",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "TmComm.sys",
+        "sha256": "62f5e13b2edc00128716cb93e6a9eddffea67ce83d2bb426f18f5be08ead89e0"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "46edb648c1b5c3abd76bd5e912dac026",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "TmComm.sys",
+        "sha256": "97b32ddf83f75637e3ba934df117081dd6a1c57d47a4c9700d35e736da11d5bd"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "47aa03a10ac3a407f8f30f1088edcbc9",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "IObitUnlocker.sys",
+        "sha256": "c79a2bb050af6436b10b58ef04dbc7082df1513cec5934432004eb56fba05e66"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "4c6d311e0b13c4f469f717db4ab4d0e7",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "TmComm.sys",
+        "sha256": "80a59ca71fc20961ccafc0686051e86ae4afbbd4578cb26ad4570b9207651085"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "4cc3ddd5ae268d9a154a426af2c23ef9",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "Rzpnk.sys",
+        "sha256": "93d873cdf23d5edc622b74f9544cac7fe247d7a68e1e2a7bf2879fad97a3ae63"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "4e90cd77509738d30d3181a4d0880bfa",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "FairplayKD.sys",
+        "sha256": "9f4ce6ab5e8d44f355426d9a6ab79833709f39b300733b5b251a0766e895e0e5"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "4e92f1c677e08fd09b57032c5b47ca46",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "Rzpnk.sys",
+        "sha256": "ad8fd8300ed375e22463cea8767f68857d9a3b0ff8585fbeb60acef89bf4a7d7"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "501945a3f0055033edc64be09717eef2",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "IObitUnlocker.sys",
+        "sha256": "a38c26c0754f6c9389ea43dd0149db26b95742c1b37468fcf0d8ced66da1dcb9"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "51207adb8dab983332d6b22c29fe8129",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "Dh_Kernel_10.sys",
+        "sha256": "80cbba9f404df3e642f22c476664d63d7c229d45d34f5cd0e19c65eb41becec3"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "53bb10742e10991af4ad280fcb134151",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "aswArPot.sys",
+        "sha256": "65008817eb97635826a8708a6411d7b50f762bab81304e457119d669382944c3"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "54d015e3c3f31090db762f0dd5ad43c0",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "aswArPot.sys",
+        "sha256": "421cb64792a32ce79db7c8c07db4fb58bf105e58a7acf3cf1e6b5135e37795cf"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "560069dc51d3cc7f9cf1f4e940f93cae",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "Rzpnk.sys",
+        "sha256": "16e2b071991b470a76dff4b6312d3c7e2133ad9ac4b6a62dda4e32281952fb23"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "569676d3d45b0964ac6dd0815be8ff8c",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "TmComm.sys",
+        "sha256": "76e807b6c0214e66455f09a8de8faad40b738982ca84470f0043de0290449524"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "56a9e9b5334f8698a0ede27c64140982",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "aswArPot.sys",
+        "sha256": "0b542e47248611a1895018ec4f4033ea53464f259c74eb014d018b19ad818917"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "57fdf2cc39a2865dd67dcf762d2c0b7f",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "IObitUnlocker.sys",
+        "sha256": "5ea5f339b2e40dea57378626790ca7e9a82777aacdada5bc61ebb7d82043fa07"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "58a92520dda53166e322118ee0503364",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "TmComm.sys",
+        "sha256": "7c731c0ea7f28671ab7787800db69739ea5cd6be16ea21045b4580cf95cbf73b"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "5917e415a5bf30b3fcbcbcb8a4f20ee0",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "30061ef383e18e74bb067fbca69544f1a7544e8dc017d4e7633d8379aff4c3c3"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "595363661db3e50acc4de05b0215cc6f",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "aswArPot.sys",
+        "sha256": "1273b74c3c1553eaa92e844fbd51f716356cc19cf77c2c780d4899ec7738fbd1"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "59f6320772a2e6b0b3587536be4cc022",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "TmComm.sys",
+        "sha256": "ec5fac0b6bb267a2bd10fc80c8cca6718439d56e82e053d3ff799ce5f3475db5"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "5a615f4641287e5e88968f5455627d45",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "TmComm.sys",
+        "sha256": "2afdb3278a7b57466a103024aef9ff7f41c73a19bab843a8ebf3d3c4d4e82b30"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "5cc5fc8ce149dca1d05fb47c0aec9497",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "IObitUnlocker.sys",
+        "sha256": "faa9aa7118ecf9bb6594281f6b582f1ced0cc62d5db09a2fbf9b7ce70c532285"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "60f19af0a9a26851ad9bc2d981afbac6",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "PCTCore.sys",
+        "sha256": "c76dd87891e3e30db2aed057e7b04c19ca264f434c21f68a7a2d9b17a97aff39"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "61ecbe0670717bb544ab4e3e0fe67a90",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "ef9d653aaa2e629b211cd367a32c381eba694ba85682b987497c287d7dbc0082"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "62eed4173c566a248531fb6f20a5900d",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "TmComm.sys",
+        "sha256": "e3eff841ea0f2786e5e0fed2744c0829719ad711fc9258eeaf81ed65a52a8918"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "659a59d7e26b7730361244e12201378e",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "procexp.Sys",
+        "sha256": "77950e2a40ac0447ae7ee1ee3ef1242ce22796a157074e6f04e345b1956e143c"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "65e6718a547495c692e090d7887d247b",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "aswArPot.sys",
+        "sha256": "ebe2e9ec6d5d94c2d58fbcc9d78c5f0ee7a2f2c1aed6d1b309f383186d11dfa3"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "66d4d00c8908888a68b749d91f1e6789",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "pxscan.sys",
+        "sha256": "b854c4c2c860b8cf00808ba07b9ebbfff66d483b8a2aa15a94211e57b84ee1f2"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "66e0db8a5b0425459d0430547ecbb3db",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "aswArPot.sys",
+        "sha256": "34e0364a4952d914f23f271d36e11161fb6bb7b64aea22ff965a967825a4a4bf"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "67f6d2a931f194396bda9b05690008d2",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "a7416a7d9573f1d8873ec1b3109ec683e85412ba817e0001c3ab2d2c92043d4d"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "6846c2035b4c56b488d2ce2c69a57261",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "Rzpnk.sys",
+        "sha256": "0b547368c03e0a584ae3c5e62af3728426c68b316a15f3290316844d193ad182"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "6d5fbbb446b119cb151c97b8e16be822",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "ksapi.sys",
+        "sha256": "26ed45461e62d733f33671bfd0724399d866ee7606f3f112c90896ce8355392e"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "6e25148bb384469f3d5386dc5217548a",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "TmComm.sys",
+        "sha256": "3c4207c90c97733fae2a08679d63fbbe94dfcf96fdfdf88406aa7ab3f80ea78f"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "6ff59faea912903af0ba8e80e58612bc",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "procexp.Sys",
+        "sha256": "3503ea284b6819f9cb43b3e94c0bb1bf5945ccb37be6a898387e215197a4792a"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "700d6a0331befd4ed9cfbb3234b335e7",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "aswArPot.sys",
+        "sha256": "86a1b1bacc0c51332c9979e6aad84b5fba335df6b9a096ccb7681ab0779a8882"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "724a9e06f0a846f2556f2e3edd251cc4",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "11bc55c0771d692279298211c1d434c04168e7c7f7c4328bfd600215b88c819b"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "4b22e494ad2ac90c42f02dcca0328b7c",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "filnk.sys",
+        "sha256": "ae55a0e93e5ef3948adecf20fa55b0f555dcf40589917a5bfbaa732075f0cc12"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "6212832f13b296ddbc85b24e22edb5ec",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "aswArPot.sys",
+        "sha256": "14adbf0bc43414a7700e5403100cff7fc6ade50bebfab16a17acf2fdda5a9da8"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "761f2e2b759389a472bd3d94141742b9",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "TfSysMon.sys",
+        "sha256": "1c1a4ca2cbac9fe5954763a20aeb82da9b10d028824f42fff071503dcbe15856"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "76c643ab29d497317085e5db8c799960",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "elrawdsk.sys",
+        "sha256": "5a826b4fa10891cf63aae832fc645ce680a483b915c608ca26cedbb173b1b80a"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "76d36fee8ee297ab69b4cfce2cd4ac52",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "rksafe.sys",
+        "sha256": "81fbcacbc28001909391dbdafd9854ca997befa38dee4f2d9e8fbdbd00bc3723"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "752d3a88a9f7d2fee7bd0df2dbcd7e69",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "heysafe_drv.sys",
+        "sha256": "a188993dd8cac6628f97dfd390cfab8a9e510d581c39e32da66cbc4b559db27d"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "7ddb60de73657cd3b2756965fd2e1269",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "Cndom6.sys",
+        "sha256": "8c12407a40eab287a8281be64665b1e72b0e91b2daf84030a1a15dc280e5dbf1"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "7e3a84e0684abf96af51607db10c3e18",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "fekern.sys",
+        "sha256": "16f68c6e527aacd803cb2412766f00766527e1c880ed8da50bfedac501918320"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "7fbd3b4488a12eab56c54e7bb91516f3",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "aswArPot.sys",
+        "sha256": "e4522e2cfa0b1f5d258a3cf85b87681d6969e0572f668024c465d635c236b5d9"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "812e960977116bf6d6c1ccf8b5dd351f",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "aswArPot.sys",
+        "sha256": "1078af0c70e03ac17c7b8aa5ee03593f5decfef2f536716646a4ded1e98c153c"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "848690ca707b4850c967e3217f285fcc",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "IObitUnlocker.sys",
+        "sha256": "b0dd55b4dc7e561dfe413b029673674e2a5381f5f4daede03ddf3484310a6e11"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "84c4d8ae023ca9bb60694fa467141247",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "aswArPot.sys",
+        "sha256": "4da08c0681fbe028b60a1eaf5cb8890bd3eba4d0e6a8b976495ddcd315e147ba"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "85def55323cfc4a04a270127a20f4d2c",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "IObitUnlocker.sys",
+        "sha256": "2ba404c50684d59b701959a1732617dec6a6a25c8005294c0d2b3822b38479a4"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "8580165a2803591e007380db9097bbcc",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "TmComm.sys",
+        "sha256": "5027fce41ed60906a0e76b97c95c2a5a83d57a2d1cd42de232a21f26c0d58e48"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "85e606523ce390f7fcd8370d5f4b812a",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "TmComm.sys",
+        "sha256": "385485e643aa611e97ceae6590c6a8c47155886123dbb9de1e704d0d1624d039"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "88d5fc86f0dd3a8b42463f8d5503a570",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "aswArPot.sys",
+        "sha256": "2594b3ef3675ca3a7b465b8ed4962e3251364bab13b12af00ebba7fa2211abb2"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "8de7dcade65a1f51605a076c1d2b3456",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "Rzpnk.sys",
+        "sha256": "dafa4459d88a8ab738b003b70953e0780f6b8f09344ce3cd631af70c78310b53"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "8e78ab9b9709bafb11695a0a6eddeff9",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "procexp.Sys",
+        "sha256": "3c7e5b25a33a7805c999d318a9523fcae46695a89f55bbdb8bb9087360323dfc"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "90f8c1b76f786814d03ef4c51d4abb6d",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "procexp.Sys",
+        "sha256": "6bfc0f425de9f4e7480aa2d1f2e08892d0553ed0df1c31e9bf3d8d702f38fa2e"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "92927c47d6ff139c9b19674c9d0088f6",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "procexp.Sys",
+        "sha256": "98a123b314cba2de65f899cdbfa386532f178333389e0f0fbd544aff85be02eb"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "935a7df222f19ac532e831e6bf9e8e45",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "Rzpnk.sys",
+        "sha256": "567809308cfb72d59b89364a6475f34a912d03889aa50866803ac3d0bf2c3270"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "93a23503e26773c27ed1da06bb79e7a4",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "aswArPot.sys",
+        "sha256": "0f016c80c4938fbcd47a47409969b3925f54292eba2ce01a8e45222ce8615eb8"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "9496585198d726000ea505abc39dbfe9",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "aswArPot.sys",
+        "sha256": "94911fe6f2aba9683b10353094caf71ee4a882de63b4620797629d79f18feec5"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "94999245e9580c6228b22ac44c66044c",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "aswArPot.sys",
+        "sha256": "0cd4ca335155062182608cad9ef5c8351a715bce92049719dd09c76422cd7b0c"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "949ef0df929a71d6cc77494dfcb1ddeb",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "TmComm.sys",
+        "sha256": "ed2f33452ec32830ffef2d5dc832985db9600c306ed890c47f3f33ccbb335c39"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "8cb2ffb8bb0bbf8cd0dd685611854637",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "TmComm.sys",
+        "sha256": "e4d9f037411284e996a002b15b49bc227d085ee869ae1cd91ba54ff7c244f036"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "97e3a44ec4ae58c8cc38eefc613e950e",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "procexp.Sys",
+        "sha256": "440883cd9d6a76db5e53517d0ec7fe13d5a50d2f6a7f91ecfc863bc3490e4f5c"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "98b8507e725b3d28537fc374eb2de72d",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "gmer64.sys",
+        "sha256": "0052aa88e42055a2eed5ddd17c3499c692360155e5e031a211edfcef577acce3"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "98eaed36ba245047410a19c191cd1a69",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "IObitUnlocker.sys",
+        "sha256": "969f73a1da331e43777a3c1f08ec0734e7cf8c8136e5d469cbad8035fbfe3b47"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "991230087394738976dbd44f92516cae",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "aswArPot.sys",
+        "sha256": "ad8ffccfde782bc287241152cf24245a8bf21c2530d81c57e17631b3c4adb833"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "996ded363410dfd38af50c76bd5b4fbc",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "TmComm.sys",
+        "sha256": "fca10cde7d331b7f614118682d834d46125a65888e97bd9fda2df3f15797166c"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "9982da703f13140997e137b1e745a2e3",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "procexp.Sys",
+        "sha256": "e3f2ee22dec15061919583e4beb8abb3b29b283e2bcb46badf2bfde65f5ea8dd"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "9af5ae780b6a9ea485fa15f28ddb20a7",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "TmComm.sys",
+        "sha256": "b773511fdb2e370dec042530910a905472fcc2558eb108b246fd3200171b04d3"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "9b9d367cb53df0a2e0850760c840d016",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "procexp.Sys",
+        "sha256": "f29073dc99cb52fa890aae80037b48a172138f112474a1aecddae21179c93478"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "9beecfb3146f19400880da61476ef940",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "procexp.Sys",
+        "sha256": "c089a31ac95d41ed02d1e4574962f53376b36a9e60ff87769d221dc7d1a3ecfa"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "9c14315e086882e89a01c9700c4b5530",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "IObitUnlocker.sys",
+        "sha256": "0209934453e9ce60b1a5e4b85412e6faf29127987505bfb1185fc9296c578b09"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "9eb524c5f92e5b80374b8261292fdeb5",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "aswArPot.sys",
+        "sha256": "8cfd5b2102fbc77018c7fe6019ec15f07da497f6d73c32a31f4ba07e67ec85d9"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "9f3b5de6fe46429bed794813c6ae8421",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "aswArPot.sys",
+        "sha256": "7ad0ab23023bc500c3b46f414a8b363c5f8700861bc4745cecc14dd34bcee9ed"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "a22626febc924eb219a953f1ee2b9600",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "aswArPot.sys",
+        "sha256": "2ce81759bfa236913bbbb9b2cbc093140b099486fd002910b18e2c6e31fdc4f1"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "a31246180e61140ad7ff9dd7edf1f6a1",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "TmComm.sys",
+        "sha256": "6ffdde6bc6784c13c601442e47157062941c47015891e7139c2aaba676ab59cc"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "a360ec883ef5383157080b2e185802ef",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "SeasunProtect.sys",
+        "sha256": "507b07b0dc0e638b65b4a4d11a462b35439c746d42337b9888927bf994176102"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "a3af4a4fa6cba27284f8289436c2f074",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "aswArPot.sys",
+        "sha256": "1a42ebde59e8f63804eaa404f79ee93a16bb33d27fb158c6bfbe6143226899a0"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "a4531040276080441974d9e00d8d4cfa",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "aswArPot.sys",
+        "sha256": "e2e79f1e696f27fa70d72f97e448081b1fa14d59cbb89bb4a40428534dd5c6f6"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "a7681a49d1ac6efb31409f17a7011a8b",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "ksapi.sys",
+        "sha256": "1cd219f58b249a2e4f86553bdd649c73785093e22c87170798dae90f193240af"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "a7c2bc345d60cddf2cf4f5dd416a127b",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "698353791261d5a9ca3245ae8f86334493df554690ec7962895c2affe4050db2"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "a8dd685a6afb748c9f487a139c9c367b",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "IObitUnlocker.sys",
+        "sha256": "a92d2736c8cd99195a1ef4d0d9a3412bee481acf585944e3b5946b465361a3e7"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "98763a3dee3cf03de334f00f95fc071a",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "Dh_Kernel.sys",
+        "sha256": "bb50818a07b0eb1bd317467139b7eb4bad6cd89053fecdabfeae111689825955"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "ad6ec006e29343c466f73bf47fe0caf3",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "IObitUnlocker.sys",
+        "sha256": "d8096325bfe81b093dd522095b6153d9c4850ba2eaa790e12e7056ef160d0432"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "ad866d83b4f0391aecceb4e507011831",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "TmComm.sys",
+        "sha256": "3e1d47a497babbfd1c83905777b517ec87c65742bee7eb57a2273eca825d2272"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "b2ada4eb20649839a54db078fa6bb1bd",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "0aff83f28d70f425539fee3d6a780210d0406264f8a4eb124e32b074e8ffd556"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "ad03f225247b58a57584b40a4d1746d3",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "procexp.Sys",
+        "sha256": "59b09bd69923c0b3de3239e73205b1846a5f69043546d471b259887bb141d879"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "b4598c05d5440250633e25933fff42b0",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "Rzpnk.sys",
+        "sha256": "a66d2fb7ef7350ea74d4290c57fb62bc59c6ea93f759d4ca93c3febca7aeb512"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "b685345355d9fba9af6df590a87948ce",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "KExplore.sys",
+        "sha256": "c71e14961ac29165ddf6e5e8f9372e82fc79494da07afbfaf2ccfc9bd3bbbe18"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "b6a0d03122bd968b40ce97c145b491c7",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "GGProtect64.sys",
+        "sha256": "0aa69aee93c6be9bc82680a7df99c114591038ae02e6666fc6e42acb09643111"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "ba3cd54ee9e5bde6f4155348e8c6e31a",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "ktdifilt.sys",
+        "sha256": "597eff2718073b11da3d4bcade9a03fb4684f9be57d184fce65ac70a2ef07246"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "b79475c4783efdd8122694c6b5669a79",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "procexp.Sys",
+        "sha256": "cdfbe62ef515546f1728189260d0bdf77167063b6dbb77f1db6ed8b61145a2bc"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "bbbc9a6cc488cfb0f6c6934b193891eb",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "kprocesshacker.sys",
+        "sha256": "c725919e6357126d512c638f993cf572112f323da359645e4088f789eb4c7b8c"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "bd91787b5dcb2189b856804e85dfa1d9",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "7a84703552ae032a0d1699a081e422ed6c958bbe56d5b41839c8bfa6395bee1d"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "bf74d0706f5ab9c34067192260f4efb0",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "procexp.Sys",
+        "sha256": "89b9823ed974a5b71de8468324d45b7e9d6dc914f93615ba86c6209b25b3cbf7"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "c06dda757b92e79540551efd00b99d4b",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "procexp.Sys",
+        "sha256": "9b6a84f7c40ea51c38cc4d2e93efb3375e9d98d4894a85941190d94fbe73a4e4"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "c006d1844f20b91d0ea52bf32d611f30",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "TmComm.sys",
+        "sha256": "ecd07df7ad6fee9269a9e9429eb199bf3e24cf672aa1d013b7e8d90d75324566"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "c42caa9cdcc50c01cb2fed985a03fe23",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "TmComm.sys",
+        "sha256": "c9014b03866bf37faa8fdb16b6af7cfec976aaef179fd5797d0c0bf8079d3a8c"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "c6016d13579a954adb70e656d2711838",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "_xyzxbqvb.rdu_GFAC_Sys_x64.sys",
+        "sha256": "b6748d7da5759dee7d5f2f32b0326b4edb7b2135a0e4a6d5ff26aef1e139d8b2"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "c61876aaca6ce822be18adb9d9bd4260",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "aswArPot.sys",
+        "sha256": "0b2ad05939b0aabbdc011082fad7960baa0c459ec16a2b29f37c1fa31795a46d"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "c61c16de83acabd35ee18e410c1c37c1",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "xhunter1.sys",
+        "sha256": "e727d0753d2cd0b2f6eeba4cea53aa10b3ff3ed2afeb78f545fcf6d840f85c3e"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "c1ade0fc97f6a774fd036892c8056907",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "df72cb33a23ae8f6f9dc64bb738fcfaea959368ce05cf399f3c7db5e90104bd7"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "c69c292e0b76b25a5fa0e16136770e11",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "procexp.Sys",
+        "sha256": "e07211224b02aaf68a5e4b73fc1049376623793509d9581cdaee9e601020af06"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "cc8855fe30a9cdef895177a4cf1a3dad",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "aswArPot.sys",
+        "sha256": "17687cba00ec2c9036dd3cb5430aa1f4851e64990dafb4c8f06d88de5283d6ca"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "cd2c641788d5d125c316ed739c69bb59",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "82b0e1d7a27b67f0e6dc39dc41e880bdaef5d1f69fcec38e08da2ed78e805ef9"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "cb31f1b637056a3d374e22865c41e6d9",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "aswArPot.sys",
+        "sha256": "36e3127f045ef1fa7426a3ff8c441092d3b66923d2b69826034e48306609e289"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "ceac1347acae9ad9496d4b0593256522",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "aswArPot.sys",
+        "sha256": "9a54ef5cfbe6db599322967ee2c84db7daabcb468be10a3ccfcaa0f64d9173c7"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "d0a5b98788e480c12afc65ad3e6d4478",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "aswArPot.sys",
+        "sha256": "3b6e85c8fed9e39b21b2eab0b69bc464272b2c92961510c36e2e2df7aa39861b"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "d2bb60cfb31189136924b0aebe711f63",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "6crzag.exe",
+        "sha256": "b3439b8478a642c4612cd05fd1dac2f4d622645c5b4387929b9a74c14963c304"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "d4a299c595d35264b5cfd12490a138dc",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "Rzpnk.sys",
+        "sha256": "d7b743c3f98662c955c616e0d1bb0800c9602e5b6f2385336a72623037bfd6dd"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "d4f7c14e92b36c341c41ae93159407dd",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "LMIinfo.sys",
+        "sha256": "453be8f63cc6b116e2049659e081d896491cf1a426e3d5f029f98146a3f44233"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "d6b259b2dfe80bdf4d026063accd752c",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "TmComm.sys",
+        "sha256": "ee3ff12943ced401e2b6df9e66e8a0be8e449fa9326cab241f471b2d8ffefdd7"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "cec257dcac9e708cefb17f8984dd0a70",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "procexp.Sys",
+        "sha256": "88e2e6a705d3fb71b966d9fb46dc5a4b015548daf585fb54dfcd81dc0bd3ebdc"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "d751a1ebc49ecd3ce75ef683878057db",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "ZYArKit",
+        "sha256": "46883bc25c77678f60c1b836f4c438d87158c9af6b229f533522f635a0d5276e"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "d79b8b7bed8d30387c22663b24e8c191",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "TmComm.sys",
+        "sha256": "d783ace822f8fe4e25d5387e5dd249cb72e62f62079023216dc436f1853a150f"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "da6f7407c4656a2dbaf16a407aff1a38",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "procexp.Sys",
+        "sha256": "7a48f92a9c2d95a72e18055cac28c1e7e6cad5f47aa735cbea5c3b82813ccfaf"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "d7b749051da5fb4604f4141f19c47660",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "IObitUnlocker.sys",
+        "sha256": "2b33df9aff7cb99a782b252e8eb65ca49874a112986a1c49cd9971210597a8ae"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "dcd966874b4c8c952662d2d16ddb4d7c",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "aswArPot.sys",
+        "sha256": "aaa3459bcac25423f78ed72dbae4d7ef19e7c5c65770cbe5210b14e33cd1816c"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "dd9596c18818288845423c68f3f39800",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "TmComm.sys",
+        "sha256": "3fa6379951f08ed3cb87eeba9cf0c5f5e1d0317dcfcf003b810df9d795eeb73e"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "e2b86d1430fbb4cdc6d88ad929713d7a",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "Fortimon3.sys",
+        "sha256": "6f131b58dfe47cb7fc721f1023e55242a6f2043fa337467338844fdf338f010f"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "e28ce623e3e5fa1d2fe16c721efad4c2",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "TmComm.sys",
+        "sha256": "dbc604b4e01362a3e51357af4a87686834fe913852a4e0a8c0d4c1a0f7d076ed"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "e3aaa0c1c3a5e99eb9970ebe4b5a3183",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "TmComm.sys",
+        "sha256": "1c1251784e6f61525d0082882a969cb8a0c5d5359be22f5a73e3b0cd38b51687"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "e6cb1728c50bd020e531d19a14904e1c",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "procexp.Sys",
+        "sha256": "075de997497262a9d105afeadaaefc6348b25ce0e0126505c24aa9396c251e85"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "e6ed15980616aa706bf85e6f256d2ebe",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "e41d4fd99252fcf9aea529b6e148b311aa26a4ab04f6b79cce4cd19c61db0c87"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "e7273e17ac85dc4272c4c4400091a19e",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "aswArPot.sys",
+        "sha256": "1023dcd4c80db19e9f82f95b1c5e1ddb60db7ac034848dd5cc1c78104a6350f4"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "e74d70c851e0c39cdb19af3bd2920efd",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "CcProtect.sys",
+        "sha256": "5f0cfe8357bb52b45068ddbac053e32bc38e6cb5e086746f5402657b0a5cfb1c"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "ecc5833db5e979c27d10505e01e6859a",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "fekern.sys",
+        "sha256": "d5b353dc323c12f4a6f85842a3d2c0a27e0288177ca0e0a051754b9ae4c6fcc9"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "f28bcd667324462216fdf4284eef1be6",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "e39cba0582fa3d9bce412395dc6cef3f9daa6a9396ddce3ca7608120091b3f52"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "f33c3f08536f988aac84d72d83b139a6",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "TmComm.sys",
+        "sha256": "89108a15f009b285db4ef94250b889d5b11b96b4aa7b190784a6d1396e893e10"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "f4b7b84a6828d2f9205b55cf8cfc7742",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "TmComm.sys",
+        "sha256": "4bc0921ffd4acc865525d3faf98961e8decc5aec4974552cbbf2ae8d5a569de4"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "f51065667fb127cf6de984daea2f6b24",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "TmComm.sys",
+        "sha256": "654c5ba47f74008c8f49cbb97988017eec8c898adc3bb851bc6e1fdf9dcf54ad"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "f58e9309d8251a3010ee022aa5a6e377",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "IObitUnlocker.sys",
+        "sha256": "b6ae324b84a4632cf690dd565954d64b205104fc3fa42181612c3f5b830579c6"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "f5e6ef0dcbb3d4a608e9e0bba4d80d0a",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "Rzpnk.sys",
+        "sha256": "46d1dc89cc5fa327e7adf3e3d6d498657240772b85548c17d2e356aac193dd28"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "f65e545771fd922693f0ec68b2141012",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "TmComm.sys",
+        "sha256": "adc10de960f40fa9f6e28449748250fa9ddfd331115b77a79809a50c606753ee"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "f758e7d53184faab5bc51f751937fa36",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "Rzpnk.sys",
+        "sha256": "d59cc3765a2a9fa510273dded5a9f9ac5190f1edf24a00ffd6a1bbd1cb34c757"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "f83c61adbb154d46dd8f77923aa7e9c3",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "aswArPot.sys",
+        "sha256": "19d0fc91b70d7a719f7a28b4ad929f114bf1de94a4c7cba5ad821285a4485da0"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "f8a13d4413a93dd005fad116cbd6b6f7",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "Rzpnk.sys",
+        "sha256": "8ed0c00920ce76e832701d45117ed00b12e20588cb6fe8039fbccdfef9841047"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "f9d04e99e4cab90973226a4555bc6d57",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "procexp.Sys",
+        "sha256": "6e944ae1bfe43a8a7cd2ea65e518a30172ce8f31223bdfd39701b2cb41d8a9e7"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "fa1a585828ee8097ea2aa7c5306abd1c",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "fekern.sys",
+        "sha256": "009a13eeea05c09c132a7b05fff29624bcce3d36ded44c8299f09bc6f5870f5a"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "fea9319d67177ed6f36438d2bd9392fb",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "procexp.Sys",
+        "sha256": "16a2e578bc8683f17a175480fea4f53c838cfae965f1d4caa47eaf9e0b3415c1"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "f0a5d14e0a8acea507ef9a694661e544",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "Atools2.sys",
+        "sha256": "f85af685660a28e3cd18e2c9ef6b1fbb440ae0c5934e625e8a055e1f158c3e56"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "fef60a37301e1f5a3020fa3487fb2cd7",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "Rzpnk.sys",
+        "sha256": "0c925468c3376458d0e1ec65e097bd1a81a03901035c0195e8f6ef904ef3f901"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "f0aeb731d83f7ab6008c92c97faf6233",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "aswArPot.sys",
+        "sha256": "7d43769b353d63093228a59eb19bba87ce6b552d7e1a99bf34a54eee641aa0ea"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "a3e41b5caaabf71f04d110b158fbf2e2",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "GlobalVistaVentures_v3.sys",
+        "sha256": "7ccb02b9dc8bb46e5ea32fb8f4c93bac195bcbb0c2fc02d3af28f4208afe7c41"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "CR3",
+        "PsLookupProcessByProcessId",
+        "MmCopyVirtualMemory"
+      ]
+    },
+    {
+      "md5": "06897b431c07886454e0681723dd53e6",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "zamguard32.sys",
+        "sha256": "ab2632a4d93a7f3b7598c06a9fdc773a1b1b69a7dd926bdb7cf578992628e9dd"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "CR3",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "1c9001dcd34b4db414f0c54242fedf49",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "kEvP64.sys",
+        "sha256": "2a4f4400402cdc475d39389645ca825bb0e775c3ecb7c527e30c5be44e24af7d"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "CR3",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "20125794b807116617d43f02b616e092",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "kEvP64.sys",
+        "sha256": "1aaa9aef39cb3c0a854ecb4ca7d3b213458f302025e0ec5bfbdef973cca9111c"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "CR3",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "21e13f2cb269defeae5e1d09887d47bb",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "zam64.sys",
+        "sha256": "543991ca8d1c65113dff039b85ae3f9a87f503daec30f46929fd454bc57e5a91"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "CR3",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "23b807c09b9b6ea85ed5c508aab200b7",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "kEvP64.sys",
+        "sha256": "97363f377aaf3c01641ac04a15714acbec978afb1219ac8f22c7e5df7f2b2d56"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "CR3",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "2a3ce41bb2a7894d939fbd1b20dae5a0",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "zam64.sys",
+        "sha256": "2bbc6b9dd5e6d0327250b32305be20c89b19b56d33a096522ee33f22d8c82ff1"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "CR3",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "2c1045bb133b7c9f5115e7f2b20c267a",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "kEvP64.sys",
+        "sha256": "e61004335dfe7349f2b2252baa1e111fb47c0f2d6c78a060502b6fcc92f801e4"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "CR3",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "3ae11bde32cdbd8637124ada866a5a7e",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "kEvP64.sys",
+        "sha256": "7462b7ae48ae9469474222d4df2f0c4f72cdef7f3a69a524d4fccc5ed0fd343f"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "CR3",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "47960eb7affa4987ebed6193b0a636b9",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "amsdk.sys",
+        "sha256": "12b3d8bc5cc1ea6e2acd741d8a80f56cf2a0a7ebfa0998e3f0743fcf83fabb9e"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "CR3",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "4ff880566f22919ed94ffae215d39da5",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "kEvP64.sys",
+        "sha256": "09b0e07af8b17db1d896b78da4dd3f55db76738ee1f4ced083a97d737334a184"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "CR3",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "51e7b58f6e9b776568ffbd4dd9972a60",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "zamguard64.sys",
+        "sha256": "9a95a70f68144980f2d684e96c79bdc93ebca1587f46afae6962478631e85d0c"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "CR3",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "68def3004db45cb974e789241472fd59",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "wamsdk.sys",
+        "sha256": "0be8483c2ea42f1ce4c90e84ac474a4e7017bc6d682e06f96dc1e31922a07b10"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "CR3",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "7e7e3f5532b6af24dcc252ac4b240311",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "kEvP64.sys",
+        "sha256": "8e6363a6393eb4234667c6f614b2072e33512866b3204f8395bbe01530d63f2f"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "CR3",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "81b72492d45982cd7a4a138676329fd6",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "kEvP64.sys",
+        "sha256": "d9500af86bf129d06b47bcfbc4b23fcc724cfbd2af58b03cdb13b26f8f50d65e"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "CR3",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "9e0659d443a2b9d1afc75a160f500605",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "zam64.sys",
+        "sha256": "8fe9828bea83adc8b1429394db7a556a17f79846ad0bfb7f242084a5c96edf2a"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "CR3",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "a87587ee2f2281297f24bbd96902faa5",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "tProtect.dll",
+        "sha256": "078e7fb479ad6f0734682d41a17d41518de35bf4f6c5c212643b7d37e641041e"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "CR3",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "e5f8fcdfb52155ed4dffd8a205b3d091",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "zam64.sys",
+        "sha256": "76614f2e372f33100a8d92bf372cdbc1e183930ca747eed0b0cf2501293b990a"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "CR3",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "eb525d99a31eb4fff09814e83593a494",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "ZAM.exe",
+        "sha256": "6f55c148bb27c14408cf0f16f344abcd63539174ac855e510a42d78cfaec451c"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "CR3",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "f1a203406a680cc7e4017844b129dcbf",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "irec.sys",
+        "sha256": "dd573f23d656818036fc9ae1064eda31aca86acb9bc44a6e127db3ea112a9094"
+      },
+      "hits": [
+        "KeStackAttachProcess",
+        "CR3",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "2da707d2fa073d60c4b069ce76a789ef",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "035b96ff8b85d312be0f9df6271714392a802ec8bab59ae8229812ddc67ced5a"
+      },
+      "hits": [
+        "KeStackAttachProcess"
+      ]
+    },
+    {
+      "md5": "37086ae5244442ba552803984a11d6cb",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "HwOs2Ec.sys",
+        "sha256": "bb1135b51acca8348d285dc5461d10e8f57260e7d0c8cc4a092734d53fc40cbc"
+      },
+      "hits": [
+        "KeStackAttachProcess"
+      ]
+    },
+    {
+      "md5": "5093f38d597532d59d4df9018056f0d1",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "DirectIo64.sys",
+        "sha256": "8939116df1d6c8fd0ebd14b2d37b3dec38a8820aa666ecd487bc1bb794f2a587"
+      },
+      "hits": [
+        "KeStackAttachProcess"
+      ]
+    },
+    {
+      "md5": "5ea6bc6b8a59d98338b8d94748491838",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "whql.sys",
+        "sha256": "412564937dea61ad443a3f50a0f7586aed1bf68795e9af184606804357499cea"
+      },
+      "hits": [
+        "KeStackAttachProcess"
+      ]
+    },
+    {
+      "md5": "7978d858168fadd05c17779da5f4695a",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "DirectIo64.sys",
+        "sha256": "ac63c26ca43701dddaa7fb1aea535d42190f88752900a03040fd5aaa24991e25"
+      },
+      "hits": [
+        "KeStackAttachProcess"
+      ]
+    },
+    {
+      "md5": "7cd54df7962a91032a643f152a79cd19",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "4fc254af8ebfa6fc1050f65c17015b39b36693b58f029c2fa1873976cbca52df"
+      },
+      "hits": [
+        "KeStackAttachProcess"
+      ]
+    },
+    {
+      "md5": "afbb28a756e233d32e224a664763f79c",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "d84e3e250a86227c64a96f6d5ac2b447674ba93d399160850acb2339da43eae5"
+      },
+      "hits": [
+        "KeStackAttachProcess"
+      ]
+    },
+    {
+      "md5": "b3424a229d845a88340045c29327c529",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "DirectIo64.sys",
+        "sha256": "bda99629ec6c522c3efcbcc9ca33688d31903146f05b37d0d3b43db81bfb3961"
+      },
+      "hits": [
+        "KeStackAttachProcess"
+      ]
+    },
+    {
+      "md5": "bae1f127c4ff21d8fe45e2bbfc59c180",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "HwOs2Ec.sys",
+        "sha256": "b179e1ab6dc0b1aee783adbcad4ad6bb75a8a64cb798f30c0dd2ee8aaf43e6de"
+      },
+      "hits": [
+        "KeStackAttachProcess"
+      ]
+    },
+    {
+      "md5": "d42b6b79e30f1184728675137652b022",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "ccekrnl.sys",
+        "sha256": "bf0c3dde6b66a1ee7a43f7d9efef2a22334ad727bee2d4a72d7a8e82d3a781e5"
+      },
+      "hits": [
+        "KeStackAttachProcess"
+      ]
+    },
+    {
+      "md5": "d660fc7255646d5014d45c3bca9c6e20",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "DirectIo64.sys",
+        "sha256": "b2ba6efeff1860614b150916a77c9278f19d51e459e67a069ccd15f985cbc0e1"
+      },
+      "hits": [
+        "KeStackAttachProcess"
+      ]
+    },
+    {
+      "md5": "db6d09b6ea72411f715f3effe1b42ca7",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "DirectIo64.sys",
+        "sha256": "b147a26dad59d9109710798b033ec3504a799f02e4356a358d6e32fdf7841b4a"
+      },
+      "hits": [
+        "KeStackAttachProcess"
+      ]
+    },
+    {
+      "md5": "d6220f35d2ab7e028e21d5420e12ee93",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "4f9b5a2fe29c436a53d36d8a2084369ac6a8cd59b9eb01b3d3fa293f3487d3cc"
+      },
+      "hits": [
+        "CR3",
+        "PsLookupProcessByProcessId"
+      ]
+    },
+    {
+      "md5": "0797bb21d7a0210fedf4f3533ee82494",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "c8ff7c9f510f7a2ed88d9b336d8c9339698d5e1ee14bfb91aa89703ec06dce42"
+      },
+      "hits": [
+        "CR3"
+      ]
+    },
+    {
+      "md5": "7ae8bca90539ecbde87ac45ba1436be3",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "SmSerl64.sys",
+        "sha256": "e599200c44eca5eb06475f90f67a58723b30c3c2887bd12ed7c31ff1042382ea"
+      },
+      "hits": [
+        "CR3"
+      ]
+    },
+    {
+      "md5": "8bf290b5eda99fc2697373a87f4e1927",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "bceaf970b60b4457eca3c181f649a1c67f4602778171e53d9bdc9b97a09603ca"
+      },
+      "hits": [
+        "CR3"
+      ]
+    },
+    {
+      "md5": "def0da6c95d14f7020e533028224250e",
+      "cr3_read_insns": 0,
+      "crx_write_insns": 0,
+      "meta": {
+        "filename": "",
+        "sha256": "e89afd283d5789b8064d5487e04b97e2cd3fc0c711a8cec230543ebdf9ffc534"
+      },
+      "hits": [
+        "CR3"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+﻿{
+    "date":  "2026-11-24T10:17:52",
+    "samples":  2222,
+    "downloaded":  2222,
+    "candidates":  589,
+    "top":  [
+                "neacsafe",
+                "ACE-BASE",
+                "pmxdrv",
+                "aswVmm",
+                "vsapint",
+                "360Hvm64",
+                "KSophon_x64",
+                "Kinkajou",
+                "KSLD",
+                "AppVkgr"
+            ],
+    "note":  "static only; no drivers loaded; no BSOD"
+}
