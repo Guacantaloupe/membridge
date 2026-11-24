@@ -1,0 +1,9 @@
+﻿{
+    "date":  "2026-11-24T10:23:36",
+    "pmxdrv":  "0x800B010C untrusted",
+    "vsapint":  "loads; VsapiNt ACCESS_DENIED",
+    "kinkajou":  "loads; no CR3 output",
+    "appvkgr":  "error31",
+    "new_verified_cr3":  0,
+    "note":  "no BSOD"
+}
