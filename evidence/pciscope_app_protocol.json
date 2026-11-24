@@ -1,0 +1,9 @@
+﻿{
+    "date":  "2026-11-24T08:04:30",
+    "download":  "pciscope.exe",
+    "size":  12710312,
+    "strings_hits":  0,
+    "ioctl_constant_hits":  0,
+    "note":  "installer packed; not executed",
+    "no_new_path":  true
+}
