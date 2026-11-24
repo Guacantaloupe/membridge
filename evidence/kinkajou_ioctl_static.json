@@ -1,0 +1,21 @@
+﻿{
+    "date":  "2026-11-24T10:22:00",
+    "driver":  "Kinkajou.sys",
+    "load":  "OK",
+    "device":  "\\\\.\\Kinkajou OPEN_OK",
+    "ioctls":  [
+                   "0x221A4C",
+                   "0x221A50",
+                   "0x221A54",
+                   "0x221A58",
+                   "0x221A5C",
+                   "0x221A60",
+                   "0x221A64",
+                   "0x221C00",
+                   "0x221C04",
+                   "0x221C08"
+               ],
+    "finding":  "process VA/PTE ops; no CR3 output",
+    "appvkgr":  "load error31",
+    "note":  "no BSOD"
+}
