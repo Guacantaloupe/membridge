@@ -1,0 +1,132 @@
+=== 7296e9a1ef2e6aaafc6915e1eb552780 neacsafe size=17612016 ===
+'\\Device\\Mup'
+'cr3'
+'Physical'
+'virtual'
+'Virtual'
+'PsLookupProcessByProcessId'
+'MmCopyVirtualMemory'
+'MmCopyMemory'
+
+=== e8f177545acc656c837b74102cd76527 ACE-BASE.sys size=1869904 ===
+'\\Device\\ACE-BASE'
+'\\Device\\{TF9AC12E-S60X-E25G-N67G-IC8A82086DAN}'
+'\\DosDevices\\Global'
+'cr3'
+'Physical'
+'Virtual'
+'PsLookupProcessByProcessId'
+'MmCopyMemory'
+
+=== 0bee791c7c7ace453c134e73633c497d pmxdrv.sys size=31152 ===
+'\\Device\\Pmxdrv'
+'\\Device\\PhysicalMemory'
+'\\DosDevices\\PMXDRV'
+'Physical'
+
+=== a5f637d61719d37a5b4868c385e363c0 aswVmm.sys size=177864 ===
+'\\Device\\AswVmm'
+'\\DosDevices\\AswVmm'
+'cr3'
+'Physical'
+'PsLookupProcessByProcessId'
+
+=== 3e62bffd59054488001977738bb917c6 vsapint.sys size=7270224 ===
+'\\Device\\Harddisk'
+'\\Device\\VsapiNt'
+'\\Device\\TmComm'
+'\\DosDevices\\VsapiNt'
+'\\DosDevices\\UNC'
+'\\??\\UNC'
+'\\??\\Unc'
+'cr3'
+'cR3'
+'Ioctl'
+'Physical'
+'Virtual'
+
+=== 0b5c4cd701956b332e60ae85b8c3a7ea 360Hvm64.sys size=460056 ===
+'\\Device\\360Hvm'
+'\\Device\\360SelfProtection'
+'\\Device\\NamedPipe'
+'\\Device\\Afd'
+'\\DosDevices\\360Hvm'
+'CR3'
+'Physical'
+'Virtual'
+'PsLookupProcessByProcessId'
+
+=== ff3351f67270b2021937cb8a54af3d25 KSophon_x64.sys size=9966728 ===
+'\\Device\\HardDiskVolume'
+'\\Device\\Tcp'
+'\\Device\\Udp'
+'\\Device\\KSophon'
+'\\DosDevices\\KSophon'
+'\\??\\PhysicalDriv'
+'cr3'
+'CR3'
+'cR3'
+'Physical'
+'Virtual'
+
+=== eb59b40453b7d61b14559155c176e527 Kinkajou.sys size=25008 ===
+'\\Device\\Kinkajou'
+'\\DosDevices\\Kinkajou'
+'Physical'
+'Virtual'
+'MmCopyMemory'
+
+=== b316425d6f200244a25bd7b9998d9c43 KSLD.sys size=330112 ===
+'cr3'
+'ioctl'
+'Physical'
+'physical'
+'PsLookupProcessByProcessId'
+'MmCopyMemory'
+
+=== d788954cd8f0aa8b45dc497a1653465e AppVkgr.sys size=32320 ===
+'\\Device\\KPRL'
+'\\DosDevices\\KPRL'
+'Virtual'
+'PsLookupProcessByProcessId'
+'MmCopyVirtualMemory'
+'MmCopyMemory'
+
+=== 016c1d3cc193732736eeaeb3094154f2 fastdumpx64.sys size=48864 ===
+'\\Device\\PhysicalMemory'
+'\\Device\\FastDump'
+'\\??\\FastDump'
+'Physical'
+'MmCopyMemory'
+
+=== 7475bfea6ea1cd54029208ed59b96c6b BEDAISY.SYS size=2839408 ===
+'Cr3'
+'Virtual'
+
+=== 1b2497558f05c560e25b09c45d033245 sysdiag.sys size=559280 ===
+'\\Device\\HR'
+'\\Device\\HRFW_BASE_DEV'
+'\\Device\\HarddiskVolume'
+'\\Device\\Mup'
+'\\Device\\LanmanRedirector'
+'\\Device\\HarddiskDmVolumes'
+'\\Device\\HarddiskVolumeShadowCopy'
+'\\Device\\TVSecureDRVVolume'
+'\\Device\\Nsi'
+'\\Device\\SysDiag'
+'\\Device\\nxeng'
+'\\Device\\NamedPipe'
+'\\??\\UNC'
+'\\??\\HR'
+'\\??\\SysDiag'
+'\\??\\nxeng'
+'Physical'
+'Virtual'
+'PsLookupProcessByProcessId'
+
+=== 3a48f0e4297947663fbb11702aa1d728 dbk64.sys size=118016 ===
+'Physical'
+'physical'
+'Virtual'
+'PsLookupProcessByProcessId'
+

@@ -1,0 +1,16 @@
+﻿{
+    "date":  "2026-11-24T10:20:43",
+    "appvkgr":  "WHQL KPRL driver; load error31; not usable yet",
+    "kinkajou":  "WHQL; loads/open; internal CR3 read; IOCTL unverified",
+    "new_candidates":  [
+                           "AppVkgr",
+                           "Kinkajou",
+                           "ACE-BASE",
+                           "aswVmm",
+                           "vsapint",
+                           "360Hvm64",
+                           "KSophon_x64",
+                           "pmxdrv"
+                       ],
+    "note":  "no BSOD"
+}
