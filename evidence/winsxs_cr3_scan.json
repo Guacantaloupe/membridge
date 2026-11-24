@@ -1,0 +1,10 @@
+﻿{
+    "date":  "2026-11-24T08:07:43",
+    "root":  "WinSxS",
+    "scanned":  2003,
+    "cr3_hits":  46,
+    "key":  "KslD.sys 333216 bytes",
+    "new_locator":  false,
+    "blocked":  "KslD gate requires Defender config change",
+    "note":  "no BSOD"
+}
