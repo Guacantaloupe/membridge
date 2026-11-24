@@ -1,0 +1,15 @@
+﻿{
+    "date":  "2026-11-24T08:05:48",
+    "driver":  "KslD.sys",
+    "service_state":  "Running",
+    "image":  "system32\\drivers\\wd\\KslD.sys",
+    "allowed":  "MsMpEng.exe full path",
+    "vuln_file":  "drivers\\KslD.sys 333216 bytes",
+    "ioctl":  "0x222044",
+    "subcmd2":  "CR3/IDTR",
+    "subcmd12":  "MmCopyMemory arbitrary read",
+    "device_open":  "err=5 even renamed helper",
+    "action":  "did not modify Defender config",
+    "verdict":  "new Microsoft-signed CR3-capable path but gate-blocked",
+    "note":  "no BSOD"
+}
