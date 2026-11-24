@@ -1,0 +1,10 @@
+﻿{
+    "date":  "2026-11-24T08:00:15",
+    "subop":  "0x701E",
+    "va":  "0x7FF72CF20000",
+    "request_len":  "0xE0",
+    "result":  "status0 ret0xC1 data zero",
+    "write_called":  false,
+    "verdict":  "read protocol still wrong; no crash",
+    "system":  "no new BSOD"
+}
