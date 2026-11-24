@@ -1,0 +1,25 @@
+﻿{
+    "date":  "2026-11-24T10:36:23",
+    "driver":  "GlobalVistaVentures_v3.sys",
+    "sha256":  "7ccb02b9dc8bb46e5ea32fb8f4c93bac195bcbb0c2fc02d3af28f4208afe7c41",
+    "load":  "RUNNING",
+    "device":  "\\\\.\\GlobalVistaVentures OPEN_OK",
+    "cr3_strings":  [
+                        "[GetAllPages] ... CR3",
+                        "[AllocateAndExposeMemory] ... CR3"
+                    ],
+    "ioctls":  [
+                   "0x221A4C",
+                   "0x221A50",
+                   "0x221A54",
+                   "0x221A58",
+                   "0x221A5C",
+                   "0x221A60",
+                   "0x221A64",
+                   "0x221C00",
+                   "0x221C04",
+                   "0x221C08"
+               ],
+    "verdict":  "promising new WHQL CR3 candidate",
+    "note":  "no BSOD"
+}
