@@ -52,3 +52,29 @@ STATE: RUNNING
   - `AppVkgr` KMDF 加载失败；
   - `Kinkajou` 无 CR3 输出。
 - 未修改 Defender、未写内核内存、无 BSOD。
+
+## aswVmm.sys（Avast VM）
+- 设备：`\Device\AswVmm` / `\DosDevices\AswVmm`
+- 导入：`KeStackAttachProcess`, `PsLookupProcessByProcessId`, `MmGetPhysicalAddress`
+- 加载：
+```
+sc start -> 1275 (0x4FB)
+```
+- 错误：驱动被系统安全策略阻止（1275 = 该驱动程序已被阻止加载）。
+- 不可用。
+
+## ACE-BASE.sys（Anti-Cheat Expert）
+- 设备：`\Device\ACE-BASE`、`\DosDevices\Global\ACE-BASE`
+- 导入：`PsLookupProcessByProcessId`, `KeStackAttachProcess`, `MmMapIoSpace`, `ZwDeviceIoControlFile`
+- 加载：
+```
+sc start -> 0x800B010C
+```
+- 事件：`A certificate was explicitly revoked by its issuer.`
+- 不可用。
+
+## 结论
+- aswVmm：系统阻止加载；
+- ACE-BASE：证书已吊销；
+- 未继续尝试绕过系统安全策略；
+- 无 BSOD。
