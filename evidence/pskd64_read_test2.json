@@ -1,0 +1,10 @@
+﻿{
+    "date":  "2026-11-24T08:01:03",
+    "subop":  "0x701E",
+    "status_in":  0,
+    "status_out":  0,
+    "data":  "all zero",
+    "write_called":  false,
+    "driver":  "stopped/deleted for safety",
+    "note":  "rdx likely IRP structure; stop dynamic tests"
+}
