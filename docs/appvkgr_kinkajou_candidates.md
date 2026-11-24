@@ -75,3 +75,27 @@ mov rbx, cr3
 2. 静态逆向 Kinkajou 的 IOCTL 处理函数，确认是否返回 CR3；
 3. 只做安全 IOCTL 测试，不盲试；
 4. 其它候选：ACE-BASE、aswVmm、vsapint、360Hvm64、KSophon_x64、pmxdrv。
+
+## AppVkgr INF 安装尝试
+创建 KMDF INF：
+```
+AppVkgr.inf
+ServiceType=1
+StartType=3
+ServiceBinary=%12%\AppVkgr.sys
+KmdfService=AppVkgr,AppVkgr.KMDF
+[AppVkgr.KMDF]
+KmdfLibraryVersion=1.15
+```
+安装：
+```
+rundll32 setupapi.dll,InstallHinfSection DefaultInstall 132 AppVkgr.inf
+```
+结果：
+```
+AppVkgr service 已创建
+sc start -> 31 (ERROR_GEN_FAILURE)
+```
+仍然无法启动，说明不是简单的服务/WDF 注册问题；可能是驱动内部初始化失败或 KMDF 版本/class bind 不匹配。
+- 未继续修改驱动二进制或 WDF 配置；
+- 无 BSOD。
